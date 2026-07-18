@@ -70,19 +70,36 @@ def load_patch_ledger(repository_root: Path) -> PatchLedger:
     return cast(PatchLedger, value)
 
 
+def path_matches_pattern(path: str, pattern: str) -> bool:
+    """Match ledger globs while treating brackets as literal path characters."""
+
+    literal_bracket_pattern = pattern.replace("[", "[[]")
+    return fnmatch.fnmatchcase(path, literal_bracket_pattern)
+
+
+def find_path_owners(
+    changed_paths: list[str], patch_entries: list[PatchEntry]
+) -> dict[str, list[str]]:
+    return {
+        changed_path: [
+            patch_entry["id"]
+            for patch_entry in patch_entries
+            if any(
+                path_matches_pattern(changed_path, pattern)
+                for pattern in patch_entry["paths"]
+            )
+        ]
+        for changed_path in changed_paths
+    }
+
+
 def find_uncovered_paths(
     changed_paths: list[str], patch_entries: list[PatchEntry]
 ) -> list[str]:
-    declared_patterns = [
-        pattern for patch_entry in patch_entries for pattern in patch_entry["paths"]
-    ]
     return [
-        changed_path
-        for changed_path in changed_paths
-        if not any(
-            fnmatch.fnmatchcase(changed_path, pattern)
-            for pattern in declared_patterns
-        )
+        path
+        for path, owners in find_path_owners(changed_paths, patch_entries).items()
+        if not owners
     ]
 
 
@@ -156,6 +173,20 @@ def verify(repository_root: Path) -> list[str]:
     uncovered_paths = find_uncovered_paths(changed_paths, patch_ledger["entries"])
     if uncovered_paths:
         errors.append("uncovered fork paths: " + ", ".join(uncovered_paths))
+
+    multiply_owned_paths = {
+        path: owners
+        for path, owners in find_path_owners(
+            changed_paths, patch_ledger["entries"]
+        ).items()
+        if len(owners) > 1
+    }
+    if multiply_owned_paths:
+        rendered_paths = "; ".join(
+            f"{path} ({', '.join(owners)})"
+            for path, owners in sorted(multiply_owned_paths.items())
+        )
+        errors.append("multiply-owned fork paths: " + rendered_paths)
 
     return errors
 

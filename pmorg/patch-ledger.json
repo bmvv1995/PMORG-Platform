@@ -7,7 +7,13 @@
       "classification": "PMORG-owned",
       "paths": [
         "PMORG.md",
-        "pmorg/**"
+        "pmorg/.gitignore",
+        "pmorg/CE-BOUNDARY.md",
+        "pmorg/PATCH-LEDGER.md",
+        "pmorg/baseline-manifest.json",
+        "pmorg/patch-ledger.json",
+        "pmorg/scripts/verify_fork.py",
+        "pmorg/tests/test_verify_fork.py"
       ],
       "requirements": [
         "PLT-001",
@@ -47,6 +53,103 @@
       "reason": "Record the evidence-based V3 migration sequence, ownership boundaries, and verification strategy before product implementation.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py"
+      ]
+    },
+    {
+      "id": "PL-003",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/Dockerfile.pmorg-ce",
+        "backend/Dockerfile.pmorg-ce.dockerignore",
+        "backend/pmorg_ce/**",
+        "deployment/docker_compose/docker-compose.pmorg-gate-a.yml",
+        "deployment/docker_compose/docker-compose.pmorg-ce.yml",
+        "pmorg/scripts/ce_boundary/**",
+        "pmorg/scripts/verify_ce_boundary.py",
+        "pmorg/tests/ce_boundary/**",
+        "pmorg/tests/test_ce_boundary_suite.py",
+        "pmorg/tests/test_pmorg_ce_entrypoint.py",
+        "pmorg/tests/test_pmorg_ce_runtime_policy.py",
+        "pmorg/tests/test_pmorg_gate_a_compose.py",
+        "web/Dockerfile.pmorg-ce",
+        "web/Dockerfile.pmorg-ce.dockerignore",
+        "web/src/hooks/pmorg/**",
+        "web/src/lib/pmorg/**",
+        "web/src/pmorg/**"
+      ],
+      "requirements": [
+        "PLT-001",
+        "PLT-004",
+        "PLT-005",
+        "EVAL-001"
+      ],
+      "reason": "Define the fail-closed, fixed-platform Community artifact boundary, native CE adapters, and source/image verification owned by PMORG.",
+      "verification": [
+        "python3 -m unittest discover -s pmorg/tests -p 'test_*.py' -v",
+        "python3 pmorg/scripts/verify_ce_boundary.py source --json",
+        "docker buildx build --check --platform linux/amd64 -f backend/Dockerfile.pmorg-ce backend",
+        "docker buildx build --check --platform linux/amd64 -f web/Dockerfile.pmorg-ce web"
+      ]
+    },
+    {
+      "id": "PL-004",
+      "classification": "integration",
+      "paths": [
+        "backend/onyx/server/settings/api.py",
+        "web/src/app/admin/bots/[bot-id]/channels/[id]/page.tsx",
+        "web/src/app/admin/bots/[bot-id]/channels/new/page.tsx",
+        "web/src/app/admin/hooks/page.tsx",
+        "web/src/app/nrf/NRFPage.tsx",
+        "web/src/providers/QueryControllerProvider.tsx",
+        "web/src/sections/knowledge/AgentKnowledgePane.tsx",
+        "web/src/sections/knowledge/agent-knowledge/KnowledgeTwoColumnView.tsx",
+        "web/src/views/AppPage.tsx",
+        "web/src/providers/QueryControllerProvider.pmorg-ce.test.tsx"
+      ],
+      "requirements": [
+        "PLT-004",
+        "PLT-005"
+      ],
+      "reason": "Redirect the minimum retained Community import edges to fail-closed PMORG CE adapters while preserving non-paid Onyx behavior.",
+      "verification": [
+        "python3 pmorg/scripts/verify_ce_boundary.py source --json",
+        "cd web && bun run test -- --runInBand src/lib/pmorg/ceBoundary.test.ts src/lib/pmorg/ceSearch.test.ts src/providers/QueryControllerProvider.pmorg-ce.test.tsx",
+        "cd web && bun run types:check",
+        "cd web && bun run build"
+      ]
+    },
+    {
+      "id": "PL-005",
+      "classification": "integration",
+      "paths": [
+        "backend/requirements/default.txt"
+      ],
+      "requirements": [
+        "PLT-004",
+        "PLT-005"
+      ],
+      "reason": "Regenerate the CE backend dependency export from the lockfile with the pinned uv toolchain and only the backend group enabled.",
+      "verification": [
+        "python3 -m unittest discover -s pmorg/tests/ce_boundary -p 'test_dependency_evidence.py' -v",
+        "python3 pmorg/scripts/verify_ce_boundary.py qualify --evidence-manifest <manifest> --json"
+      ]
+    },
+    {
+      "id": "PL-006",
+      "classification": "PMORG-owned",
+      "paths": [
+        "pmorg/scripts/generate_ce_evidence.py",
+        "pmorg/tests/test_generate_ce_evidence.py"
+      ],
+      "requirements": [
+        "PLT-004",
+        "PLT-005",
+        "EVAL-001"
+      ],
+      "reason": "Generate Docker image and filesystem bindings outside the worktree, validate legacy and containerd provenance chains, and publish evidence atomically only after qualification passes.",
+      "verification": [
+        "python3 -m unittest pmorg.tests.test_generate_ce_evidence -v",
+        "python3 -m unittest discover -s pmorg/tests/ce_boundary -p 'test_artifact_binding.py' -v"
       ]
     }
   ]
