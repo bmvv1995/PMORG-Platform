@@ -8,6 +8,7 @@ The machine-readable source is
 | ID | Area | Classification | Upstream files modified | Reason | Verification |
 |---|---|---|---|---|---|
 | `PL-000` | bootstrap governance | PMORG-owned | none | pin upstream/spec inputs and define the CE boundary | manifest and diff checks |
+| `PL-001` | Codex project agents | PMORG-owned | none | define least-privilege roles for mapping, architecture review, tests and bounded implementation | TOML parse and fork consistency check |
 
 ## Classifications
 

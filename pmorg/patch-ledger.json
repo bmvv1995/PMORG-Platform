@@ -18,6 +18,21 @@
       "verification": [
         "python3 pmorg/scripts/verify_fork.py"
       ]
+    },
+    {
+      "id": "PL-001",
+      "classification": "PMORG-owned",
+      "paths": [
+        ".codex/**"
+      ],
+      "requirements": [
+        "PLT-004"
+      ],
+      "reason": "Define project-scoped, least-privilege agent roles for evidence gathering, architecture review, verification, and bounded implementation.",
+      "verification": [
+        "python3 pmorg/scripts/verify_fork.py",
+        "python3 -c 'import pathlib,tomllib; [tomllib.loads(path.read_text()) for path in pathlib.Path(\".codex\").rglob(\"*.toml\")]'"
+      ]
     }
   ]
 }
