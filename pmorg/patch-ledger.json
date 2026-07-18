@@ -33,6 +33,21 @@
         "python3 pmorg/scripts/verify_fork.py",
         "python3 -c 'import pathlib,tomllib; [tomllib.loads(path.read_text()) for path in pathlib.Path(\".codex\").rglob(\"*.toml\")]'"
       ]
+    },
+    {
+      "id": "PL-002",
+      "classification": "PMORG-owned",
+      "paths": [
+        "plans/pmorg-v3-foundation.md"
+      ],
+      "requirements": [
+        "PLT-004",
+        "EVAL-001"
+      ],
+      "reason": "Record the evidence-based V3 migration sequence, ownership boundaries, and verification strategy before product implementation.",
+      "verification": [
+        "python3 pmorg/scripts/verify_fork.py"
+      ]
     }
   ]
 }
