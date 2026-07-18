@@ -2,6 +2,8 @@
 
 All differences from the pinned Onyx baseline are classified here. A patch is
 not accepted merely because it is located under a PMORG-named directory.
+The machine-readable source is
+[`patch-ledger.json`](patch-ledger.json); this document explains its policy.
 
 | ID | Area | Classification | Upstream files modified | Reason | Verification |
 |---|---|---|---|---|---|
@@ -17,3 +19,9 @@ not accepted merely because it is located under a PMORG-named directory.
 
 Every entry after `PL-000` must identify the affected upstream files, the
 contract or requirement it implements, and the tests that prevent drift.
+
+Run the consistency check with:
+
+```bash
+python3 pmorg/scripts/verify_fork.py
+```

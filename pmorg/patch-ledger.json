@@ -1,0 +1,23 @@
+{
+  "schema_version": "pmorg.platform.patch-ledger/v1",
+  "upstream_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "entries": [
+    {
+      "id": "PL-000",
+      "classification": "PMORG-owned",
+      "paths": [
+        "PMORG.md",
+        "pmorg/**"
+      ],
+      "requirements": [
+        "PLT-001",
+        "PLT-004",
+        "PLT-005"
+      ],
+      "reason": "Pin upstream and specification inputs, define the CE boundary, and establish fork governance.",
+      "verification": [
+        "python3 pmorg/scripts/verify_fork.py"
+      ]
+    }
+  ]
+}
