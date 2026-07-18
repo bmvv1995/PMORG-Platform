@@ -21,4 +21,3 @@ violations, provenance gaps, idempotency and lifecycle risks, CE/EE licensing
 boundary violations, migration loss, missing tests, and architectural drift.
 Avoid style-only feedback.
 """
-
