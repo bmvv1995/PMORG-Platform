@@ -1,0 +1,44 @@
+{
+  "schema_version": "pmorg.platform.baseline/v1",
+  "product": "PMORG-Platform",
+  "status": "bootstrap_candidate",
+  "created_at": "2026-07-18",
+  "upstream": {
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "release_tag": "v4.3.9",
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "release_published_at": "2026-07-17T18:24:59Z",
+    "release_url": "https://github.com/onyx-dot-app/onyx/releases/tag/v4.3.9",
+    "release_warning": "Existing v3.x indexes require the documented index migration before upgrade; PMORG bootstrap uses clean synthetic stores.",
+    "checkout_remote": "upstream"
+  },
+  "specification": {
+    "repository": "https://github.com/bmvv1995/PMORG.git",
+    "baseline": "RB-1",
+    "commit": "618a5cf4fc604b687c18b41f6d085ec8a03bf4a8"
+  },
+  "licensing": {
+    "source_repository_mode": "mixed_source",
+    "community_license": "MIT Expat",
+    "enterprise_license_paths": [
+      "backend/ee/**",
+      "web/src/app/ee/**",
+      "web/src/ee/**"
+    ],
+    "artifact_policy": "exclude_onyx_ee_code",
+    "qualification_status": "pending"
+  },
+  "official_foss_mirror": {
+    "repository": "https://github.com/onyx-dot-app/onyx-foss.git",
+    "observed_commit": "d1b4ba968530ec93bf606fee53e63a33e3917094",
+    "observed_at": "2026-07-18",
+    "role": "comparison_only",
+    "reason_not_baseline": "The mirror is force-updated, has no release tags, and does not map reproducibly to release v4.3.9."
+  },
+  "build": {
+    "mode": "not_yet_qualified",
+    "images": [],
+    "sbom": null,
+    "ce_boundary_report": null
+  }
+}
