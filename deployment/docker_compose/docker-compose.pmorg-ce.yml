@@ -1,0 +1,61 @@
+# PMORG Gate A smoke overlay. Use with docker-compose.yml. It replaces the mixed-source build
+# definitions for the API, background and web services only; inherited infrastructure/model images
+# are outside this artifact-foundation patch and are not Gate A evidence.
+name: pmorg-gate-a
+
+services:
+  api_server:
+    image: pmorg/backend-ce:${PMORG_IMAGE_TAG:-gate-a}
+    platform: ${PMORG_TARGET_PLATFORM:-linux/amd64}
+    build:
+      context: ../../backend
+      dockerfile: Dockerfile.pmorg-ce
+      args:
+        ONYX_VERSION: ${ONYX_VERSION:-v4.3.9}
+        PMORG_VERSION: ${PMORG_VERSION:-0.0.0-bootstrap}
+        PMORG_FORK_REVISION: "${PMORG_FORK_REVISION:?set PMORG_FORK_REVISION to the lowercase full 40-hex fork commit SHA}"
+        ONYX_UPSTREAM_REVISION: ${ONYX_UPSTREAM_REVISION:-1da679cefc96165c6b9b64c3bc769584b88f88c2}
+        PMORG_SPEC_REVISION: ${PMORG_SPEC_REVISION:-6cf92cb1c7148b916929fb04f7f24f62bcab184d}
+        PMORG_TARGET_PLATFORM: ${PMORG_TARGET_PLATFORM:-linux/amd64}
+    environment:
+      ENABLE_PAID_ENTERPRISE_EDITION_FEATURES: "false"
+      LICENSE_ENFORCEMENT_ENABLED: "false"
+      DISABLE_TELEMETRY: "true"
+      AUTO_LLM_CONFIG_URL: ""
+
+  background:
+    image: pmorg/backend-ce:${PMORG_IMAGE_TAG:-gate-a}
+    platform: ${PMORG_TARGET_PLATFORM:-linux/amd64}
+    build:
+      context: ../../backend
+      dockerfile: Dockerfile.pmorg-ce
+      args:
+        ONYX_VERSION: ${ONYX_VERSION:-v4.3.9}
+        PMORG_VERSION: ${PMORG_VERSION:-0.0.0-bootstrap}
+        PMORG_FORK_REVISION: "${PMORG_FORK_REVISION:?set PMORG_FORK_REVISION to the lowercase full 40-hex fork commit SHA}"
+        ONYX_UPSTREAM_REVISION: ${ONYX_UPSTREAM_REVISION:-1da679cefc96165c6b9b64c3bc769584b88f88c2}
+        PMORG_SPEC_REVISION: ${PMORG_SPEC_REVISION:-6cf92cb1c7148b916929fb04f7f24f62bcab184d}
+        PMORG_TARGET_PLATFORM: ${PMORG_TARGET_PLATFORM:-linux/amd64}
+    environment:
+      ENABLE_PAID_ENTERPRISE_EDITION_FEATURES: "false"
+      LICENSE_ENFORCEMENT_ENABLED: "false"
+      DISABLE_TELEMETRY: "true"
+      AUTO_LLM_CONFIG_URL: ""
+
+  web_server:
+    image: pmorg/web-ce:${PMORG_IMAGE_TAG:-gate-a}
+    platform: ${PMORG_TARGET_PLATFORM:-linux/amd64}
+    build:
+      context: ../../web
+      dockerfile: Dockerfile.pmorg-ce
+      args:
+        ONYX_VERSION: ${ONYX_VERSION:-v4.3.9}
+        PMORG_VERSION: ${PMORG_VERSION:-0.0.0-bootstrap}
+        PMORG_FORK_REVISION: "${PMORG_FORK_REVISION:?set PMORG_FORK_REVISION to the lowercase full 40-hex fork commit SHA}"
+        ONYX_UPSTREAM_REVISION: ${ONYX_UPSTREAM_REVISION:-1da679cefc96165c6b9b64c3bc769584b88f88c2}
+        PMORG_SPEC_REVISION: ${PMORG_SPEC_REVISION:-6cf92cb1c7148b916929fb04f7f24f62bcab184d}
+        PMORG_TARGET_PLATFORM: ${PMORG_TARGET_PLATFORM:-linux/amd64}
+    environment:
+      ENABLE_PAID_ENTERPRISE_EDITION_FEATURES: "false"
+      LICENSE_ENFORCEMENT_ENABLED: "false"
+      NEXT_PUBLIC_ENABLE_PAID_EE_FEATURES: "false"
