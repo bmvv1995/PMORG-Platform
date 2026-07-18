@@ -22,7 +22,10 @@ import type {
 } from "@/lib/hierarchy/interfaces";
 import type { ProjectFile } from "@/lib/projects/types";
 import type { DocumentSetSummary, ValidSources } from "@/lib/types";
-import { searchDocuments } from "@/ee/lib/search/svc";
+import {
+  knowledgeDocumentSearchAvailable,
+  searchDocuments,
+} from "@/lib/pmorg/ceSearch";
 import { Disabled } from "@opal/core";
 import { Switch } from "@opal/components";
 import { Content, InputHorizontal } from "@opal/layouts";
@@ -86,6 +89,8 @@ export default function AgentKnowledgePane({
 }: AgentKnowledgePaneProps) {
   const [view, setView] = useState<KnowledgeView>("main");
   const [activeSource, setActiveSource] = useState<ValidSources | undefined>();
+  const canSearchKnowledge =
+    vectorDbEnabled && knowledgeDocumentSearchAvailable;
 
   const [isSearchMode, setIsSearchMode] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -199,7 +204,7 @@ export default function AgentKnowledgePane({
   }, []);
 
   const handleEnterSearchMode = useCallback(() => {
-    if (!vectorDbEnabled) return;
+    if (!canSearchKnowledge) return;
     if (!isSearchMode) {
       navStateRef.current = { view, activeSource };
       setIsSearchMode(true);
@@ -207,7 +212,7 @@ export default function AgentKnowledgePane({
         setView("add");
       }
     }
-  }, [vectorDbEnabled, isSearchMode, view, activeSource]);
+  }, [canSearchKnowledge, isSearchMode, view, activeSource]);
 
   const handleExitSearchMode = useCallback(() => {
     searchRequestIdRef.current++;
@@ -223,7 +228,7 @@ export default function AgentKnowledgePane({
 
   const runSearch = useCallback(
     async (query: string, sourceFilter: ValidSources | null) => {
-      if (!query.trim() || !vectorDbEnabled) return;
+      if (!query.trim() || !canSearchKnowledge) return;
       const requestId = ++searchRequestIdRef.current;
       setIsSearching(true);
       setSearchError(false);
@@ -253,7 +258,7 @@ export default function AgentKnowledgePane({
         }
       }
     },
-    [vectorDbEnabled]
+    [canSearchKnowledge]
   );
 
   const handleSearchSubmit = useCallback(() => {
@@ -362,7 +367,7 @@ export default function AgentKnowledgePane({
       case "add":
         return (
           <GeneralLayouts.Section gap={0.5} alignItems="stretch" height="auto">
-            {vectorDbEnabled && (
+            {canSearchKnowledge && (
               <KnowledgeSearchBar
                 query={searchQuery}
                 onQueryChange={setSearchQuery}
@@ -446,6 +451,7 @@ export default function AgentKnowledgePane({
             initialAttachedDocuments={initialAttachedDocuments}
             onSelectionCountChange={handleSelectionCountChange}
             vectorDbEnabled={vectorDbEnabled}
+            knowledgeSearchAvailable={canSearchKnowledge}
             isSearchMode={isSearchMode}
             searchQuery={searchQuery}
             committedQuery={committedQuery}
@@ -483,6 +489,7 @@ export default function AgentKnowledgePane({
     connectedSources,
     hasProcessingFiles,
     initialAttachedDocuments,
+    canSearchKnowledge,
     vectorDbEnabled,
     onUploadChange,
     onDocumentIdsChange,

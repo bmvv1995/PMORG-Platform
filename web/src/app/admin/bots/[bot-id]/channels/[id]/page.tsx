@@ -9,7 +9,7 @@ import { SvgSlack } from "@opal/logos";
 import { useSlackChannelConfigs } from "@/app/admin/bots/[bot-id]/hooks";
 import { useDocumentSets } from "@/app/admin/documents/sets/hooks";
 import { useAgents } from "@/lib/agents/hooks";
-import { useStandardAnswerCategories } from "@/app/ee/admin/standard-answer/hooks";
+import { useStandardAnswerCategories } from "@/hooks/pmorg/useStandardAnswerCategories";
 import { useTierAtLeast } from "@/hooks/useTierAtLeast";
 import { Tier } from "@/lib/settings/types";
 import type { StandardAnswerCategoryResponse } from "@/components/standardAnswers/getStandardAnswerCategoriesIfEE";

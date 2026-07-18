@@ -55,6 +55,7 @@ interface KnowledgeTwoColumnViewProps {
   initialAttachedDocuments?: AgentAttachedDocument[];
   onSelectionCountChange: (source: ValidSources, count: number) => void;
   vectorDbEnabled: boolean;
+  knowledgeSearchAvailable: boolean;
   isSearchMode: boolean;
   searchQuery: string;
   committedQuery: string;
@@ -101,6 +102,7 @@ export const KnowledgeTwoColumnView = memo(function KnowledgeTwoColumnView({
   initialAttachedDocuments,
   onSelectionCountChange,
   vectorDbEnabled,
+  knowledgeSearchAvailable,
   isSearchMode,
   searchQuery,
   committedQuery,
@@ -120,7 +122,7 @@ export const KnowledgeTwoColumnView = memo(function KnowledgeTwoColumnView({
 }: KnowledgeTwoColumnViewProps) {
   return (
     <GeneralLayouts.Section gap={0.5} alignItems="stretch" height="auto">
-      {vectorDbEnabled && (
+      {knowledgeSearchAvailable && (
         <KnowledgeSearchBar
           query={searchQuery}
           onQueryChange={onSearchQueryChange}
@@ -132,7 +134,7 @@ export const KnowledgeTwoColumnView = memo(function KnowledgeTwoColumnView({
         />
       )}
 
-      {isSearchMode ? (
+      {knowledgeSearchAvailable && isSearchMode ? (
         <TableLayouts.TwoColumnLayout minHeight={18.75}>
           <KnowledgeSearchSidebar
             connectedSources={connectedSources}
