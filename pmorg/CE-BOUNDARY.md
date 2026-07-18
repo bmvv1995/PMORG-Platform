@@ -51,4 +51,4 @@ Gate A remains pending until all of the following are reproducible:
 6. image digests, SBOM and the CE boundary report are recorded.
 
 The official FOSS mirror is an informative comparison source, not the pinned
-baseline for `RB-1`.
+baseline for `RB-1/C1`.

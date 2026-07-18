@@ -16,8 +16,8 @@
   },
   "specification": {
     "repository": "https://github.com/bmvv1995/PMORG.git",
-    "baseline": "RB-1",
-    "commit": "618a5cf4fc604b687c18b41f6d085ec8a03bf4a8"
+    "baseline": "RB-1/C1",
+    "commit": "6cf92cb1c7148b916929fb04f7f24f62bcab184d"
   },
   "licensing": {
     "source_repository_mode": "mixed_source",
