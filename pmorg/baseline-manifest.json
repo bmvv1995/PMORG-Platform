@@ -1,6 +1,8 @@
 {
   "schema_version": "pmorg.platform.baseline/v1",
   "product": "PMORG-Platform",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "visibility": "private",
   "status": "bootstrap_candidate",
   "created_at": "2026-07-18",
   "upstream": {

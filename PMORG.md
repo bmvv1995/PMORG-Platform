@@ -21,8 +21,7 @@ The complete machine-readable record is
 ## Repository roles
 
 - `upstream` points to the official `onyx-dot-app/onyx` repository.
-- this repository will receive an `origin` remote when its GitHub visibility
-  is selected;
+- `origin` points to the private `bmvv1995/PMORG-Platform` repository;
 - the separate PMORG repository owns requirements, contracts, evaluation and
   the SB3 executable reference baseline;
 - this repository owns the Onyx-PMORG product implementation.
