@@ -1,0 +1,171 @@
+####################################################################################################
+# PMORG Community Edition backend
+#
+# This definition is intentionally separate from the mixed-source upstream Dockerfile. Its
+# Dockerfile-specific ignore file removes Enterprise sources before Docker receives the context.
+####################################################################################################
+ARG BASE_IMAGE_REGISTRY=docker.io
+ARG ONYX_VERSION=v4.3.9
+ARG PMORG_VERSION=0.0.0-bootstrap
+ARG PMORG_FORK_REVISION
+ARG ONYX_UPSTREAM_REVISION=1da679cefc96165c6b9b64c3bc769584b88f88c2
+ARG PMORG_SPEC_REVISION=6cf92cb1c7148b916929fb04f7f24f62bcab184d
+ARG PMORG_TARGET_PLATFORM=linux/amd64
+
+FROM ${BASE_IMAGE_REGISTRY}/library/python:3.13-slim@sha256:b04b5d7233d2ad9c379e22ea8927cd1378cd15c60d4ef876c065b25ea8fb3bf3 AS builder
+
+ARG TARGETPLATFORM
+ARG PMORG_TARGET_PLATFORM
+ARG PMORG_FORK_REVISION
+RUN test -n "${TARGETPLATFORM}" && test "${TARGETPLATFORM}" = "${PMORG_TARGET_PLATFORM}"
+RUN if [ "${#PMORG_FORK_REVISION}" -ne 40 ]; then \
+        echo "PMORG_FORK_REVISION must be a lowercase full 40-hex SHA" >&2; \
+        exit 1; \
+    fi; \
+    case "${PMORG_FORK_REVISION}" in \
+        *[!0-9a-f]*) \
+            echo "PMORG_FORK_REVISION must be a lowercase full 40-hex SHA" >&2; \
+            exit 1 \
+            ;; \
+    esac
+
+COPY --from=ghcr.io/astral-sh/uv:0.11.25@sha256:1e3808aa9023d0980e7c15b1fa7c1ac16ff35925780cf5c459858b2d693f01a9 /uv /uvx /bin/
+
+RUN apt-get update && \
+    apt-get install -y \
+        cmake \
+        curl \
+        zip \
+        ca-certificates \
+        libgnutls30 \
+        libblkid1 \
+        libmount1 \
+        libsmartcols1 \
+        libuuid1 \
+        libxmlsec1-dev \
+        pkg-config \
+        gcc \
+        && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get clean
+
+# This export contains shared + backend dependencies only. --no-deps and --require-hashes make the
+# committed uv export the complete dependency decision for this image; EE and combined exports are
+# neither admitted to the build context nor installed.
+COPY ./requirements/default.txt /tmp/requirements.txt
+RUN uv pip install --system --no-cache-dir --no-deps --require-hashes \
+        -r /tmp/requirements.txt && \
+    rm -f /usr/local/lib/python3.13/site-packages/tornado/test/test.key && \
+    rm -rf /root/.cache/uv /tmp/requirements.txt
+
+
+FROM ${BASE_IMAGE_REGISTRY}/library/python:3.13-slim@sha256:b04b5d7233d2ad9c379e22ea8927cd1378cd15c60d4ef876c065b25ea8fb3bf3 AS runtime
+
+ARG ONYX_VERSION
+ARG PMORG_VERSION
+ARG PMORG_FORK_REVISION
+ARG ONYX_UPSTREAM_REVISION
+ARG PMORG_SPEC_REVISION
+ARG PMORG_TARGET_PLATFORM
+
+LABEL org.opencontainers.image.title="PMORG Platform backend (Community Edition)" \
+      org.opencontainers.image.description="CE-only PMORG backend derived from the pinned Onyx Community surface" \
+      org.opencontainers.image.source="https://github.com/bmvv1995/PMORG-Platform" \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.version="${PMORG_VERSION}" \
+      org.opencontainers.image.revision="${PMORG_FORK_REVISION}" \
+      io.pmorg.edition="community" \
+      io.pmorg.component="backend" \
+      io.pmorg.onyx.version="${ONYX_VERSION}" \
+      io.pmorg.onyx.upstream.revision="${ONYX_UPSTREAM_REVISION}" \
+      io.pmorg.specification.revision="${PMORG_SPEC_REVISION}" \
+      io.pmorg.build.target-platform="${PMORG_TARGET_PLATFORM}"
+
+ENV ONYX_RUNNING_IN_DOCKER="true" \
+    DO_NOT_TRACK="true" \
+    DISABLE_TELEMETRY="true" \
+    AUTO_LLM_CONFIG_URL="" \
+    PLAYWRIGHT_BROWSERS_PATH="/app/.cache/ms-playwright" \
+    ENABLE_PAID_ENTERPRISE_EDITION_FEATURES="false" \
+    LICENSE_ENFORCEMENT_ENABLED="false" \
+    ONYX_VERSION="${ONYX_VERSION}" \
+    PMORG_VERSION="${PMORG_VERSION}"
+
+RUN groupadd -g 1001 onyx && \
+    useradd -u 1001 -g onyx -m -s /bin/bash onyx && \
+    mkdir -p /var/log/onyx && \
+    chmod 755 /var/log/onyx && \
+    chown onyx:onyx /var/log/onyx
+
+RUN apt-get update && \
+    apt-get install -y \
+        curl \
+        zip \
+        ca-certificates \
+        libgnutls30 \
+        libblkid1 \
+        libmount1 \
+        libsmartcols1 \
+        libuuid1 \
+        nano \
+        vim \
+        procps \
+        libjemalloc2 \
+        libxmlsec1-openssl \
+        && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get clean
+
+COPY --from=builder /usr/local/lib/python3.13/site-packages /usr/local/lib/python3.13/site-packages
+COPY --from=builder \
+    /usr/local/bin/alembic \
+    /usr/local/bin/celery \
+    /usr/local/bin/uvicorn \
+    /usr/local/bin/supervisord \
+    /usr/local/bin/supervisorctl \
+    /usr/local/bin/playwright \
+    /usr/local/bin/
+
+RUN ln -s /usr/local/bin/supervisord /usr/bin/supervisord && \
+    playwright install chromium && \
+    playwright install-deps chromium && \
+    apt-get remove -y --allow-remove-essential perl-base && \
+    apt-get autoremove -y && \
+    playwright install-deps chromium && \
+    apt-get install -y postgresql-client && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get clean
+
+# Upstream pre-downloads mutable Hugging Face, NLTK and tiktoken data during image construction.
+# They are not required for API/Celery boot and are intentionally deferred until Gate A has a
+# pinned, checksummed model-data policy.
+
+WORKDIR /app
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY --chown=onyx:onyx ./onyx /app/onyx
+COPY --chown=onyx:onyx ./shared_configs /app/shared_configs
+COPY --chown=onyx:onyx ./alembic /app/alembic
+COPY --chown=onyx:onyx ./alembic_tenants /app/alembic_tenants
+COPY --chown=onyx:onyx ./alembic.ini /app/alembic.ini
+COPY supervisord.conf /usr/etc/supervisord.conf
+COPY --chown=onyx:onyx ./static /app/static
+
+COPY --chown=onyx:onyx ./scripts/force_delete_connector_by_id.py /app/scripts/force_delete_connector_by_id.py
+COPY --chown=onyx:onyx ./scripts/supervisord_entrypoint.sh /app/scripts/supervisord_entrypoint.sh
+COPY --chown=onyx:onyx ./scripts/reencrypt_secrets.py /app/scripts/reencrypt_secrets.py
+COPY --chown=onyx:onyx ./scripts/rotate_llm_provider_keys.py /app/scripts/rotate_llm_provider_keys.py
+COPY --chown=onyx:onyx ./pmorg_ce /app/pmorg_ce
+RUN chmod +x /app/scripts/supervisord_entrypoint.sh && \
+    test ! -e /app/ee && \
+    test ! -e /app/keys
+
+COPY --chown=onyx:onyx ./assets /app/assets
+
+ENV PYTHONPATH=/app \
+    LD_PRELOAD=libjemalloc.so.2
+
+# The preflight replaces itself with the Compose/Docker command via execvp, preserving signals and
+# exit status while refusing any attempt to enable Enterprise behavior in this CE-only artifact.
+ENTRYPOINT ["python", "-m", "pmorg_ce.entrypoint"]
+CMD ["tail", "-f", "/dev/null"]
