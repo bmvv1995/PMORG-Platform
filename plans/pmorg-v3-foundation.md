@@ -3,7 +3,7 @@
 ## Issues to Address
 
 PMORG Platform is currently a governed Onyx Community Edition bootstrap. It
-does not yet implement the `RB-1` product contract. The implementation must add
+does not yet implement the `RB-1/C1` product contract. The implementation must add
 PMORG as a first-class product subsystem without turning Onyx, Odoo, the
 Semantic Ledger, or the orchestrator into competing sources of truth.
 
@@ -29,8 +29,8 @@ added:
 
 ### Normative inputs
 
-- PMORG requirements: `RB-1`, commit
-  `618a5cf4fc604b687c18b41f6d085ec8a03bf4a8`.
+- PMORG requirements: `RB-1/C1`, commit
+  `6cf92cb1c7148b916929fb04f7f24f62bcab184d`.
 - Onyx baseline: `v4.3.9`, commit
   `1da679cefc96165c6b9b64c3bc769584b88f88c2`.
 - The requirements repository owns specifications, evaluation assets, and
@@ -343,7 +343,7 @@ G–I. They do not change the contracts or ownership established above.
 
 ### MVP qualification
 
-- Gates A–F from `RB-1` on clean synthetic volumes only;
+- Gates A–F from `RB-1/C1` on clean synthetic volumes only;
 - identical build across `ORG-MIN`, `ORG-SERV`, and `ORG-DIST`;
 - three deterministic runs per required scenario and fault case;
 - sealed traces, canonical projections, checksums, and explicit

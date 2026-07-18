@@ -74,7 +74,7 @@ import WelcomeMessage from "@/app/app/components/WelcomeMessage";
 import ChatUI from "@/sections/chat/ChatUI";
 import { useFullWidthChat } from "@/providers/FullWidthChatProvider";
 import { paidTierGated } from "@/ce";
-import EESearchUI from "@/ee/sections/SearchUI";
+import EESearchUI from "@/pmorg/ce/sections/SearchUI";
 const SearchUI = paidTierGated(EESearchUI);
 import { motion, AnimatePresence } from "motion/react";
 

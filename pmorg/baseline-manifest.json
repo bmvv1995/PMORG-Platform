@@ -16,8 +16,8 @@
   },
   "specification": {
     "repository": "https://github.com/bmvv1995/PMORG.git",
-    "baseline": "RB-1",
-    "commit": "618a5cf4fc604b687c18b41f6d085ec8a03bf4a8"
+    "baseline": "RB-1/C1",
+    "commit": "6cf92cb1c7148b916929fb04f7f24f62bcab184d"
   },
   "licensing": {
     "source_repository_mode": "mixed_source",
@@ -39,6 +39,13 @@
   },
   "build": {
     "mode": "not_yet_qualified",
+    "target_platform": "linux/amd64",
+    "toolchain": {
+      "uv": {
+        "version": "0.11.25",
+        "image": "ghcr.io/astral-sh/uv:0.11.25@sha256:1e3808aa9023d0980e7c15b1fa7c1ac16ff35925780cf5c459858b2d693f01a9"
+      }
+    },
     "images": [],
     "sbom": null,
     "ce_boundary_report": null

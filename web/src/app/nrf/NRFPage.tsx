@@ -44,7 +44,7 @@ import PreviewModal from "@/sections/modals/PreviewModal";
 import { personaIncludesRetrieval } from "@/app/app/services/lib";
 import { useQueryController } from "@/providers/QueryControllerProvider";
 import { paidTierGated } from "@/ce";
-import EESearchUI from "@/ee/sections/SearchUI";
+import EESearchUI from "@/pmorg/ce/sections/SearchUI";
 import useMultiModelChat from "@/hooks/useMultiModelChat";
 import MultiModelSelector from "@/sections/model-selector/MultiModelSelector";
 import { Section } from "@/layouts/general-layouts";

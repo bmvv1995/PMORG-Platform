@@ -1,0 +1,46 @@
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+coverage/
+.jest-cache/
+**/.jest-cache/
+**/*.tsbuildinfo
+**/__tests__/
+**/*.test.js
+**/*.test.jsx
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.js
+**/*.spec.jsx
+**/*.spec.ts
+**/*.spec.tsx
+tests/
+.storybook/
+*.log
+**/*.log
+.git/
+.vscode/
+.idea/
+.DS_Store
+**/.DS_Store
+
+# Local configuration and credentials never enter the build context.
+.env*
+**/.env*
+**/*.pem
+**/*.key
+
+# PMORG CE source boundary.
+src/app/ee/
+src/ee/
+
+# Workspace prepare hooks rebuild these artifacts from source.
+lib/opal/dist/
+lib/shared/dist/
+
+# Build definitions are inputs, not application source copied by `COPY . .`.
+Dockerfile
+.dockerignore
+Dockerfile.pmorg-ce
+Dockerfile.pmorg-ce.dockerignore

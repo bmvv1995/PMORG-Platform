@@ -42,7 +42,6 @@ from onyx.utils.platform_utils import is_running_in_container
 from onyx.utils.variable_functionality import (
     fetch_versioned_implementation_with_fallback,
 )
-from onyx.utils.variable_functionality import global_version
 from shared_configs.configs import MULTI_TENANT
 
 logger = setup_logger()
@@ -66,12 +65,10 @@ def admin_put_settings(
             f"File upload size limit cannot exceed {MAX_ALLOWED_UPLOAD_SIZE_MB} MB",
         )
 
-    if global_version.is_ee_version():
-        from ee.onyx.utils.tier import get_tier
-
-        current_tier = get_tier()
-    else:
-        current_tier = Tier.COMMUNITY
+    # The PMORG distributable is a qualified Community-only artifact. Keeping
+    # the tier explicit removes its final static import edge into excluded
+    # Enterprise source while preserving the upstream Community behavior.
+    current_tier = Tier.COMMUNITY
     existing = load_settings()
     # Search Mode is Business+; Chat Retention is Enterprise-only.
     # Use the same error code (FEATURE_NOT_AVAILABLE / 402) the tier_gate

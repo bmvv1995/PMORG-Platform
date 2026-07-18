@@ -1,0 +1,269 @@
+# PMORG Gate-A runtime sandbox.
+#
+# Use with docker-compose.yml after the CE images built by docker-compose.pmorg-ce.yml have been
+# qualified and made available locally by digest. This overlay intentionally activates only
+# PostgreSQL, the CE API, and the CE web server. The web server is published directly on loopback and
+# its guarded production API proxy is enabled for this smoke topology. This is not a production
+# ingress replacement: WebSocket upgrade, SCIM ingress, nginx upload limits, and nginx proxy
+# timeout/header behavior are deliberately outside Gate A.
+#
+# `internal: true` isolates running containers. It does not constrain image pulls or Dockerfile RUN
+# steps; pull the digest-pinned PostgreSQL image and load/pull the qualified CE image digests before
+# `up --pull never`.
+name: pmorg-gate-a
+
+services:
+  api_server:
+    image: "${PMORG_BACKEND_IMAGE:?set PMORG_BACKEND_IMAGE to the qualified backend @sha256 digest reference}"
+    build: !reset null
+    pull_policy: never
+    user: "1001:1001"
+    env_file: !reset []
+    extra_hosts: !reset []
+    depends_on: !override
+      relational_db:
+        condition: service_healthy
+    environment:
+      AUTH_BACKEND: postgres
+      AUTH_TYPE: basic
+      AUTO_LLM_CONFIG_URL: ""
+      CACHE_BACKEND: postgres
+      CODE_INTERPRETER_BASE_URL: ""
+      DISABLE_MODEL_SERVER: "true"
+      DISABLE_TELEMETRY: "true"
+      DISABLE_VECTOR_DB: "true"
+      ENABLE_CRAFT: "false"
+      ENABLE_PAID_ENTERPRISE_EDITION_FEATURES: "false"
+      FILE_STORE_BACKEND: postgres
+      HOME: /home/onyx
+      INDEXING_MODEL_SERVER_HOST: disabled
+      LICENSE_ENFORCEMENT_ENABLED: "false"
+      LOG_TO_FILE: "false"
+      MODEL_SERVER_HOST: disabled
+      OPENSEARCH_ADMIN_PASSWORD: ""
+      OPENSEARCH_HOST: disabled
+      POSTGRES_HOST: relational_db
+      POSTGRES_PASSWORD: "${PMORG_GATE_A_POSTGRES_PASSWORD:?set PMORG_GATE_A_POSTGRES_PASSWORD}"
+      POSTGRES_USER: postgres
+      REDIS_HOST: disabled
+      S3_AWS_ACCESS_KEY_ID: ""
+      S3_AWS_SECRET_ACCESS_KEY: ""
+      S3_ENDPOINT_URL: ""
+      SKIP_WARM_UP: "true"
+      USER_AUTH_SECRET: "${PMORG_GATE_A_USER_AUTH_SECRET:?set PMORG_GATE_A_USER_AUTH_SECRET}"
+      WEB_DOMAIN: "http://localhost:${HOST_PORT:-3000}"
+    volumes: !reset []
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    configs:
+      - source: pmorg_ce_license
+        target: /PMORG-Platform-LICENSE
+        mode: 0444
+
+  web_server:
+    image: "${PMORG_WEB_IMAGE:?set PMORG_WEB_IMAGE to the qualified web @sha256 digest reference}"
+    build: !reset null
+    pull_policy: never
+    user: "1001:1001"
+    env_file: !reset []
+    environment:
+      ENABLE_PAID_ENTERPRISE_EDITION_FEATURES: "false"
+      INTERNAL_URL: http://api_server:8080
+      LICENSE_ENFORCEMENT_ENABLED: "false"
+      NEXT_PUBLIC_ENABLE_PAID_EE_FEATURES: "false"
+      OVERRIDE_API_PRODUCTION: "true"
+    ports: !override
+      - target: 3000
+        published: "${HOST_PORT:-3000}"
+        host_ip: 127.0.0.1
+        protocol: tcp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    configs:
+      - source: pmorg_ce_license
+        target: /PMORG-Platform-LICENSE
+        mode: 0444
+
+  relational_db:
+    image: docker.io/library/postgres:15.18-alpine3.23@sha256:870f35a8c9eff7ba79a599794120d326df4cecbc6a1bfc0050d58805e37abfaf
+    platform: linux/amd64
+    env_file: !reset []
+    environment:
+      POSTGRES_PASSWORD: "${PMORG_GATE_A_POSTGRES_PASSWORD:?set PMORG_GATE_A_POSTGRES_PASSWORD}"
+      POSTGRES_USER: postgres
+
+  background:
+    profiles: !override ["gate-a-disabled"]
+    image: "${PMORG_BACKEND_IMAGE:?set PMORG_BACKEND_IMAGE to the qualified backend @sha256 digest reference}"
+    build: !reset null
+    pull_policy: never
+    user: "1001:1001"
+    env_file: !reset []
+    extra_hosts: !reset []
+    command:
+      - /bin/sh
+      - -c
+      - echo 'background is outside Gate A; its inherited Supervisor configuration requires root' >&2; exit 64
+    restart: "no"
+    environment:
+      AUTO_LLM_CONFIG_URL: ""
+      CODE_INTERPRETER_BASE_URL: ""
+      DISABLE_MODEL_SERVER: "true"
+      DISABLE_TELEMETRY: "true"
+      ENABLE_PAID_ENTERPRISE_EDITION_FEATURES: "false"
+      FILE_STORE_BACKEND: postgres
+      HOME: /home/onyx
+      INDEXING_MODEL_SERVER_HOST: disabled
+      LICENSE_ENFORCEMENT_ENABLED: "false"
+      LOG_TO_FILE: "false"
+      MODEL_SERVER_HOST: disabled
+      OPENSEARCH_ADMIN_PASSWORD: ""
+      OPENSEARCH_HOST: disabled
+      POSTGRES_HOST: relational_db
+      REDIS_HOST: disabled
+      S3_AWS_ACCESS_KEY_ID: ""
+      S3_AWS_SECRET_ACCESS_KEY: ""
+      S3_ENDPOINT_URL: ""
+    volumes: !reset []
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    configs:
+      - source: pmorg_ce_license
+        target: /PMORG-Platform-LICENSE
+        mode: 0444
+
+  inference_model_server:
+    profiles: !override ["gate-a-disabled"]
+    image: pmorg/scoped-out-model-server:gate-a
+    build: !reset null
+    pull_policy: never
+    env_file: !reset []
+    entrypoint: ["/bin/sh", "-c", "echo 'model serving is outside Gate A' >&2; exit 64"]
+    command: []
+    restart: "no"
+    user: "65534:65534"
+    volumes: !reset []
+    network_mode: none
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+  indexing_model_server:
+    profiles: !override ["gate-a-disabled"]
+    image: pmorg/scoped-out-model-server:gate-a
+    build: !reset null
+    pull_policy: never
+    env_file: !reset []
+    entrypoint: ["/bin/sh", "-c", "echo 'model serving is outside Gate A' >&2; exit 64"]
+    command: []
+    restart: "no"
+    user: "65534:65534"
+    volumes: !reset []
+    network_mode: none
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+  code-interpreter:
+    profiles: !override ["gate-a-disabled"]
+    image: pmorg/scoped-out-code-interpreter:gate-a
+    pull_policy: never
+    env_file: !reset []
+    entrypoint: ["/bin/sh", "-c", "echo 'code interpreter is outside Gate A and disabled' >&2; exit 64"]
+    command: []
+    restart: "no"
+    user: "65534:65534"
+    volumes: !reset []
+    network_mode: none
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+  cache:
+    profiles: !override ["gate-a-disabled"]
+    image: pmorg/scoped-out-cache:gate-a
+    pull_policy: never
+    env_file: !reset []
+    entrypoint: ["/bin/sh", "-c", "echo 'cache is outside Gate A' >&2; exit 64"]
+    command: []
+    restart: "no"
+    user: "65534:65534"
+    tmpfs: !reset []
+    network_mode: none
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+  opensearch:
+    profiles: !override ["gate-a-disabled"]
+    image: pmorg/scoped-out-opensearch:gate-a
+    pull_policy: never
+    entrypoint: ["/bin/sh", "-c", "echo 'OpenSearch is outside Gate A' >&2; exit 64"]
+    command: []
+    restart: "no"
+    user: "65534:65534"
+    volumes: !reset []
+    network_mode: none
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+  minio:
+    profiles: !override ["gate-a-disabled"]
+    image: pmorg/scoped-out-minio:gate-a
+    pull_policy: never
+    env_file: !reset []
+    entrypoint: ["/bin/sh", "-c", "echo 'MinIO is outside Gate A' >&2; exit 64"]
+    command: []
+    restart: "no"
+    user: "65534:65534"
+    volumes: !reset []
+    network_mode: none
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+  nginx:
+    profiles: !override ["gate-a-disabled"]
+    image: pmorg/scoped-out-nginx:gate-a
+    pull_policy: never
+    env_file: !reset []
+    entrypoint: ["/bin/sh", "-c", "echo 'nginx is outside Gate A' >&2; exit 64"]
+    command: []
+    restart: "no"
+    user: "65534:65534"
+    ports: !reset []
+    volumes: !reset []
+    network_mode: none
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  default:
+    internal: true
+
+configs:
+  # Runtime smoke aid only. Qualified images still need their own A-LIC-001 license evidence.
+  pmorg_ce_license:
+    file: ../../LICENSE

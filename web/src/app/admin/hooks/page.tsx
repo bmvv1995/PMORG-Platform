@@ -1,1 +1,1 @@
-export { default } from "@/ee/views/admin/HooksPage";
+export { default } from "@/pmorg/ce/pages/HooksPage";
