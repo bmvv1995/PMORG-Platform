@@ -1,5 +1,5 @@
 {
-  "schema_version": "pmorg.platform.baseline/v1",
+  "schema_version": "pmorg.platform.baseline/v2",
   "product": "PMORG-Platform",
   "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
   "visibility": "private",
@@ -17,7 +17,7 @@
   "specification": {
     "repository": "https://github.com/bmvv1995/PMORG.git",
     "baseline": "RB-1/C2",
-    "commit": "72e739f72b955217bc47c04b43411c98611a5f02"
+    "commit": "a90e56408cc4a884fc246c19d82c69f13d549e8d"
   },
   "licensing": {
     "source_repository_mode": "mixed_source",
@@ -27,14 +27,21 @@
       "web/src/app/ee/**",
       "web/src/ee/**"
     ],
-    "artifact_policy": "declared_delivery_profile",
-    "qualification_status": "pending_profile_selection",
-    "delivery_profiles": [
+    "artifact_policy": "declared_onyx_surface_and_usage_mode",
+    "qualification_status": "pending_surface_mode_selection",
+    "allowed_onyx_surfaces": [
       "ce",
-      "licensed-ee"
+      "ee"
     ],
-    "ce_profile_policy": "exclude_onyx_ee_code",
-    "licensed_ee_profile_policy": "inventory_dependencies_and_require_commercial_authorization_before_client_deployment"
+    "allowed_usage_modes": [
+      "development_test",
+      "production"
+    ],
+    "ce_surface_policy": "exclude_onyx_ee_code",
+    "ee_surface_policy": "complete_inventory_required_all_usage_modes",
+    "ee_development_test_policy": "signed_synthetic_admission_and_production_distribution_guard_required",
+    "ee_production_policy": "signed_commercial_authorization_bound_to_build_and_target_required_fail_closed",
+    "capability_disposition_policy": "versioned_catalog_complete_reuse_patch_pmorg_independent_report"
   },
   "official_foss_mirror": {
     "repository": "https://github.com/onyx-dot-app/onyx-foss.git",
@@ -45,9 +52,12 @@
   },
   "build": {
     "mode": "not_yet_qualified",
+    "onyx_surface": null,
+    "usage_mode": null,
     "images": [],
     "sbom": null,
-    "ce_boundary_report": null,
-    "delivery_profile": null
+    "artifact_qualification_report": null,
+    "capability_disposition_report": null,
+    "deployment_admission_record": null
   }
 }
