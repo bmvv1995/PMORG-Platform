@@ -1,19 +1,19 @@
-# PMORG CE boundary
+# PMORG CE delivery profile
 
-## Decision
+## Scope
 
-The reproducible source baseline is the official Onyx release `v4.3.9` at
-commit `1da679cefc96165c6b9b64c3bc769584b88f88c2`.
+The CE artifact is one supported delivery profile of PMORG, not the universal
+product boundary and not a prerequisite for Semantic Core, contracts or the
+Onyx-PMORG integration. A build declares exactly one profile: `ce` or
+`licensed-ee`.
 
-That repository is mixed-source. Its root license identifies Onyx Enterprise
-License content under `ee` directories and MIT-licensed content outside those
-restrictions. PMORG therefore distinguishes source provenance from the
-contents of a distributable CE artifact.
+The reproducible source baseline is the mixed-source Onyx release `v4.3.9` at
+commit `1da679cefc96165c6b9b64c3bc769584b88f88c2`. Source provenance is
+separate from artifact contents.
 
-## Artifact rule
+## CE artifact rule
 
-A PMORG MVP CE image or package must contain zero product files, imports or
-layers sourced from these path families:
+A `ce` image or package contains zero product files, imports or layers from:
 
 ```text
 backend/ee/**
@@ -21,9 +21,17 @@ web/src/app/ee/**
 web/src/ee/**
 ```
 
-EE-specific test trees and dependency groups are also excluded from the CE
-qualification run. Their presence in the upstream source checkout is not
-evidence that a PMORG artifact is CE-clean.
+EE-specific test trees and dependency groups are excluded from CE
+qualification. Their presence in the upstream checkout does not make the CE
+artifact non-compliant; their presence in the saved artifact does.
+
+## Licensed-EE sibling profile
+
+A `licensed-ee` build may reuse required Onyx EE capability without
+reimplementing it. It must inventory the exact capability, source paths,
+dependencies and image provenance. EE source is never copied into PMORG-owned
+modules. Commercial authorization is mandatory before any client deployment,
+but is not a blocker for design or synthetic evaluation.
 
 ## Known upstream behavior
 
@@ -35,20 +43,24 @@ At the pinned release:
 - the official `onyx-foss` mirror is rebuilt with rewritten history and is
   force-pushed without release tags.
 
-The default upstream build is therefore not accepted as the PMORG CE build.
-PMORG will use dedicated build definitions and explicit dependency groups.
+The default upstream build is therefore not accepted as evidence for the
+`ce` profile. PMORG uses dedicated definitions and explicit dependency
+selection for that profile.
 
-## Qualification conditions
+## CE qualification subset
 
-Gate A remains pending until all of the following are reproducible:
+The `A-LIC-001` and `A-UPSTREAM-001` subset remains pending until:
 
-1. source tag, source commit and PMORG spec commit are present in the build
-   manifest;
+1. source tag, source commit, PMORG spec commit and profile are in the manifest;
 2. backend and frontend CE artifacts build from clean state;
-3. an artifact and layer scan reports zero `ee` product files;
-4. dependency export does not include the upstream `ee` group;
-5. required upstream tests pass on the clean baseline and on the PMORG fork;
-6. image digests, SBOM and the CE boundary report are recorded.
+3. source, import, filesystem and layer scans report zero EE product files;
+4. dependency export excludes the upstream EE group;
+5. selected upstream tests pass on baseline and fork;
+6. digests, SBOM and the CE boundary report are recorded.
 
-The official FOSS mirror is an informative comparison source, not the pinned
-baseline for `RB-1/C1`.
+This does not by itself claim full `G3-A` PASS. Full G3-A also requires patch
+coverage, clean migrations, independent restore, supply-chain evidence and
+vulnerability triage.
+
+The official FOSS mirror is informative only, not the pinned baseline for
+`RB-1/C2`.
