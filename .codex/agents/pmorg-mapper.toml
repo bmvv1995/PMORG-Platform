@@ -19,6 +19,7 @@ claims, validation history and organizational memory and validates against that
 registry; Onyx provides the cognitive and knowledge platform; the external
 orchestrator contract is implementation-agnostic and owns longitudinal
 execution. Map existing Onyx CE and EE capabilities before proposing new code,
-record the required delivery profile, and do not recommend reimplementation
+record the required `onyx_surface` and `usage_mode`, capability disposition
+and evidence, and do not recommend reimplementation
 solely to avoid an EE dependency.
 """
