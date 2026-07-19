@@ -2,63 +2,105 @@
 
 ## Issues to Address
 
-PMORG Platform is currently a governed Onyx Community Edition bootstrap. It
-does not yet implement the `RB-1/C1` product contract. The implementation must add
-PMORG as a first-class product subsystem without turning Onyx, Odoo, the
-Semantic Ledger, or the orchestrator into competing sources of truth.
+PMORG Platform is currently a governed Onyx bootstrap. It does not yet
+implement the `RB-1/C2` product contract. The implementation must add PMORG as
+a first-class product subsystem without turning Onyx, Odoo, the Semantic
+Ledger, or the orchestrator into competing sources of truth.
 
 The foundation must address these problems before product-level features are
 added:
 
 - materialize `pmorg-contracts/1.0` as strict, versioned, content-addressed
-  contracts;
-- establish a PMORG package boundary that does not depend on Onyx, Odoo, or
-  Hermes in its domain layer;
+  contracts and make the incompatible V2 wire contracts explicitly
+  superseded for V3;
+- establish a PMORG package boundary whose domain layer does not depend on
+  Onyx, Odoo, or a concrete orchestrator;
 - keep Odoo as the formal operational source of truth and `project.task` as
   the canonical work registry;
-- create the Semantic Core as an authoritative bounded context with its own
+- establish Odoo-owned organization, identity, registry, and anchor resolution
+  before Semantic Core consumes them;
+- create Semantic Core as an authoritative bounded context with its own
   database, migrations, role, backup, and lifecycle;
-- ensure every PMORG turn enters through one authenticated Turn Coordinator;
-- prevent the generic Onyx chat/tool loop from executing Odoo mutations;
+- ensure every PMORG turn enters through authenticated Turn Admission, with
+  identity binding and the privacy/secrets verdict completed before any
+  durable content storage;
+- prevent the generic Onyx chat/tool loop from executing PMORG turns or Odoo
+  mutations;
+- make claim validation a system-policy transition, with human intervention
+  limited to vocabulary and consequential anchor reconciliation;
+- implement the Odoo-owned D1-D5 provenance-gap lifecycle and its read-only
+  PMORG workspace projection;
 - port SB3 behavior and tests selectively without treating SB3 schemas or
   deployment topology as V3;
-- maintain a thin, auditable Onyx fork and a reproducible CE artifact;
+- maintain a thin, auditable Onyx fork and reproducible artifacts for the
+  declared Onyx surface and usage mode;
+- disable upstream telemetry and update checks and enforce deny-by-default SUT
+  egress;
 - preserve the zero-production-testing boundary throughout evaluation.
 
 ## Important Notes
 
 ### Normative inputs
 
-- PMORG requirements: `RB-1/C1`, commit
-  `6cf92cb1c7148b916929fb04f7f24f62bcab184d`.
+- PMORG requirements: `RB-1/C2` candidate, PMORG PR #5 head
+  `9c8f401a06df94b55b9db75d4edf29a059f6b84e`. Replace this pin with the
+  accepted final commit before PR #17 leaves draft.
 - Onyx baseline: `v4.3.9`, commit
   `1da679cefc96165c6b9b64c3bc769584b88f88c2`.
-- The requirements repository owns specifications, evaluation assets, and
-  V1/V2/SB3 references.
+- The requirements repository owns specifications, contracts, evaluation
+  assets, and V1/V2/SB3 references.
 - This repository owns the V3 implementation and preserves Onyx history.
+- Every build and run bundle declares `onyx_surface: ce|ee` and
+  `usage_mode: development_test|production`.
+- Odoo image/revision, PostgreSQL/search/object-store revisions, and all
+  authoritative store migrations are pinned before any release-candidate
+  qualification.
 
 ### Architecture boundaries
 
-- `backend/pmorg/domain` must not import `onyx`, Odoo clients, Hermes clients,
-  FastAPI, persistence models, or transport implementations.
+- `backend/pmorg/domain` must not import `onyx`, Odoo clients, orchestrator
+  clients, FastAPI, persistence models, or transport implementations.
 - `backend/pmorg/application` owns use cases and ports.
-- `backend/pmorg/interaction` owns the Turn Coordinator.
-- `backend/pmorg/integrations` owns Onyx, Odoo, Hermes, and gateway adapters.
+- `backend/pmorg/interaction` owns Turn Admission and the Turn Coordinator.
+- `backend/pmorg/integrations` owns Onyx, Odoo, orchestrator, and gateway
+  adapters. Hermes is optional, not a domain dependency.
 - `services/semantic-core` is independently deployable and owns the Semantic
   Ledger schema and migrations.
-- Onyx knowledge, vector search, and KG are reconstructible projections. They
-  are never the organizational ledger.
+- Odoo owns formal state, the canonical task registry, organization/identity
+  bindings, capability registry, and anchor resolution.
+- Semantic Core owns evidence, claims, assessments, semantic history, and
+  validation receipts; it validates against the live Odoo registry.
+- Onyx knowledge, vector search, and KG are reconstructible projections, never
+  the organizational ledger.
+- The orchestrator owns scheduling, retries, checkpoints, and execution of
+  longitudinal control loops, but not formal state, canonical tasks, or
+  semantic truth.
 - Onyx personal memory is disabled for PMORG agents until a separate scope
   policy exists.
 - The Onyx tenant identifier is not a substitute for `OrganizationContext`.
-- MCP exposes Semantic Core externally but is not used as an internal HTTP
-  loopback between modules in the same process.
+- MCP exposes Semantic Core externally but is not an internal HTTP loopback
+  between modules in the same process.
+- An existing Onyx capability is reused by default only when it passes PMORG
+  contracts, isolation, security, and commercial constraints; deviation
+  requires a versioned ADR or waiver.
+- Onyx EE code is never copied into PMORG-owned modules. Direct EE patches are
+  classified `license_class=onyx-enterprise` and remain under the Onyx
+  Enterprise terms.
+- Upstream telemetry and update checks are disabled. SUT runtime egress is
+  deny-by-default; exceptions are gate-scoped, allow-listed, time-bounded, and
+  recorded in the run bundle.
 
-### SB3 migration posture
+### SB3 and V2 migration posture
 
-SB3 is an executable reference, not a production foundation. Its source files
-match PMORG commit `618a5cf` byte-for-byte for the shared AIPM, memory, Odoo,
-runner, profiles, and worldgen assets. Port behavior through contract tests.
+SB3 is an executable reference, not a production foundation. Its shared AIPM,
+memory, Odoo, runner, profile, and worldgen assets remain behavior/test sources.
+
+For V3, orchestrator/Odoo V2 `1.0/1.1` and `pmorg-memory/1.0` are
+superseded by `pmorg-contracts/1.0`. V3 publishes no V2 aliases and performs
+no dual-write. Legacy fixtures and any later import use an isolated,
+versioned, removable compatibility adapter implementing
+`14-V2-CONTRACT-SUPERSESSION.md`; unverifiable legacy state remains
+`reference-only`.
 
 Reuse or adapt:
 
@@ -83,197 +125,247 @@ Do not port:
 - the AIPM UI, generic RAG/embedding wrappers, or in-memory sessions;
 - static registry fallbacks;
 - the custom JSON-RPC service described as MCP;
-- the SB3 compose topology or mutable image tags;
-- Hermes Kanban as another work registry.
+- the SB3 Compose topology or mutable image tags;
+- any orchestrator Kanban, including Hermes Kanban, as another work registry.
 
-### CE experiment disposition
+### Onyx surface and usage-mode disposition
 
-The earlier local CE experiment remains outside this branch. Re-evaluate and
-port only:
+The earlier CE experiment remains outside this branch and is relevant only to
+`onyx_surface=ce`. Re-evaluate and port dedicated CE Docker definitions,
+explicit non-EE dependency selection, artifact/layer scans, negative fixtures,
+and reproducible image evidence. Do not port broad removals from Onyx; use only
+narrow, tested seams needed for a CE artifact.
 
-- dedicated CE Docker build definitions;
-- explicit dependency-group selection;
-- artifact/layer boundary scanning and its negative tests;
-- reproducible image and manifest checks.
+For `onyx_surface=ee`, keep EE code in its original upstream paths and
+inventory every capability, dependency, patch, and image layer. With
+`usage_mode=development_test`, permit only synthetic development/evaluation
+and enforce a technical guard that refuses production use or distribution.
+With `usage_mode=production`, require a verified authorization record binding
+the licensed entity, seats/scope, agreement reference, validity window, and
+verifier receipt. Missing, expired, or mismatched evidence fails closed.
 
-Do not port the broad removals from Onyx backend/frontend. The CE requirement
-is an artifact boundary, not permission to rewrite unrelated Onyx behavior.
-Only imports that actually prevent an EE-free artifact may receive narrow,
-tested seams.
+CE qualification is not a prerequisite for contracts, Odoo, Semantic Core, or
+Turn work. Every release candidate must nevertheless close `G3-A` for its
+declared surface/mode before receiving an MVP verdict.
 
 ## Implementation Strategy
 
+Slice numbers express architectural dependencies, not a universal serial
+queue. After Slice 0, Onyx artifact qualification and the contract spine may
+proceed in parallel. No CE-only task blocks Odoo or Semantic Core work.
+
 ### Slice 0 — governed baseline
 
-Status: complete on branch `v3-foundation`.
+Status: in cross-review on `sol/v3-foundation`.
 
-- isolate a clean worktree from the abandoned CE experiment;
-- record project-scoped agent roles;
-- keep every fork change covered by the patch ledger;
-- require `verify_fork.py` to pass before and after every slice.
+- record project-scoped agent roles with canonical ownership language;
+- pin upstream and candidate specification inputs;
+- narrow the patch ledger so every changed path has exactly one owner;
+- reject uncovered and multiply owned paths;
+- cross-record and validate the specification pin;
+- require fork verification before and after every later slice.
 
-### Slice 1 — Gate A CE artifact qualification
+### Slice 1 — Onyx substrate and G3-A qualification
 
-- build dedicated backend and frontend CE artifacts from the pinned upstream
-  source without copying the Onyx `ee` path families;
-- select dependency groups explicitly instead of changing general development
-  defaults or deleting Enterprise source from the checkout;
-- port the source/import/layer scanner and its negative fixtures from the
-  isolated CE experiment;
-- replace only the minimum frontend imports that make an EE-free build
-  impossible; every upstream edit requires a patch-ledger entry and a
-  protector test;
-- run the selected unmodified upstream suites on the clean baseline and on the
-  fork;
+- add immutable `onyx_surface` and `usage_mode` inputs to build, release,
+  SBOM, and run-bundle manifests;
+- build backend/frontend artifacts from pinned source without relocating or
+  copying EE code into PMORG-owned paths;
+- for `ce`, prove that no EE product file, import, dependency group, or saved
+  image layer exists;
+- for `ee + development_test`, inventory all EE capability/file/dependency/
+  patch/layer provenance and prove every production/distribution attempt is
+  rejected;
+- for `ee + production`, verify authorization entity, seats/scope, agreement
+  reference, validity, and verifier receipt before startup/deployment;
+- reuse an adequate Onyx capability by default; deviations require an ADR or
+  waiver with expiry and tests;
+- record `license_class=onyx-enterprise` for every direct EE patch;
+- run selected unmodified upstream suites on baseline and fork;
+- disable telemetry/update checks and enforce audited deny-by-default egress;
 - record image digests, SBOM, dependency export, license report, source
-  manifest, CE boundary report, and any versioned test waiver;
-- prove that no Enterprise product file, import, dependency group, or historical
-  image layer exists in the qualified artifacts.
+  manifest, surface/mode report, authorization state, vulnerability triage,
+  and versioned waivers.
 
-This slice establishes the distributable substrate. It does not disable or
-rewrite unrelated Onyx behavior in the source checkout.
+This slice establishes a distributable substrate for the selected matrix cell.
+It does not rewrite unrelated Onyx behavior.
 
-### Slice 2 — complete contract spine
+### Slice 2 — complete contract spine and V2 supersession
 
 - add top-level `backend/pmorg` package boundaries;
-- implement all contracts frozen by `pmorg-contracts/1.0`, including their
-  nested types and command payload schemas required by later slices;
-- generate committed JSON Schema with write contracts using
-  `additionalProperties: false`;
-- generate a deterministic contract manifest containing every schema digest
-  and the pinned PMORG specification commit;
-- add drift checks between Pydantic models, JSON Schema, examples, and the
-  manifest;
-- enforce that the domain package has no forbidden infrastructure imports.
+- implement every contract frozen by `pmorg-contracts/1.0`, including nested
+  types and command payloads needed by later slices;
+- generate committed JSON Schema with
+  `additionalProperties: false` for writes;
+- generate a deterministic manifest containing every schema digest and pinned
+  specification commit;
+- enforce drift checks among models, schemas, examples, and manifest;
+- enforce no forbidden infrastructure imports from the domain package;
+- expose only `pmorg-contracts/1.0` as the V3 wire surface;
+- implement a pure isolated V2 mapper with `LegacySourceIdentity`,
+  `LegacyProvenance`, request-hash conflict semantics, error/state mapping,
+  and the 8-to-11 Semantic Core operation mapping;
+- forbid V2 aliases, dual-write, and promotion of unverifiable legacy records
+  into authoritative V3 state.
 
-Implementation may use several small commits, but no partial group is
-published or described as `pmorg-contracts/1.0`. No API, database, Odoo call,
-LLM call, or UI is part of this slice.
+No API, database, Odoo call, LLM call, or UI is part of this slice.
 
 ### Slice 3 — public evaluation inputs and oracle boundary
 
-- port the three public organization manifests before Odoo profile tests use
-  them;
-- materialize versioned module/anchor-pack expectations, logical IDs, policy
-  references, public fixtures, and `world.lock` inputs;
+- port the three public organization manifests before Odoo profile tests;
+- materialize module/anchor-pack expectations, logical IDs, policy references,
+  fixtures, and `world.lock`;
+- materialize V2 supersession fixtures for identity, memory, idempotency,
+  task/run state, and longitudinal command mapping;
 - create the private-oracle interface and network/credential boundary without
-  exposing its data to SUT;
-- define canonical example payloads shared by contract, Odoo, Semantic Core,
-  runner, and independent-client tests;
-- generate the initial run-bundle manifest with pinned spec/build/profile
-  inputs, without claiming a product gate verdict.
+  exposing oracle data to SUT;
+- define canonical examples shared by contracts, Odoo, Semantic Core, runner,
+  and independent-client tests;
+- generate the initial run-bundle manifest without claiming a gate verdict.
 
-### Slice 4 — Semantic Core evidence kernel
-
-- create an independently deployable Semantic Core service and database;
-- add its own SQLAlchemy metadata, Alembic tree, database role, credentials,
-  backup path, and configuration;
-- implement service-to-service authentication and scopes; bind the presented
-  `OrganizationContext` to the authenticated caller and Odoo-owned identity
-  mapping instead of trusting payload fields;
-- implement registry negotiation and immutable evidence capture;
-- persist evidence payload bytes in a scoped object store or content-addressed
-  resolver, verify their hash before ledger insertion, and apply explicit ACL,
-  retention, redaction, and secret-rejection rules;
-- persist request hash and return the original receipt on a valid replay;
-- reject an idempotency key reused with a different request hash;
-- enforce organization/company scope before reads or writes;
-- expose the same application services through an internal API and a
-  standards-compliant MCP server;
-- prove that deleting a search projection cannot delete evidence or payloads.
-
-### Slice 5 — complete Semantic Core lifecycle
-
-- implement claim proposal, assessments, authority validation, and independent
-  validator rules;
-- implement valid time versus recorded time, contradiction, dispute,
-  supersession, and immutable history;
-- implement commitments and outcomes as semantic objects linked to formal Odoo
-  bindings without copying formal state;
-- implement deterministic recall, `as_of`, and timeline queries filtered by
-  organization, company, ACL, registry, time, and status before ranking;
-- create reconstructible Onyx search/KG projections and prove ledger survival
-  and equivalent projection hashes after rebuild;
-- complete internal API and MCP operations for the frozen semantic contract.
-
-### Slice 6 — Odoo control-plane foundation
+### Slice 4 — Odoo control-plane foundation
 
 - port and adapt the minimal `pmorg_core` addon under `odoo/addons`;
 - install with Project only, without HR or Inventory;
-- use the public profile manifests from Slice 3 to qualify all three clean
-  module combinations and exact registry snapshots;
-- implement Odoo-owned organization and identity bindings, initiative,
-  criteria, task orchestration fields, state version, trusted clock, command
-  inbox, and transactional outbox;
-- publish a live, versioned capability registry from active modules, approved
+- qualify all three clean module profiles and exact registry snapshots;
+- implement Odoo-owned organization/identity bindings, initiative, criteria,
+  task orchestration fields, state version, trusted clock, command inbox, and
+  transactional outbox;
+- publish a live versioned capability registry from active modules, approved
   anchor packs, company, ACL, and policy;
 - implement full `AnchorReference` resolution with instance, company, ACL,
   registry fingerprint, and observed record version;
+- expose narrow authenticated reads for Semantic Core context binding,
+  registry negotiation, and anchor validation;
 - forbid generic model/method/values and SQL/ORM endpoints.
+
+### Slice 5 — Semantic Core evidence kernel
+
+- create an independently deployable service/database with SQLAlchemy metadata,
+  Alembic, database role, credentials, backup path, and configuration;
+- authenticate service calls and bind presented `OrganizationContext` to the
+  caller plus Odoo-owned organization/identity mapping from Slice 4;
+- negotiate only the live Odoo registry and validate anchors through the
+  narrow capability layer;
+- implement immutable evidence capture after Turn Admission;
+- persist accepted payload bytes in scoped object storage/content-addressed
+  resolution and verify hashes before ledger insertion;
+- apply ACL, retention, redaction, and secret-rejection rules;
+- return original receipts on valid idempotent replay and reject key/hash
+  conflicts;
+- enforce organization/company scope before reads/writes;
+- expose equivalent internal API and standards-compliant MCP services;
+- prove deleting a search projection cannot delete evidence or payloads.
+
+### Slice 6 — complete Semantic Core lifecycle
+
+- implement claim proposals, assessments, authority, and validator
+  independence;
+- make every claim transition system-only: only the authenticated policy
+  engine/validator service may emit the verdict and transition actor;
+- expose no human/cognitive API, action, or UI for claim verdict/approval,
+  whole-claim accept/reject, or editing claim kind, owner, term, predicate, or
+  normalized value;
+- limit positive semantic HIL to vocabulary governance and consequential
+  ambiguous-anchor reconciliation, then rerun extraction/assessment/policy
+  automatically;
+- keep business action approvals and human outcome verification separate; they
+  cannot create or modify semantic verdicts;
+- implement valid versus recorded time, contradiction, dispute, supersession,
+  and immutable history;
+- implement commitments/outcomes linked to formal Odoo bindings without
+  copying formal state;
+- implement deterministic recall, `as_of`, and timeline queries filtered by
+  organization, company, ACL, registry, time, and status before ranking;
+- create reconstructible Onyx search/KG projections and prove equivalent
+  hashes after rebuild;
+- complete internal API and MCP operations for the frozen contract.
 
 ### Slice 7 — Odoo longitudinal domain and controllers
 
 - implement immutable plan versions, commitments, approvals, outcomes, and
   outcome verification;
-- implement wait conditions, `next_check_at`, intervention/escalation records,
-  monitoring/autonomy policies, health flags, and controller checkpoints;
-- implement the frozen initiative, task, run/lease, plan, commitment, approval,
-  and outcome state transitions with optimistic concurrency on every mutation;
-- ensure each deterministic controller performs at most one idempotent step,
-  persists its next check, and can resume under a new runtime;
-- qualify manual Odoo changes, expired leases, late results, and transactional
-  inbox/outbox reconciliation.
+- implement waits, `next_check_at`, interventions/escalations,
+  monitoring/autonomy policy, health flags, and controller checkpoints;
+- enforce frozen transitions and optimistic concurrency on every mutation;
+- implement system-only `pmorg.task.activate_due`: idempotently move
+  `waiting_response|waiting_approval|scheduled` to `ready` only on a
+  correlated event or due trusted tick, always before a new claim;
+- implement Odoo-owned `pmorg.provenance.gap` with deterministic D1-D5
+  detection, materiality, stable deduplication, and
+  `open -> explained|dismissed`;
+- compare Odoo effects/events with Semantic Core evidence/bindings/receipts
+  through a narrow authenticated API;
+- permit gap resolution only from verified receipts/policy, never model text
+  or human semantic annotation;
+- publish only a read-only Onyx-PMORG digest, materiality/age ordering, and
+  aggregate coverage rate; clarification re-enters through Turn Admission;
+- ensure each controller performs one idempotent step, persists its next
+  check, and resumes under another runtime;
+- qualify manual changes, expired leases, late results, due activation, gap
+  reconciliation, and inbox/outbox recovery.
+
+A gap is a missing-provenance signal, never a personnel verdict or dossier.
 
 ### Slice 8 — authenticated read-only PMORG turn
 
-- add one `/pmorg/v1` router seam to Onyx;
-- resolve an authenticated Onyx user through an Odoo-owned binding to
-  `pmorg.identity`;
-- mark PMORG agents/personas explicitly and refuse their execution through the
-  generic `/send-chat-message` route; UI and future gateway paths must invoke
+- add one `/pmorg/v1` router seam and one `admit_message` entry shared by UI
+  and future Communication Gateway;
+- keep inbound envelope/raw content transient before admission;
+- resolve the sender through Odoo-owned `pmorg.identity`; absent/ambiguous
+  binding creates no organizational effect and persists no content;
+- run privacy/secrets policy after identity binding and before any transcript,
+  content ref/hash, evidence, chunk, embedding, prompt, trace, log, or
+  orchestrator checkpoint;
+- on refusal, destroy the buffer and persist exactly one metadata-only
+  `PrivacyRejectionReceipt` with no content/ref/hash;
+- after acceptance, validate `OrganizationContext` and live registry, capture
+  evidence, and emit payload-free `AdmittedMessage`;
+- expose only the admitted receipt to runner/orchestrator and continue through
   the same Turn API;
-- validate `OrganizationContext` and the live Odoo registry before retrieval;
-- capture inbound content as evidence before cognitive execution;
-- call Onyx cognitive runtime through a bounded adapter with personal memory
-  disabled and only read/proposal tools exposed;
-- restrict MVP knowledge retrieval to a synthetic, uniform-access corpus until
-  permission-aware retrieval is independently qualified;
-- return a `CognitiveStepResult`; treat all model output as proposals or
-  evidence, never as truth or an executed effect;
-- persist any returned proposal through the complete Semantic Core lifecycle;
-- add a minimal authenticated `/pmorg` workspace showing context, evidence
-  receipt, bounded result, and provenance.
+- refuse PMORG agents through generic `/send-chat-message`;
+- use a bounded Onyx adapter with personal memory disabled and only
+  read/proposal tools;
+- for `ce`, use synthetic uniform-access knowledge until permission-aware
+  retrieval is qualified; for `ee`, independently qualify applicable Onyx
+  access controls; Odoo/PMORG isolation remains mandatory;
+- return `CognitiveStepResult`; treat model output only as proposal/evidence;
+- persist proposals through the full Semantic Core lifecycle;
+- add a minimal `/pmorg` workspace showing context, receipts, bounded result,
+  provenance digest, and vocabulary/anchor reconciliation only.
 
 ### Slice 9 — first controlled Odoo effect
 
 - implement only `pmorg.task.propose` first;
-- perform deterministic tool preflight outside the model loop;
-- require the appropriate autonomy/approval result;
-- validate expected version, lease where applicable, payload schema, actor,
-  company, registry, and command-bound approval;
-- write business state, receipt, and outbox event atomically;
-- prove duplicate delivery and retry do not duplicate the task.
+- perform deterministic preflight outside the model loop;
+- require the autonomy/approval result;
+- validate expected version, lease, schema, actor, company, registry, and
+  command-bound approval;
+- write business state, receipt, and outbox atomically;
+- prove duplicate delivery/retry creates exactly one task and receipt.
 
-### Slice 10 — M0 structural path
+### Slice 10 — G3-D vertical slice M0
 
-- port the deterministic runner and simulated channel to V3 contracts;
+- port the runner and simulated channel to implementation-agnostic contracts;
 - create the public XNX fixture from clean Odoo volumes;
-- complete initiative → clarification → evidence → validated claim → controlled
-  task → evidence → verified outcome;
-- reconstruct the full timeline from Odoo and Semantic Core records;
+- complete initiative -> clarification -> evidence -> validated claim ->
+  controlled task -> evidence -> verified outcome;
+- reconstruct the full Odoo/Semantic timeline;
 - run three identical clean executions for `ORG-DIST`.
 
-### Slice 11 — profile and longitudinal qualification
+### Slice 11 — G3-E/G3-F profile and longitudinal qualification
 
-- execute the already-materialized profiles using the same qualified build;
+- execute all public organization profiles using the same qualified build;
 - qualify absent-module closed-world behavior;
-- add virtual-time silence, follow-up, escalation, restart, lease expiry,
-  delayed response, replay, contradiction, supersession, optimistic conflict,
-  service outage, recovery, and final closure;
-- replace the V2 kernel with sealed V3 run bundles and Gates A–F verdicts.
+- add virtual-time silence, follow-up, escalation, restart, due activation,
+  lease expiry, delayed response, replay, contradiction, supersession,
+  optimistic conflict, outage, recovery, and closure;
+- replace the V2 kernel with sealed V3 run bundles and aggregate
+  `G3-A`-`G3-F` verdicts.
 
-Hermes, a stochastic operator, and a real communication channel remain Gates
-G–I. They do not change the contracts or ownership established above.
+A stochastic operator, external persistent orchestrator, and real channel
+remain `G3-G`, `G3-H`, and `G3-I`. Hermes is one candidate for G3-H;
+these gates do not change ownership or contracts.
 
 ## Tests
 
@@ -281,72 +373,89 @@ G–I. They do not change the contracts or ownership established above.
 
 - `python3 pmorg/scripts/verify_fork.py`;
 - `git diff --check`;
-- targeted Ruff and type checks for changed Python packages;
-- patch-ledger coverage for every path changed from upstream.
+- targeted Ruff/type checks;
+- patch-ledger coverage with exactly one owner per changed path;
+- pin/manifests parse and agree;
+- relevant unit, contract, integration, and negative tests;
+- zero production endpoints, data, identities, channels, or credentials.
 
-### CE artifact qualification
+### Onyx surface/mode and G3-A
 
-- clean backend and frontend builds with explicit non-EE dependency groups;
-- source, import graph, filesystem, and every saved-image-layer scan;
-- negative fixtures that inject forbidden files, imports, dependencies, and
-  historical layers;
-- selected upstream unit/type/build suites before and after the minimum seams;
-- SBOM, digest, license, vulnerability, and patch-ledger reports.
+- clean builds for each declared matrix cell;
+- `ce`: source/import/dependency/filesystem/every-layer scans with zero EE;
+- `ee + development_test`: complete inventory and rejection of every
+  production/distribution attempt;
+- `ee + production`: valid authorization for entity, seats/scope, agreement,
+  and validity; missing/expired/mismatch refusal;
+- direct EE patch license classification and zero EE copied into PMORG modules;
+- negative fixtures for undeclared paths, imports, dependencies, layers,
+  surface/mode mismatches, and authorization drift;
+- upstream unit/type/build suites before/after seams;
+- telemetry/update checks disabled and arbitrary egress denied;
+- SBOM, digest, license, vulnerability, authorization-state, and patch reports;
+- clean migrations, independent restore, and supply-chain triage required for
+  full G3-A, not only CE boundary evidence.
 
-### Contract spine
+### Contract spine and V2 supersession
 
-- valid canonical examples for every schema;
-- refusal of unknown write fields and unknown major versions;
-- invalid UUID, int64, semver, hash, timestamp, and URI cases;
-- required nullable keys distinguished from absent keys;
-- schema generation and digest determinism;
-- no forbidden imports from the domain package.
+- canonical valid examples for every schema;
+- unknown writes/major versions refused;
+- invalid UUID/int64/semver/hash/timestamp/URI cases;
+- required-nullable keys distinct from absent keys;
+- deterministic schema generation/digests and no forbidden domain imports;
+- V2-to-V3 operation/error/identity/state/idempotency fixtures;
+- `B-IDEM-MIG-001`, `B-MIG-PROV-001`, `C-IDEM-MIG-001`,
+  `F-MIG-STATE-001`, and `F-MIG-LONG-001`;
+- no V2 alias/dual-write and unverifiable legacy state remains
+  `reference-only`.
 
 ### Semantic Core
 
-- evidence replay and idempotency conflict;
-- evidence without valid context or hash refusal;
-- cross-organization and cross-company negative tests;
-- service impersonation, invalid credential/scope, and context-binding tests;
-- payload hash verification, retention, redaction, and secret-rejection tests;
-- temporal and immutable-field behavior;
-- claim authority, independent validation, contradiction, supersession,
-  commitment, outcome, recall, and timeline tests;
-- independent migration, restore, and index rebuild tests;
-- MCP interoperability using a client independent of the server internals.
+- replay/conflict, missing context/hash, cross-org/company refusal;
+- impersonation, invalid credentials/scope, context binding;
+- payload hash, retention, redaction, and secret rejection;
+- temporal/immutable behavior, authority, validator independence,
+  contradiction, supersession, commitment, outcome, recall, timeline;
+- zero human/cognitive claim verdicts, approvals, transitions, or semantic
+  editing surfaces; every transition actor is the policy service;
+- HIL only for vocabulary/anchor reconciliation, followed by automatic
+  re-extraction/policy validation;
+- migration/restore/index rebuild and independent MCP interoperability.
 
-### Odoo control plane
+### Odoo control plane and longitudinal controllers
 
 - clean install for all three module profiles;
-- exact registry snapshots and absent-module negative cases;
-- anchor resolution, stale record, ACL, company, and fingerprint cases;
-- one-winner lease races, stale-version conflicts, and 1,000 replayed commands;
-- atomic business effect, receipt, and outbox under injected failures.
+- exact registry snapshots and absent-module negatives;
+- anchor stale/ACL/company/fingerprint cases;
+- one-winner leases, optimistic conflicts, and 1,000 replayed commands;
+- atomic effect/receipt/outbox under injected failures;
+- `activate_due`: correlated response, approval, due tick, premature refusal,
+  replay, and activation-before-claim;
+- D1-D5 gap detection, stable deduplication, verified closure, no personnel
+  verdict, and equivalent coverage digest after restart.
 
 ### Turn and controlled effect
 
-- anonymous and unbound identities refused;
-- PMORG agents refused through generic Onyx chat and accepted only through the
-  Turn API;
-- evidence committed before cognitive execution;
-- personal Onyx memory not injected;
-- no mutating Odoo tool exposed to the model loop;
-- prompt injection cannot expand tools, anchor types, autonomy, or scope;
-- unauthorized retrieval is refused before any LLM call;
-- cross-organization and cross-company knowledge retrieval returns no content
-  or citations;
-- secrets are absent from prompts, logs, traces, evidence, and receipts;
-- Onyx, Odoo, and Semantic Ledger credentials and database roles are isolated;
-- degraded behavior for Odoo or Semantic Core unavailability;
-- exactly one task and receipt after repeated command delivery;
-- targeted frontend lint, type, component, and production-build checks.
+- anonymous/unbound identity refused without durable content;
+- generic Onyx chat refuses PMORG agents;
+- privacy refusal precedes every content/ref/hash/transcript/evidence/index/
+  prompt/log/checkpoint surface and emits one metadata-only receipt;
+- accepted evidence exists before cognitive execution and only payload-free
+  `AdmittedMessage` reaches runner/orchestrator;
+- personal memory absent; no mutating Odoo tool in the model loop;
+- prompt injection cannot expand tools, anchors, autonomy, or scope;
+- unauthorized retrieval refused before LLM;
+- cross-org/company retrieval returns no content/citations;
+- secrets absent from all prompts/logs/traces/evidence/receipts;
+- credentials/roles isolated and degraded modes tested;
+- repeated command delivery yields one task and receipt;
+- frontend lint/type/component/production build checks.
 
 ### MVP qualification
 
-- Gates A–F from `RB-1/C1` on clean synthetic volumes only;
+- `G3-A`-`G3-F` from `RB-1/C2` on clean synthetic volumes only;
 - identical build across `ORG-MIN`, `ORG-SERV`, and `ORG-DIST`;
-- three deterministic runs per required scenario and fault case;
-- sealed traces, canonical projections, checksums, and explicit
-  `PASS`/`FAIL`/`INVALID` verdicts;
-- network and credential probes proving that SUT cannot reach production or
-  the private oracle.
+- three deterministic runs per required scenario/fault;
+- sealed traces, projections, checksums, and explicit verdicts;
+- network/credential probes prove SUT cannot reach production, private oracle,
+  telemetry/update endpoints, or arbitrary non-allow-listed destinations.
