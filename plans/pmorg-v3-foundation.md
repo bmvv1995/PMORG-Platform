@@ -151,8 +151,10 @@ declared surface/mode before receiving an MVP verdict.
 ## Implementation Strategy
 
 Slice numbers express architectural dependencies, not a universal serial
-queue. After Slice 0, Onyx artifact qualification and the contract spine may
-proceed in parallel. No CE-only task blocks Odoo or Semantic Core work.
+queue. After Slice 0, exploratory builds and the contract spine may proceed in
+parallel. Slice 1 must not emit signed qualification/admission/disposition
+records or close G3-A until Slice 2 publishes the canonical schema manifest and
+digest. No CE-only task blocks Odoo or Semantic Core work.
 
 ### Slice 0 — governed baseline
 
