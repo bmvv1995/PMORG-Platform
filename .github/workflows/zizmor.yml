@@ -16,8 +16,9 @@ jobs:
     runs-on: ubuntu-slim
     timeout-minutes: 45
     permissions:
+      actions: read
       contents: read # needed to checkout the repo on private repos (no-op on public)
-      security-events: write # needed for SARIF uploads
+      security-events: write # needed for SARIF uploads when explicitly enabled
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6.0.2
@@ -39,6 +40,16 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload SARIF file
+        if: >-
+          ${{
+            !cancelled() &&
+            vars.PMORG_ENABLE_ZIZMOR_SARIF == 'true' &&
+            hashFiles('results.sarif') != '' &&
+            (
+              github.event_name == 'push' ||
+              github.event.pull_request.head.repo.full_name == github.repository
+            )
+          }}
         uses: github/codeql-action/upload-sarif@ba454b8ab46733eb6145342877cd148270bb77ab # ratchet:github/codeql-action/upload-sarif@codeql-bundle-v2.23.5
         with:
           sarif_file: results.sarif

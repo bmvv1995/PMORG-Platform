@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import ast
 import fnmatch
 import hashlib
@@ -15,6 +16,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import cast
 from typing import TypedDict
+
+TRUSTED_REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 
 
 class UpstreamManifest(TypedDict):
@@ -567,6 +570,7 @@ def changed_paths_from_revision(repository_root: Path, revision: str) -> list[st
     output = run_git(
         repository_root,
         "diff",
+        "--no-ext-diff",
         "--no-renames",
         "--name-only",
         f"{revision}..HEAD",
@@ -1203,15 +1207,35 @@ def is_governance_protector_path(relative_path: str) -> bool:
 
 
 def protector_test_executes_exactly_once(
-    repository_root: Path, relative_path: str, selector: str
+    repository_root: Path,
+    trusted_repository_root: Path,
+    relative_path: str,
+    selector: str,
 ) -> bool:
-    module_name = ".".join(Path(relative_path).with_suffix("").parts)
-    test_name = f"{module_name}.{selector}"
+    """Run only the trusted protector source against candidate repository data."""
+
+    try:
+        trusted_test_path = resolve_policy_path(trusted_repository_root, relative_path)
+    except ValueError:
+        return False
+    if worktree_regular_file_mode(trusted_test_path) is None:
+        return False
     runner = """
+import importlib.util
+from pathlib import Path
 import sys
 import unittest
 
-suite = unittest.defaultTestLoader.loadTestsFromName(sys.argv[1])
+trusted_test_path = Path(sys.argv[1])
+candidate_root = Path(sys.argv[2])
+selector = sys.argv[3]
+spec = importlib.util.spec_from_file_location("pmorg_trusted_protector", trusted_test_path)
+if spec is None or spec.loader is None:
+    raise SystemExit(1)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+module.REPOSITORY_ROOT = candidate_root
+suite = unittest.defaultTestLoader.loadTestsFromName(selector, module)
 result = unittest.TestResult()
 suite.run(result)
 valid = (
@@ -1227,8 +1251,17 @@ raise SystemExit(0 if valid else 1)
 """
     try:
         completed = subprocess.run(
-            [sys.executable, "-B", "-c", runner, test_name],
-            cwd=repository_root,
+            [
+                sys.executable,
+                "-I",
+                "-B",
+                "-c",
+                runner,
+                str(trusted_test_path),
+                str(repository_root.resolve()),
+                selector,
+            ],
+            cwd=trusted_repository_root,
             check=False,
             capture_output=True,
             text=True,
@@ -1365,6 +1398,8 @@ def validate_seam_authorization(
     index: int,
     repository_root: Path | None,
     ownership_policy: dict[str, object] | None,
+    trusted_repository_root: Path | None = None,
+    protected_base_sha: str | None = None,
 ) -> list[str]:
     errors: list[str] = []
     label = f"seam[{index}]"
@@ -1491,12 +1526,16 @@ def validate_seam_authorization(
     if head.stdout.strip() == authorization_base_commit_text:
         errors.append(f"{label} authorization base must precede the seam change")
     trusted_seam_base_commit: str | None = None
-    protected_base_sha = os.environ.get("PMORG_PROTECTED_BASE_SHA")
-    if protected_base_sha:
-        if not is_full_git_sha(protected_base_sha):
+    effective_protected_base_sha = (
+        protected_base_sha
+        if protected_base_sha is not None
+        else os.environ.get("PMORG_PROTECTED_BASE_SHA")
+    )
+    if effective_protected_base_sha:
+        if not is_full_git_sha(effective_protected_base_sha):
             errors.append(f"{label} PMORG_PROTECTED_BASE_SHA is not a full Git SHA")
         else:
-            protected_base_commit = cast(str, protected_base_sha)
+            protected_base_commit = cast(str, effective_protected_base_sha)
             trusted_seam_base_commit = protected_base_commit
             protected_base_precedes_head = subprocess.run(
                 [
@@ -1737,19 +1776,51 @@ def validate_seam_authorization(
                 errors.append(
                     f"{label} protector test hash differs from authorized bytes"
                 )
-            current_test_path = repository_root / test_path_text
+            try:
+                current_test_path = resolve_policy_path(repository_root, test_path_text)
+            except ValueError:
+                errors.append(f"{label} protector test reference is unsafe")
+                continue
+            current_test_link_path = repository_root / Path(test_path_text)
+            current_test_mode = worktree_regular_file_mode(current_test_link_path)
             if (
                 authorized_test_entry is not None
-                and worktree_regular_file_mode(current_test_path)
-                != authorized_test_entry[0]
+                and current_test_mode != authorized_test_entry[0]
             ):
                 errors.append(f"{label} protector test worktree mode or type changed")
-            try:
-                current_test_bytes = current_test_path.read_bytes()
-            except OSError:
+            if current_test_mode is None:
                 current_test_bytes = None
+            else:
+                try:
+                    current_test_bytes = current_test_path.read_bytes()
+                except OSError:
+                    current_test_bytes = None
             if current_test_bytes != authorized_test_bytes:
                 errors.append(f"{label} protector test changed after authorization")
+            if trusted_repository_root is not None:
+                try:
+                    trusted_test_path = resolve_policy_path(
+                        trusted_repository_root, test_path_text
+                    )
+                except ValueError:
+                    errors.append(f"{label} trusted protector test reference is unsafe")
+                else:
+                    if worktree_regular_file_mode(trusted_test_path) is None:
+                        errors.append(
+                            f"{label} trusted protector test is not a regular file"
+                        )
+                    else:
+                        try:
+                            trusted_test_bytes = trusted_test_path.read_bytes()
+                        except OSError:
+                            errors.append(
+                                f"{label} trusted protector test cannot be read"
+                            )
+                        else:
+                            if trusted_test_bytes != authorized_test_bytes:
+                                errors.append(
+                                    f"{label} trusted protector test differs from authorized bytes"
+                                )
             try:
                 authorized_test_text = authorized_test_bytes.decode("utf-8")
             except UnicodeDecodeError:
@@ -1770,6 +1841,8 @@ def validate_seam_allowlist(
     policy: dict[str, object],
     repository_root: Path | None = None,
     ownership_policy: dict[str, object] | None = None,
+    trusted_repository_root: Path | None = None,
+    protected_base_sha: str | None = None,
 ) -> list[str]:
     errors: list[str] = []
     if set(policy) != REQUIRED_SEAM_POLICY_KEYS:
@@ -1790,6 +1863,7 @@ def validate_seam_allowlist(
     seam_ids: list[str] = []
     patterns: list[str] = []
     for index, seam in enumerate(seams):
+        executable_protectors: list[tuple[str, str]] = []
         if not isinstance(seam, dict):
             errors.append(f"seam[{index}] is not an object")
             continue
@@ -1853,16 +1927,19 @@ def validate_seam_allowlist(
                 except ValueError:
                     errors.append(f"seam[{index}] protector test reference is unsafe")
                     continue
-                if not test_path.is_file():
+                candidate_test_path = repository_root / Path(test_path_text)
+                if not candidate_test_path.exists():
+                    errors.append(f"seam[{index}] protector test file does not exist")
+                elif worktree_regular_file_mode(candidate_test_path) is None:
+                    errors.append(
+                        f"seam[{index}] protector test worktree mode or type changed"
+                    )
+                elif not test_path.is_file():
                     errors.append(f"seam[{index}] protector test file does not exist")
                 elif not protector_selector_exists(test_path, selector):
                     errors.append(f"seam[{index}] protector test node does not exist")
-                elif not protector_test_executes_exactly_once(
-                    repository_root, test_path_text, selector
-                ):
-                    errors.append(
-                        f"seam[{index}] protector test did not execute exactly once without skips"
-                    )
+                else:
+                    executable_protectors.append((test_path_text, selector))
                 if ownership_policy is not None:
                     test_owners = ownership_matches(test_path_text, ownership_policy)
                     if (
@@ -1874,9 +1951,26 @@ def validate_seam_allowlist(
                         )
         if not isinstance(reason, str) or not reason.strip():
             errors.append(f"seam[{index}] has no reason")
-        errors.extend(
-            validate_seam_authorization(seam, index, repository_root, ownership_policy)
+        authorization_errors = validate_seam_authorization(
+            seam,
+            index,
+            repository_root,
+            ownership_policy,
+            trusted_repository_root or repository_root,
+            protected_base_sha,
         )
+        errors.extend(authorization_errors)
+        if repository_root is not None and not authorization_errors:
+            for test_path_text, selector in executable_protectors:
+                if not protector_test_executes_exactly_once(
+                    repository_root,
+                    trusted_repository_root or repository_root,
+                    test_path_text,
+                    selector,
+                ):
+                    errors.append(
+                        f"seam[{index}] protector test did not execute exactly once without skips"
+                    )
     if len(seam_ids) != len(set(seam_ids)):
         errors.append("seam allowlist has duplicate seam_id values")
     if len(patterns) != len(set(patterns)):
@@ -2519,7 +2613,11 @@ def validate_specification_references(
     return errors
 
 
-def verify(repository_root: Path) -> list[str]:
+def verify(
+    repository_root: Path,
+    trusted_repository_root: Path = TRUSTED_REPOSITORY_ROOT,
+    protected_base_sha: str | None = None,
+) -> list[str]:
     errors: list[str] = []
     manifest = load_manifest(repository_root)
     patch_ledger = load_patch_ledger(repository_root)
@@ -2535,7 +2633,13 @@ def verify(repository_root: Path) -> list[str]:
     errors.extend(validate_patch_ledger_contract(patch_ledger))
     errors.extend(validate_ownership_roots(ownership_policy))
     errors.extend(
-        validate_seam_allowlist(seam_policy, repository_root, ownership_policy)
+        validate_seam_allowlist(
+            seam_policy,
+            repository_root,
+            ownership_policy,
+            trusted_repository_root,
+            protected_base_sha,
+        )
     )
 
     if patch_ledger["upstream_commit"] != upstream["commit"]:
@@ -2609,9 +2713,34 @@ def verify(repository_root: Path) -> list[str]:
 
 
 def main() -> int:
-    repository_root = Path(__file__).resolve().parents[2]
+    parser = argparse.ArgumentParser(
+        description="Verify a candidate PMORG fork using trusted governance code."
+    )
+    parser.add_argument(
+        "--candidate-repository-root",
+        type=Path,
+        default=TRUSTED_REPOSITORY_ROOT,
+        help="candidate repository root to inspect (default: verifier checkout)",
+    )
+    parser.add_argument(
+        "--trusted-repository-root",
+        type=Path,
+        default=TRUSTED_REPOSITORY_ROOT,
+        help="trusted checkout containing governance protector source",
+    )
+    parser.add_argument(
+        "--protected-base-sha",
+        help="trusted protected base for this candidate; overrides ambient PMORG_PROTECTED_BASE_SHA",
+    )
+    arguments = parser.parse_args()
+    repository_root = arguments.candidate_repository_root.resolve()
+    trusted_repository_root = arguments.trusted_repository_root.resolve()
     try:
-        errors = verify(repository_root)
+        errors = verify(
+            repository_root,
+            trusted_repository_root,
+            arguments.protected_base_sha,
+        )
     except (
         KeyError,
         OSError,

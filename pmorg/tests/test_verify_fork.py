@@ -22,6 +22,7 @@ from verify_fork import load_ownership_roots  # noqa: E402
 from verify_fork import load_patch_ledger  # noqa: E402
 from verify_fork import load_seam_allowlist  # noqa: E402
 from verify_fork import PatchEntry  # noqa: E402
+from verify_fork import protector_test_executes_exactly_once  # noqa: E402
 from verify_fork import validate_build_qualification_state  # noqa: E402
 from verify_fork import validate_local_upstream  # noqa: E402
 from verify_fork import validate_ownership_roots  # noqa: E402
@@ -720,8 +721,144 @@ class ThinForkPolicyTest(unittest.TestCase):
         )
         self.assertEqual(self.ownership_policy["default_ownership"], "upstream_owned")
         self.assertEqual(self.seam_policy["default_decision"], "deny")
-        self.assertEqual(self.seam_policy["seams"], [])
-        self.assertEqual(self.ledger["upstream_patch_records"], [])
+        self.assertEqual(
+            [
+                (seam["seam_id"], seam["path_pattern"])
+                for seam in self.seam_policy["seams"]
+            ],
+            [
+                ("SEAM-CI-ZIZMOR-001", ".github/workflows/zizmor.yml"),
+                (
+                    "SEAM-CI-HELM-001",
+                    ".github/workflows/pr-helm-chart-testing.yml",
+                ),
+            ],
+        )
+        self.assertEqual(
+            [
+                (record["id"], record["seam_id"], record["path"])
+                for record in self.ledger["upstream_patch_records"]
+            ],
+            [
+                (
+                    "UP-CI-ZIZMOR-001",
+                    "SEAM-CI-ZIZMOR-001",
+                    ".github/workflows/zizmor.yml",
+                ),
+                (
+                    "UP-CI-HELM-001",
+                    "SEAM-CI-HELM-001",
+                    ".github/workflows/pr-helm-chart-testing.yml",
+                ),
+            ],
+        )
+
+    def test_trusted_protector_ignores_candidate_imports_and_reads_candidate_root(
+        self,
+    ) -> None:
+        protector_source = (
+            "from pathlib import Path\n"
+            "import unittest\n\n"
+            "class TestProtector(unittest.TestCase):\n"
+            "    def test_exact_seam(self) -> None:\n"
+            "        self.assertEqual(\n"
+            "            (REPOSITORY_ROOT / 'inspection-target.txt').read_text(encoding='utf-8'),\n"
+            "            'candidate\\n',\n"
+            "        )\n"
+        )
+        with tempfile.TemporaryDirectory() as candidate_directory:
+            with tempfile.TemporaryDirectory() as trusted_directory:
+                repository_root = Path(candidate_directory)
+                trusted_root = Path(trusted_directory)
+                sentinel = trusted_root / "candidate-imported"
+                (repository_root / "inspection-target.txt").write_text(
+                    "candidate\n", encoding="utf-8"
+                )
+                policy = copy.deepcopy(self.test_seam_policy)
+                protected_base = self.prepare_authorization_repository(
+                    repository_root, policy, protector_source=protector_source
+                )
+                test_path_text, _, selector = self.protector_ref.partition("::")
+                trusted_test_path = trusted_root / test_path_text
+                trusted_test_path.parent.mkdir(parents=True)
+                trusted_test_path.write_text(protector_source, encoding="utf-8")
+                (trusted_root / "inspection-target.txt").write_text(
+                    "trusted\n", encoding="utf-8"
+                )
+                (repository_root / "pmorg/__init__.py").write_text(
+                    "from pathlib import Path\n"
+                    f"Path({str(sentinel)!r}).write_text('package import ran')\n",
+                    encoding="utf-8",
+                )
+
+                with mock.patch.dict(
+                    os.environ,
+                    {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                    clear=False,
+                ):
+                    self.assertEqual(
+                        validate_seam_allowlist(
+                            policy,
+                            repository_root,
+                            self.ownership_policy,
+                            trusted_root,
+                        ),
+                        [],
+                    )
+                self.assertFalse(sentinel.exists())
+
+                (repository_root / "inspection-target.txt").write_text(
+                    "wrong\n", encoding="utf-8"
+                )
+                self.assertFalse(
+                    protector_test_executes_exactly_once(
+                        repository_root, trusted_root, test_path_text, selector
+                    )
+                )
+
+    def test_candidate_protector_top_level_code_is_not_executed_before_auth_checks(
+        self,
+    ) -> None:
+        benign_source = (
+            "import unittest\n\n"
+            "class TestProtector(unittest.TestCase):\n"
+            "    def test_exact_seam(self) -> None:\n"
+            "        pass\n"
+        )
+        with tempfile.TemporaryDirectory() as candidate_directory:
+            with tempfile.TemporaryDirectory() as trusted_directory:
+                repository_root = Path(candidate_directory)
+                trusted_root = Path(trusted_directory)
+                sentinel = trusted_root / "candidate-test-imported"
+                policy = copy.deepcopy(self.test_seam_policy)
+                protected_base = self.prepare_authorization_repository(
+                    repository_root, policy, protector_source=benign_source
+                )
+                test_path_text, _, _ = self.protector_ref.partition("::")
+                trusted_test_path = trusted_root / test_path_text
+                trusted_test_path.parent.mkdir(parents=True)
+                trusted_test_path.write_text(benign_source, encoding="utf-8")
+                (repository_root / test_path_text).write_text(
+                    "from pathlib import Path\n"
+                    f"Path({str(sentinel)!r}).write_text('test import ran')\n"
+                    + benign_source,
+                    encoding="utf-8",
+                )
+
+                with mock.patch.dict(
+                    os.environ,
+                    {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                    clear=False,
+                ):
+                    errors = validate_seam_allowlist(
+                        policy,
+                        repository_root,
+                        self.ownership_policy,
+                        trusted_root,
+                    )
+
+        self.assertFalse(sentinel.exists())
+        self.assertIn("seam[0] protector test changed after authorization", errors)
 
     def test_governed_admission_invariant_cannot_be_flipped(self) -> None:
         policy = copy.deepcopy(self.seam_policy)

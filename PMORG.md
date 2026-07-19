@@ -72,9 +72,32 @@ regenerated and reviewed.
 - a release claim requires the applicable `G3` gates from `RB-1/C2`, not
   merely a successful Onyx startup.
 
-PR #17 is only Slice 0 governance. The contracts above are requirements for
-later build and runtime slices; this branch has not emitted their canonical
-artefacts and makes no `A-LIC-*`, `A-PATCH-*` or `G3-A` PASS claim.
+The foundation through the governed CI bootstrap remains governance-only. The
+contracts above are requirements for later build and runtime slices; this
+branch has not emitted their canonical artefacts and makes no `A-LIC-*`,
+`A-PATCH-*` or `G3-A` PASS claim.
+
+## Repository governance trust boundary
+
+Pull-request inspection is designed to execute workflow, verifier and test
+bytes from the exact base commit through `pull_request_target`. The candidate
+merge tree is checked out separately, bound to the event base/head/merge SHAs
+and treated only as inspected data. Candidate Python is never imported or
+executed. A candidate change to the governance workflow, verifier or verifier
+test is rejected and requires a separate owner-controlled bootstrap.
+
+This private repository's current GitHub plan does not expose branch
+protection or rulesets. Consequently, the base-controlled PR path is a trusted
+inspection mechanism, while a `push` run is only a best-effort self-audit; the
+workflow is not yet an independently enforceable merge authority. Exact-tree
+review plus the owner's controlled merge process remain the present trust
+anchor. Before
+PMORG uses this repository as a release-control plane, it must have enforced
+PR-only writes, a required check bound to the current test-merge SHA, stale
+result invalidation and a separately trusted `merge_group` evaluator (through
+an eligible GitHub plan, organization policy or external GitHub App). The
+enforcement prerequisite is tracked in
+[PMORG-Platform issue #24](https://github.com/bmvv1995/PMORG-Platform/issues/24).
 
 See [the CE artifact qualification when `onyx_surface=ce`](pmorg/CE-BOUNDARY.md)
 and [the patch ledger](pmorg/PATCH-LEDGER.md).

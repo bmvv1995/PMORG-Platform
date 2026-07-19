@@ -4,7 +4,80 @@
   "ownership_roots_ref": "pmorg/policies/ownership-roots.json",
   "seam_allowlist_ref": "pmorg/policies/seam-allowlist.json",
   "upstream_patch_record_schema_version": "pmorg.platform.upstream-patch-record/v2",
-  "upstream_patch_records": [],
+  "upstream_patch_records": [
+    {
+      "id": "UP-CI-ZIZMOR-001",
+      "path": ".github/workflows/zizmor.yml",
+      "seam_id": "SEAM-CI-ZIZMOR-001",
+      "classification": "integration",
+      "base_blob_hash": "sha256:31139948720c26e1056a46d4e44208b3fccc317a56fd283d17f32e3c75b4cf4f",
+      "patched_blob_hash": "sha256:53c56f34546a7672bf87d2beda1e1c1dd04ddefd86e8f7a71c1df6061bfe88be",
+      "base_git_mode": "100644",
+      "patched_git_mode": "100644",
+      "upstream_source_ref": {
+        "repository": "https://github.com/onyx-dot-app/onyx.git",
+        "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+        "path": ".github/workflows/zizmor.yml",
+        "tree_hash": "sha256:02e6dad604bbcbe22d83605a6262b37ebbb4b75d0d4c4aaf01cb79215f279e8f"
+      },
+      "reason": "Keep Zizmor scanning fail-closed while making SARIF publication an explicit private-repository opt-in.",
+      "owner": "pmorg-platform",
+      "upstream_issue_url": null,
+      "upstream_pr_url": null,
+      "requirement_refs": [
+        "PLT-004"
+      ],
+      "capability_refs": [],
+      "ownership_class": "upstream_ce_direct_patch",
+      "license_class": "mit-expat",
+      "onyx_surfaces": [
+        "ce",
+        "ee"
+      ],
+      "protector_tests": [
+        "pmorg/tests/test_zizmor_ci_seam_protector.py::TestZizmorPrivateRepositorySeam.test_sarif_upload_is_explicitly_opt_in"
+      ],
+      "last_revalidated_at": "2026-07-19T20:09:01Z",
+      "conflict_notes": "No conflict observed against pinned Onyx v4.3.9.",
+      "removal_condition": null
+    },
+    {
+      "id": "UP-CI-HELM-001",
+      "path": ".github/workflows/pr-helm-chart-testing.yml",
+      "seam_id": "SEAM-CI-HELM-001",
+      "classification": "integration",
+      "base_blob_hash": "sha256:87a0633aa12ab01d820daf7c40636071fbadd724b960d735f4382066ad4b38a5",
+      "patched_blob_hash": "sha256:08a7ecc5d55a97ef1ec895ad3fa0862b0e0fb79cb6cbe62ca40808a7e1722070",
+      "base_git_mode": "100644",
+      "patched_git_mode": "100644",
+      "upstream_source_ref": {
+        "repository": "https://github.com/onyx-dot-app/onyx.git",
+        "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+        "path": ".github/workflows/pr-helm-chart-testing.yml",
+        "tree_hash": "sha256:02e6dad604bbcbe22d83605a6262b37ebbb4b75d0d4c4aaf01cb79215f279e8f"
+      },
+      "reason": "Detect Helm relevance on GitHub-hosted capacity and request RunsOn only for applicable same-repository validation while preserving a fail-closed required gate.",
+      "owner": "pmorg-platform",
+      "upstream_issue_url": null,
+      "upstream_pr_url": null,
+      "requirement_refs": [
+        "PLT-004"
+      ],
+      "capability_refs": [],
+      "ownership_class": "upstream_ce_direct_patch",
+      "license_class": "mit-expat",
+      "onyx_surfaces": [
+        "ce",
+        "ee"
+      ],
+      "protector_tests": [
+        "pmorg/tests/test_helm_ci_seam_protector.py::TestHelmRunnerAdmissionSeam.test_non_helm_change_does_not_require_runs_on"
+      ],
+      "last_revalidated_at": "2026-07-19T20:09:01Z",
+      "conflict_notes": "No conflict observed against pinned Onyx v4.3.9.",
+      "removal_condition": null
+    }
+  ],
   "entries": [
     {
       "id": "PL-000",
@@ -30,7 +103,7 @@
         "PLT-007",
         "PLT-008"
       ],
-      "reason": "Pin upstream and reviewed RB-1/C2 inputs, define the independent Onyx surface/usage-mode axes, and enforce versioned ownership, default-deny governed seam admission and single-owner fork governance without claiming G3-A qualification.",
+      "reason": "Pin upstream and reviewed RB-1/C2 inputs, define the independent Onyx surface/usage-mode axes, and provide trusted-base inspection for versioned ownership, default-deny governed seam admission and single-owner fork governance without claiming platform-enforced merge control or G3-A qualification.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py",
         "python3 -m unittest pmorg.tests.test_verify_fork -v"
@@ -117,12 +190,42 @@
         "PLT-007",
         "PLT-008"
       ],
-      "reason": "Pre-authorize two exact inherited CI seams and byte-bind their reviewed golden workflow fixtures with dormant red-before-patch protectors before any executable workflow bytes are changed.",
+      "reason": "Pre-authorize two exact inherited CI seams and byte-bind their reviewed golden workflow fixtures and protectors before executable workflow admission.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py",
         "python3 -m unittest pmorg.tests.test_verify_fork -v",
-        "python3 -m unittest pmorg.tests.test_helm_ci_seam_protector -v  # expected to fail before the authorized workflow patch",
-        "python3 -m unittest pmorg.tests.test_zizmor_ci_seam_protector -v  # expected to fail before the authorized workflow patch"
+        "python3 -m unittest pmorg.tests.test_helm_ci_seam_protector -v",
+        "python3 -m unittest pmorg.tests.test_zizmor_ci_seam_protector -v"
+      ]
+    },
+    {
+      "id": "PL-005",
+      "classification": "integration",
+      "paths": [
+        ".github/workflows/zizmor.yml"
+      ],
+      "requirements": [
+        "PLT-004"
+      ],
+      "reason": "Own the exact pre-authorized Zizmor private-repository CI integration seam.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=4461d655aec931a31d274ce0ab4231f77209fa55 python3 -B pmorg/scripts/verify_fork.py",
+        "python3 -B -m unittest pmorg.tests.test_zizmor_ci_seam_protector -v"
+      ]
+    },
+    {
+      "id": "PL-006",
+      "classification": "integration",
+      "paths": [
+        ".github/workflows/pr-helm-chart-testing.yml"
+      ],
+      "requirements": [
+        "PLT-004"
+      ],
+      "reason": "Own the exact pre-authorized Helm runner-admission CI integration seam.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=4461d655aec931a31d274ce0ab4231f77209fa55 python3 -B pmorg/scripts/verify_fork.py",
+        "python3 -B -m unittest pmorg.tests.test_helm_ci_seam_protector -v"
       ]
     }
   ],

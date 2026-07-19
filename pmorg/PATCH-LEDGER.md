@@ -11,7 +11,9 @@ The machine-readable source is
 | `PL-001` | Codex project agents | PMORG-owned | none | define least-privilege roles for mapping, architecture review, tests and bounded implementation | TOML parse and fork consistency check |
 | `PL-002` | V3 delivery plan | PMORG-owned | none | record the migration sequence and verification strategy before product implementation | fork consistency check |
 | `PL-003` | governed integration admission decision | PMORG-owned | none | record the decision to replace the Slice 0 hard freeze with versioned, default-deny admission prerequisites without authorizing a seam; `PL-000` owns the policy, verifier and tests | fork policy and negative tests |
-| `PL-004` | CI seam authorizations | PMORG-owned | none | pre-authorize exact Zizmor and Helm workflow seams with byte-bound golden targets and dormant red-before-patch protectors | fork consistency check and protector red-state proof |
+| `PL-004` | CI seam authorizations | PMORG-owned | none | pre-authorize exact Zizmor and Helm workflow seams with byte-bound golden targets and protectors | fork consistency, fixture binding and protector lifecycle proof |
+| `PL-005` | Zizmor private-repository seam | integration | `.github/workflows/zizmor.yml` | preserve fail-closed scanning while making SARIF publication an explicit private-repository opt-in | exact protector selector and fork consistency check |
+| `PL-006` | Helm runner-admission seam | integration | `.github/workflows/pr-helm-chart-testing.yml` | detect relevance on GitHub-hosted capacity and request RunsOn only for applicable validation behind a fail-closed terminal gate | exact protector selector and fork consistency check |
 
 ## Classifications
 
@@ -31,9 +33,11 @@ Protector tests for a future upstream seam are authorization locks, not global
 pre-patch regression tests. They land on protected `main` before the seam and
 must fail against the unmodified upstream bytes. The global governance suite
 runs only `pmorg.tests.test_verify_fork`; once a concrete seam is admitted, the
-verifier executes each byte-bound protector selector exactly once against the
-patched tree. This red-before-patch lifecycle prevents a prospective test from
-silently authorizing bytes it cannot distinguish.
+verifier loads each byte-bound protector selector only from the trusted base
+and executes it exactly once against candidate data. Candidate test modules
+are parsed and hash-checked but never imported. This red-before-patch lifecycle
+prevents a prospective test from silently authorizing bytes it cannot
+distinguish or from becoming executable input to a privileged PR inspection.
 
 ## Thin-fork ownership boundary
 
@@ -90,18 +94,18 @@ only PMORG-owned paths. Any candidate, record, report or source scope from a
 different spec/platform/Onyx commit, artifact set, surface or mode is invalid.
 
 Slice 0 was merged with zero upstream modifications. The first successor
-governance slice keeps the concrete seam allowlist and upstream patch-record
-set empty while activating a versioned, default-deny admission validator. A
-future upstream path must have exactly one explicit seam, one exact v2 record,
-a safe existing accepted ADR, safe existing protector-test references, matching
+governance slice activated the versioned, default-deny admission validator
+while keeping its concrete seam and record sets empty. A later protected base
+then landed ADR-0002/ADR-0003, immutable protector bytes and byte-exact golden
+targets before this atomic bootstrap admitted exactly two CI seams and their
+v2 records. Any additional upstream path still requires its own explicit seam,
+exact record, safe pre-existing accepted ADR and protector references, matching
 base/patched bytes and modes and valid ownership/license/surface disposition.
-The authorization must already exist on the exact protected PR base; the
-concrete seam and patch cannot be introduced together. PMORG-prefixed
-directories remain forbidden below upstream-owned roots.
+PMORG-prefixed directories remain forbidden below upstream-owned roots.
 
-This mechanism does not itself authorize a seam and has not emitted a
-`patch-ledger-report`, capability/provenance bundle or `A-PATCH-*`/`G3-A` PASS
-verdict. The baseline remains `not_yet_qualified`.
+These CI admissions do not emit a `patch-ledger-report`,
+capability/provenance bundle or `A-PATCH-*`/`G3-A` PASS verdict. The product
+baseline remains `not_yet_qualified`.
 
 Run the consistency check with:
 
@@ -117,19 +121,31 @@ PMORG_PROTECTED_BASE_SHA=<exact-protected-base-commit> \
   python3 pmorg/scripts/verify_fork.py
 ```
 
-The exact PMORG-owned path `.github/workflows/pmorg-governance.yml` is reserved
-for the gate that will supply this value from the GitHub pull-request or
-merge-queue event, check full Git history, run the verifier and then run only
-`pmorg.tests.test_verify_fork`. Active byte-bound protectors are executed by
-the verifier itself; prospective red-before-patch protectors must not be swept
-into global discovery before their seam is active. The workflow is deliberately
-not installed by this mechanism-only change. Its later CI-bootstrap change must
-be separately reviewed and admitted without claiming a check that never ran.
-A locally supplied value is diagnostic only and is not merge evidence. The
-future gate rejects a new seam when unrelated feature commits sit between its
-stored protected base and its introduction; this keeps the post-merge Git proof
-valid for squash, rebase or merge-commit strategies.
+The exact PMORG-owned path `.github/workflows/pmorg-governance.yml` obtains this
+value from a `pull_request_target` event. It runs from the exact base checkout,
+binds a separate candidate checkout to the event base/head/test-merge SHAs and
+invokes the trusted verifier against that candidate without executing
+candidate Python. Trusted unit tests run only from the base checkout. Active
+byte-bound protectors are loaded from that same trusted base; prospective
+red-before-patch protectors are not swept into global discovery before their
+seam is active. A locally supplied value remains diagnostic only and is not
+merge evidence. The inspection rejects a new seam when unrelated feature
+commits sit between its stored base and its introduction; this keeps the
+post-merge Git proof valid for squash, rebase or merge-commit strategies.
+
+The current private-repository GitHub plan provides neither branch protection
+nor rulesets, so this workflow cannot itself prevent a direct push or an owner
+override and its `push` event is only a best-effort self-audit using the
+just-pushed bytes. Until enforced PR-only writes and an independently required
+check are available, exact-tree review
+and the controlled owner merge remain the operational trust anchor. The
+repository must not present the check as an enforced release gate. Likewise,
+`merge_group` admission is deliberately deferred until a ruleset, organization
+required workflow or external GitHub App can protect the evaluator source and
+bind its result to the actual merge-group tree. This platform prerequisite is
+tracked in [issue #24](https://github.com/bmvv1995/PMORG-Platform/issues/24).
 
 On `origin/main`, the verifier instead proves each immutable seam's first
 introduction parent from Git history. The concrete allowlist and upstream
-patch-record set are empty in this slice, so no authorization is implied.
+patch-record set contain only the two CI seams documented above; they imply no
+authorization for product or additional upstream paths.
