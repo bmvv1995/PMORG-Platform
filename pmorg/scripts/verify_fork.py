@@ -17,8 +17,15 @@ class UpstreamManifest(TypedDict):
     checkout_remote: str
 
 
+class SpecificationManifest(TypedDict):
+    repository: str
+    baseline: str
+    commit: str
+
+
 class BaselineManifest(TypedDict):
     upstream: UpstreamManifest
+    specification: SpecificationManifest
 
 
 class PatchEntry(TypedDict):
@@ -29,6 +36,7 @@ class PatchEntry(TypedDict):
 
 class PatchLedger(TypedDict):
     upstream_commit: str
+    specification_commit: str
     entries: list[PatchEntry]
 
 
@@ -60,6 +68,8 @@ def load_manifest(repository_root: Path) -> BaselineManifest:
     value = read_json(repository_root / "pmorg" / "baseline-manifest.json")
     if not isinstance(value, dict) or not isinstance(value.get("upstream"), dict):
         raise ValueError("baseline manifest has no upstream object")
+    if not isinstance(value.get("specification"), dict):
+        raise ValueError("baseline manifest has no specification object")
     return cast(BaselineManifest, value)
 
 
@@ -70,19 +80,36 @@ def load_patch_ledger(repository_root: Path) -> PatchLedger:
     return cast(PatchLedger, value)
 
 
+def path_matches_pattern(path: str, pattern: str) -> bool:
+    """Match ledger globs while treating brackets as literal path characters."""
+
+    literal_bracket_pattern = pattern.replace("[", "[[]")
+    return fnmatch.fnmatchcase(path, literal_bracket_pattern)
+
+
+def find_path_owners(
+    changed_paths: list[str], patch_entries: list[PatchEntry]
+) -> dict[str, list[str]]:
+    return {
+        changed_path: [
+            patch_entry["id"]
+            for patch_entry in patch_entries
+            if any(
+                path_matches_pattern(changed_path, pattern)
+                for pattern in patch_entry["paths"]
+            )
+        ]
+        for changed_path in changed_paths
+    }
+
+
 def find_uncovered_paths(
     changed_paths: list[str], patch_entries: list[PatchEntry]
 ) -> list[str]:
-    declared_patterns = [
-        pattern for patch_entry in patch_entries for pattern in patch_entry["paths"]
-    ]
     return [
-        changed_path
-        for changed_path in changed_paths
-        if not any(
-            fnmatch.fnmatchcase(changed_path, pattern)
-            for pattern in declared_patterns
-        )
+        path
+        for path, owners in find_path_owners(changed_paths, patch_entries).items()
+        if not owners
     ]
 
 
@@ -91,6 +118,7 @@ def verify(repository_root: Path) -> list[str]:
     manifest = load_manifest(repository_root)
     patch_ledger = load_patch_ledger(repository_root)
     upstream = manifest["upstream"]
+    specification = manifest["specification"]
 
     working_tree_status = run_git(repository_root, "status", "--porcelain")
     if working_tree_status:
@@ -112,6 +140,20 @@ def verify(repository_root: Path) -> list[str]:
 
     if patch_ledger["upstream_commit"] != upstream["commit"]:
         errors.append("patch ledger and baseline manifest disagree on upstream commit")
+
+    if specification["repository"] != "https://github.com/bmvv1995/PMORG.git":
+        errors.append("unexpected PMORG specification repository")
+    if specification["baseline"] != "RB-1/C2":
+        errors.append("baseline manifest is not pinned to RB-1/C2")
+    if (
+        len(specification["commit"]) != 40
+        or any(character not in "0123456789abcdef" for character in specification["commit"])
+    ):
+        errors.append("specification commit is not a lowercase full SHA")
+    if patch_ledger["specification_commit"] != specification["commit"]:
+        errors.append(
+            "patch ledger and baseline manifest disagree on specification commit"
+        )
 
     ancestor_check = subprocess.run(
         ["git", "merge-base", "--is-ancestor", upstream["commit"], "HEAD"],
@@ -156,6 +198,20 @@ def verify(repository_root: Path) -> list[str]:
     uncovered_paths = find_uncovered_paths(changed_paths, patch_ledger["entries"])
     if uncovered_paths:
         errors.append("uncovered fork paths: " + ", ".join(uncovered_paths))
+
+    multiply_owned_paths = {
+        path: owners
+        for path, owners in find_path_owners(
+            changed_paths, patch_ledger["entries"]
+        ).items()
+        if len(owners) > 1
+    }
+    if multiply_owned_paths:
+        rendered_paths = "; ".join(
+            f"{path} ({', '.join(owners)})"
+            for path, owners in sorted(multiply_owned_paths.items())
+        )
+        errors.append("multiply-owned fork paths: " + rendered_paths)
 
     return errors
 
