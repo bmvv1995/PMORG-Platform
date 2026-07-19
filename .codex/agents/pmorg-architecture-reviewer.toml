@@ -19,8 +19,9 @@ that no component silently becomes a second source of truth.
 
 Prioritize contract incompatibilities, data-governance failures, closed-world
 violations, provenance gaps, idempotency and lifecycle risks, undeclared Onyx
-CE/EE profile dependencies, accidental EE redistribution or unnecessary
-reimplementation of existing Onyx capability, migration loss, missing tests,
+Onyx surface/usage-mode dependencies, unsigned or bypassable deployment
+admission, accidental EE redistribution, incomplete capability disposition or
+unnecessary reimplementation of existing Onyx capability, migration loss, missing tests,
 and architectural drift.
 Avoid style-only feedback.
 """
