@@ -1,15 +1,20 @@
 from __future__ import annotations
 
 import copy
+import hashlib
+import json
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 SCRIPT_DIRECTORY = Path(__file__).resolve().parents[1] / "scripts"
 sys.path.insert(0, str(SCRIPT_DIRECTORY))
 
+from verify_fork import changed_paths_from_revision  # noqa: E402
 from verify_fork import COMMON_QUALIFICATION_REF_KEYS  # noqa: E402
 from verify_fork import find_path_owners  # noqa: E402
 from verify_fork import load_manifest  # noqa: E402
@@ -27,9 +32,57 @@ from verify_fork import validate_seam_allowlist  # noqa: E402
 from verify_fork import validate_specification_references  # noqa: E402
 from verify_fork import validate_surface_mode  # noqa: E402
 from verify_fork import validate_thin_fork_diff  # noqa: E402
+from verify_fork import validate_upstream_patch_record  # noqa: E402
 
 
 class ForkLedgerTest(unittest.TestCase):
+    def test_rename_is_enumerated_as_deletion_and_addition(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            subprocess.run(["git", "init", "-q"], cwd=repository_root, check=True)
+            subprocess.run(
+                ["git", "config", "user.email", "test@pmorg.invalid"],
+                cwd=repository_root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "PMORG Test"],
+                cwd=repository_root,
+                check=True,
+            )
+            old_path = repository_root / "backend/onyx/old.py"
+            new_path = repository_root / "backend/onyx/new.py"
+            old_path.parent.mkdir(parents=True)
+            old_path.write_text("VALUE = 1\n", encoding="utf-8")
+            subprocess.run(["git", "add", "."], cwd=repository_root, check=True)
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "upstream"],
+                cwd=repository_root,
+                check=True,
+            )
+            upstream_commit = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=repository_root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            subprocess.run(
+                ["git", "mv", str(old_path), str(new_path)],
+                cwd=repository_root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "rename"],
+                cwd=repository_root,
+                check=True,
+            )
+
+            self.assertEqual(
+                changed_paths_from_revision(repository_root, upstream_commit),
+                ["backend/onyx/new.py", "backend/onyx/old.py"],
+            )
+
     def test_dynamic_route_brackets_are_literal(self) -> None:
         route = "web/src/app/admin/bots/[bot-id]/channels/[id]/page.tsx"
         entries: list[PatchEntry] = [
@@ -457,17 +510,35 @@ class ThinForkPolicyTest(unittest.TestCase):
         self.ledger = load_patch_ledger(self.repository_root)
         self.ownership_policy = load_ownership_roots(self.repository_root, self.ledger)
         self.seam_policy = load_seam_allowlist(self.repository_root, self.ledger)
+        self.adr_ref = "pmorg/adr/ADR-TEST-seam-authorization.json"
+        self.protector_ref = (
+            "pmorg/tests/test_seam_protector.py::TestProtector.test_exact_seam"
+        )
         self.test_seam_policy = copy.deepcopy(self.seam_policy)
         self.test_seam_policy["seams"] = [
             {
                 "seam_id": "SEAM-TEST",
                 "path_pattern": "backend/onyx/example.py",
-                "authorization_adr_ref": "ADR-TEST",
+                "authorization_adr_ref": self.adr_ref,
+                "authorization_commit": "a" * 40,
+                "authorization_base_commit": "a" * 40,
+                "authorization_blob_hash": "sha256:" + "b" * 64,
                 "allowed_classifications": ["integration"],
-                "required_protector_tests": ["test-seam"],
+                "required_protector_tests": [self.protector_ref],
                 "reason": "Bounded test seam.",
             }
         ]
+        self.integration_entries = copy.deepcopy(self.ledger["entries"])
+        self.integration_entries.append(
+            {
+                "id": "PL-TEST-INTEGRATION",
+                "classification": "integration",
+                "paths": ["backend/onyx/example.py"],
+                "requirements": ["PLT-004"],
+                "reason": "Own the simulated exact integration seam.",
+                "verification": [self.protector_ref],
+            }
+        )
         self.valid_upstream_record = {
             "id": "UP-TEST",
             "path": "backend/onyx/example.py",
@@ -475,6 +546,8 @@ class ThinForkPolicyTest(unittest.TestCase):
             "classification": "integration",
             "base_blob_hash": "sha256:" + "1" * 64,
             "patched_blob_hash": "sha256:" + "2" * 64,
+            "base_git_mode": "100644",
+            "patched_git_mode": "100644",
             "upstream_source_ref": {
                 "repository": "https://github.com/onyx-dot-app/onyx.git",
                 "commit": self.ledger["upstream_commit"],
@@ -490,36 +563,207 @@ class ThinForkPolicyTest(unittest.TestCase):
             "ownership_class": "upstream_ce_direct_patch",
             "license_class": "mit-expat",
             "onyx_surfaces": ["ce", "ee"],
-            "protector_tests": ["test-seam"],
+            "protector_tests": [self.protector_ref],
             "last_revalidated_at": "2026-07-19T00:00:00Z",
             "conflict_notes": "none observed",
             "removal_condition": None,
         }
 
+    def prepare_authorization_repository(
+        self,
+        repository_root: Path,
+        policy: dict[str, object],
+        *,
+        protector_source: str | None = None,
+        write_protector: bool = True,
+        delete_and_restore_evidence_on_seam_change: bool = False,
+        add_intermediate_commit: bool = False,
+        authorization_overrides: dict[str, object] | None = None,
+    ) -> str:
+        seam = policy["seams"][0]
+        protector_path_text, _, _ = self.protector_ref.partition("::")
+        protector_path = repository_root / protector_path_text
+        protector_source = protector_source or (
+            "import unittest\n\n"
+            "class TestProtector(unittest.TestCase):\n"
+            "    def test_exact_seam(self) -> None:\n"
+            "        pass\n"
+        )
+        if write_protector:
+            protector_path.parent.mkdir(parents=True, exist_ok=True)
+            protector_path.write_text(protector_source, encoding="utf-8")
+            protector_bytes = protector_path.read_bytes()
+        else:
+            protector_bytes = b"missing-protector"
+
+        authorization = {
+            "schema_version": "pmorg.platform.seam-authorization/v1",
+            "decision_id": "ADR-TEST",
+            "status": "accepted",
+            "specification_commit": self.ledger["specification_commit"],
+            "seam_id": seam["seam_id"],
+            "path": seam["path_pattern"],
+            "allowed_classifications": seam["allowed_classifications"],
+            "required_protector_tests": seam["required_protector_tests"],
+            "protector_test_hashes": {
+                self.protector_ref: "sha256:"
+                + hashlib.sha256(protector_bytes).hexdigest()
+            },
+            "authorized_at": "2026-07-19T10:00:00Z",
+            "rationale": "Authorize the exact simulated seam for verifier tests.",
+        }
+        if authorization_overrides:
+            authorization.update(authorization_overrides)
+        authorization_path = repository_root / self.adr_ref
+        authorization_path.parent.mkdir(parents=True, exist_ok=True)
+        authorization_path.write_text(
+            json.dumps(authorization, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+
+        subprocess.run(["git", "init", "-q"], cwd=repository_root, check=True)
+        subprocess.run(
+            ["git", "config", "user.email", "test@example.invalid"],
+            cwd=repository_root,
+            check=True,
+        )
+        subprocess.run(
+            ["git", "config", "user.name", "PMORG Test"],
+            cwd=repository_root,
+            check=True,
+        )
+        subprocess.run(["git", "add", "."], cwd=repository_root, check=True)
+        subprocess.run(
+            ["git", "commit", "-q", "-m", "authorize seam"],
+            cwd=repository_root,
+            check=True,
+        )
+        authorization_commit = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=repository_root,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+        seam["authorization_commit"] = authorization_commit
+        protected_base = authorization_commit
+        authorization_bytes = authorization_path.read_bytes()
+        if delete_and_restore_evidence_on_seam_change:
+            if not write_protector:
+                self.fail("delete/restore fixture requires an existing protector")
+            authorization_path.unlink()
+            protector_path.unlink()
+            subprocess.run(["git", "add", "-u"], cwd=repository_root, check=True)
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "remove authorization evidence"],
+                cwd=repository_root,
+                check=True,
+            )
+            protected_base = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=repository_root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            authorization_path.write_bytes(authorization_bytes)
+            protector_path.write_bytes(protector_bytes)
+            subprocess.run(
+                ["git", "add", str(authorization_path), str(protector_path)],
+                cwd=repository_root,
+                check=True,
+            )
+        if add_intermediate_commit:
+            intermediate = repository_root / "intermediate.txt"
+            intermediate.write_text("must not precede seam commit\n", encoding="utf-8")
+            subprocess.run(
+                ["git", "add", str(intermediate)], cwd=repository_root, check=True
+            )
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "intermediate change"],
+                cwd=repository_root,
+                check=True,
+            )
+        seam["authorization_base_commit"] = protected_base
+        seam["authorization_blob_hash"] = (
+            "sha256:" + hashlib.sha256(authorization_bytes).hexdigest()
+        )
+
+        policy_path = repository_root / "pmorg/policies/seam-allowlist.json"
+        policy_path.parent.mkdir(parents=True, exist_ok=True)
+        policy_path.write_text(
+            json.dumps(policy, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        marker = repository_root / "seam-change-marker.txt"
+        marker.write_text("simulated later seam change\n", encoding="utf-8")
+        subprocess.run(
+            ["git", "add", str(marker), str(policy_path)],
+            cwd=repository_root,
+            check=True,
+        )
+        subprocess.run(
+            ["git", "commit", "-q", "-m", "apply seam"],
+            cwd=repository_root,
+            check=True,
+        )
+        return protected_base
+
     def test_current_policy_documents_are_valid_and_default_deny(self) -> None:
         self.assertEqual(validate_patch_ledger_contract(self.ledger), [])
         self.assertEqual(validate_ownership_roots(self.ownership_policy), [])
-        self.assertEqual(validate_seam_allowlist(self.seam_policy), [])
+        self.assertEqual(
+            validate_seam_allowlist(
+                self.seam_policy, self.repository_root, self.ownership_policy
+            ),
+            [],
+        )
         self.assertEqual(self.ownership_policy["default_ownership"], "upstream_owned")
         self.assertEqual(self.seam_policy["default_decision"], "deny")
+        self.assertEqual(self.seam_policy["seams"], [])
+        self.assertEqual(self.ledger["upstream_patch_records"], [])
 
-    def test_slice_zero_upstream_forbid_invariant_cannot_be_flipped(self) -> None:
+    def test_governed_admission_invariant_cannot_be_flipped(self) -> None:
         policy = copy.deepcopy(self.seam_policy)
-        policy["invariants"]["slice_zero_upstream_changes_forbidden"] = False
+        policy["invariants"]["governed_integration_admission_required"] = False
 
         self.assertIn(
             "seam allowlist invariants are incomplete",
             validate_seam_allowlist(policy),
         )
 
+    def test_policy_documents_reject_unknown_top_level_fields(self) -> None:
+        ownership_policy = copy.deepcopy(self.ownership_policy)
+        ownership_policy["bypass"] = True
+        self.assertIn(
+            "ownership roots policy has incomplete or unknown fields",
+            validate_ownership_roots(ownership_policy),
+        )
+
+        seam_policy = copy.deepcopy(self.seam_policy)
+        seam_policy["bypass"] = True
+        self.assertIn(
+            "seam allowlist has incomplete or unknown fields",
+            validate_seam_allowlist(seam_policy),
+        )
+
+        ledger = copy.deepcopy(self.ledger)
+        ledger["bypass"] = True
+        self.assertIn(
+            "patch ledger has incomplete or unknown top-level fields",
+            validate_patch_ledger_contract(ledger),
+        )
+
     def test_current_pmorg_owned_paths_are_exactly_ledger_covered(self) -> None:
         paths = [
             "PMORG.md",
+            ".github/workflows/pmorg-governance.yml",
             ".codex/agents/pmorg-implementer.toml",
             "plans/pmorg-v3-foundation.md",
             "pmorg/baseline-manifest.json",
             "pmorg/policies/ownership-roots.json",
             "pmorg/policies/seam-allowlist.json",
+            "pmorg/adr/ADR-0001-governed-integration-admission.md",
             "pmorg/scripts/verify_fork.py",
             "pmorg/tests/test_verify_fork.py",
         ]
@@ -560,8 +804,31 @@ class ThinForkPolicyTest(unittest.TestCase):
         )
 
         self.assertIn(
-            "ownership root set must remain the exact reviewed Slice 0 boundary",
+            "ownership root set must remain the exact reviewed governed boundary",
             validate_ownership_roots(policy),
+        )
+
+    def test_bounded_product_roots_require_a_ledger_owner(self) -> None:
+        entries = copy.deepcopy(self.ledger["entries"])
+        entries.append(
+            {
+                "id": "PL-TEST-DOMAIN",
+                "classification": "PMORG-owned",
+                "paths": ["backend/pmorg/domain.py", "web/src/pmorg/view.tsx"],
+                "requirements": ["PLT-004"],
+                "reason": "Own simulated bounded PMORG product paths.",
+                "verification": [self.protector_ref],
+            }
+        )
+        self.assertEqual(
+            validate_thin_fork_diff(
+                ["backend/pmorg/domain.py", "web/src/pmorg/view.tsx"],
+                entries,
+                [],
+                self.ownership_policy,
+                self.seam_policy,
+            ),
+            [],
         )
 
     def test_pmorg_owned_path_requires_pmorg_owned_ledger_classification(self) -> None:
@@ -592,32 +859,59 @@ class ThinForkPolicyTest(unittest.TestCase):
         self.assertEqual(
             errors,
             [
-                "Slice 0 forbids upstream-owned changes until canonical boundary "
-                "evidence admission exists: backend/onyx/example.py",
+                "uncovered upstream-owned fork path: backend/onyx/example.py",
                 "upstream-owned path requires exactly one allowlisted seam: backend/onyx/example.py",
             ],
         )
 
-    def test_structurally_complete_upstream_record_is_still_denied_in_slice_zero(
-        self,
-    ) -> None:
-        self.assertIn(
-            "Slice 0 seam allowlist must remain empty",
-            validate_seam_allowlist(self.test_seam_policy),
-        )
+    def test_governed_allowlisted_change_with_exact_record_is_accepted(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            protected_base = self.prepare_authorization_repository(
+                repository_root, policy
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                self.assertEqual(
+                    validate_seam_allowlist(
+                        policy,
+                        repository_root,
+                        self.ownership_policy,
+                    ),
+                    [],
+                )
         self.assertEqual(
             validate_thin_fork_diff(
                 ["backend/onyx/example.py"],
-                self.ledger["entries"],
+                self.integration_entries,
                 [self.valid_upstream_record],
                 self.ownership_policy,
                 self.test_seam_policy,
                 upstream_commit=self.ledger["upstream_commit"],
             ),
-            [
-                "Slice 0 forbids upstream-owned changes until canonical boundary "
-                "evidence admission exists: backend/onyx/example.py"
-            ],
+            [],
+        )
+
+    def test_legacy_slice_zero_policy_cannot_admit_a_patch(self) -> None:
+        policy = copy.deepcopy(self.test_seam_policy)
+        policy["schema_version"] = "pmorg.platform.seam-allowlist/v1"
+        policy.pop("admission_mode")
+
+        self.assertIn(
+            "upstream-owned changes require governed integration admission: "
+            "backend/onyx/example.py",
+            validate_thin_fork_diff(
+                ["backend/onyx/example.py"],
+                self.integration_entries,
+                [self.valid_upstream_record],
+                self.ownership_policy,
+                policy,
+                upstream_commit=self.ledger["upstream_commit"],
+            ),
         )
 
     def test_allowlisted_upstream_change_without_record_is_denied(self) -> None:
@@ -626,10 +920,681 @@ class ThinForkPolicyTest(unittest.TestCase):
             "backend/onyx/example.py",
             validate_thin_fork_diff(
                 ["backend/onyx/example.py"],
-                self.ledger["entries"],
+                self.integration_entries,
                 [],
                 self.ownership_policy,
                 self.test_seam_policy,
+            ),
+        )
+
+    def test_seam_requires_safe_existing_accepted_adr(self) -> None:
+        policy = copy.deepcopy(self.test_seam_policy)
+        policy["seams"][0]["authorization_adr_ref"] = "pmorg/adr/missing.json"
+        errors = validate_seam_allowlist(
+            policy, self.repository_root, self.ownership_policy
+        )
+        self.assertIn("seam[0] authorization ADR does not exist", errors)
+
+        policy["seams"][0]["authorization_adr_ref"] = "pmorg/PATCH-LEDGER.md"
+        errors = validate_seam_allowlist(
+            policy, self.repository_root, self.ownership_policy
+        )
+        self.assertIn("seam[0] authorization ADR must live under pmorg/adr", errors)
+        self.assertIn("seam[0] authorization ADR must be machine-readable JSON", errors)
+        self.assertIn("seam[0] authorization ADR is not a valid JSON object", errors)
+
+    def test_seam_requires_safe_existing_protector_test(self) -> None:
+        policy = copy.deepcopy(self.test_seam_policy)
+        policy["seams"][0]["required_protector_tests"] = [
+            "pmorg/tests/test_missing.py::MissingTest.test_missing"
+        ]
+        self.protector_ref = policy["seams"][0]["required_protector_tests"][0]
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            protected_base = self.prepare_authorization_repository(
+                repository_root, policy, write_protector=False
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+        self.assertIn("seam[0] protector test file does not exist", errors)
+        self.assertIn(
+            "seam[0] protector test was absent at authorization_commit", errors
+        )
+
+    def test_seam_path_must_be_exact(self) -> None:
+        policy = copy.deepcopy(self.test_seam_policy)
+        policy["seams"][0]["path_pattern"] = "backend/onyx/**"
+        self.assertIn(
+            "seam[0] path_pattern must be a safe exact path",
+            validate_seam_allowlist(policy),
+        )
+
+    def test_generic_transition_adr_cannot_authorize_a_concrete_seam(self) -> None:
+        policy = copy.deepcopy(self.test_seam_policy)
+        policy["seams"][0]["authorization_adr_ref"] = (
+            "pmorg/adr/ADR-0001-governed-integration-admission.md"
+        )
+
+        errors = validate_seam_allowlist(
+            policy, self.repository_root, self.ownership_policy
+        )
+
+        self.assertIn("seam[0] authorization ADR must be machine-readable JSON", errors)
+
+    def test_authorization_binds_exact_seam_and_valid_timestamp(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            protected_base = self.prepare_authorization_repository(
+                repository_root,
+                policy,
+                authorization_overrides={
+                    "path": "backend/onyx/another.py",
+                    "authorized_at": "2026-02-30T10:00:00Z",
+                },
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+        self.assertIn("seam[0] authorization ADR binds another path", errors)
+        self.assertIn("seam[0] authorization ADR authorized_at is not UTC", errors)
+
+    def test_authorization_and_protector_bytes_are_immutable(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            protected_base = self.prepare_authorization_repository(
+                repository_root, policy
+            )
+            (repository_root / self.adr_ref).write_text("{}\n", encoding="utf-8")
+            protector_path_text, _, _ = self.protector_ref.partition("::")
+            (repository_root / protector_path_text).write_text(
+                "import unittest\n\n"
+                "class TestProtector(unittest.TestCase):\n"
+                "    def test_exact_seam(self) -> None:\n"
+                "        raise AssertionError\n",
+                encoding="utf-8",
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+        self.assertIn("seam[0] authorization ADR changed after authorization", errors)
+        self.assertIn("seam[0] protector test changed after authorization", errors)
+
+    def test_authorization_and_protector_git_modes_are_immutable(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            protected_base = self.prepare_authorization_repository(
+                repository_root, policy
+            )
+            protector_path_text, _, _ = self.protector_ref.partition("::")
+            authorization_path = repository_root / self.adr_ref
+            protector_path = repository_root / protector_path_text
+            authorization_path.chmod(0o755)
+            protector_path.chmod(0o755)
+            subprocess.run(
+                ["git", "add", str(authorization_path), str(protector_path)],
+                cwd=repository_root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "change evidence modes"],
+                cwd=repository_root,
+                check=True,
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+        self.assertIn("seam[0] authorization ADR Git mode or type changed", errors)
+        self.assertIn("seam[0] protector test Git mode or type changed", errors)
+
+    def test_authorization_evidence_must_exist_on_protected_seam_base(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            protected_base = self.prepare_authorization_repository(
+                repository_root,
+                policy,
+                delete_and_restore_evidence_on_seam_change=True,
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+        self.assertIn(
+            "seam[0] authorization ADR was not preserved on protected seam base",
+            errors,
+        )
+        self.assertIn(
+            "seam[0] protector test was not preserved on protected seam base",
+            errors,
+        )
+
+    def test_protector_selector_must_be_a_collectible_python_test(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            protected_base = self.prepare_authorization_repository(
+                repository_root,
+                policy,
+                protector_source=(
+                    "class TestProtector:\n"
+                    "    def test_exact_seam(self) -> None:\n"
+                    "        pass\n"
+                ),
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+        self.assertIn("seam[0] protector test node does not exist", errors)
+        self.assertIn(
+            "seam[0] protector test node was absent at authorization_commit", errors
+        )
+
+    def test_protector_must_be_inside_governance_discovery_set(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            self.protector_ref = (
+                "pmorg/adr/test_hidden_protector.py::TestProtector.test_exact_seam"
+            )
+            policy["seams"][0]["required_protector_tests"] = [self.protector_ref]
+            protected_base = self.prepare_authorization_repository(
+                repository_root, policy
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+        self.assertIn(
+            "seam[0] protector test is outside governance discovery set", errors
+        )
+
+    def test_skipped_protector_test_cannot_authorize_a_seam(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            protected_base = self.prepare_authorization_repository(
+                repository_root,
+                policy,
+                protector_source=(
+                    "import unittest\n\n"
+                    "class TestProtector(unittest.TestCase):\n"
+                    '    @unittest.skip("disabled")\n'
+                    "    def test_exact_seam(self) -> None:\n"
+                    "        pass\n"
+                ),
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+        self.assertIn("seam[0] protector test node does not exist", errors)
+        self.assertIn(
+            "seam[0] protector test node was absent at authorization_commit", errors
+        )
+
+    def test_class_level_skip_cannot_authorize_a_seam(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            protected_base = self.prepare_authorization_repository(
+                repository_root,
+                policy,
+                protector_source=(
+                    "import unittest\n\n"
+                    '@unittest.skip("disabled")\n'
+                    "class TestProtector(unittest.TestCase):\n"
+                    "    def test_exact_seam(self) -> None:\n"
+                    "        pass\n"
+                ),
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+        self.assertIn(
+            "seam[0] protector test did not execute exactly once without skips",
+            errors,
+        )
+
+    def test_new_seam_requires_trusted_base_and_survives_later_bases(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            authorization_base = self.prepare_authorization_repository(
+                repository_root, policy
+            )
+            seam_commit = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=repository_root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+
+            with mock.patch.dict(
+                os.environ, {"PMORG_PROTECTED_BASE_SHA": ""}, clear=False
+            ):
+                branch_errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+            future_marker = repository_root / "future-change.txt"
+            future_marker.write_text("later PR\n", encoding="utf-8")
+            subprocess.run(
+                ["git", "add", str(future_marker)], cwd=repository_root, check=True
+            )
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "later change"],
+                cwd=repository_root,
+                check=True,
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": seam_commit},
+                clear=False,
+            ):
+                later_errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+            mutated_policy = copy.deepcopy(policy)
+            mutated_policy["seams"][0]["reason"] = "Unreviewed mutation."
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": seam_commit},
+                clear=False,
+            ):
+                mutation_errors = validate_seam_allowlist(
+                    mutated_policy, repository_root, self.ownership_policy
+                )
+
+        self.assertEqual(
+            policy["seams"][0]["authorization_base_commit"], authorization_base
+        )
+        self.assertIn(
+            "seam[0] PMORG_PROTECTED_BASE_SHA is required off origin/main",
+            branch_errors,
+        )
+        self.assertEqual(later_errors, [])
+        self.assertIn(
+            "seam[0] existing seam is immutable; authorize a new seam_id",
+            mutation_errors,
+        )
+
+    def test_main_history_proves_seam_was_pre_authorized(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            self.prepare_authorization_repository(repository_root, policy)
+            subprocess.run(
+                ["git", "update-ref", "refs/remotes/origin/main", "HEAD"],
+                cwd=repository_root,
+                check=True,
+            )
+            with mock.patch.dict(
+                os.environ, {"PMORG_PROTECTED_BASE_SHA": ""}, clear=False
+            ):
+                self.assertEqual(
+                    validate_seam_allowlist(
+                        policy, repository_root, self.ownership_policy
+                    ),
+                    [],
+                )
+
+    def test_new_seam_must_be_atomic_on_the_protected_base(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            policy = copy.deepcopy(self.test_seam_policy)
+            protected_base = self.prepare_authorization_repository(
+                repository_root, policy, add_intermediate_commit=True
+            )
+            with mock.patch.dict(
+                os.environ,
+                {"PMORG_PROTECTED_BASE_SHA": protected_base},
+                clear=False,
+            ):
+                errors = validate_seam_allowlist(
+                    policy, repository_root, self.ownership_policy
+                )
+
+        self.assertIn(
+            "seam[0] new seam must be introduced atomically on protected PR base",
+            errors,
+        )
+
+    def test_non_pmorg_ledger_paths_must_not_use_wildcards(self) -> None:
+        entries = copy.deepcopy(self.integration_entries)
+        entries[-1]["paths"] = ["backend/onyx/**"]
+
+        self.assertIn(
+            "PL-TEST-INTEGRATION non-PMORG ledger paths must be exact",
+            validate_patch_entries(entries),
+        )
+
+    def test_patch_record_protector_set_and_urls_are_exact(self) -> None:
+        record = copy.deepcopy(self.valid_upstream_record)
+        record["protector_tests"].append("pmorg/tests/test_fake.py::test_fake")
+        record["upstream_issue_url"] = (
+            "https://github.com/onyx-dot-app/onyx/../../other/issues/1"
+        )
+        record["upstream_pr_url"] = "https://github.com/onyx-dot-app/onyx/issues/2"
+
+        errors = validate_upstream_patch_record(
+            record,
+            self.test_seam_policy["seams"][0],
+            "UP-TEST",
+            expected_upstream_commit=self.ledger["upstream_commit"],
+        )
+
+        self.assertIn("UP-TEST protector tests differ from its seam", errors)
+        self.assertIn(
+            "UP-TEST upstream_issue_url must be an exact official Onyx URL or null",
+            errors,
+        )
+        self.assertIn(
+            "UP-TEST upstream_pr_url must be an exact official Onyx URL or null",
+            errors,
+        )
+
+    def test_patch_record_revalidation_timestamp_is_strict(self) -> None:
+        record = copy.deepcopy(self.valid_upstream_record)
+        record["last_revalidated_at"] = "not-a-dateTbutZ"
+
+        self.assertIn(
+            "UP-TEST last_revalidated_at must be RFC3339 UTC",
+            validate_upstream_patch_record(
+                record,
+                self.test_seam_policy["seams"][0],
+                "UP-TEST",
+                expected_upstream_commit=self.ledger["upstream_commit"],
+            ),
+        )
+
+    def test_upstream_seam_patch_cannot_delete_its_path(self) -> None:
+        record = copy.deepcopy(self.valid_upstream_record)
+        record["patched_blob_hash"] = None
+        record["patched_git_mode"] = None
+
+        self.assertIn(
+            "UP-TEST upstream seam patch cannot delete its path",
+            validate_upstream_patch_record(
+                record,
+                self.test_seam_policy["seams"][0],
+                "UP-TEST",
+                expected_upstream_commit=self.ledger["upstream_commit"],
+            ),
+        )
+
+    def test_record_and_patch_cannot_follow_a_seam_only_commit(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            seam_policy = copy.deepcopy(self.test_seam_policy)
+            upstream_commit = self.prepare_authorization_repository(
+                repository_root, seam_policy
+            )
+            tree_bytes = subprocess.run(
+                ["git", "ls-tree", "-r", "-z", upstream_commit],
+                cwd=repository_root,
+                check=True,
+                capture_output=True,
+            ).stdout
+            path = repository_root / "backend/onyx/example.py"
+            path.parent.mkdir(parents=True)
+            path.write_text("PATCHED = True\n", encoding="utf-8")
+            record = copy.deepcopy(self.valid_upstream_record)
+            record["base_blob_hash"] = None
+            record["base_git_mode"] = None
+            record["patched_blob_hash"] = (
+                "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+            )
+            record["upstream_source_ref"]["commit"] = upstream_commit
+            record["upstream_source_ref"]["tree_hash"] = (
+                "sha256:" + hashlib.sha256(tree_bytes).hexdigest()
+            )
+            patch_ledger = copy.deepcopy(self.ledger)
+            patch_ledger["upstream_commit"] = upstream_commit
+            patch_ledger["entries"] = self.integration_entries
+            patch_ledger["upstream_patch_records"] = [record]
+            ledger_path = repository_root / "pmorg/patch-ledger.json"
+            ledger_path.write_text(
+                json.dumps(patch_ledger, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+            subprocess.run(["git", "add", "."], cwd=repository_root, check=True)
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "late patch and record"],
+                cwd=repository_root,
+                check=True,
+            )
+
+            errors = validate_thin_fork_diff(
+                ["backend/onyx/example.py"],
+                self.integration_entries,
+                [record],
+                self.ownership_policy,
+                seam_policy,
+                repository_root,
+                upstream_commit,
+            )
+
+        self.assertIn(
+            "UP-TEST exact patch record was not introduced atomically with seam",
+            errors,
+        )
+        self.assertIn(
+            "UP-TEST patched bytes were not introduced atomically with seam", errors
+        )
+
+    def test_enterprise_path_cannot_self_classify_as_ce(self) -> None:
+        path = "backend/ee/unsafe.py"
+        policy = copy.deepcopy(self.test_seam_policy)
+        policy["seams"][0]["path_pattern"] = path
+        entries = copy.deepcopy(self.integration_entries)
+        entries[-1]["paths"] = [path]
+        record = copy.deepcopy(self.valid_upstream_record)
+        record["path"] = path
+        record["upstream_source_ref"]["path"] = path
+
+        errors = validate_thin_fork_diff(
+            [path],
+            entries,
+            [record],
+            self.ownership_policy,
+            policy,
+            upstream_commit=self.ledger["upstream_commit"],
+        )
+
+        self.assertIn("UP-TEST Enterprise path cannot claim CE patch ownership", errors)
+
+    def test_tree_digest_and_regular_file_modes_are_bound_to_git(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            subprocess.run(["git", "init", "-q"], cwd=repository_root, check=True)
+            subprocess.run(
+                ["git", "config", "user.email", "test@example.invalid"],
+                cwd=repository_root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "PMORG Test"],
+                cwd=repository_root,
+                check=True,
+            )
+            path = repository_root / "backend/onyx/example.py"
+            path.parent.mkdir(parents=True)
+            path.write_text("BASE = True\n", encoding="utf-8")
+            subprocess.run(["git", "add", "."], cwd=repository_root, check=True)
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "upstream"],
+                cwd=repository_root,
+                check=True,
+            )
+            upstream_commit = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=repository_root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            tree_bytes = subprocess.run(
+                ["git", "ls-tree", "-r", "-z", upstream_commit],
+                cwd=repository_root,
+                check=True,
+                capture_output=True,
+            ).stdout
+            tree_hash = "sha256:" + hashlib.sha256(tree_bytes).hexdigest()
+            base_hash = "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+
+            path.write_text("BASE = False\n", encoding="utf-8")
+            patched_hash = "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+            record = copy.deepcopy(self.valid_upstream_record)
+            record["base_blob_hash"] = base_hash
+            record["patched_blob_hash"] = patched_hash
+            record["upstream_source_ref"]["commit"] = upstream_commit
+            record["upstream_source_ref"]["tree_hash"] = tree_hash
+            seam_policy = copy.deepcopy(self.test_seam_policy)
+            policy_path = repository_root / "pmorg/policies/seam-allowlist.json"
+            policy_path.parent.mkdir(parents=True, exist_ok=True)
+            policy_path.write_text(
+                json.dumps(seam_policy, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+            patch_ledger = copy.deepcopy(self.ledger)
+            patch_ledger["upstream_commit"] = upstream_commit
+            patch_ledger["entries"] = self.integration_entries
+            patch_ledger["upstream_patch_records"] = [record]
+            ledger_path = repository_root / "pmorg/patch-ledger.json"
+            ledger_path.write_text(
+                json.dumps(patch_ledger, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+            subprocess.run(["git", "add", "."], cwd=repository_root, check=True)
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "atomic seam patch"],
+                cwd=repository_root,
+                check=True,
+            )
+
+            exact_errors = validate_thin_fork_diff(
+                ["backend/onyx/example.py"],
+                self.integration_entries,
+                [record],
+                self.ownership_policy,
+                seam_policy,
+                repository_root,
+                upstream_commit,
+            )
+
+            wrong_tree_record = copy.deepcopy(record)
+            wrong_tree_record["upstream_source_ref"]["tree_hash"] = "sha256:" + "9" * 64
+            tree_errors = validate_thin_fork_diff(
+                ["backend/onyx/example.py"],
+                self.integration_entries,
+                [wrong_tree_record],
+                self.ownership_policy,
+                seam_policy,
+                repository_root,
+                upstream_commit,
+            )
+
+            path.unlink()
+            path.symlink_to("../../pmorg/domain.py")
+            subprocess.run(["git", "add", str(path)], cwd=repository_root, check=True)
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "symlink patch"],
+                cwd=repository_root,
+                check=True,
+            )
+            symlink_record = copy.deepcopy(record)
+            symlink_record["patched_blob_hash"] = (
+                "sha256:" + hashlib.sha256(os.readlink(path).encode()).hexdigest()
+            )
+            symlink_record["patched_git_mode"] = "120000"
+            symlink_errors = validate_thin_fork_diff(
+                ["backend/onyx/example.py"],
+                self.integration_entries,
+                [symlink_record],
+                self.ownership_policy,
+                seam_policy,
+                repository_root,
+                upstream_commit,
+            )
+
+        self.assertEqual(exact_errors, [])
+        self.assertIn(
+            "UP-TEST upstream_source_ref tree_hash differs from pinned tree",
+            tree_errors,
+        )
+        self.assertIn(
+            "UP-TEST patched_git_mode must be a regular-file mode or null",
+            symlink_errors,
+        )
+
+    def test_record_classification_must_match_ledger_owner(self) -> None:
+        entries = copy.deepcopy(self.integration_entries)
+        entries[-1]["classification"] = "temporary"
+        self.assertIn(
+            "UP-TEST classification differs from its ledger owner",
+            validate_thin_fork_diff(
+                ["backend/onyx/example.py"],
+                entries,
+                [self.valid_upstream_record],
+                self.ownership_policy,
+                self.test_seam_policy,
+                upstream_commit=self.ledger["upstream_commit"],
             ),
         )
 
@@ -641,7 +1606,7 @@ class ThinForkPolicyTest(unittest.TestCase):
 
         errors = validate_thin_fork_diff(
             ["backend/onyx/example.py"],
-            self.ledger["entries"],
+            self.integration_entries,
             [record],
             self.ownership_policy,
             self.test_seam_policy,
@@ -676,18 +1641,47 @@ class ThinForkPolicyTest(unittest.TestCase):
             ["upstream_patch_records[0] is not an object"],
         )
 
+        policy = copy.deepcopy(self.test_seam_policy)
+        policy["seams"][0]["allowed_classifications"] = [{}]
+        self.assertIn(
+            "seam[0] has invalid allowed_classifications",
+            validate_seam_allowlist(policy),
+        )
+
+        record = copy.deepcopy(self.valid_upstream_record)
+        record["protector_tests"] = [{}]
+        self.assertIn(
+            "UP-TEST has invalid protector_tests list",
+            validate_thin_fork_diff(
+                ["backend/onyx/example.py"],
+                self.integration_entries,
+                [record],
+                self.ownership_policy,
+                self.test_seam_policy,
+                upstream_commit=self.ledger["upstream_commit"],
+            ),
+        )
+
     def test_pmorg_domain_under_upstream_root_is_fail_closed(self) -> None:
+        policy = copy.deepcopy(self.test_seam_policy)
+        policy["seams"][0]["path_pattern"] = "backend/onyx/pmorg.py"
+        record = copy.deepcopy(self.valid_upstream_record)
+        record["path"] = "backend/onyx/pmorg.py"
+        record["upstream_source_ref"]["path"] = "backend/onyx/pmorg.py"
+        entries = copy.deepcopy(self.integration_entries)
+        entries[-1]["paths"] = ["backend/onyx/pmorg.py"]
         errors = validate_thin_fork_diff(
-            ["backend/onyx/pmorg/domain.py"],
-            self.ledger["entries"],
-            [],
+            ["backend/onyx/pmorg.py"],
+            entries,
+            [record],
             self.ownership_policy,
-            self.seam_policy,
+            policy,
+            upstream_commit=self.ledger["upstream_commit"],
         )
 
         self.assertIn(
-            "upstream-owned path requires exactly one allowlisted seam: "
-            "backend/onyx/pmorg/domain.py",
+            "PMORG domain path is forbidden under an upstream-owned root: "
+            "backend/onyx/pmorg.py",
             errors,
         )
 

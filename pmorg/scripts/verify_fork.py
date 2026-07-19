@@ -2,11 +2,16 @@
 
 from __future__ import annotations
 
+import ast
 import fnmatch
 import hashlib
 import json
+import os
+import re
+import stat
 import subprocess
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import cast
 from typing import TypedDict
@@ -72,6 +77,7 @@ class PatchLedger(TypedDict):
     specification_commit: str
     ownership_roots_ref: str
     seam_allowlist_ref: str
+    upstream_patch_record_schema_version: str
     upstream_patch_records: list[object]
     entries: list[object]
 
@@ -84,6 +90,11 @@ ALLOWED_CLASSIFICATIONS = {
 }
 EXPECTED_ONYX_SURFACES = ["ce", "ee"]
 EXPECTED_USAGE_MODES = ["development_test", "production"]
+EXPECTED_ENTERPRISE_LICENSE_PATHS = [
+    "backend/ee/**",
+    "web/src/app/ee/**",
+    "web/src/ee/**",
+]
 EXPECTED_PMORG_SPEC_COMMIT = "05bc4df345d2d65e05b510135a4d99c9edbf886e"
 EXPECTED_LICENSING_POLICIES = {
     "artifact_policy": "declared_onyx_surface_and_usage_mode",
@@ -394,6 +405,40 @@ REQUIRED_TRUE_FLAGS = {
 
 EXPECTED_OWNERSHIP_ROOTS_REF = "pmorg/policies/ownership-roots.json"
 EXPECTED_SEAM_ALLOWLIST_REF = "pmorg/policies/seam-allowlist.json"
+EXPECTED_OWNERSHIP_POLICY_SCHEMA = "pmorg.platform.ownership-roots/v2"
+EXPECTED_SEAM_POLICY_SCHEMA = "pmorg.platform.seam-allowlist/v2"
+EXPECTED_POLICY_PHASE = "governed_integration"
+EXPECTED_PATCH_RECORD_SCHEMA = "pmorg.platform.upstream-patch-record/v2"
+EXPECTED_SEAM_AUTHORIZATION_SCHEMA = "pmorg.platform.seam-authorization/v1"
+RFC3339_UTC_PATTERN = re.compile(
+    r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?Z$"
+)
+REQUIRED_PATCH_LEDGER_KEYS = {
+    "schema_version",
+    "upstream_commit",
+    "specification_commit",
+    "ownership_roots_ref",
+    "seam_allowlist_ref",
+    "upstream_patch_record_schema_version",
+    "upstream_patch_records",
+    "entries",
+}
+REQUIRED_OWNERSHIP_POLICY_KEYS = {
+    "schema_version",
+    "policy_phase",
+    "specification_commit",
+    "default_ownership",
+    "roots",
+    "invariants",
+}
+REQUIRED_SEAM_POLICY_KEYS = {
+    "schema_version",
+    "admission_mode",
+    "specification_commit",
+    "default_decision",
+    "seams",
+    "invariants",
+}
 EXPECTED_OWNERSHIP_ROOTS = [
     {
         "root_id": "pmorg-agents",
@@ -406,6 +451,11 @@ EXPECTED_OWNERSHIP_ROOTS = [
         "ownership": "pmorg_owned",
     },
     {
+        "root_id": "pmorg-governance-workflow",
+        "path_pattern": ".github/workflows/pmorg-governance.yml",
+        "ownership": "pmorg_owned",
+    },
+    {
         "root_id": "pmorg-plans",
         "path_pattern": "plans/**",
         "ownership": "pmorg_owned",
@@ -415,15 +465,33 @@ EXPECTED_OWNERSHIP_ROOTS = [
         "path_pattern": "pmorg/**",
         "ownership": "pmorg_owned",
     },
+    {
+        "root_id": "pmorg-backend-product",
+        "path_pattern": "backend/pmorg/**",
+        "ownership": "pmorg_owned",
+    },
+    {
+        "root_id": "pmorg-web-product",
+        "path_pattern": "web/src/pmorg/**",
+        "ownership": "pmorg_owned",
+    },
 ]
 EXPECTED_OWNERSHIP_INVARIANTS = {
     "overlapping_roots_forbidden": True,
     "pmorg_domain_allowed_only_in_pmorg_owned_roots": True,
 }
 EXPECTED_SEAM_INVARIANTS = {
-    "slice_zero_upstream_changes_forbidden": True,
+    "governed_integration_admission_required": True,
     "upstream_owned_change_requires_exactly_one_allowlisted_seam": True,
     "upstream_owned_change_requires_exactly_one_patch_record": True,
+    "authorization_adr_must_be_safe_existing_and_accepted": True,
+    "concrete_seam_authorization_must_preexist_on_protected_base": True,
+    "admitted_seams_are_immutable": True,
+    "atomic_seam_commit_must_bind_record_owner_and_path": True,
+    "protector_test_references_must_be_safe_and_existing": True,
+    "protector_tests_must_be_python_and_byte_bound": True,
+    "protector_tests_must_execute_exactly_once_without_skip": True,
+    "upstream_patch_paths_must_remain_regular_files": True,
     "pmorg_domain_in_upstream_owned_roots_forbidden": True,
 }
 REQUIRED_UPSTREAM_PATCH_RECORD_KEYS = {
@@ -433,6 +501,8 @@ REQUIRED_UPSTREAM_PATCH_RECORD_KEYS = {
     "classification",
     "base_blob_hash",
     "patched_blob_hash",
+    "base_git_mode",
+    "patched_git_mode",
     "upstream_source_ref",
     "reason",
     "owner",
@@ -458,9 +528,25 @@ REQUIRED_SEAM_KEYS = {
     "seam_id",
     "path_pattern",
     "authorization_adr_ref",
+    "authorization_commit",
+    "authorization_base_commit",
+    "authorization_blob_hash",
     "allowed_classifications",
     "required_protector_tests",
     "reason",
+}
+REQUIRED_SEAM_AUTHORIZATION_KEYS = {
+    "schema_version",
+    "decision_id",
+    "status",
+    "specification_commit",
+    "seam_id",
+    "path",
+    "allowed_classifications",
+    "required_protector_tests",
+    "protector_test_hashes",
+    "authorized_at",
+    "rationale",
 }
 
 
@@ -473,6 +559,19 @@ def run_git(repository_root: Path, *arguments: str) -> str:
         text=True,
     )
     return completed.stdout.strip()
+
+
+def changed_paths_from_revision(repository_root: Path, revision: str) -> list[str]:
+    # Treat a rename as a deletion plus an addition so neither side can escape
+    # ownership, seam, record, and no-deletion checks.
+    output = run_git(
+        repository_root,
+        "diff",
+        "--no-renames",
+        "--name-only",
+        f"{revision}..HEAD",
+    )
+    return output.splitlines() if output else []
 
 
 def read_json(path: Path) -> object:
@@ -594,11 +693,7 @@ def validate_surface_mode(manifest: BaselineManifest) -> list[str]:
         errors.append("source repository mode must remain mixed_source")
     if licensing.get("community_license") != "MIT Expat":
         errors.append("community license must remain MIT Expat")
-    if licensing.get("enterprise_license_paths") != [
-        "backend/ee/**",
-        "web/src/app/ee/**",
-        "web/src/ee/**",
-    ]:
+    if licensing.get("enterprise_license_paths") != EXPECTED_ENTERPRISE_LICENSE_PATHS:
         errors.append("Enterprise license path boundary is incomplete or reordered")
 
     if licensing.get("allowed_onyx_surfaces") != EXPECTED_ONYX_SURFACES:
@@ -889,6 +984,16 @@ def validate_patch_entries(patch_entries: list[object]) -> list[str]:
             elif len(value) != len(set(value)):
                 errors.append(f"{label} has duplicate {key}")
 
+        paths = patch_entry.get("paths")
+        if isinstance(paths, list):
+            for path in paths:
+                if not isinstance(path, str):
+                    continue
+                if Path(path).is_absolute() or ".." in Path(path).parts:
+                    errors.append(f"{label} has unsafe path")
+                if classification != "PMORG-owned" and ("*" in path or "?" in path):
+                    errors.append(f"{label} non-PMORG ledger paths must be exact")
+
         reason = patch_entry.get("reason")
         if not isinstance(reason, str) or not reason.strip():
             errors.append(f"{label} has no non-empty reason")
@@ -898,12 +1003,19 @@ def validate_patch_entries(patch_entries: list[object]) -> list[str]:
 
 def validate_patch_ledger_contract(patch_ledger: PatchLedger) -> list[str]:
     errors: list[str] = []
+    if set(patch_ledger) != REQUIRED_PATCH_LEDGER_KEYS:
+        errors.append("patch ledger has incomplete or unknown top-level fields")
     if patch_ledger.get("schema_version") != "pmorg.platform.patch-ledger/v2":
         errors.append("patch ledger must use thin-fork schema v2")
     if patch_ledger.get("ownership_roots_ref") != EXPECTED_OWNERSHIP_ROOTS_REF:
         errors.append("patch ledger ownership_roots_ref is invalid")
     if patch_ledger.get("seam_allowlist_ref") != EXPECTED_SEAM_ALLOWLIST_REF:
         errors.append("patch ledger seam_allowlist_ref is invalid")
+    if (
+        patch_ledger.get("upstream_patch_record_schema_version")
+        != EXPECTED_PATCH_RECORD_SCHEMA
+    ):
+        errors.append("patch ledger upstream patch record schema is invalid")
     records = patch_ledger.get("upstream_patch_records")
     if not isinstance(records, list):
         errors.append("patch ledger upstream_patch_records must be an array")
@@ -930,8 +1042,14 @@ def validate_patch_ledger_contract(patch_ledger: PatchLedger) -> list[str]:
 
 def validate_ownership_roots(policy: dict[str, object]) -> list[str]:
     errors: list[str] = []
-    if policy.get("schema_version") != "pmorg.platform.ownership-roots/v1":
+    if set(policy) != REQUIRED_OWNERSHIP_POLICY_KEYS:
+        errors.append("ownership roots policy has incomplete or unknown fields")
+    if policy.get("schema_version") != EXPECTED_OWNERSHIP_POLICY_SCHEMA:
         errors.append("ownership roots policy has unexpected schema version")
+    if policy.get("policy_phase") != EXPECTED_POLICY_PHASE:
+        errors.append("ownership roots policy has unexpected phase")
+    if policy.get("specification_commit") != EXPECTED_PMORG_SPEC_COMMIT:
+        errors.append("ownership roots policy has unexpected specification pin")
     if policy.get("default_ownership") != "upstream_owned":
         errors.append("ownership roots must default to upstream_owned")
     if policy.get("invariants") != EXPECTED_OWNERSHIP_INVARIANTS:
@@ -941,7 +1059,7 @@ def validate_ownership_roots(policy: dict[str, object]) -> list[str]:
         return errors + ["ownership roots policy has no roots"]
     if roots != EXPECTED_OWNERSHIP_ROOTS:
         errors.append(
-            "ownership root set must remain the exact reviewed Slice 0 boundary"
+            "ownership root set must remain the exact reviewed governed boundary"
         )
     root_ids: list[str] = []
     patterns: list[str] = []
@@ -974,10 +1092,694 @@ def validate_ownership_roots(policy: dict[str, object]) -> list[str]:
     return errors
 
 
-def validate_seam_allowlist(policy: dict[str, object]) -> list[str]:
+def is_full_git_sha(value: object) -> bool:
+    return (
+        isinstance(value, str)
+        and len(value) == 40
+        and all(character in "0123456789abcdef" for character in value)
+    )
+
+
+def is_rfc3339_utc(value: object) -> bool:
+    if not isinstance(value, str) or RFC3339_UTC_PATTERN.fullmatch(value) is None:
+        return False
+    try:
+        datetime.fromisoformat(value.removesuffix("Z") + "+00:00")
+    except ValueError:
+        return False
+    return True
+
+
+def protector_selector_exists_in_text(
+    file_suffix: str, source_text: str, selector: str
+) -> bool:
+    # Slice 0.1 admits only statically collectible Python test nodes. Supporting
+    # another runner requires a versioned parser rather than a comment-prone
+    # source-text regex.
+    if file_suffix != ".py":
+        return False
+    try:
+        tree = ast.parse(source_text)
+    except SyntaxError:
+        return False
+    imports_unittest = any(
+        isinstance(node, ast.Import)
+        and any(alias.name == "unittest" for alias in node.names)
+        for node in tree.body
+    )
+    imports_test_case = any(
+        isinstance(node, ast.ImportFrom)
+        and node.module == "unittest"
+        and any(alias.name == "TestCase" for alias in node.names)
+        for node in tree.body
+    )
+
+    def is_unittest_case(node: ast.ClassDef) -> bool:
+        return any(
+            (
+                imports_unittest
+                and isinstance(base, ast.Attribute)
+                and isinstance(base.value, ast.Name)
+                and base.value.id == "unittest"
+                and base.attr == "TestCase"
+            )
+            or (
+                imports_test_case
+                and isinstance(base, ast.Name)
+                and base.id == "TestCase"
+            )
+            for base in node.bases
+        )
+
+    def can_run_without_skip(node: ast.FunctionDef) -> bool:
+        forbidden_names = {
+            "expectedFailure",
+            "skip",
+            "skipIf",
+            "skipUnless",
+            "skipTest",
+            "SkipTest",
+        }
+        return not any(
+            (
+                isinstance(child, ast.Name)
+                and child.id in forbidden_names
+                or isinstance(child, ast.Attribute)
+                and child.attr in forbidden_names
+            )
+            for child in ast.walk(node)
+        )
+
+    nodes: set[str] = set()
+    for node in tree.body:
+        if isinstance(node, ast.ClassDef):
+            if not is_unittest_case(node):
+                continue
+            for child in node.body:
+                if (
+                    isinstance(child, ast.FunctionDef)
+                    and child.name.startswith("test_")
+                    and can_run_without_skip(child)
+                ):
+                    nodes.add(f"{node.name}.{child.name}")
+    return selector in nodes
+
+
+def protector_selector_exists(path: Path, selector: str) -> bool:
+    try:
+        source_text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return False
+    return protector_selector_exists_in_text(path.suffix, source_text, selector)
+
+
+def is_governance_protector_path(relative_path: str) -> bool:
+    path = Path(relative_path)
+    return (
+        path.parent == Path("pmorg/tests")
+        and path.name.startswith("test_")
+        and path.suffix == ".py"
+    )
+
+
+def protector_test_executes_exactly_once(
+    repository_root: Path, relative_path: str, selector: str
+) -> bool:
+    module_name = ".".join(Path(relative_path).with_suffix("").parts)
+    test_name = f"{module_name}.{selector}"
+    runner = """
+import sys
+import unittest
+
+suite = unittest.defaultTestLoader.loadTestsFromName(sys.argv[1])
+result = unittest.TestResult()
+suite.run(result)
+valid = (
+    result.testsRun == 1
+    and not result.failures
+    and not result.errors
+    and not result.skipped
+    and not result.expectedFailures
+    and not result.unexpectedSuccesses
+)
+print("PMORG_PROTECTOR_PASS" if valid else "PMORG_PROTECTOR_FAIL")
+raise SystemExit(0 if valid else 1)
+"""
+    try:
+        completed = subprocess.run(
+            [sys.executable, "-B", "-c", runner, test_name],
+            cwd=repository_root,
+            check=False,
+            capture_output=True,
+            text=True,
+            env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+            timeout=60,
+        )
+    except subprocess.TimeoutExpired:
+        return False
+    return completed.returncode == 0 and completed.stdout.splitlines()[-1:] == [
+        "PMORG_PROTECTOR_PASS"
+    ]
+
+
+def worktree_regular_file_mode(path: Path) -> str | None:
+    try:
+        mode = path.lstat().st_mode
+    except OSError:
+        return None
+    if not stat.S_ISREG(mode):
+        return None
+    executable = bool(mode & (stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH))
+    return "100755" if executable else "100644"
+
+
+def git_file_bytes_at_revision(
+    repository_root: Path, revision: str, relative_path: str
+) -> bytes | None:
+    completed = subprocess.run(
+        ["git", "show", f"{revision}:{relative_path}"],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+    )
+    return completed.stdout if completed.returncode == 0 else None
+
+
+def git_tree_sha256_at_revision(repository_root: Path, revision: str) -> str | None:
+    completed = subprocess.run(
+        ["git", "ls-tree", "-r", "-z", revision],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode != 0:
+        return None
+    return "sha256:" + hashlib.sha256(completed.stdout).hexdigest()
+
+
+def git_tree_entry_at_revision(
+    repository_root: Path, revision: str, relative_path: str
+) -> tuple[str, str] | None:
+    completed = subprocess.run(
+        [
+            "git",
+            "ls-tree",
+            "-z",
+            revision,
+            "--",
+            f":(literal){relative_path}",
+        ],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+    )
+    if completed.returncode != 0 or not completed.stdout:
+        return None
+    metadata, separator, _ = completed.stdout.partition(b"\t")
+    parts = metadata.decode("ascii", errors="strict").split()
+    if not separator or len(parts) != 3:
+        return None
+    mode, object_type, _object_id = parts
+    return mode, object_type
+
+
+def json_object_at_revision(
+    repository_root: Path, revision: str, relative_path: str
+) -> dict[str, object] | None:
+    raw_bytes = git_file_bytes_at_revision(repository_root, revision, relative_path)
+    if raw_bytes is None:
+        return None
+    try:
+        value = json.loads(raw_bytes)
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        return None
+    return cast(dict[str, object], value) if isinstance(value, dict) else None
+
+
+def seam_at_revision(
+    repository_root: Path, revision: str, seam_id: str
+) -> dict[str, object] | None:
+    policy = json_object_at_revision(
+        repository_root, revision, EXPECTED_SEAM_ALLOWLIST_REF
+    )
+    seams = policy.get("seams") if policy is not None else None
+    if not isinstance(seams, list):
+        return None
+    matches = [
+        cast(dict[str, object], seam)
+        for seam in seams
+        if isinstance(seam, dict) and seam.get("seam_id") == seam_id
+    ]
+    return matches[0] if len(matches) == 1 else None
+
+
+def first_seam_introduction_commit(repository_root: Path, seam_id: str) -> str | None:
+    policy_history = subprocess.run(
+        [
+            "git",
+            "log",
+            "--reverse",
+            "--format=%H",
+            "--",
+            EXPECTED_SEAM_ALLOWLIST_REF,
+        ],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if policy_history.returncode != 0:
+        return None
+    return next(
+        (
+            commit
+            for commit in policy_history.stdout.splitlines()
+            if seam_at_revision(repository_root, commit, seam_id) is not None
+        ),
+        None,
+    )
+
+
+def validate_seam_authorization(
+    seam: dict[str, object],
+    index: int,
+    repository_root: Path | None,
+    ownership_policy: dict[str, object] | None,
+) -> list[str]:
     errors: list[str] = []
-    if policy.get("schema_version") != "pmorg.platform.seam-allowlist/v1":
+    label = f"seam[{index}]"
+    seam_id = seam.get("seam_id")
+    pattern = seam.get("path_pattern")
+    authorization_ref = seam.get("authorization_adr_ref")
+    authorization_commit = seam.get("authorization_commit")
+    authorization_base_commit = seam.get("authorization_base_commit")
+    authorization_blob_hash = seam.get("authorization_blob_hash")
+    classifications = seam.get("allowed_classifications")
+    tests = seam.get("required_protector_tests")
+
+    if not isinstance(authorization_ref, str) or not authorization_ref.strip():
+        errors.append(f"{label} has no authorization_adr_ref")
+    if not is_full_git_sha(authorization_commit):
+        errors.append(f"{label} authorization_commit is not a full Git SHA")
+    if not is_full_git_sha(authorization_base_commit):
+        errors.append(f"{label} authorization_base_commit is not a full Git SHA")
+    if not is_sha256(authorization_blob_hash):
+        errors.append(f"{label} authorization_blob_hash is invalid")
+    if repository_root is None or not isinstance(authorization_ref, str):
+        return errors
+
+    try:
+        authorization_path = resolve_policy_path(repository_root, authorization_ref)
+    except ValueError:
+        return errors + [f"{label} authorization ADR reference is unsafe"]
+
+    if not authorization_ref.startswith("pmorg/adr/"):
+        errors.append(f"{label} authorization ADR must live under pmorg/adr")
+    if authorization_path.suffix != ".json":
+        errors.append(f"{label} authorization ADR must be machine-readable JSON")
+    if not authorization_path.is_file():
+        errors.append(f"{label} authorization ADR does not exist")
+        return errors
+    if ownership_policy is not None:
+        authorization_owners = ownership_matches(authorization_ref, ownership_policy)
+        if (
+            len(authorization_owners) != 1
+            or authorization_owners[0].get("ownership") != "pmorg_owned"
+        ):
+            errors.append(f"{label} authorization ADR is not PMORG-owned")
+
+    authorization: dict[str, object] | None = None
+    try:
+        authorization = read_json_object(authorization_path, f"{label} authorization")
+    except (OSError, ValueError, json.JSONDecodeError):
+        errors.append(f"{label} authorization ADR is not a valid JSON object")
+    else:
+        if set(authorization) != REQUIRED_SEAM_AUTHORIZATION_KEYS:
+            errors.append(f"{label} authorization ADR has incomplete or unknown fields")
+        if authorization.get("schema_version") != EXPECTED_SEAM_AUTHORIZATION_SCHEMA:
+            errors.append(f"{label} authorization ADR has unexpected schema version")
+        if authorization.get("status") != "accepted":
+            errors.append(f"{label} authorization ADR is not accepted")
+        if authorization.get("specification_commit") != EXPECTED_PMORG_SPEC_COMMIT:
+            errors.append(f"{label} authorization ADR has wrong specification pin")
+        if authorization.get("seam_id") != seam_id:
+            errors.append(f"{label} authorization ADR binds another seam_id")
+        if authorization.get("path") != pattern:
+            errors.append(f"{label} authorization ADR binds another path")
+        if authorization.get("allowed_classifications") != classifications:
+            errors.append(f"{label} authorization ADR binds other classifications")
+        if authorization.get("required_protector_tests") != tests:
+            errors.append(f"{label} authorization ADR binds other protector tests")
+        for field in ("decision_id", "authorized_at", "rationale"):
+            if (
+                not isinstance(authorization.get(field), str)
+                or not cast(str, authorization[field]).strip()
+            ):
+                errors.append(f"{label} authorization ADR has no {field}")
+        authorized_at = authorization.get("authorized_at")
+        if isinstance(authorized_at, str) and not is_rfc3339_utc(authorized_at):
+            errors.append(f"{label} authorization ADR authorized_at is not UTC")
+
+    if (
+        not is_full_git_sha(authorization_commit)
+        or not is_full_git_sha(authorization_base_commit)
+        or not is_sha256(authorization_blob_hash)
+    ):
+        return errors
+    authorization_commit_text = cast(str, authorization_commit)
+    authorization_base_commit_text = cast(str, authorization_base_commit)
+
+    head = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    authorization_precedes_base = subprocess.run(
+        [
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            authorization_commit_text,
+            authorization_base_commit_text,
+        ],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+    )
+    base_precedes_head = subprocess.run(
+        [
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            authorization_base_commit_text,
+            "HEAD",
+        ],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+    )
+    if head.returncode != 0 or authorization_precedes_base.returncode != 0:
+        errors.append(
+            f"{label} authorization_commit is not on the authorized base history"
+        )
+        return errors
+    if base_precedes_head.returncode != 0:
+        errors.append(f"{label} authorization_base_commit is not an ancestor of HEAD")
+        return errors
+    if head.stdout.strip() == authorization_base_commit_text:
+        errors.append(f"{label} authorization base must precede the seam change")
+    trusted_seam_base_commit: str | None = None
+    protected_base_sha = os.environ.get("PMORG_PROTECTED_BASE_SHA")
+    if protected_base_sha:
+        if not is_full_git_sha(protected_base_sha):
+            errors.append(f"{label} PMORG_PROTECTED_BASE_SHA is not a full Git SHA")
+        else:
+            protected_base_commit = cast(str, protected_base_sha)
+            trusted_seam_base_commit = protected_base_commit
+            protected_base_precedes_head = subprocess.run(
+                [
+                    "git",
+                    "merge-base",
+                    "--is-ancestor",
+                    protected_base_commit,
+                    "HEAD",
+                ],
+                cwd=repository_root,
+                check=False,
+                capture_output=True,
+            )
+            authorization_base_precedes_protected_base = subprocess.run(
+                [
+                    "git",
+                    "merge-base",
+                    "--is-ancestor",
+                    authorization_base_commit_text,
+                    protected_base_commit,
+                ],
+                cwd=repository_root,
+                check=False,
+                capture_output=True,
+            )
+            if protected_base_precedes_head.returncode != 0:
+                errors.append(f"{label} protected PR base is not an ancestor of HEAD")
+            if authorization_base_precedes_protected_base.returncode != 0:
+                errors.append(
+                    f"{label} authorization base is not on protected PR base history"
+                )
+            if isinstance(seam_id, str):
+                protected_base_seam = seam_at_revision(
+                    repository_root, protected_base_commit, seam_id
+                )
+                if protected_base_seam is None:
+                    if protected_base_commit != authorization_base_commit_text:
+                        errors.append(
+                            f"{label} new seam authorization base differs from protected PR base"
+                        )
+                    introduction_commit = first_seam_introduction_commit(
+                        repository_root, seam_id
+                    )
+                    introduction_parent = (
+                        subprocess.run(
+                            ["git", "rev-parse", f"{introduction_commit}^"],
+                            cwd=repository_root,
+                            check=False,
+                            capture_output=True,
+                            text=True,
+                        )
+                        if introduction_commit is not None
+                        else None
+                    )
+                    if (
+                        introduction_commit is None
+                        or introduction_parent is None
+                        or introduction_parent.returncode != 0
+                        or introduction_parent.stdout.strip() != protected_base_commit
+                    ):
+                        errors.append(
+                            f"{label} new seam must be introduced atomically on protected PR base"
+                        )
+                    elif (
+                        seam_at_revision(repository_root, introduction_commit, seam_id)
+                        != seam
+                    ):
+                        errors.append(
+                            f"{label} new seam changed after its atomic introduction"
+                        )
+                elif protected_base_seam != seam:
+                    errors.append(
+                        f"{label} existing seam is immutable; authorize a new seam_id"
+                    )
+    else:
+        origin_main = subprocess.run(
+            ["git", "rev-parse", "refs/remotes/origin/main"],
+            cwd=repository_root,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        if (
+            origin_main.returncode != 0
+            or origin_main.stdout.strip() != head.stdout.strip()
+        ):
+            errors.append(
+                f"{label} PMORG_PROTECTED_BASE_SHA is required off origin/main"
+            )
+        elif isinstance(seam_id, str):
+            trusted_seam_base_commit = authorization_base_commit_text
+            introduction_commit = first_seam_introduction_commit(
+                repository_root, seam_id
+            )
+            if introduction_commit is None:
+                errors.append(f"{label} seam introduction commit cannot be established")
+            else:
+                introduction_parent = subprocess.run(
+                    ["git", "rev-parse", f"{introduction_commit}^"],
+                    cwd=repository_root,
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                )
+                if (
+                    introduction_parent.returncode != 0
+                    or introduction_parent.stdout.strip()
+                    != authorization_base_commit_text
+                ):
+                    errors.append(
+                        f"{label} authorization base is not the protected seam-introduction parent"
+                    )
+                introduction_seam = seam_at_revision(
+                    repository_root, introduction_commit, seam_id
+                )
+                if introduction_seam != seam:
+                    errors.append(
+                        f"{label} existing seam changed after introduction; authorize a new seam_id"
+                    )
+
+    authorized_bytes = git_file_bytes_at_revision(
+        repository_root, authorization_commit_text, authorization_ref
+    )
+    if authorized_bytes is None:
+        errors.append(f"{label} authorization ADR is absent at authorization_commit")
+        return errors
+    actual_hash = "sha256:" + hashlib.sha256(authorized_bytes).hexdigest()
+    if actual_hash != authorization_blob_hash:
+        errors.append(f"{label} authorization ADR hash differs from authorized bytes")
+    authorization_entry = git_tree_entry_at_revision(
+        repository_root, authorization_commit_text, authorization_ref
+    )
+    if authorization_entry is None or authorization_entry not in {
+        ("100644", "blob"),
+        ("100755", "blob"),
+    }:
+        errors.append(f"{label} authorization ADR is not a regular Git file")
+    current_authorization_entry = git_tree_entry_at_revision(
+        repository_root, "HEAD", authorization_ref
+    )
+    if current_authorization_entry != authorization_entry:
+        errors.append(f"{label} authorization ADR Git mode or type changed")
+    if (
+        authorization_entry is not None
+        and worktree_regular_file_mode(authorization_path) != authorization_entry[0]
+    ):
+        errors.append(f"{label} authorization ADR worktree mode or type changed")
+    if trusted_seam_base_commit is not None:
+        base_authorization_bytes = git_file_bytes_at_revision(
+            repository_root, trusted_seam_base_commit, authorization_ref
+        )
+        if base_authorization_bytes != authorized_bytes:
+            errors.append(
+                f"{label} authorization ADR was not preserved on protected seam base"
+            )
+        base_authorization_entry = git_tree_entry_at_revision(
+            repository_root, trusted_seam_base_commit, authorization_ref
+        )
+        if base_authorization_entry != authorization_entry:
+            errors.append(
+                f"{label} authorization ADR mode or type was not preserved on protected seam base"
+            )
+    try:
+        current_bytes = authorization_path.read_bytes()
+    except OSError:
+        errors.append(f"{label} authorization ADR cannot be read")
+    else:
+        if current_bytes != authorized_bytes:
+            errors.append(f"{label} authorization ADR changed after authorization")
+
+    protector_hashes = (
+        authorization.get("protector_test_hashes")
+        if isinstance(authorization, dict)
+        else None
+    )
+    if isinstance(tests, list):
+        if not isinstance(protector_hashes, dict) or set(protector_hashes) != set(
+            test_ref for test_ref in tests if isinstance(test_ref, str)
+        ):
+            errors.append(f"{label} authorization ADR protector hashes are incomplete")
+        for test_ref in tests:
+            if not isinstance(test_ref, str):
+                continue
+            test_path_text, separator, selector = test_ref.partition("::")
+            if not separator or not selector:
+                continue
+            authorized_test_bytes = git_file_bytes_at_revision(
+                repository_root,
+                authorization_commit_text,
+                test_path_text,
+            )
+            if authorized_test_bytes is None:
+                errors.append(
+                    f"{label} protector test was absent at authorization_commit"
+                )
+                continue
+            authorized_test_entry = git_tree_entry_at_revision(
+                repository_root, authorization_commit_text, test_path_text
+            )
+            if authorized_test_entry is None or authorized_test_entry not in {
+                ("100644", "blob"),
+                ("100755", "blob"),
+            }:
+                errors.append(
+                    f"{label} protector test was not a regular Git file at authorization_commit"
+                )
+            current_test_entry = git_tree_entry_at_revision(
+                repository_root, "HEAD", test_path_text
+            )
+            if current_test_entry != authorized_test_entry:
+                errors.append(f"{label} protector test Git mode or type changed")
+            if trusted_seam_base_commit is not None:
+                base_test_bytes = git_file_bytes_at_revision(
+                    repository_root, trusted_seam_base_commit, test_path_text
+                )
+                if base_test_bytes != authorized_test_bytes:
+                    errors.append(
+                        f"{label} protector test was not preserved on protected seam base"
+                    )
+                base_test_entry = git_tree_entry_at_revision(
+                    repository_root, trusted_seam_base_commit, test_path_text
+                )
+                if base_test_entry != authorized_test_entry:
+                    errors.append(
+                        f"{label} protector test mode or type was not preserved on protected seam base"
+                    )
+            expected_test_hash = (
+                protector_hashes.get(test_ref)
+                if isinstance(protector_hashes, dict)
+                else None
+            )
+            authorized_test_hash = (
+                "sha256:" + hashlib.sha256(authorized_test_bytes).hexdigest()
+            )
+            if not is_sha256(expected_test_hash):
+                errors.append(f"{label} protector test authorization hash is invalid")
+            elif expected_test_hash != authorized_test_hash:
+                errors.append(
+                    f"{label} protector test hash differs from authorized bytes"
+                )
+            current_test_path = repository_root / test_path_text
+            if (
+                authorized_test_entry is not None
+                and worktree_regular_file_mode(current_test_path)
+                != authorized_test_entry[0]
+            ):
+                errors.append(f"{label} protector test worktree mode or type changed")
+            try:
+                current_test_bytes = current_test_path.read_bytes()
+            except OSError:
+                current_test_bytes = None
+            if current_test_bytes != authorized_test_bytes:
+                errors.append(f"{label} protector test changed after authorization")
+            try:
+                authorized_test_text = authorized_test_bytes.decode("utf-8")
+            except UnicodeDecodeError:
+                errors.append(
+                    f"{label} protector test was not UTF-8 at authorization_commit"
+                )
+                continue
+            if not protector_selector_exists_in_text(
+                Path(test_path_text).suffix, authorized_test_text, selector
+            ):
+                errors.append(
+                    f"{label} protector test node was absent at authorization_commit"
+                )
+    return errors
+
+
+def validate_seam_allowlist(
+    policy: dict[str, object],
+    repository_root: Path | None = None,
+    ownership_policy: dict[str, object] | None = None,
+) -> list[str]:
+    errors: list[str] = []
+    if set(policy) != REQUIRED_SEAM_POLICY_KEYS:
+        errors.append("seam allowlist has incomplete or unknown fields")
+    if policy.get("schema_version") != EXPECTED_SEAM_POLICY_SCHEMA:
         errors.append("seam allowlist has unexpected schema version")
+    if policy.get("admission_mode") != EXPECTED_POLICY_PHASE:
+        errors.append("seam allowlist has unexpected admission mode")
+    if policy.get("specification_commit") != EXPECTED_PMORG_SPEC_COMMIT:
+        errors.append("seam allowlist has unexpected specification pin")
     if policy.get("default_decision") != "deny":
         errors.append("seam allowlist must default to deny")
     if policy.get("invariants") != EXPECTED_SEAM_INVARIANTS:
@@ -985,8 +1787,6 @@ def validate_seam_allowlist(policy: dict[str, object]) -> list[str]:
     seams = policy.get("seams")
     if not isinstance(seams, list):
         return errors + ["seam allowlist seams must be an array"]
-    if seams:
-        errors.append("Slice 0 seam allowlist must remain empty")
     seam_ids: list[str] = []
     patterns: list[str] = []
     for index, seam in enumerate(seams):
@@ -997,7 +1797,6 @@ def validate_seam_allowlist(policy: dict[str, object]) -> list[str]:
             errors.append(f"seam[{index}] has incomplete or unknown fields")
         seam_id = seam.get("seam_id")
         pattern = seam.get("path_pattern")
-        authorization_adr_ref = seam.get("authorization_adr_ref")
         classifications = seam.get("allowed_classifications")
         tests = seam.get("required_protector_tests")
         reason = seam.get("reason")
@@ -1010,32 +1809,74 @@ def validate_seam_allowlist(policy: dict[str, object]) -> list[str]:
             and pattern
             and not Path(pattern).is_absolute()
             and ".." not in Path(pattern).parts
+            and "*" not in pattern
+            and "?" not in pattern
         ):
             patterns.append(pattern)
         else:
-            errors.append(f"seam[{index}] has unsafe path_pattern")
-        if (
-            not isinstance(authorization_adr_ref, str)
-            or not authorization_adr_ref.strip()
-        ):
-            errors.append(f"seam[{index}] has no authorization_adr_ref")
+            errors.append(f"seam[{index}] path_pattern must be a safe exact path")
         if (
             not isinstance(classifications, list)
             or not classifications
             or any(
-                value not in ALLOWED_CLASSIFICATIONS - {"PMORG-owned"}
+                not isinstance(value, str)
+                or value not in ALLOWED_CLASSIFICATIONS - {"PMORG-owned"}
                 for value in classifications
             )
         ):
             errors.append(f"seam[{index}] has invalid allowed_classifications")
+        elif len(classifications) != len(set(classifications)):
+            errors.append(f"seam[{index}] has duplicate allowed_classifications")
         if (
             not isinstance(tests, list)
             or not tests
             or any(not isinstance(value, str) or not value for value in tests)
         ):
             errors.append(f"seam[{index}] has no protector tests")
+        elif len(tests) != len(set(tests)):
+            errors.append(f"seam[{index}] has duplicate protector tests")
+        elif repository_root is not None:
+            for test_ref in tests:
+                test_path_text, separator, selector = test_ref.partition("::")
+                if not separator or not selector:
+                    errors.append(
+                        f"seam[{index}] protector test is not an exact node reference"
+                    )
+                    continue
+                if not is_governance_protector_path(test_path_text):
+                    errors.append(
+                        f"seam[{index}] protector test is outside governance discovery set"
+                    )
+                    continue
+                try:
+                    test_path = resolve_policy_path(repository_root, test_path_text)
+                except ValueError:
+                    errors.append(f"seam[{index}] protector test reference is unsafe")
+                    continue
+                if not test_path.is_file():
+                    errors.append(f"seam[{index}] protector test file does not exist")
+                elif not protector_selector_exists(test_path, selector):
+                    errors.append(f"seam[{index}] protector test node does not exist")
+                elif not protector_test_executes_exactly_once(
+                    repository_root, test_path_text, selector
+                ):
+                    errors.append(
+                        f"seam[{index}] protector test did not execute exactly once without skips"
+                    )
+                if ownership_policy is not None:
+                    test_owners = ownership_matches(test_path_text, ownership_policy)
+                    if (
+                        len(test_owners) != 1
+                        or test_owners[0].get("ownership") != "pmorg_owned"
+                    ):
+                        errors.append(
+                            f"seam[{index}] protector test is not PMORG-owned"
+                        )
         if not isinstance(reason, str) or not reason.strip():
             errors.append(f"seam[{index}] has no reason")
+        errors.extend(
+            validate_seam_authorization(seam, index, repository_root, ownership_policy)
+        )
     if len(seam_ids) != len(set(seam_ids)):
         errors.append("seam allowlist has duplicate seam_id values")
     if len(patterns) != len(set(patterns)):
@@ -1069,11 +1910,18 @@ def seam_matches(path: str, policy: dict[str, object]) -> list[dict[str, object]
     ]
 
 
+def is_pmorg_domain_path_under_upstream_root(path: str) -> bool:
+    """Reject PMORG domain packages that bypass the bounded product roots."""
+
+    return any(part.lower().startswith("pmorg") for part in Path(path).parts)
+
+
 def validate_upstream_patch_record(
     record: dict[str, object],
     seam: dict[str, object],
     label: str,
     expected_upstream_commit: str | None = None,
+    expected_upstream_tree_hash: str | None = None,
 ) -> list[str]:
     errors: list[str] = []
     if set(record) != REQUIRED_UPSTREAM_PATCH_RECORD_KEYS:
@@ -1153,6 +2001,13 @@ def validate_upstream_patch_record(
             errors.append(f"{label} upstream_source_ref path differs from record path")
         if not is_sha256(source_ref.get("tree_hash")):
             errors.append(f"{label} upstream_source_ref tree_hash is invalid")
+        elif (
+            expected_upstream_tree_hash is not None
+            and source_ref.get("tree_hash") != expected_upstream_tree_hash
+        ):
+            errors.append(
+                f"{label} upstream_source_ref tree_hash differs from pinned tree"
+            )
 
     base_hash = record.get("base_blob_hash")
     patched_hash = record.get("patched_blob_hash")
@@ -1162,19 +2017,47 @@ def validate_upstream_patch_record(
         errors.append(f"{label} patched_blob_hash is not sha256 or null")
     if base_hash is None and patched_hash is None:
         errors.append(f"{label} cannot have both blob hashes null")
+    if patched_hash is None:
+        errors.append(f"{label} upstream seam patch cannot delete its path")
 
-    for key in ("upstream_issue_url", "upstream_pr_url"):
+    official_url_patterns = {
+        "upstream_issue_url": re.compile(
+            r"^https://github\.com/onyx-dot-app/onyx/issues/[1-9]\d*$"
+        ),
+        "upstream_pr_url": re.compile(
+            r"^https://github\.com/onyx-dot-app/onyx/pull/[1-9]\d*$"
+        ),
+    }
+    for key, url_pattern in official_url_patterns.items():
         value = record.get(key)
         if value is not None and (
-            not isinstance(value, str)
-            or not value.startswith("https://github.com/onyx-dot-app/onyx/")
+            not isinstance(value, str) or url_pattern.fullmatch(value) is None
         ):
-            errors.append(f"{label} {key} must be an official Onyx URL or null")
+            errors.append(f"{label} {key} must be an exact official Onyx URL or null")
+
+    base_mode = record.get("base_git_mode")
+    patched_mode = record.get("patched_git_mode")
+    allowed_regular_modes = {"100644", "100755"}
+    for field, mode, blob_hash in (
+        ("base_git_mode", base_mode, base_hash),
+        ("patched_git_mode", patched_mode, patched_hash),
+    ):
+        if mode is not None and mode not in allowed_regular_modes:
+            errors.append(f"{label} {field} must be a regular-file mode or null")
+        if (mode is None) != (blob_hash is None):
+            errors.append(f"{label} {field} and its blob hash disagree on existence")
 
     ownership_class = record.get("ownership_class")
     license_class = record.get("license_class")
     surfaces = record.get("onyx_surfaces")
+    record_path = record.get("path")
+    is_enterprise_path = isinstance(record_path, str) and any(
+        path_matches_pattern(record_path, pattern)
+        for pattern in EXPECTED_ENTERPRISE_LICENSE_PATHS
+    )
     if ownership_class == "upstream_ce_direct_patch":
+        if is_enterprise_path:
+            errors.append(f"{label} Enterprise path cannot claim CE patch ownership")
         if license_class != "mit-expat":
             errors.append(f"{label} CE direct patch must use mit-expat license_class")
         if not isinstance(surfaces, list) or tuple(surfaces) not in {
@@ -1184,6 +2067,10 @@ def validate_upstream_patch_record(
         }:
             errors.append(f"{label} CE direct patch has invalid Onyx surfaces")
     elif ownership_class == "upstream_ee_direct_patch":
+        if not is_enterprise_path:
+            errors.append(
+                f"{label} EE patch ownership is outside declared Enterprise roots"
+            )
         if license_class != "onyx-enterprise":
             errors.append(
                 f"{label} EE direct patch must use onyx-enterprise license_class"
@@ -1195,17 +2082,17 @@ def validate_upstream_patch_record(
 
     required_tests = seam.get("required_protector_tests")
     protector_tests = record.get("protector_tests")
-    if isinstance(required_tests, list) and isinstance(protector_tests, list):
-        missing_tests = sorted(set(required_tests) - set(protector_tests))
-        if missing_tests:
-            errors.append(
-                f"{label} misses seam protector tests: {', '.join(missing_tests)}"
-            )
+    if (
+        isinstance(required_tests, list)
+        and isinstance(protector_tests, list)
+        and all(isinstance(value, str) for value in required_tests)
+        and all(isinstance(value, str) for value in protector_tests)
+    ):
+        if protector_tests != required_tests:
+            errors.append(f"{label} protector tests differ from its seam")
 
     revalidated_at = record.get("last_revalidated_at")
-    if isinstance(revalidated_at, str) and (
-        "T" not in revalidated_at or not revalidated_at.endswith("Z")
-    ):
+    if isinstance(revalidated_at, str) and not is_rfc3339_utc(revalidated_at):
         errors.append(f"{label} last_revalidated_at must be RFC3339 UTC")
 
     removal_condition = record.get("removal_condition")
@@ -1229,6 +2116,130 @@ def blob_sha256_at_revision(
     if completed.returncode != 0:
         return None
     return "sha256:" + hashlib.sha256(completed.stdout).hexdigest()
+
+
+def validate_atomic_seam_patch_introduction(
+    repository_root: Path,
+    seam: dict[str, object],
+    record: dict[str, object],
+    patch_entry: dict[str, object] | None,
+    label: str,
+) -> list[str]:
+    errors: list[str] = []
+    seam_id = seam.get("seam_id")
+    path = record.get("path")
+    if not isinstance(seam_id, str) or not isinstance(path, str):
+        return [f"{label} atomic seam identity cannot be established"]
+    introduction_commit = first_seam_introduction_commit(repository_root, seam_id)
+    if introduction_commit is None:
+        return [f"{label} atomic seam introduction commit cannot be established"]
+    introduction_parent = subprocess.run(
+        ["git", "rev-parse", f"{introduction_commit}^"],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if introduction_parent.returncode != 0:
+        return [f"{label} atomic seam introduction parent cannot be established"]
+    parent_commit = introduction_parent.stdout.strip()
+
+    introduction_ledger = json_object_at_revision(
+        repository_root, introduction_commit, "pmorg/patch-ledger.json"
+    )
+    parent_ledger = json_object_at_revision(
+        repository_root, parent_commit, "pmorg/patch-ledger.json"
+    )
+    introduction_records = (
+        introduction_ledger.get("upstream_patch_records")
+        if introduction_ledger is not None
+        else None
+    )
+    exact_introduction_records = (
+        [
+            candidate
+            for candidate in introduction_records
+            if isinstance(candidate, dict)
+            and candidate.get("seam_id") == seam_id
+            and candidate.get("path") == path
+        ]
+        if isinstance(introduction_records, list)
+        else []
+    )
+    if exact_introduction_records != [record]:
+        errors.append(
+            f"{label} exact patch record was not introduced atomically with seam"
+        )
+
+    parent_records = (
+        parent_ledger.get("upstream_patch_records")
+        if parent_ledger is not None
+        else None
+    )
+    if isinstance(parent_records, list) and any(
+        isinstance(candidate, dict)
+        and (candidate.get("seam_id") == seam_id or candidate.get("path") == path)
+        for candidate in parent_records
+    ):
+        errors.append(f"{label} patch record existed before atomic seam commit")
+
+    entry_id = patch_entry.get("id") if patch_entry is not None else None
+    introduction_entries = (
+        introduction_ledger.get("entries") if introduction_ledger is not None else None
+    )
+    introduction_entry = (
+        next(
+            (
+                candidate
+                for candidate in introduction_entries
+                if isinstance(candidate, dict) and candidate.get("id") == entry_id
+            ),
+            None,
+        )
+        if isinstance(introduction_entries, list)
+        else None
+    )
+    if patch_entry is None or introduction_entry != patch_entry:
+        errors.append(
+            f"{label} exact ledger owner was not introduced atomically with seam"
+        )
+    parent_entries = parent_ledger.get("entries") if parent_ledger is not None else None
+    if isinstance(parent_entries, list) and any(
+        isinstance(candidate, dict) and candidate.get("id") == entry_id
+        for candidate in parent_entries
+    ):
+        errors.append(f"{label} ledger owner existed before atomic seam commit")
+
+    introduction_blob = blob_sha256_at_revision(
+        repository_root, introduction_commit, path
+    )
+    introduction_entry_state = git_tree_entry_at_revision(
+        repository_root, introduction_commit, path
+    )
+    if introduction_blob != record.get("patched_blob_hash"):
+        errors.append(f"{label} patched bytes were not introduced atomically with seam")
+    if (
+        introduction_entry_state is None
+        or introduction_entry_state[1] != "blob"
+        or introduction_entry_state[0] != record.get("patched_git_mode")
+    ):
+        errors.append(
+            f"{label} patched Git mode/type was not introduced atomically with seam"
+        )
+    parent_blob = blob_sha256_at_revision(repository_root, parent_commit, path)
+    parent_entry_state = git_tree_entry_at_revision(
+        repository_root, parent_commit, path
+    )
+    expected_parent_mode = (
+        parent_entry_state[0]
+        if parent_entry_state is not None and parent_entry_state[1] == "blob"
+        else None
+    )
+    if parent_blob != record.get("base_blob_hash"):
+        errors.append(f"{label} seam parent bytes differ from recorded upstream base")
+    if expected_parent_mode != record.get("base_git_mode"):
+        errors.append(f"{label} seam parent mode differs from recorded upstream base")
+    return errors
 
 
 def validate_thin_fork_diff(
@@ -1267,6 +2278,18 @@ def validate_thin_fork_diff(
         )
 
     patch_owners = find_path_owners(changed_paths, patch_entries)
+    expected_upstream_tree_hash = (
+        git_tree_sha256_at_revision(repository_root, upstream_commit)
+        if repository_root is not None and upstream_commit is not None
+        else None
+    )
+    governed_admission = (
+        seam_policy.get("schema_version") == EXPECTED_SEAM_POLICY_SCHEMA
+        and seam_policy.get("admission_mode") == EXPECTED_POLICY_PHASE
+        and seam_policy.get("specification_commit") == EXPECTED_PMORG_SPEC_COMMIT
+        and seam_policy.get("default_decision") == "deny"
+        and seam_policy.get("invariants") == EXPECTED_SEAM_INVARIANTS
+    )
     for path in changed_paths:
         roots = ownership_matches(path, ownership_policy)
         if len(roots) > 1:
@@ -1319,10 +2342,22 @@ def validate_thin_fork_diff(
             continue
 
         upstream_changed_paths.add(path)
-        errors.append(
-            "Slice 0 forbids upstream-owned changes until canonical boundary "
-            f"evidence admission exists: {path}"
-        )
+        if not governed_admission:
+            errors.append(
+                f"upstream-owned changes require governed integration admission: {path}"
+            )
+        if is_pmorg_domain_path_under_upstream_root(path):
+            errors.append(
+                f"PMORG domain path is forbidden under an upstream-owned root: {path}"
+            )
+
+        owners = patch_owners[path]
+        if len(owners) == 0:
+            errors.append(f"uncovered upstream-owned fork path: {path}")
+        elif len(owners) > 1:
+            errors.append(
+                f"multiply-owned upstream fork path: {path} ({', '.join(owners)})"
+            )
         seams = seam_matches(path, seam_policy)
         if len(seams) != 1:
             errors.append(
@@ -1338,23 +2373,66 @@ def validate_thin_fork_diff(
         label = (
             cast(str, record.get("id")) if isinstance(record.get("id"), str) else path
         )
+        matching_entry = next(
+            (
+                entry
+                for entry in patch_entries
+                if isinstance(entry, dict)
+                and isinstance(entry.get("paths"), list)
+                and any(
+                    isinstance(pattern, str) and path_matches_pattern(path, pattern)
+                    for pattern in entry["paths"]
+                )
+            ),
+            None,
+        )
+        if matching_entry is not None and matching_entry.get(
+            "classification"
+        ) != record.get("classification"):
+            errors.append(f"{label} classification differs from its ledger owner")
         errors.extend(
             validate_upstream_patch_record(
                 record,
                 seams[0],
                 label,
                 expected_upstream_commit=upstream_commit,
+                expected_upstream_tree_hash=expected_upstream_tree_hash,
             )
         )
         if repository_root is not None and upstream_commit is not None:
+            errors.extend(
+                validate_atomic_seam_patch_introduction(
+                    repository_root,
+                    seams[0],
+                    record,
+                    matching_entry,
+                    label,
+                )
+            )
             expected_base = blob_sha256_at_revision(
                 repository_root, upstream_commit, path
             )
             expected_patched = blob_sha256_at_revision(repository_root, "HEAD", path)
+            base_entry = git_tree_entry_at_revision(
+                repository_root, upstream_commit, path
+            )
+            patched_entry = git_tree_entry_at_revision(repository_root, "HEAD", path)
+            expected_base_mode = base_entry[0] if base_entry is not None else None
+            expected_patched_mode = (
+                patched_entry[0] if patched_entry is not None else None
+            )
             if record.get("base_blob_hash") != expected_base:
                 errors.append(f"{label} base_blob_hash does not match upstream bytes")
             if record.get("patched_blob_hash") != expected_patched:
                 errors.append(f"{label} patched_blob_hash does not match HEAD bytes")
+            if record.get("base_git_mode") != expected_base_mode:
+                errors.append(f"{label} base_git_mode does not match upstream tree")
+            if record.get("patched_git_mode") != expected_patched_mode:
+                errors.append(f"{label} patched_git_mode does not match HEAD tree")
+            if base_entry is not None and base_entry[1] != "blob":
+                errors.append(f"{label} upstream path is not a blob")
+            if patched_entry is not None and patched_entry[1] != "blob":
+                errors.append(f"{label} patched path is not a blob")
 
     for path, records in sorted(records_by_path.items()):
         if path not in upstream_changed_paths:
@@ -1456,7 +2534,9 @@ def verify(repository_root: Path) -> list[str]:
     errors.extend(validate_local_upstream(repository_root, upstream))
     errors.extend(validate_patch_ledger_contract(patch_ledger))
     errors.extend(validate_ownership_roots(ownership_policy))
-    errors.extend(validate_seam_allowlist(seam_policy))
+    errors.extend(
+        validate_seam_allowlist(seam_policy, repository_root, ownership_policy)
+    )
 
     if patch_ledger["upstream_commit"] != upstream["commit"]:
         errors.append("patch ledger and baseline manifest disagree on upstream commit")
@@ -1512,10 +2592,7 @@ def verify(repository_root: Path) -> list[str]:
             + ", ".join(sorted(invalid_classifications))
         )
 
-    changed_output = run_git(
-        repository_root, "diff", "--name-only", f"{upstream['commit']}..HEAD"
-    )
-    changed_paths = changed_output.splitlines() if changed_output else []
+    changed_paths = changed_paths_from_revision(repository_root, upstream["commit"])
     errors.extend(
         validate_thin_fork_diff(
             changed_paths,

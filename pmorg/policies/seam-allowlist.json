@@ -1,11 +1,21 @@
 {
-  "schema_version": "pmorg.platform.seam-allowlist/v1",
+  "schema_version": "pmorg.platform.seam-allowlist/v2",
+  "admission_mode": "governed_integration",
+  "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
   "default_decision": "deny",
   "seams": [],
   "invariants": {
-    "slice_zero_upstream_changes_forbidden": true,
+    "governed_integration_admission_required": true,
     "upstream_owned_change_requires_exactly_one_allowlisted_seam": true,
     "upstream_owned_change_requires_exactly_one_patch_record": true,
+    "authorization_adr_must_be_safe_existing_and_accepted": true,
+    "concrete_seam_authorization_must_preexist_on_protected_base": true,
+    "admitted_seams_are_immutable": true,
+    "atomic_seam_commit_must_bind_record_owner_and_path": true,
+    "protector_test_references_must_be_safe_and_existing": true,
+    "protector_tests_must_be_python_and_byte_bound": true,
+    "protector_tests_must_execute_exactly_once_without_skip": true,
+    "upstream_patch_paths_must_remain_regular_files": true,
     "pmorg_domain_in_upstream_owned_roots_forbidden": true
   }
 }

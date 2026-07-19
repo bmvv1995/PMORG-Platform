@@ -1,5 +1,7 @@
 {
-  "schema_version": "pmorg.platform.ownership-roots/v1",
+  "schema_version": "pmorg.platform.ownership-roots/v2",
+  "policy_phase": "governed_integration",
+  "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
   "default_ownership": "upstream_owned",
   "roots": [
     {
@@ -13,6 +15,11 @@
       "ownership": "pmorg_owned"
     },
     {
+      "root_id": "pmorg-governance-workflow",
+      "path_pattern": ".github/workflows/pmorg-governance.yml",
+      "ownership": "pmorg_owned"
+    },
+    {
       "root_id": "pmorg-plans",
       "path_pattern": "plans/**",
       "ownership": "pmorg_owned"
@@ -20,6 +27,16 @@
     {
       "root_id": "pmorg-governance-and-product",
       "path_pattern": "pmorg/**",
+      "ownership": "pmorg_owned"
+    },
+    {
+      "root_id": "pmorg-backend-product",
+      "path_pattern": "backend/pmorg/**",
+      "ownership": "pmorg_owned"
+    },
+    {
+      "root_id": "pmorg-web-product",
+      "path_pattern": "web/src/pmorg/**",
       "ownership": "pmorg_owned"
     }
   ],

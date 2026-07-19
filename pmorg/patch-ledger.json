@@ -3,6 +3,7 @@
   "upstream_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
   "ownership_roots_ref": "pmorg/policies/ownership-roots.json",
   "seam_allowlist_ref": "pmorg/policies/seam-allowlist.json",
+  "upstream_patch_record_schema_version": "pmorg.platform.upstream-patch-record/v2",
   "upstream_patch_records": [],
   "entries": [
     {
@@ -10,6 +11,7 @@
       "classification": "PMORG-owned",
       "paths": [
         "PMORG.md",
+        ".github/workflows/pmorg-governance.yml",
         "pmorg/.gitignore",
         "pmorg/CE-BOUNDARY.md",
         "pmorg/PATCH-LEDGER.md",
@@ -28,10 +30,10 @@
         "PLT-007",
         "PLT-008"
       ],
-      "reason": "Pin upstream and reviewed RB-1/C2 inputs, define the independent Onyx surface/usage-mode axes, and establish ownership-root, empty-seam, single-owner governance that denies every upstream-owned change in Slice 0 without claiming G3-A qualification.",
+      "reason": "Pin upstream and reviewed RB-1/C2 inputs, define the independent Onyx surface/usage-mode axes, and enforce versioned ownership, default-deny governed seam admission and single-owner fork governance without claiming G3-A qualification.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py",
-        "python3 -m unittest discover -s pmorg/tests -p 'test_*.py' -v"
+        "python3 -m unittest pmorg.tests.test_verify_fork -v"
       ]
     },
     {
@@ -80,6 +82,21 @@
       "reason": "Record the evidence-based V3 migration sequence, Slice 0 non-qualification boundary, thin-fork controls, release/evidence contracts, capability/provenance qualification and separate runtime/distribution admissions before product implementation.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py"
+      ]
+    },
+    {
+      "id": "PL-003",
+      "classification": "PMORG-owned",
+      "paths": [
+        "pmorg/adr/ADR-0001-governed-integration-admission.md"
+      ],
+      "requirements": [
+        "PLT-004"
+      ],
+      "reason": "Record the accepted transition from the Slice 0 hard freeze to default-deny governed integration admission without authorizing a concrete upstream seam.",
+      "verification": [
+        "python3 pmorg/scripts/verify_fork.py",
+        "python3 -m unittest pmorg.tests.test_verify_fork -v"
       ]
     }
   ],
