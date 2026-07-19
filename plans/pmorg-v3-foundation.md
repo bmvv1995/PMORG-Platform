@@ -43,7 +43,7 @@ added:
 ### Normative inputs
 
 - PMORG requirements: `RB-1/C2` candidate, PMORG PR #5 head
-  `9c8f401a06df94b55b9db75d4edf29a059f6b84e`. Replace this pin with the
+  `a90e56408cc4a884fc246c19d82c69f13d549e8d`. Replace this pin with the
   accepted final commit before PR #17 leaves draft.
 - Onyx baseline: `v4.3.9`, commit
   `1da679cefc96165c6b9b64c3bc769584b88f88c2`.
@@ -173,13 +173,17 @@ Status: in cross-review on `sol/v3-foundation`.
   copying EE code into PMORG-owned paths;
 - for `ce`, prove that no EE product file, import, dependency group, or saved
   image layer exists;
-- for `ee + development_test`, inventory all EE capability/file/dependency/
-  patch/layer provenance and prove every production/distribution attempt is
-  rejected;
-- for `ee + production`, verify authorization entity, seats/scope, agreement
-  reference, validity, and verifier receipt before startup/deployment;
-- reuse an adequate Onyx capability by default; deviations require an ADR or
-  waiver with expiry and tests;
+- for every `ee` build, inventory all capability/file/dependency/patch/layer
+  provenance;
+- emit a signed, content-addressed `BuildQualificationManifest` that binds
+  artifact digest, both axes, inventory/boundary reports, SBOM and verifier;
+- require a signed `DeploymentAdmissionRecord` at deploy and startup:
+  `ee + development_test` admits only an attested synthetic target and rejects
+  production/distribution; `ee + production` binds authorization entity,
+  seats/scope, agreement, validity, artifact and client target;
+- materialize a versioned required-capability catalog and a complete
+  `reuse|patch|pmorg_independent` disposition report; deviations from an
+  adequate Onyx capability require ADR/waiver, expiry and tests;
 - record `license_class=onyx-enterprise` for every direct EE patch;
 - run selected unmodified upstream suites on baseline and fork;
 - disable telemetry/update checks and enforce audited deny-by-default egress;
@@ -193,8 +197,10 @@ It does not rewrite unrelated Onyx behavior.
 ### Slice 2 — complete contract spine and V2 supersession
 
 - add top-level `backend/pmorg` package boundaries;
-- implement every contract frozen by `pmorg-contracts/1.0`, including nested
-  types and command payloads needed by later slices;
+- implement every contract frozen by `pmorg-contracts/1.0`, including
+  `BuildQualificationManifest`, `DeploymentAdmissionRecord`,
+  `CapabilityDispositionRecord`, nested types and command payloads needed by
+  later slices;
 - generate committed JSON Schema with
   `additionalProperties: false` for writes;
 - generate a deterministic manifest containing every schema digest and pinned
@@ -383,10 +389,14 @@ these gates do not change ownership or contracts.
 
 - clean builds for each declared matrix cell;
 - `ce`: source/import/dependency/filesystem/every-layer scans with zero EE;
-- `ee + development_test`: complete inventory and rejection of every
-  production/distribution attempt;
-- `ee + production`: valid authorization for entity, seats/scope, agreement,
-  and validity; missing/expired/mismatch refusal;
+- every `ee`: complete capability/file/dependency/patch/layer inventory;
+- signed build manifest with immutable axes, artifact digest and verifier;
+- `ee + development_test`: signed synthetic-target admission and rejection of
+  every production/distribution attempt;
+- `ee + production`: signed authorization bound to entity, seats/scope,
+  agreement, validity, artifact and client target; missing/expired/mismatch/
+  untrusted refusal at deploy and startup;
+- 100% required-capability catalog coverage by a disposition report;
 - direct EE patch license classification and zero EE copied into PMORG modules;
 - negative fixtures for undeclared paths, imports, dependencies, layers,
   surface/mode mismatches, and authorization drift;
