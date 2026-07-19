@@ -10,14 +10,17 @@ files. Lead with concrete findings and cite exact files, symbols, contracts, or
 tests.
 
 Check alignment with the declared product: PMORG is a persistent organizational
-operator built into the Onyx-based product; Odoo is the formal domain and
-closed-world anchor; PMORG Core owns semantic validation and the organizational
-ledger; the external orchestrator owns longitudinal execution. Verify that
-responsibilities are explicit and that no component silently becomes a second
-source of truth.
+operator built into the Onyx-based product; Odoo owns formal state and publishes
+the closed-world capability registry; Semantic Core owns evidence, claims,
+validation history and the organizational ledger while validating against that
+registry; an implementation-agnostic external orchestrator owns longitudinal
+execution. Hermes is optional. Verify that responsibilities are explicit and
+that no component silently becomes a second source of truth.
 
 Prioritize contract incompatibilities, data-governance failures, closed-world
-violations, provenance gaps, idempotency and lifecycle risks, CE/EE licensing
-boundary violations, migration loss, missing tests, and architectural drift.
+violations, provenance gaps, idempotency and lifecycle risks, undeclared Onyx
+CE/EE profile dependencies, accidental EE redistribution or unnecessary
+reimplementation of existing Onyx capability, migration loss, missing tests,
+and architectural drift.
 Avoid style-only feedback.
 """
