@@ -13,9 +13,12 @@ contracts, tests, and runtime paths. For each item, distinguish observed facts
 from inference and unknowns. Return a compact migration matrix with source,
 current behavior, target Onyx seam, reuse recommendation, risks, and evidence.
 
-Preserve these product boundaries while mapping: Odoo is the formal domain
-anchor, PMORG Core owns closed-world semantics and organizational memory, Onyx
-provides the cognitive and knowledge platform, and the external orchestrator
-owns longitudinal execution. Treat Enterprise Edition code as inspectable but
-not reusable unless licensing and product decisions explicitly allow it.
+Preserve these product boundaries while mapping: Odoo owns formal state and
+publishes the closed-world capability registry; Semantic Core owns evidence,
+claims, validation history and organizational memory and validates against that
+registry; Onyx provides the cognitive and knowledge platform; the external
+orchestrator contract is implementation-agnostic and owns longitudinal
+execution. Map existing Onyx CE and EE capabilities before proposing new code,
+record the required delivery profile, and do not recommend reimplementation
+solely to avoid an EE dependency.
 """
