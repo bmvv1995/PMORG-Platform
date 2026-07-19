@@ -185,7 +185,8 @@ The platform requirements used by these slices remain distinct:
 
 ### Slice 0 — governed baseline
 
-Status: in cross-review on `sol/v3-foundation`.
+Status: completed and merged to `main` at
+`b86201dafda442f8caf58da6f6fb64564327c889`.
 
 - record project-scoped agent roles with canonical ownership language;
 - pin upstream and the accepted specification baseline;
@@ -207,6 +208,35 @@ Slice 0 remains `not_yet_qualified`. It emits no release definition, BQM, BQA,
 admission, capability disposition, provenance report or G3-A PASS claim. Its
 machine-readable round-3 section is a reviewed declarative snapshot; the
 pinned PMORG commit remains the normative source.
+
+### Slice 0.1 — governed integration admission
+
+Status: governance-only successor; no upstream or runtime changes.
+
+- reserve only `backend/pmorg/**` and `web/src/pmorg/**` as additional bounded
+  PMORG-owned roots;
+- keep default ownership `upstream_owned`, default seam decision `deny`, the
+  concrete seam allowlist empty and `upstream_patch_records=[]`;
+- replace the Slice 0 unconditional code freeze with versioned validation that
+  can admit a future path only through exactly one explicit seam and one exact
+  v2 patch record;
+- require the concrete seam authorization and its Python protector tests to
+  land first, then bind a later patch PR to the exact protected base through
+  `PMORG_PROTECTED_BASE_SHA` populated by the PMORG GitHub governance gate; an
+  admitted seam is introduced atomically on that base, remains immutable, and
+  later bases may only inherit it as an unchanged ancestor;
+- admit only byte-bound `unittest.TestCase` protector methods under
+  `pmorg/tests/test_*.py`; run every exact selector and require one execution
+  with no failure, error, skip, expected failure or unexpected success;
+- require a safe accepted machine-readable authorization, byte-bound
+  protector-test references, canonical upstream-tree digest, exact blob hashes
+  and regular-file modes, exact official issue/PR URLs, strict UTC timestamps,
+  and valid ownership/license/surface disposition;
+- continue to reject PMORG-prefixed path components under upstream-owned
+  roots; this is a lexical structural guard, while exact-diff review and later
+  canonical patch evidence establish minimal-wiring semantics;
+- preserve `not_yet_qualified` and emit no release, qualification, admission,
+  disposition, provenance or gate verdict.
 
 ### Slice 1 — Onyx substrate and G3-A qualification
 
