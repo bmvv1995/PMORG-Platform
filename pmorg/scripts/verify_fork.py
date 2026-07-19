@@ -23,9 +23,29 @@ class SpecificationManifest(TypedDict):
     commit: str
 
 
+class LicensingManifest(TypedDict):
+    artifact_policy: str
+    qualification_status: str
+    allowed_onyx_surfaces: list[str]
+    allowed_usage_modes: list[str]
+    ce_surface_policy: str
+    ee_surface_policy: str
+    ee_development_test_policy: str
+    ee_production_policy: str
+    capability_disposition_policy: str
+
+
+class BuildManifest(TypedDict):
+    mode: str
+    onyx_surface: str | None
+    usage_mode: str | None
+
+
 class BaselineManifest(TypedDict):
     upstream: UpstreamManifest
     specification: SpecificationManifest
+    licensing: LicensingManifest
+    build: BuildManifest
 
 
 class PatchEntry(TypedDict):
@@ -45,6 +65,24 @@ ALLOWED_CLASSIFICATIONS = {
     "integration",
     "upstream-candidate",
     "temporary",
+}
+
+EXPECTED_ONYX_SURFACES = ["ce", "ee"]
+EXPECTED_USAGE_MODES = ["development_test", "production"]
+EXPECTED_LICENSING_POLICIES = {
+    "artifact_policy": "declared_onyx_surface_and_usage_mode",
+    "qualification_status": "pending_surface_mode_selection",
+    "ce_surface_policy": "exclude_onyx_ee_code",
+    "ee_surface_policy": "complete_inventory_required_all_usage_modes",
+    "ee_development_test_policy": (
+        "signed_synthetic_admission_and_production_distribution_guard_required"
+    ),
+    "ee_production_policy": (
+        "signed_commercial_authorization_bound_to_build_and_target_required_fail_closed"
+    ),
+    "capability_disposition_policy": (
+        "versioned_catalog_complete_reuse_patch_pmorg_independent_report"
+    ),
 }
 
 
@@ -70,6 +108,10 @@ def load_manifest(repository_root: Path) -> BaselineManifest:
         raise ValueError("baseline manifest has no upstream object")
     if not isinstance(value.get("specification"), dict):
         raise ValueError("baseline manifest has no specification object")
+    if not isinstance(value.get("licensing"), dict):
+        raise ValueError("baseline manifest has no licensing object")
+    if not isinstance(value.get("build"), dict):
+        raise ValueError("baseline manifest has no build object")
     return cast(BaselineManifest, value)
 
 
@@ -113,6 +155,51 @@ def find_uncovered_paths(
     ]
 
 
+def validate_surface_mode(manifest: BaselineManifest) -> list[str]:
+    errors: list[str] = []
+    licensing = manifest["licensing"]
+    build = manifest["build"]
+
+    if licensing.get("allowed_onyx_surfaces") != EXPECTED_ONYX_SURFACES:
+        errors.append("allowed Onyx surfaces must be exactly ce and ee")
+    if licensing.get("allowed_usage_modes") != EXPECTED_USAGE_MODES:
+        errors.append(
+            "allowed usage modes must be exactly development_test and production"
+        )
+
+    for key, expected in EXPECTED_LICENSING_POLICIES.items():
+        if licensing.get(key) != expected:
+            errors.append(f"unexpected licensing policy {key}")
+
+    onyx_surface = build.get("onyx_surface")
+    usage_mode = build.get("usage_mode")
+    if (onyx_surface is None) != (usage_mode is None):
+        errors.append("onyx_surface and usage_mode must be declared together")
+    if onyx_surface is not None and onyx_surface not in EXPECTED_ONYX_SURFACES:
+        errors.append(f"invalid onyx_surface: {onyx_surface}")
+    if usage_mode is not None and usage_mode not in EXPECTED_USAGE_MODES:
+        errors.append(f"invalid usage_mode: {usage_mode}")
+
+    serialized = json.dumps(manifest, sort_keys=True)
+    if "licensed-ee" in serialized or "delivery_profile" in serialized:
+        errors.append("legacy delivery-profile terminology is forbidden")
+
+    return errors
+
+
+def validate_specification_references(
+    repository_root: Path, specification_commit: str
+) -> list[str]:
+    errors: list[str] = []
+    for relative_path in ("PMORG.md", "plans/pmorg-v3-foundation.md"):
+        content = (repository_root / relative_path).read_text(encoding="utf-8")
+        if specification_commit not in content:
+            errors.append(
+                f"{relative_path} does not reference the pinned specification commit"
+            )
+    return errors
+
+
 def verify(repository_root: Path) -> list[str]:
     errors: list[str] = []
     manifest = load_manifest(repository_root)
@@ -147,13 +234,21 @@ def verify(repository_root: Path) -> list[str]:
         errors.append("baseline manifest is not pinned to RB-1/C2")
     if (
         len(specification["commit"]) != 40
-        or any(character not in "0123456789abcdef" for character in specification["commit"])
+        or any(
+            character not in "0123456789abcdef"
+            for character in specification["commit"]
+        )
     ):
         errors.append("specification commit is not a lowercase full SHA")
     if patch_ledger["specification_commit"] != specification["commit"]:
         errors.append(
             "patch ledger and baseline manifest disagree on specification commit"
         )
+
+    errors.extend(validate_surface_mode(manifest))
+    errors.extend(
+        validate_specification_references(repository_root, specification["commit"])
+    )
 
     ancestor_check = subprocess.run(
         ["git", "merge-base", "--is-ancestor", upstream["commit"], "HEAD"],
