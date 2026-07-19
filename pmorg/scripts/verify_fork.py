@@ -52,6 +52,9 @@ class PatchEntry(TypedDict):
     id: str
     classification: str
     paths: list[str]
+    requirements: list[str]
+    reason: str
+    verification: list[str]
 
 
 class PatchLedger(TypedDict):
@@ -187,6 +190,92 @@ def validate_surface_mode(manifest: BaselineManifest) -> list[str]:
     return errors
 
 
+def validate_patch_entries(patch_entries: list[PatchEntry]) -> list[str]:
+    errors: list[str] = []
+    for index, patch_entry in enumerate(patch_entries):
+        entry_id = patch_entry.get("id")
+        label = entry_id if isinstance(entry_id, str) and entry_id else f"entry[{index}]"
+
+        if not isinstance(entry_id, str) or not entry_id:
+            errors.append(f"{label} has no non-empty id")
+        classification = patch_entry.get("classification")
+        if not isinstance(classification, str) or not classification:
+            errors.append(f"{label} has no non-empty classification")
+
+        for key in ("paths", "requirements", "verification"):
+            value = patch_entry.get(key)
+            if (
+                not isinstance(value, list)
+                or not value
+                or any(not isinstance(item, str) or not item.strip() for item in value)
+            ):
+                errors.append(f"{label} has no non-empty {key} list")
+            elif len(value) != len(set(value)):
+                errors.append(f"{label} has duplicate {key}")
+
+        reason = patch_entry.get("reason")
+        if not isinstance(reason, str) or not reason.strip():
+            errors.append(f"{label} has no non-empty reason")
+
+    return errors
+
+
+def validate_local_upstream(
+    repository_root: Path, upstream: UpstreamManifest
+) -> list[str]:
+    errors: list[str] = []
+
+    if upstream.get("release_tag") != "v4.3.9":
+        errors.append("unexpected Onyx release tag")
+    commit = upstream.get("commit")
+    if (
+        not isinstance(commit, str)
+        or len(commit) != 40
+        or any(character not in "0123456789abcdef" for character in commit)
+    ):
+        errors.append("upstream commit is not a lowercase full SHA")
+        return errors
+
+    object_check = subprocess.run(
+        ["git", "cat-file", "-e", f"{commit}^{{commit}}"],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if object_check.returncode != 0:
+        errors.append("pinned upstream commit is absent from local history")
+        return errors
+
+    tag_check = subprocess.run(
+        ["git", "show-ref", "--verify", "--quiet", f"refs/tags/{upstream['release_tag']}"],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if tag_check.returncode == 0:
+        release_commit = run_git(repository_root, "rev-parse", upstream["release_tag"])
+        if release_commit != commit:
+            errors.append(
+                f"release tag resolves to {release_commit}, expected {commit}"
+            )
+
+    remote_names = run_git(repository_root, "remote").splitlines()
+    checkout_remote = upstream.get("checkout_remote")
+    if checkout_remote in remote_names:
+        upstream_remote_url = run_git(
+            repository_root, "remote", "get-url", checkout_remote
+        )
+        if upstream_remote_url != upstream.get("repository"):
+            errors.append(
+                f"upstream remote is {upstream_remote_url}, "
+                f"expected {upstream.get('repository')}"
+            )
+
+    return errors
+
+
 def validate_specification_references(
     repository_root: Path, specification_commit: str
 ) -> list[str]:
@@ -211,19 +300,7 @@ def verify(repository_root: Path) -> list[str]:
     if working_tree_status:
         errors.append("working tree is not clean")
 
-    release_commit = run_git(repository_root, "rev-parse", upstream["release_tag"])
-    if release_commit != upstream["commit"]:
-        errors.append(
-            f"release tag resolves to {release_commit}, expected {upstream['commit']}"
-        )
-
-    upstream_remote_url = run_git(
-        repository_root, "remote", "get-url", upstream["checkout_remote"]
-    )
-    if upstream_remote_url != upstream["repository"]:
-        errors.append(
-            f"upstream remote is {upstream_remote_url}, expected {upstream['repository']}"
-        )
+    errors.extend(validate_local_upstream(repository_root, upstream))
 
     if patch_ledger["upstream_commit"] != upstream["commit"]:
         errors.append("patch ledger and baseline manifest disagree on upstream commit")
@@ -259,6 +336,11 @@ def verify(repository_root: Path) -> list[str]:
     )
     if ancestor_check.returncode != 0:
         errors.append("pinned upstream commit is not an ancestor of HEAD")
+
+    patch_entry_errors = validate_patch_entries(patch_ledger["entries"])
+    errors.extend(patch_entry_errors)
+    if patch_entry_errors:
+        return errors
 
     duplicate_ids = {
         patch_entry["id"]
