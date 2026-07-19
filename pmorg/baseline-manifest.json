@@ -4,7 +4,7 @@
   "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
   "visibility": "private",
   "status": "bootstrap_candidate",
-  "created_at": "2026-07-18",
+  "created_at": "2026-07-19",
   "upstream": {
     "repository": "https://github.com/onyx-dot-app/onyx.git",
     "release_tag": "v4.3.9",
@@ -16,8 +16,8 @@
   },
   "specification": {
     "repository": "https://github.com/bmvv1995/PMORG.git",
-    "baseline": "RB-1/C1",
-    "commit": "6cf92cb1c7148b916929fb04f7f24f62bcab184d"
+    "baseline": "RB-1/C2",
+    "commit": "72e739f72b955217bc47c04b43411c98611a5f02"
   },
   "licensing": {
     "source_repository_mode": "mixed_source",
@@ -27,8 +27,14 @@
       "web/src/app/ee/**",
       "web/src/ee/**"
     ],
-    "artifact_policy": "exclude_onyx_ee_code",
-    "qualification_status": "pending"
+    "artifact_policy": "declared_delivery_profile",
+    "qualification_status": "pending_profile_selection",
+    "delivery_profiles": [
+      "ce",
+      "licensed-ee"
+    ],
+    "ce_profile_policy": "exclude_onyx_ee_code",
+    "licensed_ee_profile_policy": "inventory_dependencies_and_require_commercial_authorization_before_client_deployment"
   },
   "official_foss_mirror": {
     "repository": "https://github.com/onyx-dot-app/onyx-foss.git",
@@ -41,6 +47,7 @@
     "mode": "not_yet_qualified",
     "images": [],
     "sbom": null,
-    "ce_boundary_report": null
+    "ce_boundary_report": null,
+    "delivery_profile": null
   }
 }
