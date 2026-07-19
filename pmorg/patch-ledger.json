@@ -7,14 +7,21 @@
       "classification": "PMORG-owned",
       "paths": [
         "PMORG.md",
-        "pmorg/**"
+        "pmorg/.gitignore",
+        "pmorg/CE-BOUNDARY.md",
+        "pmorg/PATCH-LEDGER.md",
+        "pmorg/baseline-manifest.json",
+        "pmorg/patch-ledger.json",
+        "pmorg/scripts/verify_fork.py",
+        "pmorg/tests/test_verify_fork.py"
       ],
       "requirements": [
         "PLT-001",
         "PLT-004",
-        "PLT-005"
+        "PLT-005",
+        "PLT-006"
       ],
-      "reason": "Pin upstream and specification inputs, define the CE boundary, and establish fork governance.",
+      "reason": "Pin upstream and specification inputs, define declared Onyx delivery profiles, and establish single-owner fork governance.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py"
       ]
@@ -26,7 +33,9 @@
         ".codex/**"
       ],
       "requirements": [
-        "PLT-004"
+        "PLT-004",
+        "PLT-005",
+        "PLT-006"
       ],
       "reason": "Define project-scoped, least-privilege agent roles for evidence gathering, architecture review, verification, and bounded implementation.",
       "verification": [
@@ -41,7 +50,15 @@
         "plans/pmorg-v3-foundation.md"
       ],
       "requirements": [
+        "MEM-011",
+        "MEM-012",
+        "INT-002",
+        "INT-006",
+        "ORC-006",
         "PLT-004",
+        "PLT-005",
+        "PLT-006",
+        "SEC-006",
         "EVAL-001"
       ],
       "reason": "Record the evidence-based V3 migration sequence, ownership boundaries, and verification strategy before product implementation.",
@@ -49,5 +66,6 @@
         "python3 pmorg/scripts/verify_fork.py"
       ]
     }
-  ]
+  ],
+  "specification_commit": "72e739f72b955217bc47c04b43411c98611a5f02"
 }
