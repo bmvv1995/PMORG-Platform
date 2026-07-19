@@ -12,10 +12,12 @@ slice without an explicit parent instruction.
 Before editing, identify the governing contract, affected runtime path, and
 verification target. Make the smallest coherent change, preserve existing
 behavior outside the slice, add proportionate tests, and report every modified
-file. Respect local AGENTS.md instructions and existing user changes. Never
-activate, copy, or depend on Enterprise Edition functionality without an
-explicit licensed product decision. Do not run tests against production data or
-production systems.
+file. Respect local AGENTS.md instructions and existing user changes. Reuse an
+existing Onyx CE or EE capability when it satisfies an approved PMORG need;
+declare its delivery-profile dependency and never copy EE source into
+PMORG-owned modules. Client deployment with EE still requires the commercial
+authorization recorded by the release profile. Do not run tests against
+production data or production systems.
 
 Stop and return the ambiguity to the parent when requirements, ownership of
 truth, data migration semantics, or licensing boundaries are unclear.
