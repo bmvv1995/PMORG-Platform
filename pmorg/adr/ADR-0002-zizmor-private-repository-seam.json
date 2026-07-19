@@ -1,0 +1,19 @@
+{
+  "allowed_classifications": [
+    "integration"
+  ],
+  "authorized_at": "2026-07-19T18:53:28Z",
+  "decision_id": "ADR-0002",
+  "path": ".github/workflows/zizmor.yml",
+  "protector_test_hashes": {
+    "pmorg/tests/test_zizmor_ci_seam_protector.py::TestZizmorPrivateRepositorySeam.test_sarif_upload_is_explicitly_opt_in": "sha256:79eceff805e5596c94eb0a6cb7030d3018a62e8b389262d80d62530592cf0d69"
+  },
+  "rationale": "Authorize only the byte-exact reviewed Zizmor workflow target needed to keep scanning fail-closed while making SARIF publication an explicit private-repository capability.",
+  "required_protector_tests": [
+    "pmorg/tests/test_zizmor_ci_seam_protector.py::TestZizmorPrivateRepositorySeam.test_sarif_upload_is_explicitly_opt_in"
+  ],
+  "schema_version": "pmorg.platform.seam-authorization/v1",
+  "seam_id": "SEAM-CI-ZIZMOR-001",
+  "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+  "status": "accepted"
+}

@@ -1,0 +1,19 @@
+{
+  "allowed_classifications": [
+    "integration"
+  ],
+  "authorized_at": "2026-07-19T18:53:28Z",
+  "decision_id": "ADR-0003",
+  "path": ".github/workflows/pr-helm-chart-testing.yml",
+  "protector_test_hashes": {
+    "pmorg/tests/test_helm_ci_seam_protector.py::TestHelmRunnerAdmissionSeam.test_non_helm_change_does_not_require_runs_on": "sha256:1b4cf7f60dadf43171b8f4e965a35c4b7215ea58013b15f308ea73a9bf01e6fa"
+  },
+  "rationale": "Authorize only the byte-exact reviewed Helm CI target needed to run provider-agnostic change detection and request the high-capacity runner exclusively for applicable Helm inputs.",
+  "required_protector_tests": [
+    "pmorg/tests/test_helm_ci_seam_protector.py::TestHelmRunnerAdmissionSeam.test_non_helm_change_does_not_require_runs_on"
+  ],
+  "schema_version": "pmorg.platform.seam-authorization/v1",
+  "seam_id": "SEAM-CI-HELM-001",
+  "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+  "status": "accepted"
+}
