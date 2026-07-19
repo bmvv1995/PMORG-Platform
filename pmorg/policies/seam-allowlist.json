@@ -1,0 +1,11 @@
+{
+  "schema_version": "pmorg.platform.seam-allowlist/v1",
+  "default_decision": "deny",
+  "seams": [],
+  "invariants": {
+    "slice_zero_upstream_changes_forbidden": true,
+    "upstream_owned_change_requires_exactly_one_allowlisted_seam": true,
+    "upstream_owned_change_requires_exactly_one_patch_record": true,
+    "pmorg_domain_in_upstream_owned_roots_forbidden": true
+  }
+}

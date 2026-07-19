@@ -42,9 +42,8 @@ added:
 
 ### Normative inputs
 
-- PMORG requirements: `RB-1/C2` candidate, PMORG PR #5 head
-  `a90e56408cc4a884fc246c19d82c69f13d549e8d`. Replace this pin with the
-  accepted final commit before PR #17 leaves draft.
+- PMORG requirements: accepted `RB-1/C2` baseline, PMORG `master` commit
+  `05bc4df345d2d65e05b510135a4d99c9edbf886e`.
 - Onyx baseline: `v4.3.9`, commit
   `1da679cefc96165c6b9b64c3bc769584b88f88c2`.
 - The requirements repository owns specifications, contracts, evaluation
@@ -78,6 +77,12 @@ added:
 - Onyx personal memory is disabled for PMORG agents until a separate scope
   policy exists.
 - The Onyx tenant identifier is not a substitute for `OrganizationContext`.
+- The release qualification capability catalog is a build-time coverage
+  artifact; it does not replace the live Odoo-owned organizational capability
+  registry.
+- Qualification and admission tooling emits evidence and verdicts only. It
+  does not own organizational state, canonical tasks, semantic truth, or
+  runtime authorization policy.
 - MCP exposes Semantic Core externally but is not an internal HTTP loopback
   between modules in the same process.
 - An existing Onyx capability is reused by default only when it passes PMORG
@@ -137,12 +142,17 @@ and reproducible image evidence. Do not port broad removals from Onyx; use only
 narrow, tested seams needed for a CE artifact.
 
 For `onyx_surface=ee`, keep EE code in its original upstream paths and
-inventory every capability, dependency, patch, and image layer. With
-`usage_mode=development_test`, permit only synthetic development/evaluation
-and enforce a technical guard that refuses production use or distribution.
-With `usage_mode=production`, require a verified authorization record binding
-the licensed entity, seats/scope, agreement reference, validity window, and
-verifier receipt. Missing, expired, or mismatched evidence fails closed.
+inventory every capability, dependency, patch, and image layer. Both CE and EE
+with `usage_mode=development_test` admit only measured synthetic targets and
+controlled synthetic registries; client deployment and distribution are
+refused. Production plus a synthetic target or destination is also refused.
+`ce + production` requires the CE release authorization bound to the build and
+client target/destination. `ee + production` additionally requires verified
+commercial authorization binding the licensed entity, seats/scope, agreement,
+validity window, exact artifact set and measured client target/destination.
+Deployment/startup and publish/export use separate admissions and revalidation
+loops. Missing, expired, revoked, overdue, mismatched or untrusted evidence
+fails closed before effect or first byte.
 
 CE qualification is not a prerequisite for contracts, Odoo, Semantic Core, or
 Turn work. Every release candidate must nevertheless close `G3-A` for its
@@ -156,37 +166,93 @@ parallel. Slice 1 must not emit signed qualification/admission/disposition
 records or close G3-A until Slice 2 publishes the canonical schema manifest and
 digest. No CE-only task blocks Odoo or Semantic Core work.
 
+The platform requirements used by these slices remain distinct:
+
+- `PLT-001` owns `A-FORK-001`, `A-UPSTREAM-001`, `A-LIC-001` and
+  `A-SURFACE-001`: exact upstream/spec pins, selected upstream tests, qualified
+  surface evidence and no availability claim without a real build;
+- `PLT-004` owns `A-PATCH-001`: ownership-root boundary scan, seam allowlist,
+  exact upstream diff and patch-ledger evidence;
+- `PLT-005` owns `A-LIC-001`, `A-REPRO-001`, `A-EVIDENCE-001` and
+  `A-REPORT-001`: externally approved release definition, expected artifact
+  catalog, BQM, BQA, reproducibility and byte-closed evidence;
+- `PLT-006` owns `A-PATCH-002..006`: capability catalog, source-scope candidate
+  search, qualification/disposition/deviation and bilateral provenance;
+- `PLT-007` owns `A-LIC-002`: per-target measurement and
+  deployment/startup/watchdog admission;
+- `PLT-008` owns `A-LIC-003`: per-destination measurement and
+  publish/export/revalidation admission.
+
 ### Slice 0 — governed baseline
 
 Status: in cross-review on `sol/v3-foundation`.
 
 - record project-scoped agent roles with canonical ownership language;
-- pin upstream and candidate specification inputs;
+- pin upstream and the accepted specification baseline;
+- declare explicit PMORG-owned and upstream-owned roots plus the initially
+  empty seam allowlist; the current branch has zero upstream-owned patches;
+- use patch-ledger v2 with `ownership_roots_ref`, `seam_allowlist_ref` and
+  `upstream_patch_records=[]` for this zero-upstream-patch foundation;
 - narrow the patch ledger so every changed path has exactly one owner;
 - reject uncovered and multiply owned paths;
+- fail closed on every upstream-owned change in Slice 0, even when a proposed
+  seam and record are structurally complete. The first later slice that needs
+  an upstream seam must add the canonical boundary/evidence validator together
+  with its ADR, allowlist entry, exact per-path record, base/patched hashes,
+  surface/license classification and protector evidence;
 - cross-record and validate the specification pin;
 - require fork verification before and after every later slice.
+
+Slice 0 remains `not_yet_qualified`. It emits no release definition, BQM, BQA,
+admission, capability disposition, provenance report or G3-A PASS claim. Its
+machine-readable round-3 section is a reviewed declarative snapshot; the
+pinned PMORG commit remains the normative source.
 
 ### Slice 1 — Onyx substrate and G3-A qualification
 
 - add immutable `onyx_surface` and `usage_mode` inputs to build, release,
   SBOM, and run-bundle manifests;
+- before build, require a DSSE-signed `ReleaseBuildDefinitionPayload` that
+  fixes the baseline/spec/platform/Onyx commits, build recipe/input set,
+  expected artifact catalog, qualification policy map and runtime scope map;
+- make the runtime scope map contain exactly the externally approved
+  `deployment_runtime`, `registry_publish` and `artifact_export` entries;
 - build backend/frontend artifacts from pinned source without relocating or
   copying EE code into PMORG-owned paths;
 - for `ce`, prove that no EE product file, import, dependency group, or saved
   image layer exists;
 - for every `ee` build, inventory all capability/file/dependency/patch/layer
   provenance;
-- emit a signed, content-addressed `BuildQualificationManifest` that binds
-  artifact digest, both axes, inventory/boundary reports, SBOM and verifier;
-- require a signed `DeploymentAdmissionRecord` at deploy and startup:
-  `ee + development_test` admits only an attested synthetic target and rejects
-  production/distribution; `ee + production` binds authorization entity,
-  seats/scope, agreement, validity, artifact and client target;
-- materialize a versioned required-capability catalog and a complete
-  `reuse|patch|pmorg_independent` disposition report; deviations from an
-  adequate Onyx capability require ADR/waiver, expiry and tests;
-- record `license_class=onyx-enterprise` for every direct EE patch;
+- emit a content-addressed `BuildQualificationManifest` with the exact artifact
+  set and required conditional report roles, then a separate DSSE-signed BQA;
+  all nested evidence, trust material, revocation snapshots, verifier receipts
+  and trusted-time receipts resolve offline, and the BQA window is bounded by
+  every contributing decision/snapshot deadline;
+- reconstruct payload and measured target independently at deploy, startup and
+  watchdog, then require a signed `DeploymentAdmissionRecord` for the exact
+  surface/mode matrix; revalidation quiesces before its deadline;
+- reconstruct the distributed subset and measured destination before
+  publish/export and after auth/redirect, then require a separate signed
+  `DistributionAdmissionRecord`; an active transfer aborts before its deadline;
+- derive the versioned required-capability catalog from the fixed applicable
+  requirement set and scope rule, with zero unmapped/unknown requirements;
+- derive CE/EE source-scope denominators independently from the pinned Onyx
+  repository/commit/tree, preserve raw search/classification bytes, qualify
+  candidates with the exact contract tests and prove `no_candidate` only with
+  complete coverage;
+- emit exactly one `reuse|patch|pmorg_independent` record per catalog item,
+  with post-disposition tests and exact build/catalog/source bindings;
+  deviation from any passing reusable candidate requires an authority-bound,
+  DSSE-signed, trusted-time-bounded ADR/waiver for that exact build and
+  implementation;
+- scan complete pinned PMORG-owned and EE source scopes for exact, normalized
+  and above-threshold similarity matches; every resolution and evidence byte
+  is content-addressed, and unresolved/forbidden copies block PASS;
+- enforce the source/surface/license matrix, including preserved third-party
+  ownership and `license_class=onyx-enterprise` for every direct EE patch;
+- enforce thin-fork boundaries: upstream changes are allowlisted seams with one
+  per-path ledger record and exact base/patched hashes, while PMORG domain
+  modules/rules/types remain absent from upstream-owned roots;
 - run selected unmodified upstream suites on baseline and fork;
 - disable telemetry/update checks and enforce audited deny-by-default egress;
 - record image digests, SBOM, dependency export, license report, source
@@ -200,8 +266,11 @@ It does not rewrite unrelated Onyx behavior.
 
 - add top-level `backend/pmorg` package boundaries;
 - implement every contract frozen by `pmorg-contracts/1.0`, including
-  `BuildQualificationManifest`, `DeploymentAdmissionRecord`,
-  `CapabilityDispositionRecord`, nested types and command payloads needed by
+  evidence refs/indexes, DSSE, trusted-time/temporal bindings, release build
+  definition, expected artifact catalog, runtime scope policy map,
+  `BuildQualificationManifest`, BQA, deployment/distribution descriptors,
+  measurements and admissions, capability catalog/search/qualification/
+  disposition/deviation, provenance reports and command payloads needed by
   later slices;
 - generate committed JSON Schema with
   `additionalProperties: false` for writes;
@@ -382,7 +451,11 @@ these gates do not change ownership or contracts.
 - `python3 pmorg/scripts/verify_fork.py`;
 - `git diff --check`;
 - targeted Ruff/type checks;
-- patch-ledger coverage with exactly one owner per changed path;
+- patch-ledger coverage with exactly one owner per changed path; every future
+  upstream patch is in the seam allowlist and has exact base/patched hashes,
+  surface/license classification and protector evidence;
+- ownership-boundary scan with zero PMORG domain modules/rules/types under
+  upstream-owned roots;
 - pin/manifests parse and agree;
 - relevant unit, contract, integration, and negative tests;
 - zero production endpoints, data, identities, channels, or credentials.
@@ -392,16 +465,27 @@ these gates do not change ownership or contracts.
 - clean builds for each declared matrix cell;
 - `ce`: source/import/dependency/filesystem/every-layer scans with zero EE;
 - every `ee`: complete capability/file/dependency/patch/layer inventory;
-- signed build manifest with immutable axes, artifact digest and verifier;
-- `ee + development_test`: signed synthetic-target admission and rejection of
-  every production/distribution attempt;
-- `ee + production`: signed authorization bound to entity, seats/scope,
-  agreement, validity, artifact and client target; missing/expired/mismatch/
-  untrusted refusal at deploy and startup;
-- 100% required-capability catalog coverage by a disposition report;
-- direct EE patch license classification and zero EE copied into PMORG modules;
-- negative fixtures for undeclared paths, imports, dependencies, layers,
-  surface/mode mismatches, and authorization drift;
+- externally fixed release definition, expected artifact catalog, build inputs,
+  qualification policy map and exact three-entry runtime scope map;
+- BQM report-role and artifact coverage exact, DSSE BQA valid, evidence graph
+  acyclic and byte-closed, trusted-time/revocation/revalidation fail-closed;
+- all four surface/mode cells accept only their exact measured target and
+  destination classes; all four opposite-class combinations are denied;
+- deployment/startup/watchdog payload and target reconstruction, plus
+  publish/export/post-redirect reconstruction and transfer abort before
+  deadline;
+- 100% required-capability catalog coverage by exactly one disposition record;
+- pinned source-scope coverage, raw hit classification, exact candidate tests,
+  demonstrable `no_candidate`, reuse-default deviation and post-disposition
+  qualification;
+- bilateral PMORG/EE provenance coverage with exact/normalized/similarity
+  fixtures, conditional resolutions, byte closure and zero unresolved copies;
+- direct EE patch license classification, preserved third-party ownership and
+  zero EE copied into PMORG modules;
+- negative fixtures for undeclared paths/imports/dependencies/layers, wrong
+  source tree, incomplete search, cross-build record/deviation, missing or
+  replayed evidence, surface/mode mismatch, future/expired/revoked/overdue
+  decisions and authorization drift;
 - upstream unit/type/build suites before/after seams;
 - telemetry/update checks disabled and arbitrary egress denied;
 - SBOM, digest, license, vulnerability, authorization-state, and patch reports;

@@ -19,9 +19,36 @@ that no component silently becomes a second source of truth.
 
 Prioritize contract incompatibilities, data-governance failures, closed-world
 violations, provenance gaps, idempotency and lifecycle risks, undeclared Onyx
-Onyx surface/usage-mode dependencies, unsigned or bypassable deployment
-admission, accidental EE redistribution, incomplete capability disposition or
-unnecessary reimplementation of existing Onyx capability, migration loss, missing tests,
-and architectural drift.
+surface/usage-mode dependencies, unsigned or bypassable qualification,
+deployment or distribution admission, accidental EE redistribution,
+incomplete capability disposition or unnecessary reimplementation of existing
+Onyx capability, migration loss, missing tests, and architectural drift.
+
+For release evidence, verify that an externally authorized release definition
+pre-fixes recipe/input/catalog and policy maps; BQM binds the exact artifact
+set, axes and all report bytes; and a separate DSSE build qualification
+attestation carries accepted trust, revocation, trusted time and bounded
+revalidation. Reject missing/duplicate/unknown roles, dangling or cyclic
+evidence, self-authorized trust, cross-build reports and non-reproducible
+payload hashes.
+
+Review the exhaustive surface/mode truth table, including the four opposite
+target/destination denials. Confirm that deploy, startup and watchdog
+reconstruct actual payload/target, that watchdog inherits its parent operation
+and quiesces before deadline, and that publish/export/active transfer use a
+separate destination measurement/admission chain with inherited parent
+operation and abort before partial visibility or expiry.
+
+Require independently derived capability/provenance source scopes pinned to
+the BQM commits, exact catalog coverage, reuse-default disposition, signed and
+temporally bounded deviations, bilateral provenance coverage and byte-closed
+evidence. For the thin fork, require PMORG domain semantics only in PMORG-owned
+roots, upstream changes only in pre-authorized seams, exact blob/ownership/
+license records and a zero-violation boundary scan.
+
+Distinguish a contract or partial guardrail from accepted evidence. Slice 0,
+source scans, Compose smoke tests and successful startup cannot be described as
+`A-LIC-*`, `A-PATCH-*` or `G3-A` PASS without every canonical artefact and
+traceable acceptance result.
 Avoid style-only feedback.
 """

@@ -14,11 +14,38 @@ Before editing, identify the governing contract, affected runtime path, and
 verification target. Make the smallest coherent change, preserve behavior
 outside the slice, add proportionate tests, and report every modified file.
 Respect local AGENTS.md instructions and existing user changes. Map an approved
-need to existing Onyx CE/EE capability before adding code; record
-`onyx_surface: ce|ee`, `usage_mode: development_test|production`, capability
-disposition and evidence. Never copy EE source into PMORG-owned modules.
-`ee + development_test` must refuse production/distribution, while
-`ee + production` requires signed authorization bound to build and target.
+need to existing Onyx CE/EE capability before adding code. Search the complete
+source scopes pinned to the release BQM, reuse a qualified Onyx capability by
+default, emit exactly one `reuse|patch|pmorg_independent` disposition, and
+require a temporally valid signed ADR/waiver for deviation. Never copy EE
+source into PMORG-owned modules.
+
+Keep domain modules, rules and types exclusively in PMORG-owned roots. Touch
+upstream only through a pre-authorized seam, record exact base/patched bytes,
+ownership/license and protector tests, and preserve an exact-once patch ledger.
+Do not add a seam or move PMORG semantics upstream merely to finish a slice.
+
+For build/evidence work, implement the externally authorized release
+definition, exact expected catalog/artifact set, qualification/runtime policy
+maps, BQM, byte-closed evidence indexes and separate DSSE build qualification
+attestation. Evidence must resolve offline, remain acyclic and carry accepted
+trust, revocation, verifier identity and trusted-time receipts; a hash, URI,
+label or self-supplied trust root is not proof.
+
+Treat `onyx_surface: ce|ee` and
+`usage_mode: development_test|production` as immutable build axes. Both
+development/test cells admit only synthetic runtime and distribution targets;
+CE production requires CE release authorization and EE production additionally
+requires Enterprise authorization. Opposite target classes are explicit deny.
+Deploy/startup/watchdog reconstruct payload and target and quiesce before a
+missed deadline; publish/export/transfer revalidation reconstruct payload and
+destination and abort without partial visibility. Revalidation always inherits
+the parent operation and cannot select a weaker scope.
+
+Partial source, CE-boundary, Compose or startup evidence is useful input but
+must not be reported as `A-LIC-*`, `A-PATCH-*` or `G3-A` PASS. PR #17 is Slice
+0/not-yet-qualified unless a later assigned slice supplies every canonical
+artefact and acceptance result.
 Never run tests against production data or production systems.
 
 Escalate only when an ambiguity would change a governing contract, ownership of

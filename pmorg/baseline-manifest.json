@@ -1,5 +1,5 @@
 {
-  "schema_version": "pmorg.platform.baseline/v2",
+  "schema_version": "pmorg.platform.baseline/v3",
   "product": "PMORG-Platform",
   "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
   "visibility": "private",
@@ -17,7 +17,7 @@
   "specification": {
     "repository": "https://github.com/bmvv1995/PMORG.git",
     "baseline": "RB-1/C2",
-    "commit": "a90e56408cc4a884fc246c19d82c69f13d549e8d"
+    "commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
   },
   "licensing": {
     "source_repository_mode": "mixed_source",
@@ -28,7 +28,7 @@
       "web/src/ee/**"
     ],
     "artifact_policy": "declared_onyx_surface_and_usage_mode",
-    "qualification_status": "pending_surface_mode_selection",
+    "qualification_status": "not_yet_qualified",
     "allowed_onyx_surfaces": [
       "ce",
       "ee"
@@ -39,9 +39,325 @@
     ],
     "ce_surface_policy": "exclude_onyx_ee_code",
     "ee_surface_policy": "complete_inventory_required_all_usage_modes",
-    "ee_development_test_policy": "signed_synthetic_admission_and_production_distribution_guard_required",
-    "ee_production_policy": "signed_commercial_authorization_bound_to_build_and_target_required_fail_closed",
-    "capability_disposition_policy": "versioned_catalog_complete_reuse_patch_pmorg_independent_report"
+    "development_test_policy": "synthetic_only_all_surfaces",
+    "ce_production_policy": "client_only_ce_release_authorization",
+    "ee_production_policy": "client_only_enterprise_authorization",
+    "production_synthetic_policy": "deny_all_surfaces",
+    "capability_disposition_policy": "complete_catalog_reuse_default_patch_or_pmorg_independent_by_evidence",
+    "distribution_policy": "separate_payload_destination_measurement_and_admission_fail_closed"
+  },
+  "round_3_contract": {
+    "source_specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+    "authority": "declarative_snapshot_only_pmorg_commit_is_normative",
+    "platform_requirements": [
+      "PLT-001",
+      "PLT-004",
+      "PLT-005",
+      "PLT-006",
+      "PLT-007",
+      "PLT-008"
+    ],
+    "acceptance_controls": [
+      "A-FORK-001",
+      "A-UPSTREAM-001",
+      "A-LIC-001",
+      "A-SURFACE-001",
+      "A-REPRO-001",
+      "A-EVIDENCE-001",
+      "A-REPORT-001",
+      "A-LIC-002",
+      "A-LIC-003",
+      "A-PATCH-001",
+      "A-PATCH-002",
+      "A-PATCH-003",
+      "A-PATCH-004",
+      "A-PATCH-005",
+      "A-PATCH-006"
+    ],
+    "required_schema_versions": [
+      "pmorg.admission-use-receipt/v1",
+      "pmorg.build-qualification-attestation/v1",
+      "pmorg.build-qualification-manifest/v1",
+      "pmorg.candidate-qualification-report/v1",
+      "pmorg.candidate-search-evidence/v1",
+      "pmorg.capability-catalog/v1",
+      "pmorg.capability-deviation-decision/v1",
+      "pmorg.capability-disposition-report/v1",
+      "pmorg.capability-disposition/v1",
+      "pmorg.ce-release-authorization-binding/v1",
+      "pmorg.deployment-admission/v1",
+      "pmorg.deployment-payload-descriptor/v1",
+      "pmorg.deployment-target-descriptor/v1",
+      "pmorg.distribution-admission/v1",
+      "pmorg.distribution-destination-descriptor/v1",
+      "pmorg.distribution-destination-measurement/v1",
+      "pmorg.distribution-payload-descriptor/v1",
+      "pmorg.enterprise-authorization-binding/v1",
+      "pmorg.evidence-bundle-index/v1",
+      "pmorg.expected-artifact-catalog/v1",
+      "pmorg.post-disposition-qualification/v1",
+      "pmorg.provenance-scan-report/v1",
+      "pmorg.qualification-policy-map/v1",
+      "pmorg.release-build-definition/v1",
+      "pmorg.runtime-scope-policy-map/v1",
+      "pmorg.source-scope-manifest/v1",
+      "pmorg.target-measurement-attestation/v1",
+      "pmorg.trusted-time-receipt/v1"
+    ],
+    "runtime_scope_policy_classes": [
+      {
+        "scope_class": "deployment_runtime",
+        "expected_release_metadata_role_set": "forbidden"
+      },
+      {
+        "scope_class": "registry_publish",
+        "expected_release_metadata_role_set": "required"
+      },
+      {
+        "scope_class": "artifact_export",
+        "expected_release_metadata_role_set": "required"
+      }
+    ],
+    "qualification_bundle_roles": {
+      "common": [
+        "release-build-definition-dsse",
+        "build-recipe",
+        "build-input-set",
+        "runtime-scope-policy-map",
+        "expected-artifact-catalog",
+        "image-lock",
+        "qualification-policy-map",
+        "sbom-index",
+        "license-report",
+        "patch-ledger-report",
+        "provenance-report",
+        "surface-mode-report",
+        "provenance-evidence-bundle-index",
+        "capability-catalog",
+        "capability-disposition-report",
+        "capability-evidence-bundle-index",
+        "vulnerability-report",
+        "upstream-test-report"
+      ],
+      "ce_only": [
+        "ce-boundary-report"
+      ],
+      "ee_only": [
+        "ee-inventory-report"
+      ],
+      "unknown_duplicate_or_wrong_surface_role": "invalid"
+    },
+    "build_qualification": {
+      "release_definition_signed_before_build": true,
+      "expected_catalog_fixed_before_build": true,
+      "runtime_scope_map_fixed_before_build": true,
+      "build_manifest_detached": true,
+      "build_attestation_detached_dsse": true,
+      "required_independent_clean_builds": 2,
+      "reproducible_payloads": [
+        "artifact_descriptors",
+        "artifact_set_hash",
+        "image_lock_hash",
+        "qualification_bundle_index_hash",
+        "qualification_report_payload_hashes",
+        "build_manifest_payload_hash"
+      ],
+      "allowed_reproducibility_differences": [
+        "qualification_attestation_payload",
+        "execution_envelopes",
+        "dsse_signatures",
+        "trusted_time_receipts",
+        "temporal_windows"
+      ],
+      "artifact_counts_require_zero_missing_unexpected_duplicate": true,
+      "ce_requires_zero_ee_content": true,
+      "ee_requires_complete_inventory": true,
+      "capability_catalog_requires_complete_applicable_requirement_mapping": true,
+      "adequate_onyx_candidate_reuse_is_default": true,
+      "patch_or_pmorg_independent_requires_valid_deviation_decision": true
+    },
+    "evidence_policy": {
+      "content_addressed_bytes_resolve_offline": true,
+      "dsse_payload_and_envelope_are_detached": true,
+      "dsse_pae_payload_type_is_verified": true,
+      "nonempty_trusted_signatures_required": true,
+      "verification_policy_pinned_outside_verified_artifact": true,
+      "self_authorizing_trust_forbidden": true,
+      "evidence_graph_must_be_acyclic": true,
+      "logical_name_digest_and_relative_path_unique": true,
+      "digest_size_and_path_must_match_bytes": true,
+      "required_offline_evidence_classes": [
+        "trust-policy",
+        "certificates",
+        "revocation",
+        "trusted-time",
+        "verifier-receipts",
+        "resources",
+        "authorizations",
+        "provenance"
+      ]
+    },
+    "trusted_time_policy": {
+      "signed_receipt_required": true,
+      "receipt_bytes_available_offline": true,
+      "strict_sequence_and_monotonic_counter": true,
+      "previous_receipt_chain_no_gap_fork_or_rollback": true,
+      "freshness_skew_uncertainty_and_measurement_age_bounded": true,
+      "future_dated_signed_times_forbidden": true,
+      "validity_and_revalidation_windows_fail_closed": true,
+      "watchdog_quiesces_active_workload_before_deadline": true,
+      "transfer_revalidation_aborts_active_transfer_before_deadline": true
+    },
+    "deployment_admission": {
+      "direct_operations": [
+        "deploy",
+        "startup"
+      ],
+      "revalidation_event": "watchdog_revalidation",
+      "runtime_scope_policy_class": "deployment_runtime",
+      "reconstruct_payload_from_runtime_bytes": true,
+      "reconstruct_target_from_trusted_apis": true,
+      "reconstruct_at_each_deploy_startup_and_watchdog": true,
+      "revalidation_inherits_parent_operation_and_scope": true,
+      "pass_matrix": [
+        {
+          "onyx_surface": "ce",
+          "usage_mode": "development_test",
+          "target_class": "synthetic_sandbox",
+          "admission_basis": "synthetic_environment",
+          "authorization": "none"
+        },
+        {
+          "onyx_surface": "ee",
+          "usage_mode": "development_test",
+          "target_class": "synthetic_sandbox",
+          "admission_basis": "synthetic_environment",
+          "authorization": "none"
+        },
+        {
+          "onyx_surface": "ce",
+          "usage_mode": "production",
+          "target_class": "client",
+          "admission_basis": "ce_release",
+          "authorization": "ce_release_authorization"
+        },
+        {
+          "onyx_surface": "ee",
+          "usage_mode": "production",
+          "target_class": "client",
+          "admission_basis": "onyx_enterprise_authorization",
+          "authorization": "enterprise_authorization"
+        }
+      ],
+      "deny_matrix": [
+        {
+          "onyx_surface": "ce",
+          "usage_mode": "development_test",
+          "target_class": "client"
+        },
+        {
+          "onyx_surface": "ee",
+          "usage_mode": "development_test",
+          "target_class": "client"
+        },
+        {
+          "onyx_surface": "ce",
+          "usage_mode": "production",
+          "target_class": "synthetic_sandbox"
+        },
+        {
+          "onyx_surface": "ee",
+          "usage_mode": "production",
+          "target_class": "synthetic_sandbox"
+        }
+      ],
+      "unknown_or_unmeasurable_is_client_and_denied_without_exact_pass": true,
+      "watchdog_failure_action": "quiesce_before_deadline",
+      "required_contracts": [
+        "deployment-payload-descriptor",
+        "deployment-target-descriptor",
+        "target-measurement-attestation-dsse",
+        "deployment-admission-dsse",
+        "admission-use-receipt-dsse"
+      ]
+    },
+    "distribution_admission": {
+      "direct_operations": [
+        "registry_publish",
+        "artifact_export"
+      ],
+      "revalidation_event": "transfer_revalidation",
+      "runtime_scope_policy_classes": [
+        "registry_publish",
+        "artifact_export"
+      ],
+      "reconstruct_payload_and_metadata_from_bytes": true,
+      "reconstruct_destination_from_trusted_apis": true,
+      "reconstruct_after_authentication_and_redirect_before_first_byte": true,
+      "revalidation_inherits_parent_operation_and_scope": true,
+      "pass_matrix": [
+        {
+          "onyx_surface": "ce",
+          "usage_mode": "development_test",
+          "destination_class": "controlled_synthetic_registry",
+          "admission_basis": "synthetic_environment",
+          "authorization": "none"
+        },
+        {
+          "onyx_surface": "ee",
+          "usage_mode": "development_test",
+          "destination_class": "controlled_synthetic_registry",
+          "admission_basis": "synthetic_environment",
+          "authorization": "none"
+        },
+        {
+          "onyx_surface": "ce",
+          "usage_mode": "production",
+          "destination_class": "client_destination",
+          "admission_basis": "ce_release",
+          "authorization": "ce_release_authorization"
+        },
+        {
+          "onyx_surface": "ee",
+          "usage_mode": "production",
+          "destination_class": "client_destination",
+          "admission_basis": "onyx_enterprise_authorization",
+          "authorization": "enterprise_authorization"
+        }
+      ],
+      "deny_matrix": [
+        {
+          "onyx_surface": "ce",
+          "usage_mode": "development_test",
+          "destination_class": "client_destination"
+        },
+        {
+          "onyx_surface": "ee",
+          "usage_mode": "development_test",
+          "destination_class": "client_destination"
+        },
+        {
+          "onyx_surface": "ce",
+          "usage_mode": "production",
+          "destination_class": "controlled_synthetic_registry"
+        },
+        {
+          "onyx_surface": "ee",
+          "usage_mode": "production",
+          "destination_class": "controlled_synthetic_registry"
+        }
+      ],
+      "unknown_or_unmeasurable_is_client_destination_and_denied_without_exact_pass": true,
+      "active_transfer_failure_action": "abort_and_hide_partial_bytes_before_deadline",
+      "required_contracts": [
+        "distribution-payload-descriptor",
+        "evidence-bundle-index:release_metadata",
+        "distribution-destination-descriptor",
+        "destination-measurement-attestation-dsse",
+        "distribution-admission-dsse",
+        "admission-use-receipt-dsse"
+      ]
+    }
   },
   "official_foss_mirror": {
     "repository": "https://github.com/onyx-dot-app/onyx-foss.git",
@@ -54,10 +370,38 @@
     "mode": "not_yet_qualified",
     "onyx_surface": null,
     "usage_mode": null,
-    "images": [],
-    "sbom": null,
-    "artifact_qualification_report": null,
-    "capability_disposition_report": null,
-    "deployment_admission_record": null
+    "qualification_refs": {
+      "release_build_definition_envelope_hash": null,
+      "build_recipe_hash": null,
+      "build_input_set_hash": null,
+      "expected_artifact_catalog_hash": null,
+      "runtime_scope_policy_map_hash": null,
+      "build_qualification_manifest_hash": null,
+      "build_qualification_attestation_envelope_hash": null,
+      "qualification_bundle_index_hash": null,
+      "qualification_policy_map_hash": null,
+      "artifact_set_hash": null,
+      "image_lock_hash": null,
+      "surface_mode_report_hash": null,
+      "sbom_index_hash": null,
+      "license_report_hash": null,
+      "patch_ledger_report_hash": null,
+      "provenance_report_hash": null,
+      "provenance_evidence_bundle_index_hash": null,
+      "capability_catalog_hash": null,
+      "capability_disposition_report_hash": null,
+      "capability_evidence_bundle_index_hash": null,
+      "vulnerability_report_hash": null,
+      "upstream_test_report_hash": null,
+      "trusted_time_receipt_envelope_hash": null,
+      "ce_boundary_report_hash": null,
+      "ee_inventory_report_hash": null
+    },
+    "operation_refs": {
+      "deployment_admission_envelope_hashes": [],
+      "deployment_admission_use_receipt_envelope_hashes": [],
+      "distribution_admission_envelope_hashes": [],
+      "distribution_admission_use_receipt_envelope_hashes": []
+    }
   }
 }
