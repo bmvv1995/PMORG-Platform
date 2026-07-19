@@ -8,7 +8,8 @@ import json
 import subprocess
 import sys
 from pathlib import Path
-from typing import TypedDict, cast
+from typing import cast
+from typing import TypedDict
 
 
 class UpstreamManifest(TypedDict):
@@ -387,10 +388,7 @@ REQUIRED_TRUE_FLAGS = {
         "reconstruct_destination_from_trusted_apis",
         "reconstruct_after_authentication_and_redirect_before_first_byte",
         "revalidation_inherits_parent_operation_and_scope",
-        (
-            "unknown_or_unmeasurable_is_client_destination_"
-            "and_denied_without_exact_pass"
-        ),
+        ("unknown_or_unmeasurable_is_client_destination_and_denied_without_exact_pass"),
     ],
 }
 
@@ -520,7 +518,10 @@ def resolve_policy_path(repository_root: Path, relative_path: object) -> Path:
         raise ValueError(f"unsafe policy reference: {relative_path}")
     resolved_root = repository_root.resolve()
     resolved_candidate = (repository_root / candidate).resolve()
-    if resolved_candidate != resolved_root and resolved_root not in resolved_candidate.parents:
+    if (
+        resolved_candidate != resolved_root
+        and resolved_root not in resolved_candidate.parents
+    ):
         raise ValueError(f"policy reference escapes repository: {relative_path}")
     return resolved_candidate
 
@@ -557,8 +558,7 @@ def find_path_owners(
             and isinstance(patch_entry.get("id"), str)
             and isinstance(patch_entry.get("paths"), list)
             and any(
-                isinstance(pattern, str)
-                and path_matches_pattern(changed_path, pattern)
+                isinstance(pattern, str) and path_matches_pattern(changed_path, pattern)
                 for pattern in cast(list[object], patch_entry["paths"])
             )
         ]
@@ -580,7 +580,9 @@ def is_sha256(value: object) -> bool:
     if not isinstance(value, str) or not value.startswith("sha256:"):
         return False
     digest = value.removeprefix("sha256:")
-    return len(digest) == 64 and all(character in "0123456789abcdef" for character in digest)
+    return len(digest) == 64 and all(
+        character in "0123456789abcdef" for character in digest
+    )
 
 
 def validate_surface_mode(manifest: BaselineManifest) -> list[str]:
@@ -638,7 +640,9 @@ def validate_round_3_contract(manifest: BaselineManifest) -> list[str]:
     if contract.get("source_specification_commit") != specification_commit:
         errors.append("round-3 contract and specification pin disagree")
     if specification_commit != EXPECTED_PMORG_SPEC_COMMIT:
-        errors.append("baseline is not pinned to the accepted PMORG specification commit")
+        errors.append(
+            "baseline is not pinned to the accepted PMORG specification commit"
+        )
     if contract.get("authority") != (
         "declarative_snapshot_only_pmorg_commit_is_normative"
     ):
@@ -646,7 +650,9 @@ def validate_round_3_contract(manifest: BaselineManifest) -> list[str]:
             "round-3 manifest contract must declare the PMORG commit normative"
         )
     if contract.get("platform_requirements") != EXPECTED_PLATFORM_REQUIREMENTS:
-        errors.append("round-3 platform requirements must include PLT-001 and PLT-004..008")
+        errors.append(
+            "round-3 platform requirements must include PLT-001 and PLT-004..008"
+        )
     if contract.get("acceptance_controls") != EXPECTED_ACCEPTANCE_CONTROLS:
         errors.append("round-3 acceptance control set is incomplete or reordered")
     if contract.get("required_schema_versions") != EXPECTED_SCHEMA_VERSIONS:
@@ -656,7 +662,10 @@ def validate_round_3_contract(manifest: BaselineManifest) -> list[str]:
             "runtime scope policy classes must be deployment_runtime, "
             "registry_publish and artifact_export"
         )
-    if contract.get("qualification_bundle_roles") != EXPECTED_QUALIFICATION_BUNDLE_ROLES:
+    if (
+        contract.get("qualification_bundle_roles")
+        != EXPECTED_QUALIFICATION_BUNDLE_ROLES
+    ):
         errors.append("qualification bundle logical-role set is incomplete")
 
     for section_name, flags in REQUIRED_TRUE_FLAGS.items():
@@ -671,7 +680,9 @@ def validate_round_3_contract(manifest: BaselineManifest) -> list[str]:
     build_qualification = contract.get("build_qualification")
     if isinstance(build_qualification, dict):
         if build_qualification.get("required_independent_clean_builds") != 2:
-            errors.append("reproducibility requires exactly two independent clean builds")
+            errors.append(
+                "reproducibility requires exactly two independent clean builds"
+            )
         if build_qualification.get("reproducible_payloads") != [
             "artifact_descriptors",
             "artifact_set_hash",
@@ -716,7 +727,9 @@ def validate_round_3_contract(manifest: BaselineManifest) -> list[str]:
         if deployment.get("pass_matrix") != EXPECTED_DEPLOYMENT_PASS_MATRIX:
             errors.append("deployment admission must declare exactly four PASS cells")
         if deployment.get("deny_matrix") != EXPECTED_DEPLOYMENT_DENY_MATRIX:
-            errors.append("deployment admission must declare exactly four opposite-class denials")
+            errors.append(
+                "deployment admission must declare exactly four opposite-class denials"
+            )
         if deployment.get("watchdog_failure_action") != "quiesce_before_deadline":
             errors.append("deployment watchdog must quiesce before the deadline")
         if deployment.get("required_contracts") != [
@@ -736,7 +749,9 @@ def validate_round_3_contract(manifest: BaselineManifest) -> list[str]:
         ]:
             errors.append("distribution direct operation set is invalid")
         if distribution.get("revalidation_event") != "transfer_revalidation":
-            errors.append("distribution revalidation event must be transfer_revalidation")
+            errors.append(
+                "distribution revalidation event must be transfer_revalidation"
+            )
         if distribution.get("runtime_scope_policy_classes") != [
             "registry_publish",
             "artifact_export",
@@ -745,11 +760,15 @@ def validate_round_3_contract(manifest: BaselineManifest) -> list[str]:
         if distribution.get("pass_matrix") != EXPECTED_DISTRIBUTION_PASS_MATRIX:
             errors.append("distribution admission must declare exactly four PASS cells")
         if distribution.get("deny_matrix") != EXPECTED_DISTRIBUTION_DENY_MATRIX:
-            errors.append("distribution admission must declare exactly four opposite-class denials")
+            errors.append(
+                "distribution admission must declare exactly four opposite-class denials"
+            )
         if distribution.get("active_transfer_failure_action") != (
             "abort_and_hide_partial_bytes_before_deadline"
         ):
-            errors.append("distribution must abort and hide partial bytes before deadline")
+            errors.append(
+                "distribution must abort and hide partial bytes before deadline"
+            )
         if distribution.get("required_contracts") != [
             "distribution-payload-descriptor",
             "evidence-bundle-index:release_metadata",
@@ -775,7 +794,9 @@ def validate_build_qualification_state(manifest: BaselineManifest) -> list[str]:
     if not isinstance(qualification_refs, dict):
         return ["build has no qualification_refs object"]
     if set(qualification_refs) != EXPECTED_QUALIFICATION_REF_KEYS:
-        errors.append("qualification_refs key set is incomplete or contains unknown keys")
+        errors.append(
+            "qualification_refs key set is incomplete or contains unknown keys"
+        )
     if not isinstance(operation_refs, dict):
         return errors + ["build has no operation_refs object"]
     if set(operation_refs) != EXPECTED_OPERATION_REF_KEYS:
@@ -794,11 +815,11 @@ def validate_build_qualification_state(manifest: BaselineManifest) -> list[str]:
 
     if mode == "not_yet_qualified":
         if onyx_surface is not None or usage_mode is not None:
-            errors.append("not_yet_qualified build cannot declare surface or usage mode")
+            errors.append(
+                "not_yet_qualified build cannot declare surface or usage mode"
+            )
         non_null_refs = [
-            key
-            for key, value in qualification_refs.items()
-            if value is not None
+            key for key, value in qualification_refs.items() if value is not None
         ]
         if non_null_refs:
             errors.append(
@@ -806,7 +827,10 @@ def validate_build_qualification_state(manifest: BaselineManifest) -> list[str]:
                 + ", ".join(sorted(non_null_refs))
             )
     elif mode == "qualified":
-        if onyx_surface not in EXPECTED_ONYX_SURFACES or usage_mode not in EXPECTED_USAGE_MODES:
+        if (
+            onyx_surface not in EXPECTED_ONYX_SURFACES
+            or usage_mode not in EXPECTED_USAGE_MODES
+        ):
             errors.append("qualified build must declare valid surface and usage mode")
         missing_or_invalid = [
             key
@@ -844,7 +868,9 @@ def validate_patch_entries(patch_entries: list[object]) -> list[str]:
             errors.append(f"entry[{index}] is not an object")
             continue
         entry_id = patch_entry.get("id")
-        label = entry_id if isinstance(entry_id, str) and entry_id else f"entry[{index}]"
+        label = (
+            entry_id if isinstance(entry_id, str) and entry_id else f"entry[{index}]"
+        )
 
         if not isinstance(entry_id, str) or not entry_id:
             errors.append(f"{label} has no non-empty id")
@@ -891,7 +917,9 @@ def validate_patch_ledger_contract(patch_ledger: PatchLedger) -> list[str]:
         for requirement in entry.get("requirements", [])
         if isinstance(requirement, str)
     }
-    missing_requirements = sorted(set(EXPECTED_PLATFORM_REQUIREMENTS) - requirement_union)
+    missing_requirements = sorted(
+        set(EXPECTED_PLATFORM_REQUIREMENTS) - requirement_union
+    )
     if missing_requirements:
         errors.append(
             "patch ledger does not trace required platform requirements: "
@@ -1091,7 +1119,10 @@ def validate_upstream_patch_record(
 
     classification = record.get("classification")
     allowed_classifications = seam.get("allowed_classifications")
-    if isinstance(allowed_classifications, list) and classification not in allowed_classifications:
+    if (
+        isinstance(allowed_classifications, list)
+        and classification not in allowed_classifications
+    ):
         errors.append(f"{label} classification is not allowed by its seam")
     if record.get("seam_id") != seam.get("seam_id"):
         errors.append(f"{label} seam_id does not match the allowlisted seam")
@@ -1103,7 +1134,9 @@ def validate_upstream_patch_record(
         if set(source_ref) != REQUIRED_UPSTREAM_SOURCE_REF_KEYS:
             errors.append(f"{label} upstream_source_ref fields are incomplete")
         if source_ref.get("repository") != "https://github.com/onyx-dot-app/onyx.git":
-            errors.append(f"{label} upstream_source_ref repository is not official Onyx")
+            errors.append(
+                f"{label} upstream_source_ref repository is not official Onyx"
+            )
         source_commit = source_ref.get("commit")
         if (
             not isinstance(source_commit, str)
@@ -1111,7 +1144,10 @@ def validate_upstream_patch_record(
             or any(character not in "0123456789abcdef" for character in source_commit)
         ):
             errors.append(f"{label} upstream_source_ref commit is not a full SHA")
-        elif expected_upstream_commit is not None and source_commit != expected_upstream_commit:
+        elif (
+            expected_upstream_commit is not None
+            and source_commit != expected_upstream_commit
+        ):
             errors.append(f"{label} upstream_source_ref commit differs from baseline")
         if source_ref.get("path") != record.get("path"):
             errors.append(f"{label} upstream_source_ref path differs from record path")
@@ -1162,7 +1198,9 @@ def validate_upstream_patch_record(
     if isinstance(required_tests, list) and isinstance(protector_tests, list):
         missing_tests = sorted(set(required_tests) - set(protector_tests))
         if missing_tests:
-            errors.append(f"{label} misses seam protector tests: {', '.join(missing_tests)}")
+            errors.append(
+                f"{label} misses seam protector tests: {', '.join(missing_tests)}"
+            )
 
     revalidated_at = record.get("last_revalidated_at")
     if isinstance(revalidated_at, str) and (
@@ -1271,7 +1309,9 @@ def validate_thin_fork_diff(
                         f"PMORG-owned path must use PMORG-owned ledger classification: {path}"
                     )
             if records:
-                errors.append(f"PMORG-owned path cannot have an upstream patch record: {path}")
+                errors.append(
+                    f"PMORG-owned path cannot have an upstream patch record: {path}"
+                )
             continue
 
         if ownership != "upstream_owned":
@@ -1285,13 +1325,19 @@ def validate_thin_fork_diff(
         )
         seams = seam_matches(path, seam_policy)
         if len(seams) != 1:
-            errors.append(f"upstream-owned path requires exactly one allowlisted seam: {path}")
+            errors.append(
+                f"upstream-owned path requires exactly one allowlisted seam: {path}"
+            )
             continue
         if len(records) != 1:
-            errors.append(f"upstream-owned path requires exactly one upstream patch record: {path}")
+            errors.append(
+                f"upstream-owned path requires exactly one upstream patch record: {path}"
+            )
             continue
         record = records[0]
-        label = cast(str, record.get("id")) if isinstance(record.get("id"), str) else path
+        label = (
+            cast(str, record.get("id")) if isinstance(record.get("id"), str) else path
+        )
         errors.extend(
             validate_upstream_patch_record(
                 record,
@@ -1301,7 +1347,9 @@ def validate_thin_fork_diff(
             )
         )
         if repository_root is not None and upstream_commit is not None:
-            expected_base = blob_sha256_at_revision(repository_root, upstream_commit, path)
+            expected_base = blob_sha256_at_revision(
+                repository_root, upstream_commit, path
+            )
             expected_patched = blob_sha256_at_revision(repository_root, "HEAD", path)
             if record.get("base_blob_hash") != expected_base:
                 errors.append(f"{label} base_blob_hash does not match upstream bytes")
@@ -1347,7 +1395,13 @@ def validate_local_upstream(
         return errors
 
     tag_check = subprocess.run(
-        ["git", "show-ref", "--verify", "--quiet", f"refs/tags/{upstream['release_tag']}"],
+        [
+            "git",
+            "show-ref",
+            "--verify",
+            "--quiet",
+            f"refs/tags/{upstream['release_tag']}",
+        ],
         cwd=repository_root,
         check=False,
         capture_output=True,
@@ -1356,12 +1410,16 @@ def validate_local_upstream(
     if tag_check.returncode == 0:
         release_commit = run_git(repository_root, "rev-parse", upstream["release_tag"])
         if release_commit != commit:
-            errors.append(f"release tag resolves to {release_commit}, expected {commit}")
+            errors.append(
+                f"release tag resolves to {release_commit}, expected {commit}"
+            )
 
     remote_names = run_git(repository_root, "remote").splitlines()
     checkout_remote = upstream.get("checkout_remote")
     if checkout_remote in remote_names:
-        upstream_remote_url = run_git(repository_root, "remote", "get-url", checkout_remote)
+        upstream_remote_url = run_git(
+            repository_root, "remote", "get-url", checkout_remote
+        )
         if upstream_remote_url != upstream.get("repository"):
             errors.append(
                 f"upstream remote is {upstream_remote_url}, expected {upstream.get('repository')}"
@@ -1377,7 +1435,9 @@ def validate_specification_references(
     for relative_path in ("PMORG.md", "plans/pmorg-v3-foundation.md"):
         content = (repository_root / relative_path).read_text(encoding="utf-8")
         if specification_commit not in content:
-            errors.append(f"{relative_path} does not reference the pinned specification commit")
+            errors.append(
+                f"{relative_path} does not reference the pinned specification commit"
+            )
     return errors
 
 
@@ -1405,18 +1465,21 @@ def verify(repository_root: Path) -> list[str]:
         errors.append("unexpected PMORG specification repository")
     if specification["baseline"] != "RB-1/C2":
         errors.append("baseline manifest is not pinned to RB-1/C2")
-    if (
-        len(specification["commit"]) != 40
-        or any(character not in "0123456789abcdef" for character in specification["commit"])
+    if len(specification["commit"]) != 40 or any(
+        character not in "0123456789abcdef" for character in specification["commit"]
     ):
         errors.append("specification commit is not a lowercase full SHA")
     if patch_ledger["specification_commit"] != specification["commit"]:
-        errors.append("patch ledger and baseline manifest disagree on specification commit")
+        errors.append(
+            "patch ledger and baseline manifest disagree on specification commit"
+        )
 
     errors.extend(validate_surface_mode(manifest))
     errors.extend(validate_round_3_contract(manifest))
     errors.extend(validate_build_qualification_state(manifest))
-    errors.extend(validate_specification_references(repository_root, specification["commit"]))
+    errors.extend(
+        validate_specification_references(repository_root, specification["commit"])
+    )
 
     ancestor_check = subprocess.run(
         ["git", "merge-base", "--is-ancestor", upstream["commit"], "HEAD"],
@@ -1449,7 +1512,9 @@ def verify(repository_root: Path) -> list[str]:
             + ", ".join(sorted(invalid_classifications))
         )
 
-    changed_output = run_git(repository_root, "diff", "--name-only", f"{upstream['commit']}..HEAD")
+    changed_output = run_git(
+        repository_root, "diff", "--name-only", f"{upstream['commit']}..HEAD"
+    )
     changed_paths = changed_output.splitlines() if changed_output else []
     errors.extend(
         validate_thin_fork_diff(
@@ -1485,7 +1550,9 @@ def main() -> int:
             print(f"FAIL: {error}", file=sys.stderr)
         return 1
 
-    print("PASS: fork baseline, round-3 bootstrap and thin-fork policies are consistent")
+    print(
+        "PASS: fork baseline, round-3 bootstrap and thin-fork policies are consistent"
+    )
     return 0
 
 

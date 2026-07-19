@@ -7,17 +7,16 @@ import tempfile
 import unittest
 from pathlib import Path
 
-
 SCRIPT_DIRECTORY = Path(__file__).resolve().parents[1] / "scripts"
 sys.path.insert(0, str(SCRIPT_DIRECTORY))
 
-from verify_fork import PatchEntry  # noqa: E402
 from verify_fork import COMMON_QUALIFICATION_REF_KEYS  # noqa: E402
 from verify_fork import find_path_owners  # noqa: E402
 from verify_fork import load_manifest  # noqa: E402
 from verify_fork import load_ownership_roots  # noqa: E402
 from verify_fork import load_patch_ledger  # noqa: E402
 from verify_fork import load_seam_allowlist  # noqa: E402
+from verify_fork import PatchEntry  # noqa: E402
 from verify_fork import validate_build_qualification_state  # noqa: E402
 from verify_fork import validate_local_upstream  # noqa: E402
 from verify_fork import validate_ownership_roots  # noqa: E402
@@ -46,9 +45,7 @@ class ForkLedgerTest(unittest.TestCase):
         )
 
         self.assertEqual(owners[route], ["PL-TEST"])
-        self.assertEqual(
-            owners["web/src/app/admin/bots/b/channels/i/page.tsx"], []
-        )
+        self.assertEqual(owners["web/src/app/admin/bots/b/channels/i/page.tsx"], [])
 
     def test_overlapping_entries_are_reported_as_multiple_owners(self) -> None:
         path = "pmorg/scripts/verify_fork.py"
@@ -255,9 +252,7 @@ class RoundThreeBootstrapTest(unittest.TestCase):
         manifest = copy.deepcopy(load_manifest(self.repository_root))
         alternate_commit = "0" * 40
         manifest["specification"]["commit"] = alternate_commit
-        manifest["round_3_contract"][
-            "source_specification_commit"
-        ] = alternate_commit
+        manifest["round_3_contract"]["source_specification_commit"] = alternate_commit
 
         self.assertIn(
             "baseline is not pinned to the accepted PMORG specification commit",
@@ -268,9 +263,7 @@ class RoundThreeBootstrapTest(unittest.TestCase):
         manifest = copy.deepcopy(load_manifest(self.repository_root))
         manifest["round_3_contract"]["platform_requirements"] = [
             requirement
-            for requirement in manifest["round_3_contract"][
-                "platform_requirements"
-            ]
+            for requirement in manifest["round_3_contract"]["platform_requirements"]
             if requirement != "PLT-008"
         ]
         manifest["round_3_contract"]["distribution_admission"][
@@ -328,9 +321,9 @@ class RoundThreeBootstrapTest(unittest.TestCase):
 
     def test_qualification_role_set_is_exact_and_surface_conditional(self) -> None:
         manifest = copy.deepcopy(load_manifest(self.repository_root))
-        manifest["round_3_contract"]["qualification_bundle_roles"][
-            "common"
-        ].remove("capability-evidence-bundle-index")
+        manifest["round_3_contract"]["qualification_bundle_roles"]["common"].remove(
+            "capability-evidence-bundle-index"
+        )
 
         self.assertIn(
             "qualification bundle logical-role set is incomplete",
@@ -391,9 +384,7 @@ class RoundThreeBootstrapTest(unittest.TestCase):
         self.assertTrue(
             all(value is None for value in build["qualification_refs"].values())
         )
-        self.assertTrue(
-            all(value == [] for value in build["operation_refs"].values())
-        )
+        self.assertTrue(all(value == [] for value in build["operation_refs"].values()))
 
     def test_claiming_qualified_without_evidence_fails_closed(self) -> None:
         manifest = copy.deepcopy(load_manifest(self.repository_root))
@@ -426,9 +417,7 @@ class RoundThreeBootstrapTest(unittest.TestCase):
         manifest["licensing"]["qualification_status"] = "qualified"
         for key in COMMON_QUALIFICATION_REF_KEYS:
             manifest["build"]["qualification_refs"][key] = digest
-        manifest["build"]["qualification_refs"][
-            "ce_boundary_report_hash"
-        ] = digest
+        manifest["build"]["qualification_refs"]["ce_boundary_report_hash"] = digest
 
         self.assertEqual(
             validate_build_qualification_state(manifest),
@@ -441,17 +430,18 @@ class RoundThreeBootstrapTest(unittest.TestCase):
     def test_wrong_surface_report_and_partial_operation_refs_are_rejected(self) -> None:
         manifest = copy.deepcopy(load_manifest(self.repository_root))
         digest = "sha256:" + "b" * 64
-        manifest["build"]["qualification_refs"][
-            "ee_inventory_report_hash"
-        ] = digest
-        manifest["build"]["operation_refs"][
-            "deployment_admission_envelope_hashes"
-        ] = [digest]
+        manifest["build"]["qualification_refs"]["ee_inventory_report_hash"] = digest
+        manifest["build"]["operation_refs"]["deployment_admission_envelope_hashes"] = [
+            digest
+        ]
 
         errors = validate_build_qualification_state(manifest)
 
         self.assertTrue(
-            any(error.startswith("not_yet_qualified build must keep") for error in errors)
+            any(
+                error.startswith("not_yet_qualified build must keep")
+                for error in errors
+            )
         )
         self.assertTrue(
             any(
@@ -465,9 +455,7 @@ class ThinForkPolicyTest(unittest.TestCase):
     def setUp(self) -> None:
         self.repository_root = Path(__file__).resolve().parents[2]
         self.ledger = load_patch_ledger(self.repository_root)
-        self.ownership_policy = load_ownership_roots(
-            self.repository_root, self.ledger
-        )
+        self.ownership_policy = load_ownership_roots(self.repository_root, self.ledger)
         self.seam_policy = load_seam_allowlist(self.repository_root, self.ledger)
         self.test_seam_policy = copy.deepcopy(self.seam_policy)
         self.test_seam_policy["seams"] = [
@@ -606,11 +594,13 @@ class ThinForkPolicyTest(unittest.TestCase):
             [
                 "Slice 0 forbids upstream-owned changes until canonical boundary "
                 "evidence admission exists: backend/onyx/example.py",
-                "upstream-owned path requires exactly one allowlisted seam: backend/onyx/example.py"
+                "upstream-owned path requires exactly one allowlisted seam: backend/onyx/example.py",
             ],
         )
 
-    def test_structurally_complete_upstream_record_is_still_denied_in_slice_zero(self) -> None:
+    def test_structurally_complete_upstream_record_is_still_denied_in_slice_zero(
+        self,
+    ) -> None:
         self.assertIn(
             "Slice 0 seam allowlist must remain empty",
             validate_seam_allowlist(self.test_seam_policy),
