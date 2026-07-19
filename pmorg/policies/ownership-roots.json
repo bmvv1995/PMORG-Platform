@@ -1,0 +1,30 @@
+{
+  "schema_version": "pmorg.platform.ownership-roots/v1",
+  "default_ownership": "upstream_owned",
+  "roots": [
+    {
+      "root_id": "pmorg-agents",
+      "path_pattern": ".codex/**",
+      "ownership": "pmorg_owned"
+    },
+    {
+      "root_id": "pmorg-root-document",
+      "path_pattern": "PMORG.md",
+      "ownership": "pmorg_owned"
+    },
+    {
+      "root_id": "pmorg-plans",
+      "path_pattern": "plans/**",
+      "ownership": "pmorg_owned"
+    },
+    {
+      "root_id": "pmorg-governance-and-product",
+      "path_pattern": "pmorg/**",
+      "ownership": "pmorg_owned"
+    }
+  ],
+  "invariants": {
+    "overlapping_roots_forbidden": true,
+    "pmorg_domain_allowed_only_in_pmorg_owned_roots": true
+  }
+}

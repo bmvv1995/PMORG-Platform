@@ -1,23 +1,87 @@
 {
-  "schema_version": "pmorg.platform.patch-ledger/v1",
+  "schema_version": "pmorg.platform.patch-ledger/v2",
   "upstream_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "ownership_roots_ref": "pmorg/policies/ownership-roots.json",
+  "seam_allowlist_ref": "pmorg/policies/seam-allowlist.json",
+  "upstream_patch_records": [],
   "entries": [
     {
       "id": "PL-000",
       "classification": "PMORG-owned",
       "paths": [
         "PMORG.md",
-        "pmorg/**"
+        "pmorg/.gitignore",
+        "pmorg/CE-BOUNDARY.md",
+        "pmorg/PATCH-LEDGER.md",
+        "pmorg/baseline-manifest.json",
+        "pmorg/patch-ledger.json",
+        "pmorg/policies/ownership-roots.json",
+        "pmorg/policies/seam-allowlist.json",
+        "pmorg/scripts/verify_fork.py",
+        "pmorg/tests/test_verify_fork.py"
       ],
       "requirements": [
         "PLT-001",
         "PLT-004",
-        "PLT-005"
+        "PLT-005",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
       ],
-      "reason": "Pin upstream and specification inputs, define the CE boundary, and establish fork governance.",
+      "reason": "Pin upstream and reviewed RB-1/C2 inputs, define the independent Onyx surface/usage-mode axes, and establish ownership-root, empty-seam, single-owner governance that denies every upstream-owned change in Slice 0 without claiming G3-A qualification.",
+      "verification": [
+        "python3 pmorg/scripts/verify_fork.py",
+        "python3 -m unittest discover -s pmorg/tests -p 'test_*.py' -v"
+      ]
+    },
+    {
+      "id": "PL-001",
+      "classification": "PMORG-owned",
+      "paths": [
+        ".codex/agents/pmorg-architecture-reviewer.toml",
+        ".codex/agents/pmorg-implementer.toml",
+        ".codex/agents/pmorg-mapper.toml",
+        ".codex/agents/pmorg-test-runner.toml",
+        ".codex/config.toml"
+      ],
+      "requirements": [
+        "PLT-004",
+        "PLT-005",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Define project-scoped, least-privilege agent roles for evidence gathering, architecture review, verification and bounded implementation across build, capability, provenance, deployment and distribution boundaries.",
+      "verification": [
+        "python3 pmorg/scripts/verify_fork.py",
+        "python3 -c 'import pathlib,tomllib; [tomllib.loads(path.read_text()) for path in pathlib.Path(\".codex\").rglob(\"*.toml\")]'"
+      ]
+    },
+    {
+      "id": "PL-002",
+      "classification": "PMORG-owned",
+      "paths": [
+        "plans/pmorg-v3-foundation.md"
+      ],
+      "requirements": [
+        "MEM-011",
+        "MEM-012",
+        "INT-002",
+        "INT-006",
+        "ORC-006",
+        "PLT-004",
+        "PLT-005",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008",
+        "SEC-006",
+        "EVAL-001"
+      ],
+      "reason": "Record the evidence-based V3 migration sequence, Slice 0 non-qualification boundary, thin-fork controls, release/evidence contracts, capability/provenance qualification and separate runtime/distribution admissions before product implementation.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py"
       ]
     }
-  ]
+  ],
+  "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
 }
