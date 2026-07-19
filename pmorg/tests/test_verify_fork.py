@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import copy
+import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -13,6 +15,8 @@ from verify_fork import PatchEntry  # noqa: E402
 from verify_fork import find_path_owners  # noqa: E402
 from verify_fork import load_manifest  # noqa: E402
 from verify_fork import load_patch_ledger  # noqa: E402
+from verify_fork import validate_local_upstream  # noqa: E402
+from verify_fork import validate_patch_entries  # noqa: E402
 from verify_fork import validate_specification_references  # noqa: E402
 from verify_fork import validate_surface_mode  # noqa: E402
 
@@ -134,6 +138,88 @@ class ForkLedgerTest(unittest.TestCase):
         self.assertIn(
             "invalid usage_mode: client",
             validate_surface_mode(manifest),
+        )
+
+    def test_patch_entry_requires_traceability_fields(self) -> None:
+        repository_root = Path(__file__).resolve().parents[2]
+        ledger = load_patch_ledger(repository_root)
+        broken_entry = copy.deepcopy(ledger["entries"][0])
+        broken_entry.pop("requirements")
+
+        self.assertIn(
+            "PL-000 has no non-empty requirements list",
+            validate_patch_entries([broken_entry]),
+        )
+
+    def test_patch_entry_rejects_empty_reason_and_verification(self) -> None:
+        repository_root = Path(__file__).resolve().parents[2]
+        ledger = load_patch_ledger(repository_root)
+        broken_entry = copy.deepcopy(ledger["entries"][0])
+        broken_entry["reason"] = " "
+        broken_entry["verification"] = []
+
+        errors = validate_patch_entries([broken_entry])
+
+        self.assertIn("PL-000 has no non-empty reason", errors)
+        self.assertIn("PL-000 has no non-empty verification list", errors)
+
+    def test_upstream_check_allows_clean_origin_only_clone(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            subprocess.run(
+                ["git", "init", "-q"],
+                cwd=repository_root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.email", "test@pmorg.invalid"],
+                cwd=repository_root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "PMORG Test"],
+                cwd=repository_root,
+                check=True,
+            )
+            (repository_root / "fixture.txt").write_text("fixture\n", encoding="utf-8")
+            subprocess.run(
+                ["git", "add", "fixture.txt"],
+                cwd=repository_root,
+                check=True,
+            )
+            subprocess.run(
+                ["git", "commit", "-q", "-m", "fixture"],
+                cwd=repository_root,
+                check=True,
+            )
+            commit = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=repository_root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            upstream = {
+                "repository": "https://github.com/onyx-dot-app/onyx.git",
+                "release_tag": "v4.3.9",
+                "commit": commit,
+                "checkout_remote": "upstream",
+            }
+
+            self.assertEqual(validate_local_upstream(repository_root, upstream), [])
+
+    def test_upstream_check_reports_missing_commit_without_traceback(self) -> None:
+        repository_root = Path(__file__).resolve().parents[2]
+        upstream = {
+            "repository": "https://github.com/onyx-dot-app/onyx.git",
+            "release_tag": "v4.3.9",
+            "commit": "0" * 40,
+            "checkout_remote": "upstream",
+        }
+
+        self.assertIn(
+            "pinned upstream commit is absent from local history",
+            validate_local_upstream(repository_root, upstream),
         )
 
 
