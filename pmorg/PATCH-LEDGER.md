@@ -11,6 +11,7 @@ The machine-readable source is
 | `PL-001` | Codex project agents | PMORG-owned | none | define least-privilege roles for mapping, architecture review, tests and bounded implementation | TOML parse and fork consistency check |
 | `PL-002` | V3 delivery plan | PMORG-owned | none | record the migration sequence and verification strategy before product implementation | fork consistency check |
 | `PL-003` | governed integration admission decision | PMORG-owned | none | record the decision to replace the Slice 0 hard freeze with versioned, default-deny admission prerequisites without authorizing a seam; `PL-000` owns the policy, verifier and tests | fork policy and negative tests |
+| `PL-004` | CI seam authorizations | PMORG-owned | none | pre-authorize exact Zizmor and Helm workflow seams with byte-bound golden targets and dormant red-before-patch protectors | fork consistency check and protector red-state proof |
 
 ## Classifications
 
@@ -25,6 +26,14 @@ requirement it implements, and the tests that prevent drift. When upstream
 files are modified, the entry must list them explicitly.
 Every changed path must match exactly one ledger entry. Brackets in declared
 paths are literal characters, including dynamic route segments.
+
+Protector tests for a future upstream seam are authorization locks, not global
+pre-patch regression tests. They land on protected `main` before the seam and
+must fail against the unmodified upstream bytes. The global governance suite
+runs only `pmorg.tests.test_verify_fork`; once a concrete seam is admitted, the
+verifier executes each byte-bound protector selector exactly once against the
+patched tree. This red-before-patch lifecycle prevents a prospective test from
+silently authorizing bytes it cannot distinguish.
 
 ## Thin-fork ownership boundary
 
