@@ -19,9 +19,10 @@
         "PLT-001",
         "PLT-004",
         "PLT-005",
-        "PLT-006"
+        "PLT-006",
+        "PLT-007"
       ],
-      "reason": "Pin upstream and specification inputs, define declared Onyx delivery profiles, and establish single-owner fork governance.",
+      "reason": "Pin upstream and specification inputs, define the Onyx surface/usage-mode matrix, and establish single-owner fork governance.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py"
       ]
@@ -30,12 +31,17 @@
       "id": "PL-001",
       "classification": "PMORG-owned",
       "paths": [
-        ".codex/**"
+        ".codex/agents/pmorg-architecture-reviewer.toml",
+        ".codex/agents/pmorg-implementer.toml",
+        ".codex/agents/pmorg-mapper.toml",
+        ".codex/agents/pmorg-test-runner.toml",
+        ".codex/config.toml"
       ],
       "requirements": [
         "PLT-004",
         "PLT-005",
-        "PLT-006"
+        "PLT-006",
+        "PLT-007"
       ],
       "reason": "Define project-scoped, least-privilege agent roles for evidence gathering, architecture review, verification, and bounded implementation.",
       "verification": [
@@ -59,7 +65,8 @@
         "PLT-005",
         "PLT-006",
         "SEC-006",
-        "EVAL-001"
+        "EVAL-001",
+        "PLT-007"
       ],
       "reason": "Record the evidence-based V3 migration sequence, ownership boundaries, and verification strategy before product implementation.",
       "verification": [
@@ -67,5 +74,5 @@
       ]
     }
   ],
-  "specification_commit": "72e739f72b955217bc47c04b43411c98611a5f02"
+  "specification_commit": "a90e56408cc4a884fc246c19d82c69f13d549e8d"
 }
