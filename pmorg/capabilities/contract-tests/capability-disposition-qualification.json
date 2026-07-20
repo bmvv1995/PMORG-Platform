@@ -1,0 +1,19 @@
+{
+  "capability_id": "capability-disposition-qualification",
+  "requirement_ids": [
+    "A-PATCH-002",
+    "A-PATCH-003",
+    "A-PATCH-004",
+    "A-PATCH-005",
+    "A-PATCH-006",
+    "PLT-006"
+  ],
+  "schema_version": "pmorg.capability-contract-tests/v1",
+  "test_ids": [
+    "A-PATCH-002",
+    "A-PATCH-003",
+    "A-PATCH-004",
+    "A-PATCH-005",
+    "A-PATCH-006"
+  ]
+}

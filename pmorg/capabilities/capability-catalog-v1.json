@@ -1,0 +1,136 @@
+{
+  "applicable_requirement_set": {
+    "digest": "sha256:57aa19a0d975fc119b2bd307a497306e84808bdd9694393094a620f7f70ce5d4",
+    "logical_name": "applicable-release-requirement-set",
+    "media_type": "application/json",
+    "relative_path": "pmorg/baseline-manifest.json",
+    "size_bytes": 14536
+  },
+  "catalog_version": "1.0.0",
+  "disposition_scope_rule": {
+    "digest": "sha256:c87820ef487f3e5cc1a9af27632b5da8b891384ed29a869ea67f96f18d0c5da5",
+    "logical_name": "capability-disposition-scope-rule",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/catalog-policy.json",
+    "size_bytes": 1957
+  },
+  "duplicate_capability_id_count": 0,
+  "expected_requirement_count": 21,
+  "item_count": 6,
+  "items": [
+    {
+      "capability_id": "capability-disposition-qualification",
+      "contract_tests": [
+        {
+          "digest": "sha256:9af2bec8019d0543f8adc10935e2e1726ee65445efd5dd5d7e6f797c24e19fec",
+          "logical_name": "capability-disposition-qualification-contract-tests",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/contract-tests/capability-disposition-qualification.json",
+          "size_bytes": 372
+        }
+      ],
+      "pmorg_requirement_ids": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "PLT-006"
+      ]
+    },
+    {
+      "capability_id": "deployment-admission",
+      "contract_tests": [
+        {
+          "digest": "sha256:2a39c8af95309e2ee76d83f1eaefb71cbeae90352bf327f04a3a3b44c5b564f3",
+          "logical_name": "deployment-admission-contract-tests",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/contract-tests/deployment-admission.json",
+          "size_bytes": 200
+        }
+      ],
+      "pmorg_requirement_ids": [
+        "A-LIC-002",
+        "PLT-007"
+      ]
+    },
+    {
+      "capability_id": "distribution-admission",
+      "contract_tests": [
+        {
+          "digest": "sha256:339e267d822263efb21e59bccf32ffbefee78941713afc5f9b13558c66a92510",
+          "logical_name": "distribution-admission-contract-tests",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/contract-tests/distribution-admission.json",
+          "size_bytes": 202
+        }
+      ],
+      "pmorg_requirement_ids": [
+        "A-LIC-003",
+        "PLT-008"
+      ]
+    },
+    {
+      "capability_id": "governed-onyx-fork",
+      "contract_tests": [
+        {
+          "digest": "sha256:a9d0a22d7b15ef8af11e2c82a89b20246a2ff9f8ad79ea9c0dac73f7e8e84ded",
+          "logical_name": "governed-onyx-fork-contract-tests",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/contract-tests/governed-onyx-fork.json",
+          "size_bytes": 286
+        }
+      ],
+      "pmorg_requirement_ids": [
+        "A-FORK-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001"
+      ]
+    },
+    {
+      "capability_id": "qualified-reproducible-build",
+      "contract_tests": [
+        {
+          "digest": "sha256:acdbcc80ce0ab328bbe8c7da78c03c2cb631831b31d16c10111d662ad76b4e35",
+          "logical_name": "qualified-reproducible-build-contract-tests",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/contract-tests/qualified-reproducible-build.json",
+          "size_bytes": 330
+        }
+      ],
+      "pmorg_requirement_ids": [
+        "A-EVIDENCE-001",
+        "A-LIC-001",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "PLT-005"
+      ]
+    },
+    {
+      "capability_id": "thin-fork-boundary",
+      "contract_tests": [
+        {
+          "digest": "sha256:10866f7bfec7f0ebdd46590079604c757354aedea32d674914936bb98f72dc7f",
+          "logical_name": "thin-fork-boundary-contract-tests",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/contract-tests/thin-fork-boundary.json",
+          "size_bytes": 202
+        }
+      ],
+      "pmorg_requirement_ids": [
+        "A-PATCH-001",
+        "PLT-004"
+      ]
+    }
+  ],
+  "mapped_requirement_count": 21,
+  "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+  "required_search_surfaces": [
+    "ce",
+    "ee"
+  ],
+  "schema_version": "pmorg.capability-catalog/v1",
+  "unknown_requirement_count": 0,
+  "unmapped_requirement_count": 0
+}
