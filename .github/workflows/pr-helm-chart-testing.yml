@@ -81,9 +81,10 @@ jobs:
         )
       }}
     runs-on:
-      - runs-on
-      - runner=8cpu-linux-x64
-      - "run-id=${{ github.run_id }}-helm-chart-check"
+      - self-hosted
+      - Linux
+      - X64
+      - helm-lane
     timeout-minutes: 45
     steps:
       - name: Checkout code

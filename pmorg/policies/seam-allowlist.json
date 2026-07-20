@@ -20,19 +20,34 @@
       "reason": "Admit only the byte-exact reviewed Zizmor private-repository CI target authorized by ADR-0002."
     },
     {
-      "seam_id": "SEAM-CI-HELM-001",
+      "seam_id": "SEAM-CI-HELM-002",
       "path_pattern": ".github/workflows/pr-helm-chart-testing.yml",
-      "authorization_adr_ref": "pmorg/adr/ADR-0003-helm-runner-admission-seam.json",
-      "authorization_commit": "4461d655aec931a31d274ce0ab4231f77209fa55",
-      "authorization_base_commit": "4461d655aec931a31d274ce0ab4231f77209fa55",
-      "authorization_blob_hash": "sha256:eeb0fe835d3fcf5e1853da7e91c6f6809c60d8879429bfb078b3a8474f831a4e",
+      "authorization_adr_ref": "pmorg/adr/ADR-0004-helm-static-ephemeral-runner-seam.json",
+      "authorization_commit": "61f6a8a88cdbbb91a494771fd7df80281461e686",
+      "authorization_base_commit": "ba85856343a16b5ac4472fbb00db2174044b5dcc",
+      "authorization_blob_hash": "sha256:7cf21718a0dc094b8f0ad793847e045aa2f495d19660aad4d197f9094bdabdc8",
       "allowed_classifications": [
         "integration"
       ],
       "required_protector_tests": [
-        "pmorg/tests/test_helm_ci_seam_protector.py::TestHelmRunnerAdmissionSeam.test_non_helm_change_does_not_require_runs_on"
+        "pmorg/tests/test_helm_static_lane_ci_seam_protector.py::TestHelmStaticRunnerAdmissionSeam.test_static_ephemeral_lane_replaces_only_runner_selector"
       ],
-      "reason": "Admit only the byte-exact reviewed provider-aware Helm CI target authorized by ADR-0003."
+      "reason": "Admit only the byte-exact reviewed static ephemeral Helm lane authorized by ADR-0004."
+    },
+    {
+      "seam_id": "SEAM-CI-ACTIONLINT-001",
+      "path_pattern": ".github/actionlint.yml",
+      "authorization_adr_ref": "pmorg/adr/ADR-0005-actionlint-helm-lane-label-seam.json",
+      "authorization_commit": "61f6a8a88cdbbb91a494771fd7df80281461e686",
+      "authorization_base_commit": "ba85856343a16b5ac4472fbb00db2174044b5dcc",
+      "authorization_blob_hash": "sha256:dbf1bf7ae785c2cdf08fd1bbf7a08da3bf62f9be99fe462a077b3ad2aa044698",
+      "allowed_classifications": [
+        "integration"
+      ],
+      "required_protector_tests": [
+        "pmorg/tests/test_actionlint_helm_lane_seam_protector.py::TestActionlintHelmLaneAdmissionSeam.test_helm_lane_is_only_runner_catalog_change"
+      ],
+      "reason": "Admit only the byte-exact actionlint runner-label catalog target authorized by ADR-0005."
     }
   ],
   "invariants": {

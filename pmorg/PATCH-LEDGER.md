@@ -11,9 +11,10 @@ The machine-readable source is
 | `PL-001` | Codex project agents | PMORG-owned | none | define least-privilege roles for mapping, architecture review, tests and bounded implementation | TOML parse and fork consistency check |
 | `PL-002` | V3 delivery plan | PMORG-owned | none | record the migration sequence and verification strategy before product implementation | fork consistency check |
 | `PL-003` | governed integration admission decision | PMORG-owned | none | record the decision to replace the Slice 0 hard freeze with versioned, default-deny admission prerequisites without authorizing a seam; `PL-000` owns the policy, verifier and tests | fork policy and negative tests |
-| `PL-004` | CI seam authorizations | PMORG-owned | none | pre-authorize exact Zizmor and Helm workflow seams with byte-bound golden targets and protectors | fork consistency, fixture binding and protector lifecycle proof |
+| `PL-004` | CI seam authorizations | PMORG-owned | none | pre-authorize exact Zizmor, Helm-generation and actionlint seams with byte-bound golden targets and distinguish active protectors from retired evidence | fork consistency, fixture binding, protector lifecycle and active-suite discovery proof |
 | `PL-005` | Zizmor private-repository seam | integration | `.github/workflows/zizmor.yml` | preserve fail-closed scanning while making SARIF publication an explicit private-repository opt-in | exact protector selector and fork consistency check |
-| `PL-006` | Helm runner-admission seam | integration | `.github/workflows/pr-helm-chart-testing.yml` | detect relevance on GitHub-hosted capacity and request RunsOn only for applicable validation behind a fail-closed terminal gate | exact protector selector and fork consistency check |
+| `PL-007` | Helm static ephemeral lane successor | integration | `.github/workflows/pr-helm-chart-testing.yml` | preserve fail-closed Helm validation while replacing per-run dynamic dispatch with a static, manually started ephemeral lane | exact protector selector and fork consistency check |
+| `PL-008` | actionlint Helm lane catalog seam | integration | `.github/actionlint.yml` | declare the byte-exact `helm-lane` runner label required by the static Helm lane | exact protector selector and fork consistency check |
 
 ## Classifications
 
@@ -38,6 +39,12 @@ and executes it exactly once against candidate data. Candidate test modules
 are parsed and hash-checked but never imported. This red-before-patch lifecycle
 prevents a prospective test from silently authorizing bytes it cannot
 distinguish or from becoming executable input to a privileged PR inspection.
+
+Package-aware test discovery is documented in
+[`ACTIVE-TEST-SUITE.md`](ACTIVE-TEST-SUITE.md). Its data-derived hook runs every
+ordinary PMORG test and every active seam protector while retaining, but not
+executing, immutable protector evidence for superseded seams. The hook's exact
+active and retired sets and its failure propagation are themselves tested.
 
 ## Thin-fork ownership boundary
 
@@ -163,8 +170,9 @@ tracked in [issue #24](https://github.com/bmvv1995/PMORG-Platform/issues/24).
 
 On `origin/main`, the verifier instead proves each immutable seam's first
 introduction parent from Git history. The concrete allowlist and upstream
-patch-record set contain only the two CI seams documented above; they imply no
-authorization for product or additional upstream paths. Dormant successor and
-new-path decisions under `pmorg/adr/**` authorize no executable change by
-themselves; they become effective only through a later protected atomic
-activation satisfying the policy above.
+patch-record set contain only the three active CI seams documented above:
+Zizmor, the second Helm generation and the actionlint runner-label catalog.
+They imply no authorization for product or additional upstream paths. Dormant
+successor and new-path decisions under `pmorg/adr/**` authorize no executable
+change by themselves; they become effective only through a later protected
+atomic activation satisfying the policy above.
