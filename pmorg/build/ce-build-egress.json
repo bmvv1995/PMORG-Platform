@@ -1,0 +1,21 @@
+{
+  "schema_version": "pmorg.build-egress-inventory/v1",
+  "scope": "ce-source-artifact-assembly",
+  "network_access": false,
+  "destinations": [],
+  "local_processes": [
+    {
+      "executable": "git",
+      "allowed_subcommands": [
+        "cat-file",
+        "ls-tree",
+        "rev-parse"
+      ],
+      "network_capable_invocations": false
+    }
+  ],
+  "python_standard_library_only": true,
+  "output_channels": [
+    "local-filesystem"
+  ]
+}

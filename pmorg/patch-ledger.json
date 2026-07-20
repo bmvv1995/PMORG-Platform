@@ -360,6 +360,32 @@
         "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_legacy_mapper -v",
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
       ]
+    },
+    {
+      "id": "PL-012",
+      "classification": "PMORG-owned",
+      "paths": [
+        "pmorg/build/README.md",
+        "pmorg/build/__init__.py",
+        "pmorg/build/artifact.py",
+        "pmorg/build/ce-artifact-spec.json",
+        "pmorg/build/ce-build-egress.json",
+        "pmorg/scripts/build_ce_artifact.py",
+        "pmorg/scripts/verify_ce_build.py",
+        "pmorg/tests/test_ce_build_substrate.py"
+      ],
+      "requirements": [
+        "PLT-004",
+        "PLT-005",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Introduce the offline deterministic CE source-artifact format, fail-closed zero-EE input scanner and machine-checkable zero-egress contract, while explicitly retaining the mixed-source baseline rejection until a later PMORG-owned CE overlay is qualified.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=1c2f654569187d85eba1a750e6e5663f959ead03 python3 -B pmorg/scripts/verify_fork.py",
+        "python3 -B -m unittest pmorg.tests.test_ce_build_substrate -v"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
