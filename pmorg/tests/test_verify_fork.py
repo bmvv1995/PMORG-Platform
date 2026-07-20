@@ -596,6 +596,11 @@ class ThinForkPolicyTest(unittest.TestCase):
             protector_bytes = protector_path.read_bytes()
         else:
             protector_bytes = b"missing-protector"
+        governed_path = repository_root / seam["path_pattern"]
+        base_bytes = b"BASE\n"
+        patched_bytes = b"PATCHED\n"
+        governed_path.parent.mkdir(parents=True, exist_ok=True)
+        governed_path.write_bytes(base_bytes)
 
         authorization = {
             "schema_version": "pmorg.platform.seam-authorization/v1",
@@ -696,10 +701,42 @@ class ThinForkPolicyTest(unittest.TestCase):
             json.dumps(policy, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
         )
+        record = copy.deepcopy(self.valid_upstream_record)
+        record.update(
+            {
+                "path": seam["path_pattern"],
+                "seam_id": seam["seam_id"],
+                "base_blob_hash": self._successor_fixture_hash(base_bytes),
+                "patched_blob_hash": self._successor_fixture_hash(patched_bytes),
+                "protector_tests": seam["required_protector_tests"],
+            }
+        )
+        record["upstream_source_ref"]["path"] = seam["path_pattern"]
+        owner = {
+            "id": "PL-TEST-INTEGRATION",
+            "classification": "integration",
+            "paths": [seam["path_pattern"]],
+            "requirements": ["PLT-004"],
+            "reason": "Own the simulated exact integration seam.",
+            "verification": [self.protector_ref],
+        }
+        ledger_path = repository_root / "pmorg/patch-ledger.json"
+        self._write_successor_fixture_json(
+            ledger_path,
+            {"upstream_patch_records": [record], "entries": [owner]},
+        )
+        governed_path.write_bytes(patched_bytes)
         marker = repository_root / "seam-change-marker.txt"
         marker.write_text("simulated later seam change\n", encoding="utf-8")
         subprocess.run(
-            ["git", "add", str(marker), str(policy_path)],
+            [
+                "git",
+                "add",
+                str(governed_path),
+                str(ledger_path),
+                str(marker),
+                str(policy_path),
+            ],
             cwd=repository_root,
             check=True,
         )
@@ -709,6 +746,1086 @@ class ThinForkPolicyTest(unittest.TestCase):
             check=True,
         )
         return protected_base
+
+    @staticmethod
+    def _write_successor_fixture_json(path: Path, value: object) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+
+    @staticmethod
+    def _commit_successor_fixture(repository_root: Path, message: str) -> str:
+        subprocess.run(["git", "add", "."], cwd=repository_root, check=True)
+        subprocess.run(
+            ["git", "commit", "-q", "-m", message],
+            cwd=repository_root,
+            check=True,
+        )
+        return subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=repository_root,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+
+    @staticmethod
+    def _successor_fixture_hash(value: bytes) -> str:
+        return "sha256:" + hashlib.sha256(value).hexdigest()
+
+    def _prepare_successor_lifecycle_repository(
+        self,
+        repository_root: Path,
+        *,
+        predecessor_seam_id: str = "SEAM-SUCCESSOR-A",
+        successor_authorized: bool = True,
+        add_intermediate_commit: bool = False,
+        replay_record_and_owner_ids: bool = False,
+        double_ownership: bool = False,
+        target_hash_mismatch: bool = False,
+        canonical_identity_drift: bool = False,
+        predecessor_record_id: str = "UP-SUCCESSOR-A",
+        successor_owner_classification: str = "integration",
+    ) -> dict[str, object]:
+        path = "backend/onyx/example.py"
+        policy_path = repository_root / "pmorg/policies/seam-allowlist.json"
+        ledger_path = repository_root / "pmorg/patch-ledger.json"
+        target_path = repository_root / path
+        normal_adr_ref = "pmorg/adr/ADR-SUCCESSOR-A.json"
+        successor_adr_ref = "pmorg/adr/ADR-SUCCESSOR-B.json"
+        normal_test_ref = (
+            "pmorg/tests/test_successor_a.py::TestProtector.test_exact_target"
+        )
+        successor_test_ref = (
+            "pmorg/tests/test_successor_b.py::TestProtector.test_exact_target"
+        )
+        normal_test_path = repository_root / normal_test_ref.partition("::")[0]
+        successor_test_path = repository_root / successor_test_ref.partition("::")[0]
+
+        subprocess.run(["git", "init", "-q"], cwd=repository_root, check=True)
+        subprocess.run(
+            ["git", "config", "user.email", "test@example.invalid"],
+            cwd=repository_root,
+            check=True,
+        )
+        subprocess.run(
+            ["git", "config", "user.name", "PMORG Test"],
+            cwd=repository_root,
+            check=True,
+        )
+
+        base_bytes = b"BASE\n"
+        a_bytes = b"PATCH-A\n"
+        b_bytes = b"PATCH-B\n"
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        target_path.write_bytes(base_bytes)
+        upstream_commit = self._commit_successor_fixture(
+            repository_root, "upstream baseline"
+        )
+        upstream_tree = subprocess.run(
+            ["git", "ls-tree", "-r", "-z", upstream_commit],
+            cwd=repository_root,
+            check=True,
+            capture_output=True,
+        ).stdout
+
+        normal_test_source = (
+            "import unittest\n\n"
+            "class TestProtector(unittest.TestCase):\n"
+            "    def test_exact_target(self) -> None:\n"
+            f"        self.assertEqual((REPOSITORY_ROOT / {path!r}).read_bytes(), "
+            f"{a_bytes!r})\n"
+        )
+        normal_test_path.parent.mkdir(parents=True, exist_ok=True)
+        normal_test_path.write_text(normal_test_source, encoding="utf-8")
+        normal_authorization = {
+            "schema_version": "pmorg.platform.seam-authorization/v1",
+            "decision_id": "ADR-SUCCESSOR-A",
+            "status": "accepted",
+            "specification_commit": self.ledger["specification_commit"],
+            "seam_id": "SEAM-SUCCESSOR-A",
+            "path": path,
+            "allowed_classifications": ["integration"],
+            "required_protector_tests": [normal_test_ref],
+            "protector_test_hashes": {
+                normal_test_ref: self._successor_fixture_hash(
+                    normal_test_path.read_bytes()
+                )
+            },
+            "authorized_at": "2026-07-20T00:00:00Z",
+            "rationale": "Authorize the first exact fixture seam generation.",
+        }
+        normal_adr_path = repository_root / normal_adr_ref
+        self._write_successor_fixture_json(normal_adr_path, normal_authorization)
+        empty_policy = copy.deepcopy(self.seam_policy)
+        empty_policy["seams"] = []
+        self._write_successor_fixture_json(policy_path, empty_policy)
+        self._write_successor_fixture_json(
+            ledger_path, {"upstream_patch_records": [], "entries": []}
+        )
+        normal_authorization_commit = self._commit_successor_fixture(
+            repository_root, "authorize normal seam generation"
+        )
+        normal_authorization_hash = self._successor_fixture_hash(
+            normal_adr_path.read_bytes()
+        )
+
+        seam_a = {
+            "seam_id": "SEAM-SUCCESSOR-A",
+            "path_pattern": path,
+            "authorization_adr_ref": normal_adr_ref,
+            "authorization_commit": normal_authorization_commit,
+            "authorization_base_commit": normal_authorization_commit,
+            "authorization_blob_hash": normal_authorization_hash,
+            "allowed_classifications": ["integration"],
+            "required_protector_tests": [normal_test_ref],
+            "reason": "Admit the first exact fixture seam generation.",
+        }
+        record_a = copy.deepcopy(self.valid_upstream_record)
+        record_a.update(
+            {
+                "id": "UP-SUCCESSOR-A",
+                "path": path,
+                "seam_id": "SEAM-SUCCESSOR-A",
+                "base_blob_hash": self._successor_fixture_hash(base_bytes),
+                "patched_blob_hash": self._successor_fixture_hash(a_bytes),
+                "upstream_source_ref": {
+                    "repository": "https://github.com/onyx-dot-app/onyx.git",
+                    "commit": upstream_commit,
+                    "path": path,
+                    "tree_hash": self._successor_fixture_hash(upstream_tree),
+                },
+                "protector_tests": [normal_test_ref],
+            }
+        )
+        owner_a = {
+            "id": "PL-SUCCESSOR-A",
+            "classification": "integration",
+            "paths": [path],
+            "requirements": ["PLT-004"],
+            "reason": "Own the first exact fixture seam generation.",
+            "verification": [normal_test_ref],
+        }
+        policy_a = copy.deepcopy(empty_policy)
+        policy_a["seams"] = [seam_a]
+        target_path.write_bytes(a_bytes)
+        self._write_successor_fixture_json(policy_path, policy_a)
+        self._write_successor_fixture_json(
+            ledger_path,
+            {"upstream_patch_records": [record_a], "entries": [owner_a]},
+        )
+        normal_activation_commit = self._commit_successor_fixture(
+            repository_root, "activate normal seam record owner and bytes"
+        )
+
+        self.assertEqual(
+            validate_seam_allowlist(
+                policy_a,
+                repository_root,
+                self.ownership_policy,
+                repository_root,
+                normal_authorization_commit,
+            ),
+            [],
+        )
+        self.assertEqual(
+            validate_thin_fork_diff(
+                [path],
+                [owner_a],
+                [record_a],
+                self.ownership_policy,
+                policy_a,
+                repository_root,
+                upstream_commit,
+            ),
+            [],
+        )
+
+        successor_test_source = (
+            "import unittest\n\n"
+            "class TestProtector(unittest.TestCase):\n"
+            "    def test_exact_target(self) -> None:\n"
+            f"        self.assertEqual((REPOSITORY_ROOT / {path!r}).read_bytes(), "
+            f"{b_bytes!r})\n"
+        )
+        successor_test_path.parent.mkdir(parents=True, exist_ok=True)
+        successor_test_path.write_text(successor_test_source, encoding="utf-8")
+        successor_record_id = (
+            "UP-SUCCESSOR-A" if replay_record_and_owner_ids else "UP-SUCCESSOR-B"
+        )
+        successor_owner_id = (
+            "PL-SUCCESSOR-A" if replay_record_and_owner_ids else "PL-SUCCESSOR-B"
+        )
+        successor_authorization = {
+            "schema_version": (
+                "pmorg.platform.seam-successor-authorization/v1"
+                if successor_authorized
+                else "pmorg.platform.seam-authorization/v1"
+            ),
+            "decision_id": "ADR-SUCCESSOR-B",
+            "status": "accepted",
+            "specification_commit": self.ledger["specification_commit"],
+            "seam_id": "SEAM-SUCCESSOR-B",
+            "path": path,
+            "allowed_classifications": ["integration"],
+            "required_protector_tests": [successor_test_ref],
+            "protector_test_hashes": {
+                successor_test_ref: self._successor_fixture_hash(
+                    successor_test_path.read_bytes()
+                )
+            },
+            "authorized_at": "2026-07-20T00:01:00Z",
+            "rationale": "Authorize the exact successor fixture generation.",
+        }
+        if successor_authorized:
+            successor_authorization.update(
+                {
+                    "transition_id": "TRANSITION-SUCCESSOR-A-B",
+                    "supersedes": {
+                        "seam_id": predecessor_seam_id,
+                        "patch_record_id": predecessor_record_id,
+                        "ledger_entry_id": "PL-SUCCESSOR-A",
+                        "patched_blob_hash": self._successor_fixture_hash(a_bytes),
+                        "patched_git_mode": "100644",
+                        "authorization_adr_ref": normal_adr_ref,
+                        "authorization_blob_hash": normal_authorization_hash,
+                    },
+                    "successor_patch_record_id": successor_record_id,
+                    "successor_ledger_entry_id": successor_owner_id,
+                    "target_blob_hash": self._successor_fixture_hash(
+                        b"AUTHORIZED-BUT-NOT-ACTIVATED\n"
+                        if target_hash_mismatch
+                        else b_bytes
+                    ),
+                    "target_git_mode": "100644",
+                }
+            )
+        successor_adr_path = repository_root / successor_adr_ref
+        self._write_successor_fixture_json(successor_adr_path, successor_authorization)
+        successor_authorization_commit = self._commit_successor_fixture(
+            repository_root, "bootstrap successor authorization and protector"
+        )
+        successor_authorization_hash = self._successor_fixture_hash(
+            successor_adr_path.read_bytes()
+        )
+
+        if add_intermediate_commit:
+            (repository_root / "intermediate.txt").write_text(
+                "separates protected base from activation\n", encoding="utf-8"
+            )
+            self._commit_successor_fixture(
+                repository_root, "intermediate non-atomic commit"
+            )
+
+        seam_b = {
+            "seam_id": "SEAM-SUCCESSOR-B",
+            "path_pattern": path,
+            "authorization_adr_ref": successor_adr_ref,
+            "authorization_commit": successor_authorization_commit,
+            "authorization_base_commit": successor_authorization_commit,
+            "authorization_blob_hash": successor_authorization_hash,
+            "allowed_classifications": ["integration"],
+            "required_protector_tests": [successor_test_ref],
+            "reason": "Admit the exact successor fixture generation.",
+        }
+        record_b = copy.deepcopy(record_a)
+        record_b.update(
+            {
+                "id": successor_record_id,
+                "seam_id": "SEAM-SUCCESSOR-B",
+                "patched_blob_hash": self._successor_fixture_hash(b_bytes),
+                "protector_tests": [successor_test_ref],
+                "reason": "Wire the exact successor fixture seam.",
+                "last_revalidated_at": "2026-07-20T00:02:00Z",
+            }
+        )
+        if canonical_identity_drift:
+            record_b["base_blob_hash"] = self._successor_fixture_hash(
+                b"DIFFERENT-UPSTREAM-BASE\n"
+            )
+        owner_b = {
+            "id": successor_owner_id,
+            "classification": successor_owner_classification,
+            "paths": [path],
+            "requirements": ["PLT-004"],
+            "reason": "Own the exact successor fixture seam generation.",
+            "verification": [successor_test_ref],
+        }
+        policy_b = copy.deepcopy(empty_policy)
+        policy_b["seams"] = [seam_b]
+        entries_b = [owner_b, owner_a] if double_ownership else [owner_b]
+        target_path.write_bytes(b_bytes)
+        self._write_successor_fixture_json(policy_path, policy_b)
+        self._write_successor_fixture_json(
+            ledger_path,
+            {"upstream_patch_records": [record_b], "entries": entries_b},
+        )
+        self._commit_successor_fixture(
+            repository_root, "replace seam record owner and path bytes atomically"
+        )
+        return {
+            "path": path,
+            "policy": policy_b,
+            "records": [record_b],
+            "entries": entries_b,
+            "upstream_commit": upstream_commit,
+            "protected_base": successor_authorization_commit,
+            "empty_policy_commit": normal_authorization_commit,
+            "normal_activation_commit": normal_activation_commit,
+        }
+
+    def _activate_third_successor_generation(
+        self, repository_root: Path, fixture: dict[str, object]
+    ) -> dict[str, object]:
+        path = fixture["path"]
+        policy_b = fixture["policy"]
+        records_b = fixture["records"]
+        entries_b = fixture["entries"]
+        self.assertIsInstance(path, str)
+        self.assertIsInstance(policy_b, dict)
+        self.assertIsInstance(records_b, list)
+        self.assertIsInstance(entries_b, list)
+        seam_b = policy_b["seams"][0]
+        record_b = records_b[0]
+        owner_b = entries_b[0]
+        target_path = repository_root / path
+        c_bytes = b"PATCH-C\n"
+        successor_adr_ref = "pmorg/adr/ADR-SUCCESSOR-C.json"
+        successor_test_ref = (
+            "pmorg/tests/test_successor_c.py::TestProtector.test_exact_target"
+        )
+        successor_test_path = repository_root / successor_test_ref.partition("::")[0]
+        successor_test_source = (
+            "import unittest\n\n"
+            "class TestProtector(unittest.TestCase):\n"
+            "    def test_exact_target(self) -> None:\n"
+            f"        self.assertEqual((REPOSITORY_ROOT / {path!r}).read_bytes(), "
+            f"{c_bytes!r})\n"
+        )
+        successor_test_path.write_text(successor_test_source, encoding="utf-8")
+        successor_authorization = {
+            "schema_version": "pmorg.platform.seam-successor-authorization/v1",
+            "decision_id": "ADR-SUCCESSOR-C",
+            "status": "accepted",
+            "specification_commit": self.ledger["specification_commit"],
+            "seam_id": "SEAM-SUCCESSOR-C",
+            "path": path,
+            "allowed_classifications": ["integration"],
+            "required_protector_tests": [successor_test_ref],
+            "protector_test_hashes": {
+                successor_test_ref: self._successor_fixture_hash(
+                    successor_test_path.read_bytes()
+                )
+            },
+            "authorized_at": "2026-07-20T00:03:00Z",
+            "rationale": "Authorize a third exact successor generation.",
+            "transition_id": "TRANSITION-SUCCESSOR-B-C",
+            "supersedes": {
+                "seam_id": seam_b["seam_id"],
+                "patch_record_id": record_b["id"],
+                "ledger_entry_id": owner_b["id"],
+                "patched_blob_hash": record_b["patched_blob_hash"],
+                "patched_git_mode": record_b["patched_git_mode"],
+                "authorization_adr_ref": seam_b["authorization_adr_ref"],
+                "authorization_blob_hash": seam_b["authorization_blob_hash"],
+            },
+            "successor_patch_record_id": "UP-SUCCESSOR-C",
+            "successor_ledger_entry_id": "PL-SUCCESSOR-C",
+            "target_blob_hash": self._successor_fixture_hash(c_bytes),
+            "target_git_mode": "100644",
+        }
+        successor_adr_path = repository_root / successor_adr_ref
+        self._write_successor_fixture_json(successor_adr_path, successor_authorization)
+        successor_authorization_commit = self._commit_successor_fixture(
+            repository_root, "bootstrap third successor authorization"
+        )
+        successor_authorization_hash = self._successor_fixture_hash(
+            successor_adr_path.read_bytes()
+        )
+
+        seam_c = copy.deepcopy(seam_b)
+        seam_c.update(
+            {
+                "seam_id": "SEAM-SUCCESSOR-C",
+                "authorization_adr_ref": successor_adr_ref,
+                "authorization_commit": successor_authorization_commit,
+                "authorization_base_commit": successor_authorization_commit,
+                "authorization_blob_hash": successor_authorization_hash,
+                "required_protector_tests": [successor_test_ref],
+                "reason": "Admit the third exact successor generation.",
+            }
+        )
+        record_c = copy.deepcopy(record_b)
+        record_c.update(
+            {
+                "id": "UP-SUCCESSOR-C",
+                "seam_id": "SEAM-SUCCESSOR-C",
+                "patched_blob_hash": self._successor_fixture_hash(c_bytes),
+                "protector_tests": [successor_test_ref],
+                "reason": "Wire the third exact successor generation.",
+                "last_revalidated_at": "2026-07-20T00:04:00Z",
+            }
+        )
+        owner_c = {
+            "id": "PL-SUCCESSOR-C",
+            "classification": "integration",
+            "paths": [path],
+            "requirements": ["PLT-004"],
+            "reason": "Own the third exact successor generation.",
+            "verification": [successor_test_ref],
+        }
+        policy_c = copy.deepcopy(policy_b)
+        policy_c["seams"] = [seam_c]
+        target_path.write_bytes(c_bytes)
+        self._write_successor_fixture_json(
+            repository_root / "pmorg/policies/seam-allowlist.json", policy_c
+        )
+        self._write_successor_fixture_json(
+            repository_root / "pmorg/patch-ledger.json",
+            {"upstream_patch_records": [record_c], "entries": [owner_c]},
+        )
+        self._commit_successor_fixture(
+            repository_root, "activate third exact successor generation"
+        )
+        return {
+            "path": path,
+            "policy": policy_c,
+            "records": [record_c],
+            "entries": [owner_c],
+            "upstream_commit": fixture["upstream_commit"],
+            "protected_base": successor_authorization_commit,
+            "empty_policy_commit": fixture["empty_policy_commit"],
+            "normal_activation_commit": fixture["normal_activation_commit"],
+        }
+
+    def _validate_successor_fixture(
+        self, repository_root: Path, fixture: dict[str, object]
+    ) -> tuple[list[str], list[str]]:
+        seam_errors = validate_seam_allowlist(
+            fixture["policy"],
+            repository_root,
+            self.ownership_policy,
+            repository_root,
+            fixture["protected_base"],
+        )
+        thin_fork_errors = validate_thin_fork_diff(
+            [fixture["path"]],
+            fixture["entries"],
+            fixture["records"],
+            self.ownership_policy,
+            fixture["policy"],
+            repository_root,
+            fixture["upstream_commit"],
+        )
+        return seam_errors, thin_fork_errors
+
+    def test_successor_lifecycle_replaces_seam_record_owner_and_bytes_atomically(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(repository_root)
+
+            self.assertEqual(
+                self._validate_successor_fixture(repository_root, fixture), ([], [])
+            )
+
+    def test_retired_seam_authorization_and_protector_remain_immutable(self) -> None:
+        evidence_cases = {
+            "authorization": "pmorg/adr/ADR-SUCCESSOR-A.json",
+            "protector": "pmorg/tests/test_successor_a.py",
+        }
+        for evidence_kind, evidence_ref in evidence_cases.items():
+            with self.subTest(evidence_kind=evidence_kind):
+                with tempfile.TemporaryDirectory() as directory:
+                    repository_root = Path(directory)
+                    fixture = self._prepare_successor_lifecycle_repository(
+                        repository_root
+                    )
+                    evidence_path = repository_root / evidence_ref
+                    if evidence_kind == "authorization":
+                        authorization = json.loads(evidence_path.read_bytes())
+                        authorization["rationale"] = (
+                            "Mutated after the seam generation was retired."
+                        )
+                        self._write_successor_fixture_json(evidence_path, authorization)
+                    else:
+                        evidence_path.write_text(
+                            evidence_path.read_text(encoding="utf-8")
+                            + "\n# Mutated after retirement.\n",
+                            encoding="utf-8",
+                        )
+                    self._commit_successor_fixture(
+                        repository_root, f"mutate retired {evidence_kind} evidence"
+                    )
+
+                    seam_errors, _ = self._validate_successor_fixture(
+                        repository_root, fixture
+                    )
+
+                self.assertTrue(
+                    any(
+                        error.startswith(
+                            "historical seam SEAM-SUCCESSOR-A evidence invalid: "
+                        )
+                        for error in seam_errors
+                    ),
+                    seam_errors,
+                )
+
+    def test_retired_seam_evidence_cannot_mutate_and_restore(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(repository_root)
+            authorization_path = repository_root / "pmorg/adr/ADR-SUCCESSOR-A.json"
+            authorized_bytes = authorization_path.read_bytes()
+            authorization = json.loads(authorized_bytes)
+            authorization["rationale"] = "Transient mutation before restoration."
+            self._write_successor_fixture_json(authorization_path, authorization)
+            self._commit_successor_fixture(
+                repository_root, "mutate retired authorization evidence"
+            )
+            authorization_path.write_bytes(authorized_bytes)
+            self._commit_successor_fixture(
+                repository_root, "restore retired authorization evidence"
+            )
+
+            seam_errors, _ = self._validate_successor_fixture(repository_root, fixture)
+
+        self.assertTrue(
+            any(
+                "historical seam SEAM-SUCCESSOR-A evidence invalid: "
+                "authorization ADR pmorg/adr/ADR-SUCCESSOR-A.json changed in "
+                "committed history" in error
+                for error in seam_errors
+            ),
+            seam_errors,
+        )
+
+    def test_oldest_retired_generation_evidence_is_still_enforced(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture_b = self._prepare_successor_lifecycle_repository(repository_root)
+            fixture_c = self._activate_third_successor_generation(
+                repository_root, fixture_b
+            )
+            self.assertEqual(
+                self._validate_successor_fixture(repository_root, fixture_c), ([], [])
+            )
+            authorization_path = repository_root / "pmorg/adr/ADR-SUCCESSOR-A.json"
+            authorization = json.loads(authorization_path.read_bytes())
+            authorization["rationale"] = "Mutation two generations after retirement."
+            self._write_successor_fixture_json(authorization_path, authorization)
+            self._commit_successor_fixture(
+                repository_root, "mutate oldest retired generation evidence"
+            )
+
+            seam_errors, _ = self._validate_successor_fixture(
+                repository_root, fixture_c
+            )
+
+        self.assertTrue(
+            any(
+                error.startswith("historical seam SEAM-SUCCESSOR-A evidence invalid: ")
+                for error in seam_errors
+            ),
+            seam_errors,
+        )
+
+    def test_retired_successor_keeps_exact_predecessor_record_binding(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture_b = self._prepare_successor_lifecycle_repository(
+                repository_root, predecessor_record_id="UP-NOT-THE-PREDECESSOR"
+            )
+            fixture_c = self._activate_third_successor_generation(
+                repository_root, fixture_b
+            )
+
+            seam_errors, _ = self._validate_successor_fixture(
+                repository_root, fixture_c
+            )
+
+        self.assertTrue(
+            any(
+                "historical seam[1] patch record successor binds the wrong "
+                "predecessor record" in error
+                for error in seam_errors
+            ),
+            seam_errors,
+        )
+
+    def test_retired_successor_keeps_semantically_valid_owner(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture_b = self._prepare_successor_lifecycle_repository(
+                repository_root, successor_owner_classification="temporary"
+            )
+            fixture_c = self._activate_third_successor_generation(
+                repository_root, fixture_b
+            )
+
+            seam_errors, _ = self._validate_successor_fixture(
+                repository_root, fixture_c
+            )
+
+        self.assertIn(
+            "historical seam[1] ledger owner classification differs from patch record",
+            seam_errors,
+        )
+
+    def test_retired_successor_keeps_direct_authorization_parent(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture_b = self._prepare_successor_lifecycle_repository(
+                repository_root, add_intermediate_commit=True
+            )
+            fixture_c = self._activate_third_successor_generation(
+                repository_root, fixture_b
+            )
+
+            seam_errors, _ = self._validate_successor_fixture(
+                repository_root, fixture_c
+            )
+
+        self.assertTrue(
+            any(
+                "historical seam[1] authorization base is not its introduction "
+                "parent" in error
+                for error in seam_errors
+            ),
+            seam_errors,
+        )
+
+    def test_generation_path_and_record_cannot_mutate_and_restore(self) -> None:
+        mutation_cases = ("path", "record")
+        for mutation_kind in mutation_cases:
+            with self.subTest(mutation_kind=mutation_kind):
+                with tempfile.TemporaryDirectory() as directory:
+                    repository_root = Path(directory)
+                    fixture_b = self._prepare_successor_lifecycle_repository(
+                        repository_root
+                    )
+                    if mutation_kind == "path":
+                        governed_path = repository_root / fixture_b["path"]
+                        generation_bytes = governed_path.read_bytes()
+                        governed_path.write_bytes(b"TRANSIENT-UNAUTHORIZED\n")
+                        self._commit_successor_fixture(
+                            repository_root, "mutate active generation path"
+                        )
+                        governed_path.write_bytes(generation_bytes)
+                    else:
+                        ledger_path = repository_root / "pmorg/patch-ledger.json"
+                        generation_bytes = ledger_path.read_bytes()
+                        ledger = json.loads(generation_bytes)
+                        ledger["upstream_patch_records"][0]["base_blob_hash"] = (
+                            self._successor_fixture_hash(b"TRANSIENT-BASE\n")
+                        )
+                        self._write_successor_fixture_json(ledger_path, ledger)
+                        self._commit_successor_fixture(
+                            repository_root, "mutate active generation record"
+                        )
+                        ledger_path.write_bytes(generation_bytes)
+                    self._commit_successor_fixture(
+                        repository_root, f"restore active generation {mutation_kind}"
+                    )
+                    fixture_c = self._activate_third_successor_generation(
+                        repository_root, fixture_b
+                    )
+
+                    seam_errors, _ = self._validate_successor_fixture(
+                        repository_root, fixture_c
+                    )
+
+                expected = (
+                    "historical seam SEAM-SUCCESSOR-B path bytes or mode changed "
+                    "before retirement"
+                    if mutation_kind == "path"
+                    else "historical seam SEAM-SUCCESSOR-B patch record changed "
+                    "before retirement"
+                )
+                self.assertTrue(
+                    any(expected in error for error in seam_errors), seam_errors
+                )
+
+    def test_active_seam_cannot_retire_and_resurrect(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(repository_root)
+            policy_path = repository_root / "pmorg/policies/seam-allowlist.json"
+            empty_policy = copy.deepcopy(fixture["policy"])
+            empty_policy["seams"] = []
+            self._write_successor_fixture_json(policy_path, empty_policy)
+            self._commit_successor_fixture(
+                repository_root, "retire active seam without successor"
+            )
+            self._write_successor_fixture_json(policy_path, fixture["policy"])
+            self._commit_successor_fixture(repository_root, "resurrect active seam")
+
+            seam_errors, _ = self._validate_successor_fixture(repository_root, fixture)
+
+        self.assertTrue(
+            any(
+                "historical seam retired without exact atomic successor" in error
+                and error.endswith(": SEAM-SUCCESSOR-B")
+                for error in seam_errors
+            ),
+            seam_errors,
+        )
+        self.assertTrue(
+            any(
+                "historical seam ID resurrected" in error
+                and error.endswith(": SEAM-SUCCESSOR-B")
+                for error in seam_errors
+            ),
+            seam_errors,
+        )
+
+    def test_merge_of_stale_branch_does_not_fabricate_seam_activation(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(repository_root)
+            current_branch = subprocess.run(
+                ["git", "branch", "--show-current"],
+                cwd=repository_root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            subprocess.run(
+                [
+                    "git",
+                    "switch",
+                    "-q",
+                    "-c",
+                    "stale-policy-branch",
+                    fixture["empty_policy_commit"],
+                ],
+                cwd=repository_root,
+                check=True,
+            )
+            (repository_root / "stale-only.txt").write_text(
+                "unrelated stale-branch change\n", encoding="utf-8"
+            )
+            self._commit_successor_fixture(
+                repository_root, "commit unrelated stale-branch change"
+            )
+            subprocess.run(
+                ["git", "switch", "-q", current_branch],
+                cwd=repository_root,
+                check=True,
+            )
+            subprocess.run(
+                [
+                    "git",
+                    "merge",
+                    "-q",
+                    "--no-ff",
+                    "stale-policy-branch",
+                    "-m",
+                    "merge unrelated stale branch",
+                ],
+                cwd=repository_root,
+                check=True,
+            )
+
+            self.assertEqual(
+                self._validate_successor_fixture(repository_root, fixture), ([], [])
+            )
+
+    def test_stale_generation_branch_cannot_hide_path_mutation(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(repository_root)
+            current_branch = subprocess.run(
+                ["git", "branch", "--show-current"],
+                cwd=repository_root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            subprocess.run(
+                [
+                    "git",
+                    "switch",
+                    "-q",
+                    "-c",
+                    "stale-a-generation",
+                    fixture["normal_activation_commit"],
+                ],
+                cwd=repository_root,
+                check=True,
+            )
+            (repository_root / fixture["path"]).write_bytes(b"STALE-A-UNAUTHORIZED\n")
+            self._commit_successor_fixture(
+                repository_root, "mutate path on stale A generation"
+            )
+            subprocess.run(
+                ["git", "switch", "-q", current_branch],
+                cwd=repository_root,
+                check=True,
+            )
+            subprocess.run(
+                [
+                    "git",
+                    "merge",
+                    "-q",
+                    "--no-ff",
+                    "-s",
+                    "ours",
+                    "stale-a-generation",
+                    "-m",
+                    "merge stale A history without its tree",
+                ],
+                cwd=repository_root,
+                check=True,
+            )
+
+            seam_errors, _ = self._validate_successor_fixture(repository_root, fixture)
+
+        self.assertTrue(
+            any(
+                "historical seam SEAM-SUCCESSOR-A path bytes or mode changed "
+                "before retirement" in error
+                for error in seam_errors
+            ),
+            seam_errors,
+        )
+
+    def test_successor_lifecycle_rejects_wrong_predecessor(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(
+                repository_root, predecessor_seam_id="SEAM-SUCCESSOR-WRONG"
+            )
+
+            seam_errors, _ = self._validate_successor_fixture(repository_root, fixture)
+
+        self.assertIn(
+            "seam[0] successor binds the wrong active predecessor", seam_errors
+        )
+
+    def test_normal_v1_authorization_cannot_replace_active_same_path_seam(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(
+                repository_root, successor_authorized=False
+            )
+
+            seam_errors, _ = self._validate_successor_fixture(repository_root, fixture)
+
+        self.assertIn(
+            "same-path seam replacement is not successor-authorized: SEAM-SUCCESSOR-A",
+            seam_errors,
+        )
+        self.assertIn(
+            "new seam on occupied protected-base path requires successor "
+            "authorization: SEAM-SUCCESSOR-B",
+            seam_errors,
+        )
+
+    def test_successor_activation_rejects_intermediate_commit(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(
+                repository_root, add_intermediate_commit=True
+            )
+
+            seam_errors, _ = self._validate_successor_fixture(repository_root, fixture)
+
+        self.assertIn(
+            "seam[0] new seam must be introduced atomically on protected PR base",
+            seam_errors,
+        )
+
+    def test_successor_activation_rejects_replayed_record_and_owner_ids(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(
+                repository_root, replay_record_and_owner_ids=True
+            )
+
+            _, thin_fork_errors = self._validate_successor_fixture(
+                repository_root, fixture
+            )
+
+        self.assertIn(
+            "UP-SUCCESSOR-A patch record ID existed before atomic seam commit",
+            thin_fork_errors,
+        )
+        self.assertIn(
+            "UP-SUCCESSOR-A ledger owner ID existed before atomic seam commit",
+            thin_fork_errors,
+        )
+        self.assertIn(
+            "UP-SUCCESSOR-A successor ledger owner ID was reused",
+            thin_fork_errors,
+        )
+
+    def test_successor_activation_rejects_double_ownership(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(
+                repository_root, double_ownership=True
+            )
+
+            _, thin_fork_errors = self._validate_successor_fixture(
+                repository_root, fixture
+            )
+
+        self.assertIn(
+            "multiply-owned upstream fork path: backend/onyx/example.py "
+            "(PL-SUCCESSOR-B, PL-SUCCESSOR-A)",
+            thin_fork_errors,
+        )
+
+    def test_successor_activation_rejects_unauthorized_target_bytes(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(
+                repository_root, target_hash_mismatch=True
+            )
+
+            _, thin_fork_errors = self._validate_successor_fixture(
+                repository_root, fixture
+            )
+
+        self.assertIn(
+            "UP-SUCCESSOR-B successor patched bytes differ from authorized target",
+            thin_fork_errors,
+        )
+
+    def test_successor_activation_rejects_canonical_identity_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository_root = Path(directory)
+            fixture = self._prepare_successor_lifecycle_repository(
+                repository_root, canonical_identity_drift=True
+            )
+
+            _, thin_fork_errors = self._validate_successor_fixture(
+                repository_root, fixture
+            )
+
+        self.assertIn(
+            "UP-SUCCESSOR-B successor changes canonical predecessor field: "
+            "base_blob_hash",
+            thin_fork_errors,
+        )
+
+    def test_dormant_static_helm_lane_authorizations_are_byte_bound(self) -> None:
+        successor_ref = "pmorg/adr/ADR-0004-helm-static-ephemeral-runner-seam.json"
+        normal_ref = "pmorg/adr/ADR-0005-actionlint-helm-lane-label-seam.json"
+        successor = json.loads((self.repository_root / successor_ref).read_bytes())
+        normal = json.loads((self.repository_root / normal_ref).read_bytes())
+        normal_keys = {
+            "schema_version",
+            "decision_id",
+            "status",
+            "specification_commit",
+            "seam_id",
+            "path",
+            "allowed_classifications",
+            "required_protector_tests",
+            "protector_test_hashes",
+            "authorized_at",
+            "rationale",
+        }
+        successor_keys = normal_keys | {
+            "transition_id",
+            "supersedes",
+            "successor_patch_record_id",
+            "successor_ledger_entry_id",
+            "target_blob_hash",
+            "target_git_mode",
+        }
+        predecessor_keys = {
+            "seam_id",
+            "patch_record_id",
+            "ledger_entry_id",
+            "patched_blob_hash",
+            "patched_git_mode",
+            "authorization_adr_ref",
+            "authorization_blob_hash",
+        }
+
+        self.assertEqual(
+            successor["schema_version"],
+            "pmorg.platform.seam-successor-authorization/v1",
+        )
+        self.assertEqual(
+            normal["schema_version"], "pmorg.platform.seam-authorization/v1"
+        )
+        self.assertEqual(set(successor), successor_keys)
+        self.assertEqual(set(normal), normal_keys)
+        self.assertEqual(set(successor["supersedes"]), predecessor_keys)
+
+        expected_artifacts = [
+            (
+                successor,
+                "pmorg/tests/test_helm_static_lane_ci_seam_protector.py::"
+                "TestHelmStaticRunnerAdmissionSeam."
+                "test_static_ephemeral_lane_replaces_only_runner_selector",
+                "sha256:d7958f9b1f6dcbeaab02fe3eed3876cba82a3cfd0ace2ae04153de9f0965c40f",
+                "pmorg/tests/fixtures/ci-seams/pr-helm-chart-testing-static-lane.yml",
+                "sha256:49b0a6bc14679eec0780792935a84032504e4c69f068e48a486d1dbf978eeae5",
+            ),
+            (
+                normal,
+                "pmorg/tests/test_actionlint_helm_lane_seam_protector.py::"
+                "TestActionlintHelmLaneAdmissionSeam."
+                "test_helm_lane_is_only_runner_catalog_change",
+                "sha256:6a2df969c71c46f4767308cc4546b95be31942fab5e954acba662bae093737e6",
+                "pmorg/tests/fixtures/ci-seams/actionlint-static-helm-lane.yml",
+                "sha256:4301dbacaf4e7ee2e3b6e88a18c7600a2d716728b16e5c412521c6641daf77e7",
+            ),
+        ]
+        for (
+            authorization,
+            selector,
+            protector_hash,
+            fixture_ref,
+            fixture_hash,
+        ) in expected_artifacts:
+            protector_ref, _, _ = selector.partition("::")
+            protector_bytes = (self.repository_root / protector_ref).read_bytes()
+            fixture_bytes = (self.repository_root / fixture_ref).read_bytes()
+            self.assertEqual(authorization["required_protector_tests"], [selector])
+            self.assertEqual(
+                authorization["protector_test_hashes"], {selector: protector_hash}
+            )
+            self.assertEqual(
+                self._successor_fixture_hash(protector_bytes), protector_hash
+            )
+            self.assertEqual(self._successor_fixture_hash(fixture_bytes), fixture_hash)
+            self.assertIn(
+                fixture_hash.removeprefix("sha256:"),
+                protector_bytes.decode("utf-8"),
+            )
+
+        self.assertEqual(successor["target_blob_hash"], expected_artifacts[0][4])
+        self.assertEqual(
+            {seam["seam_id"] for seam in self.seam_policy["seams"]},
+            {"SEAM-CI-ZIZMOR-001", "SEAM-CI-HELM-001"},
+        )
+        self.assertEqual(
+            {record["id"] for record in self.ledger["upstream_patch_records"]},
+            {"UP-CI-ZIZMOR-001", "UP-CI-HELM-001"},
+        )
+        self.assertTrue(
+            {"SEAM-CI-HELM-002", "SEAM-CI-ACTIONLINT-001"}.isdisjoint(
+                seam["seam_id"] for seam in self.seam_policy["seams"]
+            )
+        )
+        self.assertTrue(
+            {"UP-CI-HELM-002"}.isdisjoint(
+                record["id"] for record in self.ledger["upstream_patch_records"]
+            )
+        )
 
     def test_current_policy_documents_are_valid_and_default_deny(self) -> None:
         self.assertEqual(validate_patch_ledger_contract(self.ledger), [])
@@ -1529,7 +2646,7 @@ class ThinForkPolicyTest(unittest.TestCase):
                 capture_output=True,
             ).stdout
             path = repository_root / "backend/onyx/example.py"
-            path.parent.mkdir(parents=True)
+            path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text("PATCHED = True\n", encoding="utf-8")
             record = copy.deepcopy(self.valid_upstream_record)
             record["base_blob_hash"] = None

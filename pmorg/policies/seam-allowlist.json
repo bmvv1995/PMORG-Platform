@@ -1,5 +1,5 @@
 {
-  "schema_version": "pmorg.platform.seam-allowlist/v2",
+  "schema_version": "pmorg.platform.seam-allowlist/v3",
   "admission_mode": "governed_integration",
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
   "default_decision": "deny",
@@ -43,6 +43,10 @@
     "concrete_seam_authorization_must_preexist_on_protected_base": true,
     "admitted_seams_are_immutable": true,
     "atomic_seam_commit_must_bind_record_owner_and_path": true,
+    "retired_seam_evidence_must_remain_immutable": true,
+    "seam_successor_must_replace_exact_protected_base_predecessor": true,
+    "seam_successor_must_preserve_canonical_upstream_identity": true,
+    "seam_successor_activation_must_be_atomic": true,
     "protector_test_references_must_be_safe_and_existing": true,
     "protector_tests_must_be_python_and_byte_bound": true,
     "protector_tests_must_execute_exactly_once_without_skip": true,

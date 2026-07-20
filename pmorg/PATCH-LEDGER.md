@@ -63,6 +63,22 @@ tests. A ledger note written in the patch PR cannot authorize it retroactively.
 Changing a landed seam or its bound evidence requires a new authorization and
 new seam ID.
 
+A same-path revision is a successor generation, never a mutation or generic
+waiver. Its dormant
+`pmorg.platform.seam-successor-authorization/v1` decision must land before the
+activation and bind the exact predecessor seam, patch record, ledger owner,
+authorization bytes, patched bytes and Git mode, plus distinct successor
+seam/record/owner IDs and the byte-exact target. The later activation commit
+must be the direct child of that protected base and atomically replace the
+active seam, record, owner and path bytes. The canonical `base_blob_hash`,
+upstream source, ownership, license and Onyx surfaces remain anchored to the
+pinned Onyx tree; predecessor PMORG bytes cannot be laundered into a new
+upstream base. Full Git history must reconstruct one immutable, non-forking
+generation chain with exactly one active endpoint per path. Retired ADRs and
+protector bytes remain byte- and mode-identical in every committed descendant,
+while only the active generation's trusted protector executes against a
+candidate.
+
 For every directly modified upstream path the release ledger records at least:
 
 ```text
@@ -148,4 +164,7 @@ tracked in [issue #24](https://github.com/bmvv1995/PMORG-Platform/issues/24).
 On `origin/main`, the verifier instead proves each immutable seam's first
 introduction parent from Git history. The concrete allowlist and upstream
 patch-record set contain only the two CI seams documented above; they imply no
-authorization for product or additional upstream paths.
+authorization for product or additional upstream paths. Dormant successor and
+new-path decisions under `pmorg/adr/**` authorize no executable change by
+themselves; they become effective only through a later protected atomic
+activation satisfying the policy above.

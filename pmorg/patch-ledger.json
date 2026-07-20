@@ -178,9 +178,15 @@
       "paths": [
         "pmorg/adr/ADR-0002-zizmor-private-repository-seam.json",
         "pmorg/adr/ADR-0003-helm-runner-admission-seam.json",
+        "pmorg/adr/ADR-0004-helm-static-ephemeral-runner-seam.json",
+        "pmorg/adr/ADR-0005-actionlint-helm-lane-label-seam.json",
+        "pmorg/tests/fixtures/ci-seams/actionlint-static-helm-lane.yml",
         "pmorg/tests/fixtures/ci-seams/pr-helm-chart-testing.yml",
+        "pmorg/tests/fixtures/ci-seams/pr-helm-chart-testing-static-lane.yml",
         "pmorg/tests/fixtures/ci-seams/zizmor.yml",
+        "pmorg/tests/test_actionlint_helm_lane_seam_protector.py",
         "pmorg/tests/test_helm_ci_seam_protector.py",
+        "pmorg/tests/test_helm_static_lane_ci_seam_protector.py",
         "pmorg/tests/test_zizmor_ci_seam_protector.py"
       ],
       "requirements": [
@@ -190,7 +196,7 @@
         "PLT-007",
         "PLT-008"
       ],
-      "reason": "Pre-authorize two exact inherited CI seams and byte-bind their reviewed golden workflow fixtures and protectors before executable workflow admission.",
+      "reason": "Pre-authorize exact inherited CI seams and immutable same-path successor transitions, byte-binding their reviewed golden targets and prospective protectors before executable admission.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py",
         "python3 -m unittest pmorg.tests.test_verify_fork -v",
