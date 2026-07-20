@@ -16,3 +16,9 @@ orchestration clients, persistence libraries, transports, or framework code.
 Slice 2a establishes only these boundaries and their guardrails. It does not
 implement contract payloads, APIs, databases, Odoo behavior, runtime wiring,
 release qualification, or a G3-A verdict.
+
+The first signed-record use case lives in `application.rbdp`. It emits and
+verifies canonical Ed25519 DSSE envelopes for CE development-test release build
+definitions. Private and public test key bytes are accepted only through an
+environment mapping; key files, production keys, EE/production admissions,
+build execution, and release qualification remain outside this boundary.

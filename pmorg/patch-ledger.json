@@ -395,6 +395,27 @@
         "python3 -B pmorg/scripts/verify_ce_build.py",
         "python3 -B pmorg/scripts/verify_ce_image_contexts.py"
       ]
+    },
+    {
+      "id": "PL-013",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/rbdp.py",
+        "backend/pmorg/tests/test_rbdp_signing.py"
+      ],
+      "requirements": [
+        "PLT-004",
+        "PLT-005",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Emit and verify the pre-build CE development-test ReleaseBuildDefinitionPayload as a canonical Ed25519 DSSE envelope, loading ephemeral key material only from the environment and binding validation to the exact committed contract schema digest without executing a build or claiming qualification, admission, release, or G3-A.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=a9f49afd46b19e391e7e361a9c5e7f9309039d6f python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_rbdp_signing -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
