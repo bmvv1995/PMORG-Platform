@@ -5,7 +5,8 @@ import importlib
 import json
 import unittest
 from dataclasses import dataclass
-from pathlib import Path, PurePosixPath
+from pathlib import Path
+from pathlib import PurePosixPath
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 TESTS_DIR = Path(__file__).resolve().parent
@@ -44,10 +45,9 @@ def _active_protector_filenames(policy_path: Path) -> set[str]:
             if not isinstance(selector, str) or "::" not in selector:
                 raise ValueError("protector selectors must be path::selector strings")
             protector_path = PurePosixPath(selector.split("::", 1)[0])
-            if (
-                protector_path.parent == PurePosixPath("pmorg/tests")
-                and fnmatch.fnmatchcase(protector_path.name, SEAM_PROTECTOR_PATTERN)
-            ):
+            if protector_path.parent == PurePosixPath(
+                "pmorg/tests"
+            ) and fnmatch.fnmatchcase(protector_path.name, SEAM_PROTECTOR_PATTERN):
                 filenames.add(protector_path.name)
     return filenames
 
@@ -75,7 +75,9 @@ def active_suite_plan(
         _module_name(path) for path in protector_paths if path.name in active_filenames
     )
     retired_protectors = tuple(
-        _module_name(path) for path in protector_paths if path.name not in active_filenames
+        _module_name(path)
+        for path in protector_paths
+        if path.name not in active_filenames
     )
     retired_set = set(retired_protectors)
     included_modules = tuple(

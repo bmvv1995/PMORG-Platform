@@ -47,13 +47,14 @@ class TestActiveSuiteDiscovery(unittest.TestCase):
 
     def test_collection_errors_are_not_swallowed(self) -> None:
         class RaisingLoader(unittest.TestLoader):
-            def loadTestsFromModule(self, module, *, pattern=None):  # noqa: N802
+            def loadTestsFromModule(  # noqa: N802
+                self, module, *, pattern=None
+            ):
+                del pattern
                 raise ImportError(f"sentinel import failure: {module.__name__}")
 
         with self.assertRaisesRegex(ImportError, "sentinel import failure"):
-            active_suite.load_tests(
-                RaisingLoader(), unittest.TestSuite(), "test_*.py"
-            )
+            active_suite.load_tests(RaisingLoader(), unittest.TestSuite(), "test_*.py")
 
 
 if __name__ == "__main__":
