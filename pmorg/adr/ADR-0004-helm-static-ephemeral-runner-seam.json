@@ -1,0 +1,33 @@
+{
+  "allowed_classifications": [
+    "integration"
+  ],
+  "authorized_at": "2026-07-20T04:17:32Z",
+  "decision_id": "ADR-0004",
+  "path": ".github/workflows/pr-helm-chart-testing.yml",
+  "protector_test_hashes": {
+    "pmorg/tests/test_helm_static_lane_ci_seam_protector.py::TestHelmStaticRunnerAdmissionSeam.test_static_ephemeral_lane_replaces_only_runner_selector": "sha256:d7958f9b1f6dcbeaab02fe3eed3876cba82a3cfd0ace2ae04153de9f0965c40f"
+  },
+  "rationale": "Supersede ADR-0003 by authorizing only the byte-exact reviewed Helm CI target that preserves provider-agnostic change detection, same-repository self-hosted admission, and the fail-closed terminal gate while selecting a manually started ephemeral Linux x64 runner through the static self-hosted, Linux, X64, and helm-lane labels.",
+  "required_protector_tests": [
+    "pmorg/tests/test_helm_static_lane_ci_seam_protector.py::TestHelmStaticRunnerAdmissionSeam.test_static_ephemeral_lane_replaces_only_runner_selector"
+  ],
+  "schema_version": "pmorg.platform.seam-successor-authorization/v1",
+  "seam_id": "SEAM-CI-HELM-002",
+  "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+  "status": "accepted",
+  "successor_ledger_entry_id": "PL-007",
+  "successor_patch_record_id": "UP-CI-HELM-002",
+  "supersedes": {
+    "authorization_adr_ref": "pmorg/adr/ADR-0003-helm-runner-admission-seam.json",
+    "authorization_blob_hash": "sha256:eeb0fe835d3fcf5e1853da7e91c6f6809c60d8879429bfb078b3a8474f831a4e",
+    "ledger_entry_id": "PL-006",
+    "patch_record_id": "UP-CI-HELM-001",
+    "patched_blob_hash": "sha256:08a7ecc5d55a97ef1ec895ad3fa0862b0e0fb79cb6cbe62ca40808a7e1722070",
+    "patched_git_mode": "100644",
+    "seam_id": "SEAM-CI-HELM-001"
+  },
+  "target_blob_hash": "sha256:49b0a6bc14679eec0780792935a84032504e4c69f068e48a486d1dbf978eeae5",
+  "target_git_mode": "100644",
+  "transition_id": "TRANSITION-CI-HELM-STATIC-001"
+}

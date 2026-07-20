@@ -409,10 +409,13 @@ REQUIRED_TRUE_FLAGS = {
 EXPECTED_OWNERSHIP_ROOTS_REF = "pmorg/policies/ownership-roots.json"
 EXPECTED_SEAM_ALLOWLIST_REF = "pmorg/policies/seam-allowlist.json"
 EXPECTED_OWNERSHIP_POLICY_SCHEMA = "pmorg.platform.ownership-roots/v2"
-EXPECTED_SEAM_POLICY_SCHEMA = "pmorg.platform.seam-allowlist/v2"
+EXPECTED_SEAM_POLICY_SCHEMA = "pmorg.platform.seam-allowlist/v3"
 EXPECTED_POLICY_PHASE = "governed_integration"
 EXPECTED_PATCH_RECORD_SCHEMA = "pmorg.platform.upstream-patch-record/v2"
 EXPECTED_SEAM_AUTHORIZATION_SCHEMA = "pmorg.platform.seam-authorization/v1"
+EXPECTED_SEAM_SUCCESSOR_AUTHORIZATION_SCHEMA = (
+    "pmorg.platform.seam-successor-authorization/v1"
+)
 RFC3339_UTC_PATTERN = re.compile(
     r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?Z$"
 )
@@ -491,6 +494,10 @@ EXPECTED_SEAM_INVARIANTS = {
     "concrete_seam_authorization_must_preexist_on_protected_base": True,
     "admitted_seams_are_immutable": True,
     "atomic_seam_commit_must_bind_record_owner_and_path": True,
+    "retired_seam_evidence_must_remain_immutable": True,
+    "seam_successor_must_replace_exact_protected_base_predecessor": True,
+    "seam_successor_must_preserve_canonical_upstream_identity": True,
+    "seam_successor_activation_must_be_atomic": True,
     "protector_test_references_must_be_safe_and_existing": True,
     "protector_tests_must_be_python_and_byte_bound": True,
     "protector_tests_must_execute_exactly_once_without_skip": True,
@@ -550,6 +557,23 @@ REQUIRED_SEAM_AUTHORIZATION_KEYS = {
     "protector_test_hashes",
     "authorized_at",
     "rationale",
+}
+REQUIRED_SEAM_SUCCESSOR_AUTHORIZATION_KEYS = REQUIRED_SEAM_AUTHORIZATION_KEYS | {
+    "transition_id",
+    "supersedes",
+    "successor_patch_record_id",
+    "successor_ledger_entry_id",
+    "target_blob_hash",
+    "target_git_mode",
+}
+REQUIRED_SEAM_SUCCESSOR_PREDECESSOR_KEYS = {
+    "seam_id",
+    "patch_record_id",
+    "ledger_entry_id",
+    "patched_blob_hash",
+    "patched_git_mode",
+    "authorization_adr_ref",
+    "authorization_blob_hash",
 }
 
 
@@ -1366,15 +1390,451 @@ def seam_at_revision(
     return matches[0] if len(matches) == 1 else None
 
 
+def seams_at_revision(
+    repository_root: Path, revision: str
+) -> list[dict[str, object]] | None:
+    policy = json_object_at_revision(
+        repository_root, revision, EXPECTED_SEAM_ALLOWLIST_REF
+    )
+    seams = policy.get("seams") if policy is not None else None
+    if not isinstance(seams, list) or any(not isinstance(seam, dict) for seam in seams):
+        return None
+    return [cast(dict[str, object], seam) for seam in seams]
+
+
+def seam_for_path_at_revision(
+    repository_root: Path, revision: str, path: str
+) -> dict[str, object] | None:
+    seams = seams_at_revision(repository_root, revision)
+    if seams is None:
+        return None
+    matches = [seam for seam in seams if seam.get("path_pattern") == path]
+    return matches[0] if len(matches) == 1 else None
+
+
+def records_at_revision(
+    repository_root: Path, revision: str
+) -> list[dict[str, object]] | None:
+    ledger = json_object_at_revision(
+        repository_root, revision, "pmorg/patch-ledger.json"
+    )
+    records = ledger.get("upstream_patch_records") if ledger is not None else None
+    if not isinstance(records, list) or any(
+        not isinstance(record, dict) for record in records
+    ):
+        return None
+    return [cast(dict[str, object], record) for record in records]
+
+
+def record_for_path_at_revision(
+    repository_root: Path, revision: str, path: str
+) -> dict[str, object] | None:
+    records = records_at_revision(repository_root, revision)
+    if records is None:
+        return None
+    matches = [record for record in records if record.get("path") == path]
+    return matches[0] if len(matches) == 1 else None
+
+
+def patch_entries_at_revision(
+    repository_root: Path, revision: str
+) -> list[dict[str, object]] | None:
+    ledger = json_object_at_revision(
+        repository_root, revision, "pmorg/patch-ledger.json"
+    )
+    entries = ledger.get("entries") if ledger is not None else None
+    if not isinstance(entries, list) or any(
+        not isinstance(entry, dict) for entry in entries
+    ):
+        return None
+    return [cast(dict[str, object], entry) for entry in entries]
+
+
+def exact_patch_owner_for_path_at_revision(
+    repository_root: Path, revision: str, path: str
+) -> dict[str, object] | None:
+    entries = patch_entries_at_revision(repository_root, revision)
+    if entries is None:
+        return None
+    matches = [
+        entry
+        for entry in entries
+        if isinstance(entry.get("paths"), list)
+        and path in cast(list[object], entry["paths"])
+    ]
+    return matches[0] if len(matches) == 1 else None
+
+
+def ledger_identifier_seen_at_or_before(
+    repository_root: Path,
+    revision: str,
+    collection: str,
+    identifier: str,
+) -> bool:
+    history = subprocess.run(
+        [
+            "git",
+            "log",
+            "--format=%H",
+            revision,
+            "--",
+            "pmorg/patch-ledger.json",
+        ],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if history.returncode != 0:
+        return True
+    for commit in history.stdout.splitlines():
+        ledger = json_object_at_revision(
+            repository_root, commit, "pmorg/patch-ledger.json"
+        )
+        values = ledger.get(collection) if ledger is not None else None
+        if isinstance(values, list) and any(
+            isinstance(value, dict) and value.get("id") == identifier
+            for value in values
+        ):
+            return True
+    return False
+
+
+def seam_authorization_document(
+    repository_root: Path, seam: dict[str, object]
+) -> dict[str, object] | None:
+    authorization_ref = seam.get("authorization_adr_ref")
+    if not isinstance(authorization_ref, str):
+        return None
+    try:
+        authorization_path = resolve_policy_path(repository_root, authorization_ref)
+        return read_json_object(authorization_path, "seam authorization")
+    except (OSError, ValueError, json.JSONDecodeError):
+        return None
+
+
+def seam_authorization_at_authorized_commit(
+    repository_root: Path, seam: dict[str, object]
+) -> dict[str, object] | None:
+    authorization_ref = seam.get("authorization_adr_ref")
+    authorization_commit = seam.get("authorization_commit")
+    if not isinstance(authorization_ref, str) or not is_full_git_sha(
+        authorization_commit
+    ):
+        return None
+    return json_object_at_revision(
+        repository_root,
+        cast(str, authorization_commit),
+        authorization_ref,
+    )
+
+
+def seam_successor_authorization(
+    repository_root: Path, seam: dict[str, object]
+) -> dict[str, object] | None:
+    authorization = seam_authorization_document(repository_root, seam)
+    if (
+        authorization is not None
+        and authorization.get("schema_version")
+        == EXPECTED_SEAM_SUCCESSOR_AUTHORIZATION_SCHEMA
+    ):
+        return authorization
+    return None
+
+
+def seam_successor_authorization_at_authorized_commit(
+    repository_root: Path, seam: dict[str, object]
+) -> dict[str, object] | None:
+    authorization = seam_authorization_at_authorized_commit(repository_root, seam)
+    if (
+        authorization is not None
+        and authorization.get("schema_version")
+        == EXPECTED_SEAM_SUCCESSOR_AUTHORIZATION_SCHEMA
+    ):
+        return authorization
+    return None
+
+
+def git_commit_parents(repository_root: Path, commit: str) -> list[str] | None:
+    completed = subprocess.run(
+        ["git", "rev-list", "--parents", "-n", "1", commit],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode != 0:
+        return None
+    parts = completed.stdout.split()
+    if not parts or parts[0] != commit:
+        return None
+    return parts[1:]
+
+
+def git_is_ancestor(repository_root: Path, ancestor: str, descendant: str) -> bool:
+    return (
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", ancestor, descendant],
+            cwd=repository_root,
+            check=False,
+            capture_output=True,
+        ).returncode
+        == 0
+    )
+
+
+def validate_committed_file_immutability(
+    repository_root: Path,
+    authorization_commit: str,
+    relative_path: str,
+    label: str,
+) -> list[str]:
+    """Reject every committed byte, mode, deletion, and restoration transition."""
+
+    authorized_bytes = git_file_bytes_at_revision(
+        repository_root, authorization_commit, relative_path
+    )
+    authorized_entry = git_tree_entry_at_revision(
+        repository_root, authorization_commit, relative_path
+    )
+    if authorized_bytes is None or authorized_entry is None:
+        return [f"{label} cannot establish authorized evidence"]
+    history = subprocess.run(
+        [
+            "git",
+            "rev-list",
+            "--ancestry-path",
+            "--full-history",
+            f"{authorization_commit}..HEAD",
+            "--",
+            f":(literal){relative_path}",
+        ],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if history.returncode != 0:
+        return [f"{label} committed history cannot be reconstructed"]
+    errors: list[str] = []
+    for commit in history.stdout.splitlines():
+        if (
+            git_file_bytes_at_revision(repository_root, commit, relative_path)
+            != authorized_bytes
+            or git_tree_entry_at_revision(repository_root, commit, relative_path)
+            != authorized_entry
+        ):
+            errors.append(f"{label} changed in committed history at {commit}")
+    return errors
+
+
+def validate_seam_evidence_history(
+    seam: dict[str, object], repository_root: Path
+) -> list[str]:
+    authorization_commit = seam.get("authorization_commit")
+    authorization_ref = seam.get("authorization_adr_ref")
+    tests = seam.get("required_protector_tests")
+    if not is_full_git_sha(authorization_commit):
+        return []
+    evidence_refs: list[tuple[str, str]] = []
+    if isinstance(authorization_ref, str):
+        evidence_refs.append((authorization_ref, "authorization ADR"))
+    if isinstance(tests, list):
+        for test_ref in tests:
+            if not isinstance(test_ref, str):
+                continue
+            test_path, separator, _selector = test_ref.partition("::")
+            if separator:
+                evidence_refs.append((test_path, "protector test"))
+    errors: list[str] = []
+    for evidence_ref, evidence_kind in evidence_refs:
+        errors.extend(
+            validate_committed_file_immutability(
+                repository_root,
+                cast(str, authorization_commit),
+                evidence_ref,
+                f"{evidence_kind} {evidence_ref}",
+            )
+        )
+    return errors
+
+
+def validate_historical_seam_activation(
+    seam: dict[str, object],
+    index: int,
+    repository_root: Path,
+    ownership_policy: dict[str, object] | None,
+    trusted_repository_root: Path,
+    introduction_commit: str,
+) -> list[str]:
+    """Revalidate every generation's exact parent, ledger binding, and path state."""
+
+    label = f"historical seam[{index}]"
+    seam_id = seam.get("seam_id")
+    path = seam.get("path_pattern")
+    if not isinstance(seam_id, str) or not isinstance(path, str):
+        return [f"{label} activation identity cannot be established"]
+    parents = git_commit_parents(repository_root, introduction_commit)
+    if parents is None or not parents:
+        return [f"{label} introduction parent cannot be established"]
+    introduction_parent = parents[0]
+    errors: list[str] = []
+    if seam.get("authorization_base_commit") != introduction_parent:
+        errors.append(f"{label} authorization base is not its introduction parent")
+
+    successor_authorization = seam_successor_authorization_at_authorized_commit(
+        repository_root, seam
+    )
+    if successor_authorization is not None:
+        successor_errors = validate_successor_seam_binding(
+            seam,
+            index,
+            repository_root,
+            ownership_policy,
+            trusted_repository_root,
+            introduction_parent,
+        )
+        errors.extend(
+            f"{label} successor binding invalid: {error}" for error in successor_errors
+        )
+
+    record = record_for_path_at_revision(repository_root, introduction_commit, path)
+    if record is None:
+        errors.append(f"{label} exact patch record is absent at introduction")
+        return errors
+    errors.extend(validate_upstream_patch_record(record, seam, f"{label} patch record"))
+    owner = exact_patch_owner_for_path_at_revision(
+        repository_root, introduction_commit, path
+    )
+    if owner is None:
+        errors.append(f"{label} exact ledger owner is absent at introduction")
+    else:
+        errors.extend(
+            f"{label} ledger owner invalid: {error}"
+            for error in validate_patch_entries([owner])
+        )
+        if owner.get("classification") != record.get("classification"):
+            errors.append(
+                f"{label} ledger owner classification differs from patch record"
+            )
+        if owner.get("paths") != [path]:
+            errors.append(f"{label} ledger owner path set is not exact")
+        requirements = owner.get("requirements")
+        if not isinstance(requirements, list) or "PLT-004" not in requirements:
+            errors.append(f"{label} ledger owner does not trace PLT-004")
+    errors.extend(
+        validate_atomic_seam_patch_introduction(
+            repository_root,
+            seam,
+            record,
+            owner,
+            f"{label} patch record",
+        )
+    )
+    return errors
+
+
+def git_commits_touching_generation_since(
+    repository_root: Path,
+    start_commit: str,
+    governed_path: str,
+) -> list[str] | None:
+    if not git_is_ancestor(repository_root, start_commit, "HEAD"):
+        return None
+    history = subprocess.run(
+        [
+            "git",
+            "rev-list",
+            "--ancestry-path",
+            "--full-history",
+            f"{start_commit}..HEAD",
+            "--",
+            f":(literal){EXPECTED_SEAM_ALLOWLIST_REF}",
+            ":(literal)pmorg/patch-ledger.json",
+            f":(literal){governed_path}",
+        ],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    return history.stdout.splitlines() if history.returncode == 0 else None
+
+
+def validate_seam_generation_continuity(
+    seam: dict[str, object],
+    repository_root: Path,
+    introduction_commit: str,
+) -> list[str]:
+    """Keep each generation exact everywhere it remains active in merged history."""
+
+    seam_id = seam.get("seam_id")
+    path = seam.get("path_pattern")
+    label = f"historical seam {seam_id}"
+    if not isinstance(seam_id, str) or not isinstance(path, str):
+        return [f"{label} generation continuity identity cannot be established"]
+    introduction_record = record_for_path_at_revision(
+        repository_root, introduction_commit, path
+    )
+    introduction_owner = exact_patch_owner_for_path_at_revision(
+        repository_root, introduction_commit, path
+    )
+    introduction_bytes = git_file_bytes_at_revision(
+        repository_root, introduction_commit, path
+    )
+    introduction_entry = git_tree_entry_at_revision(
+        repository_root, introduction_commit, path
+    )
+    if (
+        introduction_record is None
+        or introduction_owner is None
+        or introduction_bytes is None
+        or introduction_entry is None
+    ):
+        return [f"{label} generation baseline cannot be established"]
+
+    generation_history = git_commits_touching_generation_since(
+        repository_root, introduction_commit, path
+    )
+    errors: list[str] = []
+    if generation_history is None:
+        return [f"{label} generation history cannot be reconstructed"]
+    for commit in generation_history:
+        if seam_at_revision(repository_root, commit, seam_id) != seam:
+            continue
+        if (
+            git_file_bytes_at_revision(repository_root, commit, path)
+            != introduction_bytes
+            or git_tree_entry_at_revision(repository_root, commit, path)
+            != introduction_entry
+        ):
+            errors.append(
+                f"{label} path bytes or mode changed before retirement at {commit}"
+            )
+        if (
+            record_for_path_at_revision(repository_root, commit, path)
+            != introduction_record
+        ):
+            errors.append(f"{label} patch record changed before retirement at {commit}")
+        if (
+            exact_patch_owner_for_path_at_revision(repository_root, commit, path)
+            != introduction_owner
+        ):
+            errors.append(f"{label} ledger owner changed before retirement at {commit}")
+    return errors
+
+
 def first_seam_introduction_commit(repository_root: Path, seam_id: str) -> str | None:
     policy_history = subprocess.run(
         [
             "git",
-            "log",
+            "rev-list",
             "--reverse",
-            "--format=%H",
+            "--topo-order",
+            "--full-history",
+            "HEAD",
             "--",
-            EXPECTED_SEAM_ALLOWLIST_REF,
+            f":(literal){EXPECTED_SEAM_ALLOWLIST_REF}",
         ],
         cwd=repository_root,
         check=False,
@@ -1449,9 +1909,18 @@ def validate_seam_authorization(
     except (OSError, ValueError, json.JSONDecodeError):
         errors.append(f"{label} authorization ADR is not a valid JSON object")
     else:
-        if set(authorization) != REQUIRED_SEAM_AUTHORIZATION_KEYS:
+        authorization_schema = authorization.get("schema_version")
+        expected_authorization_keys = (
+            REQUIRED_SEAM_SUCCESSOR_AUTHORIZATION_KEYS
+            if authorization_schema == EXPECTED_SEAM_SUCCESSOR_AUTHORIZATION_SCHEMA
+            else REQUIRED_SEAM_AUTHORIZATION_KEYS
+        )
+        if set(authorization) != expected_authorization_keys:
             errors.append(f"{label} authorization ADR has incomplete or unknown fields")
-        if authorization.get("schema_version") != EXPECTED_SEAM_AUTHORIZATION_SCHEMA:
+        if authorization_schema not in {
+            EXPECTED_SEAM_AUTHORIZATION_SCHEMA,
+            EXPECTED_SEAM_SUCCESSOR_AUTHORIZATION_SCHEMA,
+        }:
             errors.append(f"{label} authorization ADR has unexpected schema version")
         if authorization.get("status") != "accepted":
             errors.append(f"{label} authorization ADR is not accepted")
@@ -1474,6 +1943,73 @@ def validate_seam_authorization(
         authorized_at = authorization.get("authorized_at")
         if isinstance(authorized_at, str) and not is_rfc3339_utc(authorized_at):
             errors.append(f"{label} authorization ADR authorized_at is not UTC")
+        if authorization_schema == EXPECTED_SEAM_SUCCESSOR_AUTHORIZATION_SCHEMA:
+            for field in (
+                "transition_id",
+                "successor_patch_record_id",
+                "successor_ledger_entry_id",
+            ):
+                if (
+                    not isinstance(authorization.get(field), str)
+                    or not cast(str, authorization[field]).strip()
+                ):
+                    errors.append(f"{label} successor authorization has no {field}")
+            target_blob_hash = authorization.get("target_blob_hash")
+            target_git_mode = authorization.get("target_git_mode")
+            if not is_sha256(target_blob_hash):
+                errors.append(f"{label} successor target_blob_hash is invalid")
+            if target_git_mode not in {"100644", "100755"}:
+                errors.append(f"{label} successor target_git_mode is invalid")
+            supersedes = authorization.get("supersedes")
+            if not isinstance(supersedes, dict):
+                errors.append(
+                    f"{label} successor authorization has no supersedes object"
+                )
+            else:
+                if set(supersedes) != REQUIRED_SEAM_SUCCESSOR_PREDECESSOR_KEYS:
+                    errors.append(
+                        f"{label} successor predecessor binding has incomplete or unknown fields"
+                    )
+                for field in (
+                    "seam_id",
+                    "patch_record_id",
+                    "ledger_entry_id",
+                    "authorization_adr_ref",
+                ):
+                    if (
+                        not isinstance(supersedes.get(field), str)
+                        or not cast(str, supersedes[field]).strip()
+                    ):
+                        errors.append(f"{label} successor predecessor has no {field}")
+                if supersedes.get("seam_id") == seam_id:
+                    errors.append(f"{label} successor cannot supersede itself")
+                if supersedes.get("patched_blob_hash") == target_blob_hash:
+                    errors.append(
+                        f"{label} successor target must change predecessor bytes"
+                    )
+                if not is_sha256(supersedes.get("patched_blob_hash")):
+                    errors.append(
+                        f"{label} successor predecessor patched_blob_hash is invalid"
+                    )
+                if supersedes.get("patched_git_mode") not in {"100644", "100755"}:
+                    errors.append(
+                        f"{label} successor predecessor patched_git_mode is invalid"
+                    )
+                predecessor_authorization_ref = supersedes.get("authorization_adr_ref")
+                if (
+                    not isinstance(predecessor_authorization_ref, str)
+                    or not predecessor_authorization_ref.startswith("pmorg/adr/")
+                    or Path(predecessor_authorization_ref).suffix != ".json"
+                    or Path(predecessor_authorization_ref).is_absolute()
+                    or ".." in Path(predecessor_authorization_ref).parts
+                ):
+                    errors.append(
+                        f"{label} successor predecessor authorization reference is unsafe"
+                    )
+                if not is_sha256(supersedes.get("authorization_blob_hash")):
+                    errors.append(
+                        f"{label} successor predecessor authorization hash is invalid"
+                    )
 
     if (
         not is_full_git_sha(authorization_commit)
@@ -1837,6 +2373,498 @@ def validate_seam_authorization(
     return errors
 
 
+def validate_successor_seam_binding(
+    seam: dict[str, object],
+    index: int,
+    repository_root: Path,
+    ownership_policy: dict[str, object] | None,
+    trusted_repository_root: Path,
+    protected_base_sha: str | None = None,
+) -> list[str]:
+    """Bind an active successor to the exact predecessor at its introduction parent."""
+
+    errors: list[str] = []
+    label = f"seam[{index}]"
+    authorization = seam_successor_authorization_at_authorized_commit(
+        repository_root, seam
+    )
+    if authorization is None:
+        return errors
+    seam_id = seam.get("seam_id")
+    path = seam.get("path_pattern")
+    supersedes = authorization.get("supersedes")
+    if (
+        not isinstance(seam_id, str)
+        or not isinstance(path, str)
+        or not isinstance(supersedes, dict)
+    ):
+        return [f"{label} successor identity cannot be established"]
+
+    introduction_commit = first_seam_introduction_commit(repository_root, seam_id)
+    if introduction_commit is None:
+        return [f"{label} successor introduction commit cannot be established"]
+    introduction_parent = subprocess.run(
+        ["git", "rev-parse", f"{introduction_commit}^"],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if introduction_parent.returncode != 0:
+        return [f"{label} successor introduction parent cannot be established"]
+    parent_commit = introduction_parent.stdout.strip()
+    if seam.get("authorization_base_commit") != parent_commit:
+        errors.append(
+            f"{label} successor authorization base is not its introduction parent"
+        )
+    if protected_base_sha is not None and is_full_git_sha(protected_base_sha):
+        base_seam = seam_at_revision(repository_root, protected_base_sha, seam_id)
+        if base_seam is None and parent_commit != protected_base_sha:
+            errors.append(
+                f"{label} successor was not introduced atomically on protected PR base"
+            )
+
+    predecessor = seam_for_path_at_revision(repository_root, parent_commit, path)
+    predecessor_id = supersedes.get("seam_id")
+    if predecessor is None:
+        errors.append(
+            f"{label} successor has no exact active predecessor on its parent"
+        )
+        return errors
+    if predecessor.get("seam_id") != predecessor_id:
+        errors.append(f"{label} successor binds the wrong active predecessor")
+    if predecessor.get("path_pattern") != path:
+        errors.append(f"{label} successor changes predecessor path")
+    if predecessor.get("allowed_classifications") != seam.get(
+        "allowed_classifications"
+    ):
+        errors.append(f"{label} successor changes predecessor classifications")
+    if predecessor.get("authorization_adr_ref") != supersedes.get(
+        "authorization_adr_ref"
+    ):
+        errors.append(f"{label} successor binds the wrong predecessor ADR")
+    if predecessor.get("authorization_blob_hash") != supersedes.get(
+        "authorization_blob_hash"
+    ):
+        errors.append(f"{label} successor binds the wrong predecessor ADR hash")
+    if (
+        seam_at_revision(repository_root, introduction_commit, predecessor_id)
+        is not None
+    ):
+        errors.append(f"{label} successor did not retire its predecessor atomically")
+
+    predecessor_evidence_errors = validate_seam_authorization(
+        predecessor,
+        index,
+        repository_root,
+        ownership_policy,
+        trusted_repository_root,
+        parent_commit,
+    )
+    errors.extend(
+        f"{label} predecessor evidence invalid: {error}"
+        for error in predecessor_evidence_errors
+    )
+    return errors
+
+
+def validate_seam_replacement_set(
+    policy: dict[str, object],
+    repository_root: Path,
+    protected_base_sha: str | None,
+) -> list[str]:
+    """Reject retirement or same-path replacement without a pre-authorized successor."""
+
+    if protected_base_sha is None or not is_full_git_sha(protected_base_sha):
+        return []
+    base_seams = seams_at_revision(repository_root, protected_base_sha)
+    current_seams = policy.get("seams")
+    if not isinstance(current_seams, list):
+        return ["seam replacement set cannot be reconstructed from protected base"]
+    if base_seams is None:
+        base_seams = []
+    current_objects = [
+        cast(dict[str, object], seam)
+        for seam in current_seams
+        if isinstance(seam, dict)
+    ]
+    current_by_id = {
+        cast(str, seam["seam_id"]): seam
+        for seam in current_objects
+        if isinstance(seam.get("seam_id"), str)
+    }
+    current_by_path = {
+        cast(str, seam["path_pattern"]): seam
+        for seam in current_objects
+        if isinstance(seam.get("path_pattern"), str)
+    }
+    base_by_id = {
+        cast(str, seam["seam_id"]): seam
+        for seam in base_seams
+        if isinstance(seam.get("seam_id"), str)
+    }
+    base_by_path = {
+        cast(str, seam["path_pattern"]): seam
+        for seam in base_seams
+        if isinstance(seam.get("path_pattern"), str)
+    }
+    errors: list[str] = []
+
+    for predecessor_id, predecessor in base_by_id.items():
+        current_same_id = current_by_id.get(predecessor_id)
+        if current_same_id is not None:
+            if current_same_id != predecessor:
+                errors.append(
+                    f"existing seam is immutable on protected base: {predecessor_id}"
+                )
+            continue
+        path = predecessor.get("path_pattern")
+        successor = current_by_path.get(path) if isinstance(path, str) else None
+        if successor is None:
+            errors.append(
+                f"active seam retirement requires an exact successor: {predecessor_id}"
+            )
+            continue
+        authorization = seam_successor_authorization(repository_root, successor)
+        supersedes = (
+            authorization.get("supersedes") if isinstance(authorization, dict) else None
+        )
+        if not isinstance(supersedes, dict):
+            errors.append(
+                f"same-path seam replacement is not successor-authorized: {predecessor_id}"
+            )
+        elif supersedes.get("seam_id") != predecessor_id:
+            errors.append(
+                f"same-path seam replacement binds another predecessor: {predecessor_id}"
+            )
+
+    for seam_id, seam in current_by_id.items():
+        if seam_id in base_by_id:
+            continue
+        path = seam.get("path_pattern")
+        predecessor = base_by_path.get(path) if isinstance(path, str) else None
+        is_successor = seam_successor_authorization(repository_root, seam) is not None
+        if predecessor is not None and not is_successor:
+            errors.append(
+                f"new seam on occupied protected-base path requires successor authorization: {seam_id}"
+            )
+        if predecessor is None and is_successor:
+            errors.append(
+                f"successor seam has no predecessor on protected-base path: {seam_id}"
+            )
+    return errors
+
+
+def validate_seam_history(
+    policy: dict[str, object],
+    repository_root: Path,
+    ownership_policy: dict[str, object] | None,
+    trusted_repository_root: Path,
+) -> list[str]:
+    """Reconstruct immutable seam generations and their preserved evidence."""
+
+    errors: list[str] = []
+    shallow = subprocess.run(
+        ["git", "rev-parse", "--is-shallow-repository"],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if shallow.returncode != 0:
+        return ["seam history cannot be reconstructed"]
+    if shallow.stdout.strip() == "true":
+        return ["seam history requires a complete non-shallow repository"]
+    history = subprocess.run(
+        [
+            "git",
+            "rev-list",
+            "--reverse",
+            "--topo-order",
+            "--full-history",
+            "HEAD",
+            "--",
+            f":(literal){EXPECTED_SEAM_ALLOWLIST_REF}",
+        ],
+        cwd=repository_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if history.returncode != 0 or not history.stdout.splitlines():
+        return ["seam history cannot be reconstructed"]
+
+    history_commits = history.stdout.splitlines()
+    definitions: dict[str, dict[str, object]] = {}
+    first_seen_order: dict[str, int] = {}
+    first_seen_commit: dict[str, str] = {}
+    seams_by_commit: dict[str, list[dict[str, object]]] = {}
+    for order, commit in enumerate(history_commits):
+        historical_seams = seams_at_revision(repository_root, commit)
+        if historical_seams is None:
+            errors.append(f"seam history is invalid at {commit}")
+            continue
+        seams_by_commit[commit] = historical_seams
+        for seam in historical_seams:
+            seam_id = seam.get("seam_id")
+            if not isinstance(seam_id, str):
+                continue
+            existing = definitions.get(seam_id)
+            if existing is not None and existing != seam:
+                errors.append(f"historical seam definition mutated: {seam_id}")
+            elif existing is None:
+                definitions[seam_id] = seam
+                first_seen_order[seam_id] = order
+                first_seen_commit[seam_id] = commit
+
+    for index, (seam_id, seam) in enumerate(
+        sorted(definitions.items(), key=lambda item: first_seen_order[item[0]])
+    ):
+        historical_errors = validate_seam_authorization(
+            seam,
+            index,
+            repository_root,
+            ownership_policy,
+            trusted_repository_root,
+            first_seen_commit[seam_id],
+        )
+        errors.extend(
+            f"historical seam {seam_id} evidence invalid: {error}"
+            for error in historical_errors
+        )
+        evidence_history_errors = validate_seam_evidence_history(seam, repository_root)
+        errors.extend(
+            f"historical seam {seam_id} evidence invalid: {error}"
+            for error in evidence_history_errors
+        )
+        errors.extend(
+            validate_historical_seam_activation(
+                seam,
+                index,
+                repository_root,
+                ownership_policy,
+                trusted_repository_root,
+                first_seen_commit[seam_id],
+            )
+        )
+
+    for commit in history_commits:
+        current_generation = seams_by_commit.get(commit)
+        if current_generation is None:
+            continue
+        current_by_id = {
+            cast(str, seam["seam_id"]): seam
+            for seam in current_generation
+            if isinstance(seam.get("seam_id"), str)
+        }
+        current_paths = [
+            cast(str, seam["path_pattern"])
+            for seam in current_generation
+            if isinstance(seam.get("path_pattern"), str)
+        ]
+        if len(current_by_id) != len(current_generation):
+            errors.append(f"seam history has duplicate or invalid IDs at {commit}")
+        if len(current_paths) != len(set(current_paths)):
+            errors.append(f"seam history has duplicate paths at {commit}")
+        parents = git_commit_parents(repository_root, commit)
+        if parents is None:
+            errors.append(f"seam history parents cannot be reconstructed at {commit}")
+            continue
+        parent_generations: list[tuple[str, list[dict[str, object]]]] = []
+        for parent in parents:
+            parent_bytes = git_file_bytes_at_revision(
+                repository_root, parent, EXPECTED_SEAM_ALLOWLIST_REF
+            )
+            if parent_bytes is None:
+                parent_generations.append((parent, []))
+                continue
+            parent_seams = seams_at_revision(repository_root, parent)
+            if parent_seams is None:
+                errors.append(f"seam history is invalid at parent {parent}")
+                continue
+            parent_generations.append((parent, parent_seams))
+
+        transition_parents = parent_generations
+        if len(parent_generations) > 1:
+            if parent_generations[0][1] == current_generation:
+                transition_parents = []
+            else:
+                transition_parents = parent_generations[:1]
+
+        provenance_parent_id_union = {
+            cast(str, seam["seam_id"])
+            for _parent, parent_generation in parent_generations
+            for seam in parent_generation
+            if isinstance(seam.get("seam_id"), str)
+        }
+        for seam_id in set(current_by_id) - provenance_parent_id_union:
+            if not transition_parents:
+                continue
+            introduction = first_seen_commit.get(seam_id)
+            if introduction is None or introduction == commit:
+                continue
+            ancestor_parents = [
+                parent
+                for parent, _parent_generation in parent_generations
+                if git_is_ancestor(repository_root, introduction, parent)
+            ]
+            if ancestor_parents:
+                errors.append(f"historical seam ID resurrected at {commit}: {seam_id}")
+            else:
+                errors.append(
+                    f"historical seam ID replayed on divergent history at {commit}: "
+                    f"{seam_id}"
+                )
+
+        for parent, parent_generation in transition_parents:
+            parent_by_id = {
+                cast(str, seam["seam_id"]): seam
+                for seam in parent_generation
+                if isinstance(seam.get("seam_id"), str)
+            }
+            removed_ids = set(parent_by_id) - set(current_by_id)
+            added_ids = set(current_by_id) - set(parent_by_id)
+            added_successor_authorizations = {
+                seam_id: seam_successor_authorization_at_authorized_commit(
+                    repository_root, current_by_id[seam_id]
+                )
+                for seam_id in added_ids
+            }
+            for predecessor_id in removed_ids:
+                successors = [
+                    seam_id
+                    for seam_id, authorization in added_successor_authorizations.items()
+                    if isinstance(authorization, dict)
+                    and isinstance(authorization.get("supersedes"), dict)
+                    and cast(dict[str, object], authorization["supersedes"]).get(
+                        "seam_id"
+                    )
+                    == predecessor_id
+                ]
+                if len(successors) != 1:
+                    errors.append(
+                        "historical seam retired without exact atomic successor "
+                        f"at {commit} from parent {parent}: {predecessor_id}"
+                    )
+            for successor_id, authorization in added_successor_authorizations.items():
+                if authorization is None:
+                    continue
+                supersedes = authorization.get("supersedes")
+                predecessor_id = (
+                    supersedes.get("seam_id") if isinstance(supersedes, dict) else None
+                )
+                if predecessor_id not in removed_ids:
+                    errors.append(
+                        "historical successor was not activated atomically with its "
+                        f"predecessor at {commit} from parent {parent}: {successor_id}"
+                    )
+
+    edges: dict[str, list[str]] = {}
+    transition_ids: dict[str, str] = {}
+    target_hashes_by_path: dict[str, set[str]] = {}
+    for seam_id, seam in sorted(
+        definitions.items(), key=lambda item: first_seen_order[item[0]]
+    ):
+        authorization = seam_successor_authorization_at_authorized_commit(
+            repository_root, seam
+        )
+        if authorization is None:
+            continue
+        transition_id = authorization.get("transition_id")
+        if isinstance(transition_id, str):
+            prior_transition_seam = transition_ids.get(transition_id)
+            if prior_transition_seam is not None and prior_transition_seam != seam_id:
+                errors.append(f"successor transition ID was replayed: {transition_id}")
+            else:
+                transition_ids[transition_id] = seam_id
+        supersedes = authorization.get("supersedes")
+        predecessor_id = (
+            supersedes.get("seam_id") if isinstance(supersedes, dict) else None
+        )
+        if not isinstance(predecessor_id, str) or predecessor_id not in definitions:
+            errors.append(
+                f"successor seam has unknown historical predecessor: {seam_id}"
+            )
+            continue
+        predecessor = definitions[predecessor_id]
+        if predecessor.get("path_pattern") != seam.get("path_pattern"):
+            errors.append(f"successor seam changes historical path: {seam_id}")
+        if first_seen_commit[predecessor_id] == first_seen_commit[
+            seam_id
+        ] or not git_is_ancestor(
+            repository_root,
+            first_seen_commit[predecessor_id],
+            first_seen_commit[seam_id],
+        ):
+            errors.append(
+                f"successor seam precedes or resurrects its predecessor: {seam_id}"
+            )
+        edges.setdefault(predecessor_id, []).append(seam_id)
+        path = seam.get("path_pattern")
+        target_hash = authorization.get("target_blob_hash")
+        predecessor_hash = (
+            supersedes.get("patched_blob_hash")
+            if isinstance(supersedes, dict)
+            else None
+        )
+        if (
+            isinstance(path, str)
+            and isinstance(target_hash, str)
+            and isinstance(predecessor_hash, str)
+        ):
+            prior_targets = target_hashes_by_path.setdefault(path, set())
+            prior_targets.add(predecessor_hash)
+            if target_hash in prior_targets:
+                errors.append(f"successor seam replays historical bytes: {seam_id}")
+            prior_targets.add(target_hash)
+
+    for predecessor_id, successors in edges.items():
+        if len(successors) != 1:
+            errors.append(
+                "historical seam has multiple successors: "
+                + predecessor_id
+                + " -> "
+                + ", ".join(sorted(successors))
+            )
+
+    for seam_id, seam in definitions.items():
+        errors.extend(
+            validate_seam_generation_continuity(
+                seam,
+                repository_root,
+                first_seen_commit[seam_id],
+            )
+        )
+
+    for start in definitions:
+        visited: set[str] = set()
+        current = start
+        while current in edges and len(edges[current]) == 1:
+            if current in visited:
+                errors.append(f"seam successor cycle detected at: {current}")
+                break
+            visited.add(current)
+            current = edges[current][0]
+
+    current_seams = policy.get("seams")
+    current_ids = (
+        {
+            cast(str, seam["seam_id"])
+            for seam in current_seams
+            if isinstance(seam, dict) and isinstance(seam.get("seam_id"), str)
+        }
+        if isinstance(current_seams, list)
+        else set()
+    )
+    for seam_id in definitions:
+        successors = edges.get(seam_id, [])
+        if seam_id not in current_ids and not successors:
+            errors.append(f"historical seam retired without successor: {seam_id}")
+        if seam_id in current_ids and successors:
+            errors.append(f"non-terminal historical seam remains active: {seam_id}")
+    return errors
+
+
 def validate_seam_allowlist(
     policy: dict[str, object],
     repository_root: Path | None = None,
@@ -1961,6 +2989,16 @@ def validate_seam_allowlist(
         )
         errors.extend(authorization_errors)
         if repository_root is not None and not authorization_errors:
+            errors.extend(
+                validate_successor_seam_binding(
+                    seam,
+                    index,
+                    repository_root,
+                    ownership_policy,
+                    trusted_repository_root or repository_root,
+                    protected_base_sha,
+                )
+            )
             for test_path_text, selector in executable_protectors:
                 if not protector_test_executes_exactly_once(
                     repository_root,
@@ -1975,6 +3013,25 @@ def validate_seam_allowlist(
         errors.append("seam allowlist has duplicate seam_id values")
     if len(patterns) != len(set(patterns)):
         errors.append("seam allowlist has duplicate path patterns")
+    if repository_root is not None:
+        effective_protected_base_sha = (
+            protected_base_sha
+            if protected_base_sha is not None
+            else os.environ.get("PMORG_PROTECTED_BASE_SHA")
+        )
+        errors.extend(
+            validate_seam_replacement_set(
+                policy, repository_root, effective_protected_base_sha
+            )
+        )
+        errors.extend(
+            validate_seam_history(
+                policy,
+                repository_root,
+                ownership_policy,
+                trusted_repository_root or repository_root,
+            )
+        )
     return errors
 
 
@@ -2237,6 +3294,22 @@ def validate_atomic_seam_patch_introduction(
     if introduction_parent.returncode != 0:
         return [f"{label} atomic seam introduction parent cannot be established"]
     parent_commit = introduction_parent.stdout.strip()
+    successor_authorization = seam_successor_authorization_at_authorized_commit(
+        repository_root, seam
+    )
+    supersedes = (
+        successor_authorization.get("supersedes")
+        if successor_authorization is not None
+        else None
+    )
+    record_id = record.get("id")
+    if isinstance(record_id, str) and ledger_identifier_seen_at_or_before(
+        repository_root,
+        parent_commit,
+        "upstream_patch_records",
+        record_id,
+    ):
+        errors.append(f"{label} patch record ID existed before atomic seam commit")
 
     introduction_ledger = json_object_at_revision(
         repository_root, introduction_commit, "pmorg/patch-ledger.json"
@@ -2270,14 +3343,72 @@ def validate_atomic_seam_patch_introduction(
         if parent_ledger is not None
         else None
     )
-    if isinstance(parent_records, list) and any(
-        isinstance(candidate, dict)
-        and (candidate.get("seam_id") == seam_id or candidate.get("path") == path)
-        for candidate in parent_records
-    ):
-        errors.append(f"{label} patch record existed before atomic seam commit")
+    predecessor_record = record_for_path_at_revision(
+        repository_root, parent_commit, path
+    )
+    if successor_authorization is None:
+        if isinstance(parent_records, list) and any(
+            isinstance(candidate, dict)
+            and (candidate.get("seam_id") == seam_id or candidate.get("path") == path)
+            for candidate in parent_records
+        ):
+            errors.append(f"{label} patch record existed before atomic seam commit")
+    elif not isinstance(supersedes, dict):
+        errors.append(f"{label} successor predecessor record cannot be established")
+    elif predecessor_record is None:
+        errors.append(f"{label} successor has no exact predecessor patch record")
+    else:
+        if predecessor_record.get("id") != supersedes.get("patch_record_id"):
+            errors.append(f"{label} successor binds the wrong predecessor record")
+        if predecessor_record.get("seam_id") != supersedes.get("seam_id"):
+            errors.append(
+                f"{label} predecessor record does not belong to predecessor seam"
+            )
+        if predecessor_record.get("patched_blob_hash") != supersedes.get(
+            "patched_blob_hash"
+        ):
+            errors.append(f"{label} successor binds the wrong predecessor bytes")
+        if predecessor_record.get("patched_git_mode") != supersedes.get(
+            "patched_git_mode"
+        ):
+            errors.append(f"{label} successor binds the wrong predecessor mode")
+        if record.get("id") != successor_authorization.get("successor_patch_record_id"):
+            errors.append(f"{label} successor uses an unauthorized patch record ID")
+        for field in (
+            "path",
+            "classification",
+            "base_blob_hash",
+            "base_git_mode",
+            "upstream_source_ref",
+            "ownership_class",
+            "license_class",
+            "onyx_surfaces",
+        ):
+            if record.get(field) != predecessor_record.get(field):
+                errors.append(
+                    f"{label} successor changes canonical predecessor field: {field}"
+                )
+        if record.get("patched_blob_hash") != successor_authorization.get(
+            "target_blob_hash"
+        ):
+            errors.append(
+                f"{label} successor patched bytes differ from authorized target"
+            )
+        if record.get("patched_git_mode") != successor_authorization.get(
+            "target_git_mode"
+        ):
+            errors.append(
+                f"{label} successor patched mode differs from authorized target"
+            )
 
     entry_id = patch_entry.get("id") if patch_entry is not None else None
+    if isinstance(entry_id, str) and ledger_identifier_seen_at_or_before(
+        repository_root,
+        parent_commit,
+        "entries",
+        entry_id,
+    ):
+        errors.append(f"{label} ledger owner ID existed before atomic seam commit")
     introduction_entries = (
         introduction_ledger.get("entries") if introduction_ledger is not None else None
     )
@@ -2298,11 +3429,35 @@ def validate_atomic_seam_patch_introduction(
             f"{label} exact ledger owner was not introduced atomically with seam"
         )
     parent_entries = parent_ledger.get("entries") if parent_ledger is not None else None
-    if isinstance(parent_entries, list) and any(
-        isinstance(candidate, dict) and candidate.get("id") == entry_id
-        for candidate in parent_entries
-    ):
-        errors.append(f"{label} ledger owner existed before atomic seam commit")
+    if successor_authorization is None:
+        if isinstance(parent_entries, list) and any(
+            isinstance(candidate, dict) and candidate.get("id") == entry_id
+            for candidate in parent_entries
+        ):
+            errors.append(f"{label} ledger owner existed before atomic seam commit")
+    elif isinstance(supersedes, dict):
+        predecessor_owner = exact_patch_owner_for_path_at_revision(
+            repository_root, parent_commit, path
+        )
+        if predecessor_owner is None:
+            errors.append(f"{label} successor has no exact predecessor ledger owner")
+        elif predecessor_owner.get("id") != supersedes.get("ledger_entry_id"):
+            errors.append(f"{label} successor binds the wrong predecessor ledger owner")
+        if entry_id != successor_authorization.get("successor_ledger_entry_id"):
+            errors.append(f"{label} successor uses an unauthorized ledger owner ID")
+        if isinstance(parent_entries, list) and any(
+            isinstance(candidate, dict) and candidate.get("id") == entry_id
+            for candidate in parent_entries
+        ):
+            errors.append(f"{label} successor ledger owner ID was reused")
+        if isinstance(introduction_entries, list) and any(
+            isinstance(candidate, dict)
+            and candidate.get("id") == supersedes.get("ledger_entry_id")
+            for candidate in introduction_entries
+        ):
+            errors.append(
+                f"{label} successor did not retire predecessor ledger owner atomically"
+            )
 
     introduction_blob = blob_sha256_at_revision(
         repository_root, introduction_commit, path
@@ -2329,10 +3484,22 @@ def validate_atomic_seam_patch_introduction(
         if parent_entry_state is not None and parent_entry_state[1] == "blob"
         else None
     )
-    if parent_blob != record.get("base_blob_hash"):
-        errors.append(f"{label} seam parent bytes differ from recorded upstream base")
-    if expected_parent_mode != record.get("base_git_mode"):
-        errors.append(f"{label} seam parent mode differs from recorded upstream base")
+    if successor_authorization is None:
+        if parent_blob != record.get("base_blob_hash"):
+            errors.append(
+                f"{label} seam parent bytes differ from recorded upstream base"
+            )
+        if expected_parent_mode != record.get("base_git_mode"):
+            errors.append(
+                f"{label} seam parent mode differs from recorded upstream base"
+            )
+    elif isinstance(supersedes, dict):
+        if parent_blob != supersedes.get("patched_blob_hash"):
+            errors.append(f"{label} seam parent bytes differ from predecessor record")
+        if expected_parent_mode != supersedes.get("patched_git_mode"):
+            errors.append(f"{label} seam parent mode differs from predecessor record")
+        if introduction_blob == parent_blob:
+            errors.append(f"{label} successor is a no-op")
     return errors
 
 

@@ -1,0 +1,19 @@
+{
+  "allowed_classifications": [
+    "integration"
+  ],
+  "authorized_at": "2026-07-20T04:17:32Z",
+  "decision_id": "ADR-0005",
+  "path": ".github/actionlint.yml",
+  "protector_test_hashes": {
+    "pmorg/tests/test_actionlint_helm_lane_seam_protector.py::TestActionlintHelmLaneAdmissionSeam.test_helm_lane_is_only_runner_catalog_change": "sha256:6a2df969c71c46f4767308cc4546b95be31942fab5e954acba662bae093737e6"
+  },
+  "rationale": "Authorize only the byte-exact reviewed actionlint runner-label catalog update needed to recognize helm-lane for the static self-hosted Helm lane without changing any other lint configuration.",
+  "required_protector_tests": [
+    "pmorg/tests/test_actionlint_helm_lane_seam_protector.py::TestActionlintHelmLaneAdmissionSeam.test_helm_lane_is_only_runner_catalog_change"
+  ],
+  "schema_version": "pmorg.platform.seam-authorization/v1",
+  "seam_id": "SEAM-CI-ACTIONLINT-001",
+  "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+  "status": "accepted"
+}
