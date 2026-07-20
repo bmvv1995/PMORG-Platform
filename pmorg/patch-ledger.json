@@ -416,6 +416,27 @@
         "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_rbdp_signing -v",
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
       ]
+    },
+    {
+      "id": "PL-014",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/qualification.py",
+        "backend/pmorg/tests/test_qualification_signing.py"
+      ],
+      "requirements": [
+        "PLT-004",
+        "PLT-005",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Content-address and verify the exact CE development-test BuildQualificationManifest artifact and conditional evidence set, then emit and verify its detached Ed25519 DSSE BuildQualificationAttestation with byte-closed offline evidence, exact schema and artifact bindings, ephemeral environment-only keys, and contributor-bounded validity/revalidation windows without claiming admission, release, or G3-A.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=4dec69113dfe5ebe4b3e07609889e0803d4a6832 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_qualification_signing -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
