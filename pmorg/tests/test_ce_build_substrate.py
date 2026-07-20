@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import subprocess
@@ -9,8 +10,10 @@ import unittest
 from pathlib import Path
 
 from pmorg.build.artifact import _read_json_object
+from pmorg.build.artifact import apply_overlay
 from pmorg.build.artifact import build_artifact
 from pmorg.build.artifact import EGRESS_PATH
+from pmorg.build.artifact import OVERLAY_PATH
 from pmorg.build.artifact import REPOSITORY_ROOT
 from pmorg.build.artifact import resolve_commit
 from pmorg.build.artifact import scan_entries_for_ee
@@ -84,7 +87,23 @@ class TestCeBuildSubstrate(unittest.TestCase):
             "pmorg/policies/ownership-roots.json",
             json.dumps(ownership),
         )
-        self.repository.write("backend/onyx/community.py", "VALUE = 'community'\n")
+        community_base = b"VALUE = 'community'\n"
+        community_result = b"VALUE = 'ce'\n"
+        overlay = {
+            "schema_version": "pmorg.ce-source-overlay/v1",
+            "entries": [
+                {
+                    "path": "backend/onyx/community.py",
+                    "base_sha256": hashlib.sha256(community_base).hexdigest(),
+                    "result_sha256": hashlib.sha256(community_result).hexdigest(),
+                    "operations": [
+                        {"start": 0, "end": 1, "replacement": "VALUE = 'ce'\n"}
+                    ],
+                }
+            ],
+        }
+        self.repository.write("pmorg/build/ce-source-overlay.json", json.dumps(overlay))
+        self.repository.write("backend/onyx/community.py", community_base)
         self.repository.write("backend/pmorg/contracts.py", "WIRE = '1.0'\n")
         self.repository.write(
             "backend/requirements/default.txt", "demo==1 --hash=sha256:00\n"
@@ -100,6 +119,9 @@ class TestCeBuildSubstrate(unittest.TestCase):
         self.repository.git("add", ".")
         self.repository.git("commit", "--quiet", "-m", "synthetic CE fixture")
         self.spec = _read_json_object(self.root / "pmorg/build/ce-artifact-spec.json")
+        self.overlay = _read_json_object(
+            self.root / "pmorg/build/ce-source-overlay.json"
+        )
 
     def test_independent_rebuilds_are_byte_identical(self) -> None:
         first = build_artifact(
@@ -124,9 +146,14 @@ class TestCeBuildSubstrate(unittest.TestCase):
             self.assertIsNotNone(manifest_file)
             assert manifest_file is not None
             manifest = json.load(manifest_file)
+            community_file = archive.extractfile("backend/onyx/community.py")
+            self.assertIsNotNone(community_file)
+            assert community_file is not None
+            community = community_file.read()
         self.assertEqual(names[0], "PMORG-MANIFEST.json")
         self.assertNotIn("backend/ee/secret.py", names)
         self.assertNotIn("web/src/app/ee/secret.tsx", names)
+        self.assertEqual(community, b"VALUE = 'ce'\n")
         self.assertEqual(
             [entry["path"] for entry in manifest["files"]],
             sorted(entry["path"] for entry in manifest["files"]),
@@ -172,20 +199,43 @@ class TestCeBuildSubstrate(unittest.TestCase):
 
         self.assertIn("EGRESS_NETWORK", {item.rule for item in violations})
 
-    def test_current_mixed_source_is_rejected_until_ce_overlay_exists(self) -> None:
+    def test_named_revision_ignores_worktree_spec_and_overlay_drift(self) -> None:
+        first = build_artifact(
+            self.root,
+            self.root / "before-drift.tar",
+            spec_path=self.root / "pmorg/build/ce-artifact-spec.json",
+        )
+        self.repository.write("pmorg/build/ce-artifact-spec.json", "{}\n")
+        self.repository.write("pmorg/build/ce-source-overlay.json", "{}\n")
+
+        second = build_artifact(
+            self.root,
+            self.root / "after-drift.tar",
+            spec_path=self.root / "pmorg/build/ce-artifact-spec.json",
+        )
+
+        self.assertEqual(first.artifact_sha256, second.artifact_sha256)
+
+    def test_overlay_digest_drift_fails_closed(self) -> None:
+        commit = resolve_commit(self.root, "HEAD")
+        entries = selected_entries(self.root, commit, self.spec)
+        overlay = json.loads(json.dumps(self.overlay))
+        overlay["entries"][0]["base_sha256"] = "0" * 64
+
+        with self.assertRaisesRegex(ValueError, "base digest drifted"):
+            apply_overlay(entries, overlay)
+
+    def test_current_mixed_source_is_clean_after_overlay(self) -> None:
         spec = _read_json_object(SPEC_PATH)
+        overlay = _read_json_object(OVERLAY_PATH)
         commit = resolve_commit(REPOSITORY_ROOT, "HEAD")
-        entries = selected_entries(REPOSITORY_ROOT, commit, spec)
+        entries = apply_overlay(
+            selected_entries(REPOSITORY_ROOT, commit, spec), overlay
+        )
 
         violations = scan_entries_for_ee(entries, REPOSITORY_ROOT, commit, spec)
 
-        self.assertIn("EE_IMPORT", {item.rule for item in violations})
-        self.assertTrue(
-            any(
-                item.path == "backend/onyx/server/settings/api.py"
-                for item in violations
-            )
-        )
+        self.assertEqual(violations, ())
 
 
 if __name__ == "__main__":
