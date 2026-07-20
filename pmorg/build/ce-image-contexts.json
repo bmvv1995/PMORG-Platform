@@ -1,0 +1,30 @@
+{
+  "schema_version": "pmorg.ce-image-contexts/v1",
+  "source_artifact_schema": "pmorg.ce-source-artifact/v1",
+  "source_date_epoch": 0,
+  "contexts": [
+    {
+      "name": "backend",
+      "source_prefix": "backend/",
+      "required_paths": [
+        "alembic.ini",
+        "onyx/utils/variable_functionality.py",
+        "pmorg/contracts/__init__.py",
+        "requirements/default.txt",
+        "scripts/supervisord_entrypoint.sh",
+        "supervisord.conf"
+      ]
+    },
+    {
+      "name": "web",
+      "source_prefix": "web/",
+      "required_paths": [
+        "bun.lock",
+        "next.config.js",
+        "package.json",
+        "src/lib/constants.ts",
+        "src/providers/QueryControllerProvider.tsx"
+      ]
+    }
+  ]
+}

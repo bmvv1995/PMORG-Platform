@@ -84,6 +84,10 @@ class TestCeBuildSubstrate(unittest.TestCase):
             (REPOSITORY_ROOT / "pmorg/build/artifact.py").read_bytes(),
         )
         self.repository.write(
+            "pmorg/build/image_context.py",
+            (REPOSITORY_ROOT / "pmorg/build/image_context.py").read_bytes(),
+        )
+        self.repository.write(
             "pmorg/policies/ownership-roots.json",
             json.dumps(ownership),
         )
