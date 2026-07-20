@@ -1,0 +1,44 @@
+{
+  "capability_id": "governed-onyx-fork",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "content_matching": "ascii_casefolded_literal_bytes",
+  "minimum_candidate_group_count": 2,
+  "path_matching": "utf8_casefolded_literal_text",
+  "raw_hit_rule": "one_or_more_terms_match_path_or_blob",
+  "required_contract_tests": {
+    "digest": "sha256:a9d0a22d7b15ef8af11e2c82a89b20246a2ff9f8ad79ea9c0dac73f7e8e84ded",
+    "logical_name": "governed-onyx-fork-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/governed-onyx-fork.json",
+    "size_bytes": 286
+  },
+  "required_test_ids": [
+    "A-FORK-001",
+    "A-SURFACE-001",
+    "A-UPSTREAM-001"
+  ],
+  "schema_version": "pmorg.candidate-query-plan/v1",
+  "search_id": "candidate-search:1.0.0:governed-onyx-fork:1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "search_spec_version": "1.0.0",
+  "searched_surfaces": [
+    "ce",
+    "ee"
+  ],
+  "term_groups": [
+    [
+      "fork",
+      "repository",
+      "upstream"
+    ],
+    [
+      "diff",
+      "overlay",
+      "patch"
+    ],
+    [
+      "copyright",
+      "license",
+      "ownership"
+    ]
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "candidate_ids": [
+    "candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436",
+    "candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d",
+    "candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102",
+    "candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5",
+    "candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989",
+    "candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8",
+    "candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2",
+    "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd",
+    "candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431",
+    "candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42",
+    "candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d",
+    "candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0",
+    "candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3",
+    "candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11",
+    "candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295",
+    "candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2",
+    "candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462",
+    "candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a",
+    "candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f",
+    "candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4",
+    "candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766",
+    "candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281",
+    "candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18",
+    "candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a",
+    "candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267",
+    "candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe",
+    "candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba",
+    "candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f",
+    "candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1",
+    "candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111",
+    "candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436",
+    "candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47",
+    "candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588",
+    "candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54",
+    "candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25",
+    "candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b",
+    "candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8",
+    "candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410",
+    "candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031",
+    "candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5",
+    "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9",
+    "candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf",
+    "candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881",
+    "candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951",
+    "candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5",
+    "candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4",
+    "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695",
+    "candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371"
+  ],
+  "capability_id": "capability-disposition-qualification",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "classification_record_count": 1691,
+  "duplicate_hit_id_count": 0,
+  "duplicate_path_count": 0,
+  "expected_path_count": 5937,
+  "hit_classification": {
+    "digest": "sha256:b3d9e86906eb46285705c56fc3bcde55879476f27ed667dc15c09b231401c6d0",
+    "logical_name": "capability-disposition-qualification-candidate-hit-classification",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/candidate-search/capability-disposition-qualification-hit-classification-v1.json",
+    "size_bytes": 629556
+  },
+  "query_plan": {
+    "digest": "sha256:129e7c2a68ba2417005f51acb0860cd662ed5cc613b1e88ee36415dc29a25060",
+    "logical_name": "capability-disposition-qualification-candidate-query-plan",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/candidate-search/capability-disposition-qualification-query-plan-v1.json",
+    "size_bytes": 1372
+  },
+  "raw_hit_count": 1691,
+  "raw_results": {
+    "digest": "sha256:06d031868c8b82de6d7463e6ad95932cc99a064dc0721e0aa05d978c9d7eb100",
+    "logical_name": "capability-disposition-qualification-candidate-raw-results",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/candidate-search/capability-disposition-qualification-raw-results-v1.json",
+    "size_bytes": 757070
+  },
+  "rejected_hit_count": 138,
+  "scanned_path_count": 5937,
+  "schema_version": "pmorg.candidate-search-evidence/v1",
+  "search_id": "candidate-search:1.0.0:capability-disposition-qualification:1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "search_spec_version": "1.0.0",
+  "search_tool_artifact_digest": "sha256:b9b4eba616fdd4a8a81b7d9525eec23c099996532c7eb82633db7d3424ccef5a",
+  "search_tool_name": "pmorg-pinned-onyx-candidate-search",
+  "search_tool_version": "1.0.0",
+  "searched_surfaces": [
+    "ce",
+    "ee"
+  ],
+  "source_scopes": [
+    {
+      "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+      "derivation_evidence_bundle": {
+        "digest": "sha256:c0e1a7ae4d5e8db9e6ab9f53d272c906d0fe2dd4d93b0dfc07fcf3295507d109",
+        "logical_name": "onyx-source-scope-derivation-evidence",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/source-scopes/onyx-source-scope-derivation-v1.json",
+        "size_bytes": 1720
+      },
+      "derivation_policy_hash": "sha256:9e87a65a50249770185b9e18ada74203d4de433b471fbf5d60143058ed6c0297",
+      "duplicate_path_count": 0,
+      "expected_path_count": 5684,
+      "generator_artifact_digest": "sha256:bbfcb04c3ce064757a96274b015dabda1ad1b0a0c7a2aa1d6f2fb2aac34c818d",
+      "generator_identity": "pmorg.source-scope-generator/v1",
+      "path_inventory": {
+        "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+        "logical_name": "onyx_ce-path-inventory",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+        "size_bytes": 1382014
+      },
+      "repository": "https://github.com/onyx-dot-app/onyx.git",
+      "roots": [
+        "."
+      ],
+      "schema_version": "pmorg.source-scope-manifest/v1",
+      "scope_kind": "onyx_ce",
+      "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "unreadable_path_count": 0
+    },
+    {
+      "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+      "derivation_evidence_bundle": {
+        "digest": "sha256:c0e1a7ae4d5e8db9e6ab9f53d272c906d0fe2dd4d93b0dfc07fcf3295507d109",
+        "logical_name": "onyx-source-scope-derivation-evidence",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/source-scopes/onyx-source-scope-derivation-v1.json",
+        "size_bytes": 1720
+      },
+      "derivation_policy_hash": "sha256:9e87a65a50249770185b9e18ada74203d4de433b471fbf5d60143058ed6c0297",
+      "duplicate_path_count": 0,
+      "expected_path_count": 253,
+      "generator_artifact_digest": "sha256:bbfcb04c3ce064757a96274b015dabda1ad1b0a0c7a2aa1d6f2fb2aac34c818d",
+      "generator_identity": "pmorg.source-scope-generator/v1",
+      "path_inventory": {
+        "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+        "logical_name": "onyx_ee-path-inventory",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+        "size_bytes": 61086
+      },
+      "repository": "https://github.com/onyx-dot-app/onyx.git",
+      "roots": [
+        "backend/ee",
+        "web/src/app/ee",
+        "web/src/ee"
+      ],
+      "schema_version": "pmorg.source-scope-manifest/v1",
+      "scope_kind": "onyx_ee",
+      "tree_hash": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+      "unreadable_path_count": 0
+    }
+  ],
+  "unclassified_hit_count": 0,
+  "unreadable_path_count": 0,
+  "unscanned_path_count": 0
+}

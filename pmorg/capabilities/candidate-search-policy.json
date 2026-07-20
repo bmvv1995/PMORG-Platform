@@ -1,0 +1,152 @@
+{
+  "capabilities": [
+    {
+      "capability_id": "capability-disposition-qualification",
+      "minimum_candidate_group_count": 3,
+      "term_groups": [
+        [
+          "capability",
+          "feature"
+        ],
+        [
+          "qualification",
+          "qualify",
+          "validation"
+        ],
+        [
+          "license",
+          "licensing",
+          "provenance"
+        ],
+        [
+          "disposition",
+          "patch",
+          "reuse"
+        ]
+      ]
+    },
+    {
+      "capability_id": "deployment-admission",
+      "minimum_candidate_group_count": 2,
+      "term_groups": [
+        [
+          "deploy",
+          "deployment",
+          "startup"
+        ],
+        [
+          "admission",
+          "allow",
+          "deny",
+          "gate",
+          "validation"
+        ],
+        [
+          "health",
+          "liveness",
+          "readiness",
+          "watchdog"
+        ]
+      ]
+    },
+    {
+      "capability_id": "distribution-admission",
+      "minimum_candidate_group_count": 2,
+      "term_groups": [
+        [
+          "distribution",
+          "export",
+          "publish",
+          "registry"
+        ],
+        [
+          "admission",
+          "allow",
+          "deny",
+          "gate",
+          "validation"
+        ],
+        [
+          "artifact",
+          "image",
+          "package"
+        ]
+      ]
+    },
+    {
+      "capability_id": "governed-onyx-fork",
+      "minimum_candidate_group_count": 2,
+      "term_groups": [
+        [
+          "fork",
+          "repository",
+          "upstream"
+        ],
+        [
+          "diff",
+          "overlay",
+          "patch"
+        ],
+        [
+          "copyright",
+          "license",
+          "ownership"
+        ]
+      ]
+    },
+    {
+      "capability_id": "qualified-reproducible-build",
+      "minimum_candidate_group_count": 3,
+      "term_groups": [
+        [
+          "build",
+          "builder",
+          "dockerfile"
+        ],
+        [
+          "deterministic",
+          "repeatable",
+          "reproducible"
+        ],
+        [
+          "digest",
+          "hash",
+          "sha256"
+        ],
+        [
+          "artifact",
+          "image",
+          "package"
+        ]
+      ]
+    },
+    {
+      "capability_id": "thin-fork-boundary",
+      "minimum_candidate_group_count": 2,
+      "term_groups": [
+        [
+          "fork",
+          "upstream"
+        ],
+        [
+          "diff",
+          "overlay",
+          "patch"
+        ],
+        [
+          "allowlist",
+          "boundary",
+          "seam"
+        ]
+      ]
+    }
+  ],
+  "catalog_version": "1.0.0",
+  "content_matching": "ascii_casefolded_literal_bytes",
+  "path_matching": "utf8_casefolded_literal_text",
+  "raw_hit_rule": "one_or_more_terms_match_path_or_blob",
+  "schema_version": "pmorg.candidate-search-policy/v1",
+  "search_spec_version": "1.0.0",
+  "search_tool_name": "pmorg-pinned-onyx-candidate-search",
+  "search_tool_version": "1.0.0"
+}

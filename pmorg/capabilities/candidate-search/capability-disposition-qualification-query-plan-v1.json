@@ -1,0 +1,50 @@
+{
+  "capability_id": "capability-disposition-qualification",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "content_matching": "ascii_casefolded_literal_bytes",
+  "minimum_candidate_group_count": 3,
+  "path_matching": "utf8_casefolded_literal_text",
+  "raw_hit_rule": "one_or_more_terms_match_path_or_blob",
+  "required_contract_tests": {
+    "digest": "sha256:9af2bec8019d0543f8adc10935e2e1726ee65445efd5dd5d7e6f797c24e19fec",
+    "logical_name": "capability-disposition-qualification-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/capability-disposition-qualification.json",
+    "size_bytes": 372
+  },
+  "required_test_ids": [
+    "A-PATCH-002",
+    "A-PATCH-003",
+    "A-PATCH-004",
+    "A-PATCH-005",
+    "A-PATCH-006"
+  ],
+  "schema_version": "pmorg.candidate-query-plan/v1",
+  "search_id": "candidate-search:1.0.0:capability-disposition-qualification:1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "search_spec_version": "1.0.0",
+  "searched_surfaces": [
+    "ce",
+    "ee"
+  ],
+  "term_groups": [
+    [
+      "capability",
+      "feature"
+    ],
+    [
+      "qualification",
+      "qualify",
+      "validation"
+    ],
+    [
+      "license",
+      "licensing",
+      "provenance"
+    ],
+    [
+      "disposition",
+      "patch",
+      "reuse"
+    ]
+  ]
+}
