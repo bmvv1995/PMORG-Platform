@@ -1,0 +1,424 @@
+{
+  "$id": "urn:pmorg:candidate-input-bundle:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blob_set_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "blob_set_membership_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "blob_sets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blob_count": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "blob_set_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "blobs": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "git_object_id": {
+                  "pattern": "^[0-9a-f]{40}$",
+                  "type": "string"
+                },
+                "mode": {
+                  "pattern": "^[0-9]{6}$",
+                  "type": "string"
+                },
+                "path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "sha256": {
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "size_bytes": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "git_object_id",
+                "mode",
+                "path",
+                "sha256",
+                "size_bytes"
+              ],
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "candidate_group": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "pmorg.candidate-blob-set/v1"
+          },
+          "source_commit": {
+            "const": "1da679cefc96165c6b9b64c3bc769584b88f88c2"
+          },
+          "source_repository": {
+            "const": "https://github.com/onyx-dot-app/onyx.git"
+          },
+          "source_surface": {
+            "enum": [
+              "ce",
+              "ee"
+            ]
+          },
+          "source_tree_id": {
+            "const": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58"
+          }
+        },
+        "required": [
+          "schema_version",
+          "blob_set_digest",
+          "candidate_group",
+          "source_surface",
+          "source_repository",
+          "source_commit",
+          "source_tree_id",
+          "blob_count",
+          "blobs"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "candidate_blob_membership_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "candidate_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "candidates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blob_count": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "blob_set_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "candidate_group": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "candidate_id": {
+            "pattern": "^candidate-[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "candidate_search_evidence": {
+            "additionalProperties": false,
+            "properties": {
+              "digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "logical_name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "media_type": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "relative_path": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "size_bytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "digest",
+              "logical_name",
+              "media_type",
+              "relative_path",
+              "size_bytes"
+            ],
+            "type": "object"
+          },
+          "capability_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "hit_classification": {
+            "additionalProperties": false,
+            "properties": {
+              "digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "logical_name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "media_type": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "relative_path": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "size_bytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "digest",
+              "logical_name",
+              "media_type",
+              "relative_path",
+              "size_bytes"
+            ],
+            "type": "object"
+          },
+          "manifest_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "matched_hit_ids": {
+            "items": {
+              "pattern": "^hit-[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "raw_results": {
+            "additionalProperties": false,
+            "properties": {
+              "digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "logical_name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "media_type": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "relative_path": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "size_bytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "digest",
+              "logical_name",
+              "media_type",
+              "relative_path",
+              "size_bytes"
+            ],
+            "type": "object"
+          },
+          "schema_version": {
+            "const": "pmorg.candidate-input-manifest/v1"
+          },
+          "source_commit": {
+            "const": "1da679cefc96165c6b9b64c3bc769584b88f88c2"
+          },
+          "source_inventory": {
+            "additionalProperties": false,
+            "properties": {
+              "digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "logical_name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "media_type": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "relative_path": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "size_bytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "digest",
+              "logical_name",
+              "media_type",
+              "relative_path",
+              "size_bytes"
+            ],
+            "type": "object"
+          },
+          "source_repository": {
+            "const": "https://github.com/onyx-dot-app/onyx.git"
+          },
+          "source_surface": {
+            "enum": [
+              "ce",
+              "ee"
+            ]
+          },
+          "source_tree_id": {
+            "const": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58"
+          }
+        },
+        "required": [
+          "schema_version",
+          "manifest_digest",
+          "capability_id",
+          "candidate_id",
+          "candidate_group",
+          "source_surface",
+          "source_repository",
+          "source_commit",
+          "source_tree_id",
+          "blob_count",
+          "blob_set_digest",
+          "matched_hit_ids",
+          "source_inventory",
+          "raw_results",
+          "hit_classification",
+          "candidate_search_evidence"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "derivation_artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "logical_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "media_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "logical_name",
+          "media_type",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "minItems": 3,
+      "type": "array"
+    },
+    "manifest_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "logical_name",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "pmorg.candidate-input-bundle/v1"
+    },
+    "source_commit": {
+      "const": "1da679cefc96165c6b9b64c3bc769584b88f88c2"
+    },
+    "source_repository": {
+      "const": "https://github.com/onyx-dot-app/onyx.git"
+    },
+    "source_tree_id": {
+      "const": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58"
+    },
+    "unique_blob_count": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "source_repository",
+    "source_commit",
+    "source_tree_id",
+    "candidate_count",
+    "candidate_blob_membership_count",
+    "blob_set_count",
+    "blob_set_membership_count",
+    "unique_blob_count",
+    "derivation_artifacts",
+    "manifest_schema",
+    "blob_sets",
+    "candidates"
+  ],
+  "title": "PMORG candidate-specific qualification inputs",
+  "type": "object"
+}

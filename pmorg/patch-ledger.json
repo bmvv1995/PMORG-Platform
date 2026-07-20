@@ -563,6 +563,33 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "python3 -B pmorg/scripts/build_qualification_oracles.py --check"
       ]
+    },
+    {
+      "id": "PL-019",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/candidate_inputs.py",
+        "backend/pmorg/tests/test_candidate_inputs.py",
+        "pmorg/capabilities/candidate-inputs-v1.json",
+        "pmorg/capabilities/candidate-inputs-v1.schema.json",
+        "pmorg/scripts/build_candidate_inputs.py"
+      ],
+      "requirements": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "PLT-004",
+        "PLT-006"
+      ],
+      "reason": "Bind every provisional capability candidate to the complete, exact module-group path and blob set from the pinned Onyx tree, with independently content-addressed per-candidate manifests, deterministic regeneration, direct Git object verification and fail-closed drift/tamper guards; emit no oracle execution, qualification verdict, disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=f0dbe944c71b7549c60f2ce63989283ffc43cae8 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_candidate_inputs -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "python3 -B pmorg/scripts/build_candidate_inputs.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
