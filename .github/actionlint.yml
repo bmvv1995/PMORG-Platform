@@ -3,6 +3,7 @@ self-hosted-runner:
   labels:
     - extras=ecr-cache
     - extras=s3-cache
+    - helm-lane
     - runs-on
     - runner=1cpu-linux-arm64
     - runner=1cpu-linux-x64

@@ -42,12 +42,12 @@
       "removal_condition": null
     },
     {
-      "id": "UP-CI-HELM-001",
+      "id": "UP-CI-HELM-002",
       "path": ".github/workflows/pr-helm-chart-testing.yml",
-      "seam_id": "SEAM-CI-HELM-001",
+      "seam_id": "SEAM-CI-HELM-002",
       "classification": "integration",
       "base_blob_hash": "sha256:87a0633aa12ab01d820daf7c40636071fbadd724b960d735f4382066ad4b38a5",
-      "patched_blob_hash": "sha256:08a7ecc5d55a97ef1ec895ad3fa0862b0e0fb79cb6cbe62ca40808a7e1722070",
+      "patched_blob_hash": "sha256:49b0a6bc14679eec0780792935a84032504e4c69f068e48a486d1dbf978eeae5",
       "base_git_mode": "100644",
       "patched_git_mode": "100644",
       "upstream_source_ref": {
@@ -56,7 +56,7 @@
         "path": ".github/workflows/pr-helm-chart-testing.yml",
         "tree_hash": "sha256:02e6dad604bbcbe22d83605a6262b37ebbb4b75d0d4c4aaf01cb79215f279e8f"
       },
-      "reason": "Detect Helm relevance on GitHub-hosted capacity and request RunsOn only for applicable same-repository validation while preserving a fail-closed required gate.",
+      "reason": "Detect Helm relevance on GitHub-hosted capacity and dispatch applicable same-repository validation to the static, manually started ephemeral Helm lane while preserving a fail-closed required gate.",
       "owner": "pmorg-platform",
       "upstream_issue_url": null,
       "upstream_pr_url": null,
@@ -71,9 +71,45 @@
         "ee"
       ],
       "protector_tests": [
-        "pmorg/tests/test_helm_ci_seam_protector.py::TestHelmRunnerAdmissionSeam.test_non_helm_change_does_not_require_runs_on"
+        "pmorg/tests/test_helm_static_lane_ci_seam_protector.py::TestHelmStaticRunnerAdmissionSeam.test_static_ephemeral_lane_replaces_only_runner_selector"
       ],
-      "last_revalidated_at": "2026-07-19T20:09:01Z",
+      "last_revalidated_at": "2026-07-20T06:47:59Z",
+      "conflict_notes": "No conflict observed against pinned Onyx v4.3.9.",
+      "removal_condition": null
+    },
+    {
+      "id": "UP-CI-ACTIONLINT-001",
+      "path": ".github/actionlint.yml",
+      "seam_id": "SEAM-CI-ACTIONLINT-001",
+      "classification": "integration",
+      "base_blob_hash": "sha256:2490770896ca822f2958c84f7ff79c067eb5bca288316a19763b62d698aae195",
+      "patched_blob_hash": "sha256:4301dbacaf4e7ee2e3b6e88a18c7600a2d716728b16e5c412521c6641daf77e7",
+      "base_git_mode": "100644",
+      "patched_git_mode": "100644",
+      "upstream_source_ref": {
+        "repository": "https://github.com/onyx-dot-app/onyx.git",
+        "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+        "path": ".github/actionlint.yml",
+        "tree_hash": "sha256:02e6dad604bbcbe22d83605a6262b37ebbb4b75d0d4c4aaf01cb79215f279e8f"
+      },
+      "reason": "Recognize the static helm-lane label in actionlint without changing any other runner-label configuration.",
+      "owner": "pmorg-platform",
+      "upstream_issue_url": null,
+      "upstream_pr_url": null,
+      "requirement_refs": [
+        "PLT-004"
+      ],
+      "capability_refs": [],
+      "ownership_class": "upstream_ce_direct_patch",
+      "license_class": "mit-expat",
+      "onyx_surfaces": [
+        "ce",
+        "ee"
+      ],
+      "protector_tests": [
+        "pmorg/tests/test_actionlint_helm_lane_seam_protector.py::TestActionlintHelmLaneAdmissionSeam.test_helm_lane_is_only_runner_catalog_change"
+      ],
+      "last_revalidated_at": "2026-07-20T06:47:59Z",
       "conflict_notes": "No conflict observed against pinned Onyx v4.3.9.",
       "removal_condition": null
     }
@@ -220,7 +256,7 @@
       ]
     },
     {
-      "id": "PL-006",
+      "id": "PL-007",
       "classification": "integration",
       "paths": [
         ".github/workflows/pr-helm-chart-testing.yml"
@@ -228,10 +264,25 @@
       "requirements": [
         "PLT-004"
       ],
-      "reason": "Own the exact pre-authorized Helm runner-admission CI integration seam.",
+      "reason": "Own the exact pre-authorized static ephemeral Helm lane successor generation.",
       "verification": [
-        "PMORG_PROTECTED_BASE_SHA=4461d655aec931a31d274ce0ab4231f77209fa55 python3 -B pmorg/scripts/verify_fork.py",
-        "python3 -B -m unittest pmorg.tests.test_helm_ci_seam_protector -v"
+        "PMORG_PROTECTED_BASE_SHA=ba85856343a16b5ac4472fbb00db2174044b5dcc python3 -B pmorg/scripts/verify_fork.py",
+        "python3 -B -m unittest pmorg.tests.test_helm_static_lane_ci_seam_protector -v"
+      ]
+    },
+    {
+      "id": "PL-008",
+      "classification": "integration",
+      "paths": [
+        ".github/actionlint.yml"
+      ],
+      "requirements": [
+        "PLT-004"
+      ],
+      "reason": "Own the exact pre-authorized actionlint helm-lane runner-label catalog seam.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=ba85856343a16b5ac4472fbb00db2174044b5dcc python3 -B pmorg/scripts/verify_fork.py",
+        "python3 -B -m unittest pmorg.tests.test_actionlint_helm_lane_seam_protector -v"
       ]
     }
   ],
