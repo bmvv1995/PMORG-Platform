@@ -1,15 +1,43 @@
 {
+  "candidate_influence_contract": {
+    "global_gate_or_sidecar_only_evidence": "forbidden",
+    "manifest_placeholder": "candidate_manifest_path",
+    "mutation_operator": "flip_one_byte_in_a_projected_candidate_blob",
+    "mutation_proof_required_for_executable": true,
+    "pass_condition": "the baseline and mutated adapter evidence digests differ and the difference is attributable to the mutated candidate byte"
+  },
   "candidate_projection": {
     "candidate_count": 402,
+    "candidate_inputs": {
+      "digest": "sha256:cfd9b34150e522dd261517252530983c35bcd25387c9b4fc4229799ffec21327",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-inputs-v1.json",
+      "size_bytes": 3675788
+    },
     "classification_root": "pmorg/capabilities/candidate-search",
-    "membership_rule": "all raw-hit blobs mapped to the candidate ID and its single candidate_group",
-    "observation_rule": "pass requires every projected candidate blob to be observed by every bound invocation",
+    "membership_rule": "the complete module-group blob set bound by the candidate input manifest and its independently verified digest",
+    "observation_rule": "pass requires a candidate-aware adapter to consume the exact candidate manifest and all projected bytes",
     "projection_version": "module_group_blob_set/v1"
   },
   "catalog_version": "1.0.0",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:9ba110bd418dfcebdc0d9de033326daabf50cc000aaad3108d2d62d7a4cc6566",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification_oracles.py",
+      "size_bytes": 23942
+    },
+    {
+      "digest": "sha256:c00e45729b7de8fceb5463ccf46e991e2511096f523eb357e302a16d6339c396",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_qualification_oracles.py",
+      "size_bytes": 1054
+    }
+  ],
   "execution_contract": {
     "environment": "offline_read_only_pinned_candidate_tree",
     "placeholder_set": [
+      "candidate_manifest_path",
       "candidate_repository_root",
       "candidate_revision",
       "protected_base_sha",
@@ -21,7 +49,12 @@
   "oracle_count": 15,
   "oracles": [
     {
-      "bindings": [
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "capability-disposition-qualification",
+      "legacy_global_gate_bindings": [
         {
           "argv": [
             "python3",
@@ -37,15 +70,19 @@
           "size_bytes": 1057
         }
       ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "capability-disposition-qualification",
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-002:v1",
-      "oracle_status": "executable",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-002",
-      "unexecutable_reason": null
+      "unexecutable_reason": "A-PATCH-002 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     },
     {
-      "bindings": [
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "capability-disposition-qualification",
+      "legacy_global_gate_bindings": [
         {
           "argv": [
             "python3",
@@ -75,15 +112,19 @@
           "size_bytes": 1060
         }
       ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "capability-disposition-qualification",
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-003:v1",
-      "oracle_status": "executable",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-003",
-      "unexecutable_reason": null
+      "unexecutable_reason": "A-PATCH-003 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     },
     {
-      "bindings": [
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "capability-disposition-qualification",
+      "legacy_global_gate_bindings": [
         {
           "argv": [
             "python3",
@@ -99,15 +140,19 @@
           "size_bytes": 22303
         }
       ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "capability-disposition-qualification",
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-004:v1",
-      "oracle_status": "executable",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-004",
-      "unexecutable_reason": null
+      "unexecutable_reason": "A-PATCH-004 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     },
     {
-      "bindings": [
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "capability-disposition-qualification",
+      "legacy_global_gate_bindings": [
         {
           "argv": [
             "python3",
@@ -124,15 +169,19 @@
           "size_bytes": 2338
         }
       ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "capability-disposition-qualification",
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-005:v1",
-      "oracle_status": "executable",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-005",
-      "unexecutable_reason": null
+      "unexecutable_reason": "A-PATCH-005 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     },
     {
-      "bindings": [
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "capability-disposition-qualification",
+      "legacy_global_gate_bindings": [
         {
           "argv": [
             "python3",
@@ -176,33 +225,45 @@
           "size_bytes": 22303
         }
       ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "capability-disposition-qualification",
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-006:v1",
-      "oracle_status": "executable",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-006",
-      "unexecutable_reason": null
+      "unexecutable_reason": "A-PATCH-006 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     },
     {
+      "adapter": null,
       "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
       "capability_id": "deployment-admission",
+      "legacy_global_gate_bindings": [],
       "oracle_id": "qualification-oracle:deployment-admission:A-LIC-002:v1",
       "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-LIC-002",
       "unexecutable_reason": "deployment admission implementation and candidate-aware adapter are absent"
     },
     {
+      "adapter": null,
       "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
       "capability_id": "distribution-admission",
+      "legacy_global_gate_bindings": [],
       "oracle_id": "qualification-oracle:distribution-admission:A-LIC-003:v1",
       "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-LIC-003",
       "unexecutable_reason": "distribution admission implementation and candidate-aware adapter are absent"
     },
     {
-      "bindings": [
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "governed-onyx-fork",
+      "legacy_global_gate_bindings": [
         {
           "argv": [
             "python3",
@@ -221,15 +282,19 @@
           "size_bytes": 150383
         }
       ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "governed-onyx-fork",
       "oracle_id": "qualification-oracle:governed-onyx-fork:A-FORK-001:v1",
-      "oracle_status": "executable",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-FORK-001",
-      "unexecutable_reason": null
+      "unexecutable_reason": "A-FORK-001 verifies repository-, process-, build- or release-wide state for governed-onyx-fork; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     },
     {
-      "bindings": [
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "governed-onyx-fork",
+      "legacy_global_gate_bindings": [
         {
           "argv": [
             "python3",
@@ -248,184 +313,19 @@
           "size_bytes": 150383
         }
       ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "governed-onyx-fork",
       "oracle_id": "qualification-oracle:governed-onyx-fork:A-SURFACE-001:v1",
-      "oracle_status": "executable",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-SURFACE-001",
-      "unexecutable_reason": null
+      "unexecutable_reason": "A-SURFACE-001 verifies repository-, process-, build- or release-wide state for governed-onyx-fork; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     },
     {
-      "bindings": [
-        {
-          "argv": [
-            "python3",
-            "-B",
-            "pmorg/scripts/verify_fork.py",
-            "--candidate-repository-root",
-            "{candidate_repository_root}",
-            "--trusted-repository-root",
-            "{trusted_repository_root}",
-            "--protected-base-sha",
-            "{protected_base_sha}"
-          ],
-          "digest": "sha256:187ec91f7205793becd4adda931dc11e2b2944592c580174363c79ac3d38f35d",
-          "media_type": "text/x-python",
-          "relative_path": "pmorg/scripts/verify_fork.py",
-          "size_bytes": 150383
-        }
-      ],
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
       "capability_id": "governed-onyx-fork",
-      "oracle_id": "qualification-oracle:governed-onyx-fork:A-UPSTREAM-001:v1",
-      "oracle_status": "executable",
-      "test_id": "A-UPSTREAM-001",
-      "unexecutable_reason": null
-    },
-    {
-      "bindings": [
-        {
-          "argv": [
-            "python3",
-            "-B",
-            "-m",
-            "unittest",
-            "backend.pmorg.tests.test_qualification_signing",
-            "-v"
-          ],
-          "digest": "sha256:95674e9d0ce40d31bcf76235b6f8bf6187358ba8979cfaaf6d331fc8bd1f922b",
-          "media_type": "text/x-python",
-          "relative_path": "backend/pmorg/tests/test_qualification_signing.py",
-          "size_bytes": 22303
-        }
-      ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "qualified-reproducible-build",
-      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-EVIDENCE-001:v1",
-      "oracle_status": "executable",
-      "test_id": "A-EVIDENCE-001",
-      "unexecutable_reason": null
-    },
-    {
-      "bindings": [
-        {
-          "argv": [
-            "python3",
-            "-B",
-            "pmorg/scripts/verify_ce_build.py",
-            "--repository-root",
-            "{candidate_repository_root}",
-            "--revision",
-            "{candidate_revision}"
-          ],
-          "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
-          "media_type": "text/x-python",
-          "relative_path": "pmorg/scripts/verify_ce_build.py",
-          "size_bytes": 2338
-        },
-        {
-          "argv": [
-            "python3",
-            "-B",
-            "pmorg/scripts/verify_ce_image_contexts.py",
-            "--repository-root",
-            "{candidate_repository_root}",
-            "--revision",
-            "{candidate_revision}"
-          ],
-          "digest": "sha256:95b8093223f2f7d79e92c6b0c1e753d816d0232aafe9a46ff13f2017bf1e050b",
-          "media_type": "text/x-python",
-          "relative_path": "pmorg/scripts/verify_ce_image_contexts.py",
-          "size_bytes": 1900
-        },
-        {
-          "argv": [
-            "python3",
-            "-B",
-            "-m",
-            "unittest",
-            "backend.pmorg.tests.test_qualification_signing",
-            "-v"
-          ],
-          "digest": "sha256:95674e9d0ce40d31bcf76235b6f8bf6187358ba8979cfaaf6d331fc8bd1f922b",
-          "media_type": "text/x-python",
-          "relative_path": "backend/pmorg/tests/test_qualification_signing.py",
-          "size_bytes": 22303
-        }
-      ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "qualified-reproducible-build",
-      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-LIC-001:v1",
-      "oracle_status": "executable",
-      "test_id": "A-LIC-001",
-      "unexecutable_reason": null
-    },
-    {
-      "bindings": [
-        {
-          "argv": [
-            "python3",
-            "-B",
-            "-m",
-            "unittest",
-            "backend.pmorg.tests.test_qualification_signing",
-            "-v"
-          ],
-          "digest": "sha256:95674e9d0ce40d31bcf76235b6f8bf6187358ba8979cfaaf6d331fc8bd1f922b",
-          "media_type": "text/x-python",
-          "relative_path": "backend/pmorg/tests/test_qualification_signing.py",
-          "size_bytes": 22303
-        }
-      ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "qualified-reproducible-build",
-      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPORT-001:v1",
-      "oracle_status": "executable",
-      "test_id": "A-REPORT-001",
-      "unexecutable_reason": null
-    },
-    {
-      "bindings": [
-        {
-          "argv": [
-            "python3",
-            "-B",
-            "pmorg/scripts/verify_ce_build.py",
-            "--repository-root",
-            "{candidate_repository_root}",
-            "--revision",
-            "{candidate_revision}"
-          ],
-          "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
-          "media_type": "text/x-python",
-          "relative_path": "pmorg/scripts/verify_ce_build.py",
-          "size_bytes": 2338
-        },
-        {
-          "argv": [
-            "python3",
-            "-B",
-            "pmorg/scripts/verify_ce_image_contexts.py",
-            "--repository-root",
-            "{candidate_repository_root}",
-            "--revision",
-            "{candidate_revision}"
-          ],
-          "digest": "sha256:95b8093223f2f7d79e92c6b0c1e753d816d0232aafe9a46ff13f2017bf1e050b",
-          "media_type": "text/x-python",
-          "relative_path": "pmorg/scripts/verify_ce_image_contexts.py",
-          "size_bytes": 1900
-        }
-      ],
-      "candidate_projection": "module_group_blob_set/v1",
-      "capability_id": "qualified-reproducible-build",
-      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPRO-001:v1",
-      "oracle_status": "executable",
-      "test_id": "A-REPRO-001",
-      "unexecutable_reason": null
-    },
-    {
-      "bindings": [
+      "legacy_global_gate_bindings": [
         {
           "argv": [
             "python3",
@@ -444,20 +344,235 @@
           "size_bytes": 150383
         }
       ],
+      "oracle_id": "qualification-oracle:governed-onyx-fork:A-UPSTREAM-001:v1",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
+      "test_id": "A-UPSTREAM-001",
+      "unexecutable_reason": "A-UPSTREAM-001 verifies repository-, process-, build- or release-wide state for governed-onyx-fork; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
+    },
+    {
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "qualified-reproducible-build",
+      "legacy_global_gate_bindings": [
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "-m",
+            "unittest",
+            "backend.pmorg.tests.test_qualification_signing",
+            "-v"
+          ],
+          "digest": "sha256:95674e9d0ce40d31bcf76235b6f8bf6187358ba8979cfaaf6d331fc8bd1f922b",
+          "media_type": "text/x-python",
+          "relative_path": "backend/pmorg/tests/test_qualification_signing.py",
+          "size_bytes": 22303
+        }
+      ],
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-EVIDENCE-001:v1",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
+      "test_id": "A-EVIDENCE-001",
+      "unexecutable_reason": "A-EVIDENCE-001 verifies repository-, process-, build- or release-wide state for qualified-reproducible-build; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
+    },
+    {
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "qualified-reproducible-build",
+      "legacy_global_gate_bindings": [
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "pmorg/scripts/verify_ce_build.py",
+            "--repository-root",
+            "{candidate_repository_root}",
+            "--revision",
+            "{candidate_revision}"
+          ],
+          "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
+          "media_type": "text/x-python",
+          "relative_path": "pmorg/scripts/verify_ce_build.py",
+          "size_bytes": 2338
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "pmorg/scripts/verify_ce_image_contexts.py",
+            "--repository-root",
+            "{candidate_repository_root}",
+            "--revision",
+            "{candidate_revision}"
+          ],
+          "digest": "sha256:95b8093223f2f7d79e92c6b0c1e753d816d0232aafe9a46ff13f2017bf1e050b",
+          "media_type": "text/x-python",
+          "relative_path": "pmorg/scripts/verify_ce_image_contexts.py",
+          "size_bytes": 1900
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "-m",
+            "unittest",
+            "backend.pmorg.tests.test_qualification_signing",
+            "-v"
+          ],
+          "digest": "sha256:95674e9d0ce40d31bcf76235b6f8bf6187358ba8979cfaaf6d331fc8bd1f922b",
+          "media_type": "text/x-python",
+          "relative_path": "backend/pmorg/tests/test_qualification_signing.py",
+          "size_bytes": 22303
+        }
+      ],
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-LIC-001:v1",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
+      "test_id": "A-LIC-001",
+      "unexecutable_reason": "A-LIC-001 verifies repository-, process-, build- or release-wide state for qualified-reproducible-build; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
+    },
+    {
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "qualified-reproducible-build",
+      "legacy_global_gate_bindings": [
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "-m",
+            "unittest",
+            "backend.pmorg.tests.test_qualification_signing",
+            "-v"
+          ],
+          "digest": "sha256:95674e9d0ce40d31bcf76235b6f8bf6187358ba8979cfaaf6d331fc8bd1f922b",
+          "media_type": "text/x-python",
+          "relative_path": "backend/pmorg/tests/test_qualification_signing.py",
+          "size_bytes": 22303
+        }
+      ],
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPORT-001:v1",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
+      "test_id": "A-REPORT-001",
+      "unexecutable_reason": "A-REPORT-001 verifies repository-, process-, build- or release-wide state for qualified-reproducible-build; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
+    },
+    {
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
+      "candidate_projection": "module_group_blob_set/v1",
+      "capability_id": "qualified-reproducible-build",
+      "legacy_global_gate_bindings": [
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "pmorg/scripts/verify_ce_build.py",
+            "--repository-root",
+            "{candidate_repository_root}",
+            "--revision",
+            "{candidate_revision}"
+          ],
+          "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
+          "media_type": "text/x-python",
+          "relative_path": "pmorg/scripts/verify_ce_build.py",
+          "size_bytes": 2338
+        },
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "pmorg/scripts/verify_ce_image_contexts.py",
+            "--repository-root",
+            "{candidate_repository_root}",
+            "--revision",
+            "{candidate_revision}"
+          ],
+          "digest": "sha256:95b8093223f2f7d79e92c6b0c1e753d816d0232aafe9a46ff13f2017bf1e050b",
+          "media_type": "text/x-python",
+          "relative_path": "pmorg/scripts/verify_ce_image_contexts.py",
+          "size_bytes": 1900
+        }
+      ],
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPRO-001:v1",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
+      "test_id": "A-REPRO-001",
+      "unexecutable_reason": "A-REPRO-001 verifies repository-, process-, build- or release-wide state for qualified-reproducible-build; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
+    },
+    {
+      "adapter": null,
+      "bindings": [],
+      "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
       "capability_id": "thin-fork-boundary",
+      "legacy_global_gate_bindings": [
+        {
+          "argv": [
+            "python3",
+            "-B",
+            "pmorg/scripts/verify_fork.py",
+            "--candidate-repository-root",
+            "{candidate_repository_root}",
+            "--trusted-repository-root",
+            "{trusted_repository_root}",
+            "--protected-base-sha",
+            "{protected_base_sha}"
+          ],
+          "digest": "sha256:187ec91f7205793becd4adda931dc11e2b2944592c580174363c79ac3d38f35d",
+          "media_type": "text/x-python",
+          "relative_path": "pmorg/scripts/verify_fork.py",
+          "size_bytes": 150383
+        }
+      ],
       "oracle_id": "qualification-oracle:thin-fork-boundary:A-PATCH-001:v1",
-      "oracle_status": "executable",
+      "oracle_status": "unexecutable",
+      "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-001",
-      "unexecutable_reason": null
+      "unexecutable_reason": "A-PATCH-001 verifies repository-, process-, build- or release-wide state for thin-fork-boundary; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     }
   ],
-  "policy_version": "1.0.0",
+  "policy_version": "1.1.0",
   "result_schema": {
-    "digest": "sha256:6e43bfe0e629c54cdbb2e6a654d1a8def60b8bd2ac7667536212fb67950ee779",
+    "digest": "sha256:aa7cad8f9eed50f3639d7d106847785189b7e64ee75791d96166a4caccbcfbca",
     "media_type": "application/schema+json",
     "relative_path": "pmorg/capabilities/qualification-oracle-result-v1.schema.json",
-    "size_bytes": 2048
+    "size_bytes": 2873
+  },
+  "runtime_identity": {
+    "artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "media_type": "text/plain",
+        "relative_path": ".python-version",
+        "size_bytes": 5
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "media_type": "application/toml",
+        "relative_path": "pyproject.toml",
+        "size_bytes": 9983
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "media_type": "application/toml",
+        "relative_path": "uv.lock",
+        "size_bytes": 1018201
+      }
+    ],
+    "digest": "sha256:1667bd63da442ed28add035296596535fdc04ae39b2e226129c5e563a679cad6",
+    "executable_requires_attested_interpreter_binary": true,
+    "interpreter_declaration": ".python-version",
+    "lockfile": "uv.lock",
+    "status": "declaration_bound_binary_unattested"
   },
   "schema_version": "pmorg.qualification-oracle-policy/v1"
 }
