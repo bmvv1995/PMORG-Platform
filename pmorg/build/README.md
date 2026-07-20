@@ -41,3 +41,17 @@ the pinned mixed-source Onyx tree, rejects any remaining Enterprise path,
 import or exact-copy evidence, and requires two byte-identical real-tree
 rebuilds. This qualifies only the CE source artifact; it does not claim a
 runnable image or any RBDP, BQM/BQA, admission, release, or `G3-A` verdict.
+
+## Deterministic image inputs
+
+`1-BUILD-C` derives separate backend and web context bundles from the verified
+source tar. Each context is re-rooted, canonically ordered, timestamp-free and
+bound to the source-artifact digest and source commit. Required runtime paths
+fail closed if selection drifts. Literal Enterprise module dispatch is allowed
+only through the committed fallback/no-op entry points.
+
+This is deliberately the last offline precursor to a runnable image. It does
+not execute Dockerfiles, pull base images, install packages, or claim image
+reproducibility. Those operations have real registry/package/model egress and
+must be measured in a later bounded sub-slice rather than hidden behind a
+machine-dependent Docker cache.

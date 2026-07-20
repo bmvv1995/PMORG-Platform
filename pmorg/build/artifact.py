@@ -34,6 +34,10 @@ NETWORK_MODULES = {
     "websockets",
 }
 ALLOWED_GIT_SUBCOMMANDS = {"cat-file", "ls-tree", "rev-parse"}
+ALLOWED_EE_LITERAL_DISPATCHERS = {
+    "fetch_ee_implementation_or_noop",
+    "fetch_versioned_implementation_with_fallback",
+}
 
 
 @dataclass(frozen=True, order=True)
@@ -475,6 +479,39 @@ def _ee_imports(path: str, data: bytes) -> tuple[str, ...]:
     return tuple(sorted(findings))
 
 
+def _ee_literal_dispatches(path: str, data: bytes) -> tuple[str, ...]:
+    if not path.endswith((".py", ".pyi")):
+        return ()
+    try:
+        tree = ast.parse(data.decode("utf-8"), filename=path)
+    except (SyntaxError, UnicodeDecodeError):
+        return ()
+    findings: set[str] = set()
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call):
+            continue
+        literals = [
+            argument.value
+            for argument in node.args
+            if isinstance(argument, ast.Constant) and isinstance(argument.value, str)
+        ]
+        if not any(
+            "ee" in PurePosixPath(value.replace(".", "/")).parts for value in literals
+        ):
+            continue
+        if isinstance(node.func, ast.Name):
+            dispatcher = node.func.id
+        elif isinstance(node.func, ast.Attribute):
+            dispatcher = node.func.attr
+        else:
+            dispatcher = "<dynamic>"
+        if dispatcher not in ALLOWED_EE_LITERAL_DISPATCHERS:
+            findings.add(
+                f"Enterprise literal passed to unsafe dispatcher {dispatcher!r}"
+            )
+    return tuple(sorted(findings))
+
+
 def _ee_reference_hashes(
     repository_root: Path,
     commit: str,
@@ -537,6 +574,9 @@ def scan_entries_for_ee(
             )
         for finding in _ee_imports(entry.path, entry.data):
             violations.append(Violation("EE_IMPORT", entry.path, finding))
+        if _path_is_under(entry.path, "backend/onyx"):
+            for finding in _ee_literal_dispatches(entry.path, entry.data):
+                violations.append(Violation("EE_DISPATCH", entry.path, finding))
     return tuple(sorted(set(violations)))
 
 
@@ -661,21 +701,24 @@ def verify_egress(
             )
         )
 
-    source_path = repository_root / "pmorg/build/artifact.py"
-    tree = ast.parse(source_path.read_text(encoding="utf-8"), filename=str(source_path))
-    for node in ast.walk(tree):
-        modules: Iterable[str] = ()
-        if isinstance(node, ast.Import):
-            modules = (alias.name for alias in node.names)
-        elif isinstance(node, ast.ImportFrom):
-            modules = (node.module or "",)
-        for module in modules:
-            if module.split(".", 1)[0] in NETWORK_MODULES:
-                violations.append(
-                    Violation(
-                        "UNDECLARED_EGRESS",
-                        str(source_path),
-                        f"network module import {module!r}",
+    for relative_source in ("pmorg/build/artifact.py", "pmorg/build/image_context.py"):
+        source_path = repository_root / relative_source
+        tree = ast.parse(
+            source_path.read_text(encoding="utf-8"), filename=str(source_path)
+        )
+        for node in ast.walk(tree):
+            modules: Iterable[str] = ()
+            if isinstance(node, ast.Import):
+                modules = (alias.name for alias in node.names)
+            elif isinstance(node, ast.ImportFrom):
+                modules = (node.module or "",)
+            for module in modules:
+                if module.split(".", 1)[0] in NETWORK_MODULES:
+                    violations.append(
+                        Violation(
+                            "UNDECLARED_EGRESS",
+                            str(source_path),
+                            f"network module import {module!r}",
+                        )
                     )
-                )
     return tuple(sorted(set(violations)))

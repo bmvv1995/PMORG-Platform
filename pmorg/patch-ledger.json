@@ -370,10 +370,15 @@
         "pmorg/build/artifact.py",
         "pmorg/build/ce-artifact-spec.json",
         "pmorg/build/ce-build-egress.json",
+        "pmorg/build/ce-image-contexts.json",
         "pmorg/build/ce-source-overlay.json",
+        "pmorg/build/image_context.py",
         "pmorg/scripts/build_ce_artifact.py",
+        "pmorg/scripts/build_ce_image_contexts.py",
         "pmorg/scripts/verify_ce_build.py",
-        "pmorg/tests/test_ce_build_substrate.py"
+        "pmorg/scripts/verify_ce_image_contexts.py",
+        "pmorg/tests/test_ce_build_substrate.py",
+        "pmorg/tests/test_ce_image_contexts.py"
       ],
       "requirements": [
         "PLT-004",
@@ -382,11 +387,13 @@
         "PLT-007",
         "PLT-008"
       ],
-      "reason": "Introduce the offline deterministic CE source-artifact format, fail-closed zero-EE input scanner, machine-checkable zero-egress contract and commit-pinned PMORG-owned overlay that removes the mixed-source CE-to-EE imports without patching the upstream tree.",
+      "reason": "Introduce the offline deterministic CE source-artifact and backend/web image-context formats, fail-closed zero-EE and literal-dispatch scanners, machine-checkable zero-egress contract and commit-pinned PMORG-owned overlay without patching the upstream tree.",
       "verification": [
-        "PMORG_PROTECTED_BASE_SHA=ee897d1b6761cd299e8ed5548b91f400c8494c31 python3 -B pmorg/scripts/verify_fork.py",
+        "PMORG_PROTECTED_BASE_SHA=4d7255e6e7310dc90f156c7b1de135238e9087af python3 -B pmorg/scripts/verify_fork.py",
         "python3 -B -m unittest pmorg.tests.test_ce_build_substrate -v",
-        "python3 -B pmorg/scripts/verify_ce_build.py"
+        "python3 -B -m unittest pmorg.tests.test_ce_image_contexts -v",
+        "python3 -B pmorg/scripts/verify_ce_build.py",
+        "python3 -B pmorg/scripts/verify_ce_image_contexts.py"
       ]
     }
   ],
