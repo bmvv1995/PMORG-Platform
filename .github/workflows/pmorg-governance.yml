@@ -1,0 +1,141 @@
+name: PMORG Governance
+
+on:
+  # This workflow is owner-bootstrapped.  Subsequent PR runs deliberately use
+  # the trusted base workflow rather than the candidate workflow.
+  pull_request_target: # zizmor: ignore[dangerous-triggers] trusted base executes; candidate is read-only data
+    branches: [main]
+    types: [opened, synchronize, reopened, edited]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  governance:
+    name: PMORG governance
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PMORG_PROTECTED_BASE_SHA: >-
+        ${{
+          github.event_name == 'pull_request_target' && github.event.pull_request.base.sha ||
+          ''
+        }}
+      TRUSTED_ROOT: ${{ github.workspace }}/trusted
+      CANDIDATE_ROOT: ${{ github.workspace }}/candidate
+    steps:
+      - name: Check out trusted governance base
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.base.sha || github.sha }}
+          path: trusted
+          fetch-depth: 0
+          persist-credentials: false
+          submodules: false
+          lfs: false
+
+      - name: Check out pull-request merge tree
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+          path: candidate
+          fetch-depth: 0
+          persist-credentials: false
+          submodules: false
+          lfs: false
+
+      - name: Bind pull-request event to its merge tree
+        if: ${{ github.event_name == 'pull_request_target' }}
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          read -r candidate_merge_sha candidate_base_sha candidate_head_sha extra_parent < <(
+            git -C "$CANDIDATE_ROOT" rev-list --parents -n 1 HEAD
+          )
+          [[ -z "${extra_parent:-}" ]]
+          [[ -n "$PR_MERGE_SHA" ]]
+          [[ "$candidate_merge_sha" == "$PR_MERGE_SHA" ]]
+          [[ "$candidate_base_sha" == "$PR_BASE_SHA" ]]
+          [[ "$candidate_head_sha" == "$PR_HEAD_SHA" ]]
+          git -C "$CANDIDATE_ROOT" merge-base --is-ancestor "$PR_BASE_SHA" HEAD
+          git -C "$CANDIDATE_ROOT" merge-base --is-ancestor "$PR_HEAD_SHA" HEAD
+          live_pr="$(gh api "repos/$REPOSITORY/pulls/$PR_NUMBER")"
+          [[ "$(jq -r '.state' <<< "$live_pr")" == open ]]
+          [[ "$(jq -r '.base.ref' <<< "$live_pr")" == main ]]
+          [[ "$(jq -r '.base.sha' <<< "$live_pr")" == "$PR_BASE_SHA" ]]
+          [[ "$(jq -r '.head.sha' <<< "$live_pr")" == "$PR_HEAD_SHA" ]]
+          [[ "$(jq -r '.merge_commit_sha' <<< "$live_pr")" == "$PR_MERGE_SHA" ]]
+
+      - name: Reject candidate changes to the trust boundary
+        if: ${{ github.event_name == 'pull_request_target' }}
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          changed=false
+          while IFS= read -r -d '' path; do
+            echo "Candidate changes trusted governance path: $path" >&2
+            changed=true
+          done < <(
+            git -C "$CANDIDATE_ROOT" diff --no-ext-diff --no-renames \
+              --name-only -z "$PR_BASE_SHA" HEAD -- \
+              .github/workflows/pmorg-governance.yml \
+              pmorg/scripts/verify_fork.py \
+              pmorg/tests/test_verify_fork.py
+          )
+          if [[ "$changed" == true ]]; then
+            exit 1
+          fi
+
+      - name: Verify pull-request candidate with trusted governance
+        if: ${{ github.event_name == 'pull_request_target' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -B "$TRUSTED_ROOT/pmorg/scripts/verify_fork.py" \
+            --candidate-repository-root "$CANDIDATE_ROOT" \
+            --trusted-repository-root "$TRUSTED_ROOT" \
+            --protected-base-sha "$PMORG_PROTECTED_BASE_SHA"
+
+      - name: Best-effort self-audit of main
+        if: ${{ github.event_name == 'push' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -B "$TRUSTED_ROOT/pmorg/scripts/verify_fork.py" \
+            --candidate-repository-root "$TRUSTED_ROOT" \
+            --trusted-repository-root "$TRUSTED_ROOT"
+
+      - name: Reconfirm pull-request identity after inspection
+        if: ${{ github.event_name == 'pull_request_target' }}
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          live_pr="$(gh api "repos/$REPOSITORY/pulls/$PR_NUMBER")"
+          [[ "$(jq -r '.state' <<< "$live_pr")" == open ]]
+          [[ "$(jq -r '.base.sha' <<< "$live_pr")" == "$PR_BASE_SHA" ]]
+          [[ "$(jq -r '.head.sha' <<< "$live_pr")" == "$PR_HEAD_SHA" ]]
+          [[ "$(jq -r '.merge_commit_sha' <<< "$live_pr")" == "$PR_MERGE_SHA" ]]
+
+      - name: Run trusted governance tests
+        working-directory: ${{ github.workspace }}/trusted
+        run: python3 -B -m unittest pmorg.tests.test_verify_fork -v

@@ -3,7 +3,38 @@
   "admission_mode": "governed_integration",
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
   "default_decision": "deny",
-  "seams": [],
+  "seams": [
+    {
+      "seam_id": "SEAM-CI-ZIZMOR-001",
+      "path_pattern": ".github/workflows/zizmor.yml",
+      "authorization_adr_ref": "pmorg/adr/ADR-0002-zizmor-private-repository-seam.json",
+      "authorization_commit": "4461d655aec931a31d274ce0ab4231f77209fa55",
+      "authorization_base_commit": "4461d655aec931a31d274ce0ab4231f77209fa55",
+      "authorization_blob_hash": "sha256:983d6c5d81dbc1e7f4e6f4ae27a96aa490468d1cc4440232b69408c611070ade",
+      "allowed_classifications": [
+        "integration"
+      ],
+      "required_protector_tests": [
+        "pmorg/tests/test_zizmor_ci_seam_protector.py::TestZizmorPrivateRepositorySeam.test_sarif_upload_is_explicitly_opt_in"
+      ],
+      "reason": "Admit only the byte-exact reviewed Zizmor private-repository CI target authorized by ADR-0002."
+    },
+    {
+      "seam_id": "SEAM-CI-HELM-001",
+      "path_pattern": ".github/workflows/pr-helm-chart-testing.yml",
+      "authorization_adr_ref": "pmorg/adr/ADR-0003-helm-runner-admission-seam.json",
+      "authorization_commit": "4461d655aec931a31d274ce0ab4231f77209fa55",
+      "authorization_base_commit": "4461d655aec931a31d274ce0ab4231f77209fa55",
+      "authorization_blob_hash": "sha256:eeb0fe835d3fcf5e1853da7e91c6f6809c60d8879429bfb078b3a8474f831a4e",
+      "allowed_classifications": [
+        "integration"
+      ],
+      "required_protector_tests": [
+        "pmorg/tests/test_helm_ci_seam_protector.py::TestHelmRunnerAdmissionSeam.test_non_helm_change_does_not_require_runs_on"
+      ],
+      "reason": "Admit only the byte-exact reviewed provider-aware Helm CI target authorized by ADR-0003."
+    }
+  ],
   "invariants": {
     "governed_integration_admission_required": true,
     "upstream_owned_change_requires_exactly_one_allowlisted_seam": true,

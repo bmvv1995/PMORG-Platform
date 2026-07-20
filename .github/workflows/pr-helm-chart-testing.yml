@@ -5,28 +5,86 @@ concurrency:
 
 on:
   merge_group:
+    types: [checks_requested]
   pull_request:
     branches: [main]
   push:
-    tags:
-      - "v*.*.*"
-  workflow_dispatch: # Allows manual triggering
+    tags: ["v*.*.*"]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  helm-chart-check:
-    # See https://runs-on.com/runners/linux/
-    runs-on:
-      [
-        runs-on,
-        runner=8cpu-linux-x64,
-        "run-id=${{ github.run_id }}-helm-chart-check",
-      ]
-    timeout-minutes: 45
+  detect_helm_inputs:
+    name: Detect Helm inputs
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      relevant: ${{ steps.detect.outputs.relevant }}
+    steps:
+      - name: Check out complete history
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
-    # fetch-depth 0 is required for helm/chart-testing-action
+      - name: Detect relevant Helm inputs
+        id: detect
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$GITHUB_EVENT_NAME" in
+            pull_request)
+              base_sha="$(jq -er '.pull_request.base.sha' "$GITHUB_EVENT_PATH")"
+              head_sha="$GITHUB_SHA"
+              ;;
+            merge_group)
+              base_sha="$(jq -er '.merge_group.base_sha' "$GITHUB_EVENT_PATH")"
+              head_sha="$GITHUB_SHA"
+              ;;
+            push|workflow_dispatch)
+              echo "relevant=true" >> "$GITHUB_OUTPUT"
+              exit 0
+              ;;
+            *)
+              echo "Unsupported event: $GITHUB_EVENT_NAME" >&2
+              exit 1
+              ;;
+          esac
+          git rev-parse --verify "${base_sha}^{commit}" >/dev/null
+          git rev-parse --verify "${head_sha}^{commit}" >/dev/null
+          git merge-base --is-ancestor "$base_sha" "$head_sha"
+          changed="$RUNNER_TEMP/helm-changed-paths"
+          git diff --no-renames --name-only -z \
+            "$base_sha" "$head_sha" -- > "$changed"
+          relevant=false
+          while IFS= read -r -d '' path; do
+            case "$path" in
+              deployment/helm/*|ct.yaml|.github/workflows/pr-helm-chart-testing.yml)
+                relevant=true
+                ;;
+            esac
+          done < "$changed"
+          echo "relevant=$relevant" >> "$GITHUB_OUTPUT"
+
+  helm_validation:
+    name: Helm validation
+    needs: detect_helm_inputs
+    if: >-
+      ${{
+        needs.detect_helm_inputs.result == 'success' &&
+        needs.detect_helm_inputs.outputs.relevant == 'true' &&
+        (
+          github.event_name != 'pull_request' ||
+          github.event.pull_request.head.repo.full_name == github.repository
+        )
+      }}
+    runs-on:
+      - runs-on
+      - runner=8cpu-linux-x64
+      - "run-id=${{ github.run_id }}-helm-chart-check"
+    timeout-minutes: 45
     steps:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -44,36 +102,13 @@ jobs:
         with:
           uv_version: "0.11.25"
 
-      # even though we specify chart-dirs in ct.yaml, it isn't used by ct for the list-changed command...
-      - name: Run chart-testing (list-changed)
-        id: list-changed
-        env:
-          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
-        run: |
-          echo "default_branch: ${DEFAULT_BRANCH}"
-          changed=$(ct list-changed --remote origin --target-branch ${DEFAULT_BRANCH} --chart-dirs deployment/helm/charts)
-          echo "list-changed output: $changed"
-          if [[ -n "$changed" ]]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      # uncomment to force run chart-testing
-      #     - name: Force run chart-testing (list-changed)
-      #       id: list-changed
-      #       run: echo "changed=true" >> $GITHUB_OUTPUT
-      # lint all charts if any changes were detected
       - name: Run chart-testing (lint)
-        if: steps.list-changed.outputs.changed == 'true'
         run: ct lint --config ct.yaml --all
-        # the following would lint only changed charts, but linting isn't expensive
-        # run: ct lint --config ct.yaml --target-branch ${{ github.event.repository.default_branch }}
 
       - name: Create kind cluster
-        if: steps.list-changed.outputs.changed == 'true'
         uses: helm/kind-action@ef37e7f390d99f746eb8b610417061a60e82a6cc # ratchet:helm/kind-action@v1.14.0
 
       - name: Pre-install cluster status check
-        if: steps.list-changed.outputs.changed == 'true'
         run: |
           echo "=== Pre-install Cluster Status ==="
           kubectl get nodes -o wide
@@ -81,7 +116,6 @@ jobs:
           kubectl get storageclass
 
       - name: Add Helm repositories and update
-        if: steps.list-changed.outputs.changed == 'true'
         run: |
           echo "=== Adding Helm repositories ==="
           helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -94,13 +128,11 @@ jobs:
           helm repo update
 
       - name: Verify CNPG CRDs are in sync
-        if: steps.list-changed.outputs.changed == 'true'
         run: |
           helm dependency build deployment/helm/charts/onyx
           deployment/helm/charts/onyx/scripts/check-cnpg-crds.sh
 
       - name: Pre-pull required images
-        if: steps.list-changed.outputs.changed == 'true'
         run: |
           echo "=== Pre-pulling required images to avoid timeout ==="
           KIND_CLUSTER=$(kubectl config current-context | sed 's/kind-//')
@@ -125,7 +157,6 @@ jobs:
           docker exec "$KIND_CLUSTER"-control-plane crictl images | grep -E "(cloudnative-pg|redis|onyx)" || echo "Some images may still be loading..."
 
       - name: Validate chart dependencies
-        if: steps.list-changed.outputs.changed == 'true'
         run: |
           echo "=== Validating chart dependencies ==="
           cd deployment/helm/charts/onyx
@@ -140,7 +171,6 @@ jobs:
 
       - name: Run chart-testing (install) with enhanced monitoring
         timeout-minutes: 25
-        if: steps.list-changed.outputs.changed == 'true'
         run: |
           echo "=== Starting chart installation with monitoring ==="
 
@@ -232,7 +262,6 @@ jobs:
           kubectl get pods --all-namespaces
 
       - name: Post-install verification
-        if: steps.list-changed.outputs.changed == 'true'
         run: |
           echo "=== Post-install verification ==="
           if ! kubectl cluster-info >/dev/null 2>&1; then
@@ -245,7 +274,7 @@ jobs:
           kubectl describe pods --all-namespaces | grep -A 5 -B 2 "Failed\|Error\|Warning" || echo "No pod issues found"
 
       - name: Cleanup on failure
-        if: failure() && steps.list-changed.outputs.changed == 'true'
+        if: ${{ failure() }}
         run: |
           echo "=== Cleanup on failure ==="
           if ! kubectl cluster-info >/dev/null 2>&1; then
@@ -264,6 +293,35 @@ jobs:
 
           echo "=== Helm releases ==="
           helm list --all-namespaces
-        # the following would install only changed charts, but we only have one chart so
-        # don't worry about that for now
-        # run: ct install --target-branch ${{ github.event.repository.default_branch }}
+
+  helm-chart-check:
+    name: helm-chart-check
+    needs: [detect_helm_inputs, helm_validation]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Resolve Helm gate
+        env:
+          DETECT_RESULT: ${{ needs.detect_helm_inputs.result }}
+          RELEVANT: ${{ needs.detect_helm_inputs.outputs.relevant }}
+          VALIDATION_RESULT: ${{ needs.helm_validation.result }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$DETECT_RESULT" != "success" ]]; then
+            echo "Helm input detection failed: $DETECT_RESULT" >&2
+            exit 1
+          fi
+          case "$RELEVANT:$VALIDATION_RESULT" in
+            false:skipped)
+              echo "Helm validation not applicable; RunsOn was not requested."
+              ;;
+            true:success)
+              echo "Applicable Helm validation passed."
+              ;;
+            *)
+              echo "Invalid Helm gate state: relevant=$RELEVANT validation=$VALIDATION_RESULT" >&2
+              exit 1
+              ;;
+          esac
