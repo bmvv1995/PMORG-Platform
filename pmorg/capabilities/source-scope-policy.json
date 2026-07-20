@@ -1,0 +1,33 @@
+{
+  "enterprise_license_paths": [
+    "backend/ee/**",
+    "web/src/app/ee/**",
+    "web/src/ee/**"
+  ],
+  "inventory_fields": [
+    "path",
+    "mode",
+    "git_object_id",
+    "sha256",
+    "size_bytes"
+  ],
+  "onyx_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "repository": "https://github.com/onyx-dot-app/onyx.git",
+  "schema_version": "pmorg.source-scope-derivation-policy/v1",
+  "scopes": {
+    "onyx_ce": {
+      "roots": [
+        "."
+      ],
+      "selection": "all_git_blobs_except_enterprise_license_paths"
+    },
+    "onyx_ee": {
+      "roots": [
+        "backend/ee",
+        "web/src/app/ee",
+        "web/src/ee"
+      ],
+      "selection": "enterprise_license_paths_only"
+    }
+  }
+}
