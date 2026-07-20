@@ -522,6 +522,47 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "python3 -B pmorg/scripts/build_candidate_search.py --check"
       ]
+    },
+    {
+      "id": "PL-018",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/qualification_oracles.py",
+        "backend/pmorg/tests/test_qualification_oracles.py",
+        "pmorg/capabilities/qualification-oracle-policy-v1.json",
+        "pmorg/capabilities/qualification-oracle-result-v1.schema.json",
+        "pmorg/scripts/build_qualification_oracles.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-LIC-001",
+        "A-LIC-002",
+        "A-LIC-003",
+        "A-PATCH-001",
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001",
+        "PLT-004",
+        "PLT-005",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Define a closed, content-addressed qualification-oracle policy for every committed capability contract test, reuse existing PMORG verifiers rather than parallel logic, bind each future result to a single candidate module-group blob projection, require complete candidate-byte observation before PASS, and mark missing deployment/distribution implementations explicitly unexecutable and fail-closed without emitting qualification reports, dispositions, admission, release or G3-A claims.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=9ee6fb24608936bb4bf69c7adf4f0910c6ce8b88 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_qualification_oracles -v",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_candidate_search -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "python3 -B pmorg/scripts/build_qualification_oracles.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

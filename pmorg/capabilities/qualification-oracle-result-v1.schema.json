@@ -1,0 +1,101 @@
+{
+  "$id": "urn:pmorg:qualification-oracle-result:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capability_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_exit_codes": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "failure_reasons": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "observed_blob_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "oracle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "oracle_status": {
+      "enum": [
+        "executable",
+        "unexecutable"
+      ]
+    },
+    "projected_blob_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "pmorg.qualification-oracle-result/v1"
+    },
+    "test_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "unobserved_blob_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "verdict": {
+      "enum": [
+        "pass",
+        "fail"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "capability_id",
+    "test_id",
+    "candidate_id",
+    "oracle_id",
+    "oracle_status",
+    "projected_blob_count",
+    "observed_blob_count",
+    "unobserved_blob_count",
+    "execution_exit_codes",
+    "bindings",
+    "failure_reasons",
+    "verdict"
+  ],
+  "title": "PMORG candidate qualification oracle result",
+  "type": "object"
+}

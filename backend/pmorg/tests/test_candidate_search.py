@@ -132,7 +132,7 @@ class TestCandidateSearch(unittest.TestCase):
             source = REPOSITORY_ROOT / relative_path
             target = root / relative_path
             if source.is_dir():
-                shutil.copytree(source, target)
+                shutil.copytree(source, target, dirs_exist_ok=True)
             else:
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)
