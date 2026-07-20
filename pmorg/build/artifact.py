@@ -21,6 +21,7 @@ from typing import Sequence
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 SPEC_PATH = Path(__file__).with_name("ce-artifact-spec.json")
 EGRESS_PATH = Path(__file__).with_name("ce-build-egress.json")
+OVERLAY_PATH = Path(__file__).with_name("ce-source-overlay.json")
 MANIFEST_NAME = "PMORG-MANIFEST.json"
 SOURCE_SUFFIXES = {".py", ".pyi", ".js", ".jsx", ".ts", ".tsx", ".mjs", ".cjs"}
 NETWORK_MODULES = {
@@ -74,6 +75,13 @@ def _read_json_object(path: Path) -> dict[str, object]:
     return value
 
 
+def _parse_json_object(data: bytes, label: str) -> dict[str, object]:
+    value = json.loads(data)
+    if not isinstance(value, dict):
+        raise ValueError(f"{label} must contain a JSON object")
+    return value
+
+
 def _run_git(repository_root: Path, *arguments: str, text: bool = False) -> bytes | str:
     if not arguments or arguments[0] not in ALLOWED_GIT_SUBCOMMANDS:
         raise ValueError("builder attempted a non-allowlisted git operation")
@@ -120,6 +128,26 @@ def resolve_commit(repository_root: Path, revision: str) -> str:
     assert isinstance(result, str)
     if not re.fullmatch(r"[0-9a-f]{40}", result):
         raise ValueError("revision did not resolve to a full commit SHA")
+    return result
+
+
+def _repository_relative(repository_root: Path, path: Path) -> str:
+    try:
+        return path.resolve().relative_to(repository_root.resolve()).as_posix()
+    except ValueError as error:
+        raise ValueError(f"{path} must be inside the repository") from error
+
+
+def _read_committed_file(
+    repository_root: Path, commit: str, relative_path: str
+) -> bytes:
+    if (
+        PurePosixPath(relative_path).is_absolute()
+        or ".." in PurePosixPath(relative_path).parts
+    ):
+        raise ValueError(f"unsafe committed path {relative_path!r}")
+    result = _run_git(repository_root, "cat-file", "blob", f"{commit}:{relative_path}")
+    assert isinstance(result, bytes)
     return result
 
 
@@ -222,10 +250,18 @@ def build_artifact(
     revision: str = "HEAD",
     spec_path: Path = SPEC_PATH,
 ) -> BuildResult:
-    spec = _read_json_object(spec_path)
-    validate_spec(spec, repository_root)
     commit = resolve_commit(repository_root, revision)
+    spec_relative = _repository_relative(repository_root, spec_path)
+    spec = _parse_json_object(
+        _read_committed_file(repository_root, commit, spec_relative), spec_relative
+    )
+    validate_spec(spec, repository_root)
     entries = selected_entries(repository_root, commit, spec)
+    overlay_ref = cast(str, spec["overlay_manifest"])
+    overlay = _parse_json_object(
+        _read_committed_file(repository_root, commit, overlay_ref), overlay_ref
+    )
+    entries = apply_overlay(entries, overlay)
     violations = scan_entries_for_ee(entries, repository_root, commit, spec)
     if violations:
         raise ValueError(
@@ -297,6 +333,93 @@ def validate_spec(spec: dict[str, object], repository_root: Path) -> None:
         raise ValueError("egress inventory reference drifted")
     if not (repository_root / str(egress_ref)).is_file():
         raise ValueError("egress inventory is missing")
+    overlay_ref = spec.get("overlay_manifest")
+    if overlay_ref != "pmorg/build/ce-source-overlay.json":
+        raise ValueError("CE source overlay reference drifted")
+
+
+def _sha256(value: bytes) -> str:
+    return hashlib.sha256(value).hexdigest()
+
+
+def apply_overlay(
+    entries: Sequence[GitEntry], overlay: dict[str, object]
+) -> tuple[GitEntry, ...]:
+    if overlay.get("schema_version") != "pmorg.ce-source-overlay/v1":
+        raise ValueError("unexpected CE source overlay schema version")
+    raw_entries = overlay.get("entries")
+    if not isinstance(raw_entries, list) or not raw_entries:
+        raise ValueError("CE source overlay entries must be a non-empty array")
+    indexed = {entry.path: entry for entry in entries}
+    raw_paths = [
+        cast(dict[str, object], item).get("path") if isinstance(item, dict) else None
+        for item in raw_entries
+    ]
+    if not all(isinstance(path, str) for path in raw_paths):
+        raise ValueError("every CE source overlay entry must have a string path")
+    paths = cast(list[str], raw_paths)
+    if paths != sorted(paths) or len(paths) != len(set(paths)):
+        raise ValueError("CE source overlay paths must be unique and sorted")
+
+    for raw_entry in raw_entries:
+        if not isinstance(raw_entry, dict):
+            raise ValueError("every CE source overlay entry must be an object")
+        entry_value = cast(dict[str, object], raw_entry)
+        path = cast(str, entry_value["path"])
+        source = indexed.get(path)
+        if source is None:
+            raise ValueError(f"overlay target {path!r} is not selected")
+        if source.mode not in {"100644", "100755"}:
+            raise ValueError(f"overlay target {path!r} must be a regular file")
+        if entry_value.get("base_sha256") != _sha256(source.data):
+            raise ValueError(f"overlay base digest drifted for {path}")
+        expected_result = entry_value.get("result_sha256")
+        if not isinstance(expected_result, str) or not re.fullmatch(
+            r"[0-9a-f]{64}", expected_result
+        ):
+            raise ValueError(f"overlay result digest is invalid for {path}")
+        raw_operations = entry_value.get("operations")
+        if not isinstance(raw_operations, list) or not raw_operations:
+            raise ValueError(f"overlay operations must be non-empty for {path}")
+        try:
+            lines = source.data.decode("utf-8").splitlines(keepends=True)
+        except UnicodeDecodeError as error:
+            raise ValueError(f"overlay target {path!r} must be UTF-8") from error
+        operations: list[tuple[int, int, str]] = []
+        previous_end = 0
+        for raw_operation in raw_operations:
+            if not isinstance(raw_operation, dict):
+                raise ValueError(f"overlay operation must be an object for {path}")
+            operation_value = cast(dict[str, object], raw_operation)
+            start = operation_value.get("start")
+            end = operation_value.get("end")
+            replacement = operation_value.get("replacement")
+            if (
+                not isinstance(start, int)
+                or isinstance(start, bool)
+                or not isinstance(end, int)
+                or isinstance(end, bool)
+                or not isinstance(replacement, str)
+                or start < previous_end
+                or end < start
+                or end > len(lines)
+            ):
+                raise ValueError(f"overlay operation is invalid or overlaps for {path}")
+            operations.append((start, end, replacement))
+            previous_end = end
+        result_lines = list(lines)
+        for start, end, replacement in reversed(operations):
+            result_lines[start:end] = replacement.splitlines(keepends=True)
+        result = "".join(result_lines).encode("utf-8")
+        if _sha256(result) != expected_result:
+            raise ValueError(f"overlay result digest drifted for {path}")
+        indexed[path] = GitEntry(
+            mode=source.mode,
+            object_id=source.object_id,
+            path=source.path,
+            data=result,
+        )
+    return tuple(indexed[entry.path] for entry in entries)
 
 
 def _path_is_under(path: str, prefix: str) -> bool:

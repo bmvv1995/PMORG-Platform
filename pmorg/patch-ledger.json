@@ -370,6 +370,7 @@
         "pmorg/build/artifact.py",
         "pmorg/build/ce-artifact-spec.json",
         "pmorg/build/ce-build-egress.json",
+        "pmorg/build/ce-source-overlay.json",
         "pmorg/scripts/build_ce_artifact.py",
         "pmorg/scripts/verify_ce_build.py",
         "pmorg/tests/test_ce_build_substrate.py"
@@ -381,10 +382,11 @@
         "PLT-007",
         "PLT-008"
       ],
-      "reason": "Introduce the offline deterministic CE source-artifact format, fail-closed zero-EE input scanner and machine-checkable zero-egress contract, while explicitly retaining the mixed-source baseline rejection until a later PMORG-owned CE overlay is qualified.",
+      "reason": "Introduce the offline deterministic CE source-artifact format, fail-closed zero-EE input scanner, machine-checkable zero-egress contract and commit-pinned PMORG-owned overlay that removes the mixed-source CE-to-EE imports without patching the upstream tree.",
       "verification": [
-        "PMORG_PROTECTED_BASE_SHA=1c2f654569187d85eba1a750e6e5663f959ead03 python3 -B pmorg/scripts/verify_fork.py",
-        "python3 -B -m unittest pmorg.tests.test_ce_build_substrate -v"
+        "PMORG_PROTECTED_BASE_SHA=ee897d1b6761cd299e8ed5548b91f400c8494c31 python3 -B pmorg/scripts/verify_fork.py",
+        "python3 -B -m unittest pmorg.tests.test_ce_build_substrate -v",
+        "python3 -B pmorg/scripts/verify_ce_build.py"
       ]
     }
   ],

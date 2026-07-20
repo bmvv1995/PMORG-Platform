@@ -33,5 +33,6 @@
     "web/src/ee"
   ],
   "pmorg_ownership_policy": "pmorg/policies/ownership-roots.json",
-  "egress_inventory": "pmorg/build/ce-build-egress.json"
+  "egress_inventory": "pmorg/build/ce-build-egress.json",
+  "overlay_manifest": "pmorg/build/ce-source-overlay.json"
 }
