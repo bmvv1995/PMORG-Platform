@@ -1,0 +1,25 @@
+{
+  "capture_request": {
+    "author": "agent:legacy-1",
+    "content": "quarterly outcome",
+    "external_id": "evidence-17",
+    "source": "legacy-note"
+  },
+  "claim_states": [
+    "candidate",
+    "validated",
+    "refuted",
+    "superseded",
+    "under_review"
+  ],
+  "operations": [
+    "memory_negotiate_registry",
+    "memory_capture_evidence",
+    "memory_propose_claim",
+    "memory_validate_claim",
+    "memory_supersede",
+    "memory_record_outcome",
+    "memory_recall",
+    "memory_get_timeline"
+  ]
+}
