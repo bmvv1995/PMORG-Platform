@@ -336,6 +336,30 @@
         "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_contract_artifacts -v",
         "PYTHONPATH=backend python3 -B -m pmorg.contracts.artifacts --check"
       ]
+    },
+    {
+      "id": "PL-011",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/contracts/legacy/__init__.py",
+        "backend/pmorg/contracts/legacy/mapper.py",
+        "backend/pmorg/contracts/legacy/models.py",
+        "backend/pmorg/legacy_boundaries.py",
+        "backend/pmorg/tests/fixtures/legacy/v2-memory.json",
+        "backend/pmorg/tests/test_legacy_mapper.py"
+      ],
+      "requirements": [
+        "MEM-011",
+        "MEM-012",
+        "ORC-006",
+        "PLT-004"
+      ],
+      "reason": "Provide a pure, removable V2 compatibility mapper for source identity, provenance, request-hash conflict semantics, memory operations/errors and fail-closed state supersession without exposing V2 aliases, dual writes or unverifiable legacy state as authoritative V3 data.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=c557f90d5213489892a8e5ec3e5bae3ec1077c48 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_legacy_mapper -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
