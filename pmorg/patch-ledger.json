@@ -469,6 +469,35 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "python3 -B pmorg/scripts/build_capability_catalog.py --check"
       ]
+    },
+    {
+      "id": "PL-016",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/source_scopes.py",
+        "backend/pmorg/tests/test_source_scopes.py",
+        "pmorg/capabilities/source-scope-policy.json",
+        "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+        "pmorg/capabilities/source-scopes/onyx-ce-source-scope-v1.json",
+        "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+        "pmorg/capabilities/source-scopes/onyx-ee-source-scope-v1.json",
+        "pmorg/capabilities/source-scopes/onyx-source-scope-derivation-v1.json",
+        "pmorg/scripts/build_source_scopes.py"
+      ],
+      "requirements": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "PLT-004",
+        "PLT-006"
+      ],
+      "reason": "Independently derive the complete CE and EE source-scope denominators from the exact pinned Onyx Git commit and its blob bytes, preserve byte-closed ordered path inventories with object and content identities, and fail closed for baseline, policy, schema, generator or committed-output drift with zero duplicate, unreadable, overlapping or unclassified paths, without claiming candidate search, disposition, deviation, admission, release or G3-A completion.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=95b16cb247fa880835e9ea10aefcf00930d58220 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_source_scopes -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "python3 -B pmorg/scripts/build_source_scopes.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

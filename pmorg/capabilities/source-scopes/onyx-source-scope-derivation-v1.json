@@ -1,0 +1,45 @@
+{
+  "ce_path_count": 5684,
+  "classified_path_count": 5937,
+  "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "duplicate_path_count": 0,
+  "ee_path_count": 253,
+  "expected_path_count": 5937,
+  "generator": {
+    "digest": "sha256:bbfcb04c3ce064757a96274b015dabda1ad1b0a0c7a2aa1d6f2fb2aac34c818d",
+    "logical_name": "source-scope-generator",
+    "media_type": "text/x-python",
+    "relative_path": "backend/pmorg/application/source_scopes.py",
+    "size_bytes": 21740
+  },
+  "git_tree_id": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58",
+  "inventories": [
+    {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    {
+      "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+      "logical_name": "onyx_ee-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+      "size_bytes": 61086
+    }
+  ],
+  "overlap_path_count": 0,
+  "policy": {
+    "digest": "sha256:9e87a65a50249770185b9e18ada74203d4de433b471fbf5d60143058ed6c0297",
+    "logical_name": "source-scope-derivation-policy",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/source-scope-policy.json",
+    "size_bytes": 712
+  },
+  "repository": "https://github.com/onyx-dot-app/onyx.git",
+  "scanned_path_count": 5937,
+  "schema_version": "pmorg.source-scope-derivation-evidence/v1",
+  "unclassified_path_count": 0,
+  "unreadable_path_count": 0
+}

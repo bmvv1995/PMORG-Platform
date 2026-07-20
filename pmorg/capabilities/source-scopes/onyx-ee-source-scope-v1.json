@@ -1,0 +1,32 @@
+{
+  "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "derivation_evidence_bundle": {
+    "digest": "sha256:c0e1a7ae4d5e8db9e6ab9f53d272c906d0fe2dd4d93b0dfc07fcf3295507d109",
+    "logical_name": "onyx-source-scope-derivation-evidence",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/source-scopes/onyx-source-scope-derivation-v1.json",
+    "size_bytes": 1720
+  },
+  "derivation_policy_hash": "sha256:9e87a65a50249770185b9e18ada74203d4de433b471fbf5d60143058ed6c0297",
+  "duplicate_path_count": 0,
+  "expected_path_count": 253,
+  "generator_artifact_digest": "sha256:bbfcb04c3ce064757a96274b015dabda1ad1b0a0c7a2aa1d6f2fb2aac34c818d",
+  "generator_identity": "pmorg.source-scope-generator/v1",
+  "path_inventory": {
+    "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+    "logical_name": "onyx_ee-path-inventory",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+    "size_bytes": 61086
+  },
+  "repository": "https://github.com/onyx-dot-app/onyx.git",
+  "roots": [
+    "backend/ee",
+    "web/src/app/ee",
+    "web/src/ee"
+  ],
+  "schema_version": "pmorg.source-scope-manifest/v1",
+  "scope_kind": "onyx_ee",
+  "tree_hash": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+  "unreadable_path_count": 0
+}
