@@ -1,0 +1,11 @@
+{
+  "capability_id": "deployment-admission",
+  "requirement_ids": [
+    "A-LIC-002",
+    "PLT-007"
+  ],
+  "schema_version": "pmorg.capability-contract-tests/v1",
+  "test_ids": [
+    "A-LIC-002"
+  ]
+}

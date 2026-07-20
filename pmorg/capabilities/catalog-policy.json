@@ -1,0 +1,72 @@
+{
+  "applicable_requirement_selectors": [
+    "round_3_contract.platform_requirements",
+    "round_3_contract.acceptance_controls"
+  ],
+  "capabilities": [
+    {
+      "capability_id": "capability-disposition-qualification",
+      "requirement_ids": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "PLT-006"
+      ],
+      "test_manifest": "pmorg/capabilities/contract-tests/capability-disposition-qualification.json"
+    },
+    {
+      "capability_id": "deployment-admission",
+      "requirement_ids": [
+        "A-LIC-002",
+        "PLT-007"
+      ],
+      "test_manifest": "pmorg/capabilities/contract-tests/deployment-admission.json"
+    },
+    {
+      "capability_id": "distribution-admission",
+      "requirement_ids": [
+        "A-LIC-003",
+        "PLT-008"
+      ],
+      "test_manifest": "pmorg/capabilities/contract-tests/distribution-admission.json"
+    },
+    {
+      "capability_id": "governed-onyx-fork",
+      "requirement_ids": [
+        "A-FORK-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001"
+      ],
+      "test_manifest": "pmorg/capabilities/contract-tests/governed-onyx-fork.json"
+    },
+    {
+      "capability_id": "qualified-reproducible-build",
+      "requirement_ids": [
+        "A-EVIDENCE-001",
+        "A-LIC-001",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "PLT-005"
+      ],
+      "test_manifest": "pmorg/capabilities/contract-tests/qualified-reproducible-build.json"
+    },
+    {
+      "capability_id": "thin-fork-boundary",
+      "requirement_ids": [
+        "A-PATCH-001",
+        "PLT-004"
+      ],
+      "test_manifest": "pmorg/capabilities/contract-tests/thin-fork-boundary.json"
+    }
+  ],
+  "catalog_version": "1.0.0",
+  "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+  "required_search_surfaces": [
+    "ce",
+    "ee"
+  ],
+  "schema_version": "pmorg.capability-catalog-policy/v1"
+}

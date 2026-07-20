@@ -437,6 +437,38 @@
         "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_qualification_signing -v",
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
       ]
+    },
+    {
+      "id": "PL-015",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/capabilities.py",
+        "backend/pmorg/tests/test_capability_catalog.py",
+        "pmorg/capabilities/capability-catalog-v1.json",
+        "pmorg/capabilities/catalog-policy.json",
+        "pmorg/capabilities/contract-tests/capability-disposition-qualification.json",
+        "pmorg/capabilities/contract-tests/deployment-admission.json",
+        "pmorg/capabilities/contract-tests/distribution-admission.json",
+        "pmorg/capabilities/contract-tests/governed-onyx-fork.json",
+        "pmorg/capabilities/contract-tests/qualified-reproducible-build.json",
+        "pmorg/capabilities/contract-tests/thin-fork-boundary.json",
+        "pmorg/scripts/build_capability_catalog.py"
+      ],
+      "requirements": [
+        "PLT-001",
+        "PLT-004",
+        "PLT-005",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Derive the versioned release capability catalog from the exact baseline platform requirements and acceptance controls, bind each capability to a content-addressed contract-test manifest, and fail closed for unmapped, unknown, duplicate, reordered, escaped, drifted or schema-unbound inputs without claiming source-search, disposition, admission, release or G3-A completion.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=d2b0938789282dd6eb73551a45dc6504be23e6c4 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_capability_catalog -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "python3 -B pmorg/scripts/build_capability_catalog.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

@@ -1,0 +1,17 @@
+{
+  "capability_id": "qualified-reproducible-build",
+  "requirement_ids": [
+    "A-EVIDENCE-001",
+    "A-LIC-001",
+    "A-REPORT-001",
+    "A-REPRO-001",
+    "PLT-005"
+  ],
+  "schema_version": "pmorg.capability-contract-tests/v1",
+  "test_ids": [
+    "A-EVIDENCE-001",
+    "A-LIC-001",
+    "A-REPORT-001",
+    "A-REPRO-001"
+  ]
+}
