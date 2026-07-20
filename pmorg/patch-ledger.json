@@ -288,6 +288,30 @@
         "PMORG_PROTECTED_BASE_SHA=ba85856343a16b5ac4472fbb00db2174044b5dcc python3 -B pmorg/scripts/verify_fork.py",
         "python3 -B -m unittest pmorg.tests.test_actionlint_helm_lane_seam_protector -v"
       ]
+    },
+    {
+      "id": "PL-009",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/README.md",
+        "backend/pmorg/__init__.py",
+        "backend/pmorg/application/__init__.py",
+        "backend/pmorg/boundaries.py",
+        "backend/pmorg/contracts/__init__.py",
+        "backend/pmorg/domain/__init__.py",
+        "backend/pmorg/integrations/__init__.py",
+        "backend/pmorg/interaction/__init__.py",
+        "backend/pmorg/tests/__init__.py",
+        "backend/pmorg/tests/test_boundaries.py"
+      ],
+      "requirements": [
+        "PLT-004"
+      ],
+      "reason": "Establish the PMORG V3 backend package boundary, keep the domain layer independent from infrastructure and outer layers, and expose only pmorg-contracts/1.0 as the V3 wire surface without adding runtime behavior.",
+      "verification": [
+        "python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
