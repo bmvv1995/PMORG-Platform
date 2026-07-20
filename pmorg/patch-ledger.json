@@ -212,15 +212,18 @@
       "id": "PL-004",
       "classification": "PMORG-owned",
       "paths": [
+        "pmorg/ACTIVE-TEST-SUITE.md",
         "pmorg/adr/ADR-0002-zizmor-private-repository-seam.json",
         "pmorg/adr/ADR-0003-helm-runner-admission-seam.json",
         "pmorg/adr/ADR-0004-helm-static-ephemeral-runner-seam.json",
         "pmorg/adr/ADR-0005-actionlint-helm-lane-label-seam.json",
+        "pmorg/tests/__init__.py",
         "pmorg/tests/fixtures/ci-seams/actionlint-static-helm-lane.yml",
         "pmorg/tests/fixtures/ci-seams/pr-helm-chart-testing.yml",
         "pmorg/tests/fixtures/ci-seams/pr-helm-chart-testing-static-lane.yml",
         "pmorg/tests/fixtures/ci-seams/zizmor.yml",
         "pmorg/tests/test_actionlint_helm_lane_seam_protector.py",
+        "pmorg/tests/test_active_suite_discovery.py",
         "pmorg/tests/test_helm_ci_seam_protector.py",
         "pmorg/tests/test_helm_static_lane_ci_seam_protector.py",
         "pmorg/tests/test_zizmor_ci_seam_protector.py"
@@ -232,10 +235,11 @@
         "PLT-007",
         "PLT-008"
       ],
-      "reason": "Pre-authorize exact inherited CI seams and immutable same-path successor transitions, byte-binding their reviewed golden targets and prospective protectors before executable admission.",
+      "reason": "Pre-authorize exact inherited CI seams and immutable same-path successor transitions, byte-bind their reviewed golden targets and protectors, and derive active-suite discovery without executing retired evidence as live tests.",
       "verification": [
         "python3 pmorg/scripts/verify_fork.py",
         "python3 -m unittest pmorg.tests.test_verify_fork -v",
+        "python3 -m unittest discover -s pmorg/tests -t . -p 'test_*.py'",
         "python3 -m unittest pmorg.tests.test_helm_ci_seam_protector -v",
         "python3 -m unittest pmorg.tests.test_zizmor_ci_seam_protector -v"
       ]
