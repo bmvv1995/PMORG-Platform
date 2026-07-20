@@ -1,0 +1,1 @@
+"""Concrete PMORG integration adapters."""
