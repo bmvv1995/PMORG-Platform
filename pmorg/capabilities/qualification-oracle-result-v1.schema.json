@@ -3,6 +3,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
+    "adapter_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "bindings": {
       "items": {
         "additionalProperties": false,
@@ -25,7 +32,11 @@
       "type": "array"
     },
     "candidate_id": {
-      "minLength": 1,
+      "pattern": "^candidate-[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
       "type": "string"
     },
     "capability_id": {
@@ -45,6 +56,20 @@
       },
       "type": "array"
     },
+    "mutation_baseline_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "mutation_result_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "observed_blob_count": {
       "minimum": 0,
       "type": "integer"
@@ -62,6 +87,13 @@
     "projected_blob_count": {
       "minimum": 0,
       "type": "integer"
+    },
+    "runtime_identity_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "schema_version": {
       "const": "pmorg.qualification-oracle-result/v1"
@@ -88,6 +120,11 @@
     "candidate_id",
     "oracle_id",
     "oracle_status",
+    "candidate_manifest_digest",
+    "adapter_digest",
+    "runtime_identity_digest",
+    "mutation_baseline_digest",
+    "mutation_result_digest",
     "projected_blob_count",
     "observed_blob_count",
     "unobserved_blob_count",

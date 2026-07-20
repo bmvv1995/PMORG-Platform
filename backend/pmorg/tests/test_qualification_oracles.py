@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import copy
 import json
 import shutil
 import subprocess
@@ -9,8 +8,10 @@ import unittest
 from pathlib import Path
 
 from pmorg.application.qualification_oracles import build_qualification_oracle_policy
+from pmorg.application.qualification_oracles import canonical_document_bytes
 from pmorg.application.qualification_oracles import check_qualification_oracles
 from pmorg.application.qualification_oracles import QualificationOracleError
+from pmorg.application.qualification_oracles import sha256_digest
 from pmorg.application.qualification_oracles import validate_qualification_oracle_result
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
@@ -26,87 +27,125 @@ class TestQualificationOracles(unittest.TestCase):
         self.assertEqual(first["candidate_projection"]["candidate_count"], 402)
         self.assertEqual(
             [item["oracle_status"] for item in first["oracles"]].count("unexecutable"),
-            2,
+            15,
         )
         for oracle in first["oracles"]:
-            if oracle["oracle_status"] == "executable":
-                self.assertTrue(oracle["bindings"])
-                self.assertIsNone(oracle["unexecutable_reason"])
-            else:
-                self.assertFalse(oracle["bindings"])
-                self.assertTrue(oracle["unexecutable_reason"])
-
-    def test_admission_oracles_are_explicitly_unexecutable(self) -> None:
-        policy = build_qualification_oracle_policy(REPOSITORY_ROOT)
-        unexecutable = {
-            (item["capability_id"], item["test_id"])
-            for item in policy["oracles"]
-            if item["oracle_status"] == "unexecutable"
-        }
+            self.assertFalse(oracle["bindings"])
+            self.assertIsNone(oracle["adapter"])
+            self.assertEqual(oracle["candidate_influence_status"], "not_demonstrated")
+            self.assertTrue(oracle["unexecutable_reason"])
         self.assertEqual(
-            unexecutable,
-            {
-                ("deployment-admission", "A-LIC-002"),
-                ("distribution-admission", "A-LIC-003"),
-            },
+            [item["relative_path"] for item in first["runtime_identity"]["artifacts"]],
+            [".python-version", "pyproject.toml", "uv.lock"],
+        )
+        self.assertEqual(
+            first["runtime_identity"]["status"],
+            "declaration_bound_binary_unattested",
+        )
+        runtime_identity = dict(first["runtime_identity"])
+        runtime_digest = runtime_identity.pop("digest")
+        self.assertEqual(
+            runtime_digest,
+            sha256_digest(canonical_document_bytes(runtime_identity)),
+        )
+        self.assertEqual(
+            [item["relative_path"] for item in first["derivation_artifacts"]],
+            [
+                "backend/pmorg/application/qualification_oracles.py",
+                "pmorg/scripts/build_qualification_oracles.py",
+            ],
+        )
+        self.assertEqual(
+            first["candidate_projection"]["candidate_inputs"]["relative_path"],
+            "pmorg/capabilities/candidate-inputs-v1.json",
+        )
+        self.assertEqual(
+            first["candidate_influence_contract"][
+                "global_gate_or_sidecar_only_evidence"
+            ],
+            "forbidden",
         )
 
-    def test_unexecutable_or_incompletely_observed_result_cannot_pass(self) -> None:
+    def test_global_gates_are_preserved_but_never_candidate_executable(self) -> None:
         policy = build_qualification_oracle_policy(REPOSITORY_ROOT)
-        oracle = next(
-            item
+        legacy = {
+            (item["capability_id"], item["test_id"]): item[
+                "legacy_global_gate_bindings"
+            ]
             for item in policy["oracles"]
-            if item["oracle_status"] == "unexecutable"
+        }
+        self.assertEqual(sum(bool(bindings) for bindings in legacy.values()), 13)
+        self.assertFalse(legacy[("deployment-admission", "A-LIC-002")])
+        self.assertFalse(legacy[("distribution-admission", "A-LIC-003")])
+
+    def test_unexecutable_or_status_forged_result_cannot_pass(self) -> None:
+        policy = build_qualification_oracle_policy(REPOSITORY_ROOT)
+        oracle = policy["oracles"][0]
+        candidate_inputs = json.loads(
+            (
+                REPOSITORY_ROOT / "pmorg/capabilities/candidate-inputs-v1.json"
+            ).read_bytes()
+        )
+        candidate = next(
+            item
+            for item in candidate_inputs["candidates"]
+            if item["capability_id"] == oracle["capability_id"]
         )
         result = {
             "schema_version": "pmorg.qualification-oracle-result/v1",
             "capability_id": oracle["capability_id"],
             "test_id": oracle["test_id"],
-            "candidate_id": "candidate-" + "0" * 64,
+            "candidate_id": candidate["candidate_id"],
             "oracle_id": oracle["oracle_id"],
             "oracle_status": "unexecutable",
+            "candidate_manifest_digest": candidate["manifest_digest"],
+            "adapter_digest": None,
+            "runtime_identity_digest": None,
+            "mutation_baseline_digest": None,
+            "mutation_result_digest": None,
             "projected_blob_count": 1,
             "observed_blob_count": 1,
             "unobserved_blob_count": 0,
             "execution_exit_codes": [],
             "bindings": [],
             "failure_reasons": [],
-            "verdict": "pass",
+            "verdict": "fail",
         }
+        validate_qualification_oracle_result(result, repository_root=REPOSITORY_ROOT)
+
+        manifest_drift = dict(result)
+        manifest_drift["candidate_manifest_digest"] = "sha256:" + "0" * 64
+        with self.assertRaisesRegex(
+            QualificationOracleError, "candidate manifest drifted"
+        ):
+            validate_qualification_oracle_result(
+                manifest_drift, repository_root=REPOSITORY_ROOT
+            )
+
+        unknown_candidate = dict(result)
+        unknown_candidate["candidate_id"] = "candidate-" + "0" * 64
+        with self.assertRaisesRegex(QualificationOracleError, "unknown candidate"):
+            validate_qualification_oracle_result(
+                unknown_candidate, repository_root=REPOSITORY_ROOT
+            )
+
+        fabricated_pass = dict(result)
+        fabricated_pass["verdict"] = "pass"
         with self.assertRaisesRegex(
             QualificationOracleError, "unexecutable oracle cannot pass"
         ):
             validate_qualification_oracle_result(
-                result, repository_root=REPOSITORY_ROOT
+                fabricated_pass, repository_root=REPOSITORY_ROOT
             )
 
-        executable = next(
-            item for item in policy["oracles"] if item["oracle_status"] == "executable"
-        )
-        incomplete = copy.deepcopy(result)
-        incomplete.update(
-            {
-                "capability_id": executable["capability_id"],
-                "test_id": executable["test_id"],
-                "oracle_id": executable["oracle_id"],
-                "oracle_status": "executable",
-                "projected_blob_count": 2,
-                "observed_blob_count": 1,
-                "unobserved_blob_count": 1,
-                "execution_exit_codes": [0],
-                "bindings": [
-                    {
-                        "digest": executable["bindings"][0]["digest"],
-                        "relative_path": executable["bindings"][0]["relative_path"],
-                    }
-                ],
-            }
-        )
+        forged = dict(result)
+        forged["oracle_status"] = "executable"
+        forged["verdict"] = "fail"
         with self.assertRaisesRegex(
-            QualificationOracleError, "PASS is not evidence-complete"
+            QualificationOracleError, "status drifted from policy"
         ):
             validate_qualification_oracle_result(
-                incomplete, repository_root=REPOSITORY_ROOT
+                forged, repository_root=REPOSITORY_ROOT
             )
 
     def test_binding_and_committed_output_drift_fail_closed(self) -> None:
@@ -130,7 +169,9 @@ class TestQualificationOracles(unittest.TestCase):
 
         policy_path = root / "pmorg/capabilities/qualification-oracle-policy-v1.json"
         policy = json.loads(policy_path.read_bytes())
-        policy["oracles"][0]["bindings"][0]["digest"] = "sha256:" + "0" * 64
+        policy["oracles"][0]["legacy_global_gate_bindings"][0]["digest"] = (
+            "sha256:" + "0" * 64
+        )
         policy_path.write_text(json.dumps(policy, sort_keys=True), encoding="utf-8")
         with self.assertRaisesRegex(QualificationOracleError, "artifact drifted"):
             check_qualification_oracles(root)
@@ -141,6 +182,21 @@ class TestQualificationOracles(unittest.TestCase):
         )
         binding_path = root / "pmorg/scripts/build_capability_catalog.py"
         binding_path.write_text("# binding drift\n", encoding="utf-8")
+        with self.assertRaisesRegex(QualificationOracleError, "artifact drifted"):
+            check_qualification_oracles(root)
+
+        shutil.copy2(
+            REPOSITORY_ROOT / "pmorg/scripts/build_capability_catalog.py",
+            binding_path,
+        )
+        lock_path = root / "uv.lock"
+        lock_path.write_bytes(lock_path.read_bytes() + b"# drift\n")
+        with self.assertRaisesRegex(QualificationOracleError, "artifact drifted"):
+            check_qualification_oracles(root)
+
+        shutil.copy2(REPOSITORY_ROOT / "uv.lock", lock_path)
+        candidate_inputs_path = root / "pmorg/capabilities/candidate-inputs-v1.json"
+        candidate_inputs_path.write_bytes(candidate_inputs_path.read_bytes() + b" \n")
         with self.assertRaisesRegex(QualificationOracleError, "artifact drifted"):
             check_qualification_oracles(root)
 

@@ -18,6 +18,14 @@ RESULT_SCHEMA_RELATIVE = "pmorg/capabilities/qualification-oracle-result-v1.sche
 CATALOG_RELATIVE = "pmorg/capabilities/capability-catalog-v1.json"
 CONTRACT_TEST_ROOT = "pmorg/capabilities/contract-tests"
 SEARCH_ROOT = "pmorg/capabilities/candidate-search"
+CANDIDATE_INPUTS_RELATIVE = "pmorg/capabilities/candidate-inputs-v1.json"
+PYTHON_VERSION_RELATIVE = ".python-version"
+PROJECT_RELATIVE = "pyproject.toml"
+LOCK_RELATIVE = "uv.lock"
+DERIVATION_RELATIVES = (
+    "backend/pmorg/application/qualification_oracles.py",
+    "pmorg/scripts/build_qualification_oracles.py",
+)
 
 POLICY_SCHEMA_VERSION = "pmorg.qualification-oracle-policy/v1"
 RESULT_SCHEMA_VERSION = "pmorg.qualification-oracle-result/v1"
@@ -116,7 +124,7 @@ CHECK_QUALIFICATION = Binding(
     ),
 )
 
-_EXECUTABLE_BINDINGS: dict[tuple[str, str], tuple[Binding, ...]] = {
+_GLOBAL_GATE_BINDINGS: dict[tuple[str, str], tuple[Binding, ...]] = {
     ("capability-disposition-qualification", "A-PATCH-002"): (CHECK_CATALOG,),
     ("capability-disposition-qualification", "A-PATCH-003"): (
         CHECK_SCOPES,
@@ -145,7 +153,7 @@ _EXECUTABLE_BINDINGS: dict[tuple[str, str], tuple[Binding, ...]] = {
     ),
     ("thin-fork-boundary", "A-PATCH-001"): (VERIFY_FORK,),
 }
-_UNEXECUTABLE_REASONS = {
+_ABSENT_IMPLEMENTATION_REASONS = {
     ("deployment-admission", "A-LIC-002"): (
         "deployment admission implementation and candidate-aware adapter are absent"
     ),
@@ -153,6 +161,14 @@ _UNEXECUTABLE_REASONS = {
         "distribution admission implementation and candidate-aware adapter are absent"
     ),
 }
+
+
+def _global_gate_reason(capability_id: str, test_id: str) -> str:
+    return (
+        f"{test_id} verifies repository-, process-, build- or release-wide state for "
+        f"{capability_id}; its existing invocation does not consume the candidate "
+        "manifest or candidate blob bytes, so candidate influence is not falsifiable"
+    )
 
 
 def canonical_document_bytes(value: Any) -> bytes:
@@ -186,21 +202,29 @@ def _read_object(path: Path, *, label: str) -> dict[str, Any]:
     return value
 
 
-def _artifact_ref(repository_root: Path, binding: Binding) -> dict[str, Any]:
-    path = _safe_path(repository_root, binding.relative_path)
+def _artifact_ref_for_path(
+    repository_root: Path, relative_path: str, *, media_type: str
+) -> dict[str, Any]:
+    path = _safe_path(repository_root, relative_path)
     try:
         payload = path.read_bytes()
     except OSError as error:
         raise QualificationOracleError(
-            f"oracle binding is missing: {binding.relative_path}"
+            f"bound artifact is missing: {relative_path}"
         ) from error
     return {
-        "argv": list(binding.argv),
         "digest": sha256_digest(payload),
-        "media_type": "text/x-python",
-        "relative_path": binding.relative_path,
+        "media_type": media_type,
+        "relative_path": relative_path,
         "size_bytes": len(payload),
     }
+
+
+def _binding_ref(repository_root: Path, binding: Binding) -> dict[str, Any]:
+    reference = _artifact_ref_for_path(
+        repository_root, binding.relative_path, media_type="text/x-python"
+    )
+    return {"argv": list(binding.argv), **reference}
 
 
 def _manifest_test_pairs(repository_root: Path) -> list[tuple[str, str]]:
@@ -305,6 +329,11 @@ def result_schema() -> dict[str, Any]:
             "candidate_id",
             "oracle_id",
             "oracle_status",
+            "candidate_manifest_digest",
+            "adapter_digest",
+            "runtime_identity_digest",
+            "mutation_baseline_digest",
+            "mutation_result_digest",
             "projected_blob_count",
             "observed_blob_count",
             "unobserved_blob_count",
@@ -317,9 +346,32 @@ def result_schema() -> dict[str, Any]:
             "schema_version": {"const": RESULT_SCHEMA_VERSION},
             "capability_id": string,
             "test_id": string,
-            "candidate_id": string,
+            "candidate_id": {
+                "type": "string",
+                "pattern": "^candidate-[0-9a-f]{64}$",
+            },
             "oracle_id": string,
             "oracle_status": {"enum": ["executable", "unexecutable"]},
+            "candidate_manifest_digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$",
+            },
+            "adapter_digest": {
+                "type": ["string", "null"],
+                "pattern": "^sha256:[0-9a-f]{64}$",
+            },
+            "runtime_identity_digest": {
+                "type": ["string", "null"],
+                "pattern": "^sha256:[0-9a-f]{64}$",
+            },
+            "mutation_baseline_digest": {
+                "type": ["string", "null"],
+                "pattern": "^sha256:[0-9a-f]{64}$",
+            },
+            "mutation_result_digest": {
+                "type": ["string", "null"],
+                "pattern": "^sha256:[0-9a-f]{64}$",
+            },
             "projected_blob_count": nonnegative,
             "observed_blob_count": nonnegative,
             "unobserved_blob_count": nonnegative,
@@ -339,7 +391,7 @@ def build_qualification_oracle_policy(
 ) -> dict[str, Any]:
     repository_root = repository_root.resolve()
     pairs = _manifest_test_pairs(repository_root)
-    expected = set(_EXECUTABLE_BINDINGS) | set(_UNEXECUTABLE_REASONS)
+    expected = set(_GLOBAL_GATE_BINDINGS) | set(_ABSENT_IMPLEMENTATION_REASONS)
     if set(pairs) != expected:
         raise QualificationOracleError(
             "qualification-oracle coverage is not exact; "
@@ -351,41 +403,82 @@ def build_qualification_oracle_policy(
     oracles: list[dict[str, Any]] = []
     for capability_id, test_id in pairs:
         key = (capability_id, test_id)
-        bindings = _EXECUTABLE_BINDINGS.get(key, ())
-        status = "executable" if bindings else "unexecutable"
+        global_bindings = _GLOBAL_GATE_BINDINGS.get(key, ())
+        reason = _ABSENT_IMPLEMENTATION_REASONS.get(key)
+        if reason is None:
+            reason = _global_gate_reason(capability_id, test_id)
         oracles.append(
             {
-                "bindings": [
-                    _artifact_ref(repository_root, binding) for binding in bindings
-                ],
+                "adapter": None,
+                "bindings": [],
                 "capability_id": capability_id,
                 "candidate_projection": "module_group_blob_set/v1",
+                "candidate_influence_status": "not_demonstrated",
+                "legacy_global_gate_bindings": [
+                    _binding_ref(repository_root, binding)
+                    for binding in global_bindings
+                ],
                 "oracle_id": f"qualification-oracle:{capability_id}:{test_id}:v1",
-                "oracle_status": status,
+                "oracle_status": "unexecutable",
+                "runtime_identity_status": "declaration_bound_binary_unattested",
                 "test_id": test_id,
-                "unexecutable_reason": _UNEXECUTABLE_REASONS.get(key),
+                "unexecutable_reason": reason,
             }
         )
+    candidate_inputs = _artifact_ref_for_path(
+        repository_root,
+        CANDIDATE_INPUTS_RELATIVE,
+        media_type="application/json",
+    )
+    runtime_artifacts = [
+        _artifact_ref_for_path(
+            repository_root, PYTHON_VERSION_RELATIVE, media_type="text/plain"
+        ),
+        _artifact_ref_for_path(
+            repository_root, PROJECT_RELATIVE, media_type="application/toml"
+        ),
+        _artifact_ref_for_path(
+            repository_root, LOCK_RELATIVE, media_type="application/toml"
+        ),
+    ]
+    runtime_identity = {
+        "artifacts": runtime_artifacts,
+        "interpreter_declaration": PYTHON_VERSION_RELATIVE,
+        "lockfile": LOCK_RELATIVE,
+        "status": "declaration_bound_binary_unattested",
+        "executable_requires_attested_interpreter_binary": True,
+    }
+    runtime_identity["digest"] = sha256_digest(
+        canonical_document_bytes(runtime_identity)
+    )
+    derivation_artifacts = [
+        _artifact_ref_for_path(
+            repository_root, relative_path, media_type="text/x-python"
+        )
+        for relative_path in DERIVATION_RELATIVES
+    ]
     return {
         "schema_version": POLICY_SCHEMA_VERSION,
-        "policy_version": "1.0.0",
+        "policy_version": "1.1.0",
         "catalog_version": "1.0.0",
         "candidate_projection": {
             "candidate_count": candidate_count,
             "classification_root": SEARCH_ROOT,
+            "candidate_inputs": candidate_inputs,
             "membership_rule": (
-                "all raw-hit blobs mapped to the candidate ID and its single "
-                "candidate_group"
+                "the complete module-group blob set bound by the candidate input "
+                "manifest and its independently verified digest"
             ),
             "observation_rule": (
-                "pass requires every projected candidate blob to be observed "
-                "by every bound invocation"
+                "pass requires a candidate-aware adapter to consume the exact "
+                "candidate manifest and all projected bytes"
             ),
             "projection_version": "module_group_blob_set/v1",
         },
         "execution_contract": {
             "environment": "offline_read_only_pinned_candidate_tree",
             "placeholder_set": [
+                "candidate_manifest_path",
                 "candidate_repository_root",
                 "candidate_revision",
                 "protected_base_sha",
@@ -394,6 +487,18 @@ def build_qualification_oracle_policy(
             "unknown_or_unexecutable_verdict": "fail",
             "zero_exit_without_complete_blob_observation_verdict": "fail",
         },
+        "runtime_identity": runtime_identity,
+        "candidate_influence_contract": {
+            "global_gate_or_sidecar_only_evidence": "forbidden",
+            "manifest_placeholder": "candidate_manifest_path",
+            "mutation_operator": "flip_one_byte_in_a_projected_candidate_blob",
+            "mutation_proof_required_for_executable": True,
+            "pass_condition": (
+                "the baseline and mutated adapter evidence digests differ and the "
+                "difference is attributable to the mutated candidate byte"
+            ),
+        },
+        "derivation_artifacts": derivation_artifacts,
         "result_schema": {
             "digest": sha256_digest(schema_bytes),
             "media_type": "application/schema+json",
@@ -427,8 +532,53 @@ def validate_qualification_oracle_result(
         raise QualificationOracleError(
             "oracle blob observation counts are inconsistent"
         )
+    policy = build_qualification_oracle_policy(repository_root)
+    identity = (result["capability_id"], result["test_id"], result["oracle_id"])
+    oracle = next(
+        (
+            item
+            for item in policy["oracles"]
+            if (item["capability_id"], item["test_id"], item["oracle_id"]) == identity
+        ),
+        None,
+    )
+    if oracle is None:
+        raise QualificationOracleError("oracle result has an unknown identity")
+    if status != oracle["oracle_status"]:
+        raise QualificationOracleError("oracle result status drifted from policy")
+    expected_bindings = [
+        {"digest": item["digest"], "relative_path": item["relative_path"]}
+        for item in oracle["bindings"]
+    ]
+    if bindings != expected_bindings:
+        raise QualificationOracleError("oracle result bindings drifted from policy")
+
+    candidate_inputs = _read_object(
+        _safe_path(repository_root, CANDIDATE_INPUTS_RELATIVE),
+        label="candidate inputs",
+    )
+    candidates = candidate_inputs.get("candidates")
+    if not isinstance(candidates, list):
+        raise QualificationOracleError("candidate inputs are missing candidates")
+    candidate = next(
+        (
+            item
+            for item in cast(list[dict[str, Any]], candidates)
+            if item.get("candidate_id") == result["candidate_id"]
+        ),
+        None,
+    )
+    if candidate is None:
+        raise QualificationOracleError("oracle result has an unknown candidate")
+    if candidate.get("capability_id") != result["capability_id"]:
+        raise QualificationOracleError("oracle result candidate capability drifted")
+    if candidate.get("manifest_digest") != result["candidate_manifest_digest"]:
+        raise QualificationOracleError("oracle result candidate manifest drifted")
+
     if status == "unexecutable" and verdict != "fail":
         raise QualificationOracleError("an unexecutable oracle cannot pass")
+    mutation_baseline = result["mutation_baseline_digest"]
+    mutation_result = result["mutation_result_digest"]
     if verdict == "pass" and (
         projected == 0
         or unobserved != 0
@@ -436,16 +586,15 @@ def validate_qualification_oracle_result(
         or any(code != 0 for code in exit_codes)
         or not bindings
         or reasons
+        or result["adapter_digest"] is None
+        or result["runtime_identity_digest"] is None
+        or mutation_baseline is None
+        or mutation_result is None
+        or mutation_baseline == mutation_result
+        or result["adapter_digest"] != oracle["adapter"]
+        or result["runtime_identity_digest"] != policy["runtime_identity"]["digest"]
     ):
         raise QualificationOracleError("oracle PASS is not evidence-complete")
-    policy = build_qualification_oracle_policy(repository_root)
-    keys = {
-        (oracle["capability_id"], oracle["test_id"], oracle["oracle_id"])
-        for oracle in policy["oracles"]
-    }
-    identity = (result["capability_id"], result["test_id"], result["oracle_id"])
-    if identity not in keys:
-        raise QualificationOracleError("oracle result has an unknown identity")
 
 
 def write_qualification_oracles(repository_root: Path = REPOSITORY_ROOT) -> None:
