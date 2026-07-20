@@ -1,0 +1,37 @@
+{
+  "schema_version": "pmorg.ce-source-artifact/v1",
+  "artifact_name": "pmorg-onyx-ce-source",
+  "media_type": "application/vnd.pmorg.onyx-ce-source.v1.tar",
+  "onyx_surface": "ce",
+  "usage_mode": "development_test",
+  "source_date_epoch": 0,
+  "include_patterns": [
+    "backend/onyx/**",
+    "backend/pmorg/**",
+    "backend/requirements/default.txt",
+    "backend/shared_configs/**",
+    "web/**",
+    "pmorg/**"
+  ],
+  "exclude_patterns": [
+    "backend/ee/**",
+    "web/src/app/ee/**",
+    "web/src/ee/**",
+    "web/tests/**",
+    "web/node_modules/**",
+    "**/__pycache__/**",
+    "**/*.pyc"
+  ],
+  "forbidden_source_prefixes": [
+    "backend/ee",
+    "web/src/app/ee",
+    "web/src/ee"
+  ],
+  "upstream_ee_reference_prefixes": [
+    "backend/ee",
+    "web/src/app/ee",
+    "web/src/ee"
+  ],
+  "pmorg_ownership_policy": "pmorg/policies/ownership-roots.json",
+  "egress_inventory": "pmorg/build/ce-build-egress.json"
+}
