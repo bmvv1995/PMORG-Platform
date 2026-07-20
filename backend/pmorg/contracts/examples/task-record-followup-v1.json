@@ -1,0 +1,22 @@
+{
+  "conversation_id": "01900000-0000-7000-8000-000000000001",
+  "intervention_id": "01900000-0000-7000-8000-000000000001",
+  "message_receipt_ref": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "outbound_message_id": "01900000-0000-7000-8000-000000000001",
+  "policy_ref": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "reason_code": "example",
+  "schema_version": "pmorg.task.record-followup/v1",
+  "task_id": 1
+}

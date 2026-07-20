@@ -1,0 +1,141 @@
+{
+  "$defs": {
+    "ArtifactDescriptor": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_kind": {
+          "enum": [
+            "oci_image",
+            "worker",
+            "package",
+            "migration",
+            "static_bundle"
+          ],
+          "title": "Artifact Kind",
+          "type": "string"
+        },
+        "component": {
+          "minLength": 1,
+          "title": "Component",
+          "type": "string"
+        },
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "platform": {
+          "minLength": 1,
+          "title": "Platform",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "component",
+        "artifact_kind",
+        "media_type",
+        "platform",
+        "digest",
+        "size_bytes"
+      ],
+      "title": "ArtifactDescriptor",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.deployment-payload-descriptor/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "exclusiveMinimum": 0,
+      "title": "Artifact Count",
+      "type": "integer"
+    },
+    "artifact_descriptors": {
+      "items": {
+        "$ref": "#/$defs/ArtifactDescriptor"
+      },
+      "minItems": 1,
+      "title": "Artifact Descriptors",
+      "type": "array"
+    },
+    "deployment_payload_fingerprint": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Deployment Payload Fingerprint",
+      "type": "string"
+    },
+    "deployment_scope_policy_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Deployment Scope Policy Hash",
+      "type": "string"
+    },
+    "duplicate_artifact_key_count": {
+      "minimum": 0,
+      "title": "Duplicate Artifact Key Count",
+      "type": "integer"
+    },
+    "expected_artifact_count": {
+      "exclusiveMinimum": 0,
+      "title": "Expected Artifact Count",
+      "type": "integer"
+    },
+    "missing_artifact_count": {
+      "minimum": 0,
+      "title": "Missing Artifact Count",
+      "type": "integer"
+    },
+    "runtime_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Runtime Binding Set Hash",
+      "type": "string"
+    },
+    "runtime_workload_spec_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Runtime Workload Spec Hash",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.deployment-payload-descriptor/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "unexpected_artifact_count": {
+      "minimum": 0,
+      "title": "Unexpected Artifact Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "deployment_scope_policy_hash",
+    "artifact_descriptors",
+    "artifact_count",
+    "expected_artifact_count",
+    "missing_artifact_count",
+    "unexpected_artifact_count",
+    "duplicate_artifact_key_count",
+    "runtime_workload_spec_hash",
+    "runtime_binding_set_hash",
+    "deployment_payload_fingerprint"
+  ],
+  "title": "DeploymentPayloadDescriptor",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.deployment-payload-descriptor/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

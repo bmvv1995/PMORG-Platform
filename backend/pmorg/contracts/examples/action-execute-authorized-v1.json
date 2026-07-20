@@ -1,0 +1,28 @@
+{
+  "action_payload": {
+    "action_schema_version": "1.0.0",
+    "parameters": [
+      {
+        "name": "example",
+        "value_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "value_ref": {
+          "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "logical_name": "example",
+          "media_type": "application/json",
+          "relative_path": "evidence/example.json",
+          "size_bytes": 1
+        },
+        "value_schema_version": "1.0.0"
+      }
+    ]
+  },
+  "action_type": "example",
+  "approval_ref": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "schema_version": "pmorg.action.execute-authorized/v1"
+}

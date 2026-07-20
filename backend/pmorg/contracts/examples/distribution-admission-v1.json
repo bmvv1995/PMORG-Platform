@@ -1,0 +1,62 @@
+{
+  "admission_basis": "synthetic_environment",
+  "admission_id": "01900000-0000-7000-8000-000000000001",
+  "artifact_set_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "build_attestation_envelope_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "build_manifest_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "ce_release_authorization": null,
+  "destination_class": "controlled_synthetic_registry",
+  "destination_descriptor_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "destination_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "destination_measurement_envelope_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "distribution_payload_descriptor_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "distribution_payload_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "enterprise_authorization": null,
+  "issued_at": "2026-01-01T00:00:00Z",
+  "next_revalidation_at": "2026-01-01T00:00:00Z",
+  "onyx_surface": "ce",
+  "operation": "registry_publish",
+  "revocation_status": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "schema_version": "pmorg.distribution-admission/v1",
+  "temporal_policy": {
+    "max_clock_skew_seconds": 1,
+    "max_measurement_age_seconds": 1,
+    "max_revalidation_interval_seconds": 1,
+    "max_time_receipt_age_seconds": 1,
+    "max_validity_seconds": 1,
+    "policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "trusted_clock_id": "example",
+  "trusted_time_receipt_envelope": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "usage_mode": "development_test",
+  "valid_from": "2026-01-01T00:00:00Z",
+  "valid_until": "2026-01-01T00:00:00Z",
+  "verification_material_bundle": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "verification_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "verifier_identity": "example",
+  "verifier_receipt": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  }
+}

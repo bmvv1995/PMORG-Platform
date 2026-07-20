@@ -1,0 +1,51 @@
+{
+  "allowed_usage_modes": [
+    "development_test"
+  ],
+  "approval_authority": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "baseline_manifest_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "build_input_set": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "build_recipe": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "expected_artifact_catalog_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "issued_at": "2026-01-01T00:00:00Z",
+  "onyx_commit": "0000000000000000000000000000000000000000",
+  "onyx_surface": "ce",
+  "pmorg_platform_commit": "0000000000000000000000000000000000000000",
+  "pmorg_spec_commit": "0000000000000000000000000000000000000000",
+  "qualification_policy_map_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "runtime_scope_policy_map": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "schema_version": "pmorg.release-build-definition/v1",
+  "verification_material_bundle": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "verification_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "verifier_identity": "example"
+}

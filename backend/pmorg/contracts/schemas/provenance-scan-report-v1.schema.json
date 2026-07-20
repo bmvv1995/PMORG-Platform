@@ -1,0 +1,410 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    },
+    "SourceScopeManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Commit",
+          "type": "string"
+        },
+        "derivation_evidence_bundle": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "derivation_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Derivation Policy Hash",
+          "type": "string"
+        },
+        "duplicate_path_count": {
+          "minimum": 0,
+          "title": "Duplicate Path Count",
+          "type": "integer"
+        },
+        "expected_path_count": {
+          "minimum": 0,
+          "title": "Expected Path Count",
+          "type": "integer"
+        },
+        "generator_artifact_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Generator Artifact Digest",
+          "type": "string"
+        },
+        "generator_identity": {
+          "minLength": 1,
+          "title": "Generator Identity",
+          "type": "string"
+        },
+        "path_inventory": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "repository": {
+          "minLength": 1,
+          "title": "Repository",
+          "type": "string"
+        },
+        "roots": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Roots",
+          "type": "array"
+        },
+        "schema_version": {
+          "const": "pmorg.source-scope-manifest/v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "scope_kind": {
+          "enum": [
+            "pmorg",
+            "onyx_ce",
+            "onyx_ee"
+          ],
+          "title": "Scope Kind",
+          "type": "string"
+        },
+        "tree_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Tree Hash",
+          "type": "string"
+        },
+        "unreadable_path_count": {
+          "minimum": 0,
+          "title": "Unreadable Path Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "schema_version",
+        "repository",
+        "commit",
+        "scope_kind",
+        "roots",
+        "tree_hash",
+        "path_inventory",
+        "derivation_policy_hash",
+        "generator_identity",
+        "generator_artifact_digest",
+        "derivation_evidence_bundle",
+        "expected_path_count",
+        "duplicate_path_count",
+        "unreadable_path_count"
+      ],
+      "title": "SourceScopeManifest",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.provenance-scan-report/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm_id": {
+      "minLength": 1,
+      "title": "Algorithm Id",
+      "type": "string"
+    },
+    "classification_record_count": {
+      "minimum": 0,
+      "title": "Classification Record Count",
+      "type": "integer"
+    },
+    "classified_match_records": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "duplicate_match_id_count": {
+      "minimum": 0,
+      "title": "Duplicate Match Id Count",
+      "type": "integer"
+    },
+    "duplicate_path_count": {
+      "minimum": 0,
+      "title": "Duplicate Path Count",
+      "type": "integer"
+    },
+    "ee_source_scope": {
+      "$ref": "#/$defs/SourceScopeManifest"
+    },
+    "ee_tree_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Ee Tree Hash",
+      "type": "string"
+    },
+    "evidence_bundle_index_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Evidence Bundle Index Hash",
+      "type": "string"
+    },
+    "exact_match_count": {
+      "minimum": 0,
+      "title": "Exact Match Count",
+      "type": "integer"
+    },
+    "expected_ee_path_count": {
+      "minimum": 0,
+      "title": "Expected Ee Path Count",
+      "type": "integer"
+    },
+    "expected_pmorg_path_count": {
+      "minimum": 0,
+      "title": "Expected Pmorg Path Count",
+      "type": "integer"
+    },
+    "final_path_inventory": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "forbidden_copy_count": {
+      "minimum": 0,
+      "title": "Forbidden Copy Count",
+      "type": "integer"
+    },
+    "invalid_licensed_patch_count": {
+      "minimum": 0,
+      "title": "Invalid Licensed Patch Count",
+      "type": "integer"
+    },
+    "match_record_count": {
+      "minimum": 0,
+      "title": "Match Record Count",
+      "type": "integer"
+    },
+    "normalization_spec_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Normalization Spec Version",
+      "type": "string"
+    },
+    "onyx_surface": {
+      "enum": [
+        "ce",
+        "ee"
+      ],
+      "title": "Onyx Surface",
+      "type": "string"
+    },
+    "pmorg_platform_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Platform Commit",
+      "type": "string"
+    },
+    "pmorg_repository": {
+      "minLength": 1,
+      "title": "Pmorg Repository",
+      "type": "string"
+    },
+    "pmorg_source_scope": {
+      "$ref": "#/$defs/SourceScopeManifest"
+    },
+    "pmorg_spec_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Spec Commit",
+      "type": "string"
+    },
+    "pmorg_tree_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Pmorg Tree Hash",
+      "type": "string"
+    },
+    "raw_match_count": {
+      "minimum": 0,
+      "title": "Raw Match Count",
+      "type": "integer"
+    },
+    "raw_match_records": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "scan_input_path_inventory": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "scanned_ee_path_count": {
+      "minimum": 0,
+      "title": "Scanned Ee Path Count",
+      "type": "integer"
+    },
+    "scanned_pmorg_path_count": {
+      "minimum": 0,
+      "title": "Scanned Pmorg Path Count",
+      "type": "integer"
+    },
+    "scanner_artifact_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Scanner Artifact Digest",
+      "type": "string"
+    },
+    "scanner_name": {
+      "minLength": 1,
+      "title": "Scanner Name",
+      "type": "string"
+    },
+    "scanner_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Scanner Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.provenance-scan-report/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "similarity_match_count": {
+      "minimum": 0,
+      "title": "Similarity Match Count",
+      "type": "integer"
+    },
+    "similarity_threshold_basis_points": {
+      "maximum": 10000,
+      "minimum": 0,
+      "title": "Similarity Threshold Basis Points",
+      "type": "integer"
+    },
+    "subject_artifact_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Subject Artifact Set Hash",
+      "type": "string"
+    },
+    "unclassified_match_count": {
+      "minimum": 0,
+      "title": "Unclassified Match Count",
+      "type": "integer"
+    },
+    "unclassified_path_count": {
+      "minimum": 0,
+      "title": "Unclassified Path Count",
+      "type": "integer"
+    },
+    "unreadable_path_count": {
+      "minimum": 0,
+      "title": "Unreadable Path Count",
+      "type": "integer"
+    },
+    "unresolved_count": {
+      "minimum": 0,
+      "title": "Unresolved Count",
+      "type": "integer"
+    },
+    "unreviewed_match_count": {
+      "minimum": 0,
+      "title": "Unreviewed Match Count",
+      "type": "integer"
+    },
+    "unscanned_ee_path_count": {
+      "minimum": 0,
+      "title": "Unscanned Ee Path Count",
+      "type": "integer"
+    },
+    "unscanned_pmorg_path_count": {
+      "minimum": 0,
+      "title": "Unscanned Pmorg Path Count",
+      "type": "integer"
+    },
+    "upstream_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Upstream Commit",
+      "type": "string"
+    },
+    "upstream_repository": {
+      "minLength": 1,
+      "title": "Upstream Repository",
+      "type": "string"
+    },
+    "usage_mode": {
+      "enum": [
+        "development_test",
+        "production"
+      ],
+      "title": "Usage Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pmorg_spec_commit",
+    "subject_artifact_set_hash",
+    "onyx_surface",
+    "usage_mode",
+    "scanner_name",
+    "scanner_version",
+    "scanner_artifact_digest",
+    "algorithm_id",
+    "normalization_spec_version",
+    "similarity_threshold_basis_points",
+    "pmorg_repository",
+    "pmorg_platform_commit",
+    "upstream_repository",
+    "upstream_commit",
+    "ee_tree_hash",
+    "pmorg_tree_hash",
+    "pmorg_source_scope",
+    "ee_source_scope",
+    "scan_input_path_inventory",
+    "final_path_inventory",
+    "expected_pmorg_path_count",
+    "scanned_pmorg_path_count",
+    "unscanned_pmorg_path_count",
+    "expected_ee_path_count",
+    "scanned_ee_path_count",
+    "unscanned_ee_path_count",
+    "unreadable_path_count",
+    "duplicate_path_count",
+    "unclassified_path_count",
+    "raw_match_records",
+    "raw_match_count",
+    "classified_match_records",
+    "classification_record_count",
+    "unclassified_match_count",
+    "duplicate_match_id_count",
+    "match_record_count",
+    "exact_match_count",
+    "similarity_match_count",
+    "unreviewed_match_count",
+    "invalid_licensed_patch_count",
+    "forbidden_copy_count",
+    "unresolved_count",
+    "evidence_bundle_index_hash"
+  ],
+  "title": "ProvenanceScanReport",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.provenance-scan-report/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

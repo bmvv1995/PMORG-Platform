@@ -1,0 +1,94 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.evidence-bundle-index/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_kind": {
+      "minLength": 1,
+      "title": "Bundle Kind",
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "$ref": "#/$defs/EvidenceArtifactRef"
+      },
+      "minItems": 1,
+      "title": "Entries",
+      "type": "array"
+    },
+    "entry_count": {
+      "exclusiveMinimum": 0,
+      "title": "Entry Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "pmorg.evidence-bundle-index/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "subject_binding_hash": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Subject Binding Hash"
+    }
+  },
+  "required": [
+    "schema_version",
+    "bundle_kind",
+    "subject_binding_hash",
+    "entries",
+    "entry_count"
+  ],
+  "title": "EvidenceBundleIndex",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.evidence-bundle-index/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

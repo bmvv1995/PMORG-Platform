@@ -1,0 +1,40 @@
+{
+  "capability_id": "example",
+  "catalog_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "duplicate_test_count": 1,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "implementation_path_set_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "missing_test_count": 1,
+  "patch_ledger_set_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "required_test_manifest": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "schema_version": "pmorg.post-disposition-qualification/v1",
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "logical_name": "example",
+        "media_type": "application/json",
+        "relative_path": "evidence/example.json",
+        "size_bytes": 1
+      },
+      "test_id": "example",
+      "test_manifest": {
+        "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "logical_name": "example",
+        "media_type": "application/json",
+        "relative_path": "evidence/example.json",
+        "size_bytes": 1
+      },
+      "verdict": "pass"
+    }
+  ],
+  "verdict": "pass"
+}

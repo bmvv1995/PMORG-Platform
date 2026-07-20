@@ -1,0 +1,551 @@
+{
+  "$defs": {
+    "CeReleaseAuthorizationBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_scope_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Artifact Scope Policy Hash",
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "title": "Issued At",
+          "type": "string"
+        },
+        "issuer_identity": {
+          "minLength": 1,
+          "title": "Issuer Identity",
+          "type": "string"
+        },
+        "next_revalidation_at": {
+          "format": "date-time",
+          "title": "Next Revalidation At",
+          "type": "string"
+        },
+        "permitted_onyx_surface": {
+          "const": "ce",
+          "title": "Permitted Onyx Surface",
+          "type": "string"
+        },
+        "permitted_operations": {
+          "items": {
+            "enum": [
+              "deploy",
+              "startup",
+              "registry_publish",
+              "artifact_export"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Permitted Operations",
+          "type": "array"
+        },
+        "permitted_usage_mode": {
+          "const": "production",
+          "title": "Permitted Usage Mode",
+          "type": "string"
+        },
+        "release_evidence": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "release_id": {
+          "minLength": 1,
+          "title": "Release Id",
+          "type": "string"
+        },
+        "revocation_status": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "schema_version": {
+          "const": "pmorg.ce-release-authorization-binding/v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "target_destination_scope_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Target Destination Scope Policy Hash",
+          "type": "string"
+        },
+        "temporal_policy": {
+          "$ref": "#/$defs/TemporalPolicyBinding"
+        },
+        "trusted_clock_id": {
+          "minLength": 1,
+          "title": "Trusted Clock Id",
+          "type": "string"
+        },
+        "trusted_time_receipt_envelope": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "valid_from": {
+          "format": "date-time",
+          "title": "Valid From",
+          "type": "string"
+        },
+        "valid_until": {
+          "format": "date-time",
+          "title": "Valid Until",
+          "type": "string"
+        },
+        "verification_material_bundle": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "verification_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Verification Policy Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "release_id",
+        "issuer_identity",
+        "release_evidence",
+        "permitted_onyx_surface",
+        "permitted_usage_mode",
+        "permitted_operations",
+        "artifact_scope_policy_hash",
+        "target_destination_scope_policy_hash",
+        "valid_from",
+        "valid_until",
+        "next_revalidation_at",
+        "trusted_clock_id",
+        "trusted_time_receipt_envelope",
+        "temporal_policy",
+        "revocation_status",
+        "verification_policy_hash",
+        "verification_material_bundle",
+        "issued_at"
+      ],
+      "title": "CeReleaseAuthorizationBinding",
+      "type": "object"
+    },
+    "EnterpriseAuthorizationBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "agreement_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Agreement Hash",
+          "type": "string"
+        },
+        "artifact_scope_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Artifact Scope Policy Hash",
+          "type": "string"
+        },
+        "authorization_evidence": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "authorization_id_hmac": {
+          "pattern": "^hmac-sha256:[0-9a-f]{64}$",
+          "title": "Authorization Id Hmac",
+          "type": "string"
+        },
+        "authorized_entity_hmac": {
+          "pattern": "^hmac-sha256:[0-9a-f]{64}$",
+          "title": "Authorized Entity Hmac",
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "title": "Issued At",
+          "type": "string"
+        },
+        "issuer_identity": {
+          "minLength": 1,
+          "title": "Issuer Identity",
+          "type": "string"
+        },
+        "next_revalidation_at": {
+          "format": "date-time",
+          "title": "Next Revalidation At",
+          "type": "string"
+        },
+        "permitted_onyx_surface": {
+          "const": "ee",
+          "title": "Permitted Onyx Surface",
+          "type": "string"
+        },
+        "permitted_operations": {
+          "items": {
+            "enum": [
+              "deploy",
+              "startup",
+              "registry_publish",
+              "artifact_export"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Permitted Operations",
+          "type": "array"
+        },
+        "permitted_usage_mode": {
+          "const": "production",
+          "title": "Permitted Usage Mode",
+          "type": "string"
+        },
+        "revocation_status": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "schema_version": {
+          "const": "pmorg.enterprise-authorization-binding/v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "seat_scope_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Seat Scope Hash",
+          "type": "string"
+        },
+        "target_destination_scope_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Target Destination Scope Policy Hash",
+          "type": "string"
+        },
+        "temporal_policy": {
+          "$ref": "#/$defs/TemporalPolicyBinding"
+        },
+        "trusted_clock_id": {
+          "minLength": 1,
+          "title": "Trusted Clock Id",
+          "type": "string"
+        },
+        "trusted_time_receipt_envelope": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "valid_from": {
+          "format": "date-time",
+          "title": "Valid From",
+          "type": "string"
+        },
+        "valid_until": {
+          "format": "date-time",
+          "title": "Valid Until",
+          "type": "string"
+        },
+        "verification_material_bundle": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "verification_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Verification Policy Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "authorization_id_hmac",
+        "issuer_identity",
+        "authorization_evidence",
+        "authorized_entity_hmac",
+        "seat_scope_hash",
+        "agreement_hash",
+        "permitted_onyx_surface",
+        "permitted_usage_mode",
+        "permitted_operations",
+        "artifact_scope_policy_hash",
+        "target_destination_scope_policy_hash",
+        "valid_from",
+        "valid_until",
+        "next_revalidation_at",
+        "trusted_clock_id",
+        "trusted_time_receipt_envelope",
+        "temporal_policy",
+        "revocation_status",
+        "verification_policy_hash",
+        "verification_material_bundle",
+        "issued_at"
+      ],
+      "title": "EnterpriseAuthorizationBinding",
+      "type": "object"
+    },
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    },
+    "TemporalPolicyBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "max_clock_skew_seconds": {
+          "minimum": 0,
+          "title": "Max Clock Skew Seconds",
+          "type": "integer"
+        },
+        "max_measurement_age_seconds": {
+          "minimum": 0,
+          "title": "Max Measurement Age Seconds",
+          "type": "integer"
+        },
+        "max_revalidation_interval_seconds": {
+          "minimum": 0,
+          "title": "Max Revalidation Interval Seconds",
+          "type": "integer"
+        },
+        "max_time_receipt_age_seconds": {
+          "minimum": 0,
+          "title": "Max Time Receipt Age Seconds",
+          "type": "integer"
+        },
+        "max_validity_seconds": {
+          "minimum": 0,
+          "title": "Max Validity Seconds",
+          "type": "integer"
+        },
+        "policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Policy Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_hash",
+        "max_clock_skew_seconds",
+        "max_time_receipt_age_seconds",
+        "max_measurement_age_seconds",
+        "max_validity_seconds",
+        "max_revalidation_interval_seconds"
+      ],
+      "title": "TemporalPolicyBinding",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.distribution-admission/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admission_basis": {
+      "enum": [
+        "synthetic_environment",
+        "ce_release",
+        "onyx_enterprise_authorization"
+      ],
+      "title": "Admission Basis",
+      "type": "string"
+    },
+    "admission_id": {
+      "format": "uuid7",
+      "title": "Admission Id",
+      "type": "string"
+    },
+    "artifact_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Artifact Set Hash",
+      "type": "string"
+    },
+    "build_attestation_envelope_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Build Attestation Envelope Hash",
+      "type": "string"
+    },
+    "build_manifest_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Build Manifest Hash",
+      "type": "string"
+    },
+    "ce_release_authorization": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CeReleaseAuthorizationBinding"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "destination_class": {
+      "enum": [
+        "controlled_synthetic_registry",
+        "client_destination"
+      ],
+      "title": "Destination Class",
+      "type": "string"
+    },
+    "destination_descriptor_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Destination Descriptor Hash",
+      "type": "string"
+    },
+    "destination_fingerprint": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Destination Fingerprint",
+      "type": "string"
+    },
+    "destination_measurement_envelope_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Destination Measurement Envelope Hash",
+      "type": "string"
+    },
+    "distribution_payload_descriptor_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Distribution Payload Descriptor Hash",
+      "type": "string"
+    },
+    "distribution_payload_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Distribution Payload Hash",
+      "type": "string"
+    },
+    "enterprise_authorization": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EnterpriseAuthorizationBinding"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "issued_at": {
+      "format": "date-time",
+      "title": "Issued At",
+      "type": "string"
+    },
+    "next_revalidation_at": {
+      "format": "date-time",
+      "title": "Next Revalidation At",
+      "type": "string"
+    },
+    "onyx_surface": {
+      "enum": [
+        "ce",
+        "ee"
+      ],
+      "title": "Onyx Surface",
+      "type": "string"
+    },
+    "operation": {
+      "enum": [
+        "registry_publish",
+        "artifact_export"
+      ],
+      "title": "Operation",
+      "type": "string"
+    },
+    "revocation_status": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "schema_version": {
+      "const": "pmorg.distribution-admission/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "temporal_policy": {
+      "$ref": "#/$defs/TemporalPolicyBinding"
+    },
+    "trusted_clock_id": {
+      "minLength": 1,
+      "title": "Trusted Clock Id",
+      "type": "string"
+    },
+    "trusted_time_receipt_envelope": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "usage_mode": {
+      "enum": [
+        "development_test",
+        "production"
+      ],
+      "title": "Usage Mode",
+      "type": "string"
+    },
+    "valid_from": {
+      "format": "date-time",
+      "title": "Valid From",
+      "type": "string"
+    },
+    "valid_until": {
+      "format": "date-time",
+      "title": "Valid Until",
+      "type": "string"
+    },
+    "verification_material_bundle": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "verification_policy_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Verification Policy Hash",
+      "type": "string"
+    },
+    "verifier_identity": {
+      "minLength": 1,
+      "title": "Verifier Identity",
+      "type": "string"
+    },
+    "verifier_receipt": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    }
+  },
+  "required": [
+    "schema_version",
+    "admission_id",
+    "operation",
+    "artifact_set_hash",
+    "build_manifest_hash",
+    "build_attestation_envelope_hash",
+    "distribution_payload_descriptor_hash",
+    "distribution_payload_hash",
+    "onyx_surface",
+    "usage_mode",
+    "destination_descriptor_hash",
+    "destination_fingerprint",
+    "destination_measurement_envelope_hash",
+    "destination_class",
+    "admission_basis",
+    "ce_release_authorization",
+    "enterprise_authorization",
+    "valid_from",
+    "valid_until",
+    "next_revalidation_at",
+    "trusted_clock_id",
+    "trusted_time_receipt_envelope",
+    "temporal_policy",
+    "revocation_status",
+    "verifier_identity",
+    "verification_policy_hash",
+    "verification_material_bundle",
+    "verifier_receipt",
+    "issued_at"
+  ],
+  "title": "DistributionAdmissionRecord",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.distribution-admission/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

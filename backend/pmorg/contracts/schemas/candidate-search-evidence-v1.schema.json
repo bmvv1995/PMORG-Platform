@@ -1,0 +1,301 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    },
+    "SourceScopeManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Commit",
+          "type": "string"
+        },
+        "derivation_evidence_bundle": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "derivation_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Derivation Policy Hash",
+          "type": "string"
+        },
+        "duplicate_path_count": {
+          "minimum": 0,
+          "title": "Duplicate Path Count",
+          "type": "integer"
+        },
+        "expected_path_count": {
+          "minimum": 0,
+          "title": "Expected Path Count",
+          "type": "integer"
+        },
+        "generator_artifact_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Generator Artifact Digest",
+          "type": "string"
+        },
+        "generator_identity": {
+          "minLength": 1,
+          "title": "Generator Identity",
+          "type": "string"
+        },
+        "path_inventory": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "repository": {
+          "minLength": 1,
+          "title": "Repository",
+          "type": "string"
+        },
+        "roots": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Roots",
+          "type": "array"
+        },
+        "schema_version": {
+          "const": "pmorg.source-scope-manifest/v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "scope_kind": {
+          "enum": [
+            "pmorg",
+            "onyx_ce",
+            "onyx_ee"
+          ],
+          "title": "Scope Kind",
+          "type": "string"
+        },
+        "tree_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Tree Hash",
+          "type": "string"
+        },
+        "unreadable_path_count": {
+          "minimum": 0,
+          "title": "Unreadable Path Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "schema_version",
+        "repository",
+        "commit",
+        "scope_kind",
+        "roots",
+        "tree_hash",
+        "path_inventory",
+        "derivation_policy_hash",
+        "generator_identity",
+        "generator_artifact_digest",
+        "derivation_evidence_bundle",
+        "expected_path_count",
+        "duplicate_path_count",
+        "unreadable_path_count"
+      ],
+      "title": "SourceScopeManifest",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.candidate-search-evidence/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Candidate Ids",
+      "type": "array"
+    },
+    "capability_id": {
+      "minLength": 1,
+      "title": "Capability Id",
+      "type": "string"
+    },
+    "catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Catalog Hash",
+      "type": "string"
+    },
+    "classification_record_count": {
+      "minimum": 0,
+      "title": "Classification Record Count",
+      "type": "integer"
+    },
+    "duplicate_hit_id_count": {
+      "minimum": 0,
+      "title": "Duplicate Hit Id Count",
+      "type": "integer"
+    },
+    "duplicate_path_count": {
+      "minimum": 0,
+      "title": "Duplicate Path Count",
+      "type": "integer"
+    },
+    "expected_path_count": {
+      "minimum": 0,
+      "title": "Expected Path Count",
+      "type": "integer"
+    },
+    "hit_classification": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "query_plan": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "raw_hit_count": {
+      "minimum": 0,
+      "title": "Raw Hit Count",
+      "type": "integer"
+    },
+    "raw_results": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "rejected_hit_count": {
+      "minimum": 0,
+      "title": "Rejected Hit Count",
+      "type": "integer"
+    },
+    "scanned_path_count": {
+      "minimum": 0,
+      "title": "Scanned Path Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "pmorg.candidate-search-evidence/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "search_id": {
+      "minLength": 1,
+      "title": "Search Id",
+      "type": "string"
+    },
+    "search_spec_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Search Spec Version",
+      "type": "string"
+    },
+    "search_tool_artifact_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Search Tool Artifact Digest",
+      "type": "string"
+    },
+    "search_tool_name": {
+      "minLength": 1,
+      "title": "Search Tool Name",
+      "type": "string"
+    },
+    "search_tool_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Search Tool Version",
+      "type": "string"
+    },
+    "searched_surfaces": {
+      "items": {
+        "enum": [
+          "ce",
+          "ee"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Searched Surfaces",
+      "type": "array"
+    },
+    "source_scopes": {
+      "items": {
+        "$ref": "#/$defs/SourceScopeManifest"
+      },
+      "minItems": 1,
+      "title": "Source Scopes",
+      "type": "array"
+    },
+    "unclassified_hit_count": {
+      "minimum": 0,
+      "title": "Unclassified Hit Count",
+      "type": "integer"
+    },
+    "unreadable_path_count": {
+      "minimum": 0,
+      "title": "Unreadable Path Count",
+      "type": "integer"
+    },
+    "unscanned_path_count": {
+      "minimum": 0,
+      "title": "Unscanned Path Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "search_id",
+    "catalog_hash",
+    "capability_id",
+    "searched_surfaces",
+    "source_scopes",
+    "search_spec_version",
+    "search_tool_name",
+    "search_tool_version",
+    "search_tool_artifact_digest",
+    "expected_path_count",
+    "scanned_path_count",
+    "unscanned_path_count",
+    "duplicate_path_count",
+    "unreadable_path_count",
+    "raw_hit_count",
+    "candidate_ids",
+    "rejected_hit_count",
+    "classification_record_count",
+    "unclassified_hit_count",
+    "duplicate_hit_id_count",
+    "query_plan",
+    "raw_results",
+    "hit_classification"
+  ],
+  "title": "CandidateSearchEvidence",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.candidate-search-evidence/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

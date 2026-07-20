@@ -1,0 +1,42 @@
+{
+  "destination_descriptor_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "destination_evidence_bundle": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "destination_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "issued_at": "2026-01-01T00:00:00Z",
+  "measured_at": "2026-01-01T00:00:00Z",
+  "next_revalidation_at": "2026-01-01T00:00:00Z",
+  "schema_version": "pmorg.distribution-destination-measurement/v1",
+  "temporal_policy": {
+    "max_clock_skew_seconds": 1,
+    "max_measurement_age_seconds": 1,
+    "max_revalidation_interval_seconds": 1,
+    "max_time_receipt_age_seconds": 1,
+    "max_validity_seconds": 1,
+    "policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "trusted_clock_id": "example",
+  "trusted_time_receipt_envelope": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "valid_from": "2026-01-01T00:00:00Z",
+  "valid_until": "2026-01-01T00:00:00Z",
+  "verification_material_bundle": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "verification_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "verifier_identity": "example"
+}

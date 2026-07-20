@@ -1,0 +1,57 @@
+{
+  "$defs": {
+    "DsseSignature": {
+      "additionalProperties": false,
+      "properties": {
+        "keyid": {
+          "minLength": 1,
+          "title": "Keyid",
+          "type": "string"
+        },
+        "sig": {
+          "minLength": 1,
+          "title": "Sig",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyid",
+        "sig"
+      ],
+      "title": "DsseSignature",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.dsse-envelope/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "payload": {
+      "minLength": 1,
+      "title": "Payload",
+      "type": "string"
+    },
+    "payloadType": {
+      "minLength": 1,
+      "title": "Payloadtype",
+      "type": "string"
+    },
+    "signatures": {
+      "items": {
+        "$ref": "#/$defs/DsseSignature"
+      },
+      "minItems": 1,
+      "title": "Signatures",
+      "type": "array"
+    }
+  },
+  "required": [
+    "payloadType",
+    "payload",
+    "signatures"
+  ],
+  "title": "DsseEnvelope",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.dsse-envelope/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

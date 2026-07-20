@@ -1,0 +1,36 @@
+{
+  "catalog_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "catalog_item_count": 1,
+  "catalog_requirement_count": 1,
+  "catalog_version": "1.0.0",
+  "covered_count": 1,
+  "dangling_evidence_count": 1,
+  "duplicate_count": 1,
+  "missing_count": 1,
+  "onyx_surface": "ce",
+  "pmorg_platform_commit": "0000000000000000000000000000000000000000",
+  "pmorg_spec_commit": "0000000000000000000000000000000000000000",
+  "record_count": 1,
+  "record_refs": [
+    {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    }
+  ],
+  "records_and_evidence_bundle_index": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "requirement_ref_mismatch_count": 1,
+  "schema_version": "pmorg.capability-disposition-report/v1",
+  "subject_artifact_set_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "unknown_requirement_count": 1,
+  "unmapped_requirement_count": 1,
+  "usage_mode": "development_test"
+}

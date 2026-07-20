@@ -1,0 +1,30 @@
+{
+  "base_version": 1,
+  "evidence_refs": [
+    {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    }
+  ],
+  "initiative_id": 1,
+  "rationale": "example",
+  "schema_version": "pmorg.plan.propose-version/v1",
+  "tasks": [
+    {
+      "anchors": [
+        {
+          "anchor_id": "example",
+          "anchor_type": "example"
+        }
+      ],
+      "assignee": null,
+      "due_at": null,
+      "expected_outcome": "example",
+      "task_type": "example",
+      "title": "example"
+    }
+  ]
+}

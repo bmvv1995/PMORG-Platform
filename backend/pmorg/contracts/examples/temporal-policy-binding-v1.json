@@ -1,0 +1,8 @@
+{
+  "max_clock_skew_seconds": 1,
+  "max_measurement_age_seconds": 1,
+  "max_revalidation_interval_seconds": 1,
+  "max_time_receipt_age_seconds": 1,
+  "max_validity_seconds": 1,
+  "policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

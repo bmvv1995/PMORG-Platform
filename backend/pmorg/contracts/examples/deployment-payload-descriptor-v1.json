@@ -1,0 +1,23 @@
+{
+  "artifact_count": 1,
+  "artifact_descriptors": [
+    {
+      "artifact_id": "example",
+      "artifact_kind": "oci_image",
+      "component": "example",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "media_type": "application/json",
+      "platform": "example",
+      "size_bytes": 1
+    }
+  ],
+  "deployment_payload_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "deployment_scope_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "duplicate_artifact_key_count": 1,
+  "expected_artifact_count": 1,
+  "missing_artifact_count": 1,
+  "runtime_binding_set_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "runtime_workload_spec_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "schema_version": "pmorg.deployment-payload-descriptor/v1",
+  "unexpected_artifact_count": 1
+}

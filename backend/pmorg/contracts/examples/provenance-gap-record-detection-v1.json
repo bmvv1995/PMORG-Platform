@@ -1,0 +1,26 @@
+{
+  "anchor_refs": [
+    {
+      "anchor_id": "example",
+      "anchor_type": "example"
+    }
+  ],
+  "detector_class": "example",
+  "effect_ref": {
+    "anchor_id": "example",
+    "anchor_type": "example"
+  },
+  "materiality_policy_ref": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "schema_version": "pmorg.provenance-gap.record-detection/v1",
+  "signal_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "window": {
+    "ends_at": "2026-01-01T00:00:00Z",
+    "starts_at": "2026-01-01T00:00:00Z"
+  }
+}

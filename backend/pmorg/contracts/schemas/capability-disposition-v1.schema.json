@@ -1,0 +1,921 @@
+{
+  "$defs": {
+    "CandidateQualificationReport": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "capability_id": {
+          "minLength": 1,
+          "title": "Capability Id",
+          "type": "string"
+        },
+        "catalog_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Catalog Hash",
+          "type": "string"
+        },
+        "duplicate_test_count": {
+          "minimum": 0,
+          "title": "Duplicate Test Count",
+          "type": "integer"
+        },
+        "executed_test_count": {
+          "exclusiveMinimum": 0,
+          "title": "Executed Test Count",
+          "type": "integer"
+        },
+        "expected_test_count": {
+          "exclusiveMinimum": 0,
+          "title": "Expected Test Count",
+          "type": "integer"
+        },
+        "failed_test_count": {
+          "minimum": 0,
+          "title": "Failed Test Count",
+          "type": "integer"
+        },
+        "missing_test_count": {
+          "minimum": 0,
+          "title": "Missing Test Count",
+          "type": "integer"
+        },
+        "qualification_policy": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "required_test_manifest": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "schema_version": {
+          "const": "pmorg.candidate-qualification-report/v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_ref": {
+          "$ref": "#/$defs/ContentAddressedSourceRef"
+        },
+        "test_evidence": {
+          "items": {
+            "$ref": "#/$defs/TestEvidence"
+          },
+          "minItems": 1,
+          "title": "Test Evidence",
+          "type": "array"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "fail"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "catalog_hash",
+        "capability_id",
+        "candidate_id",
+        "source_ref",
+        "qualification_policy",
+        "required_test_manifest",
+        "expected_test_count",
+        "executed_test_count",
+        "missing_test_count",
+        "duplicate_test_count",
+        "failed_test_count",
+        "test_evidence",
+        "verdict"
+      ],
+      "title": "CandidateQualificationReport",
+      "type": "object"
+    },
+    "CandidateSearchEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Candidate Ids",
+          "type": "array"
+        },
+        "capability_id": {
+          "minLength": 1,
+          "title": "Capability Id",
+          "type": "string"
+        },
+        "catalog_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Catalog Hash",
+          "type": "string"
+        },
+        "classification_record_count": {
+          "minimum": 0,
+          "title": "Classification Record Count",
+          "type": "integer"
+        },
+        "duplicate_hit_id_count": {
+          "minimum": 0,
+          "title": "Duplicate Hit Id Count",
+          "type": "integer"
+        },
+        "duplicate_path_count": {
+          "minimum": 0,
+          "title": "Duplicate Path Count",
+          "type": "integer"
+        },
+        "expected_path_count": {
+          "minimum": 0,
+          "title": "Expected Path Count",
+          "type": "integer"
+        },
+        "hit_classification": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "query_plan": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "raw_hit_count": {
+          "minimum": 0,
+          "title": "Raw Hit Count",
+          "type": "integer"
+        },
+        "raw_results": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "rejected_hit_count": {
+          "minimum": 0,
+          "title": "Rejected Hit Count",
+          "type": "integer"
+        },
+        "scanned_path_count": {
+          "minimum": 0,
+          "title": "Scanned Path Count",
+          "type": "integer"
+        },
+        "schema_version": {
+          "const": "pmorg.candidate-search-evidence/v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "search_id": {
+          "minLength": 1,
+          "title": "Search Id",
+          "type": "string"
+        },
+        "search_spec_version": {
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+          "title": "Search Spec Version",
+          "type": "string"
+        },
+        "search_tool_artifact_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Search Tool Artifact Digest",
+          "type": "string"
+        },
+        "search_tool_name": {
+          "minLength": 1,
+          "title": "Search Tool Name",
+          "type": "string"
+        },
+        "search_tool_version": {
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+          "title": "Search Tool Version",
+          "type": "string"
+        },
+        "searched_surfaces": {
+          "items": {
+            "enum": [
+              "ce",
+              "ee"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Searched Surfaces",
+          "type": "array"
+        },
+        "source_scopes": {
+          "items": {
+            "$ref": "#/$defs/SourceScopeManifest"
+          },
+          "minItems": 1,
+          "title": "Source Scopes",
+          "type": "array"
+        },
+        "unclassified_hit_count": {
+          "minimum": 0,
+          "title": "Unclassified Hit Count",
+          "type": "integer"
+        },
+        "unreadable_path_count": {
+          "minimum": 0,
+          "title": "Unreadable Path Count",
+          "type": "integer"
+        },
+        "unscanned_path_count": {
+          "minimum": 0,
+          "title": "Unscanned Path Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "schema_version",
+        "search_id",
+        "catalog_hash",
+        "capability_id",
+        "searched_surfaces",
+        "source_scopes",
+        "search_spec_version",
+        "search_tool_name",
+        "search_tool_version",
+        "search_tool_artifact_digest",
+        "expected_path_count",
+        "scanned_path_count",
+        "unscanned_path_count",
+        "duplicate_path_count",
+        "unreadable_path_count",
+        "raw_hit_count",
+        "candidate_ids",
+        "rejected_hit_count",
+        "classification_record_count",
+        "unclassified_hit_count",
+        "duplicate_hit_id_count",
+        "query_plan",
+        "raw_results",
+        "hit_classification"
+      ],
+      "title": "CandidateSearchEvidence",
+      "type": "object"
+    },
+    "ContentAddressedSourceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Commit",
+          "type": "string"
+        },
+        "paths": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Paths",
+          "type": "array"
+        },
+        "repository": {
+          "minLength": 1,
+          "title": "Repository",
+          "type": "string"
+        },
+        "source_snapshot": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "tree_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Tree Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "repository",
+        "commit",
+        "paths",
+        "tree_hash",
+        "source_snapshot"
+      ],
+      "title": "ContentAddressedSourceRef",
+      "type": "object"
+    },
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    },
+    "ImplementationPathRef": {
+      "additionalProperties": false,
+      "properties": {
+        "content_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "license_class": {
+          "enum": [
+            "pmorg",
+            "mit-expat",
+            "onyx-enterprise",
+            "third-party"
+          ],
+          "title": "License Class",
+          "type": "string"
+        },
+        "ownership_class": {
+          "enum": [
+            "pmorg_owned",
+            "upstream_ce_reused",
+            "upstream_ce_direct_patch",
+            "upstream_ee_reused",
+            "upstream_ee_direct_patch",
+            "third_party"
+          ],
+          "title": "Ownership Class",
+          "type": "string"
+        },
+        "path": {
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "provenance_inventory_item": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "source_ref": {
+          "$ref": "#/$defs/ContentAddressedSourceRef"
+        }
+      },
+      "required": [
+        "path",
+        "content_hash",
+        "source_ref",
+        "ownership_class",
+        "license_class",
+        "provenance_inventory_item"
+      ],
+      "title": "ImplementationPathRef",
+      "type": "object"
+    },
+    "OnyxCapabilityCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "license_class": {
+          "enum": [
+            "mit-expat",
+            "onyx-enterprise",
+            "third-party"
+          ],
+          "title": "License Class",
+          "type": "string"
+        },
+        "onyx_surface": {
+          "enum": [
+            "ce",
+            "ee"
+          ],
+          "title": "Onyx Surface",
+          "type": "string"
+        },
+        "qualification": {
+          "enum": [
+            "pass",
+            "fail"
+          ],
+          "title": "Qualification",
+          "type": "string"
+        },
+        "qualification_report": {
+          "$ref": "#/$defs/CandidateQualificationReport"
+        },
+        "source_ref": {
+          "$ref": "#/$defs/ContentAddressedSourceRef"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "source_ref",
+        "onyx_surface",
+        "license_class",
+        "qualification",
+        "qualification_report"
+      ],
+      "title": "OnyxCapabilityCandidate",
+      "type": "object"
+    },
+    "PatchLedgerRecordRef": {
+      "additionalProperties": false,
+      "properties": {
+        "base_blob_hash": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Base Blob Hash"
+        },
+        "ledger_entry_id": {
+          "minLength": 1,
+          "title": "Ledger Entry Id",
+          "type": "string"
+        },
+        "ledger_record": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "license_class": {
+          "enum": [
+            "mit-expat",
+            "onyx-enterprise"
+          ],
+          "title": "License Class",
+          "type": "string"
+        },
+        "ownership_class": {
+          "enum": [
+            "upstream_ce_direct_patch",
+            "upstream_ee_direct_patch"
+          ],
+          "title": "Ownership Class",
+          "type": "string"
+        },
+        "patched_blob_hash": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Patched Blob Hash"
+        },
+        "path": {
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "protector_tests": {
+          "items": {
+            "$ref": "#/$defs/TestEvidence"
+          },
+          "minItems": 1,
+          "title": "Protector Tests",
+          "type": "array"
+        },
+        "source_ref": {
+          "$ref": "#/$defs/ContentAddressedSourceRef"
+        }
+      },
+      "required": [
+        "ledger_entry_id",
+        "path",
+        "source_ref",
+        "base_blob_hash",
+        "patched_blob_hash",
+        "ownership_class",
+        "license_class",
+        "ledger_record",
+        "protector_tests"
+      ],
+      "title": "PatchLedgerRecordRef",
+      "type": "object"
+    },
+    "PostDispositionQualificationReport": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_id": {
+          "minLength": 1,
+          "title": "Capability Id",
+          "type": "string"
+        },
+        "catalog_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Catalog Hash",
+          "type": "string"
+        },
+        "duplicate_test_count": {
+          "minimum": 0,
+          "title": "Duplicate Test Count",
+          "type": "integer"
+        },
+        "executed_test_count": {
+          "exclusiveMinimum": 0,
+          "title": "Executed Test Count",
+          "type": "integer"
+        },
+        "expected_test_count": {
+          "exclusiveMinimum": 0,
+          "title": "Expected Test Count",
+          "type": "integer"
+        },
+        "failed_test_count": {
+          "minimum": 0,
+          "title": "Failed Test Count",
+          "type": "integer"
+        },
+        "implementation_path_set_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Implementation Path Set Hash",
+          "type": "string"
+        },
+        "missing_test_count": {
+          "minimum": 0,
+          "title": "Missing Test Count",
+          "type": "integer"
+        },
+        "patch_ledger_set_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Patch Ledger Set Hash",
+          "type": "string"
+        },
+        "required_test_manifest": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "schema_version": {
+          "const": "pmorg.post-disposition-qualification/v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "test_evidence": {
+          "items": {
+            "$ref": "#/$defs/TestEvidence"
+          },
+          "minItems": 1,
+          "title": "Test Evidence",
+          "type": "array"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "fail"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "catalog_hash",
+        "capability_id",
+        "implementation_path_set_hash",
+        "patch_ledger_set_hash",
+        "required_test_manifest",
+        "expected_test_count",
+        "executed_test_count",
+        "missing_test_count",
+        "duplicate_test_count",
+        "failed_test_count",
+        "test_evidence",
+        "verdict"
+      ],
+      "title": "PostDispositionQualificationReport",
+      "type": "object"
+    },
+    "SourceScopeManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Commit",
+          "type": "string"
+        },
+        "derivation_evidence_bundle": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "derivation_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Derivation Policy Hash",
+          "type": "string"
+        },
+        "duplicate_path_count": {
+          "minimum": 0,
+          "title": "Duplicate Path Count",
+          "type": "integer"
+        },
+        "expected_path_count": {
+          "minimum": 0,
+          "title": "Expected Path Count",
+          "type": "integer"
+        },
+        "generator_artifact_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Generator Artifact Digest",
+          "type": "string"
+        },
+        "generator_identity": {
+          "minLength": 1,
+          "title": "Generator Identity",
+          "type": "string"
+        },
+        "path_inventory": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "repository": {
+          "minLength": 1,
+          "title": "Repository",
+          "type": "string"
+        },
+        "roots": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Roots",
+          "type": "array"
+        },
+        "schema_version": {
+          "const": "pmorg.source-scope-manifest/v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "scope_kind": {
+          "enum": [
+            "pmorg",
+            "onyx_ce",
+            "onyx_ee"
+          ],
+          "title": "Scope Kind",
+          "type": "string"
+        },
+        "tree_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Tree Hash",
+          "type": "string"
+        },
+        "unreadable_path_count": {
+          "minimum": 0,
+          "title": "Unreadable Path Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "schema_version",
+        "repository",
+        "commit",
+        "scope_kind",
+        "roots",
+        "tree_hash",
+        "path_inventory",
+        "derivation_policy_hash",
+        "generator_identity",
+        "generator_artifact_digest",
+        "derivation_evidence_bundle",
+        "expected_path_count",
+        "duplicate_path_count",
+        "unreadable_path_count"
+      ],
+      "title": "SourceScopeManifest",
+      "type": "object"
+    },
+    "TestEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "result": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "test_id": {
+          "minLength": 1,
+          "title": "Test Id",
+          "type": "string"
+        },
+        "test_manifest": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "fail"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        }
+      },
+      "required": [
+        "test_id",
+        "test_manifest",
+        "result",
+        "verdict"
+      ],
+      "title": "TestEvidence",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.capability-disposition/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Artifact Set Hash",
+      "type": "string"
+    },
+    "candidate_search_evidence": {
+      "$ref": "#/$defs/CandidateSearchEvidence"
+    },
+    "candidate_search_outcome": {
+      "enum": [
+        "candidates_found",
+        "no_candidate"
+      ],
+      "title": "Candidate Search Outcome",
+      "type": "string"
+    },
+    "candidates": {
+      "items": {
+        "$ref": "#/$defs/OnyxCapabilityCandidate"
+      },
+      "title": "Candidates",
+      "type": "array"
+    },
+    "capability_id": {
+      "minLength": 1,
+      "title": "Capability Id",
+      "type": "string"
+    },
+    "catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Catalog Hash",
+      "type": "string"
+    },
+    "catalog_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Catalog Version",
+      "type": "string"
+    },
+    "deviation_decision_envelope": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "disposition": {
+      "enum": [
+        "reuse",
+        "patch",
+        "pmorg_independent"
+      ],
+      "title": "Disposition",
+      "type": "string"
+    },
+    "implementation_path_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Implementation Path Set Hash",
+      "type": "string"
+    },
+    "implementation_refs": {
+      "items": {
+        "$ref": "#/$defs/ImplementationPathRef"
+      },
+      "minItems": 1,
+      "title": "Implementation Refs",
+      "type": "array"
+    },
+    "onyx_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Onyx Commit",
+      "type": "string"
+    },
+    "onyx_surface": {
+      "enum": [
+        "ce",
+        "ee"
+      ],
+      "title": "Onyx Surface",
+      "type": "string"
+    },
+    "patch_ledger_refs": {
+      "items": {
+        "$ref": "#/$defs/PatchLedgerRecordRef"
+      },
+      "title": "Patch Ledger Refs",
+      "type": "array"
+    },
+    "patch_ledger_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Patch Ledger Set Hash",
+      "type": "string"
+    },
+    "pmorg_platform_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Platform Commit",
+      "type": "string"
+    },
+    "pmorg_requirement_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Pmorg Requirement Ids",
+      "type": "array"
+    },
+    "pmorg_spec_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Spec Commit",
+      "type": "string"
+    },
+    "post_disposition_qualification": {
+      "$ref": "#/$defs/PostDispositionQualificationReport"
+    },
+    "rationale": {
+      "minLength": 1,
+      "title": "Rationale",
+      "type": "string"
+    },
+    "record_evidence_bundle_index": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "schema_version": {
+      "const": "pmorg.capability-disposition/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "selected_candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Selected Candidate Ids",
+      "type": "array"
+    },
+    "usage_mode": {
+      "enum": [
+        "development_test",
+        "production"
+      ],
+      "title": "Usage Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "catalog_version",
+    "catalog_hash",
+    "pmorg_spec_commit",
+    "pmorg_platform_commit",
+    "onyx_commit",
+    "artifact_set_hash",
+    "onyx_surface",
+    "usage_mode",
+    "capability_id",
+    "pmorg_requirement_ids",
+    "candidate_search_outcome",
+    "candidate_search_evidence",
+    "candidates",
+    "disposition",
+    "selected_candidate_ids",
+    "implementation_path_set_hash",
+    "implementation_refs",
+    "patch_ledger_set_hash",
+    "patch_ledger_refs",
+    "post_disposition_qualification",
+    "rationale",
+    "deviation_decision_envelope",
+    "record_evidence_bundle_index"
+  ],
+  "title": "CapabilityDispositionRecord",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.capability-disposition/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

@@ -1,0 +1,128 @@
+{
+  "algorithm_id": "example",
+  "classification_record_count": 1,
+  "classified_match_records": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "duplicate_match_id_count": 1,
+  "duplicate_path_count": 1,
+  "ee_source_scope": {
+    "commit": "0000000000000000000000000000000000000000",
+    "derivation_evidence_bundle": {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    },
+    "derivation_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "duplicate_path_count": 1,
+    "expected_path_count": 1,
+    "generator_artifact_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "generator_identity": "example",
+    "path_inventory": {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    },
+    "repository": "https://github.com/example/repository.git",
+    "roots": [
+      "example"
+    ],
+    "schema_version": "pmorg.source-scope-manifest/v1",
+    "scope_kind": "pmorg",
+    "tree_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "unreadable_path_count": 1
+  },
+  "ee_tree_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "evidence_bundle_index_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "exact_match_count": 1,
+  "expected_ee_path_count": 1,
+  "expected_pmorg_path_count": 1,
+  "final_path_inventory": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "forbidden_copy_count": 1,
+  "invalid_licensed_patch_count": 1,
+  "match_record_count": 1,
+  "normalization_spec_version": "1.0.0",
+  "onyx_surface": "ce",
+  "pmorg_platform_commit": "0000000000000000000000000000000000000000",
+  "pmorg_repository": "https://github.com/example/repository.git",
+  "pmorg_source_scope": {
+    "commit": "0000000000000000000000000000000000000000",
+    "derivation_evidence_bundle": {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    },
+    "derivation_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "duplicate_path_count": 1,
+    "expected_path_count": 1,
+    "generator_artifact_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "generator_identity": "example",
+    "path_inventory": {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    },
+    "repository": "https://github.com/example/repository.git",
+    "roots": [
+      "example"
+    ],
+    "schema_version": "pmorg.source-scope-manifest/v1",
+    "scope_kind": "pmorg",
+    "tree_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "unreadable_path_count": 1
+  },
+  "pmorg_spec_commit": "0000000000000000000000000000000000000000",
+  "pmorg_tree_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "raw_match_count": 1,
+  "raw_match_records": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "scan_input_path_inventory": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "scanned_ee_path_count": 1,
+  "scanned_pmorg_path_count": 1,
+  "scanner_artifact_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "scanner_name": "example",
+  "scanner_version": "1.0.0",
+  "schema_version": "pmorg.provenance-scan-report/v1",
+  "similarity_match_count": 1,
+  "similarity_threshold_basis_points": 1,
+  "subject_artifact_set_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "unclassified_match_count": 1,
+  "unclassified_path_count": 1,
+  "unreadable_path_count": 1,
+  "unresolved_count": 1,
+  "unreviewed_match_count": 1,
+  "unscanned_ee_path_count": 1,
+  "unscanned_pmorg_path_count": 1,
+  "upstream_commit": "0000000000000000000000000000000000000000",
+  "upstream_repository": "https://github.com/example/repository.git",
+  "usage_mode": "development_test"
+}

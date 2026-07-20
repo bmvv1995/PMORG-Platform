@@ -1,0 +1,16 @@
+{
+  "criterion_refs": [
+    1
+  ],
+  "evidence_refs": [
+    {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    }
+  ],
+  "outcome_id": "01900000-0000-7000-8000-000000000001",
+  "schema_version": "pmorg.outcome.request-verification/v1"
+}

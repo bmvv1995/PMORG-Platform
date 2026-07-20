@@ -1,0 +1,61 @@
+{
+  "candidate_id": "example",
+  "capability_id": "example",
+  "catalog_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "duplicate_test_count": 1,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 1,
+  "qualification_policy": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "required_test_manifest": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "0000000000000000000000000000000000000000",
+    "paths": [
+      "evidence/example.json"
+    ],
+    "repository": "https://github.com/example/repository.git",
+    "source_snapshot": {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    },
+    "tree_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "logical_name": "example",
+        "media_type": "application/json",
+        "relative_path": "evidence/example.json",
+        "size_bytes": 1
+      },
+      "test_id": "example",
+      "test_manifest": {
+        "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "logical_name": "example",
+        "media_type": "application/json",
+        "relative_path": "evidence/example.json",
+        "size_bytes": 1
+      },
+      "verdict": "pass"
+    }
+  ],
+  "verdict": "pass"
+}

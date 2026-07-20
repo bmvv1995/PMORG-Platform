@@ -1,0 +1,103 @@
+{
+  "$id": "urn:pmorg:contract:pmorg.distribution-destination-descriptor/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Account Binding Set Hash",
+      "type": "string"
+    },
+    "agreement_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Agreement Binding Set Hash",
+      "type": "string"
+    },
+    "authorized_entity_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Authorized Entity Binding Set Hash",
+      "type": "string"
+    },
+    "derived_destination_class": {
+      "enum": [
+        "controlled_synthetic_registry",
+        "client_destination"
+      ],
+      "title": "Derived Destination Class",
+      "type": "string"
+    },
+    "destination_uid_hmac": {
+      "pattern": "^hmac-sha256:[0-9a-f]{64}$",
+      "title": "Destination Uid Hmac",
+      "type": "string"
+    },
+    "endpoint_and_storage_policy_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Endpoint And Storage Policy Hash",
+      "type": "string"
+    },
+    "operation": {
+      "enum": [
+        "registry_publish",
+        "artifact_export"
+      ],
+      "title": "Operation",
+      "type": "string"
+    },
+    "organization_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Organization Binding Set Hash",
+      "type": "string"
+    },
+    "production_destination_count": {
+      "minimum": 0,
+      "title": "Production Destination Count",
+      "type": "integer"
+    },
+    "registry_or_gateway_identity_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Registry Or Gateway Identity Set Hash",
+      "type": "string"
+    },
+    "resource_classification_report_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Resource Classification Report Hash",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.distribution-destination-descriptor/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "seat_scope_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Seat Scope Binding Set Hash",
+      "type": "string"
+    },
+    "unknown_destination_count": {
+      "minimum": 0,
+      "title": "Unknown Destination Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "destination_uid_hmac",
+    "operation",
+    "registry_or_gateway_identity_set_hash",
+    "account_binding_set_hash",
+    "organization_binding_set_hash",
+    "authorized_entity_binding_set_hash",
+    "seat_scope_binding_set_hash",
+    "agreement_binding_set_hash",
+    "endpoint_and_storage_policy_hash",
+    "resource_classification_report_hash",
+    "production_destination_count",
+    "unknown_destination_count",
+    "derived_destination_class"
+  ],
+  "title": "DistributionDestinationDescriptor",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.distribution-destination-descriptor/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

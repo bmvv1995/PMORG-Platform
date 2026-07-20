@@ -1,0 +1,43 @@
+{
+  "$id": "urn:pmorg:contract:pmorg.task.block/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocker": {
+      "minLength": 1,
+      "title": "Blocker",
+      "type": "string"
+    },
+    "exit_condition": {
+      "minLength": 1,
+      "title": "Exit Condition",
+      "type": "string"
+    },
+    "owner_identity_id": {
+      "format": "uuid",
+      "title": "Owner Identity Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.task.block/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_id": {
+      "exclusiveMinimum": 0,
+      "title": "Task Id",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "blocker",
+    "owner_identity_id",
+    "exit_condition"
+  ],
+  "title": "TaskBlockPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.task.block/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

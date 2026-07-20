@@ -1,0 +1,62 @@
+{
+  "$defs": {
+    "RuntimeCapability": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_id": {
+          "minLength": 1,
+          "title": "Capability Id",
+          "type": "string"
+        },
+        "capability_version": {
+          "minLength": 1,
+          "title": "Capability Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "capability_id",
+        "capability_version"
+      ],
+      "title": "RuntimeCapability",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.task.claim/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "requested_lease_seconds": {
+      "exclusiveMinimum": 0,
+      "title": "Requested Lease Seconds",
+      "type": "integer"
+    },
+    "runtime_capabilities": {
+      "items": {
+        "$ref": "#/$defs/RuntimeCapability"
+      },
+      "title": "Runtime Capabilities",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "pmorg.task.claim/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_id": {
+      "exclusiveMinimum": 0,
+      "title": "Task Id",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "runtime_capabilities",
+    "requested_lease_seconds"
+  ],
+  "title": "TaskClaimPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.task.claim/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

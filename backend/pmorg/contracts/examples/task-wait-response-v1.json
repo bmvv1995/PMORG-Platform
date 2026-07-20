@@ -1,0 +1,9 @@
+{
+  "conversation_id": "01900000-0000-7000-8000-000000000001",
+  "expected_from": [
+    "01900000-0000-7000-8000-000000000001"
+  ],
+  "next_check_at": "2026-01-01T00:00:00Z",
+  "schema_version": "pmorg.task.wait-response/v1",
+  "task_id": 1
+}

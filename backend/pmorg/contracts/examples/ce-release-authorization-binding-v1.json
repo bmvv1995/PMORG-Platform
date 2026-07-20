@@ -1,0 +1,54 @@
+{
+  "artifact_scope_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "issued_at": "2026-01-01T00:00:00Z",
+  "issuer_identity": "example",
+  "next_revalidation_at": "2026-01-01T00:00:00Z",
+  "permitted_onyx_surface": "ce",
+  "permitted_operations": [
+    "deploy"
+  ],
+  "permitted_usage_mode": "production",
+  "release_evidence": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "release_id": "example",
+  "revocation_status": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "schema_version": "pmorg.ce-release-authorization-binding/v1",
+  "target_destination_scope_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "temporal_policy": {
+    "max_clock_skew_seconds": 1,
+    "max_measurement_age_seconds": 1,
+    "max_revalidation_interval_seconds": 1,
+    "max_time_receipt_age_seconds": 1,
+    "max_validity_seconds": 1,
+    "policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "trusted_clock_id": "example",
+  "trusted_time_receipt_envelope": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "valid_from": "2026-01-01T00:00:00Z",
+  "valid_until": "2026-01-01T00:00:00Z",
+  "verification_material_bundle": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "verification_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

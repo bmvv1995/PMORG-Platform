@@ -1,0 +1,14 @@
+{
+  "baseline_manifest_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "entries": [
+    {
+      "expected_artifact_id_set_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "expected_release_metadata_role_set_hash": null,
+      "scope_class": "deployment_runtime",
+      "scope_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "target_destination_policy_schema_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "onyx_surface": "ce",
+  "schema_version": "pmorg.runtime-scope-policy-map/v1"
+}

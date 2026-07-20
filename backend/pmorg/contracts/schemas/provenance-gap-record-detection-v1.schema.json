@@ -1,0 +1,135 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    },
+    "ObservationWindow": {
+      "additionalProperties": false,
+      "properties": {
+        "ends_at": {
+          "format": "date-time",
+          "title": "Ends At",
+          "type": "string"
+        },
+        "starts_at": {
+          "format": "date-time",
+          "title": "Starts At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "starts_at",
+        "ends_at"
+      ],
+      "title": "ObservationWindow",
+      "type": "object"
+    },
+    "OpaqueAnchorRef": {
+      "additionalProperties": false,
+      "properties": {
+        "anchor_id": {
+          "minLength": 1,
+          "title": "Anchor Id",
+          "type": "string"
+        },
+        "anchor_type": {
+          "minLength": 1,
+          "title": "Anchor Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "anchor_type",
+        "anchor_id"
+      ],
+      "title": "OpaqueAnchorRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.provenance-gap.record-detection/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anchor_refs": {
+      "items": {
+        "$ref": "#/$defs/OpaqueAnchorRef"
+      },
+      "minItems": 1,
+      "title": "Anchor Refs",
+      "type": "array"
+    },
+    "detector_class": {
+      "minLength": 1,
+      "title": "Detector Class",
+      "type": "string"
+    },
+    "effect_ref": {
+      "$ref": "#/$defs/OpaqueAnchorRef"
+    },
+    "materiality_policy_ref": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "schema_version": {
+      "const": "pmorg.provenance-gap.record-detection/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "signal_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Signal Hash",
+      "type": "string"
+    },
+    "window": {
+      "$ref": "#/$defs/ObservationWindow"
+    }
+  },
+  "required": [
+    "schema_version",
+    "detector_class",
+    "effect_ref",
+    "anchor_refs",
+    "window",
+    "materiality_policy_ref",
+    "signal_hash"
+  ],
+  "title": "ProvenanceGapRecordDetectionPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.provenance-gap.record-detection/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

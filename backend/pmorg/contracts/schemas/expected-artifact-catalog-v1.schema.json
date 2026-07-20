@@ -1,0 +1,87 @@
+{
+  "$defs": {
+    "ExpectedArtifactCatalogItem": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_kind": {
+          "enum": [
+            "oci_image",
+            "worker",
+            "package",
+            "migration",
+            "static_bundle"
+          ],
+          "title": "Artifact Kind",
+          "type": "string"
+        },
+        "component": {
+          "minLength": 1,
+          "title": "Component",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "platform": {
+          "minLength": 1,
+          "title": "Platform",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "component",
+        "artifact_kind",
+        "media_type",
+        "platform"
+      ],
+      "title": "ExpectedArtifactCatalogItem",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.expected-artifact-catalog/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "build_recipe_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Build Recipe Hash",
+      "type": "string"
+    },
+    "expected_artifact_count": {
+      "exclusiveMinimum": 0,
+      "title": "Expected Artifact Count",
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "$ref": "#/$defs/ExpectedArtifactCatalogItem"
+      },
+      "minItems": 1,
+      "title": "Items",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "pmorg.expected-artifact-catalog/v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "build_recipe_hash",
+    "items",
+    "expected_artifact_count"
+  ],
+  "title": "ExpectedArtifactCatalog",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.expected-artifact-catalog/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

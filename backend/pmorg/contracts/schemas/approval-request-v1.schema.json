@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.approval.request/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Action Hash",
+      "type": "string"
+    },
+    "action_type": {
+      "minLength": 1,
+      "title": "Action Type",
+      "type": "string"
+    },
+    "approver_policy": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "title": "Expires At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.approval.request/v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "action_hash",
+    "action_type",
+    "approver_policy",
+    "expires_at"
+  ],
+  "title": "ApprovalRequestPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.approval.request/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

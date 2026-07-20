@@ -1,0 +1,15 @@
+{
+  "bundle_kind": "example",
+  "entries": [
+    {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    }
+  ],
+  "entry_count": 1,
+  "schema_version": "pmorg.evidence-bundle-index/v1",
+  "subject_binding_hash": null
+}

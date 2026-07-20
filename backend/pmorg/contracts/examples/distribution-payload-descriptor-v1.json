@@ -1,0 +1,30 @@
+{
+  "deployable_artifact_count": 1,
+  "deployable_artifact_descriptors": [
+    {
+      "artifact_id": "example",
+      "artifact_kind": "oci_image",
+      "component": "example",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "media_type": "application/json",
+      "platform": "example",
+      "size_bytes": 1
+    }
+  ],
+  "distribution_payload_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "distribution_scope_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "duplicate_deployable_artifact_key_count": 1,
+  "duplicate_release_metadata_count": 1,
+  "expected_artifact_id_set_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "expected_deployable_artifact_count": 1,
+  "expected_release_metadata_entry_count": 1,
+  "expected_release_metadata_role_set_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "missing_deployable_artifact_count": 1,
+  "missing_release_metadata_count": 1,
+  "operation": "registry_publish",
+  "release_metadata_bundle_index_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "release_metadata_entry_count": 1,
+  "schema_version": "pmorg.distribution-payload-descriptor/v1",
+  "unexpected_deployable_artifact_count": 1,
+  "unexpected_release_metadata_count": 1
+}

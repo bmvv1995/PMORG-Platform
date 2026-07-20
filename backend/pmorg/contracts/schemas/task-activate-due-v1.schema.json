@@ -1,0 +1,41 @@
+{
+  "$id": "urn:pmorg:contract:pmorg.task.activate-due/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "pmorg.task.activate-due/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_id": {
+      "exclusiveMinimum": 0,
+      "title": "Task Id",
+      "type": "integer"
+    },
+    "trigger_ref": {
+      "minLength": 1,
+      "title": "Trigger Ref",
+      "type": "string"
+    },
+    "trigger_type": {
+      "enum": [
+        "response",
+        "approval",
+        "trusted_time_tick"
+      ],
+      "title": "Trigger Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "trigger_type",
+    "trigger_ref"
+  ],
+  "title": "TaskActivateDuePayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.task.activate-due/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

@@ -1,0 +1,11 @@
+{
+  "requested_lease_seconds": 1,
+  "runtime_capabilities": [
+    {
+      "capability_id": "example",
+      "capability_version": "1.0.0"
+    }
+  ],
+  "schema_version": "pmorg.task.claim/v1",
+  "task_id": 1
+}

@@ -1,0 +1,171 @@
+{
+  "$defs": {
+    "CapabilityCatalogItem": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_id": {
+          "minLength": 1,
+          "title": "Capability Id",
+          "type": "string"
+        },
+        "contract_tests": {
+          "items": {
+            "$ref": "#/$defs/EvidenceArtifactRef"
+          },
+          "minItems": 1,
+          "title": "Contract Tests",
+          "type": "array"
+        },
+        "pmorg_requirement_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Pmorg Requirement Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "capability_id",
+        "pmorg_requirement_ids",
+        "contract_tests"
+      ],
+      "title": "CapabilityCatalogItem",
+      "type": "object"
+    },
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.capability-catalog/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "applicable_requirement_set": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "catalog_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Catalog Version",
+      "type": "string"
+    },
+    "disposition_scope_rule": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "duplicate_capability_id_count": {
+      "minimum": 0,
+      "title": "Duplicate Capability Id Count",
+      "type": "integer"
+    },
+    "expected_requirement_count": {
+      "exclusiveMinimum": 0,
+      "title": "Expected Requirement Count",
+      "type": "integer"
+    },
+    "item_count": {
+      "exclusiveMinimum": 0,
+      "title": "Item Count",
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "$ref": "#/$defs/CapabilityCatalogItem"
+      },
+      "minItems": 1,
+      "title": "Items",
+      "type": "array"
+    },
+    "mapped_requirement_count": {
+      "exclusiveMinimum": 0,
+      "title": "Mapped Requirement Count",
+      "type": "integer"
+    },
+    "pmorg_spec_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Spec Commit",
+      "type": "string"
+    },
+    "required_search_surfaces": {
+      "items": {
+        "enum": [
+          "ce",
+          "ee"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Required Search Surfaces",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "pmorg.capability-catalog/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "unknown_requirement_count": {
+      "minimum": 0,
+      "title": "Unknown Requirement Count",
+      "type": "integer"
+    },
+    "unmapped_requirement_count": {
+      "minimum": 0,
+      "title": "Unmapped Requirement Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "catalog_version",
+    "pmorg_spec_commit",
+    "disposition_scope_rule",
+    "applicable_requirement_set",
+    "required_search_surfaces",
+    "expected_requirement_count",
+    "mapped_requirement_count",
+    "unmapped_requirement_count",
+    "unknown_requirement_count",
+    "duplicate_capability_id_count",
+    "items",
+    "item_count"
+  ],
+  "title": "CapabilityCatalog",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.capability-catalog/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

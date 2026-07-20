@@ -1,0 +1,7 @@
+{
+  "blocker": "example",
+  "exit_condition": "example",
+  "owner_identity_id": "01900000-0000-7000-8000-000000000001",
+  "schema_version": "pmorg.task.block/v1",
+  "task_id": 1
+}

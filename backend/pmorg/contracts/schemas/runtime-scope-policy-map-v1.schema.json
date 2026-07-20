@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "RuntimeScopePolicyEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_artifact_id_set_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Expected Artifact Id Set Hash",
+          "type": "string"
+        },
+        "expected_release_metadata_role_set_hash": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Release Metadata Role Set Hash"
+        },
+        "scope_class": {
+          "enum": [
+            "deployment_runtime",
+            "registry_publish",
+            "artifact_export"
+          ],
+          "title": "Scope Class",
+          "type": "string"
+        },
+        "scope_policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Scope Policy Hash",
+          "type": "string"
+        },
+        "target_destination_policy_schema_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Target Destination Policy Schema Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scope_class",
+        "scope_policy_hash",
+        "expected_artifact_id_set_hash",
+        "expected_release_metadata_role_set_hash",
+        "target_destination_policy_schema_hash"
+      ],
+      "title": "RuntimeScopePolicyEntry",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.runtime-scope-policy-map/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_manifest_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Baseline Manifest Hash",
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "$ref": "#/$defs/RuntimeScopePolicyEntry"
+      },
+      "minItems": 1,
+      "title": "Entries",
+      "type": "array"
+    },
+    "onyx_surface": {
+      "enum": [
+        "ce",
+        "ee"
+      ],
+      "title": "Onyx Surface",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.runtime-scope-policy-map/v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "baseline_manifest_hash",
+    "onyx_surface",
+    "entries"
+  ],
+  "title": "RuntimeScopePolicyMap",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.runtime-scope-policy-map/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

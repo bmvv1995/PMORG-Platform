@@ -1,0 +1,136 @@
+{
+  "$id": "urn:pmorg:contract:pmorg.qualification-report/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "duplicate_item_count": {
+      "minimum": 0,
+      "title": "Duplicate Item Count",
+      "type": "integer"
+    },
+    "evidence_bundle_index_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Evidence Bundle Index Hash",
+      "type": "string"
+    },
+    "expected_item_count": {
+      "minimum": 0,
+      "title": "Expected Item Count",
+      "type": "integer"
+    },
+    "input_bundle_index_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Input Bundle Index Hash",
+      "type": "string"
+    },
+    "input_snapshot_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Input Snapshot Set Hash",
+      "type": "string"
+    },
+    "missing_item_count": {
+      "minimum": 0,
+      "title": "Missing Item Count",
+      "type": "integer"
+    },
+    "observed_item_count": {
+      "minimum": 0,
+      "title": "Observed Item Count",
+      "type": "integer"
+    },
+    "onyx_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Onyx Commit",
+      "type": "string"
+    },
+    "onyx_surface": {
+      "enum": [
+        "ce",
+        "ee"
+      ],
+      "title": "Onyx Surface",
+      "type": "string"
+    },
+    "policy_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Policy Digest",
+      "type": "string"
+    },
+    "report_kind": {
+      "minLength": 1,
+      "title": "Report Kind",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^pmorg\\.[a-z0-9.-]+/v1$",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "subject_artifact_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Subject Artifact Set Hash",
+      "type": "string"
+    },
+    "tool_artifact_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Tool Artifact Digest",
+      "type": "string"
+    },
+    "tool_config_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Tool Config Hash",
+      "type": "string"
+    },
+    "tool_name": {
+      "minLength": 1,
+      "title": "Tool Name",
+      "type": "string"
+    },
+    "tool_version": {
+      "minLength": 1,
+      "title": "Tool Version",
+      "type": "string"
+    },
+    "usage_mode": {
+      "enum": [
+        "development_test",
+        "production"
+      ],
+      "title": "Usage Mode",
+      "type": "string"
+    },
+    "verdict": {
+      "enum": [
+        "pass",
+        "fail"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "report_kind",
+    "subject_artifact_set_hash",
+    "onyx_commit",
+    "onyx_surface",
+    "usage_mode",
+    "policy_digest",
+    "tool_name",
+    "tool_version",
+    "tool_artifact_digest",
+    "tool_config_hash",
+    "input_snapshot_set_hash",
+    "input_bundle_index_hash",
+    "expected_item_count",
+    "observed_item_count",
+    "missing_item_count",
+    "duplicate_item_count",
+    "verdict",
+    "evidence_bundle_index_hash"
+  ],
+  "title": "QualificationReport",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.qualification-report/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

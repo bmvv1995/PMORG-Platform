@@ -1,0 +1,179 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.admission-use-receipt/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actual_payload_descriptor_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Actual Payload Descriptor Hash",
+      "type": "string"
+    },
+    "actual_payload_fingerprint": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Actual Payload Fingerprint",
+      "type": "string"
+    },
+    "actual_target_or_destination_descriptor_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Actual Target Or Destination Descriptor Hash",
+      "type": "string"
+    },
+    "actual_target_or_destination_fingerprint": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Actual Target Or Destination Fingerprint",
+      "type": "string"
+    },
+    "admission_envelope_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Admission Envelope Hash",
+      "type": "string"
+    },
+    "denial_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Denial Reason"
+    },
+    "governed_operation": {
+      "enum": [
+        "deploy",
+        "startup",
+        "registry_publish",
+        "artifact_export"
+      ],
+      "title": "Governed Operation",
+      "type": "string"
+    },
+    "issued_at": {
+      "format": "date-time",
+      "title": "Issued At",
+      "type": "string"
+    },
+    "revocation_check": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "schema_version": {
+      "const": "pmorg.admission-use-receipt/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "trusted_time_receipt_envelope": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "use_id": {
+      "format": "uuid7",
+      "title": "Use Id",
+      "type": "string"
+    },
+    "verdict": {
+      "enum": [
+        "allow",
+        "deny",
+        "quiesce",
+        "abort"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    },
+    "verification_event": {
+      "enum": [
+        "deploy",
+        "startup",
+        "watchdog_revalidation",
+        "registry_publish",
+        "artifact_export",
+        "transfer_revalidation"
+      ],
+      "title": "Verification Event",
+      "type": "string"
+    },
+    "verification_material_bundle": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "verification_policy_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Verification Policy Hash",
+      "type": "string"
+    },
+    "verified_at": {
+      "format": "date-time",
+      "title": "Verified At",
+      "type": "string"
+    },
+    "verifier_identity": {
+      "minLength": 1,
+      "title": "Verifier Identity",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "use_id",
+    "verification_event",
+    "governed_operation",
+    "admission_envelope_hash",
+    "actual_payload_descriptor_hash",
+    "actual_payload_fingerprint",
+    "actual_target_or_destination_descriptor_hash",
+    "actual_target_or_destination_fingerprint",
+    "trusted_time_receipt_envelope",
+    "revocation_check",
+    "verification_policy_hash",
+    "verification_material_bundle",
+    "verifier_identity",
+    "verified_at",
+    "issued_at",
+    "verdict",
+    "denial_reason"
+  ],
+  "title": "AdmissionUseReceiptPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.admission-use-receipt/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

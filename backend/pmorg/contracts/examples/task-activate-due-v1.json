@@ -1,0 +1,6 @@
+{
+  "schema_version": "pmorg.task.activate-due/v1",
+  "task_id": 1,
+  "trigger_ref": "example",
+  "trigger_type": "response"
+}

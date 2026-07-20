@@ -1,0 +1,10 @@
+{
+  "payload": "e30=",
+  "payloadType": "application/vnd.pmorg.contract+json",
+  "signatures": [
+    {
+      "keyid": "example",
+      "sig": "c2ln"
+    }
+  ]
+}

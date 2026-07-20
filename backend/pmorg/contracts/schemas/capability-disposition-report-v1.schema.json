@@ -1,0 +1,181 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.capability-disposition-report/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Catalog Hash",
+      "type": "string"
+    },
+    "catalog_item_count": {
+      "exclusiveMinimum": 0,
+      "title": "Catalog Item Count",
+      "type": "integer"
+    },
+    "catalog_requirement_count": {
+      "exclusiveMinimum": 0,
+      "title": "Catalog Requirement Count",
+      "type": "integer"
+    },
+    "catalog_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Catalog Version",
+      "type": "string"
+    },
+    "covered_count": {
+      "exclusiveMinimum": 0,
+      "title": "Covered Count",
+      "type": "integer"
+    },
+    "dangling_evidence_count": {
+      "minimum": 0,
+      "title": "Dangling Evidence Count",
+      "type": "integer"
+    },
+    "duplicate_count": {
+      "minimum": 0,
+      "title": "Duplicate Count",
+      "type": "integer"
+    },
+    "missing_count": {
+      "minimum": 0,
+      "title": "Missing Count",
+      "type": "integer"
+    },
+    "onyx_surface": {
+      "enum": [
+        "ce",
+        "ee"
+      ],
+      "title": "Onyx Surface",
+      "type": "string"
+    },
+    "pmorg_platform_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Platform Commit",
+      "type": "string"
+    },
+    "pmorg_spec_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Spec Commit",
+      "type": "string"
+    },
+    "record_count": {
+      "exclusiveMinimum": 0,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "record_refs": {
+      "items": {
+        "$ref": "#/$defs/EvidenceArtifactRef"
+      },
+      "minItems": 1,
+      "title": "Record Refs",
+      "type": "array"
+    },
+    "records_and_evidence_bundle_index": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "requirement_ref_mismatch_count": {
+      "minimum": 0,
+      "title": "Requirement Ref Mismatch Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "pmorg.capability-disposition-report/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "subject_artifact_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Subject Artifact Set Hash",
+      "type": "string"
+    },
+    "unknown_requirement_count": {
+      "minimum": 0,
+      "title": "Unknown Requirement Count",
+      "type": "integer"
+    },
+    "unmapped_requirement_count": {
+      "minimum": 0,
+      "title": "Unmapped Requirement Count",
+      "type": "integer"
+    },
+    "usage_mode": {
+      "enum": [
+        "development_test",
+        "production"
+      ],
+      "title": "Usage Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "catalog_version",
+    "pmorg_spec_commit",
+    "pmorg_platform_commit",
+    "subject_artifact_set_hash",
+    "onyx_surface",
+    "usage_mode",
+    "catalog_hash",
+    "catalog_item_count",
+    "catalog_requirement_count",
+    "record_refs",
+    "record_count",
+    "covered_count",
+    "missing_count",
+    "duplicate_count",
+    "unmapped_requirement_count",
+    "unknown_requirement_count",
+    "requirement_ref_mismatch_count",
+    "dangling_evidence_count",
+    "records_and_evidence_bundle_index"
+  ],
+  "title": "CapabilityDispositionReport",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.capability-disposition-report/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}
