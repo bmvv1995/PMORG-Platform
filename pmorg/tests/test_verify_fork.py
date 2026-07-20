@@ -1717,7 +1717,7 @@ class ThinForkPolicyTest(unittest.TestCase):
             thin_fork_errors,
         )
 
-    def test_dormant_static_helm_lane_authorizations_are_byte_bound(self) -> None:
+    def test_static_helm_lane_authorizations_are_byte_bound(self) -> None:
         successor_ref = "pmorg/adr/ADR-0004-helm-static-ephemeral-runner-seam.json"
         normal_ref = "pmorg/adr/ADR-0005-actionlint-helm-lane-label-seam.json"
         successor = json.loads((self.repository_root / successor_ref).read_bytes())
@@ -1808,24 +1808,34 @@ class ThinForkPolicyTest(unittest.TestCase):
             )
 
         self.assertEqual(successor["target_blob_hash"], expected_artifacts[0][4])
-        self.assertEqual(
-            {seam["seam_id"] for seam in self.seam_policy["seams"]},
-            {"SEAM-CI-ZIZMOR-001", "SEAM-CI-HELM-001"},
+        seam_ids = frozenset(seam["seam_id"] for seam in self.seam_policy["seams"])
+        patch_record_ids = frozenset(
+            record["id"] for record in self.ledger["upstream_patch_records"]
         )
-        self.assertEqual(
-            {record["id"] for record in self.ledger["upstream_patch_records"]},
-            {"UP-CI-ZIZMOR-001", "UP-CI-HELM-001"},
-        )
-        self.assertTrue(
-            {"SEAM-CI-HELM-002", "SEAM-CI-ACTIONLINT-001"}.isdisjoint(
-                seam["seam_id"] for seam in self.seam_policy["seams"]
-            )
-        )
-        self.assertTrue(
-            {"UP-CI-HELM-002"}.isdisjoint(
-                record["id"] for record in self.ledger["upstream_patch_records"]
-            )
-        )
+        complete_lane_states = {
+            (
+                frozenset({"SEAM-CI-ZIZMOR-001", "SEAM-CI-HELM-001"}),
+                frozenset({"UP-CI-ZIZMOR-001", "UP-CI-HELM-001"}),
+            ),
+            (
+                frozenset(
+                    {
+                        "SEAM-CI-ZIZMOR-001",
+                        "SEAM-CI-HELM-002",
+                        "SEAM-CI-ACTIONLINT-001",
+                    }
+                ),
+                frozenset(
+                    {
+                        "UP-CI-ZIZMOR-001",
+                        "UP-CI-HELM-002",
+                        "UP-CI-ACTIONLINT-001",
+                    }
+                ),
+            ),
+        }
+
+        self.assertIn((seam_ids, patch_record_ids), complete_lane_states)
 
     def test_current_policy_documents_are_valid_and_default_deny(self) -> None:
         self.assertEqual(validate_patch_ledger_contract(self.ledger), [])
@@ -1838,25 +1848,23 @@ class ThinForkPolicyTest(unittest.TestCase):
         )
         self.assertEqual(self.ownership_policy["default_ownership"], "upstream_owned")
         self.assertEqual(self.seam_policy["default_decision"], "deny")
-        self.assertEqual(
-            [
-                (seam["seam_id"], seam["path_pattern"])
-                for seam in self.seam_policy["seams"]
-            ],
-            [
+        seam_state = tuple(
+            (seam["seam_id"], seam["path_pattern"])
+            for seam in self.seam_policy["seams"]
+        )
+        patch_record_state = tuple(
+            (record["id"], record["seam_id"], record["path"])
+            for record in self.ledger["upstream_patch_records"]
+        )
+        dormant_state = (
+            (
                 ("SEAM-CI-ZIZMOR-001", ".github/workflows/zizmor.yml"),
                 (
                     "SEAM-CI-HELM-001",
                     ".github/workflows/pr-helm-chart-testing.yml",
                 ),
-            ],
-        )
-        self.assertEqual(
-            [
-                (record["id"], record["seam_id"], record["path"])
-                for record in self.ledger["upstream_patch_records"]
-            ],
-            [
+            ),
+            (
                 (
                     "UP-CI-ZIZMOR-001",
                     "SEAM-CI-ZIZMOR-001",
@@ -1867,7 +1875,39 @@ class ThinForkPolicyTest(unittest.TestCase):
                     "SEAM-CI-HELM-001",
                     ".github/workflows/pr-helm-chart-testing.yml",
                 ),
-            ],
+            ),
+        )
+        active_state = (
+            (
+                ("SEAM-CI-ZIZMOR-001", ".github/workflows/zizmor.yml"),
+                (
+                    "SEAM-CI-HELM-002",
+                    ".github/workflows/pr-helm-chart-testing.yml",
+                ),
+                ("SEAM-CI-ACTIONLINT-001", ".github/actionlint.yml"),
+            ),
+            (
+                (
+                    "UP-CI-ZIZMOR-001",
+                    "SEAM-CI-ZIZMOR-001",
+                    ".github/workflows/zizmor.yml",
+                ),
+                (
+                    "UP-CI-HELM-002",
+                    "SEAM-CI-HELM-002",
+                    ".github/workflows/pr-helm-chart-testing.yml",
+                ),
+                (
+                    "UP-CI-ACTIONLINT-001",
+                    "SEAM-CI-ACTIONLINT-001",
+                    ".github/actionlint.yml",
+                ),
+            ),
+        )
+
+        self.assertIn(
+            (seam_state, patch_record_state),
+            {dormant_state, active_state},
         )
 
     def test_trusted_protector_ignores_candidate_imports_and_reads_candidate_root(
