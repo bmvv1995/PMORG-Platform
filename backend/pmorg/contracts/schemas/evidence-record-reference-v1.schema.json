@@ -1,0 +1,58 @@
+{
+  "$defs": {
+    "OpaqueAnchorRef": {
+      "additionalProperties": false,
+      "properties": {
+        "anchor_id": {
+          "minLength": 1,
+          "title": "Anchor Id",
+          "type": "string"
+        },
+        "anchor_type": {
+          "minLength": 1,
+          "title": "Anchor Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "anchor_type",
+        "anchor_id"
+      ],
+      "title": "OpaqueAnchorRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.evidence.record-reference/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_id": {
+      "format": "uuid",
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "relation_role": {
+      "minLength": 1,
+      "title": "Relation Role",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.evidence.record-reference/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "target_ref": {
+      "$ref": "#/$defs/OpaqueAnchorRef"
+    }
+  },
+  "required": [
+    "schema_version",
+    "target_ref",
+    "evidence_id",
+    "relation_role"
+  ],
+  "title": "EvidenceRecordReferencePayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.evidence.record-reference/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

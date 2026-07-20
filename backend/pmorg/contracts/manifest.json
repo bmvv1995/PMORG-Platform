@@ -1,0 +1,443 @@
+{
+  "contract_count": 54,
+  "contracts": [
+    {
+      "example_path": "examples/action-execute-authorized-v1.json",
+      "model": "ActionExecuteAuthorizedPayload",
+      "schema_path": "schemas/action-execute-authorized-v1.schema.json",
+      "schema_sha256": "sha256:8cbbafed0dc5fc2461f5ab8fa3c80dbbd313b48e591eb12b190b666261218386",
+      "schema_version": "pmorg.action.execute-authorized/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/admission-use-receipt-v1.json",
+      "model": "AdmissionUseReceiptPayload",
+      "schema_path": "schemas/admission-use-receipt-v1.schema.json",
+      "schema_sha256": "sha256:91bf50d25b4baaa9777208d309db6e358091fe6b33cf3a648764dd63f8d1a601",
+      "schema_version": "pmorg.admission-use-receipt/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/approval-request-v1.json",
+      "model": "ApprovalRequestPayload",
+      "schema_path": "schemas/approval-request-v1.schema.json",
+      "schema_sha256": "sha256:3324b5e98b4d7c487c098b6fb53d821d464aa2a4fb964b85c944100c495f7079",
+      "schema_version": "pmorg.approval.request/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/build-qualification-attestation-v1.json",
+      "model": "BuildQualificationAttestation",
+      "schema_path": "schemas/build-qualification-attestation-v1.schema.json",
+      "schema_sha256": "sha256:02c1bd3394c009da784f3be00c9c0ee8e4864efe9dd5c7e2cf901d2aaafd2822",
+      "schema_version": "pmorg.build-qualification-attestation/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/build-qualification-manifest-v1.json",
+      "model": "BuildQualificationManifest",
+      "schema_path": "schemas/build-qualification-manifest-v1.schema.json",
+      "schema_sha256": "sha256:007bb3d9a9457a20f4e24eb0e3268c4860e051558e546bbade62bfa57c662300",
+      "schema_version": "pmorg.build-qualification-manifest/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/candidate-qualification-report-v1.json",
+      "model": "CandidateQualificationReport",
+      "schema_path": "schemas/candidate-qualification-report-v1.schema.json",
+      "schema_sha256": "sha256:71bc3aa3f24be85cec2afd9f3b3b682b92e5d8b2a2c5d9b1d788532ccfe88e35",
+      "schema_version": "pmorg.candidate-qualification-report/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/candidate-search-evidence-v1.json",
+      "model": "CandidateSearchEvidence",
+      "schema_path": "schemas/candidate-search-evidence-v1.schema.json",
+      "schema_sha256": "sha256:4ce7cc9e4bc8298737c1e495f94ce2ed0c15a7e094f0bfa4651c3c500aa2bfbb",
+      "schema_version": "pmorg.candidate-search-evidence/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/capability-catalog-v1.json",
+      "model": "CapabilityCatalog",
+      "schema_path": "schemas/capability-catalog-v1.schema.json",
+      "schema_sha256": "sha256:571314903a43868796267cf3c396958bcdf7f7f210cc24936a1b21a16755ef56",
+      "schema_version": "pmorg.capability-catalog/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/capability-deviation-decision-v1.json",
+      "model": "DeviationDecisionPayload",
+      "schema_path": "schemas/capability-deviation-decision-v1.schema.json",
+      "schema_sha256": "sha256:c5f248a489fc856c547316ec6963d21a3813b6b9fc004bde8b1bf0cf02efd8ed",
+      "schema_version": "pmorg.capability-deviation-decision/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/capability-disposition-report-v1.json",
+      "model": "CapabilityDispositionReport",
+      "schema_path": "schemas/capability-disposition-report-v1.schema.json",
+      "schema_sha256": "sha256:d4ce37999ab322f04bb3040a8faca15ee48d3fad9141482c1d3ee73e729bf548",
+      "schema_version": "pmorg.capability-disposition-report/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/capability-disposition-v1.json",
+      "model": "CapabilityDispositionRecord",
+      "schema_path": "schemas/capability-disposition-v1.schema.json",
+      "schema_sha256": "sha256:52645ac05dd24e9b6da1e6d770b06bd7ae86acc7f9491f4ad21b07b51a1852d7",
+      "schema_version": "pmorg.capability-disposition/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/ce-release-authorization-binding-v1.json",
+      "model": "CeReleaseAuthorizationBinding",
+      "schema_path": "schemas/ce-release-authorization-binding-v1.schema.json",
+      "schema_sha256": "sha256:63f4ce5614bd2a5c036334b7263dfb8d4693fd6e0e8ecc72286a8cb15f1f7552",
+      "schema_version": "pmorg.ce-release-authorization-binding/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/commitment-record-confirmation-v1.json",
+      "model": "CommitmentRecordConfirmationPayload",
+      "schema_path": "schemas/commitment-record-confirmation-v1.schema.json",
+      "schema_sha256": "sha256:5442bcd58aefad022193804be5c3079b729fe1b87c43587dbfe3491761cc87fa",
+      "schema_version": "pmorg.commitment.record-confirmation/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/deployment-admission-v1.json",
+      "model": "DeploymentAdmissionRecord",
+      "schema_path": "schemas/deployment-admission-v1.schema.json",
+      "schema_sha256": "sha256:c26f372936522558c114d8eb9a926ac679d7fca2cbedf2fe1a682f399cf9b652",
+      "schema_version": "pmorg.deployment-admission/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/deployment-payload-descriptor-v1.json",
+      "model": "DeploymentPayloadDescriptor",
+      "schema_path": "schemas/deployment-payload-descriptor-v1.schema.json",
+      "schema_sha256": "sha256:94dc02bca434c8698975ded166ff00e14f8fe99717cfea614de2dc61a67a10f1",
+      "schema_version": "pmorg.deployment-payload-descriptor/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/deployment-target-descriptor-v1.json",
+      "model": "DeploymentTargetDescriptor",
+      "schema_path": "schemas/deployment-target-descriptor-v1.schema.json",
+      "schema_sha256": "sha256:b7d4c6615e265a4013c0bdf4d48efa779373bb9934cd03861b5e19971c3ccb4e",
+      "schema_version": "pmorg.deployment-target-descriptor/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/distribution-admission-v1.json",
+      "model": "DistributionAdmissionRecord",
+      "schema_path": "schemas/distribution-admission-v1.schema.json",
+      "schema_sha256": "sha256:ef799d8400a69d2c97807ae969563df97a629f93750137bf6cb9fedefbafe1ac",
+      "schema_version": "pmorg.distribution-admission/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/distribution-destination-descriptor-v1.json",
+      "model": "DistributionDestinationDescriptor",
+      "schema_path": "schemas/distribution-destination-descriptor-v1.schema.json",
+      "schema_sha256": "sha256:59c00c5a43ea285469633570cea318eb29dc3650cb088e329d84cd70abb331b1",
+      "schema_version": "pmorg.distribution-destination-descriptor/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/distribution-destination-measurement-v1.json",
+      "model": "DistributionDestinationMeasurementAttestation",
+      "schema_path": "schemas/distribution-destination-measurement-v1.schema.json",
+      "schema_sha256": "sha256:199e7463e591c45c9473c4fc93c7230c528d96fb9154d11ff068c59472f3d6da",
+      "schema_version": "pmorg.distribution-destination-measurement/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/distribution-payload-descriptor-v1.json",
+      "model": "DistributionPayloadDescriptor",
+      "schema_path": "schemas/distribution-payload-descriptor-v1.schema.json",
+      "schema_sha256": "sha256:7335544efdb4589b5868ff0d67e4f0cd84d9766f515c7447d63cfc96b1042c62",
+      "schema_version": "pmorg.distribution-payload-descriptor/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/dsse-envelope-v1.json",
+      "model": "DsseEnvelope",
+      "schema_path": "schemas/dsse-envelope-v1.schema.json",
+      "schema_sha256": "sha256:23d5a573b208a88d699383c55a9de7efcb4eba1b031f014272a0a0eede6f9dc9",
+      "schema_version": "pmorg.dsse-envelope/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/enterprise-authorization-binding-v1.json",
+      "model": "EnterpriseAuthorizationBinding",
+      "schema_path": "schemas/enterprise-authorization-binding-v1.schema.json",
+      "schema_sha256": "sha256:0dcda63083f391c75ab5d39ece2ed2eeb7011ec821b35afcb7f301abb37eebf6",
+      "schema_version": "pmorg.enterprise-authorization-binding/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/evidence-artifact-ref-v1.json",
+      "model": "EvidenceArtifactRef",
+      "schema_path": "schemas/evidence-artifact-ref-v1.schema.json",
+      "schema_sha256": "sha256:57f12fac21e6b7938fb16dfd2252ea4808f69387e79394e6a9b35f35e4ae0c86",
+      "schema_version": "pmorg.evidence-artifact-ref/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/evidence-bundle-index-v1.json",
+      "model": "EvidenceBundleIndex",
+      "schema_path": "schemas/evidence-bundle-index-v1.schema.json",
+      "schema_sha256": "sha256:610a60c9e3d5da1031c67c13089c926f4dff136ab6729d7e1a855c8d30d943f5",
+      "schema_version": "pmorg.evidence-bundle-index/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/evidence-record-reference-v1.json",
+      "model": "EvidenceRecordReferencePayload",
+      "schema_path": "schemas/evidence-record-reference-v1.schema.json",
+      "schema_sha256": "sha256:042d150513efb173a5418db0a35fd41f6ebd3006a7f99664e8c67abaa3e03744",
+      "schema_version": "pmorg.evidence.record-reference/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/expected-artifact-catalog-v1.json",
+      "model": "ExpectedArtifactCatalog",
+      "schema_path": "schemas/expected-artifact-catalog-v1.schema.json",
+      "schema_sha256": "sha256:439d3d9a795d34d83a4b3fb3b49ee302f1ea1e76b9261a27bbed97babf6cf686",
+      "schema_version": "pmorg.expected-artifact-catalog/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/outcome-request-verification-v1.json",
+      "model": "OutcomeRequestVerificationPayload",
+      "schema_path": "schemas/outcome-request-verification-v1.schema.json",
+      "schema_sha256": "sha256:452bf33aa97753f8818d2d29016af5b42ffec5e3d1d0d3b43d976e1f95b1fa30",
+      "schema_version": "pmorg.outcome.request-verification/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/plan-propose-version-v1.json",
+      "model": "PlanProposeVersionPayload",
+      "schema_path": "schemas/plan-propose-version-v1.schema.json",
+      "schema_sha256": "sha256:a2d5edcd12c31f07f030a5d60ecaa10b3f20bca3e461340f5f71a9d4efbfb3fc",
+      "schema_version": "pmorg.plan.propose-version/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/post-disposition-qualification-v1.json",
+      "model": "PostDispositionQualificationReport",
+      "schema_path": "schemas/post-disposition-qualification-v1.schema.json",
+      "schema_sha256": "sha256:79708a3b159e36cd36146f757d4c9a957d03d1fad650938f94127c30fd57ad6b",
+      "schema_version": "pmorg.post-disposition-qualification/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/provenance-gap-record-detection-v1.json",
+      "model": "ProvenanceGapRecordDetectionPayload",
+      "schema_path": "schemas/provenance-gap-record-detection-v1.schema.json",
+      "schema_sha256": "sha256:d2ada4e5bc81e6e76cf327595799e8370d950d1b35f1fcf772cd1b58d8e90322",
+      "schema_version": "pmorg.provenance-gap.record-detection/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/provenance-gap-resolve-v1.json",
+      "model": "ProvenanceGapResolvePayload",
+      "schema_path": "schemas/provenance-gap-resolve-v1.schema.json",
+      "schema_sha256": "sha256:4abde5c2e5171148fb9934b2f3be41501ae50e50c3823aa5849a9576f9757650",
+      "schema_version": "pmorg.provenance-gap.resolve/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/provenance-scan-report-v1.json",
+      "model": "ProvenanceScanReport",
+      "schema_path": "schemas/provenance-scan-report-v1.schema.json",
+      "schema_sha256": "sha256:8a835872c8de0dac9ba75a85c3d6f3d7dcc7cc07c1b3b45a9015c7cf674145eb",
+      "schema_version": "pmorg.provenance-scan-report/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/qualification-policy-map-v1.json",
+      "model": "QualificationPolicyMap",
+      "schema_path": "schemas/qualification-policy-map-v1.schema.json",
+      "schema_sha256": "sha256:4e306867cb96e2e3f8deb4c5eac302bb38b7aaf242f9f846f9b3202dc1a39a77",
+      "schema_version": "pmorg.qualification-policy-map/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/qualification-report-v1.json",
+      "model": "QualificationReport",
+      "schema_path": "schemas/qualification-report-v1.schema.json",
+      "schema_sha256": "sha256:8290f94ce8359b1e33cec7b8924e8a159a65d7daf20c2ae50c9d7f020f969881",
+      "schema_version": "pmorg.qualification-report/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/release-build-definition-v1.json",
+      "model": "ReleaseBuildDefinitionPayload",
+      "schema_path": "schemas/release-build-definition-v1.schema.json",
+      "schema_sha256": "sha256:7b7a8951ced3090b17d11a9d3ed8b4fc37d6d101c69d2950257d05317be9fac8",
+      "schema_version": "pmorg.release-build-definition/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/run-complete-v1.json",
+      "model": "RunCompletePayload",
+      "schema_path": "schemas/run-complete-v1.schema.json",
+      "schema_sha256": "sha256:03510ff8e04b675653dd7f9a69c88834cf8e19128b48cd0e3d34c641bf2d3f2c",
+      "schema_version": "pmorg.run.complete/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/run-reclaim-expired-v1.json",
+      "model": "RunReclaimExpiredPayload",
+      "schema_path": "schemas/run-reclaim-expired-v1.schema.json",
+      "schema_sha256": "sha256:15ea487b4abe25372a60e888bfd486d6edd4b44c5ad20328bfc90b9716b71752",
+      "schema_version": "pmorg.run.reclaim-expired/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/runtime-scope-policy-map-v1.json",
+      "model": "RuntimeScopePolicyMap",
+      "schema_path": "schemas/runtime-scope-policy-map-v1.schema.json",
+      "schema_sha256": "sha256:85226b392b68c2451accda7254b196a6766193dffb60cc97e806ea481d3f258e",
+      "schema_version": "pmorg.runtime-scope-policy-map/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/source-scope-manifest-v1.json",
+      "model": "SourceScopeManifest",
+      "schema_path": "schemas/source-scope-manifest-v1.schema.json",
+      "schema_sha256": "sha256:0ab2432a69ed009347ba9826374dc5b7108055d703fda070f87bed854d1dd6e2",
+      "schema_version": "pmorg.source-scope-manifest/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/target-measurement-attestation-v1.json",
+      "model": "TargetMeasurementAttestation",
+      "schema_path": "schemas/target-measurement-attestation-v1.schema.json",
+      "schema_sha256": "sha256:abc6c942aa3b7309cff57cbd0aa248f06e13b574e885a767a78afce5b0ea1234",
+      "schema_version": "pmorg.target-measurement-attestation/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-activate-due-v1.json",
+      "model": "TaskActivateDuePayload",
+      "schema_path": "schemas/task-activate-due-v1.schema.json",
+      "schema_sha256": "sha256:83589783454845612baff92104d7c1467ef785172abed8bd38ffc4998da488ce",
+      "schema_version": "pmorg.task.activate-due/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-block-v1.json",
+      "model": "TaskBlockPayload",
+      "schema_path": "schemas/task-block-v1.schema.json",
+      "schema_sha256": "sha256:0e63c65a6b320b4bb526a82318dae60e540ef427c8163bd9cd9897905b2f8699",
+      "schema_version": "pmorg.task.block/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-claim-v1.json",
+      "model": "TaskClaimPayload",
+      "schema_path": "schemas/task-claim-v1.schema.json",
+      "schema_sha256": "sha256:7e3e678abc6fb9da867dea3c5b4eabb1bd499e3eeca08844c84bac9937490db5",
+      "schema_version": "pmorg.task.claim/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-heartbeat-v1.json",
+      "model": "TaskHeartbeatPayload",
+      "schema_path": "schemas/task-heartbeat-v1.schema.json",
+      "schema_sha256": "sha256:7b5cd680d11e2b2c3f01de609956dd1c0321cc793643e66a63f00504429656da",
+      "schema_version": "pmorg.task.heartbeat/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-mark-managed-v1.json",
+      "model": "TaskMarkManagedPayload",
+      "schema_path": "schemas/task-mark-managed-v1.schema.json",
+      "schema_sha256": "sha256:b76953bf8c1d75f5119c1b325f11e852d8f1275ca67bd8a75484ec04b4cbb335",
+      "schema_version": "pmorg.task.mark-managed/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-propose-v1.json",
+      "model": "TaskProposePayload",
+      "schema_path": "schemas/task-propose-v1.schema.json",
+      "schema_sha256": "sha256:21f55c71588bb58f4b66832575d4e259b94b4aa164e88ebdebad7e118d898262",
+      "schema_version": "pmorg.task.propose/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-record-escalation-v1.json",
+      "model": "TaskRecordEscalationPayload",
+      "schema_path": "schemas/task-record-escalation-v1.schema.json",
+      "schema_sha256": "sha256:330a64c014d109b261f22965cb56b1280e961bd9e008d2834a14751b0d44cce0",
+      "schema_version": "pmorg.task.record-escalation/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-record-followup-v1.json",
+      "model": "TaskRecordFollowupPayload",
+      "schema_path": "schemas/task-record-followup-v1.schema.json",
+      "schema_sha256": "sha256:c24cc7c4db5e34614918dd5292ce75c044dfcd18154a8a0e83251d9c5f6d7e67",
+      "schema_version": "pmorg.task.record-followup/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-record-progress-v1.json",
+      "model": "TaskRecordProgressPayload",
+      "schema_path": "schemas/task-record-progress-v1.schema.json",
+      "schema_sha256": "sha256:0e2f5465c9606c23dfbed3b00ea9788cdeb4b4665e1ef82ac739a2d9157d5e40",
+      "schema_version": "pmorg.task.record-progress/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-release-v1.json",
+      "model": "TaskReleasePayload",
+      "schema_path": "schemas/task-release-v1.schema.json",
+      "schema_sha256": "sha256:e4ce61d69555017b66423a088dbfa0cea20b7f23ea0aa8aafecf58303efc21c5",
+      "schema_version": "pmorg.task.release/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-schedule-v1.json",
+      "model": "TaskSchedulePayload",
+      "schema_path": "schemas/task-schedule-v1.schema.json",
+      "schema_sha256": "sha256:caec678374e560ae4bdd77b22c943e05c03de6844be38568134cfae9fa847ef2",
+      "schema_version": "pmorg.task.schedule/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/task-wait-response-v1.json",
+      "model": "TaskWaitResponsePayload",
+      "schema_path": "schemas/task-wait-response-v1.schema.json",
+      "schema_sha256": "sha256:61fef4e24aeb4eb3c7211e64559db001fa6ddd9f2791bbbe463b384b224ad41c",
+      "schema_version": "pmorg.task.wait-response/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/temporal-policy-binding-v1.json",
+      "model": "TemporalPolicyBinding",
+      "schema_path": "schemas/temporal-policy-binding-v1.schema.json",
+      "schema_sha256": "sha256:a7867d24920ea8ab50b414fef557e91ca2ba7ebd2deffed7ea7d540fe1c74d47",
+      "schema_version": "pmorg.temporal-policy-binding/v1",
+      "write_schema": true
+    },
+    {
+      "example_path": "examples/trusted-time-receipt-v1.json",
+      "model": "TrustedTimeReceiptPayload",
+      "schema_path": "schemas/trusted-time-receipt-v1.schema.json",
+      "schema_sha256": "sha256:eadf9bd07f8962136a638354f0fd587f3dac803f5c49435eb090c29f003e5c30",
+      "schema_version": "pmorg.trusted-time-receipt/v1",
+      "write_schema": true
+    }
+  ],
+  "manifest_version": "pmorg.contract-schema-manifest/v1",
+  "specification": {
+    "commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+    "repository": "https://github.com/bmvv1995/PMORG.git"
+  },
+  "wire_surface": "pmorg-contracts/1.0"
+}

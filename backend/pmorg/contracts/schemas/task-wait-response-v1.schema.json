@@ -1,0 +1,47 @@
+{
+  "$id": "urn:pmorg:contract:pmorg.task.wait-response/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conversation_id": {
+      "format": "uuid",
+      "title": "Conversation Id",
+      "type": "string"
+    },
+    "expected_from": {
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Expected From",
+      "type": "array"
+    },
+    "next_check_at": {
+      "format": "date-time",
+      "title": "Next Check At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.task.wait-response/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_id": {
+      "exclusiveMinimum": 0,
+      "title": "Task Id",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "conversation_id",
+    "expected_from",
+    "next_check_at"
+  ],
+  "title": "TaskWaitResponsePayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.task.wait-response/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

@@ -1,0 +1,311 @@
+{
+  "$defs": {
+    "ArtifactDescriptor": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_kind": {
+          "enum": [
+            "oci_image",
+            "worker",
+            "package",
+            "migration",
+            "static_bundle"
+          ],
+          "title": "Artifact Kind",
+          "type": "string"
+        },
+        "component": {
+          "minLength": 1,
+          "title": "Component",
+          "type": "string"
+        },
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "platform": {
+          "minLength": 1,
+          "title": "Platform",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "component",
+        "artifact_kind",
+        "media_type",
+        "platform",
+        "digest",
+        "size_bytes"
+      ],
+      "title": "ArtifactDescriptor",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.build-qualification-manifest/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "exclusiveMinimum": 0,
+      "title": "Artifact Count",
+      "type": "integer"
+    },
+    "artifact_descriptors": {
+      "items": {
+        "$ref": "#/$defs/ArtifactDescriptor"
+      },
+      "minItems": 1,
+      "title": "Artifact Descriptors",
+      "type": "array"
+    },
+    "artifact_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Artifact Set Hash",
+      "type": "string"
+    },
+    "baseline_manifest_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Baseline Manifest Hash",
+      "type": "string"
+    },
+    "build_input_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Build Input Set Hash",
+      "type": "string"
+    },
+    "build_recipe_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Build Recipe Hash",
+      "type": "string"
+    },
+    "capability_catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Capability Catalog Hash",
+      "type": "string"
+    },
+    "capability_disposition_report_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Capability Disposition Report Hash",
+      "type": "string"
+    },
+    "capability_evidence_bundle_index_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Capability Evidence Bundle Index Hash",
+      "type": "string"
+    },
+    "ce_boundary_report_hash": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ce Boundary Report Hash"
+    },
+    "duplicate_artifact_key_count": {
+      "minimum": 0,
+      "title": "Duplicate Artifact Key Count",
+      "type": "integer"
+    },
+    "ee_inventory_report_hash": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ee Inventory Report Hash"
+    },
+    "expected_artifact_catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Expected Artifact Catalog Hash",
+      "type": "string"
+    },
+    "expected_artifact_count": {
+      "exclusiveMinimum": 0,
+      "title": "Expected Artifact Count",
+      "type": "integer"
+    },
+    "image_lock_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Image Lock Hash",
+      "type": "string"
+    },
+    "license_report_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "License Report Hash",
+      "type": "string"
+    },
+    "missing_artifact_count": {
+      "minimum": 0,
+      "title": "Missing Artifact Count",
+      "type": "integer"
+    },
+    "onyx_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Onyx Commit",
+      "type": "string"
+    },
+    "onyx_release_tag": {
+      "minLength": 1,
+      "title": "Onyx Release Tag",
+      "type": "string"
+    },
+    "onyx_surface": {
+      "enum": [
+        "ce",
+        "ee"
+      ],
+      "title": "Onyx Surface",
+      "type": "string"
+    },
+    "patch_ledger_report_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Patch Ledger Report Hash",
+      "type": "string"
+    },
+    "pmorg_platform_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Platform Commit",
+      "type": "string"
+    },
+    "pmorg_spec_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Spec Commit",
+      "type": "string"
+    },
+    "provenance_evidence_bundle_index_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Provenance Evidence Bundle Index Hash",
+      "type": "string"
+    },
+    "provenance_report_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Provenance Report Hash",
+      "type": "string"
+    },
+    "qualification_bundle_index_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Qualification Bundle Index Hash",
+      "type": "string"
+    },
+    "qualification_policy_map_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Qualification Policy Map Hash",
+      "type": "string"
+    },
+    "release_build_definition_envelope_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Release Build Definition Envelope Hash",
+      "type": "string"
+    },
+    "runtime_scope_policy_map_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Runtime Scope Policy Map Hash",
+      "type": "string"
+    },
+    "sbom_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Sbom Hash",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.build-qualification-manifest/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "surface_mode_report_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Surface Mode Report Hash",
+      "type": "string"
+    },
+    "unexpected_artifact_count": {
+      "minimum": 0,
+      "title": "Unexpected Artifact Count",
+      "type": "integer"
+    },
+    "upstream_test_report_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Upstream Test Report Hash",
+      "type": "string"
+    },
+    "usage_mode": {
+      "enum": [
+        "development_test",
+        "production"
+      ],
+      "title": "Usage Mode",
+      "type": "string"
+    },
+    "vulnerability_report_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Vulnerability Report Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "baseline_manifest_hash",
+    "release_build_definition_envelope_hash",
+    "build_recipe_hash",
+    "build_input_set_hash",
+    "runtime_scope_policy_map_hash",
+    "expected_artifact_catalog_hash",
+    "artifact_descriptors",
+    "artifact_count",
+    "expected_artifact_count",
+    "missing_artifact_count",
+    "unexpected_artifact_count",
+    "duplicate_artifact_key_count",
+    "artifact_set_hash",
+    "image_lock_hash",
+    "pmorg_platform_commit",
+    "pmorg_spec_commit",
+    "onyx_release_tag",
+    "onyx_commit",
+    "onyx_surface",
+    "usage_mode",
+    "qualification_policy_map_hash",
+    "sbom_hash",
+    "license_report_hash",
+    "patch_ledger_report_hash",
+    "provenance_report_hash",
+    "provenance_evidence_bundle_index_hash",
+    "surface_mode_report_hash",
+    "capability_catalog_hash",
+    "capability_disposition_report_hash",
+    "capability_evidence_bundle_index_hash",
+    "vulnerability_report_hash",
+    "upstream_test_report_hash",
+    "ce_boundary_report_hash",
+    "ee_inventory_report_hash",
+    "qualification_bundle_index_hash"
+  ],
+  "title": "BuildQualificationManifest",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.build-qualification-manifest/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

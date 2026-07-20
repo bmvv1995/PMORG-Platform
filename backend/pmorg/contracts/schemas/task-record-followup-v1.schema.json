@@ -1,0 +1,98 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.task.record-followup/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conversation_id": {
+      "format": "uuid",
+      "title": "Conversation Id",
+      "type": "string"
+    },
+    "intervention_id": {
+      "format": "uuid7",
+      "title": "Intervention Id",
+      "type": "string"
+    },
+    "message_receipt_ref": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "outbound_message_id": {
+      "format": "uuid",
+      "title": "Outbound Message Id",
+      "type": "string"
+    },
+    "policy_ref": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "title": "Reason Code",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.task.record-followup/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_id": {
+      "exclusiveMinimum": 0,
+      "title": "Task Id",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "intervention_id",
+    "conversation_id",
+    "outbound_message_id",
+    "message_receipt_ref",
+    "reason_code",
+    "policy_ref"
+  ],
+  "title": "TaskRecordFollowupPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.task.record-followup/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

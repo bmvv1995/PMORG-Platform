@@ -1,0 +1,296 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    },
+    "TemporalPolicyBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "max_clock_skew_seconds": {
+          "minimum": 0,
+          "title": "Max Clock Skew Seconds",
+          "type": "integer"
+        },
+        "max_measurement_age_seconds": {
+          "minimum": 0,
+          "title": "Max Measurement Age Seconds",
+          "type": "integer"
+        },
+        "max_revalidation_interval_seconds": {
+          "minimum": 0,
+          "title": "Max Revalidation Interval Seconds",
+          "type": "integer"
+        },
+        "max_time_receipt_age_seconds": {
+          "minimum": 0,
+          "title": "Max Time Receipt Age Seconds",
+          "type": "integer"
+        },
+        "max_validity_seconds": {
+          "minimum": 0,
+          "title": "Max Validity Seconds",
+          "type": "integer"
+        },
+        "policy_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Policy Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_hash",
+        "max_clock_skew_seconds",
+        "max_time_receipt_age_seconds",
+        "max_measurement_age_seconds",
+        "max_validity_seconds",
+        "max_revalidation_interval_seconds"
+      ],
+      "title": "TemporalPolicyBinding",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.capability-deviation-decision/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "affected_candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Affected Candidate Ids",
+      "type": "array"
+    },
+    "approved_at": {
+      "format": "date-time",
+      "title": "Approved At",
+      "type": "string"
+    },
+    "approver_identity": {
+      "minLength": 1,
+      "title": "Approver Identity",
+      "type": "string"
+    },
+    "artifact_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Artifact Set Hash",
+      "type": "string"
+    },
+    "authority_grant": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "capability_id": {
+      "minLength": 1,
+      "title": "Capability Id",
+      "type": "string"
+    },
+    "catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Catalog Hash",
+      "type": "string"
+    },
+    "catalog_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Catalog Version",
+      "type": "string"
+    },
+    "decision_id": {
+      "minLength": 1,
+      "title": "Decision Id",
+      "type": "string"
+    },
+    "decision_type": {
+      "enum": [
+        "adr",
+        "waiver"
+      ],
+      "title": "Decision Type",
+      "type": "string"
+    },
+    "implementation_path_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Implementation Path Set Hash",
+      "type": "string"
+    },
+    "issued_at": {
+      "format": "date-time",
+      "title": "Issued At",
+      "type": "string"
+    },
+    "next_revalidation_at": {
+      "format": "date-time",
+      "title": "Next Revalidation At",
+      "type": "string"
+    },
+    "onyx_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Onyx Commit",
+      "type": "string"
+    },
+    "onyx_surface": {
+      "enum": [
+        "ce",
+        "ee"
+      ],
+      "title": "Onyx Surface",
+      "type": "string"
+    },
+    "patch_ledger_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Patch Ledger Set Hash",
+      "type": "string"
+    },
+    "permitted_disposition": {
+      "enum": [
+        "patch",
+        "pmorg_independent"
+      ],
+      "title": "Permitted Disposition",
+      "type": "string"
+    },
+    "pmorg_platform_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Platform Commit",
+      "type": "string"
+    },
+    "pmorg_spec_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Spec Commit",
+      "type": "string"
+    },
+    "post_disposition_test_manifest_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Post Disposition Test Manifest Hash",
+      "type": "string"
+    },
+    "rationale": {
+      "minLength": 1,
+      "title": "Rationale",
+      "type": "string"
+    },
+    "revocation_status": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "schema_version": {
+      "const": "pmorg.capability-deviation-decision/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "temporal_policy": {
+      "$ref": "#/$defs/TemporalPolicyBinding"
+    },
+    "trusted_clock_id": {
+      "minLength": 1,
+      "title": "Trusted Clock Id",
+      "type": "string"
+    },
+    "trusted_time_receipt_envelope": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "usage_mode": {
+      "enum": [
+        "development_test",
+        "production"
+      ],
+      "title": "Usage Mode",
+      "type": "string"
+    },
+    "valid_from": {
+      "format": "date-time",
+      "title": "Valid From",
+      "type": "string"
+    },
+    "valid_until": {
+      "format": "date-time",
+      "title": "Valid Until",
+      "type": "string"
+    },
+    "verification_material_bundle": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "verification_policy_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Verification Policy Hash",
+      "type": "string"
+    },
+    "verifier_identity": {
+      "minLength": 1,
+      "title": "Verifier Identity",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "decision_type",
+    "pmorg_spec_commit",
+    "pmorg_platform_commit",
+    "onyx_commit",
+    "onyx_surface",
+    "usage_mode",
+    "artifact_set_hash",
+    "catalog_version",
+    "catalog_hash",
+    "capability_id",
+    "affected_candidate_ids",
+    "permitted_disposition",
+    "implementation_path_set_hash",
+    "patch_ledger_set_hash",
+    "post_disposition_test_manifest_hash",
+    "rationale",
+    "approver_identity",
+    "authority_grant",
+    "approved_at",
+    "valid_from",
+    "valid_until",
+    "next_revalidation_at",
+    "trusted_clock_id",
+    "trusted_time_receipt_envelope",
+    "temporal_policy",
+    "revocation_status",
+    "verifier_identity",
+    "verification_policy_hash",
+    "verification_material_bundle",
+    "issued_at"
+  ],
+  "title": "DeviationDecisionPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.capability-deviation-decision/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

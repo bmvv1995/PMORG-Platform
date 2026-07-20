@@ -1,0 +1,178 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    },
+    "OpaqueAnchorRef": {
+      "additionalProperties": false,
+      "properties": {
+        "anchor_id": {
+          "minLength": 1,
+          "title": "Anchor Id",
+          "type": "string"
+        },
+        "anchor_type": {
+          "minLength": 1,
+          "title": "Anchor Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "anchor_type",
+        "anchor_id"
+      ],
+      "title": "OpaqueAnchorRef",
+      "type": "object"
+    },
+    "TaskProposal": {
+      "additionalProperties": false,
+      "properties": {
+        "anchors": {
+          "items": {
+            "$ref": "#/$defs/OpaqueAnchorRef"
+          },
+          "title": "Anchors",
+          "type": "array"
+        },
+        "assignee": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Assignee"
+        },
+        "due_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Due At"
+        },
+        "expected_outcome": {
+          "minLength": 1,
+          "title": "Expected Outcome",
+          "type": "string"
+        },
+        "task_type": {
+          "minLength": 1,
+          "title": "Task Type",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "task_type",
+        "title",
+        "expected_outcome",
+        "assignee",
+        "due_at",
+        "anchors"
+      ],
+      "title": "TaskProposal",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.plan.propose-version/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base_version": {
+      "minimum": 0,
+      "title": "Base Version",
+      "type": "integer"
+    },
+    "evidence_refs": {
+      "items": {
+        "$ref": "#/$defs/EvidenceArtifactRef"
+      },
+      "minItems": 1,
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "initiative_id": {
+      "exclusiveMinimum": 0,
+      "title": "Initiative Id",
+      "type": "integer"
+    },
+    "rationale": {
+      "minLength": 1,
+      "title": "Rationale",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.plan.propose-version/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "tasks": {
+      "items": {
+        "$ref": "#/$defs/TaskProposal"
+      },
+      "minItems": 1,
+      "title": "Tasks",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "initiative_id",
+    "base_version",
+    "tasks",
+    "rationale",
+    "evidence_refs"
+  ],
+  "title": "PlanProposeVersionPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.plan.propose-version/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

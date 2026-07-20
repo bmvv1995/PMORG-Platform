@@ -1,0 +1,49 @@
+{
+  "$id": "urn:pmorg:contract:pmorg.temporal-policy-binding/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_clock_skew_seconds": {
+      "minimum": 0,
+      "title": "Max Clock Skew Seconds",
+      "type": "integer"
+    },
+    "max_measurement_age_seconds": {
+      "minimum": 0,
+      "title": "Max Measurement Age Seconds",
+      "type": "integer"
+    },
+    "max_revalidation_interval_seconds": {
+      "minimum": 0,
+      "title": "Max Revalidation Interval Seconds",
+      "type": "integer"
+    },
+    "max_time_receipt_age_seconds": {
+      "minimum": 0,
+      "title": "Max Time Receipt Age Seconds",
+      "type": "integer"
+    },
+    "max_validity_seconds": {
+      "minimum": 0,
+      "title": "Max Validity Seconds",
+      "type": "integer"
+    },
+    "policy_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Policy Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_hash",
+    "max_clock_skew_seconds",
+    "max_time_receipt_age_seconds",
+    "max_measurement_age_seconds",
+    "max_validity_seconds",
+    "max_revalidation_interval_seconds"
+  ],
+  "title": "TemporalPolicyBinding",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.temporal-policy-binding/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

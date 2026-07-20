@@ -1,0 +1,11 @@
+{
+  "baseline_manifest_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "entries": [
+    {
+      "policy_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "report_role": "example"
+    }
+  ],
+  "entry_count": 1,
+  "schema_version": "pmorg.qualification-policy-map/v1"
+}

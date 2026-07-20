@@ -1,0 +1,15 @@
+{
+  "anchors": [
+    {
+      "anchor_id": "example",
+      "anchor_type": "example"
+    }
+  ],
+  "assignee": null,
+  "due_at": null,
+  "expected_outcome": "example",
+  "initiative_id": 1,
+  "schema_version": "pmorg.task.propose/v1",
+  "task_type": "example",
+  "title": "example"
+}

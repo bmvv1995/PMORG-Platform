@@ -1,0 +1,135 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.trusted-time-receipt/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clock_source_id": {
+      "minLength": 1,
+      "title": "Clock Source Id",
+      "type": "string"
+    },
+    "issued_at": {
+      "format": "date-time",
+      "title": "Issued At",
+      "type": "string"
+    },
+    "monotonic_counter": {
+      "exclusiveMinimum": 0,
+      "title": "Monotonic Counter",
+      "type": "integer"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "previous_receipt_envelope_hash": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Previous Receipt Envelope Hash"
+    },
+    "schema_version": {
+      "const": "pmorg.trusted-time-receipt/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sequence": {
+      "exclusiveMinimum": 0,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "source_evidence_bundle": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "trusted_clock_id": {
+      "minLength": 1,
+      "title": "Trusted Clock Id",
+      "type": "string"
+    },
+    "uncertainty_seconds": {
+      "minimum": 0,
+      "title": "Uncertainty Seconds",
+      "type": "integer"
+    },
+    "verification_material_bundle": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "verification_policy_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Verification Policy Hash",
+      "type": "string"
+    },
+    "verifier_identity": {
+      "minLength": 1,
+      "title": "Verifier Identity",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "trusted_clock_id",
+    "clock_source_id",
+    "sequence",
+    "previous_receipt_envelope_hash",
+    "observed_at",
+    "uncertainty_seconds",
+    "monotonic_counter",
+    "source_evidence_bundle",
+    "verification_material_bundle",
+    "verification_policy_hash",
+    "verifier_identity",
+    "issued_at"
+  ],
+  "title": "TrustedTimeReceiptPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.trusted-time-receipt/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

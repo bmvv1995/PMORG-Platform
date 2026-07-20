@@ -1,0 +1,85 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.outcome.request-verification/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "criterion_refs": {
+      "items": {
+        "exclusiveMinimum": 0,
+        "type": "integer"
+      },
+      "minItems": 1,
+      "title": "Criterion Refs",
+      "type": "array"
+    },
+    "evidence_refs": {
+      "items": {
+        "$ref": "#/$defs/EvidenceArtifactRef"
+      },
+      "minItems": 1,
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "outcome_id": {
+      "format": "uuid",
+      "title": "Outcome Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.outcome.request-verification/v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "outcome_id",
+    "criterion_refs",
+    "evidence_refs"
+  ],
+  "title": "OutcomeRequestVerificationPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.outcome.request-verification/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

@@ -1,0 +1,14 @@
+{
+  "build_recipe_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "expected_artifact_count": 1,
+  "items": [
+    {
+      "artifact_id": "example",
+      "artifact_kind": "oci_image",
+      "component": "example",
+      "media_type": "application/json",
+      "platform": "example"
+    }
+  ],
+  "schema_version": "pmorg.expected-artifact-catalog/v1"
+}

@@ -1,0 +1,186 @@
+{
+  "$defs": {
+    "ArtifactDescriptor": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_kind": {
+          "enum": [
+            "oci_image",
+            "worker",
+            "package",
+            "migration",
+            "static_bundle"
+          ],
+          "title": "Artifact Kind",
+          "type": "string"
+        },
+        "component": {
+          "minLength": 1,
+          "title": "Component",
+          "type": "string"
+        },
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "platform": {
+          "minLength": 1,
+          "title": "Platform",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "component",
+        "artifact_kind",
+        "media_type",
+        "platform",
+        "digest",
+        "size_bytes"
+      ],
+      "title": "ArtifactDescriptor",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.distribution-payload-descriptor/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deployable_artifact_count": {
+      "exclusiveMinimum": 0,
+      "title": "Deployable Artifact Count",
+      "type": "integer"
+    },
+    "deployable_artifact_descriptors": {
+      "items": {
+        "$ref": "#/$defs/ArtifactDescriptor"
+      },
+      "minItems": 1,
+      "title": "Deployable Artifact Descriptors",
+      "type": "array"
+    },
+    "distribution_payload_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Distribution Payload Hash",
+      "type": "string"
+    },
+    "distribution_scope_policy_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Distribution Scope Policy Hash",
+      "type": "string"
+    },
+    "duplicate_deployable_artifact_key_count": {
+      "minimum": 0,
+      "title": "Duplicate Deployable Artifact Key Count",
+      "type": "integer"
+    },
+    "duplicate_release_metadata_count": {
+      "minimum": 0,
+      "title": "Duplicate Release Metadata Count",
+      "type": "integer"
+    },
+    "expected_artifact_id_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Expected Artifact Id Set Hash",
+      "type": "string"
+    },
+    "expected_deployable_artifact_count": {
+      "exclusiveMinimum": 0,
+      "title": "Expected Deployable Artifact Count",
+      "type": "integer"
+    },
+    "expected_release_metadata_entry_count": {
+      "exclusiveMinimum": 0,
+      "title": "Expected Release Metadata Entry Count",
+      "type": "integer"
+    },
+    "expected_release_metadata_role_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Expected Release Metadata Role Set Hash",
+      "type": "string"
+    },
+    "missing_deployable_artifact_count": {
+      "minimum": 0,
+      "title": "Missing Deployable Artifact Count",
+      "type": "integer"
+    },
+    "missing_release_metadata_count": {
+      "minimum": 0,
+      "title": "Missing Release Metadata Count",
+      "type": "integer"
+    },
+    "operation": {
+      "enum": [
+        "registry_publish",
+        "artifact_export"
+      ],
+      "title": "Operation",
+      "type": "string"
+    },
+    "release_metadata_bundle_index_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Release Metadata Bundle Index Hash",
+      "type": "string"
+    },
+    "release_metadata_entry_count": {
+      "exclusiveMinimum": 0,
+      "title": "Release Metadata Entry Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "pmorg.distribution-payload-descriptor/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "unexpected_deployable_artifact_count": {
+      "minimum": 0,
+      "title": "Unexpected Deployable Artifact Count",
+      "type": "integer"
+    },
+    "unexpected_release_metadata_count": {
+      "minimum": 0,
+      "title": "Unexpected Release Metadata Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "distribution_scope_policy_hash",
+    "expected_artifact_id_set_hash",
+    "expected_release_metadata_role_set_hash",
+    "deployable_artifact_descriptors",
+    "deployable_artifact_count",
+    "expected_deployable_artifact_count",
+    "missing_deployable_artifact_count",
+    "unexpected_deployable_artifact_count",
+    "duplicate_deployable_artifact_key_count",
+    "release_metadata_bundle_index_hash",
+    "release_metadata_entry_count",
+    "expected_release_metadata_entry_count",
+    "missing_release_metadata_count",
+    "unexpected_release_metadata_count",
+    "duplicate_release_metadata_count",
+    "distribution_payload_hash"
+  ],
+  "title": "DistributionPayloadDescriptor",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.distribution-payload-descriptor/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

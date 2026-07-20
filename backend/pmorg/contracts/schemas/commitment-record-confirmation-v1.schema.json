@@ -1,0 +1,81 @@
+{
+  "$defs": {
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.commitment.record-confirmation/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commitment_id": {
+      "format": "uuid",
+      "title": "Commitment Id",
+      "type": "string"
+    },
+    "confirmation_evidence": {
+      "items": {
+        "$ref": "#/$defs/EvidenceArtifactRef"
+      },
+      "minItems": 1,
+      "title": "Confirmation Evidence",
+      "type": "array"
+    },
+    "confirmer": {
+      "format": "uuid",
+      "title": "Confirmer",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.commitment.record-confirmation/v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "commitment_id",
+    "confirmer",
+    "confirmation_evidence"
+  ],
+  "title": "CommitmentRecordConfirmationPayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.commitment.record-confirmation/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

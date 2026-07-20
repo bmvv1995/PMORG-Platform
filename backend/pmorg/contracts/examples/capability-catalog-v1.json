@@ -1,0 +1,45 @@
+{
+  "applicable_requirement_set": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "catalog_version": "1.0.0",
+  "disposition_scope_rule": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "duplicate_capability_id_count": 1,
+  "expected_requirement_count": 1,
+  "item_count": 1,
+  "items": [
+    {
+      "capability_id": "example",
+      "contract_tests": [
+        {
+          "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "logical_name": "example",
+          "media_type": "application/json",
+          "relative_path": "evidence/example.json",
+          "size_bytes": 1
+        }
+      ],
+      "pmorg_requirement_ids": [
+        "example"
+      ]
+    }
+  ],
+  "mapped_requirement_count": 1,
+  "pmorg_spec_commit": "0000000000000000000000000000000000000000",
+  "required_search_surfaces": [
+    "ce"
+  ],
+  "schema_version": "pmorg.capability-catalog/v1",
+  "unknown_requirement_count": 1,
+  "unmapped_requirement_count": 1
+}

@@ -1,0 +1,63 @@
+{
+  "$defs": {
+    "QualificationPolicyEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "policy_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Policy Digest",
+          "type": "string"
+        },
+        "report_role": {
+          "minLength": 1,
+          "title": "Report Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "report_role",
+        "policy_digest"
+      ],
+      "title": "QualificationPolicyEntry",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.qualification-policy-map/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_manifest_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Baseline Manifest Hash",
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "$ref": "#/$defs/QualificationPolicyEntry"
+      },
+      "minItems": 1,
+      "title": "Entries",
+      "type": "array"
+    },
+    "entry_count": {
+      "exclusiveMinimum": 0,
+      "title": "Entry Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "pmorg.qualification-policy-map/v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "baseline_manifest_hash",
+    "entries",
+    "entry_count"
+  ],
+  "title": "QualificationPolicyMap",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.qualification-policy-map/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

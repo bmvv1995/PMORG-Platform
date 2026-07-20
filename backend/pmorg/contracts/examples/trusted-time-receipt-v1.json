@@ -1,0 +1,27 @@
+{
+  "clock_source_id": "example",
+  "issued_at": "2026-01-01T00:00:00Z",
+  "monotonic_counter": 1,
+  "observed_at": "2026-01-01T00:00:00Z",
+  "previous_receipt_envelope_hash": null,
+  "schema_version": "pmorg.trusted-time-receipt/v1",
+  "sequence": 1,
+  "source_evidence_bundle": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "trusted_clock_id": "example",
+  "uncertainty_seconds": 1,
+  "verification_material_bundle": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "verification_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "verifier_identity": "example"
+}

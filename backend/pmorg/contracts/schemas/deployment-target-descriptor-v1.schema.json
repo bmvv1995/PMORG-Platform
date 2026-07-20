@@ -1,0 +1,94 @@
+{
+  "$id": "urn:pmorg:contract:pmorg.deployment-target-descriptor/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "channel_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Channel Binding Set Hash",
+      "type": "string"
+    },
+    "data_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Data Binding Set Hash",
+      "type": "string"
+    },
+    "derived_target_class": {
+      "enum": [
+        "synthetic_sandbox",
+        "client"
+      ],
+      "title": "Derived Target Class",
+      "type": "string"
+    },
+    "identity_provider_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Identity Provider Set Hash",
+      "type": "string"
+    },
+    "network_policy_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Network Policy Hash",
+      "type": "string"
+    },
+    "organization_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Organization Binding Set Hash",
+      "type": "string"
+    },
+    "production_resource_count": {
+      "minimum": 0,
+      "title": "Production Resource Count",
+      "type": "integer"
+    },
+    "resource_classification_report_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Resource Classification Report Hash",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.deployment-target-descriptor/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "secret_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Secret Binding Set Hash",
+      "type": "string"
+    },
+    "target_uid_hmac": {
+      "pattern": "^hmac-sha256:[0-9a-f]{64}$",
+      "title": "Target Uid Hmac",
+      "type": "string"
+    },
+    "unknown_resource_count": {
+      "minimum": 0,
+      "title": "Unknown Resource Count",
+      "type": "integer"
+    },
+    "workload_identity_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Workload Identity Set Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "target_uid_hmac",
+    "workload_identity_set_hash",
+    "organization_binding_set_hash",
+    "data_binding_set_hash",
+    "identity_provider_set_hash",
+    "channel_binding_set_hash",
+    "secret_binding_set_hash",
+    "network_policy_hash",
+    "resource_classification_report_hash",
+    "production_resource_count",
+    "unknown_resource_count",
+    "derived_target_class"
+  ],
+  "title": "DeploymentTargetDescriptor",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.deployment-target-descriptor/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

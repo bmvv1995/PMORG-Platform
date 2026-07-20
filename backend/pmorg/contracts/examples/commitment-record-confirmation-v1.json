@@ -1,0 +1,14 @@
+{
+  "commitment_id": "01900000-0000-7000-8000-000000000001",
+  "confirmation_evidence": [
+    {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    }
+  ],
+  "confirmer": "01900000-0000-7000-8000-000000000001",
+  "schema_version": "pmorg.commitment.record-confirmation/v1"
+}

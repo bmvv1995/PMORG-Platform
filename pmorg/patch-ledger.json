@@ -312,6 +312,30 @@
         "python3 -B pmorg/scripts/verify_fork.py",
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
       ]
+    },
+    {
+      "id": "PL-010",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/contracts/artifacts.py",
+        "backend/pmorg/contracts/commands.py",
+        "backend/pmorg/contracts/examples.py",
+        "backend/pmorg/contracts/registry.py",
+        "backend/pmorg/contracts/types.py",
+        "backend/pmorg/contracts/examples/*.json",
+        "backend/pmorg/contracts/manifest.json",
+        "backend/pmorg/contracts/schemas/*.json",
+        "backend/pmorg/tests/test_contract_artifacts.py"
+      ],
+      "requirements": [
+        "PLT-004"
+      ],
+      "reason": "Materialize the strict pmorg-contracts/1.0 type spine, deterministic JSON Schemas, examples, pinned schema manifest and fail-closed drift guards without runtime wiring or signed record emission.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=17ed220cc6d31da259b03054768505faf642bac5 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_contract_artifacts -v",
+        "PYTHONPATH=backend python3 -B -m pmorg.contracts.artifacts --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

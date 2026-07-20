@@ -1,0 +1,13 @@
+{
+  "action_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "action_type": "example",
+  "approver_policy": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "expires_at": "2026-01-01T00:00:00Z",
+  "schema_version": "pmorg.approval.request/v1"
+}

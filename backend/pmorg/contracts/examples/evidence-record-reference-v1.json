@@ -1,0 +1,9 @@
+{
+  "evidence_id": "01900000-0000-7000-8000-000000000001",
+  "relation_role": "example",
+  "schema_version": "pmorg.evidence.record-reference/v1",
+  "target_ref": {
+    "anchor_id": "example",
+    "anchor_type": "example"
+  }
+}

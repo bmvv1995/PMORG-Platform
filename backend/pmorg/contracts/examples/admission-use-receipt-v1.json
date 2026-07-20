@@ -1,0 +1,38 @@
+{
+  "actual_payload_descriptor_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "actual_payload_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "actual_target_or_destination_descriptor_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "actual_target_or_destination_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "admission_envelope_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "denial_reason": null,
+  "governed_operation": "deploy",
+  "issued_at": "2026-01-01T00:00:00Z",
+  "revocation_check": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "schema_version": "pmorg.admission-use-receipt/v1",
+  "trusted_time_receipt_envelope": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "use_id": "01900000-0000-7000-8000-000000000001",
+  "verdict": "allow",
+  "verification_event": "deploy",
+  "verification_material_bundle": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "verification_policy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "verified_at": "2026-01-01T00:00:00Z",
+  "verifier_identity": "example"
+}

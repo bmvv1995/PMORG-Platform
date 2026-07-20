@@ -1,0 +1,30 @@
+{
+  "evidence_refs": [
+    {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    }
+  ],
+  "gap_id": "01900000-0000-7000-8000-000000000001",
+  "memory_receipt_refs": [
+    {
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "logical_name": "example",
+      "media_type": "application/json",
+      "relative_path": "evidence/example.json",
+      "size_bytes": 1
+    }
+  ],
+  "policy_ref": {
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "logical_name": "example",
+    "media_type": "application/json",
+    "relative_path": "evidence/example.json",
+    "size_bytes": 1
+  },
+  "resolution_code": "explained",
+  "schema_version": "pmorg.provenance-gap.resolve/v1"
+}

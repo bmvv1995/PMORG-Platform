@@ -1,0 +1,6 @@
+{
+  "lease_token": "example",
+  "run_id": "01900000-0000-7000-8000-000000000001",
+  "schema_version": "pmorg.task.heartbeat/v1",
+  "task_id": 1
+}

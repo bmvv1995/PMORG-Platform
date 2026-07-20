@@ -1,0 +1,211 @@
+{
+  "$defs": {
+    "ContentAddressedSourceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Commit",
+          "type": "string"
+        },
+        "paths": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Paths",
+          "type": "array"
+        },
+        "repository": {
+          "minLength": 1,
+          "title": "Repository",
+          "type": "string"
+        },
+        "source_snapshot": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "tree_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Tree Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "repository",
+        "commit",
+        "paths",
+        "tree_hash",
+        "source_snapshot"
+      ],
+      "title": "ContentAddressedSourceRef",
+      "type": "object"
+    },
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    },
+    "TestEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "result": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "test_id": {
+          "minLength": 1,
+          "title": "Test Id",
+          "type": "string"
+        },
+        "test_manifest": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "fail"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        }
+      },
+      "required": [
+        "test_id",
+        "test_manifest",
+        "result",
+        "verdict"
+      ],
+      "title": "TestEvidence",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.candidate-qualification-report/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "capability_id": {
+      "minLength": 1,
+      "title": "Capability Id",
+      "type": "string"
+    },
+    "catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Catalog Hash",
+      "type": "string"
+    },
+    "duplicate_test_count": {
+      "minimum": 0,
+      "title": "Duplicate Test Count",
+      "type": "integer"
+    },
+    "executed_test_count": {
+      "exclusiveMinimum": 0,
+      "title": "Executed Test Count",
+      "type": "integer"
+    },
+    "expected_test_count": {
+      "exclusiveMinimum": 0,
+      "title": "Expected Test Count",
+      "type": "integer"
+    },
+    "failed_test_count": {
+      "minimum": 0,
+      "title": "Failed Test Count",
+      "type": "integer"
+    },
+    "missing_test_count": {
+      "minimum": 0,
+      "title": "Missing Test Count",
+      "type": "integer"
+    },
+    "qualification_policy": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "required_test_manifest": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "schema_version": {
+      "const": "pmorg.candidate-qualification-report/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_ref": {
+      "$ref": "#/$defs/ContentAddressedSourceRef"
+    },
+    "test_evidence": {
+      "items": {
+        "$ref": "#/$defs/TestEvidence"
+      },
+      "minItems": 1,
+      "title": "Test Evidence",
+      "type": "array"
+    },
+    "verdict": {
+      "enum": [
+        "pass",
+        "fail"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "catalog_hash",
+    "capability_id",
+    "candidate_id",
+    "source_ref",
+    "qualification_policy",
+    "required_test_manifest",
+    "expected_test_count",
+    "executed_test_count",
+    "missing_test_count",
+    "duplicate_test_count",
+    "failed_test_count",
+    "test_evidence",
+    "verdict"
+  ],
+  "title": "CandidateQualificationReport",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.candidate-qualification-report/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}

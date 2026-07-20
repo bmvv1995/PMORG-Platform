@@ -1,0 +1,100 @@
+{
+  "$defs": {
+    "OpaqueAnchorRef": {
+      "additionalProperties": false,
+      "properties": {
+        "anchor_id": {
+          "minLength": 1,
+          "title": "Anchor Id",
+          "type": "string"
+        },
+        "anchor_type": {
+          "minLength": 1,
+          "title": "Anchor Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "anchor_type",
+        "anchor_id"
+      ],
+      "title": "OpaqueAnchorRef",
+      "type": "object"
+    }
+  },
+  "$id": "urn:pmorg:contract:pmorg.task.propose/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anchors": {
+      "items": {
+        "$ref": "#/$defs/OpaqueAnchorRef"
+      },
+      "title": "Anchors",
+      "type": "array"
+    },
+    "assignee": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Assignee"
+    },
+    "due_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Due At"
+    },
+    "expected_outcome": {
+      "minLength": 1,
+      "title": "Expected Outcome",
+      "type": "string"
+    },
+    "initiative_id": {
+      "exclusiveMinimum": 0,
+      "title": "Initiative Id",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "pmorg.task.propose/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "task_type": {
+      "minLength": 1,
+      "title": "Task Type",
+      "type": "string"
+    },
+    "title": {
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "task_type",
+    "title",
+    "expected_outcome",
+    "assignee",
+    "due_at",
+    "anchors",
+    "schema_version",
+    "initiative_id"
+  ],
+  "title": "TaskProposePayload",
+  "type": "object",
+  "x-pmorg-schema-version": "pmorg.task.propose/v1",
+  "x-pmorg-wire-surface": "pmorg-contracts/1.0"
+}
