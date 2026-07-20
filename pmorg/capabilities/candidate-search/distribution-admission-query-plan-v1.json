@@ -1,0 +1,45 @@
+{
+  "capability_id": "distribution-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "content_matching": "ascii_casefolded_literal_bytes",
+  "minimum_candidate_group_count": 2,
+  "path_matching": "utf8_casefolded_literal_text",
+  "raw_hit_rule": "one_or_more_terms_match_path_or_blob",
+  "required_contract_tests": {
+    "digest": "sha256:339e267d822263efb21e59bccf32ffbefee78941713afc5f9b13558c66a92510",
+    "logical_name": "distribution-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/distribution-admission.json",
+    "size_bytes": 202
+  },
+  "required_test_ids": [
+    "A-LIC-003"
+  ],
+  "schema_version": "pmorg.candidate-query-plan/v1",
+  "search_id": "candidate-search:1.0.0:distribution-admission:1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "search_spec_version": "1.0.0",
+  "searched_surfaces": [
+    "ce",
+    "ee"
+  ],
+  "term_groups": [
+    [
+      "distribution",
+      "export",
+      "publish",
+      "registry"
+    ],
+    [
+      "admission",
+      "allow",
+      "deny",
+      "gate",
+      "validation"
+    ],
+    [
+      "artifact",
+      "image",
+      "package"
+    ]
+  ]
+}

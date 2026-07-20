@@ -1,0 +1,157 @@
+{
+  "candidate_ids": [
+    "candidate-010f18dc374c6db4e7ebcaf933a17451bfdbb4745a3b03e38fa69ca44261b4d0",
+    "candidate-cd13bb07fc23fb17e0e458d348c19a9aab818ac353cff908901365bb9313ff49",
+    "candidate-183b2008ce819e861d223944317c44cde9b699563aee0f7029abdba723855343",
+    "candidate-9bd33fc2d35e7404c3401e31bb030c975e17f20e0c21d7874efd5ccd303e39bb",
+    "candidate-2cdce8a59504d7759ae088ffef282568d449bfdc9bf8a91fd40e9d04b080617b",
+    "candidate-db6cd137c3f97ffe2dd7ac78f6c7667b9e6983184a5f14c3822f0b05a22f0318",
+    "candidate-b83d46ae2944ecce0dc1400837a685b743430947381b9844ba6ae1d701362262",
+    "candidate-ac69b5ce7e2eb36c7049aa8e0f0ee11d3d900af089d5bf63812fc1c473e097d2",
+    "candidate-364f662e569efb721e671570a44b866dfad8c1b16b96316f7da85dc01e371042",
+    "candidate-92b99790f4e647f582790bbdda92e81f4efcd372501cef614962660a706e4c70",
+    "candidate-b02c1a734e349b52bee89fe1861e131e78433246516f043ed3f3df9f39652262",
+    "candidate-893690c48913b6e5de185abf0fa9ef3cc7369891dee2bdce47abb2120f4d31b4",
+    "candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00",
+    "candidate-970c48ff5da4ed0b7b7b540c2d8e7dda83e1412393198a82c8f638a0866a5997",
+    "candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04",
+    "candidate-6be376ff12286aebf8fec17bd33140652e00301485acdf934cceda056ce0d833",
+    "candidate-207fd54d885bbfa735fba6a9140ad6f7ef8015dd33a1a4169849766202eee14a",
+    "candidate-c19976ab48783dd667733d417ac1ef0cb4ed50b50f4f499a3ed8e012ce7e533b",
+    "candidate-44fd7994b941a787229d7722b5951c74430dfa3b88c30d8a567133315b0b0356",
+    "candidate-5aba6e5356ef8a19361f94691e52164a8ae0e30d19cd1a9f39194719600ea08a",
+    "candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4",
+    "candidate-4c6597fee0324efd0b457baae7637f540f53206e3339136b83fd123597c1969a",
+    "candidate-f68ef39f07684ac8a10d74cceef5266636ea1e35c502e4bc2141d54f7bf06589",
+    "candidate-945cde371821476fdc4ce4548082be42ead0ed271f2f23d9f46708a6a174b0a1",
+    "candidate-af3c69191856aa06f12c838050eb69ad9e350ece1d0b2bbdf873fa64c1ee24fa",
+    "candidate-10607e9dbfb9893ad3d7036d747005f3b111175486b74fa0ae86d806abc9bf60",
+    "candidate-f426a4ba382c93f71088ba97c2db39a836787571797d7dfddcb4e558e88c9455",
+    "candidate-d876cae6412c1744477afc8217004a1cd132e6659d67554d70bd3b90ae999559",
+    "candidate-5f79f9c2327ebffe561e0f774ee05b17b7527ea960dfcdce340671715b3f50b3",
+    "candidate-521a93c019173b60459b963b7a4df307774bb04a3193583d64edc134e6f42fd4",
+    "candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862",
+    "candidate-ecdfa77cf24bb63dcdbefa9f9d816adae6a653e17c4d698348a3aa4bc939c268",
+    "candidate-e287ee9f3757211f66ef3cece3b20706e743856d8ff413c3ff5047dc829fbcc5",
+    "candidate-99b63621fb7ab755d6fc46994565efbc3e236f9b4255e3c97f04537b21bc339f",
+    "candidate-b03334a674fd71eb1dfaf3df088e21a71a4703d8708b8d468471c9c0c55a85c5",
+    "candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d",
+    "candidate-4f884c2a44dabd2bdd114a27709f6c88ec0129184156247b042a15022547453a",
+    "candidate-6d88c35a43f1a1c0b26e01a352fcde94f9b80eea6de2ccb35f7a021f47f8a3a2",
+    "candidate-de3eb6cee8e3d7ed7180173569bf90c872c2ffe6d02316915c847b12d7ddc010",
+    "candidate-5527a1c2f4d97d9f5f43a33544194fdecabe71af9fdf027ef6f2e695d8b7ebf1",
+    "candidate-0fc2906bae204c93e413e3dea955b2083ad96a0bfd07d202e8493019d9f019ad",
+    "candidate-711fc275a698af0e2274612551b35300996123edaa65a36f3c301afebcdf2874",
+    "candidate-f8bab557185bd5f84a9f061f6e140a7d7c98856ac076a5c21a0aa2bf0f649c4d",
+    "candidate-76ad7c53ddb4eae848b4e8c0fc537b53053ca4a18774bbe8d9b1af0e87f413ba",
+    "candidate-05049d2c95c1dfaaf30017a57ee539895ee80fa61c7be67b7b2debb608fecfeb",
+    "candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2"
+  ],
+  "capability_id": "qualified-reproducible-build",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "classification_record_count": 1924,
+  "duplicate_hit_id_count": 0,
+  "duplicate_path_count": 0,
+  "expected_path_count": 5937,
+  "hit_classification": {
+    "digest": "sha256:e6b24c35bc9b43242048b800396fc221def434166f739c79c687b89bdd6c7cf2",
+    "logical_name": "qualified-reproducible-build-candidate-hit-classification",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/candidate-search/qualified-reproducible-build-hit-classification-v1.json",
+    "size_bytes": 697287
+  },
+  "query_plan": {
+    "digest": "sha256:df9184d9f31886c97b1177dcd46e299c7143add234bce18c6f98198573a12ba8",
+    "logical_name": "qualified-reproducible-build-candidate-query-plan",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/candidate-search/qualified-reproducible-build-query-plan-v1.json",
+    "size_bytes": 1332
+  },
+  "raw_hit_count": 1924,
+  "raw_results": {
+    "digest": "sha256:840ec4517c9ac763ec616c22eda1d235179dc7d6060d1a54cbbfa91bbc042ad5",
+    "logical_name": "qualified-reproducible-build-candidate-raw-results",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/candidate-search/qualified-reproducible-build-raw-results-v1.json",
+    "size_bytes": 855731
+  },
+  "rejected_hit_count": 399,
+  "scanned_path_count": 5937,
+  "schema_version": "pmorg.candidate-search-evidence/v1",
+  "search_id": "candidate-search:1.0.0:qualified-reproducible-build:1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "search_spec_version": "1.0.0",
+  "search_tool_artifact_digest": "sha256:b9b4eba616fdd4a8a81b7d9525eec23c099996532c7eb82633db7d3424ccef5a",
+  "search_tool_name": "pmorg-pinned-onyx-candidate-search",
+  "search_tool_version": "1.0.0",
+  "searched_surfaces": [
+    "ce",
+    "ee"
+  ],
+  "source_scopes": [
+    {
+      "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+      "derivation_evidence_bundle": {
+        "digest": "sha256:c0e1a7ae4d5e8db9e6ab9f53d272c906d0fe2dd4d93b0dfc07fcf3295507d109",
+        "logical_name": "onyx-source-scope-derivation-evidence",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/source-scopes/onyx-source-scope-derivation-v1.json",
+        "size_bytes": 1720
+      },
+      "derivation_policy_hash": "sha256:9e87a65a50249770185b9e18ada74203d4de433b471fbf5d60143058ed6c0297",
+      "duplicate_path_count": 0,
+      "expected_path_count": 5684,
+      "generator_artifact_digest": "sha256:bbfcb04c3ce064757a96274b015dabda1ad1b0a0c7a2aa1d6f2fb2aac34c818d",
+      "generator_identity": "pmorg.source-scope-generator/v1",
+      "path_inventory": {
+        "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+        "logical_name": "onyx_ce-path-inventory",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+        "size_bytes": 1382014
+      },
+      "repository": "https://github.com/onyx-dot-app/onyx.git",
+      "roots": [
+        "."
+      ],
+      "schema_version": "pmorg.source-scope-manifest/v1",
+      "scope_kind": "onyx_ce",
+      "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "unreadable_path_count": 0
+    },
+    {
+      "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+      "derivation_evidence_bundle": {
+        "digest": "sha256:c0e1a7ae4d5e8db9e6ab9f53d272c906d0fe2dd4d93b0dfc07fcf3295507d109",
+        "logical_name": "onyx-source-scope-derivation-evidence",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/source-scopes/onyx-source-scope-derivation-v1.json",
+        "size_bytes": 1720
+      },
+      "derivation_policy_hash": "sha256:9e87a65a50249770185b9e18ada74203d4de433b471fbf5d60143058ed6c0297",
+      "duplicate_path_count": 0,
+      "expected_path_count": 253,
+      "generator_artifact_digest": "sha256:bbfcb04c3ce064757a96274b015dabda1ad1b0a0c7a2aa1d6f2fb2aac34c818d",
+      "generator_identity": "pmorg.source-scope-generator/v1",
+      "path_inventory": {
+        "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+        "logical_name": "onyx_ee-path-inventory",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+        "size_bytes": 61086
+      },
+      "repository": "https://github.com/onyx-dot-app/onyx.git",
+      "roots": [
+        "backend/ee",
+        "web/src/app/ee",
+        "web/src/ee"
+      ],
+      "schema_version": "pmorg.source-scope-manifest/v1",
+      "scope_kind": "onyx_ee",
+      "tree_hash": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+      "unreadable_path_count": 0
+    }
+  ],
+  "unclassified_hit_count": 0,
+  "unreadable_path_count": 0,
+  "unscanned_path_count": 0
+}

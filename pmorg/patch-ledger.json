@@ -498,6 +498,30 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "python3 -B pmorg/scripts/build_source_scopes.py --check"
       ]
+    },
+    {
+      "id": "PL-017",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/candidate_search.py",
+        "backend/pmorg/tests/test_candidate_search.py",
+        "pmorg/capabilities/candidate-search-policy.json",
+        "pmorg/capabilities/candidate-search/*.json",
+        "pmorg/scripts/build_candidate_search.py"
+      ],
+      "requirements": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "PLT-004",
+        "PLT-006"
+      ],
+      "reason": "Scan every byte-closed CE and EE source-scope path for every closed catalog capability with explicit contract-test-bound query plans, preserve all raw hits and a bijective module-group classification, and emit stable provisional candidate IDs with zero unscanned, unreadable, duplicate or unclassified paths/hits without claiming candidate qualification, reuse, disposition, deviation, admission, release or G3-A completion.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=93c505016124fa857a8980c34b1c3eab1df21dbd python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_candidate_search -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "python3 -B pmorg/scripts/build_candidate_search.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

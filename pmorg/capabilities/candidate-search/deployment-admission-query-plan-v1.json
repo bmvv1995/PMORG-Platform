@@ -1,0 +1,45 @@
+{
+  "capability_id": "deployment-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "content_matching": "ascii_casefolded_literal_bytes",
+  "minimum_candidate_group_count": 2,
+  "path_matching": "utf8_casefolded_literal_text",
+  "raw_hit_rule": "one_or_more_terms_match_path_or_blob",
+  "required_contract_tests": {
+    "digest": "sha256:2a39c8af95309e2ee76d83f1eaefb71cbeae90352bf327f04a3a3b44c5b564f3",
+    "logical_name": "deployment-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/deployment-admission.json",
+    "size_bytes": 200
+  },
+  "required_test_ids": [
+    "A-LIC-002"
+  ],
+  "schema_version": "pmorg.candidate-query-plan/v1",
+  "search_id": "candidate-search:1.0.0:deployment-admission:1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "search_spec_version": "1.0.0",
+  "searched_surfaces": [
+    "ce",
+    "ee"
+  ],
+  "term_groups": [
+    [
+      "deploy",
+      "deployment",
+      "startup"
+    ],
+    [
+      "admission",
+      "allow",
+      "deny",
+      "gate",
+      "validation"
+    ],
+    [
+      "health",
+      "liveness",
+      "readiness",
+      "watchdog"
+    ]
+  ]
+}
