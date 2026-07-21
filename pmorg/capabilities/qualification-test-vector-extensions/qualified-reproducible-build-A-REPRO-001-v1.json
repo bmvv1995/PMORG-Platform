@@ -1,0 +1,93 @@
+{
+  "adapter_input_contract": [
+    "exact candidate input manifest and manifest digest",
+    "all projected candidate blob bytes and blob digests",
+    "exact qualification interface and test-vector digests",
+    "measured interpreter binary and committed dependency lock digests"
+  ],
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "qualified-reproducible-build",
+  "claim_boundary": "definition_only_no_qualification_verdict",
+  "execution_preconditions": [
+    "adapter is content-addressed and explicitly bound to this test vector",
+    "adapter consumes the exact candidate manifest and every projected blob",
+    "interpreter binary and dependency lock identities are evidence-bound",
+    "baseline, positive-control and mutated executions produce schema-valid evidence"
+  ],
+  "mutation_probe": {
+    "expectation": "at_least_one_observation_or_verdict_changes",
+    "no_op_rejected": true,
+    "operation": "flip_one_candidate_blob_byte",
+    "target": "projected_candidate_blob_bytes"
+  },
+  "qualification_interface": {
+    "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+    "size_bytes": 3015
+  },
+  "reference_implementation": {
+    "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
+    "media_type": "text/x-python",
+    "relative_path": "pmorg/scripts/verify_ce_build.py",
+    "size_bytes": 2338
+  },
+  "runtime_identity": {
+    "artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "media_type": "text/plain",
+        "relative_path": ".python-version",
+        "size_bytes": 5
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "media_type": "application/toml",
+        "relative_path": "pyproject.toml",
+        "size_bytes": 9983
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "media_type": "application/toml",
+        "relative_path": "uv.lock",
+        "size_bytes": 1018201
+      }
+    ],
+    "contract_digest": "sha256:59ebd918c79614af1a4dec86b52a747e02b2b133ee14a27d30fa498c65e1e7db",
+    "interpreter_measurement": "sha256_of_executed_interpreter_binary",
+    "status": "binary_measurement_required_at_execution"
+  },
+  "schema_version": "pmorg.qualification-test-vector/v1",
+  "test_cases": [
+    {
+      "candidate_bytes_required": true,
+      "case_id": "conforming-positive-injection",
+      "expected_observation": "accept the conforming injected build only when two independent rebuild artifact sets are byte-identical",
+      "mutation_required": false,
+      "stimulus": "present a candidate build that consumes pinned offline inputs and produces byte-identical independent rebuilds"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "fail-closed-policy-violation",
+      "expected_observation": "reject fail-closed and cite the exact reproducibility divergence",
+      "mutation_required": false,
+      "stimulus": "introduce an unpinned input, nondeterministic value or byte-divergent rebuild output"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "candidate-byte-influence",
+      "expected_observation": "at least one adapter observation or verdict changes",
+      "mutation_required": true,
+      "stimulus": "flip one byte in a projected candidate blob and rebuild its manifest"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "runtime-and-lock-binding",
+      "expected_observation": "reject before verdict when interpreter or dependency-lock identity drifts",
+      "mutation_required": false,
+      "stimulus": "execute with a mismatched interpreter binary or dependency lock"
+    }
+  ],
+  "test_id": "A-REPRO-001",
+  "vector_version": "1.0.0"
+}
