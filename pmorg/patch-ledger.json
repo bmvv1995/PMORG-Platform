@@ -716,6 +716,31 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_candidate_interface_fit.py --check"
       ]
+    },
+    {
+      "id": "PL-025",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/candidate_interface_fit_denominator.py",
+        "backend/pmorg/tests/test_candidate_interface_fit_denominator.py",
+        "pmorg/capabilities/candidate-interface-fit-denominator-evidence-v1.json",
+        "pmorg/capabilities/candidate-interface-fit-denominator-evidence-v1.schema.json",
+        "pmorg/scripts/build_candidate_interface_fit_denominator.py"
+      ],
+      "requirements": [
+        "A-LIC-002",
+        "A-LIC-003",
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-EVIDENCE-001"
+      ],
+      "reason": "Extend candidate-level admission interface-fit screening from the twelve high-signal groups to the complete discovered denominator: 82 Deployment and 104 Distribution candidate manifests, 10,351 expanded memberships and 5,802 independently verified blob memberships across 115 unique blob sets. Preserve the result as exhaustive plausibility screening only, leave every oracle unexecutable and emit no adapter, qualification report, verdict, disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=1fee106537bd6681743815fa85c8ed0dfa669c34 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_candidate_interface_fit_denominator backend.pmorg.tests.test_candidate_interface_fit backend.pmorg.tests.test_qualification_test_vectors backend.pmorg.tests.test_qualification_oracles -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_candidate_interface_fit_denominator.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
