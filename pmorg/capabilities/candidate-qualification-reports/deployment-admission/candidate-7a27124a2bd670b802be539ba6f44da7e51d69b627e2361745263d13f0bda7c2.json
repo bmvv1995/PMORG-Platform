@@ -1,0 +1,77 @@
+{
+  "candidate_id": "candidate-7a27124a2bd670b802be539ba6f44da7e51d69b627e2361745263d13f0bda7c2",
+  "capability_id": "deployment-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:2a39c8af95309e2ee76d83f1eaefb71cbeae90352bf327f04a3a3b44c5b564f3",
+    "logical_name": "deployment-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/deployment-admission.json",
+    "size_bytes": 200
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/onyx/sandbox_proxy/addons/gate.py",
+      "backend/onyx/sandbox_proxy/approval_cache.py",
+      "backend/onyx/sandbox_proxy/backend.py",
+      "backend/onyx/sandbox_proxy/ca.py",
+      "backend/onyx/sandbox_proxy/ca_docker.py",
+      "backend/onyx/sandbox_proxy/ca_k8s.py",
+      "backend/onyx/sandbox_proxy/credential_injection.py",
+      "backend/onyx/sandbox_proxy/errors.py",
+      "backend/onyx/sandbox_proxy/identity.py",
+      "backend/onyx/sandbox_proxy/identity_docker.py",
+      "backend/onyx/sandbox_proxy/identity_k8s.py",
+      "backend/onyx/sandbox_proxy/logging_utils.py",
+      "backend/onyx/sandbox_proxy/request_evaluator.py",
+      "backend/onyx/sandbox_proxy/resolvers/external_app.py",
+      "backend/onyx/sandbox_proxy/resolvers/llm_provider_key.py",
+      "backend/onyx/sandbox_proxy/resolvers/onyx_pat.py",
+      "backend/onyx/sandbox_proxy/server.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:f3c3d5019d4d4076bf734122eec5fb2f7c425eb207feae87d50dbbc14bde6b35",
+        "logical_name": "candidate-7a27124a2bd670b802be539ba6f44da7e51d69b627e2361745263d13f0bda7c2-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/deployment-admission/candidate-7a27124a2bd670b802be539ba6f44da7e51d69b627e2361745263d13f0bda7c2.json",
+        "size_bytes": 2663
+      },
+      "test_id": "A-LIC-002",
+      "test_manifest": {
+        "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
+        "logical_name": "deployment-admission-A-LIC-002-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+        "size_bytes": 4009
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

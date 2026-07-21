@@ -1,0 +1,90 @@
+{
+  "candidate_id": "candidate-bac2d1d8cd13af1400a5c6f0a5c9cd7998828531ab041980a1853d5a89b579cd",
+  "capability_id": "deployment-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:2a39c8af95309e2ee76d83f1eaefb71cbeae90352bf327f04a3a3b44c5b564f3",
+    "logical_name": "deployment-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/deployment-admission.json",
+    "size_bytes": 200
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/ee/onyx/background/celery/apps/heavy.py",
+      "backend/ee/onyx/background/celery/apps/light.py",
+      "backend/ee/onyx/background/celery/apps/monitoring.py",
+      "backend/ee/onyx/background/celery/apps/primary.py",
+      "backend/ee/onyx/background/celery/tasks/beat_schedule.py",
+      "backend/ee/onyx/background/celery/tasks/cleanup/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/cleanup/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/cloud/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/cloud/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/doc_permission_syncing/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/doc_permission_syncing/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/external_group_syncing/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/external_group_syncing/group_sync_utils.py",
+      "backend/ee/onyx/background/celery/tasks/external_group_syncing/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/hooks/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/hooks/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/license_notifications/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/license_notifications/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/query_history/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/query_history/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/tenant_provisioning/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/tenant_provisioning/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/ttl_management/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/ttl_management/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/usage_reporting/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/usage_reporting/tasks.py",
+      "backend/ee/onyx/background/celery/tasks/vespa/__init__.py",
+      "backend/ee/onyx/background/celery/tasks/vespa/tasks.py",
+      "backend/ee/onyx/background/celery_utils.py",
+      "backend/ee/onyx/background/task_name_builders.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+      "logical_name": "onyx_ee-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+      "size_bytes": 61086
+    },
+    "tree_hash": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:db0f468a3c6ccda8a9315ed22840687c24a5d7a5175da7dfcb53a77213b1bb03",
+        "logical_name": "candidate-bac2d1d8cd13af1400a5c6f0a5c9cd7998828531ab041980a1853d5a89b579cd-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/deployment-admission/candidate-bac2d1d8cd13af1400a5c6f0a5c9cd7998828531ab041980a1853d5a89b579cd.json",
+        "size_bytes": 2663
+      },
+      "test_id": "A-LIC-002",
+      "test_manifest": {
+        "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
+        "logical_name": "deployment-admission-A-LIC-002-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+        "size_bytes": 4009
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

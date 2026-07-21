@@ -767,6 +767,36 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualification_oracles.py --check"
       ]
+    },
+    {
+      "id": "PL-027",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/candidate_qualification_reports.py",
+        "backend/pmorg/tests/test_candidate_qualification_reports.py",
+        "pmorg/capabilities/candidate-qualification-reports-v1.json",
+        "pmorg/capabilities/candidate-qualification-reports-v1.schema.json",
+        "pmorg/capabilities/candidate-qualification-reports/**/*.json",
+        "pmorg/capabilities/candidate-qualification-results/**/*.json",
+        "pmorg/scripts/build_candidate_qualification_reports.py"
+      ],
+      "requirements": [
+        "A-LIC-002",
+        "A-LIC-003",
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-EVIDENCE-001",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Execute the activated Deployment and Distribution Admission candidate-aware qualification oracles over the exact complete 82+104 denominator, preserve every byte-addressed oracle result, and emit 186 schema-valid CandidateQualificationReports with one real executed test each, closed runtime identity and complete evidence references; emit no disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=2156b8aec84ad6f5b4e03365d00c35512edb8a01 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_candidate_qualification_reports backend.pmorg.tests.test_admission_interface_fit_executor -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_candidate_qualification_reports.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

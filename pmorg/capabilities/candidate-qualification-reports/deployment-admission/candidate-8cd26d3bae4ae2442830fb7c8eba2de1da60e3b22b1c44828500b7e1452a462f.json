@@ -1,0 +1,82 @@
+{
+  "candidate_id": "candidate-8cd26d3bae4ae2442830fb7c8eba2de1da60e3b22b1c44828500b7e1452a462f",
+  "capability_id": "deployment-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:2a39c8af95309e2ee76d83f1eaefb71cbeae90352bf327f04a3a3b44c5b564f3",
+    "logical_name": "deployment-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/deployment-admission.json",
+    "size_bytes": 200
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/onyx/external_apps/credentials.py",
+      "backend/onyx/external_apps/matching/engine.py",
+      "backend/onyx/external_apps/matching/graphql_parsing.py",
+      "backend/onyx/external_apps/matching/request.py",
+      "backend/onyx/external_apps/matching/rules.py",
+      "backend/onyx/external_apps/models.py",
+      "backend/onyx/external_apps/presentation/decode.py",
+      "backend/onyx/external_apps/presentation/payload_decoders.py",
+      "backend/onyx/external_apps/providers/actions.py",
+      "backend/onyx/external_apps/providers/base.py",
+      "backend/onyx/external_apps/providers/github.py",
+      "backend/onyx/external_apps/providers/gmail.py",
+      "backend/onyx/external_apps/providers/google_base.py",
+      "backend/onyx/external_apps/providers/google_calendar.py",
+      "backend/onyx/external_apps/providers/google_drive.py",
+      "backend/onyx/external_apps/providers/hubspot.py",
+      "backend/onyx/external_apps/providers/linear.py",
+      "backend/onyx/external_apps/providers/registry.py",
+      "backend/onyx/external_apps/providers/slack.py",
+      "backend/onyx/external_apps/token_refresh.py",
+      "backend/onyx/external_apps/token_utils.py",
+      "backend/onyx/external_apps/url_glob.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:0fa403873c5d8849940544283147412796445546a86df56354112220e29fd08a",
+        "logical_name": "candidate-8cd26d3bae4ae2442830fb7c8eba2de1da60e3b22b1c44828500b7e1452a462f-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/deployment-admission/candidate-8cd26d3bae4ae2442830fb7c8eba2de1da60e3b22b1c44828500b7e1452a462f.json",
+        "size_bytes": 2663
+      },
+      "test_id": "A-LIC-002",
+      "test_manifest": {
+        "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
+        "logical_name": "deployment-admission-A-LIC-002-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+        "size_bytes": 4009
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}
