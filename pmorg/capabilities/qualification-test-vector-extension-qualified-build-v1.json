@@ -1,0 +1,209 @@
+{
+  "activation_status": "definition_only_unactivated",
+  "claim_boundary": "no_oracle_activation_or_qualification_verdict",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:4ad84df73690df0052d54f410f8886456790dbe65cc6e0790293c93f459cabf4",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualified_build_qualification_setup.py",
+      "size_bytes": 36113
+    },
+    {
+      "digest": "sha256:41e5165270cc66efd35d5e0398eeddfc2eaa4c3a27d1c0f6a92032b5906d12a7",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_qualified_build_qualification_setup.py",
+      "size_bytes": 709
+    }
+  ],
+  "extension_id": "qualified-reproducible-build-v1",
+  "falsifiability_contract": {
+    "candidate_influence_both_directions": true,
+    "mutation_can_flip_verdict": true,
+    "no_op_rejected": true,
+    "positive_injection_can_fit": true,
+    "runtime_identity_required_at_execution": true
+  },
+  "immutable_predecessors": {
+    "base_vector_manifest": {
+      "digest": "sha256:62c0783e5538ed32fb6685738f32d974cc719a71d1830d37a59a62af5993a667",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vectors-v1.json",
+      "size_bytes": 2939
+    },
+    "oracle_policy": {
+      "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+      "size_bytes": 32871
+    },
+    "oracle_states": [
+      {
+        "adapter": null,
+        "candidate_test_vector": null,
+        "oracle_id": "qualification-oracle:qualified-reproducible-build:A-EVIDENCE-001:v1",
+        "oracle_status": "unexecutable",
+        "test_id": "A-EVIDENCE-001"
+      },
+      {
+        "adapter": null,
+        "candidate_test_vector": null,
+        "oracle_id": "qualification-oracle:qualified-reproducible-build:A-LIC-001:v1",
+        "oracle_status": "unexecutable",
+        "test_id": "A-LIC-001"
+      },
+      {
+        "adapter": null,
+        "candidate_test_vector": null,
+        "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPORT-001:v1",
+        "oracle_status": "unexecutable",
+        "test_id": "A-REPORT-001"
+      },
+      {
+        "adapter": null,
+        "candidate_test_vector": null,
+        "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPRO-001:v1",
+        "oracle_status": "unexecutable",
+        "test_id": "A-REPRO-001"
+      }
+    ]
+  },
+  "interface_reference_implementations": [
+    {
+      "digest": "sha256:d4fab339aafd5936934626a154d350120ede88d344158cb0fb068c18b1b94da1",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_ce_artifact.py",
+      "size_bytes": 1340
+    },
+    {
+      "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/verify_ce_build.py",
+      "size_bytes": 2338
+    }
+  ],
+  "qualification_interface": {
+    "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+    "size_bytes": 3015
+  },
+  "reference_implementation_bindings": [
+    {
+      "reference_implementation": {
+        "digest": "sha256:d4fab339aafd5936934626a154d350120ede88d344158cb0fb068c18b1b94da1",
+        "media_type": "text/x-python",
+        "relative_path": "pmorg/scripts/build_ce_artifact.py",
+        "size_bytes": 1340
+      },
+      "test_id": "A-EVIDENCE-001"
+    },
+    {
+      "reference_implementation": {
+        "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
+        "media_type": "text/x-python",
+        "relative_path": "pmorg/scripts/verify_ce_build.py",
+        "size_bytes": 2338
+      },
+      "test_id": "A-LIC-001"
+    },
+    {
+      "reference_implementation": {
+        "digest": "sha256:d4fab339aafd5936934626a154d350120ede88d344158cb0fb068c18b1b94da1",
+        "media_type": "text/x-python",
+        "relative_path": "pmorg/scripts/build_ce_artifact.py",
+        "size_bytes": 1340
+      },
+      "test_id": "A-REPORT-001"
+    },
+    {
+      "reference_implementation": {
+        "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
+        "media_type": "text/x-python",
+        "relative_path": "pmorg/scripts/verify_ce_build.py",
+        "size_bytes": 2338
+      },
+      "test_id": "A-REPRO-001"
+    }
+  ],
+  "runtime_identity_contract": {
+    "artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "media_type": "text/plain",
+        "relative_path": ".python-version",
+        "size_bytes": 5
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "media_type": "application/toml",
+        "relative_path": "pyproject.toml",
+        "size_bytes": 9983
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "media_type": "application/toml",
+        "relative_path": "uv.lock",
+        "size_bytes": 1018201
+      }
+    ],
+    "interpreter_binary_evidence": {
+      "algorithm": "sha256",
+      "required_fields": [
+        "implementation",
+        "version",
+        "executable_digest",
+        "executable_size_bytes"
+      ]
+    },
+    "pass_requirements": [
+      "the invoked interpreter binary is measured before adapter execution",
+      "the measured interpreter satisfies the committed .python-version",
+      "dependencies resolve only from the exact committed uv.lock",
+      "runtime evidence and lock artifact digests are bound into the result"
+    ],
+    "schema_version": "pmorg.qualification-runtime-identity-contract/v1",
+    "status": "binary_measurement_required_at_execution"
+  },
+  "runtime_identity_contract_digest": "sha256:59ebd918c79614af1a4dec86b52a747e02b2b133ee14a27d30fa498c65e1e7db",
+  "schema_version": "pmorg.qualification-test-vector-extension-manifest/v1",
+  "vector_schema": {
+    "digest": "sha256:edeb4ab6802e4b93de638cf54442163116a9b048d0df38aff34ba7633a6b5e8b",
+    "media_type": "application/schema+json",
+    "relative_path": "pmorg/capabilities/qualification-test-vector-v1.schema.json",
+    "size_bytes": 5467
+  },
+  "vectors": [
+    {
+      "capability_id": "qualified-reproducible-build",
+      "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json",
+      "size_bytes": 4002,
+      "test_id": "A-EVIDENCE-001"
+    },
+    {
+      "capability_id": "qualified-reproducible-build",
+      "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json",
+      "size_bytes": 3988,
+      "test_id": "A-LIC-001"
+    },
+    {
+      "capability_id": "qualified-reproducible-build",
+      "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json",
+      "size_bytes": 3997,
+      "test_id": "A-REPORT-001"
+    },
+    {
+      "capability_id": "qualified-reproducible-build",
+      "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json",
+      "size_bytes": 4003,
+      "test_id": "A-REPRO-001"
+    }
+  ]
+}

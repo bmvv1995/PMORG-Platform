@@ -1101,6 +1101,36 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_governed_fork_post_disposition_qualification.py --check"
       ]
+    },
+    {
+      "id": "PL-039",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/qualified_build_qualification_setup.py",
+        "backend/pmorg/tests/test_qualified_build_qualification_setup.py",
+        "pmorg/capabilities/qualification-test-vector-extension-qualified-build-v1.json",
+        "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json",
+        "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json",
+        "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json",
+        "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json",
+        "pmorg/capabilities/qualified-build-interface-fit-evidence-v1.json",
+        "pmorg/capabilities/qualified-build-interface-fit-evidence-v1.schema.json",
+        "pmorg/scripts/build_qualified_build_qualification_setup.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-LIC-001",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "PLT-005"
+      ],
+      "reason": "Define four versioned, content-addressed and deliberately unactivated qualified-reproducible-build candidate-level test vectors derived from the Q1 interface and both declared reference implementations, then screen the exact committed 46-candidate denominator and all 4,522 projected blob memberships byte-closed; bind both-direction candidate influence, conforming positive injection, live byte mutation, no-op rejection and runtime identity requirements while preserving all active oracle and historical evidence state; emit no oracle activation, CandidateQualificationReport, fit verdict, disposition, deviation, admission, release, aggregate, catalog-completion or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=3fb62499414186d580903a1c02e4e717879f8a19 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_qualified_build_qualification_setup -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualified_build_qualification_setup.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

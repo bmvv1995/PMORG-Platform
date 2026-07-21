@@ -1,0 +1,530 @@
+{
+  "$id": "urn:pmorg:qualified-build-interface-fit-evidence:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_oracle_states": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adapter": {
+            "type": "null"
+          },
+          "candidate_test_vector": {
+            "type": "null"
+          },
+          "oracle_status": {
+            "const": "unexecutable"
+          },
+          "test_id": {
+            "enum": [
+              "A-EVIDENCE-001",
+              "A-LIC-001",
+              "A-REPORT-001",
+              "A-REPRO-001"
+            ]
+          }
+        },
+        "required": [
+          "adapter",
+          "candidate_test_vector",
+          "oracle_status",
+          "test_id"
+        ],
+        "type": "object"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array"
+    },
+    "blob_set_membership_count": {
+      "const": 4522
+    },
+    "blob_set_scan_count": {
+      "const": 46
+    },
+    "blob_set_scans": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blob_count": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "blob_index_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "blob_set_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "candidate_group": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "coverage": {
+            "additionalProperties": false,
+            "properties": {
+              "expected": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "scanned": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "unreadable": {
+                "const": 0
+              },
+              "unverified": {
+                "const": 0
+              }
+            },
+            "required": [
+              "expected",
+              "scanned",
+              "unreadable",
+              "unverified"
+            ],
+            "type": "object"
+          },
+          "scan_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "signal_paths": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "categories": {
+                  "items": {
+                    "enum": [
+                      "evidence_binding",
+                      "license_boundary",
+                      "reporting",
+                      "reproducibility",
+                      "runtime_toolchain"
+                    ]
+                  },
+                  "minItems": 1,
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "git_object_id": {
+                  "pattern": "^[0-9a-f]{40}$",
+                  "type": "string"
+                },
+                "path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "sha256": {
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "categories",
+                "git_object_id",
+                "path",
+                "sha256"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "source_surface": {
+            "enum": [
+              "ce",
+              "ee"
+            ]
+          }
+        },
+        "required": [
+          "blob_count",
+          "blob_index_digest",
+          "blob_set_digest",
+          "candidate_group",
+          "coverage",
+          "scan_digest",
+          "signal_paths",
+          "source_surface"
+        ],
+        "type": "object"
+      },
+      "maxItems": 46,
+      "minItems": 46,
+      "type": "array"
+    },
+    "candidate_blob_membership_count": {
+      "const": 4522
+    },
+    "candidate_count": {
+      "const": 46
+    },
+    "candidate_inputs": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "candidate_search_evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "candidates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blob_count": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "blob_set_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "candidate_group": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "candidate_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "candidate_manifest_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "plausibility_state": {
+            "enum": [
+              "lexical_signals_present_no_fit_inference",
+              "no_lexical_signal_present_no_fit_inference"
+            ]
+          },
+          "scan_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "signal_path_count": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "blob_count",
+          "blob_set_digest",
+          "candidate_group",
+          "candidate_id",
+          "candidate_manifest_digest",
+          "plausibility_state",
+          "scan_digest",
+          "signal_path_count"
+        ],
+        "type": "object"
+      },
+      "maxItems": 46,
+      "minItems": 46,
+      "type": "array"
+    },
+    "capability_id": {
+      "const": "qualified-reproducible-build"
+    },
+    "claim_boundary": {
+      "const": "exhaustive_plausibility_screen_only_no_qualification_or_disposition"
+    },
+    "coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "expected": {
+          "const": 4522
+        },
+        "scanned": {
+          "const": 4522
+        },
+        "unreadable": {
+          "const": 0
+        },
+        "unverified": {
+          "const": 0
+        }
+      },
+      "required": [
+        "expected",
+        "scanned",
+        "unreadable",
+        "unverified"
+      ],
+      "type": "object"
+    },
+    "derivation_artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "evidence_version": {
+      "const": "1.0.0"
+    },
+    "falsifiability_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_influence_both_directions": {
+          "const": true
+        },
+        "mutation_can_flip_verdict": {
+          "const": true
+        },
+        "no_op_rejected": {
+          "const": true
+        },
+        "positive_injection_can_fit": {
+          "const": true
+        },
+        "runtime_identity_required_at_execution": {
+          "const": true
+        }
+      },
+      "required": [
+        "candidate_influence_both_directions",
+        "mutation_can_flip_verdict",
+        "no_op_rejected",
+        "positive_injection_can_fit",
+        "runtime_identity_required_at_execution"
+      ],
+      "type": "object"
+    },
+    "hit_classification": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "oracle_activation": {
+      "const": false
+    },
+    "oracle_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "qualification_interface": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "raw_results_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.qualified-build-interface-fit-evidence/v1"
+    },
+    "selection_policy": {
+      "const": "all_46_candidates_from_qualified_reproducible_build_hit_classification"
+    },
+    "source_commit": {
+      "const": "1da679cefc96165c6b9b64c3bc769584b88f88c2"
+    },
+    "source_repository": {
+      "const": "https://github.com/onyx-dot-app/onyx.git"
+    },
+    "source_tree_id": {
+      "const": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58"
+    },
+    "test_vector_extension": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "test_vectors": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_version",
+    "capability_id",
+    "source_repository",
+    "source_commit",
+    "source_tree_id",
+    "candidate_inputs",
+    "candidate_search_evidence",
+    "hit_classification",
+    "raw_results_digest",
+    "qualification_interface",
+    "test_vector_extension",
+    "test_vectors",
+    "oracle_policy",
+    "derivation_artifacts",
+    "selection_policy",
+    "falsifiability_contract",
+    "candidate_count",
+    "candidate_blob_membership_count",
+    "blob_set_scan_count",
+    "blob_set_membership_count",
+    "coverage",
+    "blob_set_scans",
+    "candidates",
+    "active_oracle_states",
+    "claim_boundary",
+    "oracle_activation"
+  ],
+  "title": "PMORG exhaustive qualified-build interface-fit screening evidence",
+  "type": "object"
+}
