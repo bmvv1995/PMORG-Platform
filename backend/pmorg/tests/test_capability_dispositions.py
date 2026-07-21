@@ -8,6 +8,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from shutil import copytree
+from unittest.mock import patch
 
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from cryptography.hazmat.primitives.serialization import Encoding
@@ -15,6 +16,7 @@ from cryptography.hazmat.primitives.serialization import NoEncryption
 from cryptography.hazmat.primitives.serialization import PrivateFormat
 from cryptography.hazmat.primitives.serialization import PublicFormat
 
+from pmorg.application import capability_dispositions as disposition_module
 from pmorg.application.capability_dispositions import build_capability_dispositions
 from pmorg.application.capability_dispositions import CAPABILITIES
 from pmorg.application.capability_dispositions import CapabilityDispositionError
@@ -231,6 +233,136 @@ class TestCapabilityDispositions(unittest.TestCase):
             verify_thin_fork_capability_disposition(
                 first, repository_root=REPOSITORY_ROOT, environ=_key_environment()
             )
+
+    def test_thin_fork_ledger_signed_entry_mutation_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            copied = Path(temporary_directory) / "repository"
+            copytree(REPOSITORY_ROOT, copied, symlinks=True)
+            ledger_path = copied / "pmorg/patch-ledger.json"
+            ledger = json.loads(ledger_path.read_bytes())
+            original = ledger["entries"][0]["reason"]
+            ledger["entries"][0]["reason"] = f"{original} mutated"
+            self.assertNotEqual(original, ledger["entries"][0]["reason"])
+            ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
+            with self.assertRaisesRegex(
+                CapabilityDispositionError, "entries history is not an exact prefix"
+            ):
+                validate_thin_fork_capability_disposition(copied)
+
+    def test_thin_fork_ledger_signed_entry_deletion_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            copied = Path(temporary_directory) / "repository"
+            copytree(REPOSITORY_ROOT, copied, symlinks=True)
+            ledger_path = copied / "pmorg/patch-ledger.json"
+            ledger = json.loads(ledger_path.read_bytes())
+            before = len(ledger["entries"])
+            ledger["entries"].pop(0)
+            self.assertEqual(before - 1, len(ledger["entries"]))
+            ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
+            with self.assertRaisesRegex(
+                CapabilityDispositionError, "entries history is not an exact prefix"
+            ):
+                validate_thin_fork_capability_disposition(copied)
+
+    def test_thin_fork_ledger_signed_entry_reorder_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            copied = Path(temporary_directory) / "repository"
+            copytree(REPOSITORY_ROOT, copied, symlinks=True)
+            ledger_path = copied / "pmorg/patch-ledger.json"
+            ledger = json.loads(ledger_path.read_bytes())
+            first_id = ledger["entries"][0]["id"]
+            ledger["entries"][0], ledger["entries"][1] = (
+                ledger["entries"][1],
+                ledger["entries"][0],
+            )
+            self.assertNotEqual(first_id, ledger["entries"][0]["id"])
+            ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
+            with self.assertRaisesRegex(
+                CapabilityDispositionError, "entries history is not an exact prefix"
+            ):
+                validate_thin_fork_capability_disposition(copied)
+
+    def test_thin_fork_ledger_top_level_pin_change_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            copied = Path(temporary_directory) / "repository"
+            copytree(REPOSITORY_ROOT, copied, symlinks=True)
+            ledger_path = copied / "pmorg/patch-ledger.json"
+            ledger = json.loads(ledger_path.read_bytes())
+            original = ledger["specification_commit"]
+            ledger["specification_commit"] = "0" * 40
+            self.assertNotEqual(original, ledger["specification_commit"])
+            ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
+            with self.assertRaisesRegex(
+                CapabilityDispositionError,
+                "top-level pin drifted: specification_commit",
+            ):
+                validate_thin_fork_capability_disposition(copied)
+
+    def test_thin_fork_ledger_pure_unique_append_passes(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            copied = Path(temporary_directory) / "repository"
+            copytree(REPOSITORY_ROOT, copied, symlinks=True)
+            ledger_path = copied / "pmorg/patch-ledger.json"
+            ledger = json.loads(ledger_path.read_bytes())
+            appended = copy.deepcopy(ledger["entries"][-1])
+            appended["id"] = "PL-035"
+            appended["paths"] = ["pmorg/capabilities/future-q5-artifact.json"]
+            appended["reason"] = "Simulated Q5 append-only ledger entry."
+            ledger["entries"].append(appended)
+            self.assertEqual("PL-035", ledger["entries"][-1]["id"])
+            ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
+            validate_thin_fork_capability_disposition(copied)
+
+    def test_thin_fork_ledger_duplicate_append_id_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            copied = Path(temporary_directory) / "repository"
+            copytree(REPOSITORY_ROOT, copied, symlinks=True)
+            ledger_path = copied / "pmorg/patch-ledger.json"
+            ledger = json.loads(ledger_path.read_bytes())
+            ledger["entries"].append(copy.deepcopy(ledger["entries"][-1]))
+            self.assertEqual(ledger["entries"][-2]["id"], ledger["entries"][-1]["id"])
+            ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
+            with self.assertRaisesRegex(
+                CapabilityDispositionError, "entries IDs are not unique"
+            ):
+                validate_thin_fork_capability_disposition(copied)
+
+    def test_thin_fork_ledger_base_resolution_and_digest_fail_closed(self) -> None:
+        real_git = disposition_module._git
+
+        def fail_ledger_resolution(*args: str, repository_root: Path) -> str:
+            if args == (
+                "rev-parse",
+                f"{THIN_FORK_BASE_PLATFORM_COMMIT}:pmorg/patch-ledger.json",
+            ):
+                raise subprocess.CalledProcessError(128, args)
+            return real_git(*args, repository_root=repository_root)
+
+        with patch.object(
+            disposition_module, "_git", side_effect=fail_ledger_resolution
+        ):
+            with self.assertRaisesRegex(
+                CapabilityDispositionError, "implementation path is absent from base"
+            ):
+                validate_thin_fork_capability_disposition(REPOSITORY_ROOT)
+
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            copied = Path(temporary_directory) / "repository"
+            copytree(REPOSITORY_ROOT, copied, symlinks=True)
+            record_path = copied / THIN_FORK_RECORD_RELATIVE
+            record = json.loads(record_path.read_bytes())
+            ledger_ref = next(
+                item
+                for item in record["implementation_refs"]
+                if item["path"] == "pmorg/patch-ledger.json"
+            )
+            ledger_ref["content_hash"] = f"sha256:{'0' * 64}"
+            record_path.write_text(json.dumps(record), encoding="utf-8")
+            with self.assertRaisesRegex(
+                CapabilityDispositionError,
+                "base ledger blob does not match recorded implementation digest",
+            ):
+                validate_thin_fork_capability_disposition(copied)
 
     def test_thin_fork_semantic_shortcuts_are_rejected_before_signing(self) -> None:
         record = json.loads((REPOSITORY_ROOT / THIN_FORK_RECORD_RELATIVE).read_bytes())
