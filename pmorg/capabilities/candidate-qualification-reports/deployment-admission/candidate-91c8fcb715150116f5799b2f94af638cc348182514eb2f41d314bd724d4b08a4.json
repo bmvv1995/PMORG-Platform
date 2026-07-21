@@ -1,0 +1,62 @@
+{
+  "candidate_id": "candidate-91c8fcb715150116f5799b2f94af638cc348182514eb2f41d314bd724d4b08a4",
+  "capability_id": "deployment-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:2a39c8af95309e2ee76d83f1eaefb71cbeae90352bf327f04a3a3b44c5b564f3",
+    "logical_name": "deployment-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/deployment-admission.json",
+    "size_bytes": 200
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/ee/onyx/__init__.py",
+      "backend/ee/onyx/main.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+      "logical_name": "onyx_ee-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+      "size_bytes": 61086
+    },
+    "tree_hash": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:039be0a2581dc90f5cf0d620423960c48544f3324d7cfc031b8784f18abd6ef0",
+        "logical_name": "candidate-91c8fcb715150116f5799b2f94af638cc348182514eb2f41d314bd724d4b08a4-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/deployment-admission/candidate-91c8fcb715150116f5799b2f94af638cc348182514eb2f41d314bd724d4b08a4.json",
+        "size_bytes": 2661
+      },
+      "test_id": "A-LIC-002",
+      "test_manifest": {
+        "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
+        "logical_name": "deployment-admission-A-LIC-002-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+        "size_bytes": 4009
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

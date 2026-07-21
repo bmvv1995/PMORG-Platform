@@ -1,0 +1,63 @@
+{
+  "adapter_digest": "sha256:d52d4a7748cf84b0c14b7f1572a53d85b3ab6df35db92643430d7eb827325dc3",
+  "baseline_fit": false,
+  "baseline_observation_digest": "sha256:7a1d353de892f6857d3ceeeb766f09f2eecc97c156ccb0ef91dacd713f3617bf",
+  "bindings": [
+    {
+      "digest": "sha256:d52d4a7748cf84b0c14b7f1572a53d85b3ab6df35db92643430d7eb827325dc3",
+      "relative_path": "backend/pmorg/application/admission_interface_fit_executor.py"
+    },
+    {
+      "digest": "sha256:86db7c8f66ef0d96e17dafa6ab9ca7ee2f2f32350c494c9d91b59140b0bf82d0",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/distribution-admission-v1.json"
+    },
+    {
+      "digest": "sha256:3c2a66f92e9f6bb5e5d34cb27da2ddff59b114e7efbdf09612e16f74bf0755ad",
+      "relative_path": "pmorg/capabilities/qualification-test-vectors/distribution-admission-A-LIC-003-v1.json"
+    }
+  ],
+  "candidate_id": "candidate-3754e36797268b92acd1b2a7bf652264224ef819c81aff235fbc38a6930554cb",
+  "candidate_manifest_digest": "sha256:816d2bd4ee8afbfcc6cda22f62100987ed17127c12d24b58a952dadd04217dba",
+  "capability_id": "distribution-admission",
+  "execution_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "failure_reasons": [
+    "candidate exposes no callable surface satisfying the exact admission interface"
+  ],
+  "mutation_fit": false,
+  "mutation_observation_digest": "sha256:4d86c77c8fcd7a38cd831bdb6e2cafd92096fe089055076d2c5c0e29b22402d2",
+  "observed_blob_count": 9,
+  "oracle_id": "qualification-oracle:distribution-admission:A-LIC-003:v1",
+  "oracle_status": "executable",
+  "positive_injection_fit": true,
+  "positive_injection_observation_digest": "sha256:9b8782b41b677d37f6e0912d11c2b7c885a506836d40d130094f115545bac175",
+  "projected_blob_count": 9,
+  "runtime_identity_digest": "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053",
+  "runtime_measurement": {
+    "declared_artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "relative_path": ".python-version"
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "relative_path": "pyproject.toml"
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "relative_path": "uv.lock"
+      }
+    ],
+    "interpreter_binary": {
+      "digest": "sha256:9efb620bf4def9da93c66480431bf9ca479f5ca495da94483cf9117dd58430bf",
+      "relative_path": "@runtime/executed-python-interpreter"
+    }
+  },
+  "schema_version": "pmorg.qualification-oracle-result/v2",
+  "test_id": "A-LIC-003",
+  "unobserved_blob_count": 0,
+  "verdict": "fail"
+}

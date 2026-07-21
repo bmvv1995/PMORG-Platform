@@ -1,0 +1,100 @@
+{
+  "candidate_id": "candidate-2a8497d586a69306ea3938bf18cca06b9e68c50005958dfcf10896a0e5ed2f37",
+  "capability_id": "deployment-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:2a39c8af95309e2ee76d83f1eaefb71cbeae90352bf327f04a3a3b44c5b564f3",
+    "logical_name": "deployment-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/deployment-admission.json",
+    "size_bytes": 200
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "docs/craft/craft-main-plan.md",
+      "docs/craft/dev/local-compose-craft.md",
+      "docs/craft/dev/local-kubernetes.md",
+      "docs/craft/docker/docker-compose-overview.md",
+      "docs/craft/features/egress-proxy-and-approvals/README.md",
+      "docs/craft/features/external-apps/action-policies.md",
+      "docs/craft/features/external-apps/cloud-managed-app-credentials.md",
+      "docs/craft/features/external-apps/egress-proxy-action-policy-enforcement.md",
+      "docs/craft/features/external-apps/external-app-skill-action-availability.md",
+      "docs/craft/features/external-apps/oauth-token-refresh.md",
+      "docs/craft/features/scheduled-tasks/overview.md",
+      "docs/craft/features/scheduled-tasks/pre-approvals.md",
+      "docs/craft/features/scheduled-tasks/tests.md",
+      "docs/craft/features/search/craft-search.md",
+      "docs/craft/features/skills/README.md",
+      "docs/craft/features/skills/builtin-skills-migration-plan.md",
+      "docs/craft/features/skills/personal-skills.md",
+      "docs/craft/features/skills/skills-api-plan.md",
+      "docs/craft/features/skills/skills-db-layer-status.md",
+      "docs/craft/features/skills/skills-requirements.md",
+      "docs/craft/features/streaming/docker-opencode-serve.md",
+      "docs/craft/features/streaming/drop-acp-layer.md",
+      "docs/craft/features/streaming/opencode-serve-client.md",
+      "docs/craft/features/streaming/preserve-opencode-sessions.md",
+      "docs/craft/features/streaming/shared-acp-exec-client.md",
+      "docs/craft/features/subagents/2026-05-28-subagents-view-design.md",
+      "docs/craft/features/user-library-sync.md",
+      "docs/craft/fix-live-scheduled-task-runs.md",
+      "docs/craft/infra/image-architecture.md",
+      "docs/craft/infra/sandbox-worker-network-policy.md",
+      "docs/craft/infra/snapshot-retention.md",
+      "docs/craft/issues/opencode-serve-deploy-gotchas.md",
+      "docs/craft/issues/opencode-serve-event-stream-pitfalls.md",
+      "docs/craft/kubernetes/craft-eks-runbook.md",
+      "docs/craft/legacy/v0_craft_architecture.md",
+      "docs/craft/sandbox/image-and-spinup.md",
+      "docs/craft/sandbox/sandbox-exec-sidecar.md",
+      "docs/craft/sandbox/sandbox-podtemplate.md",
+      "docs/craft/ui/packet-rendering-overhaul.md",
+      "docs/craft/ui/sidebar-cleanup.md"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:44346531b2f17782319c777a7aa61609aeb0f97533f30c8a7e6f8cb65857a11f",
+        "logical_name": "candidate-2a8497d586a69306ea3938bf18cca06b9e68c50005958dfcf10896a0e5ed2f37-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/deployment-admission/candidate-2a8497d586a69306ea3938bf18cca06b9e68c50005958dfcf10896a0e5ed2f37.json",
+        "size_bytes": 2663
+      },
+      "test_id": "A-LIC-002",
+      "test_manifest": {
+        "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
+        "logical_name": "deployment-admission-A-LIC-002-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+        "size_bytes": 4009
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

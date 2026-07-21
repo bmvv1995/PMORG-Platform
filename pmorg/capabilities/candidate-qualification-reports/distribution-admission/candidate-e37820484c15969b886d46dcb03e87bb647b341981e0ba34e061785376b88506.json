@@ -1,0 +1,74 @@
+{
+  "candidate_id": "candidate-e37820484c15969b886d46dcb03e87bb647b341981e0ba34e061785376b88506",
+  "capability_id": "distribution-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:339e267d822263efb21e59bccf32ffbefee78941713afc5f9b13558c66a92510",
+    "logical_name": "distribution-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/distribution-admission.json",
+    "size_bytes": 202
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "web/src/ee/LICENSE",
+      "web/src/ee/hooks/useHookExecutionLogs.ts",
+      "web/src/ee/hooks/useHookSpecs.ts",
+      "web/src/ee/hooks/useHooks.ts",
+      "web/src/ee/lib/search/svc.ts",
+      "web/src/ee/providers/QueryControllerProvider.tsx",
+      "web/src/ee/sections/SearchCard.tsx",
+      "web/src/ee/sections/SearchUI.tsx",
+      "web/src/ee/views/admin/HooksPage/HookFormModal.tsx",
+      "web/src/ee/views/admin/HooksPage/HookLogsModal.tsx",
+      "web/src/ee/views/admin/HooksPage/HookStatusPopover.tsx",
+      "web/src/ee/views/admin/HooksPage/index.tsx",
+      "web/src/ee/views/admin/HooksPage/interfaces.ts",
+      "web/src/ee/views/admin/HooksPage/svc.ts"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+      "logical_name": "onyx_ee-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+      "size_bytes": 61086
+    },
+    "tree_hash": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:43c8bcec560c9558f7a174528f011a6ddb673f3558b0470544875403d2a86468",
+        "logical_name": "candidate-e37820484c15969b886d46dcb03e87bb647b341981e0ba34e061785376b88506-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/distribution-admission/candidate-e37820484c15969b886d46dcb03e87bb647b341981e0ba34e061785376b88506.json",
+        "size_bytes": 2671
+      },
+      "test_id": "A-LIC-003",
+      "test_manifest": {
+        "digest": "sha256:3c2a66f92e9f6bb5e5d34cb27da2ddff59b114e7efbdf09612e16f74bf0755ad",
+        "logical_name": "distribution-admission-A-LIC-003-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/distribution-admission-A-LIC-003-v1.json",
+        "size_bytes": 4080
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

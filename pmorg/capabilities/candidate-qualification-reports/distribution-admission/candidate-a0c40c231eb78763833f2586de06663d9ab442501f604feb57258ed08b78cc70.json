@@ -1,0 +1,96 @@
+{
+  "candidate_id": "candidate-a0c40c231eb78763833f2586de06663d9ab442501f604feb57258ed08b78cc70",
+  "capability_id": "distribution-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:339e267d822263efb21e59bccf32ffbefee78941713afc5f9b13558c66a92510",
+    "logical_name": "distribution-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/distribution-admission.json",
+    "size_bytes": 202
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/ee/onyx/external_permissions/__init__.py",
+      "backend/ee/onyx/external_permissions/confluence/__init__.py",
+      "backend/ee/onyx/external_permissions/confluence/constants.py",
+      "backend/ee/onyx/external_permissions/confluence/doc_sync.py",
+      "backend/ee/onyx/external_permissions/confluence/group_sync.py",
+      "backend/ee/onyx/external_permissions/confluence/page_access.py",
+      "backend/ee/onyx/external_permissions/confluence/space_access.py",
+      "backend/ee/onyx/external_permissions/github/doc_sync.py",
+      "backend/ee/onyx/external_permissions/github/group_sync.py",
+      "backend/ee/onyx/external_permissions/github/utils.py",
+      "backend/ee/onyx/external_permissions/gmail/doc_sync.py",
+      "backend/ee/onyx/external_permissions/google_drive/__init__.py",
+      "backend/ee/onyx/external_permissions/google_drive/doc_sync.py",
+      "backend/ee/onyx/external_permissions/google_drive/folder_retrieval.py",
+      "backend/ee/onyx/external_permissions/google_drive/group_sync.py",
+      "backend/ee/onyx/external_permissions/google_drive/models.py",
+      "backend/ee/onyx/external_permissions/google_drive/permission_retrieval.py",
+      "backend/ee/onyx/external_permissions/jira/__init__.py",
+      "backend/ee/onyx/external_permissions/jira/doc_sync.py",
+      "backend/ee/onyx/external_permissions/jira/group_sync.py",
+      "backend/ee/onyx/external_permissions/jira/models.py",
+      "backend/ee/onyx/external_permissions/jira/page_access.py",
+      "backend/ee/onyx/external_permissions/perm_sync_types.py",
+      "backend/ee/onyx/external_permissions/post_query_censoring.py",
+      "backend/ee/onyx/external_permissions/salesforce/postprocessing.py",
+      "backend/ee/onyx/external_permissions/salesforce/utils.py",
+      "backend/ee/onyx/external_permissions/sharepoint/doc_sync.py",
+      "backend/ee/onyx/external_permissions/sharepoint/group_sync.py",
+      "backend/ee/onyx/external_permissions/sharepoint/permission_utils.py",
+      "backend/ee/onyx/external_permissions/slack/channel_access.py",
+      "backend/ee/onyx/external_permissions/slack/doc_sync.py",
+      "backend/ee/onyx/external_permissions/slack/group_sync.py",
+      "backend/ee/onyx/external_permissions/slack/utils.py",
+      "backend/ee/onyx/external_permissions/sync_params.py",
+      "backend/ee/onyx/external_permissions/teams/doc_sync.py",
+      "backend/ee/onyx/external_permissions/utils.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+      "logical_name": "onyx_ee-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+      "size_bytes": 61086
+    },
+    "tree_hash": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:57c9c8328f470cbcb11de0dcd79a4d350a54af6d88904a73130fa9bd80098afb",
+        "logical_name": "candidate-a0c40c231eb78763833f2586de06663d9ab442501f604feb57258ed08b78cc70-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/distribution-admission/candidate-a0c40c231eb78763833f2586de06663d9ab442501f604feb57258ed08b78cc70.json",
+        "size_bytes": 2671
+      },
+      "test_id": "A-LIC-003",
+      "test_manifest": {
+        "digest": "sha256:3c2a66f92e9f6bb5e5d34cb27da2ddff59b114e7efbdf09612e16f74bf0755ad",
+        "logical_name": "distribution-admission-A-LIC-003-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/distribution-admission-A-LIC-003-v1.json",
+        "size_bytes": 4080
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

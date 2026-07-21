@@ -1,0 +1,87 @@
+{
+  "candidate_id": "candidate-512afc4af65ed67463ff179a3ed10af7eb2d639fca528247be13072115866f3b",
+  "capability_id": "distribution-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:339e267d822263efb21e59bccf32ffbefee78941713afc5f9b13558c66a92510",
+    "logical_name": "distribution-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/distribution-admission.json",
+    "size_bytes": 202
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "web/src/app/auth/create-account/page.tsx",
+      "web/src/app/auth/error/AuthErrorContent.tsx",
+      "web/src/app/auth/error/layout.tsx",
+      "web/src/app/auth/error/page.tsx",
+      "web/src/app/auth/forgot-password/page.tsx",
+      "web/src/app/auth/forgot-password/utils.ts",
+      "web/src/app/auth/impersonate/page.tsx",
+      "web/src/app/auth/join/page.tsx",
+      "web/src/app/auth/lib.ts",
+      "web/src/app/auth/libSS.ts",
+      "web/src/app/auth/login/EmailPasswordForm.test.tsx",
+      "web/src/app/auth/login/EmailPasswordForm.tsx",
+      "web/src/app/auth/login/LoginPage.tsx",
+      "web/src/app/auth/login/LoginText.tsx",
+      "web/src/app/auth/login/SignInButton.tsx",
+      "web/src/app/auth/login/page.tsx",
+      "web/src/app/auth/logout/route.ts",
+      "web/src/app/auth/oauth/callback/route.ts",
+      "web/src/app/auth/oidc/callback/route.ts",
+      "web/src/app/auth/reset-password/page.tsx",
+      "web/src/app/auth/saml/callback/route.ts",
+      "web/src/app/auth/signup/ReferralSourceSelector.tsx",
+      "web/src/app/auth/signup/page.tsx",
+      "web/src/app/auth/verify-email/Verify.tsx",
+      "web/src/app/auth/verify-email/page.tsx",
+      "web/src/app/auth/waiting-on-verification/RequestNewVerificationEmail.tsx",
+      "web/src/app/auth/waiting-on-verification/page.tsx"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:2b6a011d323d06cf298f986857e9b1ab07793ccc09904d1152cabb379276588c",
+        "logical_name": "candidate-512afc4af65ed67463ff179a3ed10af7eb2d639fca528247be13072115866f3b-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/distribution-admission/candidate-512afc4af65ed67463ff179a3ed10af7eb2d639fca528247be13072115866f3b.json",
+        "size_bytes": 2671
+      },
+      "test_id": "A-LIC-003",
+      "test_manifest": {
+        "digest": "sha256:3c2a66f92e9f6bb5e5d34cb27da2ddff59b114e7efbdf09612e16f74bf0755ad",
+        "logical_name": "distribution-admission-A-LIC-003-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/distribution-admission-A-LIC-003-v1.json",
+        "size_bytes": 4080
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

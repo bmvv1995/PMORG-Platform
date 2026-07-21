@@ -1,0 +1,107 @@
+{
+  "candidate_id": "candidate-fd6dc9fdfe814966823d4f1a8b3f51f26d55bc5b94af8b7ae7d261d226497770",
+  "capability_id": "distribution-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:339e267d822263efb21e59bccf32ffbefee78941713afc5f9b13558c66a92510",
+    "logical_name": "distribution-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/distribution-admission.json",
+    "size_bytes": 202
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/onyx/utils/__init__.py",
+      "backend/onyx/utils/audit.py",
+      "backend/onyx/utils/b64.py",
+      "backend/onyx/utils/batching.py",
+      "backend/onyx/utils/callbacks.py",
+      "backend/onyx/utils/client_ip.py",
+      "backend/onyx/utils/credential_audit.py",
+      "backend/onyx/utils/csv_utils.py",
+      "backend/onyx/utils/encryption.py",
+      "backend/onyx/utils/error_handling.py",
+      "backend/onyx/utils/errors.py",
+      "backend/onyx/utils/file.py",
+      "backend/onyx/utils/github.py",
+      "backend/onyx/utils/gpu_utils.py",
+      "backend/onyx/utils/headers.py",
+      "backend/onyx/utils/isolated_runner.py",
+      "backend/onyx/utils/jsonriver/LICENSE",
+      "backend/onyx/utils/jsonriver/__init__.py",
+      "backend/onyx/utils/jsonriver/parse.py",
+      "backend/onyx/utils/jsonriver/tokenize.py",
+      "backend/onyx/utils/logger.py",
+      "backend/onyx/utils/long_term_log.py",
+      "backend/onyx/utils/memory_logger.py",
+      "backend/onyx/utils/middleware.py",
+      "backend/onyx/utils/object_size_check.py",
+      "backend/onyx/utils/platform_utils.py",
+      "backend/onyx/utils/playwright_fetch.py",
+      "backend/onyx/utils/postgres_sanitization.py",
+      "backend/onyx/utils/process_isolation.py",
+      "backend/onyx/utils/pydantic_util.py",
+      "backend/onyx/utils/retry_after.py",
+      "backend/onyx/utils/retry_wrapper.py",
+      "backend/onyx/utils/search_nlp_models_utils.py",
+      "backend/onyx/utils/sensitive.py",
+      "backend/onyx/utils/sitemap.py",
+      "backend/onyx/utils/special_types.py",
+      "backend/onyx/utils/subclasses.py",
+      "backend/onyx/utils/supervisord_watchdog.py",
+      "backend/onyx/utils/telemetry.py",
+      "backend/onyx/utils/tenant.py",
+      "backend/onyx/utils/text_processing.py",
+      "backend/onyx/utils/threadpool_concurrency.py",
+      "backend/onyx/utils/timing.py",
+      "backend/onyx/utils/tls.py",
+      "backend/onyx/utils/url.py",
+      "backend/onyx/utils/variable_functionality.py",
+      "backend/onyx/utils/web_content.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:81aa2f0dfcd258ad9868e36baa77e83f1b657dd3c58de48113fae4ab9a9d1733",
+        "logical_name": "candidate-fd6dc9fdfe814966823d4f1a8b3f51f26d55bc5b94af8b7ae7d261d226497770-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/distribution-admission/candidate-fd6dc9fdfe814966823d4f1a8b3f51f26d55bc5b94af8b7ae7d261d226497770.json",
+        "size_bytes": 2671
+      },
+      "test_id": "A-LIC-003",
+      "test_manifest": {
+        "digest": "sha256:3c2a66f92e9f6bb5e5d34cb27da2ddff59b114e7efbdf09612e16f74bf0755ad",
+        "logical_name": "distribution-admission-A-LIC-003-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/distribution-admission-A-LIC-003-v1.json",
+        "size_bytes": 4080
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

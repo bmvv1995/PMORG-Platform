@@ -1,0 +1,98 @@
+{
+  "candidate_id": "candidate-2676724511cd12f2be82ef1dcc59dd84cbb2784b407ed18315fd327b598cbab4",
+  "capability_id": "deployment-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "logical_name": "qualification-oracle-policy-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "required_test_manifest": {
+    "digest": "sha256:2a39c8af95309e2ee76d83f1eaefb71cbeae90352bf327f04a3a3b44c5b564f3",
+    "logical_name": "deployment-admission-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/deployment-admission.json",
+    "size_bytes": 200
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      ".github/workflows/audit.yml",
+      ".github/workflows/deployment.yml",
+      ".github/workflows/docker-tag-beta.yml",
+      ".github/workflows/docker-tag-latest.yml",
+      ".github/workflows/helm-chart-releases.yml",
+      ".github/workflows/merge-group.yml",
+      ".github/workflows/nightly-close-stale-issues.yml",
+      ".github/workflows/nightly-external-dependency-unit-tests.yml",
+      ".github/workflows/nightly-llm-provider-chat.yml",
+      ".github/workflows/post-merge-beta-cherry-pick.yml",
+      ".github/workflows/pr-craft-compose-integration.yml",
+      ".github/workflows/pr-craft-compose-tests.yml",
+      ".github/workflows/pr-craft-k8s-tests.yml",
+      ".github/workflows/pr-database-tests.yml",
+      ".github/workflows/pr-desktop-build.yml",
+      ".github/workflows/pr-external-dependency-unit-tests.yml",
+      ".github/workflows/pr-golang-tests.yml",
+      ".github/workflows/pr-helm-chart-testing.yml",
+      ".github/workflows/pr-integration-tests.yml",
+      ".github/workflows/pr-jest-tests.yml",
+      ".github/workflows/pr-labeler.yml",
+      ".github/workflows/pr-linear-check.yml",
+      ".github/workflows/pr-playwright-tests.yml",
+      ".github/workflows/pr-python-checks.yml",
+      ".github/workflows/pr-python-connector-tests.yml",
+      ".github/workflows/pr-python-model-tests.yml",
+      ".github/workflows/pr-python-tests.yml",
+      ".github/workflows/pr-quality-checks.yml",
+      ".github/workflows/preview.yml",
+      ".github/workflows/release-cli.yml",
+      ".github/workflows/release-devcontainer.yml",
+      ".github/workflows/release-devtools.yml",
+      ".github/workflows/release-opal.yml",
+      ".github/workflows/reusable-nightly-llm-provider-chat.yml",
+      ".github/workflows/storybook-deploy.yml",
+      ".github/workflows/sync_foss.yml",
+      ".github/workflows/tag-nightly.yml",
+      ".github/workflows/zizmor.yml"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:0e87428e6712c927138e79eb205396eb6cb1968c9c4290ef0f6527a35b730c28",
+        "logical_name": "candidate-2676724511cd12f2be82ef1dcc59dd84cbb2784b407ed18315fd327b598cbab4-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/candidate-qualification-results/deployment-admission/candidate-2676724511cd12f2be82ef1dcc59dd84cbb2784b407ed18315fd327b598cbab4.json",
+        "size_bytes": 2663
+      },
+      "test_id": "A-LIC-002",
+      "test_manifest": {
+        "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
+        "logical_name": "deployment-admission-A-LIC-002-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+        "size_bytes": 4009
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}
