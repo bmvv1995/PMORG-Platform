@@ -1,0 +1,97 @@
+{
+  "candidate_id": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53",
+  "capability_id": "governed-onyx-fork",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 3,
+  "expected_test_count": 3,
+  "failed_test_count": 3,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:72af0da056d2b026de1e3366f654d7ece8831d474a03155ddb011ce8525c9b7d",
+    "logical_name": "qualification-oracle-extension-governed-fork-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-governed-fork-v1.json",
+    "size_bytes": 7357
+  },
+  "required_test_manifest": {
+    "digest": "sha256:a9d0a22d7b15ef8af11e2c82a89b20246a2ff9f8ad79ea9c0dac73f7e8e84ded",
+    "logical_name": "governed-onyx-fork-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/governed-onyx-fork.json",
+    "size_bytes": 286
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "CONTRIBUTING.md"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:f3ab7d3b70e333767a9bf90ff6b4074e92a1125865726076aeee3e8dc657894d",
+        "logical_name": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53-A-FORK-001-governed-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53/A-FORK-001.json",
+        "size_bytes": 3755
+      },
+      "test_id": "A-FORK-001",
+      "test_manifest": {
+        "digest": "sha256:2652874b3a4f554100ca8172dc16acec2e46bb7eb51d40b8ba27fe433bde24e6",
+        "logical_name": "governed-onyx-fork-A-FORK-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/governed-onyx-fork-A-FORK-001-v1.json",
+        "size_bytes": 3949
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:5a64bffbf5f02884ddca125f2dbc409e048ab2d4b267c380285b14c304c1fb70",
+        "logical_name": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53-A-SURFACE-001-governed-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53/A-SURFACE-001.json",
+        "size_bytes": 3764
+      },
+      "test_id": "A-SURFACE-001",
+      "test_manifest": {
+        "digest": "sha256:63da799801efe4719938c0220f7c4c77b8e74b138cb0a5b276ee99d88c567522",
+        "logical_name": "governed-onyx-fork-A-SURFACE-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/governed-onyx-fork-A-SURFACE-001-v1.json",
+        "size_bytes": 3941
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:7c88bb3b25707f82ffcea6c1fa64868bb6bc57e9980eb616d848764d4830a1d5",
+        "logical_name": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53-A-UPSTREAM-001-governed-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53/A-UPSTREAM-001.json",
+        "size_bytes": 3767
+      },
+      "test_id": "A-UPSTREAM-001",
+      "test_manifest": {
+        "digest": "sha256:e608f247573498b8fb110455f13adf670376f7e18c1c560c1a690389f01eb963",
+        "logical_name": "governed-onyx-fork-A-UPSTREAM-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/governed-onyx-fork-A-UPSTREAM-001-v1.json",
+        "size_bytes": 3946
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

@@ -1040,6 +1040,34 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_governed_fork_interface_fit_executor.py --check"
       ]
+    },
+    {
+      "id": "PL-037",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/governed_fork_candidate_qualification_reports.py",
+        "backend/pmorg/tests/test_governed_fork_candidate_qualification_reports.py",
+        "pmorg/capabilities/governed-fork-candidate-qualification-reports-v1.json",
+        "pmorg/capabilities/governed-fork-candidate-qualification-reports-v1.schema.json",
+        "pmorg/capabilities/governed-fork-candidate-qualification-reports/*.json",
+        "pmorg/capabilities/governed-fork-candidate-qualification-results/**/*.json",
+        "pmorg/scripts/build_governed_fork_candidate_qualification_reports.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-FORK-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001",
+        "PLT-008"
+      ],
+      "reason": "Execute all three activated governed-onyx-fork candidate-aware oracles over the exact 67-candidate denominator and emit 201 content-addressed results plus exactly one schema-valid CandidateQualificationReport per candidate, each binding the exact manifest, all projected bytes, interface, vectors, adapter, runtime identity, live mutation influence and conforming positive controls; emit no disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=f9b76b8b69236cca442e542717dd0132f2a136e2 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_governed_fork_candidate_qualification_reports -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_governed_fork_candidate_qualification_reports.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
