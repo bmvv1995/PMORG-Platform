@@ -1,0 +1,149 @@
+{
+  "$id": "urn:pmorg:governed-fork-post-disposition-test-manifest:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_id": {
+      "const": "governed-onyx-fork"
+    },
+    "execution": {
+      "additionalProperties": false,
+      "properties": {
+        "framework": {
+          "const": "python-unittest"
+        },
+        "mode": {
+          "const": "single-process-complete-module"
+        },
+        "suite": {
+          "const": "pmorg.tests.test_verify_fork"
+        }
+      },
+      "required": [
+        "framework",
+        "mode",
+        "suite"
+      ],
+      "type": "object"
+    },
+    "expected_test_count": {
+      "const": 87
+    },
+    "implementation_bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "implementation_path_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "patch_ledger_entry_ids": {
+      "const": [
+        "PL-000"
+      ]
+    },
+    "patch_ledger_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "pmorg_platform_commit": {
+      "const": "7778c8ecf965460811284cea9c721682cd3f42ae"
+    },
+    "requirement_ids": {
+      "const": [
+        "A-FORK-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001"
+      ]
+    },
+    "runner": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "pmorg.governed-fork-post-disposition-test-manifest/v1"
+    },
+    "test_cases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fully_qualified_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "test_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "fully_qualified_name",
+          "test_id"
+        ],
+        "type": "object"
+      },
+      "maxItems": 87,
+      "minItems": 87,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "capability_id",
+    "requirement_ids",
+    "pmorg_platform_commit",
+    "implementation_bindings",
+    "implementation_path_set_hash",
+    "patch_ledger_entry_ids",
+    "patch_ledger_set_hash",
+    "runner",
+    "execution",
+    "test_cases",
+    "expected_test_count"
+  ],
+  "type": "object"
+}
