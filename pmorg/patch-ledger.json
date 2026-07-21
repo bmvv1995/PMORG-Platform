@@ -741,6 +741,32 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_candidate_interface_fit_denominator.py --check"
       ]
+    },
+    {
+      "id": "PL-026",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/admission_interface_fit_executor.py",
+        "backend/pmorg/tests/test_admission_interface_fit_executor.py",
+        "pmorg/capabilities/qualification-oracle-result-v2.schema.json"
+      ],
+      "requirements": [
+        "A-LIC-002",
+        "A-LIC-003",
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-EVIDENCE-001",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Activate exactly the two admission qualification oracles through a candidate-aware interface-fit executor that consumes each exact candidate manifest and every projected byte, measures callable Python AST surface structure rather than term matches, binds the executed interpreter plus committed dependency locks, requires a live byte-flip observation change and a conforming positive-control injection, and validates fail-closed v2 oracle evidence; emit no CandidateQualificationReport, disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=da11419fb4ae80edcf03e86b6798314aaae39c35 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_admission_interface_fit_executor backend.pmorg.tests.test_qualification_oracles -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualification_oracles.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

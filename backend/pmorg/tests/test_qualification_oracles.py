@@ -27,20 +27,39 @@ class TestQualificationOracles(unittest.TestCase):
         self.assertEqual(first["candidate_projection"]["candidate_count"], 402)
         self.assertEqual(
             [item["oracle_status"] for item in first["oracles"]].count("unexecutable"),
-            15,
+            13,
         )
-        for oracle in first["oracles"]:
+        unexecutable = [
+            oracle
+            for oracle in first["oracles"]
+            if oracle["oracle_status"] == "unexecutable"
+        ]
+        executable = [
+            oracle
+            for oracle in first["oracles"]
+            if oracle["oracle_status"] == "executable"
+        ]
+        for oracle in unexecutable:
             self.assertFalse(oracle["bindings"])
             self.assertIsNone(oracle["adapter"])
             self.assertEqual(oracle["candidate_influence_status"], "not_demonstrated")
             self.assertTrue(oracle["unexecutable_reason"])
+        self.assertEqual(len(executable), 2)
+        for oracle in executable:
+            self.assertEqual(len(oracle["bindings"]), 3)
+            self.assertIsNotNone(oracle["adapter"])
+            self.assertEqual(
+                oracle["candidate_influence_status"],
+                "live_mutation_and_positive_injection_enforced",
+            )
+            self.assertIsNone(oracle["unexecutable_reason"])
         self.assertEqual(
             [item["relative_path"] for item in first["runtime_identity"]["artifacts"]],
             [".python-version", "pyproject.toml", "uv.lock"],
         )
         self.assertEqual(
             first["runtime_identity"]["status"],
-            "declaration_bound_binary_unattested",
+            "binary_measurement_required_at_execution",
         )
         runtime_identity = dict(first["runtime_identity"])
         runtime_digest = runtime_identity.pop("digest")
@@ -51,6 +70,7 @@ class TestQualificationOracles(unittest.TestCase):
         self.assertEqual(
             [item["relative_path"] for item in first["derivation_artifacts"]],
             [
+                "backend/pmorg/application/admission_interface_fit_executor.py",
                 "backend/pmorg/application/qualification_oracles.py",
                 "pmorg/scripts/build_qualification_oracles.py",
             ],
@@ -99,7 +119,7 @@ class TestQualificationOracles(unittest.TestCase):
             if item["capability_id"] == oracle["capability_id"]
         )
         result = {
-            "schema_version": "pmorg.qualification-oracle-result/v1",
+            "schema_version": "pmorg.qualification-oracle-result/v2",
             "capability_id": oracle["capability_id"],
             "test_id": oracle["test_id"],
             "candidate_id": candidate["candidate_id"],
@@ -108,8 +128,13 @@ class TestQualificationOracles(unittest.TestCase):
             "candidate_manifest_digest": candidate["manifest_digest"],
             "adapter_digest": None,
             "runtime_identity_digest": None,
-            "mutation_baseline_digest": None,
-            "mutation_result_digest": None,
+            "runtime_measurement": None,
+            "baseline_observation_digest": None,
+            "mutation_observation_digest": None,
+            "positive_injection_observation_digest": None,
+            "baseline_fit": None,
+            "mutation_fit": None,
+            "positive_injection_fit": None,
             "projected_blob_count": 1,
             "observed_blob_count": 1,
             "unobserved_blob_count": 0,
@@ -164,9 +189,10 @@ class TestQualificationOracles(unittest.TestCase):
             check=True,
         )
         for relative_path in (
+            "backend/pmorg/application/admission_interface_fit_executor.py",
             "backend/pmorg/application/qualification_oracles.py",
             "pmorg/capabilities/qualification-oracle-policy-v1.json",
-            "pmorg/capabilities/qualification-oracle-result-v1.schema.json",
+            "pmorg/capabilities/qualification-oracle-result-v2.schema.json",
             "pmorg/capabilities/qualification-interface-v1.schema.json",
             "pmorg/capabilities/qualification-interfaces-v1.json",
             "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",

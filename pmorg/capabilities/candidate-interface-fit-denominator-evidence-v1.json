@@ -5128,7 +5128,7 @@
   "evidence_version": "1.0.0",
   "oracle_activation": false,
   "qualification_interfaces": {
-    "digest": "sha256:ed201b9386716076dc028038c708097f5aaba36606cabe3c5ae397be59fad957",
+    "digest": "sha256:0d68d01ea432e4f5293965419e8c722401061cef6387d7fd9e09faebd2a1ed84",
     "relative_path": "pmorg/capabilities/qualification-interfaces-v1.json",
     "size_bytes": 2951
   },

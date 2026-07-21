@@ -82,14 +82,25 @@ class TestQualificationInterfaces(unittest.TestCase):
             item["capability_id"]: item
             for item in json.loads(manifest_path.read_bytes())["interfaces"]
         }
+        executable_pairs = {
+            ("deployment-admission", "A-LIC-002"),
+            ("distribution-admission", "A-LIC-003"),
+        }
         for oracle in policy["oracles"]:
             expected = interfaces_by_capability[oracle["capability_id"]]
             self.assertEqual(
                 oracle["qualification_interface"]["digest"],
                 expected["digest"],
             )
-            self.assertEqual(oracle["oracle_status"], "unexecutable")
-            self.assertIsNone(oracle["adapter"])
+            pair = (oracle["capability_id"], oracle["test_id"])
+            expected_status = (
+                "executable" if pair in executable_pairs else "unexecutable"
+            )
+            self.assertEqual(oracle["oracle_status"], expected_status)
+            if pair in executable_pairs:
+                self.assertIsNotNone(oracle["adapter"])
+            else:
+                self.assertIsNone(oracle["adapter"])
 
     def test_interface_artifact_and_reference_drift_fail_closed(self) -> None:
         temporary = tempfile.TemporaryDirectory(prefix="pmorg-interfaces-")
