@@ -1,0 +1,360 @@
+{
+  "interpreter_binary": {
+    "digest": "sha256:9efb620bf4def9da93c66480431bf9ca479f5ca495da94483cf9117dd58430bf",
+    "relative_path": "@runtime/executed-python-interpreter"
+  },
+  "pmorg_platform_commit": "7778c8ecf965460811284cea9c721682cd3f42ae",
+  "schema_version": "pmorg.governed-fork-post-disposition-suite-receipt/v1",
+  "suite": "pmorg.tests.test_verify_fork",
+  "test_count": 87,
+  "tests": [
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_current_foundation_paths_have_one_owner",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_current_surface_mode_policy_is_valid",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_dynamic_route_brackets_are_literal",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_legacy_licensed_ee_value_is_rejected",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_overlapping_entries_are_reported_as_multiple_owners",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_patch_entry_rejects_empty_reason_and_verification",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_patch_entry_requires_traceability_fields",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_rename_is_enumerated_as_deletion_and_addition",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_specification_pin_is_cross_recorded",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_surface_and_mode_must_be_declared_together",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_unknown_usage_mode_is_rejected",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_upstream_check_allows_clean_origin_only_clone",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ForkLedgerTest.test_upstream_check_reports_missing_commit_without_traceback",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_accepted_pmorg_specification_pin_is_literal_not_circular",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_allowed_reproducibility_differences_are_exact",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_bootstrap_keeps_every_dynamic_reference_null",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_bootstrap_status_and_license_boundaries_are_fixed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_claiming_qualified_without_evidence_fails_closed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_current_round_three_contract_is_complete",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_deployment_has_four_pass_and_four_opposite_denials",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_distribution_has_four_pass_and_four_opposite_denials",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_offline_evidence_and_trusted_time_flags_are_fail_closed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_plt_008_and_distribution_contract_cannot_be_removed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_pmorg_commit_remains_normative_over_manifest_snapshot",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_qualification_role_set_is_exact_and_surface_conditional",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_runtime_scope_policy_map_cannot_be_reduced",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_structurally_complete_hashes_still_cannot_qualify_slice_zero",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.RoundThreeBootstrapTest.test_wrong_surface_report_and_partial_operation_refs_are_rejected",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_active_seam_cannot_retire_and_resurrect",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_allowlisted_upstream_change_without_record_is_denied",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_authorization_and_protector_bytes_are_immutable",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_authorization_and_protector_git_modes_are_immutable",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_authorization_binds_exact_seam_and_valid_timestamp",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_authorization_evidence_must_exist_on_protected_seam_base",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_bounded_product_roots_require_a_ledger_owner",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_candidate_protector_top_level_code_is_not_executed_before_auth_checks",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_class_level_skip_cannot_authorize_a_seam",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_current_pmorg_owned_paths_are_exactly_ledger_covered",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_current_policy_documents_are_valid_and_default_deny",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_ee_direct_patch_cannot_claim_ce_or_mit_license",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_enterprise_path_cannot_self_classify_as_ce",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_generation_path_and_record_cannot_mutate_and_restore",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_generic_transition_adr_cannot_authorize_a_concrete_seam",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_governed_admission_invariant_cannot_be_flipped",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_governed_allowlisted_change_with_exact_record_is_accepted",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_legacy_slice_zero_policy_cannot_admit_a_patch",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_main_history_proves_seam_was_pre_authorized",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_merge_of_stale_branch_does_not_fabricate_seam_activation",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_new_seam_must_be_atomic_on_the_protected_base",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_new_seam_requires_trusted_base_and_survives_later_bases",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_non_object_entries_and_records_fail_without_traceback",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_non_pmorg_ledger_paths_must_not_use_wildcards",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_normal_v1_authorization_cannot_replace_active_same_path_seam",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_oldest_retired_generation_evidence_is_still_enforced",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_ownership_root_set_cannot_be_broadened",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_patch_record_protector_set_and_urls_are_exact",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_patch_record_revalidation_timestamp_is_strict",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_plt_008_trace_is_mandatory_in_patch_ledger",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_pmorg_domain_under_upstream_root_is_fail_closed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_pmorg_owned_path_requires_pmorg_owned_ledger_classification",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_policy_documents_reject_unknown_top_level_fields",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_protector_must_be_inside_governance_discovery_set",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_protector_selector_must_be_a_collectible_python_test",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_record_and_patch_cannot_follow_a_seam_only_commit",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_record_classification_must_match_ledger_owner",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_retired_seam_authorization_and_protector_remain_immutable",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_retired_seam_evidence_cannot_mutate_and_restore",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_retired_successor_keeps_direct_authorization_parent",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_retired_successor_keeps_exact_predecessor_record_binding",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_retired_successor_keeps_semantically_valid_owner",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_seam_path_must_be_exact",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_seam_requires_safe_existing_accepted_adr",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_seam_requires_safe_existing_protector_test",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_skipped_protector_test_cannot_authorize_a_seam",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_stale_generation_branch_cannot_hide_path_mutation",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_static_helm_lane_authorizations_are_byte_bound",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_successor_activation_rejects_canonical_identity_drift",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_successor_activation_rejects_double_ownership",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_successor_activation_rejects_intermediate_commit",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_successor_activation_rejects_replayed_record_and_owner_ids",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_successor_activation_rejects_unauthorized_target_bytes",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_successor_lifecycle_rejects_wrong_predecessor",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_successor_lifecycle_replaces_seam_record_owner_and_bytes_atomically",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_tree_digest_and_regular_file_modes_are_bound_to_git",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_trusted_protector_ignores_candidate_imports_and_reads_candidate_root",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_upstream_owned_change_without_seam_and_record_is_denied",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_upstream_seam_patch_cannot_delete_its_path",
+      "status": "pass"
+    }
+  ]
+}

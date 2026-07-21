@@ -1,0 +1,670 @@
+{
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "claim_boundary": "governed_fork_post_disposition_qualification_only_no_disposition",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:e2b7f3ce63d7de4db5581188c9fdf1bb19600c0aa66cf650fd4c413475c477bd",
+      "logical_name": "governed_fork_post_disposition_qualification.py",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/governed_fork_post_disposition_qualification.py",
+      "size_bytes": 36277
+    },
+    {
+      "digest": "sha256:e88e6a8401c65b16478962db0eed6cbc318e640a530f2889d7b679b2477a38a7",
+      "logical_name": "run_governed_fork_post_disposition_suite.py",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/run_governed_fork_post_disposition_suite.py",
+      "size_bytes": 5097
+    },
+    {
+      "digest": "sha256:53f3101e3e52e6c167939daaf41fc497ca1a03ee87a10516c91c2ec728895920",
+      "logical_name": "build_governed_fork_post_disposition_qualification.py",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_governed_fork_post_disposition_qualification.py",
+      "size_bytes": 1140
+    }
+  ],
+  "duplicate_test_count": 0,
+  "executed_test_count": 87,
+  "expected_test_count": 87,
+  "failed_test_count": 0,
+  "index_version": "1.0.0",
+  "manifest": {
+    "digest": "sha256:8a022341011f5e6a76ef202609b0d85d4223354f673f74e853cdcf3695a9c287",
+    "logical_name": "governed-fork-post-disposition-test-manifest",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-manifest-v1.json",
+    "size_bytes": 23921
+  },
+  "missing_test_count": 0,
+  "pmorg_platform_commit": "7778c8ecf965460811284cea9c721682cd3f42ae",
+  "report": {
+    "digest": "sha256:dec328af16887524c324fb6c7c56eea727f8b0c6051c2eb4019f90561fe4e66b",
+    "logical_name": "governed-fork-post-disposition-qualification-report",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/governed-fork-post-disposition-qualification-report-v1.json",
+    "size_bytes": 88553
+  },
+  "results": [
+    {
+      "digest": "sha256:c12fa60245fa293723f5ea5ee1490899ba99dcc902bedaa151e8f555cfc5b20b",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_current_foundation_paths_have_one_owner-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_current_foundation_paths_have_one_owner.json",
+      "size_bytes": 1720
+    },
+    {
+      "digest": "sha256:e84a85c5329bef5f5ee847202bd848f123081ea118518f47fba6abb26f752510",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_current_surface_mode_policy_is_valid-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_current_surface_mode_policy_is_valid.json",
+      "size_bytes": 1714
+    },
+    {
+      "digest": "sha256:e603113bda7c5b80c1357750c770c3285daa368967f325dbdd202640c9f3ddda",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_dynamic_route_brackets_are_literal-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_dynamic_route_brackets_are_literal.json",
+      "size_bytes": 1710
+    },
+    {
+      "digest": "sha256:d214a74b8d90ac02a7b96c2a5431c9d32b32a65c3bd107fc59ac169040edf04e",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_legacy_licensed_ee_value_is_rejected-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_legacy_licensed_ee_value_is_rejected.json",
+      "size_bytes": 1714
+    },
+    {
+      "digest": "sha256:d893365abf551fa806ea9d92e4de40b0793e1a88ef5cb72b0dca20e372a9c03d",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_overlapping_entries_are_reported_as_multiple_owners-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_overlapping_entries_are_reported_as_multiple_owners.json",
+      "size_bytes": 1744
+    },
+    {
+      "digest": "sha256:3c35bb6564086959b9f9d935ca63e13c26d105ac5ebab2c6e25eccfcb40342a1",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_patch_entry_rejects_empty_reason_and_verification-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_patch_entry_rejects_empty_reason_and_verification.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:10a8815d7875634ddad063855fffe20a80bc6e6d40f9d028a5db8b1d270b0bd2",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_patch_entry_requires_traceability_fields-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_patch_entry_requires_traceability_fields.json",
+      "size_bytes": 1722
+    },
+    {
+      "digest": "sha256:a45d3c876a05ac552ffa9336d2a3b695dd9903bb17df4905296f273a67e3ba77",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_rename_is_enumerated_as_deletion_and_addition-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_rename_is_enumerated_as_deletion_and_addition.json",
+      "size_bytes": 1732
+    },
+    {
+      "digest": "sha256:395adff96d77f4052610c43a7464a295eabfc04d700f0188af65f09fe38a9b51",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_specification_pin_is_cross_recorded-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_specification_pin_is_cross_recorded.json",
+      "size_bytes": 1712
+    },
+    {
+      "digest": "sha256:57d2a4fa91b2097b946497ec05534c7c1d2463c0ba0a7e394119d03acb8d9a26",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_surface_and_mode_must_be_declared_together-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_surface_and_mode_must_be_declared_together.json",
+      "size_bytes": 1726
+    },
+    {
+      "digest": "sha256:7d58d0367bb306e8bbe6022759131e9391909e116cf2dbc9bc7521e29c81b80f",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_unknown_usage_mode_is_rejected-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_unknown_usage_mode_is_rejected.json",
+      "size_bytes": 1702
+    },
+    {
+      "digest": "sha256:a1af2855956da9194365b3aaccd5d04c898b551a2ec64ccfa1fca31b3eb36b3e",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_upstream_check_allows_clean_origin_only_clone-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_upstream_check_allows_clean_origin_only_clone.json",
+      "size_bytes": 1732
+    },
+    {
+      "digest": "sha256:0929e63a57a1fce5ed1c6311b791983dc5f9e55f4d9651eb5a1ab0a18c965e24",
+      "logical_name": "governed-onyx-fork::ForkLedgerTest.test_upstream_check_reports_missing_commit_without_traceback-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ForkLedgerTest__test_upstream_check_reports_missing_commit_without_traceback.json",
+      "size_bytes": 1752
+    },
+    {
+      "digest": "sha256:3237d04e7c5a08fc83b2bfb7facd133afaa3ffd750bfb5295877428d84f7ff1f",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_accepted_pmorg_specification_pin_is_literal_not_circular-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_accepted_pmorg_specification_pin_is_literal_not_circular.json",
+      "size_bytes": 1772
+    },
+    {
+      "digest": "sha256:479d4697b0990b6b2bcc241e27d3e79651e507605077a932fefc2fad19501e6e",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_allowed_reproducibility_differences_are_exact-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_allowed_reproducibility_differences_are_exact.json",
+      "size_bytes": 1750
+    },
+    {
+      "digest": "sha256:cead35a18877f27b08e52e8a7dccceac25d327f5761d3c9b9f8faf992486cdc3",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_bootstrap_keeps_every_dynamic_reference_null-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_bootstrap_keeps_every_dynamic_reference_null.json",
+      "size_bytes": 1748
+    },
+    {
+      "digest": "sha256:343c7884587893094612956b33f8ddd0b03dba4b913fd12dbad73788edb0391e",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_bootstrap_status_and_license_boundaries_are_fixed-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_bootstrap_status_and_license_boundaries_are_fixed.json",
+      "size_bytes": 1758
+    },
+    {
+      "digest": "sha256:a10b85a7a69f49a8791808e6ba6324f7bd4b081f11c3bf07c08ae4a4fe9efea8",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_claiming_qualified_without_evidence_fails_closed-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_claiming_qualified_without_evidence_fails_closed.json",
+      "size_bytes": 1756
+    },
+    {
+      "digest": "sha256:f38898830652a3f77f6344b1db914c721e36ae7eafcd0e388e00bddcc7aff0c4",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_current_round_three_contract_is_complete-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_current_round_three_contract_is_complete.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:1ff9c3ba4f440dc5cf02e694a2e528977771b812b8cd642ead1941c0bfa1efe9",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_deployment_has_four_pass_and_four_opposite_denials-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_deployment_has_four_pass_and_four_opposite_denials.json",
+      "size_bytes": 1760
+    },
+    {
+      "digest": "sha256:b7016f6fc662b0a6d372dae28b8992463ee71922c48c6575515d5b0dc1c6134b",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_distribution_has_four_pass_and_four_opposite_denials-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_distribution_has_four_pass_and_four_opposite_denials.json",
+      "size_bytes": 1764
+    },
+    {
+      "digest": "sha256:78d7eb97671333a6b8c8cfd7f050a538302ed6b19b96e4d5b955e352f684ec7c",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_offline_evidence_and_trusted_time_flags_are_fail_closed-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_offline_evidence_and_trusted_time_flags_are_fail_closed.json",
+      "size_bytes": 1770
+    },
+    {
+      "digest": "sha256:a5052d48296805f454f5b016f670bb566465e6b17818589b302ade20187e70b9",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_plt_008_and_distribution_contract_cannot_be_removed-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_plt_008_and_distribution_contract_cannot_be_removed.json",
+      "size_bytes": 1762
+    },
+    {
+      "digest": "sha256:fc1b12a507a1d4e866b8ce94861b431e9d7dec07f56859c84274ca2997bafbb4",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_pmorg_commit_remains_normative_over_manifest_snapshot-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_pmorg_commit_remains_normative_over_manifest_snapshot.json",
+      "size_bytes": 1766
+    },
+    {
+      "digest": "sha256:f9d177f369ea7a849ff02537baf83dd18a77e1966cbe90cc159c0deb7caec5c6",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_qualification_role_set_is_exact_and_surface_conditional-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_qualification_role_set_is_exact_and_surface_conditional.json",
+      "size_bytes": 1770
+    },
+    {
+      "digest": "sha256:12f2d2ddcab8e5b91f3724cbab30a4c5119a9691a473eb470ea98970331f2391",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_runtime_scope_policy_map_cannot_be_reduced-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_runtime_scope_policy_map_cannot_be_reduced.json",
+      "size_bytes": 1744
+    },
+    {
+      "digest": "sha256:ea4a7f348291d192fa45d4e7fec5c33779e0753d7dfaa9838ce4cc5d6c11f606",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_structurally_complete_hashes_still_cannot_qualify_slice_zero-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_structurally_complete_hashes_still_cannot_qualify_slice_zero.json",
+      "size_bytes": 1780
+    },
+    {
+      "digest": "sha256:e88dc96179bb5eeafa971a1af8893329a05511dd955093c774133e123b3281a8",
+      "logical_name": "governed-onyx-fork::RoundThreeBootstrapTest.test_wrong_surface_report_and_partial_operation_refs_are_rejected-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/RoundThreeBootstrapTest__test_wrong_surface_report_and_partial_operation_refs_are_rejected.json",
+      "size_bytes": 1780
+    },
+    {
+      "digest": "sha256:5c2add7d1296c9c1265ffb3d083a2bdf6fef3678bf1ee4cc94a1eeec1360d40d",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_active_seam_cannot_retire_and_resurrect-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_active_seam_cannot_retire_and_resurrect.json",
+      "size_bytes": 1728
+    },
+    {
+      "digest": "sha256:b2d24238c0284111002369919c7dbe2af493e4b23d5fcc733fa94380dc2f6d48",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_allowlisted_upstream_change_without_record_is_denied-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_allowlisted_upstream_change_without_record_is_denied.json",
+      "size_bytes": 1754
+    },
+    {
+      "digest": "sha256:d38572897837cf7a6a066f5dba8b9ba48ef8cc77133d442d792aa86749f2fd93",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_authorization_and_protector_bytes_are_immutable-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_authorization_and_protector_bytes_are_immutable.json",
+      "size_bytes": 1744
+    },
+    {
+      "digest": "sha256:1eac0695e366888cc9f28eb3c05d8bcd77382907a511139897d2bba5b724b5f8",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_authorization_and_protector_git_modes_are_immutable-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_authorization_and_protector_git_modes_are_immutable.json",
+      "size_bytes": 1752
+    },
+    {
+      "digest": "sha256:1348f0970644b99027b80a3c42a3cf49e549930d88f51a96db49ec731c9cfcda",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_authorization_binds_exact_seam_and_valid_timestamp-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_authorization_binds_exact_seam_and_valid_timestamp.json",
+      "size_bytes": 1750
+    },
+    {
+      "digest": "sha256:6fac04b12ff3cc5a65f3a498aabc4f80b264f233babec9db4f8993aa78f63568",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_authorization_evidence_must_exist_on_protected_seam_base-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_authorization_evidence_must_exist_on_protected_seam_base.json",
+      "size_bytes": 1762
+    },
+    {
+      "digest": "sha256:0127643c1cc34b9f13c9c985e37d2d61f4d817b00467c2103a4cb8b4f72380f6",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_bounded_product_roots_require_a_ledger_owner-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_bounded_product_roots_require_a_ledger_owner.json",
+      "size_bytes": 1738
+    },
+    {
+      "digest": "sha256:142e229dfaae780be185394e39f2c8daf6a3e91a20ca6cf40d099296abde7c7a",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_candidate_protector_top_level_code_is_not_executed_before_auth_checks-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_candidate_protector_top_level_code_is_not_executed_before_auth_checks.json",
+      "size_bytes": 1788
+    },
+    {
+      "digest": "sha256:bd12337bce3b418718cd9c24ac700d3d5a64b10b15ad44b2690678a106655dcd",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_class_level_skip_cannot_authorize_a_seam-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_class_level_skip_cannot_authorize_a_seam.json",
+      "size_bytes": 1730
+    },
+    {
+      "digest": "sha256:8cce536d04642b62a2404bde802364687f42e0be6ae8b0921643a2c981407502",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_current_pmorg_owned_paths_are_exactly_ledger_covered-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_current_pmorg_owned_paths_are_exactly_ledger_covered.json",
+      "size_bytes": 1754
+    },
+    {
+      "digest": "sha256:eaa07d46efa84e544af922399fd3b227379369a0386986cf44814d42421f6db3",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_current_policy_documents_are_valid_and_default_deny-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_current_policy_documents_are_valid_and_default_deny.json",
+      "size_bytes": 1752
+    },
+    {
+      "digest": "sha256:5c58429037ed16b611cbeed688777b973838f4b998fffb5d03ddac6a469508c3",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_ee_direct_patch_cannot_claim_ce_or_mit_license-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_ee_direct_patch_cannot_claim_ce_or_mit_license.json",
+      "size_bytes": 1742
+    },
+    {
+      "digest": "sha256:9a6accb3345ece81bef6a1145686b33dde13fdaeeec601a9c0d396855e0bdee0",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_enterprise_path_cannot_self_classify_as_ce-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_enterprise_path_cannot_self_classify_as_ce.json",
+      "size_bytes": 1734
+    },
+    {
+      "digest": "sha256:6a2719fcc77425106c2a2494df8206339e63e9a8ef8f4139b83332a0fc96c9df",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_generation_path_and_record_cannot_mutate_and_restore-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_generation_path_and_record_cannot_mutate_and_restore.json",
+      "size_bytes": 1754
+    },
+    {
+      "digest": "sha256:927f094396c0fb843e978371c4fd9356fe51c90ab64156aee19d98cf8fdde825",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_generic_transition_adr_cannot_authorize_a_concrete_seam-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_generic_transition_adr_cannot_authorize_a_concrete_seam.json",
+      "size_bytes": 1760
+    },
+    {
+      "digest": "sha256:078e9ffb8c2904297b77b9f51f392e7ac79048a5cbd2da70254a3d8c2e761197",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_governed_admission_invariant_cannot_be_flipped-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_governed_admission_invariant_cannot_be_flipped.json",
+      "size_bytes": 1742
+    },
+    {
+      "digest": "sha256:da3b787537e82e9a6040eef3ed4bc7ad603e049c052b9bcfc10a129ccd0d2406",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_governed_allowlisted_change_with_exact_record_is_accepted-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_governed_allowlisted_change_with_exact_record_is_accepted.json",
+      "size_bytes": 1764
+    },
+    {
+      "digest": "sha256:e0ccecea5bbd4ea6f8f67403d43460487fdbb55a155d1c92196d4874d5d8e4f2",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_legacy_slice_zero_policy_cannot_admit_a_patch-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_legacy_slice_zero_policy_cannot_admit_a_patch.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:90d2384fe84cfad146f4266d0ec25e98b536e0740b7282423e83a4d022814c7e",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_main_history_proves_seam_was_pre_authorized-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_main_history_proves_seam_was_pre_authorized.json",
+      "size_bytes": 1736
+    },
+    {
+      "digest": "sha256:bcc1d59a22809b9f78e1d6f05aa6cf78acf549e92030d039912b070888120fdf",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_merge_of_stale_branch_does_not_fabricate_seam_activation-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_merge_of_stale_branch_does_not_fabricate_seam_activation.json",
+      "size_bytes": 1762
+    },
+    {
+      "digest": "sha256:81fed6c61a55ec2019dfaa8b4fc85f9212b08e9075f3b9acc6fbf7de62674652",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_new_seam_must_be_atomic_on_the_protected_base-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_new_seam_must_be_atomic_on_the_protected_base.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:21c79205232f507d9597055e1e8687ea473dec0798e9bcf4f6b0a259d86fba60",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_new_seam_requires_trusted_base_and_survives_later_bases-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_new_seam_requires_trusted_base_and_survives_later_bases.json",
+      "size_bytes": 1760
+    },
+    {
+      "digest": "sha256:1acc88d525ee61871554de0f7d3bf57af520afd3f5be63f7fba3eabdd7327c38",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_non_object_entries_and_records_fail_without_traceback-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_non_object_entries_and_records_fail_without_traceback.json",
+      "size_bytes": 1756
+    },
+    {
+      "digest": "sha256:fb5bd7374c4e4a260c22fb542c5a3999aaf02ae229c970df4c4d342255930e34",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_non_pmorg_ledger_paths_must_not_use_wildcards-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_non_pmorg_ledger_paths_must_not_use_wildcards.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:7d413c4e0daf0202ca4c5d0f34376ebb1c33337631457900d0192678e47d6485",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_normal_v1_authorization_cannot_replace_active_same_path_seam-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_normal_v1_authorization_cannot_replace_active_same_path_seam.json",
+      "size_bytes": 1770
+    },
+    {
+      "digest": "sha256:ca8373d3935156c84968e15d97e03a06f12de95262887e1cd4fe9b00f5b6688d",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_oldest_retired_generation_evidence_is_still_enforced-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_oldest_retired_generation_evidence_is_still_enforced.json",
+      "size_bytes": 1754
+    },
+    {
+      "digest": "sha256:c84306e24f6f76fb727bf11ebad41ba63de24d1069614e74ad6c827e38208188",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_ownership_root_set_cannot_be_broadened-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_ownership_root_set_cannot_be_broadened.json",
+      "size_bytes": 1726
+    },
+    {
+      "digest": "sha256:b753027860e6988fd65da3d332040cfec907c0bb10e19e8b594c703ffe7df495",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_patch_record_protector_set_and_urls_are_exact-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_patch_record_protector_set_and_urls_are_exact.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:aa151090f0a9c8d86b902729eaf2c604fe68b564733fefedd1a7352be1cbaa0a",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_patch_record_revalidation_timestamp_is_strict-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_patch_record_revalidation_timestamp_is_strict.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:bd04b53095ca6701ea900a8ca630ba61352439a71b32a17031c339d46eff4983",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_plt_008_trace_is_mandatory_in_patch_ledger-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_plt_008_trace_is_mandatory_in_patch_ledger.json",
+      "size_bytes": 1734
+    },
+    {
+      "digest": "sha256:6ff25493317dec2a90f88e40d46f7c014f04c38f4061352d979f62179ca232f8",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_pmorg_domain_under_upstream_root_is_fail_closed-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_pmorg_domain_under_upstream_root_is_fail_closed.json",
+      "size_bytes": 1744
+    },
+    {
+      "digest": "sha256:620dd8e2f67c8b5c31f689be45c5d6865d245b1e5d58d0d05b4924092a8e331c",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_pmorg_owned_path_requires_pmorg_owned_ledger_classification-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_pmorg_owned_path_requires_pmorg_owned_ledger_classification.json",
+      "size_bytes": 1768
+    },
+    {
+      "digest": "sha256:2fb11a1552a91ac2b4e61951a8e24e10ca04ea7d7f2ad7e1fe3b83af26f7c6d2",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_policy_documents_reject_unknown_top_level_fields-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_policy_documents_reject_unknown_top_level_fields.json",
+      "size_bytes": 1746
+    },
+    {
+      "digest": "sha256:fa76a00551d2a44950a1e2aba808a6c37228a6674b3fdb5a687b36fc3d73e48b",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_protector_must_be_inside_governance_discovery_set-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_protector_must_be_inside_governance_discovery_set.json",
+      "size_bytes": 1748
+    },
+    {
+      "digest": "sha256:fe6314717c9af7e35f3e60577ed20f1cc68fd626efb4ef73514f2b15a4b67a7d",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_protector_selector_must_be_a_collectible_python_test-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_protector_selector_must_be_a_collectible_python_test.json",
+      "size_bytes": 1754
+    },
+    {
+      "digest": "sha256:f31263f543058e0b690aaa2ba74d820ce885b8a07ebf3211368eae8399df0295",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_record_and_patch_cannot_follow_a_seam_only_commit-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_record_and_patch_cannot_follow_a_seam_only_commit.json",
+      "size_bytes": 1748
+    },
+    {
+      "digest": "sha256:e49645d3090b840ac82a9149e8f6d8fd23ff607c6161b66683574b9836acb49a",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_record_classification_must_match_ledger_owner-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_record_classification_must_match_ledger_owner.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:913193352105e7a533e4cb0fb512e0e2cb5aa09269fd594499eba27c66f39f12",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_retired_seam_authorization_and_protector_remain_immutable-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_retired_seam_authorization_and_protector_remain_immutable.json",
+      "size_bytes": 1764
+    },
+    {
+      "digest": "sha256:3d28a5b145198c54eaed9b9f171b210c70be1f552aa85813988029e155849633",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_retired_seam_evidence_cannot_mutate_and_restore-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_retired_seam_evidence_cannot_mutate_and_restore.json",
+      "size_bytes": 1744
+    },
+    {
+      "digest": "sha256:cac33a8a402319f6a08dc8e235bbb69fa23f44eee08ce00c29dbc48a177b5ba2",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_retired_successor_keeps_direct_authorization_parent-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_retired_successor_keeps_direct_authorization_parent.json",
+      "size_bytes": 1752
+    },
+    {
+      "digest": "sha256:ccea3a197f9d756b2462a4168dc4cbb32c671936297c7cffa93ee56d5d4bb7d5",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_retired_successor_keeps_exact_predecessor_record_binding-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_retired_successor_keeps_exact_predecessor_record_binding.json",
+      "size_bytes": 1762
+    },
+    {
+      "digest": "sha256:e3a0a8efef3e82d5e73abe106dbc3aa0f6cbbdc1e4f53c9de8c1378d7dd5ed1e",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_retired_successor_keeps_semantically_valid_owner-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_retired_successor_keeps_semantically_valid_owner.json",
+      "size_bytes": 1746
+    },
+    {
+      "digest": "sha256:a07e4d4d6125788360580ed85f6e16aa35c5d1367ae0c1e3a7322c7e52dda683",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_seam_path_must_be_exact-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_seam_path_must_be_exact.json",
+      "size_bytes": 1696
+    },
+    {
+      "digest": "sha256:06b3cd44a047b22653f652f9f0e1f02023555406bdd2fe981089aac962182639",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_seam_requires_safe_existing_accepted_adr-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_seam_requires_safe_existing_accepted_adr.json",
+      "size_bytes": 1730
+    },
+    {
+      "digest": "sha256:b79717527d009e6bc4a3f57ea42decbee78f10fc98383db643aae7af8990fc29",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_seam_requires_safe_existing_protector_test-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_seam_requires_safe_existing_protector_test.json",
+      "size_bytes": 1734
+    },
+    {
+      "digest": "sha256:33daa6674be41af89f0c0ce74a53f45528d94c660c6cbe650a63712e01854791",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_skipped_protector_test_cannot_authorize_a_seam-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_skipped_protector_test_cannot_authorize_a_seam.json",
+      "size_bytes": 1742
+    },
+    {
+      "digest": "sha256:c14fed010ce4850b26203fb60c7eb9b285910376b956e2cfa199f3b5bc3f7279",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_stale_generation_branch_cannot_hide_path_mutation-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_stale_generation_branch_cannot_hide_path_mutation.json",
+      "size_bytes": 1748
+    },
+    {
+      "digest": "sha256:cd418c743f20b38ee504f6140575166ec719969b05dd78b918117aaf043352df",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_static_helm_lane_authorizations_are_byte_bound-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_static_helm_lane_authorizations_are_byte_bound.json",
+      "size_bytes": 1742
+    },
+    {
+      "digest": "sha256:38151fdf15b8830f259093f02a6850d18db54a1bdfb49d5711a7ba337ad137dd",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_successor_activation_rejects_canonical_identity_drift-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_successor_activation_rejects_canonical_identity_drift.json",
+      "size_bytes": 1756
+    },
+    {
+      "digest": "sha256:4fafd78049a2d548b7feaf2ef998da3d2971419fd5244164d7943817387d5bc8",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_successor_activation_rejects_double_ownership-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_successor_activation_rejects_double_ownership.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:5425ae8611f0ba975bc03c47d4e066ef76ad3a2d001624c7ee65ed8bc9875b2e",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_successor_activation_rejects_intermediate_commit-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_successor_activation_rejects_intermediate_commit.json",
+      "size_bytes": 1746
+    },
+    {
+      "digest": "sha256:ab2eb7bc144ca73031d8f5190d2d87f35282cdfc4b4a244af32e46eb76584fa5",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_successor_activation_rejects_replayed_record_and_owner_ids-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_successor_activation_rejects_replayed_record_and_owner_ids.json",
+      "size_bytes": 1766
+    },
+    {
+      "digest": "sha256:75a35a91ea612762055e400068bc5135c113318d5c891f30ab90d7d11d67baed",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_successor_activation_rejects_unauthorized_target_bytes-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_successor_activation_rejects_unauthorized_target_bytes.json",
+      "size_bytes": 1758
+    },
+    {
+      "digest": "sha256:486fdf01b7cc82e3c1443eb7ec3ce0892eb11d815d064cc2c632bacffbba6310",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_successor_lifecycle_rejects_wrong_predecessor-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_successor_lifecycle_rejects_wrong_predecessor.json",
+      "size_bytes": 1740
+    },
+    {
+      "digest": "sha256:cc83d1d60fbbe0e523ee1cd3f6fa57fc58c727b4fc40007a3560bda5c8cf7975",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_successor_lifecycle_replaces_seam_record_owner_and_bytes_atomically-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_successor_lifecycle_replaces_seam_record_owner_and_bytes_atomically.json",
+      "size_bytes": 1784
+    },
+    {
+      "digest": "sha256:cd92cb0c4d6b8bc592c2422dc0c5e077642949f6cfe729e015b9da0e9457f348",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_tree_digest_and_regular_file_modes_are_bound_to_git-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_tree_digest_and_regular_file_modes_are_bound_to_git.json",
+      "size_bytes": 1752
+    },
+    {
+      "digest": "sha256:a36085e1ec35d858f1c1d9aa9e1851dc608e1872d45e85a21e10917cb96ea221",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_trusted_protector_ignores_candidate_imports_and_reads_candidate_root-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_trusted_protector_ignores_candidate_imports_and_reads_candidate_root.json",
+      "size_bytes": 1786
+    },
+    {
+      "digest": "sha256:efd143d41ba27bb334f8ca4589d98a2af859aba9aa7e223578d009d6222f8d2e",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_upstream_owned_change_without_seam_and_record_is_denied-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_upstream_owned_change_without_seam_and_record_is_denied.json",
+      "size_bytes": 1760
+    },
+    {
+      "digest": "sha256:4039063025844f59aac321bd03e4cc85d8cb316a8e39794379622e65f623fdd7",
+      "logical_name": "governed-onyx-fork::ThinForkPolicyTest.test_upstream_seam_patch_cannot_delete_its_path-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-test-results/ThinForkPolicyTest__test_upstream_seam_patch_cannot_delete_its_path.json",
+      "size_bytes": 1734
+    }
+  ],
+  "runtime_identity_digests": [
+    "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053"
+  ],
+  "schema_version": "pmorg.governed-fork-post-disposition-qualification-index/v1",
+  "suite_receipt": {
+    "digest": "sha256:aa8b04886b58ef4c86a4d88ef4de6f822d06cc1a7a8adf9395237aee5b10bcdc",
+    "logical_name": "governed-fork-post-disposition-suite-receipt",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/governed-fork-post-disposition-suite-receipt-v1.json",
+    "size_bytes": 15345
+  }
+}

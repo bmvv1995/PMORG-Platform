@@ -1,0 +1,38 @@
+{
+  "capability_id": "governed-onyx-fork",
+  "error_count": 0,
+  "expected_failure_count": 0,
+  "failure_count": 0,
+  "fully_qualified_name": "pmorg.tests.test_verify_fork.ThinForkPolicyTest.test_authorization_evidence_must_exist_on_protected_seam_base",
+  "implementation_path_set_hash": "sha256:90ce1db66bef8f4a3da2f48e66ab9bd1356c21e19acf32aabb399e05e7e8d687",
+  "patch_ledger_set_hash": "sha256:a49c09cde289388761786fc2d620e5bb0ccd63b3357346c891183525b55a3cb5",
+  "runtime_identity_digest": "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053",
+  "runtime_measurement": {
+    "declared_artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "relative_path": ".python-version"
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "relative_path": "pyproject.toml"
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "relative_path": "uv.lock"
+      }
+    ],
+    "interpreter_binary": {
+      "digest": "sha256:9efb620bf4def9da93c66480431bf9ca479f5ca495da94483cf9117dd58430bf",
+      "relative_path": "@runtime/executed-python-interpreter"
+    }
+  },
+  "schema_version": "pmorg.governed-fork-post-disposition-test-result/v1",
+  "skipped_count": 0,
+  "suite_receipt_digest": "sha256:aa8b04886b58ef4c86a4d88ef4de6f822d06cc1a7a8adf9395237aee5b10bcdc",
+  "test_id": "governed-onyx-fork::ThinForkPolicyTest.test_authorization_evidence_must_exist_on_protected_seam_base",
+  "test_manifest_digest": "sha256:8a022341011f5e6a76ef202609b0d85d4223354f673f74e853cdcf3695a9c287",
+  "tests_run": 1,
+  "unexpected_success_count": 0,
+  "verdict": "pass"
+}

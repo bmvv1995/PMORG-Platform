@@ -1068,6 +1068,39 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_governed_fork_candidate_qualification_reports.py --check"
       ]
+    },
+    {
+      "id": "PL-038",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/governed_fork_post_disposition_qualification.py",
+        "backend/pmorg/tests/test_governed_fork_post_disposition_qualification.py",
+        "pmorg/capabilities/governed-fork-post-disposition-qualification-report-v1.json",
+        "pmorg/capabilities/governed-fork-post-disposition-qualification-v1.json",
+        "pmorg/capabilities/governed-fork-post-disposition-qualification-v1.schema.json",
+        "pmorg/capabilities/governed-fork-post-disposition-suite-receipt-v1.json",
+        "pmorg/capabilities/governed-fork-post-disposition-suite-receipt-v1.schema.json",
+        "pmorg/capabilities/governed-fork-post-disposition-test-manifest-v1.json",
+        "pmorg/capabilities/governed-fork-post-disposition-test-manifest-v1.schema.json",
+        "pmorg/capabilities/governed-fork-post-disposition-test-result-v1.schema.json",
+        "pmorg/capabilities/governed-fork-post-disposition-test-results/*.json",
+        "pmorg/scripts/build_governed_fork_post_disposition_qualification.py",
+        "pmorg/scripts/run_governed_fork_post_disposition_suite.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-FORK-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001"
+      ],
+      "reason": "Execute the exact bounded pmorg.tests.test_verify_fork module as 87/87 read-only post-disposition qualification for the governed-onyx-fork reference implementation, binding verify_fork.py as the sole implementation, preserving verify_fork.py and test_verify_fork.py byte-identically to the protected base, and measuring the executed interpreter and dependency locks; emit content-addressed per-test PASS evidence and a PostDispositionQualificationReport without a disposition, DSSE, aggregate, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=7778c8ecf965460811284cea9c721682cd3f42ae python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_governed_fork_post_disposition_qualification -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_governed_fork_post_disposition_qualification.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
