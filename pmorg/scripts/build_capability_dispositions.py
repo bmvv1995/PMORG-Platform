@@ -15,9 +15,15 @@ sys.path.insert(0, str(REPOSITORY_ROOT))
 
 from pmorg.application.capability_dispositions import validate_capability_dispositions
 from pmorg.application.capability_dispositions import (
+    validate_governed_fork_capability_disposition,
+)
+from pmorg.application.capability_dispositions import (
     validate_thin_fork_capability_disposition,
 )
 from pmorg.application.capability_dispositions import write_capability_dispositions
+from pmorg.application.capability_dispositions import (
+    write_governed_fork_capability_disposition,
+)
 from pmorg.application.capability_dispositions import (
     write_thin_fork_capability_disposition,
 )
@@ -26,8 +32,14 @@ from pmorg.application.capability_dispositions import (
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--governed-fork", action="store_true")
     parser.add_argument("--thin-fork", action="store_true")
     arguments = parser.parse_args()
+    if arguments.governed_fork:
+        if not arguments.check:
+            write_governed_fork_capability_disposition(REPOSITORY_ROOT)
+        validate_governed_fork_capability_disposition(REPOSITORY_ROOT)
+        return 0
     if arguments.thin_fork:
         if not arguments.check:
             write_thin_fork_capability_disposition(REPOSITORY_ROOT)

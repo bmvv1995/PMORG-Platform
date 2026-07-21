@@ -1,0 +1,554 @@
+{
+  "bundle_kind": "single_governed_fork_disposition_no_catalog_completion",
+  "entries": [
+    {
+      "digest": "sha256:a13482ea50a3d07d966c8aadf99af69bd9225549d792e1f4eaa39da24d804ab8",
+      "logical_name": "capability-disposition-subject-ce-source-artifact",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/subject-ce-source-artifact-v1.json",
+      "size_bytes": 893
+    },
+    {
+      "digest": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+      "logical_name": "capability-catalog",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-catalog-v1.json",
+      "size_bytes": 4415
+    },
+    {
+      "digest": "sha256:3c1660aabe0e3e6877f2bdbf8620c8daf313346874781d2389fd9b8d0808fa1b",
+      "logical_name": "governed-fork-interface-fit-evidence",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-interface-fit-evidence-v1.json",
+      "size_bytes": 805462
+    },
+    {
+      "digest": "sha256:eff498bced609f9088924a91bba55a745c618525f1629eb07c149ed6f897214e",
+      "logical_name": "governed-fork-candidate-search-evidence",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-search/governed-onyx-fork-search-evidence-v1.json",
+      "size_bytes": 10421
+    },
+    {
+      "digest": "sha256:7340790bf7ba23f5981dd36afef90e950e9f81dbee68b1472ab8550d7694ed98",
+      "logical_name": "governed-fork-candidate-qualification-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports-v1.json",
+      "size_bytes": 164697
+    },
+    {
+      "digest": "sha256:a32467d39bcfdb8a3836de255ebb384a72f20c2e5767151c032352d85a20195c",
+      "logical_name": "governed-fork-post-disposition-qualification-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-qualification-v1.json",
+      "size_bytes": 43003
+    },
+    {
+      "digest": "sha256:dec328af16887524c324fb6c7c56eea727f8b0c6051c2eb4019f90561fe4e66b",
+      "logical_name": "governed-fork-post-disposition-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-post-disposition-qualification-report-v1.json",
+      "size_bytes": 88553
+    },
+    {
+      "digest": "sha256:7ccbf080f094fbb20b9b26ff3ef3ac291a362a18204b4d7d9383b733a3cb0f2d",
+      "logical_name": "governed-onyx-fork-pmorg__scripts__verify_fork.py.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/governed-onyx-fork/pmorg__scripts__verify_fork.py.json",
+      "size_bytes": 470
+    },
+    {
+      "digest": "sha256:a4a76382aa6fff0ff0a32f3c000307be3c62d1c9a4f309a9088dec8f4b000294",
+      "logical_name": "governed-onyx-fork-pmorg__policies__ownership-roots.json.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/governed-onyx-fork/pmorg__policies__ownership-roots.json.json",
+      "size_bytes": 475
+    },
+    {
+      "digest": "sha256:81ca8ca353cf1f370b5898b8258ff59ff3881f715f5d8286985e3dc13e1c01fd",
+      "logical_name": "governed-onyx-fork-pmorg__policies__seam-allowlist.json.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/governed-onyx-fork/pmorg__policies__seam-allowlist.json.json",
+      "size_bytes": 474
+    },
+    {
+      "digest": "sha256:e4388a5e9a96cf6fa1e3446ca9524d4daf8c8152ce5808ecbb89691885e95fe9",
+      "logical_name": "governed-onyx-fork-pmorg__patch-ledger.json.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/governed-onyx-fork/pmorg__patch-ledger.json.json",
+      "size_bytes": 464
+    },
+    {
+      "digest": "sha256:fc714a279dcdda5dc160b3c182f23560510b97bc4084f2f7c95984eeceec96fd",
+      "logical_name": "candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804.json",
+      "size_bytes": 5016
+    },
+    {
+      "digest": "sha256:6357791e2063378ebac5e61d55d360460b16ac7032aa57373ef70886b770baa4",
+      "logical_name": "candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e.json",
+      "size_bytes": 5395
+    },
+    {
+      "digest": "sha256:3d9ccce52256cff61e242b10361bee0f58b720af719666c76e9bdb2487a127e0",
+      "logical_name": "candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def.json",
+      "size_bytes": 6613
+    },
+    {
+      "digest": "sha256:1e1eedcd91dca9e1e4bd2f7edcd76157112ec1736325b1869be2446351668073",
+      "logical_name": "candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1.json",
+      "size_bytes": 4810
+    },
+    {
+      "digest": "sha256:9805d3ac6799512dcf3f6aecce0ac5ea61f6ab73ffbc62430a3548ea5479cb4b",
+      "logical_name": "candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e.json",
+      "size_bytes": 4885
+    },
+    {
+      "digest": "sha256:516ebb4173e62a3f0ff90c490963a9c380975ba197e456ca788d01e1dd747bda",
+      "logical_name": "candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72.json",
+      "size_bytes": 4740
+    },
+    {
+      "digest": "sha256:1ecb206e682d80d3ca4c864550b07fe07cdc2f9bbb8beaa5476c01efb79d3bce",
+      "logical_name": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53.json",
+      "size_bytes": 4746
+    },
+    {
+      "digest": "sha256:d761936d5960acac586393d8850b85001850a6c89a4ca196a776ed23a4ce7675",
+      "logical_name": "candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b.json",
+      "size_bytes": 4738
+    },
+    {
+      "digest": "sha256:e18c00058ca032083961d3debda0636fed09ade693e2f21d58cd594a60cf212d",
+      "logical_name": "candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd.json",
+      "size_bytes": 4742
+    },
+    {
+      "digest": "sha256:0d02b673de8b2007cc5767ad5772629636cc72db4544253f52710b6a8167c154",
+      "logical_name": "candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0.json",
+      "size_bytes": 4995
+    },
+    {
+      "digest": "sha256:9826a54447bd2feaf5b16cfb261cb584d02f13b8fbedd75b2ab5a1655c29c20c",
+      "logical_name": "candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b.json",
+      "size_bytes": 35039
+    },
+    {
+      "digest": "sha256:0881ff3673266bb1bb5f894f062f576625524de35940fd39725a6bb554244464",
+      "logical_name": "candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35.json",
+      "size_bytes": 5669
+    },
+    {
+      "digest": "sha256:c6eb2e7b2eecd9c629a413c6f948a6ce442322d457b4f27df7b88f29d5f86222",
+      "logical_name": "candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949.json",
+      "size_bytes": 10448
+    },
+    {
+      "digest": "sha256:6fb63d3bb1f93f88a81b3e9fa176e5dce8d77d4b8cf643d0118d32233a342b90",
+      "logical_name": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e.json",
+      "size_bytes": 5542
+    },
+    {
+      "digest": "sha256:14a5517a3e3a591f29dad140f4b5c9d5babdb81424b48ece301b9a9096e8bbf9",
+      "logical_name": "candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c.json",
+      "size_bytes": 5381
+    },
+    {
+      "digest": "sha256:10e82129923b9a405d5226e3be3f07abbb13475355f4bb80f4b960c55a874601",
+      "logical_name": "candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612.json",
+      "size_bytes": 13952
+    },
+    {
+      "digest": "sha256:d9cb0ad846c657a3332c89ac700727f464a4fc475f83408281bec5eeef79202a",
+      "logical_name": "candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd.json",
+      "size_bytes": 8238
+    },
+    {
+      "digest": "sha256:bb974d80ed6409bd65084baade3975fad03d13ae451a06317c56b2cef7f4f881",
+      "logical_name": "candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1.json",
+      "size_bytes": 6538
+    },
+    {
+      "digest": "sha256:ee7e13b9c76561dd6979730fee5219c30e416f7fe074d06e15f585def4477ec7",
+      "logical_name": "candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75.json",
+      "size_bytes": 5963
+    },
+    {
+      "digest": "sha256:38234ecdb2380cfece8ff27709cf15ac34737427f170dfef60ff66e302b68eb7",
+      "logical_name": "candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841.json",
+      "size_bytes": 5210
+    },
+    {
+      "digest": "sha256:afd4df494381c8704ab05808a817eccb3427a85c1c9b45ab9ed5de12eafa109f",
+      "logical_name": "candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61.json",
+      "size_bytes": 5201
+    },
+    {
+      "digest": "sha256:eda5937764dab83de1cbcf6bea7ef6a933b6f18789abb6944907f0c3bc53eba1",
+      "logical_name": "candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8.json",
+      "size_bytes": 6134
+    },
+    {
+      "digest": "sha256:1133d60984041d9a51be0ba02c37806930f10275a67837e528b21fadd0d61fe2",
+      "logical_name": "candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b.json",
+      "size_bytes": 5373
+    },
+    {
+      "digest": "sha256:4d57159b0cd0f266121e9b7edceb7d04eccefce06319434517942883af86ad2e",
+      "logical_name": "candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f.json",
+      "size_bytes": 6590
+    },
+    {
+      "digest": "sha256:96c19fae6ebafb34cc9e3715bd3b6d57e750e91bf672e6bbb6d588023201eb99",
+      "logical_name": "candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63.json",
+      "size_bytes": 5899
+    },
+    {
+      "digest": "sha256:0595f9860607529aa3efb9cd3f929adaff378e4f7258c5ded5c1d8785ec56006",
+      "logical_name": "candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a.json",
+      "size_bytes": 5835
+    },
+    {
+      "digest": "sha256:43fb2c57e139f5e4ddb61ce7ca3f8a1ba3b91aed670b288a51cb322a59e7c5e3",
+      "logical_name": "candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806.json",
+      "size_bytes": 5613
+    },
+    {
+      "digest": "sha256:060b47bfb68e75708da65e6ebdcc38450ea63743152ea58e7be9bdab66775946",
+      "logical_name": "candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb.json",
+      "size_bytes": 27220
+    },
+    {
+      "digest": "sha256:2ef72857c9f694c50f8f3833c4d579dfe374d5b4d282a82f08d0ac684d8fe692",
+      "logical_name": "candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187.json",
+      "size_bytes": 11407
+    },
+    {
+      "digest": "sha256:33257a729e48fab123b86a9c81892fb205ba701990eae66b0cdc8d72340b9701",
+      "logical_name": "candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954.json",
+      "size_bytes": 8471
+    },
+    {
+      "digest": "sha256:ee3b22f4f21dfc2b156c4bd5b2a9c69bba1a2c3e1af7d505513bec476768b1bf",
+      "logical_name": "candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725.json",
+      "size_bytes": 6771
+    },
+    {
+      "digest": "sha256:abd492df368df27dd53584fc6199e8064384f00a95e3fbb412a962b28963c650",
+      "logical_name": "candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8.json",
+      "size_bytes": 8781
+    },
+    {
+      "digest": "sha256:ad956504ee13768382e893c2c7ab583d0983a600f4e977cd0cf357b1bb02c10b",
+      "logical_name": "candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571.json",
+      "size_bytes": 88043
+    },
+    {
+      "digest": "sha256:e33b645fe31beb90087566e420b1fd97c0f04ea33ab32184eb6d291c77b561d4",
+      "logical_name": "candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4.json",
+      "size_bytes": 4936
+    },
+    {
+      "digest": "sha256:bee4bdfaab8ea3304aca3664b7522f63af4377f112f0d631ff6659a5eed964e6",
+      "logical_name": "candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83.json",
+      "size_bytes": 6360
+    },
+    {
+      "digest": "sha256:e31bbe37f3e95038c1b5d70cb241312477a27dddd9658dd1545396a29d703d66",
+      "logical_name": "candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65.json",
+      "size_bytes": 4876
+    },
+    {
+      "digest": "sha256:2615dfc6c446055538f52ac8585e4410dab4b516dead5a7d06cd8a49fcedf3ec",
+      "logical_name": "candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6.json",
+      "size_bytes": 4741
+    },
+    {
+      "digest": "sha256:3919a02bc16e962c5320d5b945f5ee910a49b2e64b88e52408fb047fdc94ba7a",
+      "logical_name": "candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1.json",
+      "size_bytes": 5922
+    },
+    {
+      "digest": "sha256:4d09e5ab24f810ead7585e076c1599ddc4514600f4c6fa2837a11462e16e3778",
+      "logical_name": "candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36.json",
+      "size_bytes": 12300
+    },
+    {
+      "digest": "sha256:0bb97888a3a50032c285f076e24992785c90dfd406ee07ded788c68d1b507939",
+      "logical_name": "candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed.json",
+      "size_bytes": 6178
+    },
+    {
+      "digest": "sha256:c96dd6cf626ddb106d5f027fe313e204a7f24f4f1fc16a6ca2e933b033db902c",
+      "logical_name": "candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52.json",
+      "size_bytes": 4860
+    },
+    {
+      "digest": "sha256:d55ee464366b3ec022582edb7de235460841f646e6eeec0047fc9deecbd2deea",
+      "logical_name": "candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750.json",
+      "size_bytes": 7043
+    },
+    {
+      "digest": "sha256:a1696ce982f484536db3615931894c7dfde073926c6571636736ff79721de67e",
+      "logical_name": "candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3.json",
+      "size_bytes": 5325
+    },
+    {
+      "digest": "sha256:c44b2dba0b34bf9d526cc7b94022fdd20d2619ca98c3679ed93ca8da2914860c",
+      "logical_name": "candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6.json",
+      "size_bytes": 9185
+    },
+    {
+      "digest": "sha256:d0d053503c5f5a89701d7551a5d0e6e8f4d95e722e5b49df1db70916c79b594d",
+      "logical_name": "candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3.json",
+      "size_bytes": 4745
+    },
+    {
+      "digest": "sha256:7399f69140774e0d50642e9da6e85f5d6dfd4a1d92b3bb92b5c92a70165c3053",
+      "logical_name": "candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80.json",
+      "size_bytes": 7802
+    },
+    {
+      "digest": "sha256:bd19099494c16a648d1243dca83185251f9d101f9d4e46dd0c836eced61f49fa",
+      "logical_name": "candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7.json",
+      "size_bytes": 33470
+    },
+    {
+      "digest": "sha256:d28390bf671053eaf744fab3c8b5f2aad843161db8a3d19b57b8005fba88b373",
+      "logical_name": "candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe.json",
+      "size_bytes": 10128
+    },
+    {
+      "digest": "sha256:a3e8b5cd358d7a5cc17f9a438a6a5023495d7cb113dbed796c8760343d91f626",
+      "logical_name": "candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598.json",
+      "size_bytes": 4924
+    },
+    {
+      "digest": "sha256:f266815bf060c66fb247129faa49a8a765710ee5e2719cc8904975f2d04d7b6c",
+      "logical_name": "candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde.json",
+      "size_bytes": 13442
+    },
+    {
+      "digest": "sha256:22a1378b701dabc48f8b738986797cbc8693df9d7b828196f456000325eddb82",
+      "logical_name": "candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6.json",
+      "size_bytes": 13137
+    },
+    {
+      "digest": "sha256:77e7e3237b49fe8ad7887c113248851d78d3cdd2e5bd94b7f30408a4071d56e6",
+      "logical_name": "candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4.json",
+      "size_bytes": 14035
+    },
+    {
+      "digest": "sha256:30b9faa237904e583927d9726a00320942e25bfec4fd813bb2d0e4a2146f0ed3",
+      "logical_name": "candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac.json",
+      "size_bytes": 10453
+    },
+    {
+      "digest": "sha256:d70376c5c0adbc39f3af46d59ed28921a2cf582b8186e40bbf5e0a93b2a32648",
+      "logical_name": "candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363.json",
+      "size_bytes": 7853
+    },
+    {
+      "digest": "sha256:e46b7f8e668d280d333c45fdd5ca6673e734e61c1ce914f467e1e0241c2e132f",
+      "logical_name": "candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8.json",
+      "size_bytes": 10566
+    },
+    {
+      "digest": "sha256:e603c5e7f5db3a3f9dccb2680def889436d3491f5486edfe23006cdc6f707ba5",
+      "logical_name": "candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502.json",
+      "size_bytes": 14917
+    },
+    {
+      "digest": "sha256:c1688b1b86756da404cc8bbb999d970bed0bf33c8abdbb619d91bfb8c2686649",
+      "logical_name": "candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8.json",
+      "size_bytes": 13558
+    },
+    {
+      "digest": "sha256:7358a3b73b68c5c7397449d02289a3c861d3792b04ea02cdb8ead20125f47783",
+      "logical_name": "candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b.json",
+      "size_bytes": 9369
+    },
+    {
+      "digest": "sha256:d616a2bc1b9fa14ad1664377ffc39ffb4f3f64db51ca1ae3ab1123571e0e66cc",
+      "logical_name": "candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487.json",
+      "size_bytes": 10966
+    },
+    {
+      "digest": "sha256:b3d601c9aa917dc2db85425277c4d9957d55af2b0730e2306e7bc45cd72d8fa9",
+      "logical_name": "candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9.json",
+      "size_bytes": 4779
+    },
+    {
+      "digest": "sha256:37b74c3204e1a5bfb1ba3e6ba48deef877a715ebe1ea211876a41b0bf7b1694c",
+      "logical_name": "candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76.json",
+      "size_bytes": 6849
+    },
+    {
+      "digest": "sha256:7a00f8f11826585df1baef71f587450b1ff5dcd32c897719788a5eaeeea88340",
+      "logical_name": "candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff.json",
+      "size_bytes": 5477
+    },
+    {
+      "digest": "sha256:2acb6ad6f7eb7f1e74824e1263c890e3ae61290c57fa69e0f98bc2028e996d76",
+      "logical_name": "candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941.json",
+      "size_bytes": 7157
+    },
+    {
+      "digest": "sha256:ec5d5195f2928dcf1de5f9b0ba48bc499f1449e7059c6973c8b945793023be7a",
+      "logical_name": "candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172.json",
+      "size_bytes": 8983
+    },
+    {
+      "digest": "sha256:f85109364c171be5d743b61007c2f767c0ce2adefb9033dc1e6d1fef15c7f388",
+      "logical_name": "candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b.json",
+      "size_bytes": 5086
+    },
+    {
+      "digest": "sha256:af894972051b22bcf14071041d3c92c22ce33e1af5de1b0db88037447c65d009",
+      "logical_name": "candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85.json",
+      "size_bytes": 7154
+    },
+    {
+      "digest": "sha256:549a03955e85c21abaadd61a4f976fe102374ec08346577213dbf48e4a8511b4",
+      "logical_name": "candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217-governed-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217.json",
+      "size_bytes": 5400
+    }
+  ],
+  "entry_count": 78,
+  "schema_version": "pmorg.evidence-bundle-index/v1",
+  "subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e"
+}

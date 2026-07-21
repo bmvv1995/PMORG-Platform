@@ -735,10 +735,18 @@ def validate_capability_dispositions(
     observed_paths -= {
         THIN_FORK_RECORD_RELATIVE,
         THIN_FORK_EVIDENCE_RELATIVE,
+        GOVERNED_FORK_RECORD_RELATIVE,
+        GOVERNED_FORK_EVIDENCE_RELATIVE,
         *{
             path.relative_to(repository_root).as_posix()
             for path in _safe_path(
                 repository_root, THIN_FORK_SNAPSHOT_ROOT_RELATIVE
+            ).glob("*.json")
+        },
+        *{
+            path.relative_to(repository_root).as_posix()
+            for path in _safe_path(
+                repository_root, GOVERNED_FORK_SNAPSHOT_ROOT_RELATIVE
             ).glob("*.json")
         },
     }
@@ -873,6 +881,38 @@ THIN_FORK_LEDGER_TOP_LEVEL_PINS = (
 THIN_FORK_EXPECTED_ARTIFACT_SET_HASH = (
     "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e"
 )
+GOVERNED_FORK_BASE_PLATFORM_COMMIT = "4e78c6293a0f6b17d86764688bf23f5b357db890"
+GOVERNED_FORK_CAPABILITY_ID = "governed-onyx-fork"
+GOVERNED_FORK_REQUIREMENTS = [
+    "A-FORK-001",
+    "A-SURFACE-001",
+    "A-UPSTREAM-001",
+    "PLT-001",
+]
+GOVERNED_FORK_QUALIFICATION_INDEX_RELATIVE = (
+    "pmorg/capabilities/governed-fork-candidate-qualification-reports-v1.json"
+)
+GOVERNED_FORK_SCREENING_RELATIVE = (
+    "pmorg/capabilities/governed-fork-interface-fit-evidence-v1.json"
+)
+GOVERNED_FORK_POST_INDEX_RELATIVE = (
+    "pmorg/capabilities/governed-fork-post-disposition-qualification-v1.json"
+)
+GOVERNED_FORK_POST_REPORT_RELATIVE = (
+    "pmorg/capabilities/governed-fork-post-disposition-qualification-report-v1.json"
+)
+GOVERNED_FORK_RECORD_RELATIVE = (
+    "pmorg/capabilities/dispositions/records/governed-onyx-fork.json"
+)
+GOVERNED_FORK_EVIDENCE_RELATIVE = (
+    "pmorg/capabilities/dispositions/evidence/governed-onyx-fork.json"
+)
+GOVERNED_FORK_SNAPSHOT_ROOT_RELATIVE = (
+    "pmorg/capabilities/dispositions/implementation-snapshots/governed-onyx-fork"
+)
+GOVERNED_FORK_CLAIM_BOUNDARY = "single_governed_fork_disposition_no_catalog_completion"
+GOVERNED_FORK_IMPLEMENTATION_PATHS = THIN_FORK_IMPLEMENTATION_PATHS
+GOVERNED_FORK_EXPECTED_ARTIFACT_SET_HASH = THIN_FORK_EXPECTED_ARTIFACT_SET_HASH
 _ADMISSION_IMMUTABLE_RELATIVES = (
     SUBJECT_RELATIVE,
     BUNDLE_RELATIVE,
@@ -1143,6 +1183,237 @@ def _thin_fork_candidates(
         ):
             raise CapabilityDispositionError(
                 f"Thin Fork candidate is not the observed executed FAIL: {candidate_id}"
+            )
+        source_surface = cast(str, entry["source_surface"])
+        candidates.append(
+            {
+                "candidate_id": candidate_id,
+                "source_ref": report["source_ref"],
+                "onyx_surface": source_surface,
+                "license_class": (
+                    "mit-expat" if source_surface == "ce" else "onyx-enterprise"
+                ),
+                "qualification": "fail",
+                "qualification_report": report,
+            }
+        )
+        report_refs.append(report_ref)
+    return search, search_relative, candidates, report_refs
+
+
+def _governed_fork_base_blob(
+    repository_root: Path, relative_path: str
+) -> tuple[str, bytes]:
+    try:
+        object_id = _git(
+            "rev-parse",
+            f"{GOVERNED_FORK_BASE_PLATFORM_COMMIT}:{relative_path}",
+            repository_root=repository_root,
+        )
+        payload = subprocess.run(
+            ["git", "cat-file", "blob", object_id],
+            cwd=repository_root,
+            check=True,
+            capture_output=True,
+        ).stdout
+    except subprocess.CalledProcessError as error:
+        raise CapabilityDispositionError(
+            f"Governed Fork implementation path is absent from base: {relative_path}"
+        ) from error
+    live_payload = _safe_path(repository_root, relative_path).read_bytes()
+    if relative_path == PATCH_LEDGER_RELATIVE:
+        try:
+            base = json.loads(payload)
+            live = json.loads(live_payload)
+        except json.JSONDecodeError as error:
+            raise CapabilityDispositionError(
+                "Governed Fork patch ledger cannot be read as JSON"
+            ) from error
+        if not isinstance(base, dict) or not isinstance(live, dict):
+            raise CapabilityDispositionError(
+                "Governed Fork patch ledger is not an object"
+            )
+        if set(live) != set(base):
+            raise CapabilityDispositionError(
+                "Governed Fork patch ledger top-level structure drifted"
+            )
+        for key in THIN_FORK_LEDGER_TOP_LEVEL_PINS:
+            if live.get(key) != base.get(key):
+                raise CapabilityDispositionError(
+                    f"Governed Fork patch ledger top-level pin drifted: {key}"
+                )
+        _assert_append_only_sequence(
+            base=base.get("entries"),
+            live=live.get("entries"),
+            sequence_name="entries",
+        )
+        _assert_append_only_sequence(
+            base=base.get("upstream_patch_records"),
+            live=live.get("upstream_patch_records"),
+            sequence_name="upstream_patch_records",
+        )
+    elif live_payload != payload:
+        raise CapabilityDispositionError(
+            f"Governed Fork trust-boundary path drifted from base: {relative_path}"
+        )
+    return object_id, payload
+
+
+def _assert_prior_disposition_artifacts_immutable(repository_root: Path) -> None:
+    relatives = list(_ADMISSION_IMMUTABLE_RELATIVES)
+    relatives.extend((THIN_FORK_RECORD_RELATIVE, THIN_FORK_EVIDENCE_RELATIVE))
+    for root in (
+        f"{SNAPSHOT_ROOT_RELATIVE}/deployment-admission",
+        f"{SNAPSHOT_ROOT_RELATIVE}/distribution-admission",
+        THIN_FORK_SNAPSHOT_ROOT_RELATIVE,
+    ):
+        relatives.extend(
+            path.relative_to(repository_root).as_posix()
+            for path in sorted(_safe_path(repository_root, root).glob("*.json"))
+        )
+    for relative_path in relatives:
+        _governed_fork_base_blob(repository_root, relative_path)
+
+
+def _governed_fork_subject(
+    repository_root: Path,
+) -> tuple[dict[str, Any], str, dict[str, Any]]:
+    _, base_payload = _governed_fork_base_blob(repository_root, SUBJECT_RELATIVE)
+    subject = cast(dict[str, Any], json.loads(base_payload))
+    descriptor = ArtifactDescriptor.model_validate(subject["artifact_descriptor"])
+    artifact_set_hash = artifact_set_digest_from_descriptors([descriptor])
+    if artifact_set_hash != GOVERNED_FORK_EXPECTED_ARTIFACT_SET_HASH:
+        raise CapabilityDispositionError(
+            "Governed Fork reused admission subject artifact set drifted"
+        )
+    return (
+        subject,
+        artifact_set_hash,
+        _payload_ref(
+            SUBJECT_RELATIVE,
+            base_payload,
+            logical_name="capability-disposition-subject-ce-source-artifact",
+        ),
+    )
+
+
+def _governed_fork_implementation_snapshot(
+    repository_root: Path, relative_path: str
+) -> tuple[str, bytes, dict[str, Any], dict[str, Any]]:
+    object_id, payload = _governed_fork_base_blob(repository_root, relative_path)
+    snapshot = {
+        "schema_version": "pmorg.implementation-path-snapshot/v1",
+        "repository": REPOSITORY_URL,
+        "commit": GOVERNED_FORK_BASE_PLATFORM_COMMIT,
+        "path": relative_path,
+        "git_blob_id": object_id,
+        "content_hash": sha256_digest(payload),
+        "size_bytes": len(payload),
+        "ownership_class": "pmorg_owned",
+        "license_class": "pmorg",
+    }
+    safe_name = relative_path.replace("/", "__") + ".json"
+    output_relative = f"{GOVERNED_FORK_SNAPSHOT_ROOT_RELATIVE}/{safe_name}"
+    output = canonical_document_bytes(snapshot)
+    implementation_ref = {
+        "path": relative_path,
+        "content_hash": snapshot["content_hash"],
+        "source_ref": {
+            "repository": REPOSITORY_URL,
+            "commit": GOVERNED_FORK_BASE_PLATFORM_COMMIT,
+            "paths": [relative_path],
+            "tree_hash": sha256_digest(
+                canonical_json_bytes(
+                    {
+                        "commit": GOVERNED_FORK_BASE_PLATFORM_COMMIT,
+                        "paths": [
+                            {
+                                "path": relative_path,
+                                "git_blob_id": object_id,
+                                "content_hash": snapshot["content_hash"],
+                            }
+                        ],
+                    }
+                )
+            ),
+            "source_snapshot": _payload_ref(
+                output_relative,
+                output,
+                logical_name=f"governed-onyx-fork-{safe_name}-source-snapshot",
+            ),
+        },
+        "ownership_class": "pmorg_owned",
+        "license_class": "pmorg",
+        "provenance_inventory_item": _payload_ref(
+            output_relative,
+            output,
+            logical_name=f"governed-onyx-fork-{safe_name}-provenance-item",
+        ),
+    }
+    binding = {
+        "digest": snapshot["content_hash"],
+        "relative_path": relative_path,
+        "size_bytes": len(payload),
+    }
+    return output_relative, output, implementation_ref, binding
+
+
+def _governed_fork_candidates(
+    repository_root: Path,
+) -> tuple[
+    dict[str, Any],
+    str,
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+]:
+    screening = _read_object(repository_root, GOVERNED_FORK_SCREENING_RELATIVE)
+    search_ref = cast(dict[str, Any], screening["candidate_search_evidence"])
+    search_relative = cast(str, search_ref["relative_path"])
+    search_payload = _safe_path(repository_root, search_relative).read_bytes()
+    if search_ref["digest"] != sha256_digest(search_payload) or search_ref[
+        "size_bytes"
+    ] != len(search_payload):
+        raise CapabilityDispositionError(
+            "Governed Fork candidate search evidence reference drifted"
+        )
+    search = cast(dict[str, Any], json.loads(search_payload))
+    qualification = _read_object(
+        repository_root, GOVERNED_FORK_QUALIFICATION_INDEX_RELATIVE
+    )
+    entries = cast(list[dict[str, Any]], qualification["entries"])
+    by_id = {entry["candidate_id"]: entry for entry in entries}
+    candidate_ids = cast(list[str], search["candidate_ids"])
+    if (
+        len(candidate_ids) != 67
+        or len(entries) != 67
+        or len(by_id) != 67
+        or set(candidate_ids) != set(by_id)
+        or qualification["executed_test_count"] != 201
+        or qualification["failed_test_count"] != 201
+        or qualification["passed_test_count"] != 0
+        or qualification["missing_test_count"] != 0
+        or qualification["duplicate_test_count"] != 0
+    ):
+        raise CapabilityDispositionError(
+            "Governed Fork candidate qualification denominator drifted"
+        )
+    candidates: list[dict[str, Any]] = []
+    report_refs: list[dict[str, Any]] = []
+    for candidate_id in candidate_ids:
+        entry = by_id[candidate_id]
+        report_ref = cast(dict[str, Any], entry["report"])
+        report = _read_object(repository_root, cast(str, report_ref["relative_path"]))
+        if (
+            entry["verdict"] != "fail"
+            or report["candidate_id"] != candidate_id
+            or report["capability_id"] != GOVERNED_FORK_CAPABILITY_ID
+            or report["verdict"] != "fail"
+            or report["executed_test_count"] != 3
+            or report["failed_test_count"] != 3
+        ):
+            raise CapabilityDispositionError(
+                "Governed Fork candidate is not the observed executed FAIL: "
+                f"{candidate_id}"
             )
         source_surface = cast(str, entry["source_surface"])
         candidates.append(
@@ -1454,6 +1725,304 @@ def verify_thin_fork_capability_disposition(
     )
 
 
+def build_governed_fork_capability_disposition(
+    repository_root: Path = REPOSITORY_ROOT,
+) -> dict[str, bytes]:
+    """Build one bounded governed-onyx-fork disposition without completion."""
+
+    repository_root = repository_root.resolve()
+    _assert_prior_disposition_artifacts_immutable(repository_root)
+    _, artifact_set_hash, subject_ref = _governed_fork_subject(repository_root)
+    catalog = _read_object(repository_root, CATALOG_RELATIVE)
+    catalog_hash = sha256_digest(
+        _safe_path(repository_root, CATALOG_RELATIVE).read_bytes()
+    )
+    catalog_item = next(
+        item
+        for item in cast(list[dict[str, Any]], catalog["items"])
+        if item["capability_id"] == GOVERNED_FORK_CAPABILITY_ID
+    )
+    if (
+        catalog["pmorg_spec_commit"] != SPEC_COMMIT
+        or catalog_item["pmorg_requirement_ids"] != GOVERNED_FORK_REQUIREMENTS
+    ):
+        raise CapabilityDispositionError("Governed Fork catalog binding drifted")
+    search, search_relative, candidates, candidate_report_refs = (
+        _governed_fork_candidates(repository_root)
+    )
+    post_index = _read_object(repository_root, GOVERNED_FORK_POST_INDEX_RELATIVE)
+    post_report = _read_object(repository_root, GOVERNED_FORK_POST_REPORT_RELATIVE)
+    if (
+        post_index["report"]["relative_path"] != GOVERNED_FORK_POST_REPORT_RELATIVE
+        or post_index["executed_test_count"] != 87
+        or post_index["failed_test_count"] != 0
+        or post_index["missing_test_count"] != 0
+        or post_index["duplicate_test_count"] != 0
+        or post_report["capability_id"] != GOVERNED_FORK_CAPABILITY_ID
+        or post_report["executed_test_count"] != 87
+        or post_report["failed_test_count"] != 0
+        or post_report["missing_test_count"] != 0
+        or post_report["duplicate_test_count"] != 0
+        or post_report["verdict"] != "pass"
+    ):
+        raise CapabilityDispositionError("Governed Fork Q5d PDQ binding drifted")
+
+    documents: dict[str, bytes] = {}
+    implementation_refs: list[dict[str, Any]] = []
+    implementation_bindings: list[dict[str, Any]] = []
+    snapshot_refs: list[dict[str, Any]] = []
+    for relative_path in GOVERNED_FORK_IMPLEMENTATION_PATHS:
+        output_relative, output, implementation_ref, binding = (
+            _governed_fork_implementation_snapshot(repository_root, relative_path)
+        )
+        documents[output_relative] = output
+        implementation_refs.append(implementation_ref)
+        implementation_bindings.append(binding)
+        snapshot_refs.append(
+            _payload_ref(
+                output_relative,
+                output,
+                logical_name=f"governed-onyx-fork-{Path(output_relative).name}",
+            )
+        )
+    implementation_path_set_hash = sha256_digest(
+        canonical_document_bytes(implementation_bindings)
+    )
+    evidence_entries = [
+        subject_ref,
+        _artifact_ref(
+            repository_root, CATALOG_RELATIVE, logical_name="capability-catalog"
+        ),
+        _artifact_ref(
+            repository_root,
+            GOVERNED_FORK_SCREENING_RELATIVE,
+            logical_name="governed-fork-interface-fit-evidence",
+        ),
+        _artifact_ref(
+            repository_root,
+            search_relative,
+            logical_name="governed-fork-candidate-search-evidence",
+        ),
+        _artifact_ref(
+            repository_root,
+            GOVERNED_FORK_QUALIFICATION_INDEX_RELATIVE,
+            logical_name="governed-fork-candidate-qualification-index",
+        ),
+        _artifact_ref(
+            repository_root,
+            GOVERNED_FORK_POST_INDEX_RELATIVE,
+            logical_name="governed-fork-post-disposition-qualification-index",
+        ),
+        _artifact_ref(
+            repository_root,
+            GOVERNED_FORK_POST_REPORT_RELATIVE,
+            logical_name="governed-fork-post-disposition-qualification-report",
+        ),
+        *snapshot_refs,
+        *candidate_report_refs,
+    ]
+    evidence_index = EvidenceBundleIndex.model_validate(
+        {
+            "schema_version": "pmorg.evidence-bundle-index/v1",
+            "bundle_kind": GOVERNED_FORK_CLAIM_BOUNDARY,
+            "subject_binding_hash": artifact_set_hash,
+            "entries": evidence_entries,
+            "entry_count": len(evidence_entries),
+        }
+    )
+    evidence_payload = canonical_document_bytes(evidence_index.model_dump(mode="json"))
+    documents[GOVERNED_FORK_EVIDENCE_RELATIVE] = evidence_payload
+    evidence_ref = _payload_ref(
+        GOVERNED_FORK_EVIDENCE_RELATIVE,
+        evidence_payload,
+        logical_name="governed-onyx-fork-capability-disposition-evidence-index",
+    )
+    record = CapabilityDispositionRecord.model_validate(
+        {
+            "schema_version": RECORD_SCHEMA_VERSION,
+            "catalog_version": cast(str, catalog["catalog_version"]),
+            "catalog_hash": catalog_hash,
+            "pmorg_spec_commit": SPEC_COMMIT,
+            "pmorg_platform_commit": GOVERNED_FORK_BASE_PLATFORM_COMMIT,
+            "onyx_commit": ONYX_COMMIT,
+            "artifact_set_hash": artifact_set_hash,
+            "onyx_surface": "ce",
+            "usage_mode": "development_test",
+            "capability_id": GOVERNED_FORK_CAPABILITY_ID,
+            "pmorg_requirement_ids": GOVERNED_FORK_REQUIREMENTS,
+            "candidate_search_outcome": "candidates_found",
+            "candidate_search_evidence": search,
+            "candidates": candidates,
+            "disposition": "pmorg_independent",
+            "selected_candidate_ids": [],
+            "implementation_path_set_hash": implementation_path_set_hash,
+            "implementation_refs": implementation_refs,
+            "patch_ledger_set_hash": _empty_patch_set_hash(),
+            "patch_ledger_refs": [],
+            "post_disposition_qualification": post_report,
+            "rationale": (
+                "All 67 discovered governed-onyx-fork candidates were executed "
+                "against the exact candidate-aware A-FORK-001, A-SURFACE-001, "
+                "and A-UPSTREAM-001 oracles and failed; the PMORG-owned governed "
+                "fork verifier passed its exact bounded 87-test post-disposition "
+                "qualification suite, so no passing reusable candidate, selected "
+                "candidate, patch, or deviation exists."
+            ),
+            "deviation_decision_envelope": None,
+            "record_evidence_bundle_index": evidence_ref,
+        }
+    )
+    record_payload = canonical_document_bytes(record.model_dump(mode="json"))
+    documents[GOVERNED_FORK_RECORD_RELATIVE] = record_payload
+    return documents
+
+
+def write_governed_fork_capability_disposition(
+    repository_root: Path = REPOSITORY_ROOT,
+) -> None:
+    for relative_path, payload in build_governed_fork_capability_disposition(
+        repository_root
+    ).items():
+        destination = _safe_path(repository_root, relative_path)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(payload)
+
+
+def validate_governed_fork_capability_disposition_record(
+    value: CapabilityDispositionRecord | Mapping[str, Any],
+    *,
+    repository_root: Path = REPOSITORY_ROOT,
+) -> CapabilityDispositionRecord:
+    repository_root = repository_root.resolve()
+    try:
+        record = CapabilityDispositionRecord.model_validate(value)
+        Draft202012Validator(
+            _contract_schema(repository_root, RECORD_SCHEMA_VERSION)
+        ).validate(record.model_dump(mode="json"))
+    except Exception as error:
+        if isinstance(error, CapabilityDispositionError):
+            raise
+        raise CapabilityDispositionError(
+            "Governed Fork capability disposition schema failed"
+        ) from error
+    if record.capability_id != GOVERNED_FORK_CAPABILITY_ID:
+        raise CapabilityDispositionError(
+            "record is not the bounded governed-onyx-fork capability"
+        )
+    expected = CapabilityDispositionRecord.model_validate_json(
+        build_governed_fork_capability_disposition(repository_root)[
+            GOVERNED_FORK_RECORD_RELATIVE
+        ]
+    )
+    if record != expected:
+        raise CapabilityDispositionError("Governed Fork disposition derivation drifted")
+    _walk_embedded_refs(repository_root, record.model_dump(mode="json"))
+    return record
+
+
+def validate_governed_fork_capability_disposition(
+    repository_root: Path = REPOSITORY_ROOT,
+) -> CapabilityDispositionRecord:
+    repository_root = repository_root.resolve()
+    expected = build_governed_fork_capability_disposition(repository_root)
+    for relative_path, payload in expected.items():
+        try:
+            observed = _safe_path(repository_root, relative_path).read_bytes()
+        except OSError as error:
+            raise CapabilityDispositionError(
+                f"Governed Fork disposition artifact is missing: {relative_path}"
+            ) from error
+        if observed != payload:
+            raise CapabilityDispositionError(
+                f"Governed Fork disposition artifact drifted: {relative_path}"
+            )
+    snapshot_root = _safe_path(repository_root, GOVERNED_FORK_SNAPSHOT_ROOT_RELATIVE)
+    observed_snapshots = {
+        path.relative_to(repository_root).as_posix()
+        for path in snapshot_root.glob("*.json")
+    }
+    expected_snapshots = {
+        path
+        for path in expected
+        if path.startswith(f"{GOVERNED_FORK_SNAPSHOT_ROOT_RELATIVE}/")
+    }
+    if observed_snapshots != expected_snapshots:
+        raise CapabilityDispositionError(
+            "Governed Fork implementation snapshot directory is not byte-closed"
+        )
+    record = CapabilityDispositionRecord.model_validate_json(
+        _safe_path(repository_root, GOVERNED_FORK_RECORD_RELATIVE).read_bytes()
+    )
+    return validate_governed_fork_capability_disposition_record(
+        record, repository_root=repository_root
+    )
+
+
+def sign_governed_fork_capability_disposition(
+    value: CapabilityDispositionRecord | Mapping[str, Any],
+    *,
+    repository_root: Path = REPOSITORY_ROOT,
+    environ: Mapping[str, str] | None = None,
+) -> DsseEnvelope:
+    record = validate_governed_fork_capability_disposition_record(
+        value, repository_root=repository_root
+    )
+    private_key = private_key_from_env(name=PRIVATE_KEY_ENV, environ=environ)
+    payload = canonical_json_bytes(record.model_dump(mode="json"))
+    signature = private_key.sign(pre_authentication_encoding(PAYLOAD_TYPE, payload))
+    return DsseEnvelope(
+        payloadType=PAYLOAD_TYPE,
+        payload=base64.b64encode(payload).decode("ascii"),
+        signatures=[
+            DsseSignature(
+                keyid=key_id(private_key.public_key()),
+                sig=base64.b64encode(signature).decode("ascii"),
+            )
+        ],
+    )
+
+
+def verify_governed_fork_capability_disposition(
+    envelope: DsseEnvelope | Mapping[str, Any],
+    *,
+    repository_root: Path = REPOSITORY_ROOT,
+    environ: Mapping[str, str] | None = None,
+) -> CapabilityDispositionRecord:
+    validated = DsseEnvelope.model_validate(envelope)
+    if validated.payloadType != PAYLOAD_TYPE:
+        raise CapabilityDispositionError(
+            "unexpected Governed Fork capability disposition payload type"
+        )
+    if len(validated.signatures) != 1:
+        raise CapabilityDispositionError(
+            "Governed Fork capability disposition requires exactly one signature"
+        )
+    payload = _decode_base64(validated.payload, label="DSSE payload")
+    signature = _decode_base64(validated.signatures[0].sig, label="DSSE signature")
+    public_key = public_key_from_env(name=PUBLIC_KEY_ENV, environ=environ)
+    if validated.signatures[0].keyid != key_id(public_key):
+        raise CapabilityDispositionError("DSSE key identity mismatch")
+    try:
+        public_key.verify(signature, pre_authentication_encoding(PAYLOAD_TYPE, payload))
+    except InvalidSignature as error:
+        raise CapabilityDispositionError(
+            "Governed Fork capability disposition signature is invalid"
+        ) from error
+    try:
+        decoded = json.loads(payload)
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise CapabilityDispositionError(
+            "Governed Fork capability disposition payload is not JSON"
+        ) from error
+    if canonical_json_bytes(decoded) != payload:
+        raise CapabilityDispositionError(
+            "Governed Fork capability disposition payload is not canonical"
+        )
+    return validate_governed_fork_capability_disposition_record(
+        cast(dict[str, Any], decoded), repository_root=repository_root
+    )
+
+
 __all__ = [
     "BASE_PLATFORM_COMMIT",
     "CAPABILITIES",
@@ -1462,8 +2031,15 @@ __all__ = [
     "PRIVATE_KEY_ENV",
     "PUBLIC_KEY_ENV",
     "build_capability_dispositions",
+    "build_governed_fork_capability_disposition",
     "build_thin_fork_capability_disposition",
+    "GOVERNED_FORK_BASE_PLATFORM_COMMIT",
+    "GOVERNED_FORK_CAPABILITY_ID",
+    "GOVERNED_FORK_CLAIM_BOUNDARY",
+    "GOVERNED_FORK_IMPLEMENTATION_PATHS",
+    "GOVERNED_FORK_RECORD_RELATIVE",
     "sign_capability_disposition",
+    "sign_governed_fork_capability_disposition",
     "sign_thin_fork_capability_disposition",
     "THIN_FORK_BASE_PLATFORM_COMMIT",
     "THIN_FORK_CAPABILITY_ID",
@@ -1472,10 +2048,14 @@ __all__ = [
     "THIN_FORK_RECORD_RELATIVE",
     "validate_capability_disposition_record",
     "validate_capability_dispositions",
+    "validate_governed_fork_capability_disposition",
+    "validate_governed_fork_capability_disposition_record",
     "validate_thin_fork_capability_disposition",
     "validate_thin_fork_capability_disposition_record",
     "verify_capability_disposition",
+    "verify_governed_fork_capability_disposition",
     "verify_thin_fork_capability_disposition",
     "write_capability_dispositions",
+    "write_governed_fork_capability_disposition",
     "write_thin_fork_capability_disposition",
 ]
