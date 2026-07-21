@@ -87,7 +87,7 @@ class TestQualificationTestVectors(unittest.TestCase):
                 sha256_digest(interface_path.read_bytes()),
             )
 
-    def test_policy_binds_only_admission_vectors_without_executability(self) -> None:
+    def test_policy_binds_only_admission_vectors_and_exact_executors(self) -> None:
         policy = build_qualification_oracle_policy(REPOSITORY_ROOT)
         vector_manifest_path = (
             REPOSITORY_ROOT
@@ -111,13 +111,23 @@ class TestQualificationTestVectors(unittest.TestCase):
         self.assertEqual(set(bound), set(vector_pairs))
         for pair, reference in bound.items():
             self.assertEqual(reference["digest"], vector_pairs[pair]["digest"])
+        executable = [
+            oracle
+            for oracle in policy["oracles"]
+            if oracle["oracle_status"] == "executable"
+        ]
+        self.assertEqual(
+            {(item["capability_id"], item["test_id"]) for item in executable},
+            set(vector_pairs),
+        )
+        self.assertTrue(all(item["adapter"] is not None for item in executable))
         self.assertTrue(
             all(
-                oracle["oracle_status"] == "unexecutable"
-                for oracle in policy["oracles"]
+                item["adapter"] is None
+                for item in policy["oracles"]
+                if item["oracle_status"] == "unexecutable"
             )
         )
-        self.assertTrue(all(oracle["adapter"] is None for oracle in policy["oracles"]))
 
     def test_vector_and_runtime_artifact_drift_fail_closed(self) -> None:
         temporary = tempfile.TemporaryDirectory(prefix="pmorg-vectors-")

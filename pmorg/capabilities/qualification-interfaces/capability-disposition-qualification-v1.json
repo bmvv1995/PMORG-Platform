@@ -36,10 +36,10 @@
       "size_bytes": 26963
     },
     {
-      "digest": "sha256:bc9f74781ae2b56e073956d2d9c60f615610347f22cf39b109274276a32a8cb2",
+      "digest": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
       "media_type": "text/x-python",
       "relative_path": "backend/pmorg/application/qualification_oracles.py",
-      "size_bytes": 30899
+      "size_bytes": 34009
     }
   ],
   "schema_version": "pmorg.qualification-interface/v1",

@@ -1,0 +1,246 @@
+{
+  "$id": "urn:pmorg:qualification-oracle-result:v2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adapter_digest": {
+      "oneOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "baseline_fit": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "baseline_observation_digest": {
+      "oneOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "candidate_id": {
+      "pattern": "^candidate-[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "capability_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_exit_codes": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "failure_reasons": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mutation_fit": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "mutation_observation_digest": {
+      "oneOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observed_blob_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "oracle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "oracle_status": {
+      "enum": [
+        "executable",
+        "unexecutable"
+      ]
+    },
+    "positive_injection_fit": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "positive_injection_observation_digest": {
+      "oneOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "projected_blob_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "runtime_identity_digest": {
+      "oneOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "runtime_measurement": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "declared_artifacts": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "digest": {
+                    "pattern": "^sha256:[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "relative_path": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "digest",
+                  "relative_path"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array"
+            },
+            "interpreter_binary": {
+              "additionalProperties": false,
+              "properties": {
+                "digest": {
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "relative_path": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "digest",
+                "relative_path"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "declared_artifacts",
+            "interpreter_binary"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "schema_version": {
+      "const": "pmorg.qualification-oracle-result/v2"
+    },
+    "test_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "unobserved_blob_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "verdict": {
+      "enum": [
+        "pass",
+        "fail"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "capability_id",
+    "test_id",
+    "candidate_id",
+    "oracle_id",
+    "oracle_status",
+    "candidate_manifest_digest",
+    "adapter_digest",
+    "runtime_identity_digest",
+    "runtime_measurement",
+    "baseline_observation_digest",
+    "mutation_observation_digest",
+    "positive_injection_observation_digest",
+    "baseline_fit",
+    "mutation_fit",
+    "positive_injection_fit",
+    "projected_blob_count",
+    "observed_blob_count",
+    "unobserved_blob_count",
+    "execution_exit_codes",
+    "bindings",
+    "failure_reasons",
+    "verdict"
+  ],
+  "title": "PMORG candidate qualification oracle result",
+  "type": "object"
+}

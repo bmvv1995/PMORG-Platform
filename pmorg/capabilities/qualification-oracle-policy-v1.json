@@ -22,10 +22,16 @@
   "catalog_version": "1.0.0",
   "derivation_artifacts": [
     {
-      "digest": "sha256:bc9f74781ae2b56e073956d2d9c60f615610347f22cf39b109274276a32a8cb2",
+      "digest": "sha256:d52d4a7748cf84b0c14b7f1572a53d85b3ab6df35db92643430d7eb827325dc3",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/admission_interface_fit_executor.py",
+      "size_bytes": 15876
+    },
+    {
+      "digest": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
       "media_type": "text/x-python",
       "relative_path": "backend/pmorg/application/qualification_oracles.py",
-      "size_bytes": 30899
+      "size_bytes": 34009
     },
     {
       "digest": "sha256:c00e45729b7de8fceb5463ccf46e991e2511096f523eb357e302a16d6339c396",
@@ -74,7 +80,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-002:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
+        "digest": "sha256:61566232102db39182c1ce22b51c07c145ce647413d5a8d9d85256b1892f76ca",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -123,7 +129,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-003:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
+        "digest": "sha256:61566232102db39182c1ce22b51c07c145ce647413d5a8d9d85256b1892f76ca",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -158,7 +164,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-004:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
+        "digest": "sha256:61566232102db39182c1ce22b51c07c145ce647413d5a8d9d85256b1892f76ca",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -194,7 +200,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-005:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
+        "digest": "sha256:61566232102db39182c1ce22b51c07c145ce647413d5a8d9d85256b1892f76ca",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -257,7 +263,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-006:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
+        "digest": "sha256:61566232102db39182c1ce22b51c07c145ce647413d5a8d9d85256b1892f76ca",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -267,9 +273,28 @@
       "unexecutable_reason": "A-PATCH-006 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     },
     {
-      "adapter": null,
-      "bindings": [],
-      "candidate_influence_status": "not_demonstrated",
+      "adapter": "sha256:d52d4a7748cf84b0c14b7f1572a53d85b3ab6df35db92643430d7eb827325dc3",
+      "bindings": [
+        {
+          "digest": "sha256:d52d4a7748cf84b0c14b7f1572a53d85b3ab6df35db92643430d7eb827325dc3",
+          "media_type": "text/x-python",
+          "relative_path": "backend/pmorg/application/admission_interface_fit_executor.py",
+          "size_bytes": 15876
+        },
+        {
+          "digest": "sha256:8be4d022e02c96a47a8277c6927e2536f79679b0aec4c0af7643f15fd64ccbf2",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/qualification-interfaces/deployment-admission-v1.json",
+          "size_bytes": 2157
+        },
+        {
+          "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+          "size_bytes": 4009
+        }
+      ],
+      "candidate_influence_status": "live_mutation_and_positive_injection_enforced",
       "candidate_projection": "module_group_blob_set/v1",
       "candidate_test_vector": {
         "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
@@ -280,21 +305,40 @@
       "capability_id": "deployment-admission",
       "legacy_global_gate_bindings": [],
       "oracle_id": "qualification-oracle:deployment-admission:A-LIC-002:v1",
-      "oracle_status": "unexecutable",
+      "oracle_status": "executable",
       "qualification_interface": {
         "digest": "sha256:8be4d022e02c96a47a8277c6927e2536f79679b0aec4c0af7643f15fd64ccbf2",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/deployment-admission-v1.json",
         "size_bytes": 2157
       },
-      "runtime_identity_status": "declaration_bound_binary_unattested",
+      "runtime_identity_status": "binary_measured_and_lock_bound_at_execution",
       "test_id": "A-LIC-002",
-      "unexecutable_reason": "deployment admission implementation, qualification interface and candidate-level test vector exist, but a candidate-aware adapter with mutation influence evidence is absent"
+      "unexecutable_reason": null
     },
     {
-      "adapter": null,
-      "bindings": [],
-      "candidate_influence_status": "not_demonstrated",
+      "adapter": "sha256:d52d4a7748cf84b0c14b7f1572a53d85b3ab6df35db92643430d7eb827325dc3",
+      "bindings": [
+        {
+          "digest": "sha256:d52d4a7748cf84b0c14b7f1572a53d85b3ab6df35db92643430d7eb827325dc3",
+          "media_type": "text/x-python",
+          "relative_path": "backend/pmorg/application/admission_interface_fit_executor.py",
+          "size_bytes": 15876
+        },
+        {
+          "digest": "sha256:86db7c8f66ef0d96e17dafa6ab9ca7ee2f2f32350c494c9d91b59140b0bf82d0",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/qualification-interfaces/distribution-admission-v1.json",
+          "size_bytes": 2201
+        },
+        {
+          "digest": "sha256:3c2a66f92e9f6bb5e5d34cb27da2ddff59b114e7efbdf09612e16f74bf0755ad",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/qualification-test-vectors/distribution-admission-A-LIC-003-v1.json",
+          "size_bytes": 4080
+        }
+      ],
+      "candidate_influence_status": "live_mutation_and_positive_injection_enforced",
       "candidate_projection": "module_group_blob_set/v1",
       "candidate_test_vector": {
         "digest": "sha256:3c2a66f92e9f6bb5e5d34cb27da2ddff59b114e7efbdf09612e16f74bf0755ad",
@@ -305,16 +349,16 @@
       "capability_id": "distribution-admission",
       "legacy_global_gate_bindings": [],
       "oracle_id": "qualification-oracle:distribution-admission:A-LIC-003:v1",
-      "oracle_status": "unexecutable",
+      "oracle_status": "executable",
       "qualification_interface": {
         "digest": "sha256:86db7c8f66ef0d96e17dafa6ab9ca7ee2f2f32350c494c9d91b59140b0bf82d0",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/distribution-admission-v1.json",
         "size_bytes": 2201
       },
-      "runtime_identity_status": "declaration_bound_binary_unattested",
+      "runtime_identity_status": "binary_measured_and_lock_bound_at_execution",
       "test_id": "A-LIC-003",
-      "unexecutable_reason": "distribution admission implementation, qualification interface and candidate-level test vector exist, but a candidate-aware adapter with mutation influence evidence is absent"
+      "unexecutable_reason": null
     },
     {
       "adapter": null,
@@ -655,9 +699,9 @@
       "unexecutable_reason": "A-PATCH-001 verifies repository-, process-, build- or release-wide state for thin-fork-boundary; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     }
   ],
-  "policy_version": "1.2.0",
+  "policy_version": "1.3.0",
   "qualification_interface_manifest": {
-    "digest": "sha256:ed201b9386716076dc028038c708097f5aaba36606cabe3c5ae397be59fad957",
+    "digest": "sha256:0d68d01ea432e4f5293965419e8c722401061cef6387d7fd9e09faebd2a1ed84",
     "media_type": "application/json",
     "relative_path": "pmorg/capabilities/qualification-interfaces-v1.json",
     "size_bytes": 2951
@@ -669,10 +713,10 @@
     "size_bytes": 2939
   },
   "result_schema": {
-    "digest": "sha256:aa7cad8f9eed50f3639d7d106847785189b7e64ee75791d96166a4caccbcfbca",
+    "digest": "sha256:5a06c7070ec30dc6558b5e0f736d8959577063efd8e039443699233f21f68883",
     "media_type": "application/schema+json",
-    "relative_path": "pmorg/capabilities/qualification-oracle-result-v1.schema.json",
-    "size_bytes": 2873
+    "relative_path": "pmorg/capabilities/qualification-oracle-result-v2.schema.json",
+    "size_bytes": 5349
   },
   "runtime_identity": {
     "artifacts": [
@@ -695,11 +739,11 @@
         "size_bytes": 1018201
       }
     ],
-    "digest": "sha256:1667bd63da442ed28add035296596535fdc04ae39b2e226129c5e563a679cad6",
+    "digest": "sha256:a17a3392830c0750a8f273031ff04459de22904878adc396302d440ed3b10df7",
     "executable_requires_attested_interpreter_binary": true,
     "interpreter_declaration": ".python-version",
     "lockfile": "uv.lock",
-    "status": "declaration_bound_binary_unattested"
+    "status": "binary_measurement_required_at_execution"
   },
   "schema_version": "pmorg.qualification-oracle-policy/v1"
 }
