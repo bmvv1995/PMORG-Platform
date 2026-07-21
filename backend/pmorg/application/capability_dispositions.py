@@ -862,6 +862,14 @@ THIN_FORK_IMPLEMENTATION_PATHS = (
     "pmorg/policies/seam-allowlist.json",
     "pmorg/patch-ledger.json",
 )
+THIN_FORK_LEDGER_TOP_LEVEL_PINS = (
+    "schema_version",
+    "upstream_commit",
+    "ownership_roots_ref",
+    "seam_allowlist_ref",
+    "upstream_patch_record_schema_version",
+    "specification_commit",
+)
 THIN_FORK_EXPECTED_ARTIFACT_SET_HASH = (
     "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e"
 )
@@ -874,6 +882,88 @@ _ADMISSION_IMMUTABLE_RELATIVES = (
     f"{EVIDENCE_ROOT_RELATIVE}/deployment-admission.json",
     f"{EVIDENCE_ROOT_RELATIVE}/distribution-admission.json",
 )
+
+
+def _thin_fork_recorded_ledger_digest(repository_root: Path) -> str:
+    try:
+        record = _read_object(repository_root, THIN_FORK_RECORD_RELATIVE)
+        implementation_refs = cast(list[dict[str, Any]], record["implementation_refs"])
+    except (KeyError, TypeError, ValueError) as error:
+        raise CapabilityDispositionError(
+            "Thin Fork recorded ledger implementation reference is invalid"
+        ) from error
+    matches = [
+        item
+        for item in implementation_refs
+        if item.get("path") == PATCH_LEDGER_RELATIVE
+    ]
+    if len(matches) != 1 or not isinstance(matches[0].get("content_hash"), str):
+        raise CapabilityDispositionError(
+            "Thin Fork recorded ledger implementation reference is invalid"
+        )
+    return cast(str, matches[0]["content_hash"])
+
+
+def _assert_append_only_sequence(*, base: Any, live: Any, sequence_name: str) -> None:
+    if not isinstance(base, list) or not isinstance(live, list):
+        raise CapabilityDispositionError(
+            f"Thin Fork patch ledger {sequence_name} is not a list"
+        )
+    if len(live) < len(base) or live[: len(base)] != base:
+        raise CapabilityDispositionError(
+            f"Thin Fork patch ledger {sequence_name} history is not an exact prefix"
+        )
+    identifiers: list[str] = []
+    for item in live:
+        if not isinstance(item, dict) or not isinstance(item.get("id"), str):
+            raise CapabilityDispositionError(
+                f"Thin Fork patch ledger {sequence_name} contains an invalid ID"
+            )
+        identifiers.append(cast(str, item["id"]))
+    if len(identifiers) != len(set(identifiers)):
+        raise CapabilityDispositionError(
+            f"Thin Fork patch ledger {sequence_name} IDs are not unique"
+        )
+
+
+def _assert_thin_fork_ledger_append_only(
+    repository_root: Path, base_payload: bytes
+) -> None:
+    recorded_digest = _thin_fork_recorded_ledger_digest(repository_root)
+    if recorded_digest != sha256_digest(base_payload):
+        raise CapabilityDispositionError(
+            "Thin Fork base ledger blob does not match recorded implementation digest"
+        )
+    try:
+        base = json.loads(base_payload)
+        live = json.loads(
+            _safe_path(repository_root, PATCH_LEDGER_RELATIVE).read_bytes()
+        )
+    except (OSError, json.JSONDecodeError) as error:
+        raise CapabilityDispositionError(
+            "Thin Fork patch ledger cannot be read as JSON"
+        ) from error
+    if not isinstance(base, dict) or not isinstance(live, dict):
+        raise CapabilityDispositionError("Thin Fork patch ledger is not an object")
+    if set(live) != set(base):
+        raise CapabilityDispositionError(
+            "Thin Fork patch ledger top-level structure drifted"
+        )
+    for key in THIN_FORK_LEDGER_TOP_LEVEL_PINS:
+        if live.get(key) != base.get(key):
+            raise CapabilityDispositionError(
+                f"Thin Fork patch ledger top-level pin drifted: {key}"
+            )
+    _assert_append_only_sequence(
+        base=base.get("entries"),
+        live=live.get("entries"),
+        sequence_name="entries",
+    )
+    _assert_append_only_sequence(
+        base=base.get("upstream_patch_records"),
+        live=live.get("upstream_patch_records"),
+        sequence_name="upstream_patch_records",
+    )
 
 
 def _thin_fork_base_blob(
@@ -895,7 +985,9 @@ def _thin_fork_base_blob(
         raise CapabilityDispositionError(
             f"Thin Fork implementation path is absent from base: {relative_path}"
         ) from error
-    if _safe_path(repository_root, relative_path).read_bytes() != payload:
+    if relative_path == PATCH_LEDGER_RELATIVE:
+        _assert_thin_fork_ledger_append_only(repository_root, payload)
+    elif _safe_path(repository_root, relative_path).read_bytes() != payload:
         raise CapabilityDispositionError(
             f"Thin Fork trust-boundary path drifted from base: {relative_path}"
         )
