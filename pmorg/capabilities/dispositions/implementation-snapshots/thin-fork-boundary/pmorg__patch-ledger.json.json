@@ -1,0 +1,11 @@
+{
+  "commit": "7ea76e1d8dc75a02f7945004ac96cd2f33d701cd",
+  "content_hash": "sha256:2afdd842a5531d3c3b4e86b6b0f77b2b5e6590c60215e036dcedc8cf4f06af07",
+  "git_blob_id": "60c0224aeae49503dbedf1390da6fd371d18ad08",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "pmorg/patch-ledger.json",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 52786
+}

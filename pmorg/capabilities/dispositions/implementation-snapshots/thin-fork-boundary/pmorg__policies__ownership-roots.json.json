@@ -1,0 +1,11 @@
+{
+  "commit": "7ea76e1d8dc75a02f7945004ac96cd2f33d701cd",
+  "content_hash": "sha256:4880fb379dfa4eb00745b8510453145e6708871c563c705a0961cc066ff4b2ac",
+  "git_blob_id": "289aec944f7be12d2e91a320670223292fed7140",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "pmorg/policies/ownership-roots.json",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 1240
+}

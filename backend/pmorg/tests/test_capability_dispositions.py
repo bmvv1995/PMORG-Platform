@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import copy
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -21,8 +22,22 @@ from pmorg.application.capability_dispositions import PRIVATE_KEY_ENV
 from pmorg.application.capability_dispositions import PUBLIC_KEY_ENV
 from pmorg.application.capability_dispositions import RECORD_ROOT_RELATIVE
 from pmorg.application.capability_dispositions import sign_capability_disposition
+from pmorg.application.capability_dispositions import (
+    sign_thin_fork_capability_disposition,
+)
+from pmorg.application.capability_dispositions import THIN_FORK_BASE_PLATFORM_COMMIT
+from pmorg.application.capability_dispositions import THIN_FORK_CAPABILITY_ID
+from pmorg.application.capability_dispositions import THIN_FORK_CLAIM_BOUNDARY
+from pmorg.application.capability_dispositions import THIN_FORK_IMPLEMENTATION_PATHS
+from pmorg.application.capability_dispositions import THIN_FORK_RECORD_RELATIVE
 from pmorg.application.capability_dispositions import validate_capability_dispositions
+from pmorg.application.capability_dispositions import (
+    validate_thin_fork_capability_disposition,
+)
 from pmorg.application.capability_dispositions import verify_capability_disposition
+from pmorg.application.capability_dispositions import (
+    verify_thin_fork_capability_disposition,
+)
 from pmorg.contracts.types import CapabilityDispositionRecord
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
@@ -163,6 +178,109 @@ class TestCapabilityDispositions(unittest.TestCase):
         self.assertFalse(
             any(PRIVATE_KEY_ENV.encode() in payload for payload in first.values())
         )
+
+    def test_thin_fork_record_is_complete_bounded_and_honest(self) -> None:
+        record = validate_thin_fork_capability_disposition(REPOSITORY_ROOT)
+        self.assertEqual(THIN_FORK_CAPABILITY_ID, record.capability_id)
+        self.assertEqual(THIN_FORK_BASE_PLATFORM_COMMIT, record.pmorg_platform_commit)
+        self.assertEqual("candidates_found", record.candidate_search_outcome)
+        self.assertEqual(55, len(record.candidates))
+        self.assertTrue(all(item.qualification == "fail" for item in record.candidates))
+        self.assertEqual([], record.selected_candidate_ids)
+        self.assertEqual("pmorg_independent", record.disposition)
+        self.assertIsNone(record.deviation_decision_envelope)
+        self.assertEqual([], record.patch_ledger_refs)
+        self.assertEqual(
+            list(THIN_FORK_IMPLEMENTATION_PATHS),
+            [item.path for item in record.implementation_refs],
+        )
+        self.assertEqual("pass", record.post_disposition_qualification.verdict)
+        self.assertEqual(87, record.post_disposition_qualification.executed_test_count)
+        evidence_path = (
+            REPOSITORY_ROOT / record.record_evidence_bundle_index.relative_path
+        )
+        evidence = json.loads(evidence_path.read_bytes())
+        self.assertEqual(THIN_FORK_CLAIM_BOUNDARY, evidence["bundle_kind"])
+
+    def test_thin_fork_dsse_round_trip_and_tamper_rejection(self) -> None:
+        record = CapabilityDispositionRecord.model_validate_json(
+            (REPOSITORY_ROOT / THIN_FORK_RECORD_RELATIVE).read_bytes()
+        )
+        first = sign_thin_fork_capability_disposition(
+            record, repository_root=REPOSITORY_ROOT, environ=self.environment
+        )
+        second = sign_thin_fork_capability_disposition(
+            record, repository_root=REPOSITORY_ROOT, environ=self.environment
+        )
+        self.assertEqual(first, second)
+        self.assertEqual(
+            record,
+            verify_thin_fork_capability_disposition(
+                first, repository_root=REPOSITORY_ROOT, environ=self.environment
+            ),
+        )
+        envelope = first.model_dump(mode="json")
+        payload = bytearray(base64.b64decode(envelope["payload"]))
+        payload[-2] ^= 1
+        envelope["payload"] = base64.b64encode(payload).decode("ascii")
+        with self.assertRaisesRegex(CapabilityDispositionError, "signature is invalid"):
+            verify_thin_fork_capability_disposition(
+                envelope, repository_root=REPOSITORY_ROOT, environ=self.environment
+            )
+        with self.assertRaisesRegex(CapabilityDispositionError, "key identity"):
+            verify_thin_fork_capability_disposition(
+                first, repository_root=REPOSITORY_ROOT, environ=_key_environment()
+            )
+
+    def test_thin_fork_semantic_shortcuts_are_rejected_before_signing(self) -> None:
+        record = json.loads((REPOSITORY_ROOT / THIN_FORK_RECORD_RELATIVE).read_bytes())
+        mutations = (
+            {"candidate_search_outcome": "no_candidate", "candidates": []},
+            {"selected_candidate_ids": [record["candidates"][0]["candidate_id"]]},
+            {"disposition": "reuse"},
+            {"pmorg_platform_commit": "0" * 40},
+            {"implementation_refs": record["implementation_refs"][:-1]},
+            {
+                "post_disposition_qualification": {
+                    **record["post_disposition_qualification"],
+                    "verdict": "fail",
+                    "failed_test_count": 1,
+                }
+            },
+        )
+        for update in mutations:
+            with self.subTest(update=tuple(update)):
+                changed = copy.deepcopy(record)
+                changed.update(update)
+                with self.assertRaises(CapabilityDispositionError):
+                    sign_thin_fork_capability_disposition(
+                        changed,
+                        repository_root=REPOSITORY_ROOT,
+                        environ=self.environment,
+                    )
+
+    def test_admission_disposition_artifacts_remain_byte_identical(self) -> None:
+        completed = subprocess.run(
+            [
+                "git",
+                "diff",
+                "--exit-code",
+                THIN_FORK_BASE_PLATFORM_COMMIT,
+                "--",
+                "pmorg/capabilities/capability-disposition-report-v1.json",
+                "pmorg/capabilities/dispositions/subject-ce-source-artifact-v1.json",
+                "pmorg/capabilities/dispositions/evidence-bundle-v1.json",
+                "pmorg/capabilities/dispositions/records/deployment-admission.json",
+                "pmorg/capabilities/dispositions/records/distribution-admission.json",
+                "pmorg/capabilities/dispositions/evidence/deployment-admission.json",
+                "pmorg/capabilities/dispositions/evidence/distribution-admission.json",
+                "pmorg/capabilities/dispositions/implementation-snapshots/deployment-admission",
+                "pmorg/capabilities/dispositions/implementation-snapshots/distribution-admission",
+            ],
+            cwd=REPOSITORY_ROOT,
+            capture_output=True,
+        )
+        self.assertEqual(0, completed.returncode, completed.stdout.decode())
 
 
 if __name__ == "__main__":

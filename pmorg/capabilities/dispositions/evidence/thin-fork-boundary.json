@@ -1,0 +1,470 @@
+{
+  "bundle_kind": "single_thin_fork_disposition_no_catalog_completion",
+  "entries": [
+    {
+      "digest": "sha256:a13482ea50a3d07d966c8aadf99af69bd9225549d792e1f4eaa39da24d804ab8",
+      "logical_name": "capability-disposition-subject-ce-source-artifact",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/subject-ce-source-artifact-v1.json",
+      "size_bytes": 893
+    },
+    {
+      "digest": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+      "logical_name": "capability-catalog",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-catalog-v1.json",
+      "size_bytes": 4415
+    },
+    {
+      "digest": "sha256:60c5651a6c6383d99ec7dd4ce6a09365cf833060b3bfed6eb44e5ef1b0c241b7",
+      "logical_name": "thin-fork-interface-fit-evidence",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-interface-fit-evidence-v1.json",
+      "size_bytes": 365395
+    },
+    {
+      "digest": "sha256:1f1734baaf7d41fb15088e821140e94352b94488acf035f72fe5765a5c981f98",
+      "logical_name": "thin-fork-candidate-search-evidence",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-search/thin-fork-boundary-search-evidence-v1.json",
+      "size_bytes": 9438
+    },
+    {
+      "digest": "sha256:aedf20800337744f2b77efa66c726aa82b0fb98afb657a61b21a5379fec9c0df",
+      "logical_name": "thin-fork-candidate-qualification-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports-v1.json",
+      "size_bytes": 74187
+    },
+    {
+      "digest": "sha256:ab136a2de1903afdcce1eb96587481e41810066ff8b1c1cec933246b350bca78",
+      "logical_name": "thin-fork-post-disposition-qualification-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-post-disposition-qualification-v1.json",
+      "size_bytes": 42599
+    },
+    {
+      "digest": "sha256:9123092bb0b6c10ff20b6197d9d0a14f611c12c3956a592c0fb01294b56a1861",
+      "logical_name": "thin-fork-post-disposition-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-post-disposition-qualification-report-v1.json",
+      "size_bytes": 87501
+    },
+    {
+      "digest": "sha256:b7a71976a24a905d67ff33e9388a4f7bd55724ebbae45a2fff9ab75649fde616",
+      "logical_name": "thin-fork-boundary-pmorg__scripts__verify_fork.py.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/thin-fork-boundary/pmorg__scripts__verify_fork.py.json",
+      "size_bytes": 470
+    },
+    {
+      "digest": "sha256:eef9ea0e6fe5c17fd03f191af36d81e54401ff3f4172db54485adfecaeb66840",
+      "logical_name": "thin-fork-boundary-pmorg__policies__ownership-roots.json.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/thin-fork-boundary/pmorg__policies__ownership-roots.json.json",
+      "size_bytes": 475
+    },
+    {
+      "digest": "sha256:7a0444f387d2de0d59a167156da259c8974cddea05206e308d90e4d4e600b1ea",
+      "logical_name": "thin-fork-boundary-pmorg__policies__seam-allowlist.json.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/thin-fork-boundary/pmorg__policies__seam-allowlist.json.json",
+      "size_bytes": 474
+    },
+    {
+      "digest": "sha256:e72ad5bd78739d06ea10e0e7874b984cca3c6fc9267aa9e856caa2021a3cf300",
+      "logical_name": "thin-fork-boundary-pmorg__patch-ledger.json.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/thin-fork-boundary/pmorg__patch-ledger.json.json",
+      "size_bytes": 464
+    },
+    {
+      "digest": "sha256:e9bcbdc2462b05d6a478746a7517393cad30fb38393a6914a174c132c24663e9",
+      "logical_name": "candidate-73043ed74fddd4d0b46acff6372db986004bc279702393255c955196999c8b64-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-73043ed74fddd4d0b46acff6372db986004bc279702393255c955196999c8b64.json",
+      "size_bytes": 2980
+    },
+    {
+      "digest": "sha256:547430978d43f64e6b5588c28a27728ddca6051c437cdd0437fe4534ff239e9b",
+      "logical_name": "candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347.json",
+      "size_bytes": 4577
+    },
+    {
+      "digest": "sha256:7ef1acc639ff98f55c3c5029f6a74666231d0b9f0368edef35ecf96e9f1acc55",
+      "logical_name": "candidate-78bb0e78891d5abd1b98e53619be57636ea2fe9d5bf73b20ca78676a3ced157a-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-78bb0e78891d5abd1b98e53619be57636ea2fe9d5bf73b20ca78676a3ced157a.json",
+      "size_bytes": 2774
+    },
+    {
+      "digest": "sha256:17097ff02a8e28132745b961224487ae0e468412c3020f08239601ede58e0f29",
+      "logical_name": "candidate-0b85af3298350d095dc0de76439d003e9ee7e1a6f4b6319d7e65630888174a1e-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-0b85af3298350d095dc0de76439d003e9ee7e1a6f4b6319d7e65630888174a1e.json",
+      "size_bytes": 2718
+    },
+    {
+      "digest": "sha256:40bb5b8b3b1eba0ef7ce4398fbce23ac62765bdf15f9be9b1614dd43f519b263",
+      "logical_name": "candidate-148d95ecfa92b933203f1f6d8bfa8af50c6d4c6e79f48ef82ac2a39909147068-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-148d95ecfa92b933203f1f6d8bfa8af50c6d4c6e79f48ef82ac2a39909147068.json",
+      "size_bytes": 2704
+    },
+    {
+      "digest": "sha256:75de5b02c1f1743a6774a557837022b4a82f4c2d9186931de258573e99f9ba35",
+      "logical_name": "candidate-d50d1fc65237f8a9ec9c5a7f425f8103a3d3b01cf49c053e5e63d61404c343e5-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-d50d1fc65237f8a9ec9c5a7f425f8103a3d3b01cf49c053e5e63d61404c343e5.json",
+      "size_bytes": 2710
+    },
+    {
+      "digest": "sha256:adeeb1c63f147e7b0e6f04828c434267b6d2cdec30386674fb8b7fa289b7d790",
+      "logical_name": "candidate-22c0ae0197b5512f8a3061b0aab36083cff8dd9932572e8c1422c74a85608055-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-22c0ae0197b5512f8a3061b0aab36083cff8dd9932572e8c1422c74a85608055.json",
+      "size_bytes": 33003
+    },
+    {
+      "digest": "sha256:a728686248097d6d4871c5064d284edc37a9f1813c831187b47ab14959da0a0a",
+      "logical_name": "candidate-c65e23bd783c55738842b42812f9f87d7ef7ba3c1edf5451b27109a2366b5f57-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-c65e23bd783c55738842b42812f9f87d7ef7ba3c1edf5451b27109a2366b5f57.json",
+      "size_bytes": 3633
+    },
+    {
+      "digest": "sha256:99792a32e23c8fc4cd31bf54b0d32deff4a257a6eeb4cc9d0193f9de8073d26d",
+      "logical_name": "candidate-00f933cdc3ff29baae4dfa255d84ba5d28d493b98ef61086f0f0ff0dcc34b39c-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-00f933cdc3ff29baae4dfa255d84ba5d28d493b98ef61086f0f0ff0dcc34b39c.json",
+      "size_bytes": 8412
+    },
+    {
+      "digest": "sha256:5541c8f813801524158b07184cf6983439cebe7ba1423b73e03e0c1870a5b702",
+      "logical_name": "candidate-fdcdb203c80b9bc2999af204873136b6e28404e631bb29e005785b49aeca6b44-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-fdcdb203c80b9bc2999af204873136b6e28404e631bb29e005785b49aeca6b44.json",
+      "size_bytes": 3506
+    },
+    {
+      "digest": "sha256:8994433be87d2ce2e279089a339dc379084bc9fb5c2bf339a497df039c79a76e",
+      "logical_name": "candidate-02550ec9d9169ce504b81733b876d5a355ae18cbd5700953cfc1a4bf2a5189e8-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-02550ec9d9169ce504b81733b876d5a355ae18cbd5700953cfc1a4bf2a5189e8.json",
+      "size_bytes": 3345
+    },
+    {
+      "digest": "sha256:d7b4bc1ed2a71d5604becc2918e72e390bdc9cf1bba07ec37e6934ffb175a2f8",
+      "logical_name": "candidate-91ffff94fd60bf3c3a009f2cb8f5306c4894351b759047b73bd51791a1035252-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-91ffff94fd60bf3c3a009f2cb8f5306c4894351b759047b73bd51791a1035252.json",
+      "size_bytes": 11916
+    },
+    {
+      "digest": "sha256:0ee53cec9f3dc3bead4607be047d5885a2d9712c86b520a88299d6f70b255c62",
+      "logical_name": "candidate-56c74df42ed149cc16f6f86ab88ccce5d28fa3f51b20bff1b05b8440735a11e5-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-56c74df42ed149cc16f6f86ab88ccce5d28fa3f51b20bff1b05b8440735a11e5.json",
+      "size_bytes": 6202
+    },
+    {
+      "digest": "sha256:595d7840e1b2837508d7e8cb81b91b120e306c1b8f4dbb8596e31e070283c711",
+      "logical_name": "candidate-f2a9b939aa48c1cd2ad63b707b3184b3508af5bf528973f04219516da76ad0b2-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-f2a9b939aa48c1cd2ad63b707b3184b3508af5bf528973f04219516da76ad0b2.json",
+      "size_bytes": 4502
+    },
+    {
+      "digest": "sha256:42869c7bc6bd94df4b0568172091c6b1d0539eb9dd43a2b31439c29e58a010ea",
+      "logical_name": "candidate-f5aec425ceb05c18485a6d22f982e48195b12ee86ec5af36b85a2617f4fc4d1d-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-f5aec425ceb05c18485a6d22f982e48195b12ee86ec5af36b85a2617f4fc4d1d.json",
+      "size_bytes": 3927
+    },
+    {
+      "digest": "sha256:ba18c898b8c6648c44a4822a3364b6172823439cc9576a149a9d05a101e8121b",
+      "logical_name": "candidate-3bf05b61d97a019a150b1e07ad35808cfa8763de6687c7d83cfc5f1ac06e1b8b-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-3bf05b61d97a019a150b1e07ad35808cfa8763de6687c7d83cfc5f1ac06e1b8b.json",
+      "size_bytes": 3174
+    },
+    {
+      "digest": "sha256:7da6f491642df8d0ed8a8038ada4dd2e09cae330de8675280fc2845a3f9d63e4",
+      "logical_name": "candidate-7e8c6a0c119059324a15fd7a870d1cfc87ae79f2f61f0e7aaace7334dbfb7730-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-7e8c6a0c119059324a15fd7a870d1cfc87ae79f2f61f0e7aaace7334dbfb7730.json",
+      "size_bytes": 3165
+    },
+    {
+      "digest": "sha256:037bfba74d1e9c8b568ea5b55798e16ba6b6122367d2c5d83da8ee6dc0ec7c90",
+      "logical_name": "candidate-d7c1df3fd425908aba05f76750392fab6b933a12bfb347ef2b6fa316765f782e-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-d7c1df3fd425908aba05f76750392fab6b933a12bfb347ef2b6fa316765f782e.json",
+      "size_bytes": 4098
+    },
+    {
+      "digest": "sha256:046a9129d8847825998a50a7babc87828c248471e56e1efb720178c6a6cdeb1e",
+      "logical_name": "candidate-ca80178c07390260fb5766d65463b5f54e18e7991081624246b1bce957838bad-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ca80178c07390260fb5766d65463b5f54e18e7991081624246b1bce957838bad.json",
+      "size_bytes": 4554
+    },
+    {
+      "digest": "sha256:040da089a4bd06672e3b4cbf08d537eb333bdaaa8f59b4b2b00f2986b01e780f",
+      "logical_name": "candidate-5a48792b6658c2854eafee7f89d4b21a6b5b4c4f5f0d8fd28c98088cae1644b4-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-5a48792b6658c2854eafee7f89d4b21a6b5b4c4f5f0d8fd28c98088cae1644b4.json",
+      "size_bytes": 3863
+    },
+    {
+      "digest": "sha256:155708becbcefa926e125dc8a84ccd5b85f45607344e05960082a2f1776d11d6",
+      "logical_name": "candidate-95906d50d5d99535f9ede64d169226b2442be92d3d2012b21922ab6fcdfde520-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-95906d50d5d99535f9ede64d169226b2442be92d3d2012b21922ab6fcdfde520.json",
+      "size_bytes": 3642
+    },
+    {
+      "digest": "sha256:96223183b1d0bd9a9798bf0c808d58f2132bc606e2fd15950e8ac8e840f9f999",
+      "logical_name": "candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb.json",
+      "size_bytes": 3577
+    },
+    {
+      "digest": "sha256:dcd90a294caceed80438befc7e380652519aa5e3827ffca938e7be8b1bd7f447",
+      "logical_name": "candidate-5cb79b5e489e44279f0407eeda83a36df9c36cdb4cecefe6d9884ec431cbafe1-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-5cb79b5e489e44279f0407eeda83a36df9c36cdb4cecefe6d9884ec431cbafe1.json",
+      "size_bytes": 25184
+    },
+    {
+      "digest": "sha256:5bbc9b3b2d99df6cdb6e56ada934cadd90561335187a8b562215da5c08bf8412",
+      "logical_name": "candidate-9758f4ec645766bb13c0341898d87e368a5d9665e6cc9934cd855072870479ee-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-9758f4ec645766bb13c0341898d87e368a5d9665e6cc9934cd855072870479ee.json",
+      "size_bytes": 9371
+    },
+    {
+      "digest": "sha256:e9e806ff54fee0b8a8511266a953327252414aaabe760eefa7c39b8a14dd0529",
+      "logical_name": "candidate-e117b280e69fb690ae4f9bfcfa3fa66af95f4b4f73b216c20d429f77746ec9a3-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-e117b280e69fb690ae4f9bfcfa3fa66af95f4b4f73b216c20d429f77746ec9a3.json",
+      "size_bytes": 6435
+    },
+    {
+      "digest": "sha256:058b36e112947dfef3c14e43fffe056e9337537818344dad00b767ed83dbd069",
+      "logical_name": "candidate-1cc291258d0db68ebcb30ca60708f7dd9c3c276638d5c453caa22ec4b959f5cc-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-1cc291258d0db68ebcb30ca60708f7dd9c3c276638d5c453caa22ec4b959f5cc.json",
+      "size_bytes": 3542
+    },
+    {
+      "digest": "sha256:11ea78a08fe1c7e813d181700086c54258a16b481e8002c7ed3332d96986d654",
+      "logical_name": "candidate-f4584070828245bfe4226bd87e46fc79ee4c5be2c9e87659a6df8a37407b1eab-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-f4584070828245bfe4226bd87e46fc79ee4c5be2c9e87659a6df8a37407b1eab.json",
+      "size_bytes": 4735
+    },
+    {
+      "digest": "sha256:56c19d4aae7b3c9b3c7801c6d611ab98dbb250c2e38664f11aa28ef4d9434caf",
+      "logical_name": "candidate-338021c3bebe6a3378e7548d53a5337c2504608583f9d3f7c2ef6384a9da5f29-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-338021c3bebe6a3378e7548d53a5337c2504608583f9d3f7c2ef6384a9da5f29.json",
+      "size_bytes": 6745
+    },
+    {
+      "digest": "sha256:e23d533568e4b63b7375a4921c5af6a35979c3e9ab3f77d2f262cc8762f32d8b",
+      "logical_name": "candidate-88339514160437478ed663d57eeaa44c02922d39a2d40f0517b69831c632eed4-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-88339514160437478ed663d57eeaa44c02922d39a2d40f0517b69831c632eed4.json",
+      "size_bytes": 86007
+    },
+    {
+      "digest": "sha256:9ae329d9487b2e74e018c135836ef4818694930507c93c020d4988ebc67db8c6",
+      "logical_name": "candidate-ba7495c1e04ddc3cb47297c501dfc37f39bee409759dae0a2f2625e27ca6aa6f-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ba7495c1e04ddc3cb47297c501dfc37f39bee409759dae0a2f2625e27ca6aa6f.json",
+      "size_bytes": 4324
+    },
+    {
+      "digest": "sha256:47bab3d5ba8a1f233dac45eeab04a047d6a28b1e80893a5492ccdbb8c7b42d23",
+      "logical_name": "candidate-d482debf5a3dabdf6a76532c6c0843aff9a5483dc99b9628e34fb051fba47ae3-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-d482debf5a3dabdf6a76532c6c0843aff9a5483dc99b9628e34fb051fba47ae3.json",
+      "size_bytes": 2705
+    },
+    {
+      "digest": "sha256:1cf86278000beae53693be32ca5b64ab21b4a0a24f4c5fa9d2f40a620a374016",
+      "logical_name": "candidate-b1055f04ef3dab49121b77e718f5b09b43ba1cd8d13777a12044e8abe31070b6-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-b1055f04ef3dab49121b77e718f5b09b43ba1cd8d13777a12044e8abe31070b6.json",
+      "size_bytes": 3886
+    },
+    {
+      "digest": "sha256:17965766d49a7eea725283fd791a7b6166d06c9e57bac9d2d5ca1f67bcc207cb",
+      "logical_name": "candidate-66151716902f0e4bdd7c17e31ce061e42d74ac49260fbe1ecebd204baf7358d5-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-66151716902f0e4bdd7c17e31ce061e42d74ac49260fbe1ecebd204baf7358d5.json",
+      "size_bytes": 10264
+    },
+    {
+      "digest": "sha256:c1c0c9b39c13476339b420a0c5a71ee71d863692e4e875cc33c4cc99ae3c4ed9",
+      "logical_name": "candidate-1589a1250a94ed8afed4a33847b3e49aeff7e1a042728e902bab33cabb33d18d-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-1589a1250a94ed8afed4a33847b3e49aeff7e1a042728e902bab33cabb33d18d.json",
+      "size_bytes": 4142
+    },
+    {
+      "digest": "sha256:ea0311f6ec71b00a587ed57f7a1606682a84a3aba4479a44f306c735e87e96f7",
+      "logical_name": "candidate-e3bea413bc16bee291a69abd6c5d9cd47bd06f37461fd89b457c8b6ad3461105-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-e3bea413bc16bee291a69abd6c5d9cd47bd06f37461fd89b457c8b6ad3461105.json",
+      "size_bytes": 5908
+    },
+    {
+      "digest": "sha256:02e77ca6f83bf26b33639dbc8c18998a35c57eb8a816e16058eec406e118f66a",
+      "logical_name": "candidate-ca4f95a6ad091dd9b416fb31dead75284f80ed38b86c9bd06724b398bd475325-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ca4f95a6ad091dd9b416fb31dead75284f80ed38b86c9bd06724b398bd475325.json",
+      "size_bytes": 5007
+    },
+    {
+      "digest": "sha256:dea3caddfb316c4e15701a7bfdd45b3656e63283a3c289d3f2fe0ff18eb7bfb6",
+      "logical_name": "candidate-bb94d2e7d20e825a13d0f32b27d970c0a8553a6828165e61feabe350a2b234ee-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-bb94d2e7d20e825a13d0f32b27d970c0a8553a6828165e61feabe350a2b234ee.json",
+      "size_bytes": 2957
+    },
+    {
+      "digest": "sha256:0980f7c4cdc9b7c9fd95b0d3816c574faafddd9faa1389fa003c8d7cdf9a4e73",
+      "logical_name": "candidate-ea06eb08a9c021c1600b0b616612e03a5274658cbf90a67f54408ef09cf92ce6-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ea06eb08a9c021c1600b0b616612e03a5274658cbf90a67f54408ef09cf92ce6.json",
+      "size_bytes": 7149
+    },
+    {
+      "digest": "sha256:353151dc0b7a58e0cfec18fbbdf292575dff4b942ddc049eb701f14dbb51394a",
+      "logical_name": "candidate-b6854854565e3a9c2fa55db01ff317ece75096870e861679f5dfa3b970cbc63c-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-b6854854565e3a9c2fa55db01ff317ece75096870e861679f5dfa3b970cbc63c.json",
+      "size_bytes": 2709
+    },
+    {
+      "digest": "sha256:1a1949a6e6f95a9c1cdb91afedf0094fe860ce37b087a455ec56be1e5fe9d8fc",
+      "logical_name": "candidate-e92a40e72d7869b18cf7e307b6916733a205238f9deb40413bba571df0bdde58-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-e92a40e72d7869b18cf7e307b6916733a205238f9deb40413bba571df0bdde58.json",
+      "size_bytes": 5766
+    },
+    {
+      "digest": "sha256:484339e7e8c1f1d1fc47739d75b4adb663fbe20efe5e4f0fc9e65db86e2961c7",
+      "logical_name": "candidate-ad46b29e097bc96af1b629d7b6fa78322d1656dd8daa6d6462956d3a542ffbaa-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ad46b29e097bc96af1b629d7b6fa78322d1656dd8daa6d6462956d3a542ffbaa.json",
+      "size_bytes": 31434
+    },
+    {
+      "digest": "sha256:d858fa824dea805a3707bdf4af6400558efbad8c84723197f637b606f721f2a2",
+      "logical_name": "candidate-eb32706a85623be63a53ec4077b4b920477463c8de94adae37ec0e4068b14a83-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-eb32706a85623be63a53ec4077b4b920477463c8de94adae37ec0e4068b14a83.json",
+      "size_bytes": 8092
+    },
+    {
+      "digest": "sha256:4b1be9a3c7f75ed6913cbc105b8e853508ebc7c3fabc42a0acf23e2f331688f6",
+      "logical_name": "candidate-30b9ab6291ac4568945e5b7ffd8fb527336232985ee469d0c38cb7361842f22b-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-30b9ab6291ac4568945e5b7ffd8fb527336232985ee469d0c38cb7361842f22b.json",
+      "size_bytes": 11406
+    },
+    {
+      "digest": "sha256:2891fedc6f94ad0c957a1b1f2f2a81699d02e19bdb4c0b3d5dde90d91b511515",
+      "logical_name": "candidate-075921a4ca8b148bc3b3644d2407a96ebe8a478054125c17012b835304f261b9-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-075921a4ca8b148bc3b3644d2407a96ebe8a478054125c17012b835304f261b9.json",
+      "size_bytes": 11101
+    },
+    {
+      "digest": "sha256:3eab306add88ead1c241f71fe8a3508b6d35b03ec4af86132970257948251d4e",
+      "logical_name": "candidate-f60311fe0f84a6ecdf6817164b7ac97fea220d32f6ff0154eadc98269c2d161f-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-f60311fe0f84a6ecdf6817164b7ac97fea220d32f6ff0154eadc98269c2d161f.json",
+      "size_bytes": 11999
+    },
+    {
+      "digest": "sha256:5014a2c6bf9102124ca3186a3d9a8f61caed799ffccff637d0a05aa45cbb1109",
+      "logical_name": "candidate-9d25cae66af9d25f1af1d9fd78b343316aa6e48cfabadbe4cb04e261e7314b10-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-9d25cae66af9d25f1af1d9fd78b343316aa6e48cfabadbe4cb04e261e7314b10.json",
+      "size_bytes": 5817
+    },
+    {
+      "digest": "sha256:b458835d18dbe6f3610756eef33f28255e950833fd1aabb50ef0e9c670ee5e7f",
+      "logical_name": "candidate-94d65c1e58f0a5d5eb2a493a3c768e295c4b75084baa5f025b9a4b5adfb40b20-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-94d65c1e58f0a5d5eb2a493a3c768e295c4b75084baa5f025b9a4b5adfb40b20.json",
+      "size_bytes": 2973
+    },
+    {
+      "digest": "sha256:da15ed224e3a505068cb4cfdeeb67402a9fe4c8450f221f665fdfc1fe172963e",
+      "logical_name": "candidate-ce7201f7e60a8877929d4c1ab40328b69e253525f9132f7bfb2fb71aa135e526-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ce7201f7e60a8877929d4c1ab40328b69e253525f9132f7bfb2fb71aa135e526.json",
+      "size_bytes": 8530
+    },
+    {
+      "digest": "sha256:75d435d9649dfaea5441cb9467300a916e8f1edf1312dd03f25fa28855cfcbf4",
+      "logical_name": "candidate-0e1e4565ab032661d4463458985900522bae0ccd94af56e3d9e951178c6c643f-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-0e1e4565ab032661d4463458985900522bae0ccd94af56e3d9e951178c6c643f.json",
+      "size_bytes": 3285
+    },
+    {
+      "digest": "sha256:37b9e823f66ad8376cb663da3613003c32854454be3a709ab2f210a8de8c25cd",
+      "logical_name": "candidate-2f873dcc20cd88395cca37c25e7157415ccc833f6464cd9c9d4808dc6ec8d10a-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-2f873dcc20cd88395cca37c25e7157415ccc833f6464cd9c9d4808dc6ec8d10a.json",
+      "size_bytes": 12881
+    },
+    {
+      "digest": "sha256:3569650774cd0d5eb2957ed127efefd5136189556100b1de4ee872e27060f9da",
+      "logical_name": "candidate-cacb1eee7ed5e5ae69a4e1a3523631f5ad0d63877eaf05ebccc22759cb3e0e40-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-cacb1eee7ed5e5ae69a4e1a3523631f5ad0d63877eaf05ebccc22759cb3e0e40.json",
+      "size_bytes": 11522
+    },
+    {
+      "digest": "sha256:f186e6b9e9acd3c87e670c2091c1d876df3e73e51b26ed0a0596ca370ac2f08c",
+      "logical_name": "candidate-290eca82cc8edb1f3433f488dc3aff56f358c34247ae9b7c49961410f5caad65-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-290eca82cc8edb1f3433f488dc3aff56f358c34247ae9b7c49961410f5caad65.json",
+      "size_bytes": 7333
+    },
+    {
+      "digest": "sha256:85112a623280626e14253cc3417f1ae06bf5bbc0d9cd26fb7070a4b397955db9",
+      "logical_name": "candidate-1b0ec9b883db9d3f357a9b1a006fd15662b891750c070af6e835e62b096d9dee-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-1b0ec9b883db9d3f357a9b1a006fd15662b891750c070af6e835e62b096d9dee.json",
+      "size_bytes": 8930
+    },
+    {
+      "digest": "sha256:1ccb69d6cf4af9a33185faaedc8d0e0f9146bfc34e284b9a233781fc1b58263f",
+      "logical_name": "candidate-e6377f4029884fafa9f21283ff8e992c874a3f66110d6d69d7b4c22317feb392-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-e6377f4029884fafa9f21283ff8e992c874a3f66110d6d69d7b4c22317feb392.json",
+      "size_bytes": 5121
+    },
+    {
+      "digest": "sha256:b797649b82be7bb567ce389a554352f0d43be2cca1df09280b132cfe9ce7483e",
+      "logical_name": "candidate-026616145a57283b6916b0c53701c8ad925d23097af904eab544b6708f5d0cb5-thin-fork-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-026616145a57283b6916b0c53701c8ad925d23097af904eab544b6708f5d0cb5.json",
+      "size_bytes": 6947
+    }
+  ],
+  "entry_count": 66,
+  "schema_version": "pmorg.evidence-bundle-index/v1",
+  "subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e"
+}
