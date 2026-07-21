@@ -882,6 +882,29 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualification_test_vector_extensions.py --check"
       ]
+    },
+    {
+      "id": "PL-031",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/thin_fork_interface_fit.py",
+        "backend/pmorg/tests/test_thin_fork_interface_fit.py",
+        "pmorg/capabilities/thin-fork-interface-fit-evidence-v1.json",
+        "pmorg/capabilities/thin-fork-interface-fit-evidence-v1.schema.json",
+        "pmorg/scripts/build_thin_fork_interface_fit.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-PATCH-001",
+        "PLT-004"
+      ],
+      "reason": "Screen the complete Thin Fork Boundary candidate denominator byte-closed: bind all 55 discovered candidate manifests and 5,155 projected blob memberships to the pinned Onyx tree, the qualification interface, the deliberately unactivated Q4a vector extension and the predecessor oracle state; preserve lexical observations only and emit no oracle activation, CandidateQualificationReport, fit verdict, disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=428b95e66a9f7efdddddadb698df0f0c3c7885c1 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_thin_fork_interface_fit -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_thin_fork_interface_fit.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

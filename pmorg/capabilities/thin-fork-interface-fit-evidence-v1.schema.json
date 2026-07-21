@@ -1,0 +1,457 @@
+{
+  "$id": "urn:pmorg:thin-fork-interface-fit-evidence:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_oracle_state": {
+      "additionalProperties": false,
+      "properties": {
+        "adapter": {
+          "type": "null"
+        },
+        "candidate_test_vector": {
+          "type": "null"
+        },
+        "oracle_status": {
+          "const": "unexecutable"
+        }
+      },
+      "required": [
+        "adapter",
+        "candidate_test_vector",
+        "oracle_status"
+      ],
+      "type": "object"
+    },
+    "blob_set_membership_count": {
+      "const": 5155
+    },
+    "blob_set_scan_count": {
+      "const": 55
+    },
+    "blob_set_scans": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blob_count": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "blob_index_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "blob_set_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "candidate_group": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "coverage": {
+            "additionalProperties": false,
+            "properties": {
+              "expected": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "scanned": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "unreadable": {
+                "const": 0
+              },
+              "unverified": {
+                "const": 0
+              }
+            },
+            "required": [
+              "expected",
+              "scanned",
+              "unreadable",
+              "unverified"
+            ],
+            "type": "object"
+          },
+          "scan_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "signal_paths": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "categories": {
+                  "items": {
+                    "enum": [
+                      "historical_evidence",
+                      "ownership_routing",
+                      "seam_governance",
+                      "trust_boundary",
+                      "upstream_governance"
+                    ]
+                  },
+                  "minItems": 1,
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "git_object_id": {
+                  "pattern": "^[0-9a-f]{40}$",
+                  "type": "string"
+                },
+                "path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "sha256": {
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "categories",
+                "git_object_id",
+                "path",
+                "sha256"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "source_surface": {
+            "enum": [
+              "ce",
+              "ee"
+            ]
+          }
+        },
+        "required": [
+          "blob_count",
+          "blob_index_digest",
+          "blob_set_digest",
+          "candidate_group",
+          "coverage",
+          "scan_digest",
+          "signal_paths",
+          "source_surface"
+        ],
+        "type": "object"
+      },
+      "maxItems": 55,
+      "minItems": 55,
+      "type": "array"
+    },
+    "candidate_blob_membership_count": {
+      "const": 5155
+    },
+    "candidate_count": {
+      "const": 55
+    },
+    "candidate_inputs": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "candidate_search_evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "candidates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blob_count": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "blob_set_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "candidate_group": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "candidate_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "candidate_manifest_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "plausibility_state": {
+            "enum": [
+              "lexical_signals_present_no_fit_inference",
+              "no_lexical_signal_present_no_fit_inference"
+            ]
+          },
+          "scan_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "signal_path_count": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "blob_count",
+          "blob_set_digest",
+          "candidate_group",
+          "candidate_id",
+          "candidate_manifest_digest",
+          "plausibility_state",
+          "scan_digest",
+          "signal_path_count"
+        ],
+        "type": "object"
+      },
+      "maxItems": 55,
+      "minItems": 55,
+      "type": "array"
+    },
+    "capability_id": {
+      "const": "thin-fork-boundary"
+    },
+    "claim_boundary": {
+      "const": "exhaustive_plausibility_screen_only_no_qualification_or_disposition"
+    },
+    "coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "expected": {
+          "const": 5155
+        },
+        "scanned": {
+          "const": 5155
+        },
+        "unreadable": {
+          "const": 0
+        },
+        "unverified": {
+          "const": 0
+        }
+      },
+      "required": [
+        "expected",
+        "scanned",
+        "unreadable",
+        "unverified"
+      ],
+      "type": "object"
+    },
+    "derivation_artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "evidence_version": {
+      "const": "1.0.0"
+    },
+    "oracle_activation": {
+      "const": false
+    },
+    "oracle_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "qualification_interface": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "pmorg.thin-fork-interface-fit-evidence/v1"
+    },
+    "selection_policy": {
+      "const": "all_discovered_thin_fork_boundary_candidate_manifests"
+    },
+    "source_commit": {
+      "const": "1da679cefc96165c6b9b64c3bc769584b88f88c2"
+    },
+    "source_repository": {
+      "const": "https://github.com/onyx-dot-app/onyx.git"
+    },
+    "source_tree_id": {
+      "const": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58"
+    },
+    "test_id": {
+      "const": "A-PATCH-001"
+    },
+    "test_vector": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "test_vector_extension": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_version",
+    "capability_id",
+    "test_id",
+    "source_repository",
+    "source_commit",
+    "source_tree_id",
+    "candidate_inputs",
+    "candidate_search_evidence",
+    "qualification_interface",
+    "test_vector_extension",
+    "test_vector",
+    "oracle_policy",
+    "derivation_artifacts",
+    "selection_policy",
+    "candidate_count",
+    "candidate_blob_membership_count",
+    "blob_set_scan_count",
+    "blob_set_membership_count",
+    "coverage",
+    "blob_set_scans",
+    "candidates",
+    "active_oracle_state",
+    "claim_boundary",
+    "oracle_activation"
+  ],
+  "title": "PMORG exhaustive Thin Fork interface-fit screening evidence",
+  "type": "object"
+}
