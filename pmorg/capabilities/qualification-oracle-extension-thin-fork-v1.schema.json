@@ -1,0 +1,324 @@
+{
+  "$id": "urn:pmorg:qualification-oracle-extension:thin-fork:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation_status": {
+      "const": "candidate_executor_activated_in_extension"
+    },
+    "adapter": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "base_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path"
+        ],
+        "type": "object"
+      },
+      "maxItems": 7,
+      "minItems": 7,
+      "type": "array"
+    },
+    "candidate_test_vector": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "claim_boundary": {
+      "const": "executor_activation_only_no_candidate_reports_or_aggregate_verdict"
+    },
+    "derivation_artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "media_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "media_type",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "extension_id": {
+      "const": "thin-fork-boundary-A-PATCH-001-oracle-v1"
+    },
+    "immutable_predecessor_state": {
+      "additionalProperties": false,
+      "properties": {
+        "adapter": {
+          "type": "null"
+        },
+        "candidate_test_vector": {
+          "type": "null"
+        },
+        "oracle_status": {
+          "const": "unexecutable"
+        }
+      },
+      "required": [
+        "adapter",
+        "candidate_test_vector",
+        "oracle_status"
+      ],
+      "type": "object"
+    },
+    "oracle": {
+      "additionalProperties": false,
+      "properties": {
+        "adapter_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "candidate_influence_status": {
+          "const": "live_mutation_probe_required"
+        },
+        "candidate_test_vector_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "capability_id": {
+          "const": "thin-fork-boundary"
+        },
+        "oracle_id": {
+          "const": "qualification-oracle:thin-fork-boundary:A-PATCH-001:v1"
+        },
+        "oracle_status": {
+          "const": "executable"
+        },
+        "test_id": {
+          "const": "A-PATCH-001"
+        }
+      },
+      "required": [
+        "oracle_id",
+        "capability_id",
+        "test_id",
+        "oracle_status",
+        "candidate_influence_status",
+        "adapter_digest",
+        "candidate_test_vector_digest"
+      ],
+      "type": "object"
+    },
+    "qualification_interface": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "result_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "runtime_artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "media_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "media_type",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "pmorg.qualification-oracle-extension/v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "extension_id",
+    "activation_status",
+    "claim_boundary",
+    "base_policy",
+    "immutable_predecessor_state",
+    "qualification_interface",
+    "candidate_test_vector",
+    "adapter",
+    "result_schema",
+    "runtime_artifacts",
+    "bindings",
+    "oracle",
+    "derivation_artifacts"
+  ],
+  "title": "PMORG Thin Fork candidate-aware oracle extension",
+  "type": "object"
+}
