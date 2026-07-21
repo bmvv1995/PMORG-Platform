@@ -1,0 +1,2543 @@
+{
+  "candidate_inputs": {
+    "digest": "sha256:cfd9b34150e522dd261517252530983c35bcd25387c9b4fc4229799ffec21327",
+    "logical_name": "candidate-inputs-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/candidate-inputs-v1.json",
+    "size_bytes": 3675788
+  },
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "claim_boundary": "governed_fork_candidate_qualification_only_no_disposition",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:8a3e0ed7d15e02425e1b8c73b3e3194c5d713bb9b9e1b2943bab059516cd9a7d",
+      "logical_name": "governed_fork_candidate_qualification_reports.py",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/governed_fork_candidate_qualification_reports.py",
+      "size_bytes": 33273
+    },
+    {
+      "digest": "sha256:3e5c4a6da6a022017129481113fe5e390f3ceb6c212807edd70734b50f3cf393",
+      "logical_name": "build_governed_fork_candidate_qualification_reports.py",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_governed_fork_candidate_qualification_reports.py",
+      "size_bytes": 768
+    }
+  ],
+  "duplicate_test_count": 0,
+  "entries": [
+    {
+      "candidate_group": ".devcontainer",
+      "candidate_id": "candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804",
+      "candidate_manifest_digest": "sha256:b1309dd7119daa6fa0a19c3801c28a24ef76bc9bb2f706f38eeadca23cc720b9",
+      "report": {
+        "digest": "sha256:fc714a279dcdda5dc160b3c182f23560510b97bc4084f2f7c95984eeceec96fd",
+        "logical_name": "candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804.json",
+        "size_bytes": 5016
+      },
+      "results": [
+        {
+          "digest": "sha256:f70fc12687ac0adcf0ca1742e5fb4911c83c6482e8328b8db023f51d4095a3eb",
+          "logical_name": "candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:2041f910755019b5d53999997fa2817a40021d59f2f1ba45ba50af10bf57b4e5",
+          "logical_name": "candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:598f1a24ae56322fcdc5f4feb4658f6c714b6efedf4f8fc500c02bdb1e766327",
+          "logical_name": "candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-0ea2228d7e27c8a511858da0b77be466897f6c992391669a96140b087cdbf804/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/external_permissions",
+      "candidate_id": "candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941",
+      "candidate_manifest_digest": "sha256:243393daa9edf0343efe186c130ce13f41a75b439f0d98204212ef62f66222e1",
+      "report": {
+        "digest": "sha256:2acb6ad6f7eb7f1e74824e1263c890e3ae61290c57fa69e0f98bc2028e996d76",
+        "logical_name": "candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941.json",
+        "size_bytes": 7157
+      },
+      "results": [
+        {
+          "digest": "sha256:90d6e43bc092ff9578ef1584ab919ad2c8fc11f671735cc09065103a150e6df9",
+          "logical_name": "candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:5112e1e33f64816a011c76ab0e7955e722e4a43eaa3cd3c6d752f8b0bf22aee1",
+          "logical_name": "candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:38d56cffa6214b61ee24003886c08e2234a3ccd5e2a474090f20e1c0e37f31db",
+          "logical_name": "candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-10ac90a8b053ca5f0dff8af2985cc89b4e217bf774e50ccdebf73af698076941/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend",
+      "candidate_id": "candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0",
+      "candidate_manifest_digest": "sha256:bd51f93b2ba839ec9631930490992da6a100263ebff13bd826516d717e6b50ca",
+      "report": {
+        "digest": "sha256:0d02b673de8b2007cc5767ad5772629636cc72db4544253f52710b6a8167c154",
+        "logical_name": "candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0.json",
+        "size_bytes": 4995
+      },
+      "results": [
+        {
+          "digest": "sha256:06cfbe19d490b9e4868f9cc15d182ddcdba47beb8b3462027160eceee30880e5",
+          "logical_name": "candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:cf7a3abf78a70a10047f7cedaf703f075161b5e82a633e8d1ab6e80388c69111",
+          "logical_name": "candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:78214b7a8a0ebdf1a454317d5025258cfc50a92635ff946aa4544acbc5c1c1f3",
+          "logical_name": "candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-10d595223614543bc3fa518db14ad88b65a93c7ba8da8b2ad43ad5d7ebba48b0/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/sections",
+      "candidate_id": "candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8",
+      "candidate_manifest_digest": "sha256:4c8399ad3f20df247d6fc5dd01a2fde78f3238604860721d0848b22353148547",
+      "report": {
+        "digest": "sha256:c1688b1b86756da404cc8bbb999d970bed0bf33c8abdbb619d91bfb8c2686649",
+        "logical_name": "candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8.json",
+        "size_bytes": 13558
+      },
+      "results": [
+        {
+          "digest": "sha256:e422e76a695e3a91d372771cae2b771a50afa0874627b6afd5fac57642ae6744",
+          "logical_name": "candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:3c001cd21b0589582f81c512b258b2460d762eb2782478896a9f479331365bf2",
+          "logical_name": "candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:9f11f920820fd7232649bcb0c56d96998f356360d63c3a1bea0795f07f4a5f8c",
+          "logical_name": "candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-12670164fe5dcf9ff1137cec8627413d9fca03fd05f80ca2b4e0c1d124e2f1a8/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "deployment/terraform",
+      "candidate_id": "candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed",
+      "candidate_manifest_digest": "sha256:2784c1cb4fe9a08b99081a5d4d2c01a8e22ff79f0df9fff8ffb9285b398078a3",
+      "report": {
+        "digest": "sha256:0bb97888a3a50032c285f076e24992785c90dfd406ee07ded788c68d1b507939",
+        "logical_name": "candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed.json",
+        "size_bytes": 6178
+      },
+      "results": [
+        {
+          "digest": "sha256:ed3e71e045bfb1c65fac1a94afc3dcad78259f2f67f121c7ecfd9f9254d9687a",
+          "logical_name": "candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:e3f093b1888786f85af7c910811c7d05c289fc42ae41d6855712bccc39f2b9fa",
+          "logical_name": "candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:13dc39790f41af50d00e1b7970045e6ec8e4112689905d15d08883e077e3a5bf",
+          "logical_name": "candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-1272dada9241378e9d3365092a80a01a98a604b77c1309635eacf5b2453f57ed/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "mobile",
+      "candidate_id": "candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3",
+      "candidate_manifest_digest": "sha256:5797c57366f4ca9761bf4022d0636602148104fdfa66d4f5dea116afff4af56f",
+      "report": {
+        "digest": "sha256:a1696ce982f484536db3615931894c7dfde073926c6571636736ff79721de67e",
+        "logical_name": "candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3.json",
+        "size_bytes": 5325
+      },
+      "results": [
+        {
+          "digest": "sha256:d0eed35af1a71b6099e97a8e3a0b1e104d1c5561c0f7f65720c02965de957c46",
+          "logical_name": "candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:32b58aec13eaf8d33acea545de9467ae0ed739e8df2783fa13d3b35f503b7394",
+          "logical_name": "candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:38f3183e683123584a893ac7048e0080f490017a678efcf81a1c59fb6399fc96",
+          "logical_name": "candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-18001418143249552715c8532e8c20266cf7366879c35a7a38d46f06e76399f3/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/ee",
+      "candidate_id": "candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85",
+      "candidate_manifest_digest": "sha256:c8f1e58ffd3533749b50788093a88a9de5524398185bd3a9d601eecf3df0ba6c",
+      "report": {
+        "digest": "sha256:af894972051b22bcf14071041d3c92c22ce33e1af5de1b0db88037447c65d009",
+        "logical_name": "candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85.json",
+        "size_bytes": 7154
+      },
+      "results": [
+        {
+          "digest": "sha256:568c3f9a111a758bb340bdd1a5c48f109236cefec56976c9abe6df3d3779f3da",
+          "logical_name": "candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:a0355e3e12fcd0ceefc74c1530b771bd1bf9d332e711a65b54174bdabb92ea6f",
+          "logical_name": "candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:0c4812eea7120916f97984c815b0ac5b84b62d14a5602397891707c5a33819c5",
+          "logical_name": "candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-1a4725b474b8e88c873920a5c12ff493e47eec5f105b79bfc6b6644ee4342a85/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/db",
+      "candidate_id": "candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd",
+      "candidate_manifest_digest": "sha256:aa65c7954b6ac2a85c178906acc622b97b63854bbd05b3ef5e12ef32157bb74d",
+      "report": {
+        "digest": "sha256:d9cb0ad846c657a3332c89ac700727f464a4fc475f83408281bec5eeef79202a",
+        "logical_name": "candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd.json",
+        "size_bytes": 8238
+      },
+      "results": [
+        {
+          "digest": "sha256:0aa2404ac022556a540b726c42bc1e76925df94e9f1ae6e02cdd2e78046fb68e",
+          "logical_name": "candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:c36ea38c04772443456ed62c4f34720fb1ee04e2b5dd1027a7ab5f9bbc129487",
+          "logical_name": "candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:1b9e82fb4e749aea54e2dce6d09ef90cc19cd5b4972542090cd14fa8dc991368",
+          "logical_name": "candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-1faad2822e0811029feb6b3a3243f8a207b1639134253edcdd82d52e6ad3d0bd/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/connectors",
+      "candidate_id": "candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612",
+      "candidate_manifest_digest": "sha256:d72001d1ddba668ae21a95aecaf0cdfc58f21bdd0e88aa06954b353153958624",
+      "report": {
+        "digest": "sha256:10e82129923b9a405d5226e3be3f07abbb13475355f4bb80f4b960c55a874601",
+        "logical_name": "candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612.json",
+        "size_bytes": 13952
+      },
+      "results": [
+        {
+          "digest": "sha256:65521cf7cd9376c6f7ed7786ea4401f3cda13b4da86669dae380492d44ba5d4c",
+          "logical_name": "candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:80ea0cee45fcb41646026553d775f5fba5cba4434bf86b1a794051c3f2d32830",
+          "logical_name": "candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:e69bd84aa8dab0350d50e191d349bb59ce0ab08c28d516d73d4ed219ead5d891",
+          "logical_name": "candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-2c6b97c5144026dfa3bcdfaafb54043e99e5fa4872c8aad8fa018d7dc6626612/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/kg",
+      "candidate_id": "candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b",
+      "candidate_manifest_digest": "sha256:0535d887dc7d672b910ce02f0ada3256268b32fbade14f250b6c6c6de7b4c1e5",
+      "report": {
+        "digest": "sha256:1133d60984041d9a51be0ba02c37806930f10275a67837e528b21fadd0d61fe2",
+        "logical_name": "candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b.json",
+        "size_bytes": 5373
+      },
+      "results": [
+        {
+          "digest": "sha256:929755f7cdd220b7d6e9fc522e44bec43227099dffb7eadf3569fc4d36a3271b",
+          "logical_name": "candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:782397d19d124d8d0d27c60f167aa81cc828bf881e03af6846d779f809759feb",
+          "logical_name": "candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:bb8248f472ca5089aadb85a58c348975203ca66c5b760bcc4a8891a2938703d8",
+          "logical_name": "candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-2de114f28aa7063f1d84b23e596fc71fdce875565902d9445058fc57b127a63b/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/craft",
+      "candidate_id": "candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4",
+      "candidate_manifest_digest": "sha256:e1b62fc932e0dd131d9c777b8835a9b63d6341c3894e3728852611a500b3cd9d",
+      "report": {
+        "digest": "sha256:77e7e3237b49fe8ad7887c113248851d78d3cdd2e5bd94b7f30408a4071d56e6",
+        "logical_name": "candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4.json",
+        "size_bytes": 14035
+      },
+      "results": [
+        {
+          "digest": "sha256:9db55c3f30431a3cf2d9825b9af661a83c43930b1bcb4c1c6228435bf5e85afc",
+          "logical_name": "candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:60dddb744d65ae1c03c2b3a489da8c67938e9c82a2faedb945e5f6512e0fe492",
+          "logical_name": "candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:b5ac0e28de70e00fce51ce925c72fe7c7464d68f3a9c1e098a672dc7e2ddb900",
+          "logical_name": "candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-2f0616ba9a0506d83d67dfbe41e862c7025ed31e275abd199fc492e11d83a6e4/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "LICENSE",
+      "candidate_id": "candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b",
+      "candidate_manifest_digest": "sha256:d9262e941a800967aebd281b58149e5f96a48994b1b47beb21580c5a23876765",
+      "report": {
+        "digest": "sha256:d761936d5960acac586393d8850b85001850a6c89a4ca196a776ed23a4ce7675",
+        "logical_name": "candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b.json",
+        "size_bytes": 4738
+      },
+      "results": [
+        {
+          "digest": "sha256:fd6b6da9def2d61826dd224718a62a41147ccd7dfdf12bc22119bf0ae67995a7",
+          "logical_name": "candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:cb56a18e057178f7020738c6ecbb0a05ec2fe2d3398dfe9b64247ef6487b7e3b",
+          "logical_name": "candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:06e9caac5fc94172d39879b2be0880ae4936e53250016e1815c0fccc74b2c2a6",
+          "logical_name": "candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-3129b3663128f2a48d7d357bf3e5b667026b1c09b958235160dfd01092c3339b/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "contributor_ip_assignment",
+      "candidate_id": "candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65",
+      "candidate_manifest_digest": "sha256:329d0fd62dddf401f1fe122da6ee1d1bb1b273ad9108188f75183f177c3b426a",
+      "report": {
+        "digest": "sha256:e31bbe37f3e95038c1b5d70cb241312477a27dddd9658dd1545396a29d703d66",
+        "logical_name": "candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65.json",
+        "size_bytes": 4876
+      },
+      "results": [
+        {
+          "digest": "sha256:56e950cb05c93569909bb64e9cd17e269238580fa5447a2496c6401859a1ae0c",
+          "logical_name": "candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:270f0a172866ac12d21e6118167a0c2798a713a4f4a4605e12dda9c3518ece22",
+          "logical_name": "candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:c85e32e1aecf8928ee930fff637aae3894f553a11cf04b9f60ae58dbdde8ab03",
+          "logical_name": "candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-32bf7ce6ce39fa2d25d6685b8f19c849398ee7a674b6ba456ad263e272647d65/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/prompts",
+      "candidate_id": "candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a",
+      "candidate_manifest_digest": "sha256:8f8026b74227e1930ff178252df1d088bfd8fe4104331f7f8da45339020cbaa0",
+      "report": {
+        "digest": "sha256:0595f9860607529aa3efb9cd3f929adaff378e4f7258c5ded5c1d8785ec56006",
+        "logical_name": "candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a.json",
+        "size_bytes": 5835
+      },
+      "results": [
+        {
+          "digest": "sha256:df768af355bd63cef8f38848ed90a21ab72321b5d88d24cb6b4fe17131efe885",
+          "logical_name": "candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:8f9100167c72dec2af8b71627c72b4cefbaea5073e8f3169ad5403eae1e06ad2",
+          "logical_name": "candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:626544cb083f27c01ff5e4fb9a6e7d8a3e05fdd530eca34ccec4d36288205056",
+          "logical_name": "candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-32e0c284d54a1eb05dea4c2475c3aa61bfed2ed660591b892c94ff3c72e4119a/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/alembic",
+      "candidate_id": "candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b",
+      "candidate_manifest_digest": "sha256:d9b18f53f8734c76a4f84c7c7512a56c87e529a14e69859a2134dc36f5421825",
+      "report": {
+        "digest": "sha256:9826a54447bd2feaf5b16cfb261cb584d02f13b8fbedd75b2ab5a1655c29c20c",
+        "logical_name": "candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b.json",
+        "size_bytes": 35039
+      },
+      "results": [
+        {
+          "digest": "sha256:549271cef375e8b1447aa3c8c473f0c451400be96d7851e123fb833afd52112c",
+          "logical_name": "candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:10c1c05c41bfcf40b5fbe376d22db0747e4d73f51608d4bb5557677c1cd0c87b",
+          "logical_name": "candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:ffead69e13f6b18cfa2b38be3ba80f60b0c156ae99f54abac2f76612d641d7b2",
+          "logical_name": "candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-3d544ecae3830bafc88a49eae729295728613208a832ea9a807f2ee58e0c9d4b/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "deployment/docker_compose",
+      "candidate_id": "candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1",
+      "candidate_manifest_digest": "sha256:e934be41bdebc7ebd6916c002d379fd9be09fb523a49700f11bfdbe11c160161",
+      "report": {
+        "digest": "sha256:3919a02bc16e962c5320d5b945f5ee910a49b2e64b88e52408fb047fdc94ba7a",
+        "logical_name": "candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1.json",
+        "size_bytes": 5922
+      },
+      "results": [
+        {
+          "digest": "sha256:b2194e96472c6be2e79b88456e91aace590eefc3853a882acb8d5f047efd30b6",
+          "logical_name": "candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:e2d89bed7ccde8d49e0e794388b0310a8a83879f6ebe0f873502a7042e101531",
+          "logical_name": "candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:6dabca93e62a92590b9a323d65fd079d0d18ae6c6119d9a667eab63f4bb31173",
+          "logical_name": "candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-59eaefe5db8c9977906cc2d784817d6d146ce1bbdbe9e28c64fd02d920e865c1/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/document_index",
+      "candidate_id": "candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1",
+      "candidate_manifest_digest": "sha256:c017c6d9ad60c672a72c594a811f0e9c87d3d30f38caf113566b123ba6dadece",
+      "report": {
+        "digest": "sha256:bb974d80ed6409bd65084baade3975fad03d13ae451a06317c56b2cef7f4f881",
+        "logical_name": "candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1.json",
+        "size_bytes": 6538
+      },
+      "results": [
+        {
+          "digest": "sha256:4bbab47f819c36141f3fe1f5c7fa6e505314163a7466348761412a0394144fc6",
+          "logical_name": "candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:7ad04d75e4812cf1d9ff87c41c0874671fd986951fb6afaa31af34dfaf2511e8",
+          "logical_name": "candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:e756031b8185221a2cf03c6600f664dbf5ba8b75fc2452a3afc58ca66a40a1d3",
+          "logical_name": "candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-5b8bc77757ecf8b5c07e157803cd696dc9e9651e73ba42e1feb87b576b960fa1/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/components",
+      "candidate_id": "candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac",
+      "candidate_manifest_digest": "sha256:149d1f7b9a7b78cbd23522fb8bbcbb0233fece24bb63346d3cee2f41f54f8d90",
+      "report": {
+        "digest": "sha256:30b9faa237904e583927d9726a00320942e25bfec4fd813bb2d0e4a2146f0ed3",
+        "logical_name": "candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac.json",
+        "size_bytes": 10453
+      },
+      "results": [
+        {
+          "digest": "sha256:73f1daae881f5b67637469c999ecbeaeb6af7391013384792583a7a490494bf9",
+          "logical_name": "candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:2a75f51aa249f3d623307892b34b61af085a209d1a45dfac05e035608f2ade0f",
+          "logical_name": "candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:25490e97009272507a32c1c0262c5b3b233f5c064a5d41055f4c72c215e00f48",
+          "logical_name": "candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-61b442f7264ee2f271ae8d18f728848c8de5bf1816bf8af558419086ebbe18ac/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "deployment/helm",
+      "candidate_id": "candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36",
+      "candidate_manifest_digest": "sha256:e85a20c5def08f0af053169fead8fc23c7681c5fd18185c842b5b5dc1f532fbe",
+      "report": {
+        "digest": "sha256:4d09e5ab24f810ead7585e076c1599ddc4514600f4c6fa2837a11462e16e3778",
+        "logical_name": "candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36.json",
+        "size_bytes": 12300
+      },
+      "results": [
+        {
+          "digest": "sha256:c72e932a952ae4a99beaa3db8908db1fb8944f6c1eb68d581170a28e6f31a9b7",
+          "logical_name": "candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:1fda43f73c4e98520630b4d364fbf44771bb7fda8dd4466c72d75c865f1b0388",
+          "logical_name": "candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:538093b92de41319c45c015e0b317a49934215b1818950489f7ba7b16751529d",
+          "logical_name": "candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-61fb180a82f1cb00b6f0cdd7ce8dc603d22c25ba4e1a95548b74b9739bd50c36/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/ee",
+      "candidate_id": "candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217",
+      "candidate_manifest_digest": "sha256:14b3b37b75fd168b71cbd1880130ded52d2dd889541d72f29a65eaa9586eecb3",
+      "report": {
+        "digest": "sha256:549a03955e85c21abaadd61a4f976fe102374ec08346577213dbf48e4a8511b4",
+        "logical_name": "candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217.json",
+        "size_bytes": 5400
+      },
+      "results": [
+        {
+          "digest": "sha256:f9a2acd57d3003a7128dd5f87a9aeb854e1edc58846ed16e93cdf97185883aaa",
+          "logical_name": "candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:018f0a3d592f85a30166cf61161467d27b0febaab4ca747501b9bfeda5bb199d",
+          "logical_name": "candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:7ba423e80967a249a1a7b3947ad003a43aa1448538a363b5415ef63fe722ca3f",
+          "logical_name": "candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-682cfdfa68bce70c0338ce1d47b557dc2a435fa22dc753f74099868f567ab217/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/onyxbot",
+      "candidate_id": "candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63",
+      "candidate_manifest_digest": "sha256:f6597a7e6f61ed0b85cfebbfb59dd42d8fd270603bbf6b651a844332843b5a6a",
+      "report": {
+        "digest": "sha256:96c19fae6ebafb34cc9e3715bd3b6d57e750e91bf672e6bbb6d588023201eb99",
+        "logical_name": "candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63.json",
+        "size_bytes": 5899
+      },
+      "results": [
+        {
+          "digest": "sha256:2726aec8791a08ab5047371117770f98bca3a40807726aea01c9ae5d9953e042",
+          "logical_name": "candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:afb163b18cc6f9b62efdd44a9568e700e8f4447a4871f8b020919c9b92238516",
+          "logical_name": "candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:a1654cece6d1ba52e759a05f4c25c96caabfaa94a19e2d590faf2de216c6cac2",
+          "logical_name": "candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-693b7f10e2873d2fe43cce63dfa29df2b1cb1575e17e234e7a37d4749a81fc63/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/file_store",
+      "candidate_id": "candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61",
+      "candidate_manifest_digest": "sha256:253867f6c5c531f6e83b2dc917631e4167a4aa2d04332124b4374a598244e1c4",
+      "report": {
+        "digest": "sha256:afd4df494381c8704ab05808a817eccb3427a85c1c9b45ab9ed5de12eafa109f",
+        "logical_name": "candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61.json",
+        "size_bytes": 5201
+      },
+      "results": [
+        {
+          "digest": "sha256:cc1217250c7f36d6cb5d939dbbc4d70ad2da20a7bd02aa48b7a47cb3432cacfd",
+          "logical_name": "candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:dddb7b4a3faabc774bc41adbc3f81676a12ab7ebed1881e8305c4a02d66cf43a",
+          "logical_name": "candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:98224b2bc6ce98b1b4c06ec4b860f88d789febf49777e70cc65cb9cdbf285573",
+          "logical_name": "candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-6e22de7ed2019da8f5e48643465a9098aced68ee91727e1ae1cd4e076a57df61/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/db",
+      "candidate_id": "candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff",
+      "candidate_manifest_digest": "sha256:ad9508458c9c2fde1c9e9532b2578eb74593d4ed55428141bd8da9e653234466",
+      "report": {
+        "digest": "sha256:7a00f8f11826585df1baef71f587450b1ff5dcd32c897719788a5eaeeea88340",
+        "logical_name": "candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff.json",
+        "size_bytes": 5477
+      },
+      "results": [
+        {
+          "digest": "sha256:e61dc550307b58309db7d730f85075ed8293c85828588eb18a6512889bc71771",
+          "logical_name": "candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:4b03cfbcd3cb194e797ea17007b6caa2d75b6c9768965a5c5acbeae8f7442c8a",
+          "logical_name": "candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:60deaeebe97a91b218faa0ce5917ae9c62fce38adec58521d9547b143983cae9",
+          "logical_name": "candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-71d2b4e0c02b2a7c0807d106aa0fe4315ae91572bd192d12f90a56674f8cb2ff/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "CONTRIBUTING.md",
+      "candidate_id": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53",
+      "candidate_manifest_digest": "sha256:1a7bae61050ccca69d2e7e8fd939fe9e23e8d617c5f683a5926f3aef89dec106",
+      "report": {
+        "digest": "sha256:1ecb206e682d80d3ca4c864550b07fe07cdc2f9bbb8beaa5476c01efb79d3bce",
+        "logical_name": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53.json",
+        "size_bytes": 4746
+      },
+      "results": [
+        {
+          "digest": "sha256:f3ab7d3b70e333767a9bf90ff6b4074e92a1125865726076aeee3e8dc657894d",
+          "logical_name": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:5a64bffbf5f02884ddca125f2dbc409e048ab2d4b267c380285b14c304c1fb70",
+          "logical_name": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:7c88bb3b25707f82ffcea6c1fa64868bb6bc57e9980eb616d848764d4830a1d5",
+          "logical_name": "candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-727631751fda20c63ff3c47c9750f55f246aa5f1e9043f5b196ff0563d7f9c53/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/views",
+      "candidate_id": "candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b",
+      "candidate_manifest_digest": "sha256:a4c58d3e40e48b8b0ac131cf92e4d47bbedef686e6a03522e77821e7562961e5",
+      "report": {
+        "digest": "sha256:7358a3b73b68c5c7397449d02289a3c861d3792b04ea02cdb8ead20125f47783",
+        "logical_name": "candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b.json",
+        "size_bytes": 9369
+      },
+      "results": [
+        {
+          "digest": "sha256:6810064770feaa639e437c3d8ed4edca32effd3c3d34544d339c781922aa5d36",
+          "logical_name": "candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:6e64b1b8a5df7239a2cab40ece28659a1407fdef2ea03621fa08036758b853e2",
+          "logical_name": "candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:93db01fd6ce9a993eb6e4afa203d9b697977afdf351b6526a80292210fb31a4e",
+          "logical_name": "candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-7cff3fafa17a8eb7167fc10450e90c8b00fe71622f6631e37da9cde84dd9a41b/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".github/workflows",
+      "candidate_id": "candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def",
+      "candidate_manifest_digest": "sha256:3d001aa126b79322318a2b4fab9f35ad432e2e78114e759ac34a18c19fea8678",
+      "report": {
+        "digest": "sha256:3d9ccce52256cff61e242b10361bee0f58b720af719666c76e9bdb2487a127e0",
+        "logical_name": "candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def.json",
+        "size_bytes": 6613
+      },
+      "results": [
+        {
+          "digest": "sha256:9ae99f65705a2ed7699bb614020efa8fff2cb2837fb8214535d5a07160e9f292",
+          "logical_name": "candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:c9761369362bf6cf3a4da37cca5ffcbff3a46549245fe51928a345d5e96c3f64",
+          "logical_name": "candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:4a1ff2c73a370f88eacfa6ab4b910219fcfa1b10225d5532e1a73eec032fb16e",
+          "logical_name": "candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-7e38819960339dfd6f43ec5d0cc5beab59d9336f5bb4b32f23cffb6253fd1def/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/hooks",
+      "candidate_id": "candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363",
+      "candidate_manifest_digest": "sha256:eab079b99fc781b877a38f366fb65b14304c8d54884cf487b419f969a8febb07",
+      "report": {
+        "digest": "sha256:d70376c5c0adbc39f3af46d59ed28921a2cf582b8186e40bbf5e0a93b2a32648",
+        "logical_name": "candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363.json",
+        "size_bytes": 7853
+      },
+      "results": [
+        {
+          "digest": "sha256:144a74517ecfa48f485b66609c8b4447373fc8159d07fe48afbdd77cd1ebab15",
+          "logical_name": "candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:311951b22ca8d384c1a0cdc8468f62287efb9d90f0dcee3829417caebe52d084",
+          "logical_name": "candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:e8b1a6376fec3d9ad644681a8ca3f124b2c86353060d40a6bf3af05045cd1524",
+          "logical_name": "candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-7ee20c99a28fbccae3fef8bc90d2a53d1dbec8fdddf65d06eca621e7cd862363/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "AGENTS.md",
+      "candidate_id": "candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72",
+      "candidate_manifest_digest": "sha256:0f8e78acf31da3401f62b156faed193999e4bcea47e2ebe10c6fef9aebce9f74",
+      "report": {
+        "digest": "sha256:516ebb4173e62a3f0ff90c490963a9c380975ba197e456ca788d01e1dd747bda",
+        "logical_name": "candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72.json",
+        "size_bytes": 4740
+      },
+      "results": [
+        {
+          "digest": "sha256:080f05d41b26f0243bd548ab723e2b7ffad09bc24ee38f11da29cd6a8b5f3980",
+          "logical_name": "candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:565f5ca730771f2389742bff4a625c6ca5e862a953cfd2f0baf2e39f4703e988",
+          "logical_name": "candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:ba23cffeccbf4f065ac7b55b7d4d29677cd52843e6cc91ed00f926f43c05a8db",
+          "logical_name": "candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-803a354014606c0a0e8265469a228dbb422907ec7f509edbe3a5fc187ff4bf72/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".github/actions",
+      "candidate_id": "candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e",
+      "candidate_manifest_digest": "sha256:cda79473ab5e1275ffe94ab2af7cf90d39d155f0c07c63c1ecd454c461528496",
+      "report": {
+        "digest": "sha256:6357791e2063378ebac5e61d55d360460b16ac7032aa57373ef70886b770baa4",
+        "logical_name": "candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e.json",
+        "size_bytes": 5395
+      },
+      "results": [
+        {
+          "digest": "sha256:d929d317e1ffcd8c5590c953d4e9bb0ca68452ff63b865512d4afdc5ba815133",
+          "logical_name": "candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:e38a199dd276911f565114b0cc3cc4678e488c78b66e081efea82283d3f85faf",
+          "logical_name": "candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:6eb41589d9e5b9fbd275f79508bd5672cc6085e6f5cac318787d5736f96c9690",
+          "logical_name": "candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-8041402f1a3ec4d3e7ea56e0a899f6ef739abba11ded7816af4deee33340106e/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/chat",
+      "candidate_id": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e",
+      "candidate_manifest_digest": "sha256:db269c50d51bb933a434c752ac056ba815429ba26b2131826dd5a3556874c9b1",
+      "report": {
+        "digest": "sha256:6fb63d3bb1f93f88a81b3e9fa176e5dce8d77d4b8cf643d0118d32233a342b90",
+        "logical_name": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e.json",
+        "size_bytes": 5542
+      },
+      "results": [
+        {
+          "digest": "sha256:2576dbecb758729a52b58d380baf2103efef51f9f0a31866e8cbbb78336f333b",
+          "logical_name": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:bf1c8bd4c8eaa9a90912596d0ed5284b135f5f79f110d84f3c13eec58dc01b6b",
+          "logical_name": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:d743923010842bd28a8569f948eed8a5de61ef9defbc963076d07f40751e09fd",
+          "logical_name": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee",
+      "candidate_id": "candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9",
+      "candidate_manifest_digest": "sha256:9d7c82c8eaa6b5551ebea242b3ab1960ea10be21f2337b810fc49789e3c48f0a",
+      "report": {
+        "digest": "sha256:b3d601c9aa917dc2db85425277c4d9957d55af2b0730e2306e7bc45cd72d8fa9",
+        "logical_name": "candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9.json",
+        "size_bytes": 4779
+      },
+      "results": [
+        {
+          "digest": "sha256:2ec1969f4a620cb1affa3c67c9c0169f5332d6f05836cc76e8b60e5b6c0ac1cd",
+          "logical_name": "candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:7cc4b3b11233e0ed7dcef369d02cc39377fb4b1a3031a44c9493a88019764239",
+          "logical_name": "candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:61b0e7468ed6945e086e00c4c58fb1410566189c144bd66386b9adcdaf0c250f",
+          "logical_name": "candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-84c5d879a7b12235d72eda57a4b7231da8dbe21ddb3854f593cfd80c78f50cf9/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/background",
+      "candidate_id": "candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76",
+      "candidate_manifest_digest": "sha256:7f3a20afa58a744c7b406adf7c348e89486460a1fdb304ebae8aa54d69eccd79",
+      "report": {
+        "digest": "sha256:37b74c3204e1a5bfb1ba3e6ba48deef877a715ebe1ea211876a41b0bf7b1694c",
+        "logical_name": "candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76.json",
+        "size_bytes": 6849
+      },
+      "results": [
+        {
+          "digest": "sha256:f7dcdc4e70b6a6c68ef00d5815020502bbf164554332c61377e4c385ec598b50",
+          "logical_name": "candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:bd07ae2ac53a068c01c4a83cc93dfddf811dab4ef47ef04fe75f691dfdac991a",
+          "logical_name": "candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:c2a30b5bea1547213f75ac6dc51a68255ae9af646cb668438143f7bfdfe23364",
+          "logical_name": "candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-945c763a997693620d0dbc8d24f9bf74b19b5066afbfc142ca72aa1835799e76/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/server",
+      "candidate_id": "candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb",
+      "candidate_manifest_digest": "sha256:4ff6c11b265d8e7e236a73776302ddd0bcb1e1c136f9367a1c2eb73d10b57616",
+      "report": {
+        "digest": "sha256:060b47bfb68e75708da65e6ebdcc38450ea63743152ea58e7be9bdab66775946",
+        "logical_name": "candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb.json",
+        "size_bytes": 27220
+      },
+      "results": [
+        {
+          "digest": "sha256:4b2a31f61cafd6be6af65ba021079285088e3fbe8d723ce15c87fb6bbfde99a5",
+          "logical_name": "candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:468bdd5675d8025f16a0b5cb630f5953d15f32662916c8d8119828ea5fce9c67",
+          "logical_name": "candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:d6d309fb1659e1058b92eb14de258e2c8e6423183a9b01dad45314074bdd58b8",
+          "logical_name": "candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-96021f656504f1ed8fd331e5101ba41024128b98d37248d89a14d2c11a5283eb/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/lib",
+      "candidate_id": "candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8",
+      "candidate_manifest_digest": "sha256:33d2d66e42a39fd81dcd8e9309cb9a243638e5aa8d0eb6aa92bd2da3f66f8b49",
+      "report": {
+        "digest": "sha256:e46b7f8e668d280d333c45fdd5ca6673e734e61c1ce914f467e1e0241c2e132f",
+        "logical_name": "candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8.json",
+        "size_bytes": 10566
+      },
+      "results": [
+        {
+          "digest": "sha256:e99c60fa196076afc80bf6e11f8d5b5c1fceaecf5a1ecadae8b6e6490d852684",
+          "logical_name": "candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:df094d4a8d7f39e45b5e173d01e8546e51130668eb28d8893eba6904aebc01fc",
+          "logical_name": "candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:c5bc1857903714cd33d9a868e414d9c6e723f00cafeed30fd1877ac5d03b0e5c",
+          "logical_name": "candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-9d441643ca8b19520ee6279299882bab7496750f19ebb6fc7ef0135aa9dab1b8/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/auth",
+      "candidate_id": "candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35",
+      "candidate_manifest_digest": "sha256:58e81c744fe4c1201131494e4dc090d30df22341d0c55acbe0509389b3ba3264",
+      "report": {
+        "digest": "sha256:0881ff3673266bb1bb5f894f062f576625524de35940fd39725a6bb554244464",
+        "logical_name": "candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35.json",
+        "size_bytes": 5669
+      },
+      "results": [
+        {
+          "digest": "sha256:ba4b44577c24c5a14a4400118cb1d14b14e9c0d3964ab93400cd813029264616",
+          "logical_name": "candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:b3eeb98e637444676f85148270edf91bb17c4156e7a625deda4f76012df67083",
+          "logical_name": "candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:0f39bea549592f86f0e4e1b713650d5890a2988c62edcac0d1b68716c709de8b",
+          "logical_name": "candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-9e69c15e8627169ab88a66a716e345cd09807e0ff0513284ed8a70849d62ee35/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/background",
+      "candidate_id": "candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949",
+      "candidate_manifest_digest": "sha256:cdd6b28b68fdad98930db35c8b05652ce868006f599e4ecc91e7c9197d2c6ecf",
+      "report": {
+        "digest": "sha256:c6eb2e7b2eecd9c629a413c6f948a6ce442322d457b4f27df7b88f29d5f86222",
+        "logical_name": "candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949.json",
+        "size_bytes": 10448
+      },
+      "results": [
+        {
+          "digest": "sha256:c95b2a35a4c0389b974c66fa267cfcd8db021da4b2bf8e951082c9d59b04896f",
+          "logical_name": "candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:d0442a77dd93493d58267bf641109fcafacb247f580a4fea1fbf8eaff1fc439f",
+          "logical_name": "candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:4ff6a40c4491d72f894323e29b22746c21e314410cf92a2ef3ca4789f666d067",
+          "logical_name": "candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a193068f640b93843b3415a2765fa8b219029f736efdc4317f77fbeb16d87949/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app",
+      "candidate_id": "candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598",
+      "candidate_manifest_digest": "sha256:fcfd12c1252b3ca07f1cd9af3dc0ed8f9d1451ac1c79eacc4d6038c384af3a7e",
+      "report": {
+        "digest": "sha256:a3e8b5cd358d7a5cc17f9a438a6a5023495d7cb113dbed796c8760343d91f626",
+        "logical_name": "candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598.json",
+        "size_bytes": 4924
+      },
+      "results": [
+        {
+          "digest": "sha256:abf9f52c071470c478b1c89127a4681ee7102e38d2b7513ce9ee1a897a4d86ba",
+          "logical_name": "candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:fd8a3c6cf8e62038fe17ae9b8f7fea9b314277a6434dc28cf1a19834b0afd753",
+          "logical_name": "candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:a5cf1f3acc747e648895eaea09c3c6f28a3985a94d61d01516077b43170ae731",
+          "logical_name": "candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a438fb77ca26b716a5c542e197bde054cf7e05e5b14ca8a6c3ae605344e93598/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/tests",
+      "candidate_id": "candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571",
+      "candidate_manifest_digest": "sha256:2f5cb5b0f79729b2d15af2dd3ff8938a23d6293742b8e09b9e38d7e137a9049a",
+      "report": {
+        "digest": "sha256:ad956504ee13768382e893c2c7ab583d0983a600f4e977cd0cf357b1bb02c10b",
+        "logical_name": "candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571.json",
+        "size_bytes": 88043
+      },
+      "results": [
+        {
+          "digest": "sha256:01e7bb759ff3df98d13ebefe497c47aab379e48c99773c2c46a0bd16e56189f5",
+          "logical_name": "candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571/A-FORK-001.json",
+          "size_bytes": 3761
+        },
+        {
+          "digest": "sha256:dba12a48216f362c6cc605aa7b2efefdd7344acf4f7621f9d7ca3e1a90654d5e",
+          "logical_name": "candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571/A-SURFACE-001.json",
+          "size_bytes": 3770
+        },
+        {
+          "digest": "sha256:f2190cd38f2d12763a78fc3d0c48942763a71ce748b11a64380fc28daaaf30d0",
+          "logical_name": "candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a6779657d1a7e4219dc67a7c6f6093f39d4283983636dda60568b0190c9d2571/A-UPSTREAM-001.json",
+          "size_bytes": 3773
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/utils",
+      "candidate_id": "candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b",
+      "candidate_manifest_digest": "sha256:6881f24d1fa3268c93c251c1e3ee9900599c1d78b5cf4a5895075ad2ff797626",
+      "report": {
+        "digest": "sha256:f85109364c171be5d743b61007c2f767c0ce2adefb9033dc1e6d1fef15c7f388",
+        "logical_name": "candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b.json",
+        "size_bytes": 5086
+      },
+      "results": [
+        {
+          "digest": "sha256:b1ed6c8ed776ac46f6e73c1a978a6206e163bc2b30d42c9825338b84894714b1",
+          "logical_name": "candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:ddfa2f687d4e2296ff2b3afaec6696d008974c2923e508cd84c3ed0fd8bd8b45",
+          "logical_name": "candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:dd0a19358ad0bd52a9bd628cbd33ca16c93292ea17b4baf6d34741ed1dbebeb5",
+          "logical_name": "candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-a76ba2003d93b5c846ed38a29b1d88e71e0561e074ae738d406dcc650b20460b/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "desktop",
+      "candidate_id": "candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52",
+      "candidate_manifest_digest": "sha256:d85cfba321af1bf8ad4839f6ae10b58c001aee98b487d78ae8ff15616f33ea3e",
+      "report": {
+        "digest": "sha256:c96dd6cf626ddb106d5f027fe313e204a7f24f4f1fc16a6ca2e933b033db902c",
+        "logical_name": "candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52.json",
+        "size_bytes": 4860
+      },
+      "results": [
+        {
+          "digest": "sha256:d61e66833ca63926b53fe45be57752f82c6a17dd710892659d294f5ac7b68c68",
+          "logical_name": "candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:7ba7eaac4b4d6ed11d177256176bc49d559d29fe8034c07ba384b37f419999d4",
+          "logical_name": "candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:26cd5a28dc9efa31763baf07515cc45fa1777f3e6c194dc6ec66f9850edf8579",
+          "logical_name": "candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-abf8333be8cda2027aed2242210131869f65bb61af0995a4496e650ab686ff52/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "pyproject.toml",
+      "candidate_id": "candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3",
+      "candidate_manifest_digest": "sha256:0edfd4dc79ac6b4efc730a2134332564d25d4b8c76b097f94b1b6b6da10be274",
+      "report": {
+        "digest": "sha256:d0d053503c5f5a89701d7551a5d0e6e8f4d95e722e5b49df1db70916c79b594d",
+        "logical_name": "candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3.json",
+        "size_bytes": 4745
+      },
+      "results": [
+        {
+          "digest": "sha256:047bc8adf4320d02be3dbd14c360e6cf47fb7bd97a753e4cfb830861953bfda9",
+          "logical_name": "candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:699b43a4f2c6c8d083f6dde1dd5cb37ef885cc130cc210833a1694e6a552c7c2",
+          "logical_name": "candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:21fd0af1207f3d5bfa260c79f5b5bb5b97ed044c9e0ad1bfb9a7adcbc4183c8e",
+          "logical_name": "candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-ad47f7480705702793c1f389f9cd915465dde10e79ea7cd1cff46bc71f2accc3/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/configs",
+      "candidate_id": "candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c",
+      "candidate_manifest_digest": "sha256:efdeace8655de572a642e5d62b8209a028d5f58ac6bcd459b652d0bc4f6a7b49",
+      "report": {
+        "digest": "sha256:14a5517a3e3a591f29dad140f4b5c9d5babdb81424b48ece301b9a9096e8bbf9",
+        "logical_name": "candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c.json",
+        "size_bytes": 5381
+      },
+      "results": [
+        {
+          "digest": "sha256:9b1aa22a12fecf84a3e4cb6094750223ea342e5d4d9d929712e0daf84f433c0e",
+          "logical_name": "candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:e8be7856f6abf4c56e512f87912fae2aadca90aa4450fbb53f3df900beaf5e4b",
+          "logical_name": "candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:80c7499146f3be0ee8fbc5bb8bb9cb71022ce3f73bdc17c80a71b0b4b2ae8f54",
+          "logical_name": "candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-b59b1fe9e146de48641e74452f7e6c5359497cf01aa9edeeeaefaff257b28d7c/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".vscode",
+      "candidate_id": "candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e",
+      "candidate_manifest_digest": "sha256:22933f9b323adfaff9e0da19c9371d10cb71fedfc6976f12cdbc434a90bb7185",
+      "report": {
+        "digest": "sha256:9805d3ac6799512dcf3f6aecce0ac5ea61f6ab73ffbc62430a3548ea5479cb4b",
+        "logical_name": "candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e.json",
+        "size_bytes": 4885
+      },
+      "results": [
+        {
+          "digest": "sha256:b899620ecd16c4d038c746662abaa741c5a4c9052273696fddd5c39d8202b449",
+          "logical_name": "candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:d7e39a8911a7efae38405d2d55b891afd18ed39e67bf9f53ec04e31d2b69baa3",
+          "logical_name": "candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:d4686e2016c56a9a1a184388c6d6b8cef6f5d86fc47f5ce93267ce918c0c2448",
+          "logical_name": "candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-b73d5147d6ff18ba8a376ac51df8f206eb8db799979ec8e387c22c0288a52d9e/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/sandbox_proxy",
+      "candidate_id": "candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806",
+      "candidate_manifest_digest": "sha256:255d9512698c6be184094bbbf7d8d83ac7017b0ccfd3197f7b105d66877b42a5",
+      "report": {
+        "digest": "sha256:43fb2c57e139f5e4ddb61ce7ca3f8a1ba3b91aed670b288a51cb322a59e7c5e3",
+        "logical_name": "candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806.json",
+        "size_bytes": 5613
+      },
+      "results": [
+        {
+          "digest": "sha256:74fe37a9882eb3d22ac7d15d44350b7b3faee09cacc07ae3a97aeaab363812b2",
+          "logical_name": "candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:2b433e5f093dbaae15ea0d5b4e5e75f2da67512e53f4885aa8ca86fd3dcb8542",
+          "logical_name": "candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:1938aecaf7e1472d9c240f82fbd89fd1b80bf02a3aa50ae5db63b2575c1aac13",
+          "logical_name": "candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-bf8acabe6c4dd7426dd9399a2fc07b2aa1f5f055dcc3dcf655bae898d0cdd806/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/utils",
+      "candidate_id": "candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725",
+      "candidate_manifest_digest": "sha256:d01c6c7150959995abc4eb2f0dd5fafee2ec4151425850f4eaaae74b2fba1376",
+      "report": {
+        "digest": "sha256:ee3b22f4f21dfc2b156c4bd5b2a9c69bba1a2c3e1af7d505513bec476768b1bf",
+        "logical_name": "candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725.json",
+        "size_bytes": 6771
+      },
+      "results": [
+        {
+          "digest": "sha256:aa946c7c809403636b1282949e7a4b61d90b278a904b90e4e822dbc169a0e02c",
+          "logical_name": "candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:f348cf101cb92586319bf21c92087f5ee0cd0b7a277547dce00addb9b069e486",
+          "logical_name": "candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:175d3e7bffdd32872a89485ce5faf7a69e1619aab950783e576d0f7235786b93",
+          "logical_name": "candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c22fd92d1fe1462df4ee8d0d3214cecc745d33a607ae86877dc99a4cdf643725/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "tools/ods",
+      "candidate_id": "candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80",
+      "candidate_manifest_digest": "sha256:a72cacb0e80bba30e64810a8837e33fbb03be4b8b38dbf5b7ae99fa3269638dc",
+      "report": {
+        "digest": "sha256:7399f69140774e0d50642e9da6e85f5d6dfd4a1d92b3bb92b5c92a70165c3053",
+        "logical_name": "candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80.json",
+        "size_bytes": 7802
+      },
+      "results": [
+        {
+          "digest": "sha256:a149a79fbebbb9260da0f4be6fedc15fd6aa86609edf8fbd2729aee22b109dc4",
+          "logical_name": "candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:28f8f61b594f3484d8001ea223ec38867080959242bdc084cfabe7568caa9116",
+          "logical_name": "candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:dbeb73b3f2cc76e02abb68f46ad114243261139083ffe74d090c527877c29a08",
+          "logical_name": "candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c41ec9881aee3f250ca0b02c38b4f727b5f0f1ecf36a621f4fce64f563736b80/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/lib",
+      "candidate_id": "candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7",
+      "candidate_manifest_digest": "sha256:966dc1a544625f5cb5cb42819d748324ee627a8afcf2468f6e851f9623c3b2d5",
+      "report": {
+        "digest": "sha256:bd19099494c16a648d1243dca83185251f9d101f9d4e46dd0c836eced61f49fa",
+        "logical_name": "candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7.json",
+        "size_bytes": 33470
+      },
+      "results": [
+        {
+          "digest": "sha256:3c65a9476a43ab441244163eb228fe8056f2217f9db5ed264b8859afc77d2d7c",
+          "logical_name": "candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:7c8a6f3e696116d3807fbfe03f5b21a564604c0429a29673c63e93079870bb21",
+          "logical_name": "candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:5e579512ebd5fdb07ece526f714914283ffebddd3488c9121746476885bdc83d",
+          "logical_name": "candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c8bd7db19dfc2e75d0ba4cdfc4583127ba28682f04a197de324ebfae68966ea7/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/file_processing",
+      "candidate_id": "candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841",
+      "candidate_manifest_digest": "sha256:e2aa1c150fd1c27570499835af80c60f0e96a05021f525a1346b6dd743a7737c",
+      "report": {
+        "digest": "sha256:38234ecdb2380cfece8ff27709cf15ac34737427f170dfef60ff66e302b68eb7",
+        "logical_name": "candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841.json",
+        "size_bytes": 5210
+      },
+      "results": [
+        {
+          "digest": "sha256:aee8df6fd54d0aed2ca8000bc2606c997a318f9b6362f86736a9ab36ef757fbf",
+          "logical_name": "candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:4190579f9590ed471629760a24ea0bbc7b2dad52e4dc6c7a033c83c29e65203e",
+          "logical_name": "candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:b399c716be7379cf3c0ac54fd1af477de6a694425caefddf5a6868815477d72c",
+          "logical_name": "candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-c92c7de45ef1b2b43fcf2265e5a5a55512466eefd9df0c3da881734fe6491841/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "cli/internal",
+      "candidate_id": "candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83",
+      "candidate_manifest_digest": "sha256:f7ff4811858cc0a0e0f853f28a0f7e277913bb0ee08a6a1194568bef06a45db1",
+      "report": {
+        "digest": "sha256:bee4bdfaab8ea3304aca3664b7522f63af4377f112f0d631ff6659a5eed964e6",
+        "logical_name": "candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83.json",
+        "size_bytes": 6360
+      },
+      "results": [
+        {
+          "digest": "sha256:f7b5a29127ae6b2b3efcccea9398d948dbb5d39a272f07ce4df81e07f40f1493",
+          "logical_name": "candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:de38e3d1885d52feba7ff3e50b617348e9c223cfba96c3b1cd30d4ac540d77a4",
+          "logical_name": "candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:727c8814c851940d1966d75c7b2bf464b40afc8f04c92ab4c1d659a19848a67b",
+          "logical_name": "candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-ca90115eddb81f8f35857c6ab2e3881ebc87031e5dd94f220236c3f7ca0f1e83/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/public",
+      "candidate_id": "candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe",
+      "candidate_manifest_digest": "sha256:ffcd3b79e528e69c1450805ff891d056c9185be6a54f931dbd99557d2b6e5701",
+      "report": {
+        "digest": "sha256:d28390bf671053eaf744fab3c8b5f2aad843161db8a3d19b57b8005fba88b373",
+        "logical_name": "candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe.json",
+        "size_bytes": 10128
+      },
+      "results": [
+        {
+          "digest": "sha256:5bbee1be2f129a40018adf1b4062bda544f7ffa33e08e84ea4477b7e1a82cb5f",
+          "logical_name": "candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:fa3408cf97bf76408d4e710841466469827310d3d9edd39c71465440bb4ef3b9",
+          "logical_name": "candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:0c0b6d9214508320ae0c404a4fbc63c9b01229159335a6a20fd1e9439be1fe1a",
+          "logical_name": "candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-cbd0f6d2922d02ba50427c20145bed307c9071dcffdedc3cd3e4f796d4d0cfbe/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/admin",
+      "candidate_id": "candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde",
+      "candidate_manifest_digest": "sha256:f72846b4f385586fc51f4e92ea97c416dd056f8d6a3763c34fa21953426a4b66",
+      "report": {
+        "digest": "sha256:f266815bf060c66fb247129faa49a8a765710ee5e2719cc8904975f2d04d7b6c",
+        "logical_name": "candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde.json",
+        "size_bytes": 13442
+      },
+      "results": [
+        {
+          "digest": "sha256:db5248d15dc5beef0d3a55bd440b05ef13b22fccc9da2c197b31e5dc2b388af1",
+          "logical_name": "candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:98bc0ead504750022f06d7df2f0cb89cf60b38638379de83c1f0b795cc7d855d",
+          "logical_name": "candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:6156eb74edf5cc1d0108fad770f388e40a2833a7b63456464fc792e25897c488",
+          "logical_name": "candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-cfaa6211d64766dc6bc482cc83dec7089af4e3b133826cf75e5e699c41671cde/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/skills",
+      "candidate_id": "candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187",
+      "candidate_manifest_digest": "sha256:404a3a18e59c03d847281e602147b1981a806c8b297eef46550671de62897a66",
+      "report": {
+        "digest": "sha256:2ef72857c9f694c50f8f3833c4d579dfe374d5b4d282a82f08d0ac684d8fe692",
+        "logical_name": "candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187.json",
+        "size_bytes": 11407
+      },
+      "results": [
+        {
+          "digest": "sha256:30e112da3d5c802ad375db4e20fd4d6b94c1e17e4bc29ef662caa3c32eb40b47",
+          "logical_name": "candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:125fdd67111662f0ba7b4b1b7753d294466cce8174554846a51077af3c4bcd3f",
+          "logical_name": "candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:dab0bc27bdacf83d2d4d6868295719d4eec1d57542ac164a3a806b52694baa18",
+          "logical_name": "candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-cfc30037042ba2e91e10636237ec84ee78bffa6a83d11ebd787ba5e4ee8f3187/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/indexing",
+      "candidate_id": "candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8",
+      "candidate_manifest_digest": "sha256:bf6cc6fa57d313bf704bd445912887a2ded8cf21a26c08490983baebe26e8d13",
+      "report": {
+        "digest": "sha256:eda5937764dab83de1cbcf6bea7ef6a933b6f18789abb6944907f0c3bc53eba1",
+        "logical_name": "candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8.json",
+        "size_bytes": 6134
+      },
+      "results": [
+        {
+          "digest": "sha256:84abe5c020a04724e54ced1a0a15697c1fd922cf970cdba428931aac63dcb895",
+          "logical_name": "candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:6c30679b85783e56ae4f3e8e75550031e5a58bdcecf6363f38fd6e0575128219",
+          "logical_name": "candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:a39772b94d220cb5187a4c8406878c0ee5e49375d598ba0b9d9e0819fb507caf",
+          "logical_name": "candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-d2f0b30e9c9ce9d62d2132460b431d7aaab0e373fba1b0bfbcd99e29256fe5f8/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/tests",
+      "candidate_id": "candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487",
+      "candidate_manifest_digest": "sha256:e5b3858e5e95ae4c06c87046b4accf4993f172a2f19f64b4571cce781dd6bd1c",
+      "report": {
+        "digest": "sha256:d616a2bc1b9fa14ad1664377ffc39ffb4f3f64db51ca1ae3ab1123571e0e66cc",
+        "logical_name": "candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487.json",
+        "size_bytes": 10966
+      },
+      "results": [
+        {
+          "digest": "sha256:ed76c68227e0d82218b522bd87a9583d4e68104a9cffffb4f0d4c9549315debc",
+          "logical_name": "candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:858f25a821580903ba3d1c53251b235c44f1f0b50cdd3500a9b744e8e0b389d6",
+          "logical_name": "candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:3cc6884b567fce949cdaad860c5add1dfe4a75ab74b0fe050a96a8db9cffb33e",
+          "logical_name": "candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-d5e4b1622d77a32a420b27bed6c7ed5e9eb92a8a0b3da90f9951e8947ad6b487/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/tools",
+      "candidate_id": "candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954",
+      "candidate_manifest_digest": "sha256:3b131176ff3276f13a8b8dceb085bb473b6ab31ec61c18dde9be9be2e4fc0eda",
+      "report": {
+        "digest": "sha256:33257a729e48fab123b86a9c81892fb205ba701990eae66b0cdc8d72340b9701",
+        "logical_name": "candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954.json",
+        "size_bytes": 8471
+      },
+      "results": [
+        {
+          "digest": "sha256:205674e714e1e69bd2ec562e596f86896dfa130c598c7bd211133e10bff0aa39",
+          "logical_name": "candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:3e23135e5d0113b69e5d855f5e30b0f296dfefe039e979273cdfd19b1efe92a7",
+          "logical_name": "candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:d7384d0b493453b80f6fb0d485a2e4c4287a89ab2647b1cdfa9a408d7f9e1251",
+          "logical_name": "candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-d7ee7356bfa8bed1ef51a93d209d62c4c07f669f8c456a205f16bdff77506954/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/app",
+      "candidate_id": "candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6",
+      "candidate_manifest_digest": "sha256:f26b26462d8a25fe34977d8f79db271b38eaed81b420f70c6a5230e5dc3e4527",
+      "report": {
+        "digest": "sha256:22a1378b701dabc48f8b738986797cbc8693df9d7b828196f456000325eddb82",
+        "logical_name": "candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6.json",
+        "size_bytes": 13137
+      },
+      "results": [
+        {
+          "digest": "sha256:295faa579eac3c4412bfb05c7c28759a2490195db9c1136d28786a48c55ad593",
+          "logical_name": "candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:f2ce9a9f352ca581e957ec16803946b1442f3ff7d187e8e37359274d80595e10",
+          "logical_name": "candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:64fe157f189751a4e6613f63683894e8a1febb2f2fffa0e15176637e65d36ed5",
+          "logical_name": "candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-dc1b0e93b4c4b50ff350735820b7b51c901101c6f45f87755a43dad66256d7a6/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/refresh-components",
+      "candidate_id": "candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502",
+      "candidate_manifest_digest": "sha256:28238e5835b64781d068e41943d1fcc2de120ae8ab3d5caff380287773e2cacc",
+      "report": {
+        "digest": "sha256:e603c5e7f5db3a3f9dccb2680def889436d3491f5486edfe23006cdc6f707ba5",
+        "logical_name": "candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502.json",
+        "size_bytes": 14917
+      },
+      "results": [
+        {
+          "digest": "sha256:54c2565a0c184c86f8ecf886bbf5b97d35c5ec7462f58bc0d61f84d1678d0961",
+          "logical_name": "candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502/A-FORK-001.json",
+          "size_bytes": 3759
+        },
+        {
+          "digest": "sha256:0e0a023239c21284c55306e579c5aedf9c524300848e6f79e58e8bb1e2b52a80",
+          "logical_name": "candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502/A-SURFACE-001.json",
+          "size_bytes": 3768
+        },
+        {
+          "digest": "sha256:ea75de913ca7c62089284627fe5dd85c5c76ae424586412b3838e7a37234ce85",
+          "logical_name": "candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-de4991c154bf98b47de186ccccd8abbd2785c0a1bffe302d57aabb8f6398d502/A-UPSTREAM-001.json",
+          "size_bytes": 3771
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/scripts",
+      "candidate_id": "candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8",
+      "candidate_manifest_digest": "sha256:4eabc9326dc60dcbd39a5f9f4ddfdcea248fadc85d44d7fae4e0fefdd4302e13",
+      "report": {
+        "digest": "sha256:abd492df368df27dd53584fc6199e8064384f00a95e3fbb412a962b28963c650",
+        "logical_name": "candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8.json",
+        "size_bytes": 8781
+      },
+      "results": [
+        {
+          "digest": "sha256:6415e46e35a99d8f72128875e32cc6929a29cb734766bd35798dcc22b65e86a7",
+          "logical_name": "candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:496448704b7724797111e20992ba038fbad972478b221b3abc21ef9fffe7a2f5",
+          "logical_name": "candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:6f3dbd80caff68cdbdcdf4dc84fb98fdb07f907da3eb5113c71ed54a2538b836",
+          "logical_name": "candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-e8180e884ef3ccb8805825306b27a1bfb984dcc0bbead44d390b92966817e5e8/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/llm",
+      "candidate_id": "candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f",
+      "candidate_manifest_digest": "sha256:b7652b73c84f5144199e02db7f72c38ac1cdf772a2eb3123650e142478e11012",
+      "report": {
+        "digest": "sha256:4d57159b0cd0f266121e9b7edceb7d04eccefce06319434517942883af86ad2e",
+        "logical_name": "candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f.json",
+        "size_bytes": 6590
+      },
+      "results": [
+        {
+          "digest": "sha256:1996ae9dc810b4a15cc5d702d469c23763ff2ee76b33fbb9e7106687c2258a0a",
+          "logical_name": "candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:71eae091fe01e12aa6d7fe7eeb827fe9d3b42e580ff20e1bd8d2c883eb7a2439",
+          "logical_name": "candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:3ec02af58a485093b06e754463133776d71c699b87ca3c7da00bf20817771b93",
+          "logical_name": "candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-e869089d2db662369e8983c22008ad92a0b7e7817dbb4ce16fbd7d8c2ac7330f/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/server",
+      "candidate_id": "candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172",
+      "candidate_manifest_digest": "sha256:a7bf93137e02a72fa1b6db28c5a1b667cfa92060bb7c8678f2e0dcb722952ca8",
+      "report": {
+        "digest": "sha256:ec5d5195f2928dcf1de5f9b0ba48bc499f1449e7059c6973c8b945793023be7a",
+        "logical_name": "candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172.json",
+        "size_bytes": 8983
+      },
+      "results": [
+        {
+          "digest": "sha256:de88c545985571c8055fe2256c1c6c633faa1ef49fb1e33a82047021a7a3e70a",
+          "logical_name": "candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:2e577f4b5689354f1d1164defeea5698608b7dcd00922184475fb59e23bfeeed",
+          "logical_name": "candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:25b0986871296d2b22caf15e02a4794fafd89b1d342f1476231b39498a232518",
+          "logical_name": "candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-ecc0a2bc21cb5158e6da7ece14fc55847b34880f9cfb5ca0fcdc7431fe404172/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "mobile/src",
+      "candidate_id": "candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6",
+      "candidate_manifest_digest": "sha256:970762d5b57662a697ebb0379504e6dfd0ae3659de03553a2b82d10bedac0afa",
+      "report": {
+        "digest": "sha256:c44b2dba0b34bf9d526cc7b94022fdd20d2619ca98c3679ed93ca8da2914860c",
+        "logical_name": "candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6.json",
+        "size_bytes": 9185
+      },
+      "results": [
+        {
+          "digest": "sha256:b5588188bfe18b7a436a26f513352ecd83a18f37f2ff2adf0d9ac2980fbb33ed",
+          "logical_name": "candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:5ef58b6ff1a40ada978805512e3e70e5645dc96736523b62212cd0f1fb3ea71b",
+          "logical_name": "candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:e7b877bf3a700619291a7345ac886e674da33b7508828a4cef96c76e8dce6921",
+          "logical_name": "candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f0306a105d97c2ec553188ccdf43f97df3575684eae51493b0dae564e4081bc6/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "cli",
+      "candidate_id": "candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4",
+      "candidate_manifest_digest": "sha256:04905ce7e61280572f1e72fc2a51d4e40fbab150390658ed966124d144a6a52c",
+      "report": {
+        "digest": "sha256:e33b645fe31beb90087566e420b1fd97c0f04ea33ab32184eb6d291c77b561d4",
+        "logical_name": "candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4.json",
+        "size_bytes": 4936
+      },
+      "results": [
+        {
+          "digest": "sha256:d424118018858bdd99346fe8e58891f67841bc0cadd5165e55bf4de8cef3a074",
+          "logical_name": "candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:d2e07a482ab682ac7b8c49eeaa66e4daeb6397386b52ca6686172b75eb9e7c39",
+          "logical_name": "candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:48dd00199678d14b7d2be4787b4ecf3eb6dd34d180550c0ea07081cc5bea5abe",
+          "logical_name": "candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f272d7f33ade7b9ca0770f17dac616ed7a402f235c781695b2c4a4e142f577c4/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "cubic.yaml",
+      "candidate_id": "candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6",
+      "candidate_manifest_digest": "sha256:2834d50801d1413d8a6faa5c21a17a219c2e5efeaa94c34fda9650d870ccd29f",
+      "report": {
+        "digest": "sha256:2615dfc6c446055538f52ac8585e4410dab4b516dead5a7d06cd8a49fcedf3ec",
+        "logical_name": "candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6.json",
+        "size_bytes": 4741
+      },
+      "results": [
+        {
+          "digest": "sha256:1bffd1bf418e051456233c4e01b7b11a74665cf07906f31cf1761093a8f1ae0a",
+          "logical_name": "candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:4adab6b036f00161467fd19b038b3cb4ce0a3119f50d81341474bf454a47da0d",
+          "logical_name": "candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:408e9f68c373d472a328d438862676d59ba85938ac69ee17cdfab7683f86c8ed",
+          "logical_name": "candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f4f1b7f84ffdc940224267d8a5ab237934f5d3ae08b576e72d9cb375fb5305e6/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/external_apps",
+      "candidate_id": "candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75",
+      "candidate_manifest_digest": "sha256:1a680b8cd7aac4ec91eed16628a0668225700c1b7d0b9bff103d6f385f7276f0",
+      "report": {
+        "digest": "sha256:ee7e13b9c76561dd6979730fee5219c30e416f7fe074d06e15f585def4477ec7",
+        "logical_name": "candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75.json",
+        "size_bytes": 5963
+      },
+      "results": [
+        {
+          "digest": "sha256:afa7933d0d495aa7fba0ff849385b1f40f5402d851cdce603f9495ebe13bcaed",
+          "logical_name": "candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:e8a2b39f8d83762417db41db0621e870cc175a2adadb5263f8daf227b933f4d2",
+          "logical_name": "candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:19a6537a8e7729dd3d9c3cf056521b157b37bbf587c6aa67c8ff612dfb583c6e",
+          "logical_name": "candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f7097bb6358566b16a0e9a9605da06b2853e72ed161c7fb02b5af8215bfc2c75/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "docs/craft",
+      "candidate_id": "candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750",
+      "candidate_manifest_digest": "sha256:a248fe098222b9a8d879d9feb78eb3974776bbe6beef7f2f2636efc90afe9ba5",
+      "report": {
+        "digest": "sha256:d55ee464366b3ec022582edb7de235460841f646e6eeec0047fc9deecbd2deea",
+        "logical_name": "candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750.json",
+        "size_bytes": 7043
+      },
+      "results": [
+        {
+          "digest": "sha256:4c406cee4425755ef6b43fb9603519753af93108cddb820bf1d6354a325c6510",
+          "logical_name": "candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750/A-FORK-001.json",
+          "size_bytes": 3757
+        },
+        {
+          "digest": "sha256:f8354bbbcc0487c2ac0e15a98421c105d8c5be149dabdba51c9f36b6b1bff23a",
+          "logical_name": "candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750/A-SURFACE-001.json",
+          "size_bytes": 3766
+        },
+        {
+          "digest": "sha256:6b22fcca13ae0cc27741088fa052d244996432895d4c4b7fcc8eef049c983cf6",
+          "logical_name": "candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-f82cd5e4a604c05c2c9994bd8577f572a805edfdec3e634084cf86bd1272e750/A-UPSTREAM-001.json",
+          "size_bytes": 3769
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".greptile",
+      "candidate_id": "candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1",
+      "candidate_manifest_digest": "sha256:117f70c94b8a50d911501022c5639764b30b749352266b464262ee936c967f19",
+      "report": {
+        "digest": "sha256:1e1eedcd91dca9e1e4bd2f7edcd76157112ec1736325b1869be2446351668073",
+        "logical_name": "candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1.json",
+        "size_bytes": 4810
+      },
+      "results": [
+        {
+          "digest": "sha256:15f00a7fab3faaf9b9493cbc05e2be80c09358634d56851f745fe8f98bbfbe36",
+          "logical_name": "candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:d68b2b03005e6151bccee18eefc632d74da37d1ed6b1c179459c9af4e178bb73",
+          "logical_name": "candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:993b5867d937438cc1909b6f2f401bd3be9f36e4efe594bbfa87f6fdfc44adff",
+          "logical_name": "candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-fb7a61498c0f80baf69adf1d34ccff3786afa75961b25d3d09a9b6f95a6fe5d1/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "SECURITY.md",
+      "candidate_id": "candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd",
+      "candidate_manifest_digest": "sha256:92e3582a601ef02aee26f33ef2a7c89169a5211806f78679327cdd1cd46300e6",
+      "report": {
+        "digest": "sha256:e18c00058ca032083961d3debda0636fed09ade693e2f21d58cd594a60cf212d",
+        "logical_name": "candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd-governed-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-reports/candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd.json",
+        "size_bytes": 4742
+      },
+      "results": [
+        {
+          "digest": "sha256:df12e7f6cb78715a92ffcee3836f051836d4425d0c95c3b46a69d651e49a99b6",
+          "logical_name": "candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd-A-FORK-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd/A-FORK-001.json",
+          "size_bytes": 3755
+        },
+        {
+          "digest": "sha256:7d88d4ddcf7508eaedad0a2f949115986ce9053a43c4ebd5b97f364c24012672",
+          "logical_name": "candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd-A-SURFACE-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd/A-SURFACE-001.json",
+          "size_bytes": 3764
+        },
+        {
+          "digest": "sha256:26eed2083a5fea66798607f1a39f6bf3efd37a9ba68af244eafe296f841dc9c9",
+          "logical_name": "candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd-A-UPSTREAM-001-governed-fork-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-fdf0dd147ad34d95d0b7785d3eb815499678d3113b31e4c40919b57bbfc5c2bd/A-UPSTREAM-001.json",
+          "size_bytes": 3767
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    }
+  ],
+  "executed_test_count": 201,
+  "failed_test_count": 201,
+  "index_version": "1.0.0",
+  "missing_test_count": 0,
+  "oracle_extension": {
+    "digest": "sha256:72af0da056d2b026de1e3366f654d7ece8831d474a03155ddb011ce8525c9b7d",
+    "logical_name": "qualification-oracle-extension-governed-fork-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-governed-fork-v1.json",
+    "size_bytes": 7357
+  },
+  "passed_test_count": 0,
+  "report_count": 67,
+  "report_schema": {
+    "digest": "sha256:71bc3aa3f24be85cec2afd9f3b3b682b92e5d8b2a2c5d9b1d788532ccfe88e35",
+    "logical_name": "candidate-qualification-report-v1-schema",
+    "media_type": "application/schema+json",
+    "relative_path": "backend/pmorg/contracts/schemas/candidate-qualification-report-v1.schema.json",
+    "size_bytes": 4976
+  },
+  "result_schema": {
+    "digest": "sha256:5a06c7070ec30dc6558b5e0f736d8959577063efd8e039443699233f21f68883",
+    "logical_name": "qualification-oracle-result-v2-schema",
+    "media_type": "application/schema+json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-result-v2.schema.json",
+    "size_bytes": 5349
+  },
+  "runtime_identity_digests": [
+    "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053"
+  ],
+  "schema_version": "pmorg.governed-fork-candidate-qualification-report-index/v1",
+  "source_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "source_repository": "https://github.com/onyx-dot-app/onyx.git",
+  "source_tree_id": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58"
+}

@@ -1,0 +1,115 @@
+{
+  "candidate_id": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e",
+  "capability_id": "governed-onyx-fork",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 3,
+  "expected_test_count": 3,
+  "failed_test_count": 3,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:72af0da056d2b026de1e3366f654d7ece8831d474a03155ddb011ce8525c9b7d",
+    "logical_name": "qualification-oracle-extension-governed-fork-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-governed-fork-v1.json",
+    "size_bytes": 7357
+  },
+  "required_test_manifest": {
+    "digest": "sha256:a9d0a22d7b15ef8af11e2c82a89b20246a2ff9f8ad79ea9c0dac73f7e8e84ded",
+    "logical_name": "governed-onyx-fork-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/governed-onyx-fork.json",
+    "size_bytes": 286
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/onyx/chat/COMPRESSION.md",
+      "backend/onyx/chat/README.md",
+      "backend/onyx/chat/__init__.py",
+      "backend/onyx/chat/chat_processing_checker.py",
+      "backend/onyx/chat/chat_state.py",
+      "backend/onyx/chat/chat_utils.py",
+      "backend/onyx/chat/citation_processor.py",
+      "backend/onyx/chat/citation_utils.py",
+      "backend/onyx/chat/compression.py",
+      "backend/onyx/chat/emitter.py",
+      "backend/onyx/chat/llm_loop.py",
+      "backend/onyx/chat/llm_step.py",
+      "backend/onyx/chat/models.py",
+      "backend/onyx/chat/process_message.py",
+      "backend/onyx/chat/prompt_utils.py",
+      "backend/onyx/chat/save_chat.py",
+      "backend/onyx/chat/stop_signal_checker.py",
+      "backend/onyx/chat/stream_buffer.py",
+      "backend/onyx/chat/tool_call_args_streaming.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:2576dbecb758729a52b58d380baf2103efef51f9f0a31866e8cbbb78336f333b",
+        "logical_name": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e-A-FORK-001-governed-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e/A-FORK-001.json",
+        "size_bytes": 3757
+      },
+      "test_id": "A-FORK-001",
+      "test_manifest": {
+        "digest": "sha256:2652874b3a4f554100ca8172dc16acec2e46bb7eb51d40b8ba27fe433bde24e6",
+        "logical_name": "governed-onyx-fork-A-FORK-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/governed-onyx-fork-A-FORK-001-v1.json",
+        "size_bytes": 3949
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:bf1c8bd4c8eaa9a90912596d0ed5284b135f5f79f110d84f3c13eec58dc01b6b",
+        "logical_name": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e-A-SURFACE-001-governed-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e/A-SURFACE-001.json",
+        "size_bytes": 3766
+      },
+      "test_id": "A-SURFACE-001",
+      "test_manifest": {
+        "digest": "sha256:63da799801efe4719938c0220f7c4c77b8e74b138cb0a5b276ee99d88c567522",
+        "logical_name": "governed-onyx-fork-A-SURFACE-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/governed-onyx-fork-A-SURFACE-001-v1.json",
+        "size_bytes": 3941
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:d743923010842bd28a8569f948eed8a5de61ef9defbc963076d07f40751e09fd",
+        "logical_name": "candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e-A-UPSTREAM-001-governed-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/governed-fork-candidate-qualification-results/candidate-842620e7e10d3f562c6e1fceacd0d062576690bdad6b32372a0efd6b81f3336e/A-UPSTREAM-001.json",
+        "size_bytes": 3769
+      },
+      "test_id": "A-UPSTREAM-001",
+      "test_manifest": {
+        "digest": "sha256:e608f247573498b8fb110455f13adf670376f7e18c1c560c1a690389f01eb963",
+        "logical_name": "governed-onyx-fork-A-UPSTREAM-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/governed-onyx-fork-A-UPSTREAM-001-v1.json",
+        "size_bytes": 3946
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}
