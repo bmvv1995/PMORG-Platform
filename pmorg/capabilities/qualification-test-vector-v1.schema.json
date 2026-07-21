@@ -1,0 +1,232 @@
+{
+  "$id": "urn:pmorg:qualification-test-vector:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adapter_input_contract": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "candidate_projection": {
+      "const": "module_group_blob_set/v1"
+    },
+    "capability_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "claim_boundary": {
+      "const": "definition_only_no_qualification_verdict"
+    },
+    "execution_preconditions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "mutation_probe": {
+      "additionalProperties": false,
+      "properties": {
+        "expectation": {
+          "const": "at_least_one_observation_or_verdict_changes"
+        },
+        "no_op_rejected": {
+          "const": true
+        },
+        "operation": {
+          "const": "flip_one_candidate_blob_byte"
+        },
+        "target": {
+          "const": "projected_candidate_blob_bytes"
+        }
+      },
+      "required": [
+        "expectation",
+        "no_op_rejected",
+        "operation",
+        "target"
+      ],
+      "type": "object"
+    },
+    "qualification_interface": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "reference_implementation": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "runtime_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "media_type": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "relative_path": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "size_bytes": {
+                "minimum": 1,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "digest",
+              "media_type",
+              "relative_path",
+              "size_bytes"
+            ],
+            "type": "object"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "contract_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "interpreter_measurement": {
+          "const": "sha256_of_executed_interpreter_binary"
+        },
+        "status": {
+          "const": "binary_measurement_required_at_execution"
+        }
+      },
+      "required": [
+        "artifacts",
+        "contract_digest",
+        "interpreter_measurement",
+        "status"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "pmorg.qualification-test-vector/v1"
+    },
+    "test_cases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_bytes_required": {
+            "const": true
+          },
+          "case_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "expected_observation": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "mutation_required": {
+            "type": "boolean"
+          },
+          "stimulus": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_bytes_required",
+          "case_id",
+          "expected_observation",
+          "mutation_required",
+          "stimulus"
+        ],
+        "type": "object"
+      },
+      "minItems": 4,
+      "type": "array"
+    },
+    "test_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "vector_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "vector_version",
+    "capability_id",
+    "test_id",
+    "candidate_projection",
+    "qualification_interface",
+    "reference_implementation",
+    "adapter_input_contract",
+    "runtime_identity",
+    "test_cases",
+    "mutation_probe",
+    "execution_preconditions",
+    "claim_boundary"
+  ],
+  "title": "PMORG candidate-level qualification test vector",
+  "type": "object"
+}

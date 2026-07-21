@@ -65,6 +65,13 @@ class TestQualificationOracles(unittest.TestCase):
             ],
             "forbidden",
         )
+        self.assertEqual(
+            sum(
+                oracle["candidate_test_vector"] is not None
+                for oracle in first["oracles"]
+            ),
+            2,
+        )
 
     def test_global_gates_are_preserved_but_never_candidate_executable(self) -> None:
         policy = build_qualification_oracle_policy(REPOSITORY_ROOT)
@@ -168,6 +175,10 @@ class TestQualificationOracles(unittest.TestCase):
             "pmorg/capabilities/qualification-interfaces/governed-onyx-fork-v1.json",
             "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
             "pmorg/capabilities/qualification-interfaces/thin-fork-boundary-v1.json",
+            "pmorg/capabilities/qualification-test-vector-v1.schema.json",
+            "pmorg/capabilities/qualification-test-vectors-v1.json",
+            "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+            "pmorg/capabilities/qualification-test-vectors/distribution-admission-A-LIC-003-v1.json",
         ):
             source = REPOSITORY_ROOT / relative_path
             target = root / relative_path

@@ -26,7 +26,7 @@
   "interfaces": [
     {
       "capability_id": "capability-disposition-qualification",
-      "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+      "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
       "media_type": "application/json",
       "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
       "size_bytes": 3290

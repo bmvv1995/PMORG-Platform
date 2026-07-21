@@ -1,0 +1,100 @@
+{
+  "adapter_input_contract": [
+    "exact candidate input manifest and manifest digest",
+    "all projected candidate blob bytes and blob digests",
+    "exact qualification interface and test-vector digests",
+    "measured interpreter binary and committed dependency lock digests"
+  ],
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "deployment-admission",
+  "claim_boundary": "definition_only_no_qualification_verdict",
+  "execution_preconditions": [
+    "adapter is content-addressed and explicitly bound to this test vector",
+    "adapter consumes the exact candidate manifest and every projected blob",
+    "interpreter binary and dependency lock identities are evidence-bound",
+    "baseline and mutated executions both produce schema-valid evidence"
+  ],
+  "mutation_probe": {
+    "expectation": "at_least_one_observation_or_verdict_changes",
+    "no_op_rejected": true,
+    "operation": "flip_one_candidate_blob_byte",
+    "target": "projected_candidate_blob_bytes"
+  },
+  "qualification_interface": {
+    "digest": "sha256:8be4d022e02c96a47a8277c6927e2536f79679b0aec4c0af7643f15fd64ccbf2",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-interfaces/deployment-admission-v1.json",
+    "size_bytes": 2157
+  },
+  "reference_implementation": {
+    "digest": "sha256:0da5069dee99aabd8ac0c5d8bad08182d798973f12cba0f0f4f490f74aac3ff1",
+    "media_type": "text/x-python",
+    "relative_path": "backend/pmorg/application/admission.py",
+    "size_bytes": 42203
+  },
+  "runtime_identity": {
+    "artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "media_type": "text/plain",
+        "relative_path": ".python-version",
+        "size_bytes": 5
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "media_type": "application/toml",
+        "relative_path": "pyproject.toml",
+        "size_bytes": 9983
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "media_type": "application/toml",
+        "relative_path": "uv.lock",
+        "size_bytes": 1018201
+      }
+    ],
+    "contract_digest": "sha256:59ebd918c79614af1a4dec86b52a747e02b2b133ee14a27d30fa498c65e1e7db",
+    "interpreter_measurement": "sha256_of_executed_interpreter_binary",
+    "status": "binary_measurement_required_at_execution"
+  },
+  "schema_version": "pmorg.qualification-test-vector/v1",
+  "test_cases": [
+    {
+      "candidate_bytes_required": true,
+      "case_id": "valid-development-test-admission",
+      "expected_observation": "allow only for the exactly bound payload and target",
+      "mutation_required": false,
+      "stimulus": "valid signed admission for an exact synthetic payload and target"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "missing-or-invalid-admission",
+      "expected_observation": "deny before deploy or startup",
+      "mutation_required": false,
+      "stimulus": "remove or corrupt the admission envelope"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "payload-or-target-drift",
+      "expected_observation": "deny the drifted identity",
+      "mutation_required": false,
+      "stimulus": "mutate the payload or measured target after admission"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "production-or-unknown-target",
+      "expected_observation": "deny in development_test scope",
+      "mutation_required": false,
+      "stimulus": "present production or unknown target scope"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "candidate-byte-influence",
+      "expected_observation": "at least one adapter observation or verdict changes",
+      "mutation_required": true,
+      "stimulus": "flip one byte in a projected candidate blob and rebuild its manifest"
+    }
+  ],
+  "test_id": "A-LIC-002",
+  "vector_version": "1.0.0"
+}

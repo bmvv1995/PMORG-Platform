@@ -22,10 +22,10 @@
   "catalog_version": "1.0.0",
   "derivation_artifacts": [
     {
-      "digest": "sha256:21bf580e05a6250af5d0dc46e02529780ff2a72f1b5db4e1d625a43b9fa68bed",
+      "digest": "sha256:bc9f74781ae2b56e073956d2d9c60f615610347f22cf39b109274276a32a8cb2",
       "media_type": "text/x-python",
       "relative_path": "backend/pmorg/application/qualification_oracles.py",
-      "size_bytes": 26997
+      "size_bytes": 30899
     },
     {
       "digest": "sha256:c00e45729b7de8fceb5463ccf46e991e2511096f523eb357e302a16d6339c396",
@@ -53,6 +53,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "capability-disposition-qualification",
       "legacy_global_gate_bindings": [
         {
@@ -73,7 +74,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-002:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -87,6 +88,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "capability-disposition-qualification",
       "legacy_global_gate_bindings": [
         {
@@ -121,7 +123,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-003:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -135,6 +137,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "capability-disposition-qualification",
       "legacy_global_gate_bindings": [
         {
@@ -155,7 +158,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-004:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -169,6 +172,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "capability-disposition-qualification",
       "legacy_global_gate_bindings": [
         {
@@ -190,7 +194,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-005:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -204,6 +208,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "capability-disposition-qualification",
       "legacy_global_gate_bindings": [
         {
@@ -252,7 +257,7 @@
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-006:v1",
       "oracle_status": "unexecutable",
       "qualification_interface": {
-        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "digest": "sha256:5eeb1801ffa03092edcc1187a40444d19948dcf7112ab9024a541ad789d9067f",
         "media_type": "application/json",
         "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
         "size_bytes": 3290
@@ -266,6 +271,12 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": {
+        "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+        "size_bytes": 4009
+      },
       "capability_id": "deployment-admission",
       "legacy_global_gate_bindings": [],
       "oracle_id": "qualification-oracle:deployment-admission:A-LIC-002:v1",
@@ -278,13 +289,19 @@
       },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-LIC-002",
-      "unexecutable_reason": "deployment admission implementation and qualification interface exist, but a candidate-aware adapter with mutation influence evidence is absent"
+      "unexecutable_reason": "deployment admission implementation, qualification interface and candidate-level test vector exist, but a candidate-aware adapter with mutation influence evidence is absent"
     },
     {
       "adapter": null,
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": {
+        "digest": "sha256:3c2a66f92e9f6bb5e5d34cb27da2ddff59b114e7efbdf09612e16f74bf0755ad",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vectors/distribution-admission-A-LIC-003-v1.json",
+        "size_bytes": 4080
+      },
       "capability_id": "distribution-admission",
       "legacy_global_gate_bindings": [],
       "oracle_id": "qualification-oracle:distribution-admission:A-LIC-003:v1",
@@ -297,13 +314,14 @@
       },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-LIC-003",
-      "unexecutable_reason": "distribution admission implementation and qualification interface exist, but a candidate-aware adapter with mutation influence evidence is absent"
+      "unexecutable_reason": "distribution admission implementation, qualification interface and candidate-level test vector exist, but a candidate-aware adapter with mutation influence evidence is absent"
     },
     {
       "adapter": null,
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "governed-onyx-fork",
       "legacy_global_gate_bindings": [
         {
@@ -341,6 +359,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "governed-onyx-fork",
       "legacy_global_gate_bindings": [
         {
@@ -378,6 +397,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "governed-onyx-fork",
       "legacy_global_gate_bindings": [
         {
@@ -415,6 +435,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "qualified-reproducible-build",
       "legacy_global_gate_bindings": [
         {
@@ -449,6 +470,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "qualified-reproducible-build",
       "legacy_global_gate_bindings": [
         {
@@ -513,6 +535,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "qualified-reproducible-build",
       "legacy_global_gate_bindings": [
         {
@@ -547,6 +570,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "qualified-reproducible-build",
       "legacy_global_gate_bindings": [
         {
@@ -597,6 +621,7 @@
       "bindings": [],
       "candidate_influence_status": "not_demonstrated",
       "candidate_projection": "module_group_blob_set/v1",
+      "candidate_test_vector": null,
       "capability_id": "thin-fork-boundary",
       "legacy_global_gate_bindings": [
         {
@@ -630,12 +655,18 @@
       "unexecutable_reason": "A-PATCH-001 verifies repository-, process-, build- or release-wide state for thin-fork-boundary; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     }
   ],
-  "policy_version": "1.1.0",
+  "policy_version": "1.2.0",
   "qualification_interface_manifest": {
-    "digest": "sha256:0e93cdcfcb72bf88f2bc66756c5d390674d6bb1ba92326e27d3d9f1a92fdf84f",
+    "digest": "sha256:ed201b9386716076dc028038c708097f5aaba36606cabe3c5ae397be59fad957",
     "media_type": "application/json",
     "relative_path": "pmorg/capabilities/qualification-interfaces-v1.json",
     "size_bytes": 2951
+  },
+  "qualification_test_vector_manifest": {
+    "digest": "sha256:62c0783e5538ed32fb6685738f32d974cc719a71d1830d37a59a62af5993a667",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-test-vectors-v1.json",
+    "size_bytes": 2939
   },
   "result_schema": {
     "digest": "sha256:aa7cad8f9eed50f3639d7d106847785189b7e64ee75791d96166a4caccbcfbca",
