@@ -1,0 +1,71 @@
+{
+  "candidate_projection": "module_group_blob_set/v1",
+  "catalog_version": "1.0.0",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:ed44a1baa1ef01d5fb444431fab6424f32f342ed32e0310e4606acce8d4900b9",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification_interfaces.py",
+      "size_bytes": 19227
+    },
+    {
+      "digest": "sha256:52158f5c8a6becea9f27a1ecfca4773e426cbd3560e3c652e935a1c8ebe015a8",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_qualification_interfaces.py",
+      "size_bytes": 1076
+    }
+  ],
+  "interface_count": 6,
+  "interface_schema": {
+    "digest": "sha256:4692886d90b87bb47fce24aeae51a4b041947cec10179bcf6ce90e29ac5a6140",
+    "media_type": "application/schema+json",
+    "relative_path": "pmorg/capabilities/qualification-interface-v1.schema.json",
+    "size_bytes": 3740
+  },
+  "interface_version": "1.0.0",
+  "interfaces": [
+    {
+      "capability_id": "capability-disposition-qualification",
+      "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+      "size_bytes": 3290
+    },
+    {
+      "capability_id": "deployment-admission",
+      "digest": "sha256:8be4d022e02c96a47a8277c6927e2536f79679b0aec4c0af7643f15fd64ccbf2",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/deployment-admission-v1.json",
+      "size_bytes": 2157
+    },
+    {
+      "capability_id": "distribution-admission",
+      "digest": "sha256:86db7c8f66ef0d96e17dafa6ab9ca7ee2f2f32350c494c9d91b59140b0bf82d0",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/distribution-admission-v1.json",
+      "size_bytes": 2201
+    },
+    {
+      "capability_id": "governed-onyx-fork",
+      "digest": "sha256:137e3aa18c575c903adfd27e425e45363732c84a1404bedc2b728d183f87d2d1",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/governed-onyx-fork-v1.json",
+      "size_bytes": 2520
+    },
+    {
+      "capability_id": "qualified-reproducible-build",
+      "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+      "size_bytes": 3015
+    },
+    {
+      "capability_id": "thin-fork-boundary",
+      "digest": "sha256:7afeb765dfc5bc989f5458351cdbd2a563836bdc876d3c06ba7f9894eefdbc53",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/thin-fork-boundary-v1.json",
+      "size_bytes": 2136
+    }
+  ],
+  "schema_version": "pmorg.qualification-interface-manifest/v1"
+}

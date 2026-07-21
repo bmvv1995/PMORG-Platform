@@ -1,0 +1,172 @@
+{
+  "$id": "urn:pmorg:qualification-interface:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_projection": {
+      "const": "module_group_blob_set/v1"
+    },
+    "capability_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "contract_test_manifest": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "fit_outcomes": {
+      "additionalProperties": false,
+      "properties": {
+        "fail": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "patch": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reuse": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "fail",
+        "patch",
+        "reuse"
+      ],
+      "type": "object"
+    },
+    "implementation_question": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "input_contract": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "interface_version": {
+      "const": "1.0.0"
+    },
+    "invariants": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "output_contract": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "reference_implementations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "media_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "media_type",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "pmorg.qualification-interface/v1"
+    },
+    "test_properties": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "observable_property": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "test_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "observable_property",
+          "test_id"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "interface_version",
+    "capability_id",
+    "candidate_projection",
+    "implementation_question",
+    "input_contract",
+    "output_contract",
+    "invariants",
+    "test_properties",
+    "fit_outcomes",
+    "contract_test_manifest",
+    "reference_implementations"
+  ],
+  "title": "PMORG candidate qualification interface",
+  "type": "object"
+}

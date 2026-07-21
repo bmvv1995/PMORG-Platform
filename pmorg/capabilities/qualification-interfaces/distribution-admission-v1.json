@@ -1,0 +1,46 @@
+{
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "distribution-admission",
+  "contract_test_manifest": {
+    "digest": "sha256:339e267d822263efb21e59bccf32ffbefee78941713afc5f9b13558c66a92510",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/distribution-admission.json",
+    "size_bytes": 202
+  },
+  "fit_outcomes": {
+    "fail": "the candidate cannot bind the interface or any observable property fails; the reason must cite exact projected candidate bytes",
+    "patch": "a byte-bounded candidate patch supplies the interface and the full observable property vector passes with mutation influence evidence",
+    "reuse": "all interface inputs and outputs bind without candidate mutation and the full observable property vector passes"
+  },
+  "implementation_question": "Can the candidate enforce exact fail-closed distribution admission for the qualified subset and measured destination?",
+  "input_contract": [
+    "qualified BQM/BQA, distribution subset and release metadata roles",
+    "measured destination before publish and after auth or redirect",
+    "content-addressed candidate manifest and projected candidate bytes"
+  ],
+  "interface_version": "1.0.0",
+  "invariants": [
+    "destination identity drift after auth or redirect is rejected",
+    "production and unknown destinations are rejected in development_test scope",
+    "candidate byte mutation is observable through the adapter"
+  ],
+  "output_contract": [
+    "signed distribution admission bound to exact subset and destination",
+    "allow, deny or pre-deadline active-transfer abort receipt"
+  ],
+  "reference_implementations": [
+    {
+      "digest": "sha256:3de94fd5bf5ce69ab43b7567eed49a253a6b2987399fd6c3cdea3cbb41923342",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/distribution_admission.py",
+      "size_bytes": 40306
+    }
+  ],
+  "schema_version": "pmorg.qualification-interface/v1",
+  "test_properties": [
+    {
+      "observable_property": "the distribution-admission interface invariant set remains true under the exact A-LIC-003 contract-test requirement",
+      "test_id": "A-LIC-003"
+    }
+  ]
+}

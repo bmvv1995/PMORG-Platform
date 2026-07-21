@@ -1,0 +1,46 @@
+{
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "deployment-admission",
+  "contract_test_manifest": {
+    "digest": "sha256:2a39c8af95309e2ee76d83f1eaefb71cbeae90352bf327f04a3a3b44c5b564f3",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/deployment-admission.json",
+    "size_bytes": 200
+  },
+  "fit_outcomes": {
+    "fail": "the candidate cannot bind the interface or any observable property fails; the reason must cite exact projected candidate bytes",
+    "patch": "a byte-bounded candidate patch supplies the interface and the full observable property vector passes with mutation influence evidence",
+    "reuse": "all interface inputs and outputs bind without candidate mutation and the full observable property vector passes"
+  },
+  "implementation_question": "Can the candidate enforce exact fail-closed deployment admission for the reconstructed payload and measured target?",
+  "input_contract": [
+    "qualified BQM/BQA and exact deployment payload descriptor",
+    "measured target descriptor, evidence and trusted temporal state",
+    "content-addressed candidate manifest and projected candidate bytes"
+  ],
+  "interface_version": "1.0.0",
+  "invariants": [
+    "missing, invalid, drifted or expired admission never allows deployment",
+    "production and unknown targets are rejected in development_test scope",
+    "candidate byte mutation is observable through the adapter"
+  ],
+  "output_contract": [
+    "signed deployment admission bound to exact payload and target",
+    "allow, deny or pre-deadline quiesce receipt"
+  ],
+  "reference_implementations": [
+    {
+      "digest": "sha256:0da5069dee99aabd8ac0c5d8bad08182d798973f12cba0f0f4f490f74aac3ff1",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/admission.py",
+      "size_bytes": 42203
+    }
+  ],
+  "schema_version": "pmorg.qualification-interface/v1",
+  "test_properties": [
+    {
+      "observable_property": "the deployment-admission interface invariant set remains true under the exact A-LIC-002 contract-test requirement",
+      "test_id": "A-LIC-002"
+    }
+  ]
+}

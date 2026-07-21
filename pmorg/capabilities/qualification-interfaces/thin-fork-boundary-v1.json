@@ -1,0 +1,46 @@
+{
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "thin-fork-boundary",
+  "contract_test_manifest": {
+    "digest": "sha256:10866f7bfec7f0ebdd46590079604c757354aedea32d674914936bb98f72dc7f",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/thin-fork-boundary.json",
+    "size_bytes": 202
+  },
+  "fit_outcomes": {
+    "fail": "the candidate cannot bind the interface or any observable property fails; the reason must cite exact projected candidate bytes",
+    "patch": "a byte-bounded candidate patch supplies the interface and the full observable property vector passes with mutation influence evidence",
+    "reuse": "all interface inputs and outputs bind without candidate mutation and the full observable property vector passes"
+  },
+  "implementation_question": "Can the candidate detect every change outside the PMORG-owned boundary and every ungoverned upstream or seam mutation?",
+  "input_contract": [
+    "pinned base tree, candidate tree and ownership allowlists",
+    "patch ledger, upstream patch records and protector evidence",
+    "content-addressed candidate manifest and projected candidate bytes"
+  ],
+  "interface_version": "1.0.0",
+  "invariants": [
+    "unknown ownership and trust-boundary changes fail closed",
+    "historical evidence remains byte-immutable and successor-bound",
+    "candidate byte mutation is observable through the adapter"
+  ],
+  "output_contract": [
+    "complete ordered set of boundary violations",
+    "success only when every changed path has one valid owner and policy route"
+  ],
+  "reference_implementations": [
+    {
+      "digest": "sha256:187ec91f7205793becd4adda931dc11e2b2944592c580174363c79ac3d38f35d",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/verify_fork.py",
+      "size_bytes": 150383
+    }
+  ],
+  "schema_version": "pmorg.qualification-interface/v1",
+  "test_properties": [
+    {
+      "observable_property": "the thin-fork-boundary interface invariant set remains true under the exact A-PATCH-001 contract-test requirement",
+      "test_id": "A-PATCH-001"
+    }
+  ]
+}

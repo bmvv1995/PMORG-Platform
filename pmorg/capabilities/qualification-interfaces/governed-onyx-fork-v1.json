@@ -1,0 +1,54 @@
+{
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "governed-onyx-fork",
+  "contract_test_manifest": {
+    "digest": "sha256:a9d0a22d7b15ef8af11e2c82a89b20246a2ff9f8ad79ea9c0dac73f7e8e84ded",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/governed-onyx-fork.json",
+    "size_bytes": 286
+  },
+  "fit_outcomes": {
+    "fail": "the candidate cannot bind the interface or any observable property fails; the reason must cite exact projected candidate bytes",
+    "patch": "a byte-bounded candidate patch supplies the interface and the full observable property vector passes with mutation influence evidence",
+    "reuse": "all interface inputs and outputs bind without candidate mutation and the full observable property vector passes"
+  },
+  "implementation_question": "Can the candidate enforce the pinned thin-fork ownership, seam and surface policy over an exact candidate tree?",
+  "input_contract": [
+    "pinned trusted base, candidate tree and protected base identity",
+    "ownership roots, seam allowlist and immutable historical evidence",
+    "content-addressed candidate manifest and projected candidate bytes"
+  ],
+  "interface_version": "1.0.0",
+  "invariants": [
+    "trust-boundary and upstream changes fail closed unless explicitly governed",
+    "unknown seams and hybrid governance states are rejected",
+    "candidate byte mutation is observable through the adapter"
+  ],
+  "output_contract": [
+    "ordered policy violations with exact source paths",
+    "success only for an exact admissible fork state"
+  ],
+  "reference_implementations": [
+    {
+      "digest": "sha256:187ec91f7205793becd4adda931dc11e2b2944592c580174363c79ac3d38f35d",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/verify_fork.py",
+      "size_bytes": 150383
+    }
+  ],
+  "schema_version": "pmorg.qualification-interface/v1",
+  "test_properties": [
+    {
+      "observable_property": "the governed-onyx-fork interface invariant set remains true under the exact A-FORK-001 contract-test requirement",
+      "test_id": "A-FORK-001"
+    },
+    {
+      "observable_property": "the governed-onyx-fork interface invariant set remains true under the exact A-SURFACE-001 contract-test requirement",
+      "test_id": "A-SURFACE-001"
+    },
+    {
+      "observable_property": "the governed-onyx-fork interface invariant set remains true under the exact A-UPSTREAM-001 contract-test requirement",
+      "test_id": "A-UPSTREAM-001"
+    }
+  ]
+}
