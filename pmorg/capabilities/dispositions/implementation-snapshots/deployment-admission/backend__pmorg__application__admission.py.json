@@ -1,0 +1,11 @@
+{
+  "commit": "7e262835c4d69dd51a8b6fbb401d7d1a8b7a2d0b",
+  "content_hash": "sha256:0da5069dee99aabd8ac0c5d8bad08182d798973f12cba0f0f4f490f74aac3ff1",
+  "git_blob_id": "06625f5b86923b17f45eb1d465aaf3a1bebcd6d8",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "backend/pmorg/application/admission.py",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 42203
+}

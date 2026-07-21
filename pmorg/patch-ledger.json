@@ -828,6 +828,37 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_post_disposition_qualification.py --check"
       ]
+    },
+    {
+      "id": "PL-029",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/capability_dispositions.py",
+        "backend/pmorg/tests/test_capability_dispositions.py",
+        "pmorg/capabilities/capability-disposition-report-v1.json",
+        "pmorg/capabilities/dispositions/evidence-bundle-v1.json",
+        "pmorg/capabilities/dispositions/subject-ce-source-artifact-v1.json",
+        "pmorg/capabilities/dispositions/**/*.json",
+        "pmorg/scripts/build_capability_dispositions.py"
+      ],
+      "requirements": [
+        "A-LIC-002",
+        "A-LIC-003",
+        "A-EVIDENCE-001",
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "PLT-004",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Emit exactly two bounded CE development-test CapabilityDispositionRecord artifacts for Deployment and Distribution Admission with candidates_found, all 186 executed candidate FAIL reports, PMORG-owned implementation provenance, exact pre-disposition CE source artifact binding and 5/5 post-disposition PASS reports; provide environment-only Ed25519 DSSE signing and fail-closed verification without claiming full catalog coverage, deviation, admission, release or G3-A.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=7e262835c4d69dd51a8b6fbb401d7d1a8b7a2d0b python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_capability_dispositions -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_dispositions.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

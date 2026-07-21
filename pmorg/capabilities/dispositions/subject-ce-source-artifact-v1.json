@@ -1,0 +1,20 @@
+{
+  "artifact_descriptor": {
+    "artifact_id": "pmorg-ce-source",
+    "artifact_kind": "package",
+    "component": "pmorg-platform",
+    "digest": "sha256:7aa237c8308fce4082b15ed94f08c7af99b39fbdae593a14d4900047057a8d64",
+    "media_type": "application/vnd.pmorg.onyx-ce-source.v1+tar",
+    "platform": "source",
+    "size_bytes": 51210240
+  },
+  "artifact_file_count": 4261,
+  "artifact_manifest_digest": "sha256:8f69c8799da465b76fa235dc96bb2a8ccc3f1fd85de920b9365f82ee95bc00a3",
+  "claim_boundary": "two_admission_dispositions_only_no_catalog_completion_or_release",
+  "onyx_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "onyx_surface": "ce",
+  "pmorg_platform_commit": "7e262835c4d69dd51a8b6fbb401d7d1a8b7a2d0b",
+  "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+  "schema_version": "pmorg.capability-disposition-subject/v1",
+  "usage_mode": "development_test"
+}

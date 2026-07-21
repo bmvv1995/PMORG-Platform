@@ -1,0 +1,11 @@
+{
+  "commit": "7e262835c4d69dd51a8b6fbb401d7d1a8b7a2d0b",
+  "content_hash": "sha256:3de94fd5bf5ce69ab43b7567eed49a253a6b2987399fd6c3cdea3cbb41923342",
+  "git_blob_id": "38e70cefce77466f2eb0fb1628d1024bcc3a5c70",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "backend/pmorg/application/distribution_admission.py",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 40306
+}

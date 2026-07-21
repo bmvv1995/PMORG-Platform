@@ -1,0 +1,43 @@
+{
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "catalog_item_count": 6,
+  "catalog_requirement_count": 21,
+  "catalog_version": "1.0.0",
+  "covered_count": 2,
+  "dangling_evidence_count": 0,
+  "duplicate_count": 0,
+  "missing_count": 4,
+  "onyx_surface": "ce",
+  "pmorg_platform_commit": "7e262835c4d69dd51a8b6fbb401d7d1a8b7a2d0b",
+  "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+  "record_count": 2,
+  "record_refs": [
+    {
+      "digest": "sha256:8325d2810d2dd5e98c052fd0cad4bef6f91558c138dc276a5e4dfb36d0a0bf92",
+      "logical_name": "deployment-admission-capability-disposition-record",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/records/deployment-admission.json",
+      "size_bytes": 974682
+    },
+    {
+      "digest": "sha256:9eb588bd87f2b2893e79bae54576c34b8a9ec269fcc37da0c369a586d05cadfc",
+      "logical_name": "distribution-admission-capability-disposition-record",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/records/distribution-admission.json",
+      "size_bytes": 1185929
+    }
+  ],
+  "records_and_evidence_bundle_index": {
+    "digest": "sha256:bed6f37789225484d3d1435b8a5e63636928bdb40d811ce58075ee46d58ce74e",
+    "logical_name": "bounded-admission-capability-disposition-evidence-bundle",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/dispositions/evidence-bundle-v1.json",
+    "size_bytes": 2897
+  },
+  "requirement_ref_mismatch_count": 0,
+  "schema_version": "pmorg.capability-disposition-report/v1",
+  "subject_artifact_set_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+  "unknown_requirement_count": 0,
+  "unmapped_requirement_count": 0,
+  "usage_mode": "development_test"
+}

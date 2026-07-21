@@ -1,0 +1,652 @@
+{
+  "bundle_kind": "capability-disposition:deployment-admission:v1",
+  "entries": [
+    {
+      "digest": "sha256:a13482ea50a3d07d966c8aadf99af69bd9225549d792e1f4eaa39da24d804ab8",
+      "logical_name": "capability-disposition-subject-ce-source-artifact",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/subject-ce-source-artifact-v1.json",
+      "size_bytes": 893
+    },
+    {
+      "digest": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+      "logical_name": "capability-catalog",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-catalog-v1.json",
+      "size_bytes": 4415
+    },
+    {
+      "digest": "sha256:a61efd6f39d5c4e12f3f1ee16a73f654ed1cb29b19048bafa060dce1df14a548",
+      "logical_name": "deployment-admission-candidate-search-evidence",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-search/deployment-admission-search-evidence-v1.json",
+      "size_bytes": 11668
+    },
+    {
+      "digest": "sha256:0325c4c5498a70aea2ce74bfdd2784784d9f1acd9b6f7b535fa5bce9969d669c",
+      "logical_name": "candidate-qualification-report-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports-v1.json",
+      "size_bytes": 256440
+    },
+    {
+      "digest": "sha256:c2b38991bb0acca9cc6249f7484a577a0f712dbda3087dbbcdb24684a5d51114",
+      "logical_name": "post-disposition-qualification-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/post-disposition-qualification-v1.json",
+      "size_bytes": 7704
+    },
+    {
+      "digest": "sha256:cac54add41bb38c1421266500e181dd5e51ab41f7d78aab83bd027cec4dd6340",
+      "logical_name": "deployment-admission-post-disposition-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/post-disposition-qualification-reports/deployment-admission.json",
+      "size_bytes": 5902
+    },
+    {
+      "digest": "sha256:80fbe560695cc1c15500f66c05eeeab9ecc363005fff41e15ff31eaa934655b8",
+      "logical_name": "deployment-admission-backend__pmorg__application__admission.py.json-snapshot",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/deployment-admission/backend__pmorg__application__admission.py.json",
+      "size_bytes": 479
+    },
+    {
+      "digest": "sha256:1152059995519b5c4ebf749baed892890fcbe57fabb776b38ce3b40163dd9689",
+      "logical_name": "deployment-admission-backend__pmorg__application__qualification.py.json-snapshot",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/deployment-admission/backend__pmorg__application__qualification.py.json",
+      "size_bytes": 483
+    },
+    {
+      "digest": "sha256:6665b6d7dc3027913c5f4bcff49e6c072a66c7b4fd896807cd110f27ef656c57",
+      "logical_name": "deployment-admission-backend__pmorg__application__rbdp.py.json-snapshot",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/deployment-admission/backend__pmorg__application__rbdp.py.json",
+      "size_bytes": 474
+    },
+    {
+      "digest": "sha256:d322338486e01334b3719cb1d526f0b03d544ebf3baec504051f64572795f848",
+      "logical_name": "deployment-admission-backend__pmorg__contracts__types.py.json-snapshot",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/deployment-admission/backend__pmorg__contracts__types.py.json",
+      "size_bytes": 473
+    },
+    {
+      "digest": "sha256:6496b369b79fa22948373d68522896c37cb3e5899d3f0a27c1a527c272e780b3",
+      "logical_name": "candidate-0f2788cbd00dabcc371db39a8ec598feb5da3a306f5f259c8e817bd15bf835ef-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-0f2788cbd00dabcc371db39a8ec598feb5da3a306f5f259c8e817bd15bf835ef.json",
+      "size_bytes": 2755
+    },
+    {
+      "digest": "sha256:056167e3bdcdcd6719167328a84b0eb3c0d32897cc92213a43c9a0574dbe9fcb",
+      "logical_name": "candidate-2676724511cd12f2be82ef1dcc59dd84cbb2784b407ed18315fd327b598cbab4-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-2676724511cd12f2be82ef1dcc59dd84cbb2784b407ed18315fd327b598cbab4.json",
+      "size_bytes": 4561
+    },
+    {
+      "digest": "sha256:762f6ef3c5c3cf7989703552c3b773833d42d545dc58f17113c0b9d0f7b7ae88",
+      "logical_name": "candidate-7bbd952bdd0a87f359e7d7f923bd6200d6d58303aa21b38876379aaa8400400f-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-7bbd952bdd0a87f359e7d7f923bd6200d6d58303aa21b38876379aaa8400400f.json",
+      "size_bytes": 2758
+    },
+    {
+      "digest": "sha256:6d66887654b2cc29b9785d1e08ad3faa7bfa4b3317fb78ff3ccaab2169806941",
+      "logical_name": "candidate-c687550428252a99b135b41c51200cf0abe932a2ab9910aab1c390475c44bf4f-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-c687550428252a99b135b41c51200cf0abe932a2ab9910aab1c390475c44bf4f.json",
+      "size_bytes": 2833
+    },
+    {
+      "digest": "sha256:2a14b30d2c60aeaab9ef2d8faf4c27eb34bf1e56a1fba8bd74a25a802decc6b5",
+      "logical_name": "candidate-3d1abaeb2abb5483596b96b9af6047e30725f3da2fa0dfb4f62afce506553376-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-3d1abaeb2abb5483596b96b9af6047e30725f3da2fa0dfb4f62afce506553376.json",
+      "size_bytes": 2688
+    },
+    {
+      "digest": "sha256:6924802be9b1d89c3197e51b2638f1c81a0d5ba66a57bca3ecd8e8ca187d99ef",
+      "logical_name": "candidate-6cb08ad609262bd37a9c2445f438494db01e390f2810152f5ffebf9ec8bd4b7f-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-6cb08ad609262bd37a9c2445f438494db01e390f2810152f5ffebf9ec8bd4b7f.json",
+      "size_bytes": 2694
+    },
+    {
+      "digest": "sha256:6f54820825fc28acfe5c3c7744b490f41e1e97d9fdcdb67cb5935d2a8350f381",
+      "logical_name": "candidate-2d5d732350b0dec64d45689232ccf11ac3c37a930b6f3783bb385d8f843de070-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-2d5d732350b0dec64d45689232ccf11ac3c37a930b6f3783bb385d8f843de070.json",
+      "size_bytes": 2943
+    },
+    {
+      "digest": "sha256:b3321a683315a5b7a4f1720713eb781fabc8f1c8780884f1fabd7f247d547089",
+      "logical_name": "candidate-726bcf4a4851582c2ad97ceb8141a0e0cfaafdfc68dc1b724fe97871a7aef8a8-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-726bcf4a4851582c2ad97ceb8141a0e0cfaafdfc68dc1b724fe97871a7aef8a8.json",
+      "size_bytes": 32987
+    },
+    {
+      "digest": "sha256:01b6a9daac0b08388bfca018056eb4da0cb693c763856e6548f252021e5e38b8",
+      "logical_name": "candidate-d4710aa342119b56c5440f08ca9c75ecac8cf5940f619e778889cb4dd99ef01a-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-d4710aa342119b56c5440f08ca9c75ecac8cf5940f619e778889cb4dd99ef01a.json",
+      "size_bytes": 3457
+    },
+    {
+      "digest": "sha256:4209cad5ba3d6c560a84d5a00adc8acd29787f3fc6e2762948da1bc96ffbab82",
+      "logical_name": "candidate-5b2ef81045307f65b4fc505b5eff112b765612b88323a635a4dac59ec3d63324-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-5b2ef81045307f65b4fc505b5eff112b765612b88323a635a4dac59ec3d63324.json",
+      "size_bytes": 3183
+    },
+    {
+      "digest": "sha256:7c5354fce24996d52f8c97bc5b0310d59945c99d208d7bba0dc53e812d4bd586",
+      "logical_name": "candidate-c2b7077396ddf71fbbb7c36f6474e9796c4e1d15dd6f4a7ec3c7932fa18d2b04-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-c2b7077396ddf71fbbb7c36f6474e9796c4e1d15dd6f4a7ec3c7932fa18d2b04.json",
+      "size_bytes": 2805
+    },
+    {
+      "digest": "sha256:5a7a9f689ddc6c4cb833ffa150a2bee439465c1981027ceba013c1e029c733d4",
+      "logical_name": "candidate-2a15659e4319ef1b9e6504e21257bdd4fb0a2621dc733dec9349660e79fb0a81-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-2a15659e4319ef1b9e6504e21257bdd4fb0a2621dc733dec9349660e79fb0a81.json",
+      "size_bytes": 3617
+    },
+    {
+      "digest": "sha256:03cbb69c65275764ffb922fca2df88c28cdc78e82d99728b76f6c8e8f06fdf0a",
+      "logical_name": "candidate-667369856eb8b85e221d91f034946516a558ffd6d1894541c7c746094f91d541-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-667369856eb8b85e221d91f034946516a558ffd6d1894541c7c746094f91d541.json",
+      "size_bytes": 8396
+    },
+    {
+      "digest": "sha256:b69cce3beb8b71eacb6ee9a7de61a98457655c0ba4c15345be9a10e599f2acf0",
+      "logical_name": "candidate-c767e2ebcd18468a5cea811eafcd7546bf578bafbedc754319dd13769b224dd6-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-c767e2ebcd18468a5cea811eafcd7546bf578bafbedc754319dd13769b224dd6.json",
+      "size_bytes": 2842
+    },
+    {
+      "digest": "sha256:a695d6cf0a7a8f6c1db10ae24fcadbe40c8145893660060d113c61d7881251ca",
+      "logical_name": "candidate-1caafebea734a58028390ba371a4ca6845e3fa6c665dc64cdc6237effd4c4ec9-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-1caafebea734a58028390ba371a4ca6845e3fa6c665dc64cdc6237effd4c4ec9.json",
+      "size_bytes": 3490
+    },
+    {
+      "digest": "sha256:0872a6e6e5ea0a5d1832b501b488520ca87909f2c9baad5028e2cbd3c95bcae6",
+      "logical_name": "candidate-4093bbc470ec4b8d54b66a8a36b737f26697560c1cf379e9feb5e99ddf27356f-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-4093bbc470ec4b8d54b66a8a36b737f26697560c1cf379e9feb5e99ddf27356f.json",
+      "size_bytes": 3329
+    },
+    {
+      "digest": "sha256:3e53d0ddd83a6fcedcd69b70b263790be98e2c5e200259a7bbaf477d43d60c9c",
+      "logical_name": "candidate-c296a691a41873da52714de39f31cda9c40737f4b6e6d703f805f44cf5d7c6ea-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-c296a691a41873da52714de39f31cda9c40737f4b6e6d703f805f44cf5d7c6ea.json",
+      "size_bytes": 11900
+    },
+    {
+      "digest": "sha256:88e3ca4eea68128cf27cba4d576dc24236c025829ef02b24baf93265d09fcd4e",
+      "logical_name": "candidate-771ea1d726bf0b5129c3d1a241b443c19cefcca7eee363c3c3c13a06ce853492-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-771ea1d726bf0b5129c3d1a241b443c19cefcca7eee363c3c3c13a06ce853492.json",
+      "size_bytes": 6186
+    },
+    {
+      "digest": "sha256:b398741d94e4f9e2abe8848c7a579c76eff2eb8fcd8078f8894543f957462d2a",
+      "logical_name": "candidate-f5a60fdeadbbd0042eb2460e875d2b601dc47b64fdf4c287527e901ea19c431c-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-f5a60fdeadbbd0042eb2460e875d2b601dc47b64fdf4c287527e901ea19c431c.json",
+      "size_bytes": 4486
+    },
+    {
+      "digest": "sha256:dacf72ce1856fc2838db37df5cb690e9fad1a354d62380bfb6c988c62af5b503",
+      "logical_name": "candidate-8cd26d3bae4ae2442830fb7c8eba2de1da60e3b22b1c44828500b7e1452a462f-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-8cd26d3bae4ae2442830fb7c8eba2de1da60e3b22b1c44828500b7e1452a462f.json",
+      "size_bytes": 3911
+    },
+    {
+      "digest": "sha256:a0eb4115c21ced35938f680ef4a8e03e6e9fbcfb5946c34ca2f0f4134cfc50fb",
+      "logical_name": "candidate-d78b6d9b901111ddcc6772520da622a4981d1c7c5a8dc5d583d5f307fe9da629-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-d78b6d9b901111ddcc6772520da622a4981d1c7c5a8dc5d583d5f307fe9da629.json",
+      "size_bytes": 3149
+    },
+    {
+      "digest": "sha256:b34af74c8c71ba7ff238800dd2b81894612a50a15310c8129b6c450aa9c7f928",
+      "logical_name": "candidate-84bf9aa08f72a2de85cc31ddc5b532bc9c664f11bcb14e111235ff450f7424a6-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-84bf9aa08f72a2de85cc31ddc5b532bc9c664f11bcb14e111235ff450f7424a6.json",
+      "size_bytes": 3129
+    },
+    {
+      "digest": "sha256:e3138c29361e0a3c7e367c118ba6c2467c8837b4391e24917c62a910aa7d9421",
+      "logical_name": "candidate-f2c3aa7b08f0be664521f090e49990c248e96e832ef79acf8b07c4098e341ae9-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-f2c3aa7b08f0be664521f090e49990c248e96e832ef79acf8b07c4098e341ae9.json",
+      "size_bytes": 4082
+    },
+    {
+      "digest": "sha256:d70ee90a942d2b38a60c810746f9c9f8d013ccefecf00cf3fe60c22e9da78eb1",
+      "logical_name": "candidate-766ebd079ad58c2182aeceedc0535824f7d0dac324b4de381724676aecca1f19-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-766ebd079ad58c2182aeceedc0535824f7d0dac324b4de381724676aecca1f19.json",
+      "size_bytes": 4538
+    },
+    {
+      "digest": "sha256:003c275a1789e3616529cefbc28fd8f9677d0b04702b8d96776e9c3d2297025a",
+      "logical_name": "candidate-2919cfe365c0e97dfc961c816ad856a70a04abec82f469aacd5eee87d9d83089-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-2919cfe365c0e97dfc961c816ad856a70a04abec82f469aacd5eee87d9d83089.json",
+      "size_bytes": 3163
+    },
+    {
+      "digest": "sha256:c34053c4aa8d5ccec5759bf5ce94bd0daf9da8707350ca27e730ca406fdd0dd0",
+      "logical_name": "candidate-72fe867f1cc5d3d0a7d1ec083560c392db378ebf31e407cec87bbbc5e914be73-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-72fe867f1cc5d3d0a7d1ec083560c392db378ebf31e407cec87bbbc5e914be73.json",
+      "size_bytes": 3134
+    },
+    {
+      "digest": "sha256:623138de91e536a1a7b799c9b94399eef1391be1f331c4b6f1b6b1643c23cb71",
+      "logical_name": "candidate-1cc6c0b686dd560a70ed0db3336e8e5edbde44ec3e7439c0cee665b97e14945a-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-1cc6c0b686dd560a70ed0db3336e8e5edbde44ec3e7439c0cee665b97e14945a.json",
+      "size_bytes": 3847
+    },
+    {
+      "digest": "sha256:2d14c934251292f30846c880c3472fdf5d126bcc306f28db7437c99343c04997",
+      "logical_name": "candidate-2cc4812d27bdfcbd7393f7df3ebf8b435de325d3f73ac59ff9771150e2adf42f-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-2cc4812d27bdfcbd7393f7df3ebf8b435de325d3f73ac59ff9771150e2adf42f.json",
+      "size_bytes": 3783
+    },
+    {
+      "digest": "sha256:eafb70007a886379b867b8245ad9536f9d86b0770d4bf5fbea94e773ca478309",
+      "logical_name": "candidate-035d044ba9ea8103f9f804e6407f09f59652100aed87d0c6a82eb20337085ab2-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-035d044ba9ea8103f9f804e6407f09f59652100aed87d0c6a82eb20337085ab2.json",
+      "size_bytes": 3626
+    },
+    {
+      "digest": "sha256:2f8fb08523c9f39fbf3b58f70d4dc021e60a0733c7d21fdeb89832562ed0fb65",
+      "logical_name": "candidate-7a27124a2bd670b802be539ba6f44da7e51d69b627e2361745263d13f0bda7c2-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-7a27124a2bd670b802be539ba6f44da7e51d69b627e2361745263d13f0bda7c2.json",
+      "size_bytes": 3561
+    },
+    {
+      "digest": "sha256:32e85f4788b7607f33054b77e5d0a6e498c19e99752ecb62b47daffed80841f7",
+      "logical_name": "candidate-becc7dea15198c796e9b02b7ba48cf497c2f9e21eace6f0ee93e99a89694b377-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-becc7dea15198c796e9b02b7ba48cf497c2f9e21eace6f0ee93e99a89694b377.json",
+      "size_bytes": 25168
+    },
+    {
+      "digest": "sha256:82f469bc0e71a5efe5f6221a92014593ef7c8c26c61871df4234c4ed16955c89",
+      "logical_name": "candidate-82ae687296b55d52dd107e9d4cc9a3c49f476e342b3809090ed074b24d04ca19-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-82ae687296b55d52dd107e9d4cc9a3c49f476e342b3809090ed074b24d04ca19.json",
+      "size_bytes": 9355
+    },
+    {
+      "digest": "sha256:8b807fd5e9abea3a7b7c06a5f29f8e5fe61d88e5c4ceca5be7b09beef6f58c4b",
+      "logical_name": "candidate-d3eb60bdefb6932134ad3abbad7530808bb781a8ec73b99813855ac066acb22e-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-d3eb60bdefb6932134ad3abbad7530808bb781a8ec73b99813855ac066acb22e.json",
+      "size_bytes": 6419
+    },
+    {
+      "digest": "sha256:6cfbd65ce763f01febb79bf54ea94ca2f94fd83710fe0690fa1df8de509ee295",
+      "logical_name": "candidate-526d220696756f6dac82d712eb999c515f9b11bc243d96650fa3c810063ef2d7-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-526d220696756f6dac82d712eb999c515f9b11bc243d96650fa3c810063ef2d7.json",
+      "size_bytes": 3526
+    },
+    {
+      "digest": "sha256:78b10633ec8462f6082cdfa1c1987a65fb448e5b15cc250a50f991d069fb8d17",
+      "logical_name": "candidate-580be748b93d024cb882a8584150c93fba81acdb86b9563fc3fedb916caaae1a-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-580be748b93d024cb882a8584150c93fba81acdb86b9563fc3fedb916caaae1a.json",
+      "size_bytes": 4719
+    },
+    {
+      "digest": "sha256:ab9526429764b3002321a2e3fdb0f203eae8503429965384c1258e7119de0218",
+      "logical_name": "candidate-93b741a489cb28b3d9d6092835de4b9718ec31f703382e35b8109512d7285096-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-93b741a489cb28b3d9d6092835de4b9718ec31f703382e35b8109512d7285096.json",
+      "size_bytes": 6729
+    },
+    {
+      "digest": "sha256:3b4ca65f7866c4a11a7cc01b4f790e888a9ec08bcbded58523045ed2f4032f9b",
+      "logical_name": "candidate-06f362b0c6859082add490189c48ee8e942eab0a8c5888a471c50f8310488a7c-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-06f362b0c6859082add490189c48ee8e942eab0a8c5888a471c50f8310488a7c.json",
+      "size_bytes": 2940
+    },
+    {
+      "digest": "sha256:ddbe73ae78dfe38dbbd902c1918cfd9a36547efa57557bb7a3ba12a07a4fcda3",
+      "logical_name": "candidate-01cdaa2b67f67cf3c2e2c43e81a5166a23a2a2270986a52a8798aaf19e0dddc0-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-01cdaa2b67f67cf3c2e2c43e81a5166a23a2a2270986a52a8798aaf19e0dddc0.json",
+      "size_bytes": 85991
+    },
+    {
+      "digest": "sha256:667d3288d5bf060ad51bdb4231d17ef6efc30830f815232f380ab8a28e2b2001",
+      "logical_name": "candidate-6b819a6ec69d382a9b06d702fbcd3f09da7360c3941129a7a28a87ca43d08085-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-6b819a6ec69d382a9b06d702fbcd3f09da7360c3941129a7a28a87ca43d08085.json",
+      "size_bytes": 3134
+    },
+    {
+      "digest": "sha256:07d21a11f7a3e439e9b57a72be92bc7563aa0ec9e4261aaa23882cd6672efbde",
+      "logical_name": "candidate-24c5c6579aa821ec9e31062352038fcb9cbd500f4f13be98c171f83b11c87a7a-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-24c5c6579aa821ec9e31062352038fcb9cbd500f4f13be98c171f83b11c87a7a.json",
+      "size_bytes": 4308
+    },
+    {
+      "digest": "sha256:605f111fbff314f7067bc3adbe4a365a8c28d58bd9761c35e8e8b2843bf7543b",
+      "logical_name": "candidate-c2bda0e6abaa0e35d2331c61c7058fa8b50304f6b4e8973b276d351d4d884835-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-c2bda0e6abaa0e35d2331c61c7058fa8b50304f6b4e8973b276d351d4d884835.json",
+      "size_bytes": 2689
+    },
+    {
+      "digest": "sha256:a405dc0883a6c1828e0d5f54510a3121d46147211fb16eddd7facecb70b98745",
+      "logical_name": "candidate-9040fde3bb660092473428d09e06ff7929575491eb823657224bf44d486f2167-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-9040fde3bb660092473428d09e06ff7929575491eb823657224bf44d486f2167.json",
+      "size_bytes": 4067
+    },
+    {
+      "digest": "sha256:89cb6a6dcc9fbd0987960ff48e5d01343c22862a77a32caa5f3766cddd63ace8",
+      "logical_name": "candidate-210ea8929e795d5196b59e3c0452864ef642a4810ed22191af0eda6cf3c5919c-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-210ea8929e795d5196b59e3c0452864ef642a4810ed22191af0eda6cf3c5919c.json",
+      "size_bytes": 2995
+    },
+    {
+      "digest": "sha256:78709b1a47d51f82b4f09d9e36e120db22e0070334f4dab1ee4147792b8b88dd",
+      "logical_name": "candidate-4b067777d4da76c09b331166cb01dd5318138012a7f80320299f72b437ac2191-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-4b067777d4da76c09b331166cb01dd5318138012a7f80320299f72b437ac2191.json",
+      "size_bytes": 3870
+    },
+    {
+      "digest": "sha256:62ec23ccfac9b67f86ba365904abef9bf212f59d79b2ee98272caa64ba132e2d",
+      "logical_name": "candidate-fb60beac64f706b199006e7067f16706fc950bff5a3caea1eae1c8e3126c9ab6-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-fb60beac64f706b199006e7067f16706fc950bff5a3caea1eae1c8e3126c9ab6.json",
+      "size_bytes": 10248
+    },
+    {
+      "digest": "sha256:675dc46b23f7edf7762bba19c4dfc30aac97e1e78654760fd0b988bde92524b0",
+      "logical_name": "candidate-247d9bf9f545de70d00af878876d62c4a19ea317fe82b281e94e3d95b5488328-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-247d9bf9f545de70d00af878876d62c4a19ea317fe82b281e94e3d95b5488328.json",
+      "size_bytes": 4126
+    },
+    {
+      "digest": "sha256:7073c92053010c11120d51f117da59a4c717b5b7d6c96a097952ab58ce9ca726",
+      "logical_name": "candidate-0090640f5f36ea2970ca274e8faf8f66fbc0bf0a3813418c942446c35aa1afeb-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-0090640f5f36ea2970ca274e8faf8f66fbc0bf0a3813418c942446c35aa1afeb.json",
+      "size_bytes": 5892
+    },
+    {
+      "digest": "sha256:20924f039739d2d9f7cfa0b28122894eea283aec10e421268f29972c2054a1ac",
+      "logical_name": "candidate-755ae09d069e0ae57f4cbeb167e4a26a1d10969574daced27177b559f8016806-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-755ae09d069e0ae57f4cbeb167e4a26a1d10969574daced27177b559f8016806.json",
+      "size_bytes": 2725
+    },
+    {
+      "digest": "sha256:543d131461244e3fde2646fc79eeeaaabe3aa3f57787e8f7f933010a3f32f144",
+      "logical_name": "candidate-2a8497d586a69306ea3938bf18cca06b9e68c50005958dfcf10896a0e5ed2f37-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-2a8497d586a69306ea3938bf18cca06b9e68c50005958dfcf10896a0e5ed2f37.json",
+      "size_bytes": 4991
+    },
+    {
+      "digest": "sha256:49509cd165cdda1fb11d025c65d535e8e9c6fb93f0b08941f7d000bc3ab0f98d",
+      "logical_name": "candidate-73d7ebaa13ee9afac4f9c026aa767aab969d7583962a91fef970acae169a5262-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-73d7ebaa13ee9afac4f9c026aa767aab969d7583962a91fef970acae169a5262.json",
+      "size_bytes": 3166
+    },
+    {
+      "digest": "sha256:0ef396362ee354e2e5bc8d008011ec696d343a7011d7d92d8c1a770abab8bab0",
+      "logical_name": "candidate-155db1b6ccdc737759936f996df19a6c05b13cb241c96a851ec7fbaf02cb9bfe-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-155db1b6ccdc737759936f996df19a6c05b13cb241c96a851ec7fbaf02cb9bfe.json",
+      "size_bytes": 3937
+    },
+    {
+      "digest": "sha256:9106d8e5dd98f2c10f052f64886699f74269676ba96206682768d444982d3c29",
+      "logical_name": "candidate-42b51e6c3540352f959de3e4113991ff4e3ff64056f60224814f3f8e1404c62c-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-42b51e6c3540352f959de3e4113991ff4e3ff64056f60224814f3f8e1404c62c.json",
+      "size_bytes": 2898
+    },
+    {
+      "digest": "sha256:4952cb012d6b11a9a90f523649e21721ab3271fef00f8ad7488cee37bf9de987",
+      "logical_name": "candidate-f98f01607f3c0fd7e4a884f6423336a783a717d23d973379a7e65529772ad1bb-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-f98f01607f3c0fd7e4a884f6423336a783a717d23d973379a7e65529772ad1bb.json",
+      "size_bytes": 2739
+    },
+    {
+      "digest": "sha256:bad262d5e678d8f3559eb32ee0b7f57066f39dde6b3c8fba8bb68440b3ab9c68",
+      "logical_name": "candidate-5d51837014ba4333040a7d3054cb72077f0fbeaaf77b110b794d461229696805-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-5d51837014ba4333040a7d3054cb72077f0fbeaaf77b110b794d461229696805.json",
+      "size_bytes": 2838
+    },
+    {
+      "digest": "sha256:88228413908f614b320c28f475ba90f4995e39d7b06b97efe5fae7b6861c0893",
+      "logical_name": "candidate-9b47e0bc1224b414e465e95683bd31ab80582e85627f02fa3b2c18bb2581d08a-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-9b47e0bc1224b414e465e95683bd31ab80582e85627f02fa3b2c18bb2581d08a.json",
+      "size_bytes": 3273
+    },
+    {
+      "digest": "sha256:15e2dfea3fefe3401cc13979b718d0a12daec165681651c9b752944fa62086d2",
+      "logical_name": "candidate-c2deefd769bdf133fa1d84b0d7e164849fdf2e9271a1aaf72edd18241186fa1f-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-c2deefd769bdf133fa1d84b0d7e164849fdf2e9271a1aaf72edd18241186fa1f.json",
+      "size_bytes": 7133
+    },
+    {
+      "digest": "sha256:a5cd61780c03c6afd6f5290ca7274ded68737db2035daa58904eb28a578daab1",
+      "logical_name": "candidate-8d956fd55278dc84ab28f077d10dc7845059af29734f678fa4969b8ed7a67364-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-8d956fd55278dc84ab28f077d10dc7845059af29734f678fa4969b8ed7a67364.json",
+      "size_bytes": 2770
+    },
+    {
+      "digest": "sha256:b4071e15dda0ab37599aca0e300f3fb1b87ff84a82b38ad17dbef5174931eed2",
+      "logical_name": "candidate-46457c1c8b078812dd584354cba7118d2c39f15c67b25af20b8c49aebc199f61-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-46457c1c8b078812dd584354cba7118d2c39f15c67b25af20b8c49aebc199f61.json",
+      "size_bytes": 2997
+    },
+    {
+      "digest": "sha256:d0b7a0395642336f93ca4a0de7b686912229b3e6bf4ce9ead10d5b7e21a50251",
+      "logical_name": "candidate-83d6170c2dda8a1ece22252caecc3113885b2208c0a6b3151e5839d33e5e9e6b-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-83d6170c2dda8a1ece22252caecc3113885b2208c0a6b3151e5839d33e5e9e6b.json",
+      "size_bytes": 5750
+    },
+    {
+      "digest": "sha256:211d88523d65f8291998ec1f2b4adab082c775da2558c25c8e6aec2678a6e4fd",
+      "logical_name": "candidate-5717de26f411c44b38e671bbe3cc2c9dc12bec07d7e5196950351f4a095e0835-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-5717de26f411c44b38e671bbe3cc2c9dc12bec07d7e5196950351f4a095e0835.json",
+      "size_bytes": 3203
+    },
+    {
+      "digest": "sha256:7224529e23cc82db41baffc21f7b2dbc8f6e866c70dc2de50f5172b6368239d6",
+      "logical_name": "candidate-4101bbdc763db7ce503531a8729ca1b2ba89f9b99d508d24f2b42083b08716b2-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-4101bbdc763db7ce503531a8729ca1b2ba89f9b99d508d24f2b42083b08716b2.json",
+      "size_bytes": 2992
+    },
+    {
+      "digest": "sha256:350d15bcc99ff2931958d8e4992707408d8a601288b05377657f4d31fe3961e0",
+      "logical_name": "candidate-368e7c5a6168b095c3de5a95402f2650b8a0023588329589c317e5bb9317c900-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-368e7c5a6168b095c3de5a95402f2650b8a0023588329589c317e5bb9317c900.json",
+      "size_bytes": 2798
+    },
+    {
+      "digest": "sha256:f3d6becf8081c1f1880a4a397ac3c6336553966105604c89a307e0b42fdb0642",
+      "logical_name": "candidate-a07c74c849368b8cfa5aa36cda1a52345ea0754f189fc84ebda4e8614f1b3205-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-a07c74c849368b8cfa5aa36cda1a52345ea0754f189fc84ebda4e8614f1b3205.json",
+      "size_bytes": 2872
+    },
+    {
+      "digest": "sha256:fab1abf48d5e81c8369848b609797545f4b973f2e4110df97e85110942cac991",
+      "logical_name": "candidate-1012ccba3d7a307fdd3f62643fb743a6d98327045b03d97f5e8d647359103e4f-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-1012ccba3d7a307fdd3f62643fb743a6d98327045b03d97f5e8d647359103e4f.json",
+      "size_bytes": 11390
+    },
+    {
+      "digest": "sha256:2eb3e17385456dacf1dbae4b91c0e0f4ac537522cbf4c21cd6593e895b7f80c6",
+      "logical_name": "candidate-fc83e569174384b62be5aa162f9f58eb04c92272496c356f6d132988c1ebc41d-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-fc83e569174384b62be5aa162f9f58eb04c92272496c356f6d132988c1ebc41d.json",
+      "size_bytes": 11085
+    },
+    {
+      "digest": "sha256:26b01520a9d520dd07dbcde275bea62c6547a9ec23976a7c2a01dd105beca9a2",
+      "logical_name": "candidate-c1bbca0c960599d0f8dc3a518f6960dba8587efcca329717b1d5c4ad931d5c13-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-c1bbca0c960599d0f8dc3a518f6960dba8587efcca329717b1d5c4ad931d5c13.json",
+      "size_bytes": 3989
+    },
+    {
+      "digest": "sha256:4dd35505ef4f58b24cbd332dce207da56238be2c32334b655538ed6e38f184c5",
+      "logical_name": "candidate-fa7c760bda5a9db07db6e7dc5da3c1b19d8be7d55469b51c593cb279aee11e54-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-fa7c760bda5a9db07db6e7dc5da3c1b19d8be7d55469b51c593cb279aee11e54.json",
+      "size_bytes": 11983
+    },
+    {
+      "digest": "sha256:743cc37bc2bd4efa7c00aa196d5a553a2b27da1f10362590aadc150fc5c9c05f",
+      "logical_name": "candidate-137d89866ec0d38f1f232b48d161c9cf43d8c64c59a1be7e37a57a429ebb35dc-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-137d89866ec0d38f1f232b48d161c9cf43d8c64c59a1be7e37a57a429ebb35dc.json",
+      "size_bytes": 5801
+    },
+    {
+      "digest": "sha256:28d3dec4e934b33bb1592368671a0e7a2e633e27f45a5c2fc29f860b40fcf548",
+      "logical_name": "candidate-a87fe8f4b1716a57a2afed0b4ce708da2adf64c5cf7ea0888fb4e538e500c796-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-a87fe8f4b1716a57a2afed0b4ce708da2adf64c5cf7ea0888fb4e538e500c796.json",
+      "size_bytes": 8514
+    },
+    {
+      "digest": "sha256:b19f883ff3768bb1442ff02b0c4f16149b5f494fcd4334eac8e21a066ba49122",
+      "logical_name": "candidate-507369872308aa86f4adece364812e2bb75ba9f0d247b08b87e598c3de8119e2-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-507369872308aa86f4adece364812e2bb75ba9f0d247b08b87e598c3de8119e2.json",
+      "size_bytes": 3269
+    },
+    {
+      "digest": "sha256:0150ad356e6bcdc238f18ad4d1c93fe2cd983314d9f0169b441165695c8230df",
+      "logical_name": "candidate-83e3c8e791f84e80a4f535895b55197e53985c16184b90076f658e34cdef839b-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-83e3c8e791f84e80a4f535895b55197e53985c16184b90076f658e34cdef839b.json",
+      "size_bytes": 11506
+    },
+    {
+      "digest": "sha256:6705329883c2f71ac2800edd946c062e2e2b073e3e9580ce93fba4fda8a897ac",
+      "logical_name": "candidate-395a6039ffa65ea4006a739d099d254744dd74eca64825b6798babc445c2ba0c-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-395a6039ffa65ea4006a739d099d254744dd74eca64825b6798babc445c2ba0c.json",
+      "size_bytes": 7317
+    },
+    {
+      "digest": "sha256:1face220fe3405ef63b19fca10e1496c3ce01015461f9f846500581f8767acc6",
+      "logical_name": "candidate-1d4ca91076c22a247cf164619e8d0cb79fb8167d9f52ec265909e2e8bfb0df66-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-1d4ca91076c22a247cf164619e8d0cb79fb8167d9f52ec265909e2e8bfb0df66.json",
+      "size_bytes": 8914
+    },
+    {
+      "digest": "sha256:68caab7716767f8bec59b40953c01843eea0b771615074562eab2ccc94ff8073",
+      "logical_name": "candidate-1886f35664aae9d833d8442d4b82fd48c34e4fb1967950ec946dd2673bf1921a-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-1886f35664aae9d833d8442d4b82fd48c34e4fb1967950ec946dd2673bf1921a.json",
+      "size_bytes": 2868
+    },
+    {
+      "digest": "sha256:4ec458ee62d30d3517855cb3189717753f052c47cdc911fbc1d9b0d345d5c5f4",
+      "logical_name": "candidate-91c8fcb715150116f5799b2f94af638cc348182514eb2f41d314bd724d4b08a4-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-91c8fcb715150116f5799b2f94af638cc348182514eb2f41d314bd724d4b08a4.json",
+      "size_bytes": 2737
+    },
+    {
+      "digest": "sha256:156f216dfb7e965719db29238f9195f8ba4fb5611957f629f0fba79699b446d6",
+      "logical_name": "candidate-bac2d1d8cd13af1400a5c6f0a5c9cd7998828531ab041980a1853d5a89b579cd-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-bac2d1d8cd13af1400a5c6f0a5c9cd7998828531ab041980a1853d5a89b579cd.json",
+      "size_bytes": 4797
+    },
+    {
+      "digest": "sha256:9c40c6c8ad12ac1a09085ecd5a8a596c8e40b09bc8a9107b4bee940d6b24cc0c",
+      "logical_name": "candidate-af74d316575cc3a9f62c247ee17d797d321883bdb168d481a5d295a2acf33119-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-af74d316575cc3a9f62c247ee17d797d321883bdb168d481a5d295a2acf33119.json",
+      "size_bytes": 2886
+    },
+    {
+      "digest": "sha256:7ab51d2508b78c5d7d8a24084c91d1f98438b5730ed033b2991f79ed8044db71",
+      "logical_name": "candidate-868f1977a593e42e75f2380f43fb31a54869ce46da483b2aa9acfeaac33cf5ae-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-868f1977a593e42e75f2380f43fb31a54869ce46da483b2aa9acfeaac33cf5ae.json",
+      "size_bytes": 3425
+    },
+    {
+      "digest": "sha256:d89558393f9cb5912d742ac5065df63173a2c2ee1f5097470aaeff33086f42d6",
+      "logical_name": "candidate-d1808130c56ba3188dded0959b50af3195edfa959e909abd986ede6e98ae0e68-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-d1808130c56ba3188dded0959b50af3195edfa959e909abd986ede6e98ae0e68.json",
+      "size_bytes": 5105
+    },
+    {
+      "digest": "sha256:2ab8b9e971ec98eb7d4ae40fd45140c0a677bfd6c226b165e8f1cb256e358900",
+      "logical_name": "candidate-bbbf1f69fd8a7f70ad3b2b91547dac6e09f6c52a83a04fc1cc0787626a8fcd06-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-bbbf1f69fd8a7f70ad3b2b91547dac6e09f6c52a83a04fc1cc0787626a8fcd06.json",
+      "size_bytes": 6931
+    },
+    {
+      "digest": "sha256:92b202b7da9ad3341a337283431b1390c439a3eb0a738ab509e4d4bcbe35752a",
+      "logical_name": "candidate-b717d0ab844a4951f5f6612dd819220b06acd6d5b6d822a89d67df3bee501bb6-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-b717d0ab844a4951f5f6612dd819220b06acd6d5b6d822a89d67df3bee501bb6.json",
+      "size_bytes": 3034
+    },
+    {
+      "digest": "sha256:2b20cd4675298b093a5a3f5d932f8e3b497a3cc87391fccda1f8b7d447d4a9b8",
+      "logical_name": "candidate-1768542011f0bc3968480396b6f376251976374f0ff3ba18f5de378c32579aaf-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports/deployment-admission/candidate-1768542011f0bc3968480396b6f376251976374f0ff3ba18f5de378c32579aaf.json",
+      "size_bytes": 3348
+    }
+  ],
+  "entry_count": 92,
+  "schema_version": "pmorg.evidence-bundle-index/v1",
+  "subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e"
+}
