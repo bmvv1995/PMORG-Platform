@@ -21,6 +21,7 @@ from pmorg.contracts.types import PostDispositionQualificationReport
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 BASE_PLATFORM_COMMIT = "7778c8ecf965460811284cea9c721682cd3f42ae"
+Q5D_EVIDENCE_COMMIT = "4e78c6293a0f6b17d86764688bf23f5b357db890"
 CATALOG_RELATIVE = "pmorg/capabilities/capability-catalog-v1.json"
 PATCH_LEDGER_RELATIVE = "pmorg/patch-ledger.json"
 REPORT_SCHEMA_RELATIVE = (
@@ -89,6 +90,21 @@ ALLOWED_SLICE_PATHS = {
     SUITE_RECEIPT_SCHEMA_RELATIVE,
     "backend/pmorg/tests/test_governed_fork_post_disposition_qualification.py",
 }
+VALIDATOR_MUTABLE_PATHS = {
+    APPLICATION_RELATIVE,
+    "backend/pmorg/tests/test_governed_fork_post_disposition_qualification.py",
+}
+ARCHIVAL_SLICE_PATHS = (
+    ALLOWED_SLICE_PATHS - VALIDATOR_MUTABLE_PATHS - {PATCH_LEDGER_RELATIVE}
+)
+LEDGER_TOP_LEVEL_PINS = (
+    "schema_version",
+    "upstream_commit",
+    "ownership_roots_ref",
+    "seam_allowlist_ref",
+    "upstream_patch_record_schema_version",
+    "specification_commit",
+)
 
 
 class GovernedForkPostDispositionQualificationError(ValueError):
@@ -177,18 +193,24 @@ def _verified_payload(
     return payload
 
 
-def _git_blob(repository_root: Path, relative_path: str) -> bytes:
+def _historical_blob(
+    repository_root: Path, relative_path: str, *, commit: str
+) -> bytes:
     try:
         return subprocess.run(
-            ["git", "show", f"{BASE_PLATFORM_COMMIT}:{relative_path}"],
+            ["git", "show", f"{commit}:{relative_path}"],
             cwd=repository_root,
             check=True,
             capture_output=True,
         ).stdout
     except subprocess.CalledProcessError as error:
         raise GovernedForkPostDispositionQualificationError(
-            f"trusted Governed Fork path is absent from base: {relative_path}"
+            f"Governed Fork historical path is absent from {commit}: {relative_path}"
         ) from error
+
+
+def _git_blob(repository_root: Path, relative_path: str) -> bytes:
+    return _historical_blob(repository_root, relative_path, commit=BASE_PLATFORM_COMMIT)
 
 
 def _assert_trust_boundary_immutable(repository_root: Path) -> None:
@@ -201,12 +223,18 @@ def _assert_trust_boundary_immutable(repository_root: Path) -> None:
             )
 
 
-def _assert_predecessors_immutable(repository_root: Path) -> None:
-    """Reject any base change outside this technical PDQ slice and ledger append."""
-
+def _historical_result_paths(repository_root: Path) -> set[str]:
     try:
         completed = subprocess.run(
-            ["git", "diff", "--name-only", BASE_PLATFORM_COMMIT, "--"],
+            [
+                "git",
+                "ls-tree",
+                "-r",
+                "--name-only",
+                Q5D_EVIDENCE_COMMIT,
+                "--",
+                RESULT_ROOT_RELATIVE,
+            ],
             cwd=repository_root,
             check=True,
             capture_output=True,
@@ -214,19 +242,95 @@ def _assert_predecessors_immutable(repository_root: Path) -> None:
         )
     except subprocess.CalledProcessError as error:
         raise GovernedForkPostDispositionQualificationError(
-            "cannot enumerate Q5d predecessor changes"
+            "cannot enumerate historical Q5d result paths"
         ) from error
-    changed = {line for line in completed.stdout.splitlines() if line}
-    unexpected = sorted(
-        path
-        for path in changed
-        if path not in ALLOWED_SLICE_PATHS
-        and not path.startswith(f"{RESULT_ROOT_RELATIVE}/")
-    )
-    if unexpected:
-        raise GovernedForkPostDispositionQualificationError(
-            f"Q5d predecessor bytes changed outside the slice: {unexpected}"
+    return {line for line in completed.stdout.splitlines() if line}
+
+
+def _assert_archival_evidence_immutable(repository_root: Path) -> None:
+    historical_paths = ARCHIVAL_SLICE_PATHS | _historical_result_paths(repository_root)
+    for relative_path in sorted(historical_paths):
+        try:
+            live = _safe_path(repository_root, relative_path).read_bytes()
+        except OSError as error:
+            raise GovernedForkPostDispositionQualificationError(
+                f"Q5d archival evidence is missing: {relative_path}"
+            ) from error
+        historical = _historical_blob(
+            repository_root, relative_path, commit=Q5D_EVIDENCE_COMMIT
         )
+        if live != historical:
+            raise GovernedForkPostDispositionQualificationError(
+                f"Q5d archival evidence drifted: {relative_path}"
+            )
+
+
+def _assert_append_only_sequence(*, base: Any, live: Any, label: str) -> None:
+    if not isinstance(base, list) or not isinstance(live, list):
+        raise GovernedForkPostDispositionQualificationError(
+            f"Q5d patch ledger {label} is not a list"
+        )
+    if len(live) < len(base) or live[: len(base)] != base:
+        raise GovernedForkPostDispositionQualificationError(
+            f"Q5d patch ledger {label} history is not an exact prefix"
+        )
+    identifiers: list[str] = []
+    for item in live:
+        if not isinstance(item, dict) or not isinstance(item.get("id"), str):
+            raise GovernedForkPostDispositionQualificationError(
+                f"Q5d patch ledger {label} contains an invalid ID"
+            )
+        identifiers.append(cast(str, item["id"]))
+    if len(identifiers) != len(set(identifiers)):
+        raise GovernedForkPostDispositionQualificationError(
+            f"Q5d patch ledger {label} IDs are not unique"
+        )
+
+
+def _assert_patch_ledger_append_only(repository_root: Path) -> None:
+    try:
+        base = json.loads(
+            _historical_blob(
+                repository_root,
+                PATCH_LEDGER_RELATIVE,
+                commit=Q5D_EVIDENCE_COMMIT,
+            )
+        )
+        live = json.loads(
+            _safe_path(repository_root, PATCH_LEDGER_RELATIVE).read_bytes()
+        )
+    except (OSError, json.JSONDecodeError) as error:
+        raise GovernedForkPostDispositionQualificationError(
+            "Q5d patch ledger cannot be read as JSON"
+        ) from error
+    if not isinstance(base, dict) or not isinstance(live, dict):
+        raise GovernedForkPostDispositionQualificationError(
+            "Q5d patch ledger is not an object"
+        )
+    if set(live) != set(base):
+        raise GovernedForkPostDispositionQualificationError(
+            "Q5d patch ledger top-level structure drifted"
+        )
+    for key in LEDGER_TOP_LEVEL_PINS:
+        if live.get(key) != base.get(key):
+            raise GovernedForkPostDispositionQualificationError(
+                f"Q5d patch ledger top-level pin drifted: {key}"
+            )
+    _assert_append_only_sequence(
+        base=base.get("entries"), live=live.get("entries"), label="entries"
+    )
+    _assert_append_only_sequence(
+        base=base.get("upstream_patch_records"),
+        live=live.get("upstream_patch_records"),
+        label="upstream_patch_records",
+    )
+
+
+def _assert_historical_integrity(repository_root: Path) -> None:
+    """Bind only Q5d evidence, static trust files, and append-only registries."""
+
+    _assert_archival_evidence_immutable(repository_root)
+    _assert_patch_ledger_append_only(repository_root)
 
 
 def _ledger_entries(repository_root: Path) -> list[dict[str, Any]]:
@@ -659,7 +763,7 @@ def build_governed_fork_post_disposition_qualification(
 ) -> dict[str, bytes]:
     repository_root = repository_root.resolve()
     _assert_trust_boundary_immutable(repository_root)
-    _assert_predecessors_immutable(repository_root)
+    _assert_historical_integrity(repository_root)
     identities = cast(list[str], _run_runner(repository_root, list_only=True))
     if len(identities) != TEST_COUNT:
         raise GovernedForkPostDispositionQualificationError(
@@ -830,7 +934,7 @@ def check_governed_fork_post_disposition_qualification(
 ) -> None:
     repository_root = repository_root.resolve()
     _assert_trust_boundary_immutable(repository_root)
-    _assert_predecessors_immutable(repository_root)
+    _assert_historical_integrity(repository_root)
     expected_schemas = {
         INDEX_SCHEMA_RELATIVE: index_schema(),
         MANIFEST_SCHEMA_RELATIVE: manifest_schema(),
@@ -945,7 +1049,23 @@ def check_governed_fork_post_disposition_qualification(
             "Governed Fork PDQ result directory is not byte-closed"
         )
     for reference in cast(list[dict[str, Any]], index["derivation_artifacts"]):
-        _verified_payload(repository_root, reference, label="PDQ derivation artifact")
+        relative_path = cast(str, reference["relative_path"])
+        if relative_path == APPLICATION_RELATIVE:
+            payload = _historical_blob(
+                repository_root,
+                relative_path,
+                commit=Q5D_EVIDENCE_COMMIT,
+            )
+            if reference.get("digest") != sha256_digest(payload) or reference.get(
+                "size_bytes"
+            ) != len(payload):
+                raise GovernedForkPostDispositionQualificationError(
+                    "historical Q5d validator derivation reference drifted"
+                )
+        else:
+            _verified_payload(
+                repository_root, reference, label="PDQ derivation artifact"
+            )
 
 
 __all__ = [
