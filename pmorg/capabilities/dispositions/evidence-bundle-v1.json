@@ -1,0 +1,64 @@
+{
+  "bundle_kind": "bounded-admission-capability-dispositions/v1",
+  "entries": [
+    {
+      "digest": "sha256:a13482ea50a3d07d966c8aadf99af69bd9225549d792e1f4eaa39da24d804ab8",
+      "logical_name": "capability-disposition-subject-ce-source-artifact",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/subject-ce-source-artifact-v1.json",
+      "size_bytes": 893
+    },
+    {
+      "digest": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+      "logical_name": "capability-catalog",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-catalog-v1.json",
+      "size_bytes": 4415
+    },
+    {
+      "digest": "sha256:0325c4c5498a70aea2ce74bfdd2784784d9f1acd9b6f7b535fa5bce9969d669c",
+      "logical_name": "candidate-qualification-report-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-qualification-reports-v1.json",
+      "size_bytes": 256440
+    },
+    {
+      "digest": "sha256:c2b38991bb0acca9cc6249f7484a577a0f712dbda3087dbbcdb24684a5d51114",
+      "logical_name": "post-disposition-qualification-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/post-disposition-qualification-v1.json",
+      "size_bytes": 7704
+    },
+    {
+      "digest": "sha256:dd316eae54f2adc32f1d9a18c8b937ab696a161a54c532da33a9a0eb2efa5e65",
+      "logical_name": "deployment-admission-capability-disposition-evidence-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/evidence/deployment-admission.json",
+      "size_bytes": 42286
+    },
+    {
+      "digest": "sha256:015b42fd4d9701967085c4239c15959c62ff28d7b56549d7e24fb11e597bff9c",
+      "logical_name": "distribution-admission-capability-disposition-evidence-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/evidence/distribution-admission.json",
+      "size_bytes": 53270
+    },
+    {
+      "digest": "sha256:8325d2810d2dd5e98c052fd0cad4bef6f91558c138dc276a5e4dfb36d0a0bf92",
+      "logical_name": "deployment-admission-capability-disposition-record",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/records/deployment-admission.json",
+      "size_bytes": 974682
+    },
+    {
+      "digest": "sha256:9eb588bd87f2b2893e79bae54576c34b8a9ec269fcc37da0c369a586d05cadfc",
+      "logical_name": "distribution-admission-capability-disposition-record",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/records/distribution-admission.json",
+      "size_bytes": 1185929
+    }
+  ],
+  "entry_count": 8,
+  "schema_version": "pmorg.evidence-bundle-index/v1",
+  "subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e"
+}

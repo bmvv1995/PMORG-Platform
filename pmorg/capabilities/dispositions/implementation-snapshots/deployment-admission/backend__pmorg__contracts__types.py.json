@@ -1,0 +1,11 @@
+{
+  "commit": "7e262835c4d69dd51a8b6fbb401d7d1a8b7a2d0b",
+  "content_hash": "sha256:a3d3fe1f5d3ec6cf7107e30bb48c13d501ca709bfee196a5e90af6eeae080eaa",
+  "git_blob_id": "9dab0a6bd0c0b98fbbe207e491533c1302723b8c",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "backend/pmorg/contracts/types.py",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 32816
+}
