@@ -1,0 +1,200 @@
+{
+  "activation_status": "candidate_executors_activated_in_extension",
+  "adapter": {
+    "digest": "sha256:a2f2790c6a9aca86ce306804ab6f43631c7c5d181b96915ac0b2e0a68ba76c08",
+    "media_type": "text/x-python",
+    "relative_path": "backend/pmorg/application/qualified_build_interface_fit_executor.py",
+    "size_bytes": 34571
+  },
+  "base_policy": {
+    "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+    "size_bytes": 32871
+  },
+  "bindings": [
+    {
+      "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json"
+    },
+    {
+      "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json"
+    },
+    {
+      "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json"
+    },
+    {
+      "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json"
+    },
+    {
+      "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json"
+    },
+    {
+      "digest": "sha256:a2f2790c6a9aca86ce306804ab6f43631c7c5d181b96915ac0b2e0a68ba76c08",
+      "relative_path": "backend/pmorg/application/qualified_build_interface_fit_executor.py"
+    },
+    {
+      "digest": "sha256:5a06c7070ec30dc6558b5e0f736d8959577063efd8e039443699233f21f68883",
+      "relative_path": "pmorg/capabilities/qualification-oracle-result-v2.schema.json"
+    },
+    {
+      "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+      "relative_path": ".python-version"
+    },
+    {
+      "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+      "relative_path": "pyproject.toml"
+    },
+    {
+      "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+      "relative_path": "uv.lock"
+    }
+  ],
+  "candidate_test_vectors": [
+    {
+      "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json",
+      "size_bytes": 4002
+    },
+    {
+      "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json",
+      "size_bytes": 3988
+    },
+    {
+      "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json",
+      "size_bytes": 3997
+    },
+    {
+      "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json",
+      "size_bytes": 4003
+    }
+  ],
+  "claim_boundary": "executor_activation_only_no_candidate_reports_or_aggregate_verdict",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:a2f2790c6a9aca86ce306804ab6f43631c7c5d181b96915ac0b2e0a68ba76c08",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualified_build_interface_fit_executor.py",
+      "size_bytes": 34571
+    },
+    {
+      "digest": "sha256:547683c7061c646037a50c990c94d4e8ae509ec3f37d1e7653a1ba33e77ea2e3",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_qualified_build_interface_fit_executor.py",
+      "size_bytes": 705
+    }
+  ],
+  "extension_id": "qualified-reproducible-build-oracles-v1",
+  "immutable_predecessor_states": [
+    {
+      "adapter": null,
+      "candidate_test_vector": null,
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-EVIDENCE-001:v1",
+      "oracle_status": "unexecutable",
+      "test_id": "A-EVIDENCE-001"
+    },
+    {
+      "adapter": null,
+      "candidate_test_vector": null,
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-LIC-001:v1",
+      "oracle_status": "unexecutable",
+      "test_id": "A-LIC-001"
+    },
+    {
+      "adapter": null,
+      "candidate_test_vector": null,
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPORT-001:v1",
+      "oracle_status": "unexecutable",
+      "test_id": "A-REPORT-001"
+    },
+    {
+      "adapter": null,
+      "candidate_test_vector": null,
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPRO-001:v1",
+      "oracle_status": "unexecutable",
+      "test_id": "A-REPRO-001"
+    }
+  ],
+  "oracles": [
+    {
+      "adapter_digest": "sha256:a2f2790c6a9aca86ce306804ab6f43631c7c5d181b96915ac0b2e0a68ba76c08",
+      "candidate_influence_status": "live_mutation_probe_required",
+      "candidate_test_vector_digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+      "capability_id": "qualified-reproducible-build",
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-EVIDENCE-001:v1",
+      "oracle_status": "executable",
+      "test_id": "A-EVIDENCE-001"
+    },
+    {
+      "adapter_digest": "sha256:a2f2790c6a9aca86ce306804ab6f43631c7c5d181b96915ac0b2e0a68ba76c08",
+      "candidate_influence_status": "live_mutation_probe_required",
+      "candidate_test_vector_digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+      "capability_id": "qualified-reproducible-build",
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-LIC-001:v1",
+      "oracle_status": "executable",
+      "test_id": "A-LIC-001"
+    },
+    {
+      "adapter_digest": "sha256:a2f2790c6a9aca86ce306804ab6f43631c7c5d181b96915ac0b2e0a68ba76c08",
+      "candidate_influence_status": "live_mutation_probe_required",
+      "candidate_test_vector_digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+      "capability_id": "qualified-reproducible-build",
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPORT-001:v1",
+      "oracle_status": "executable",
+      "test_id": "A-REPORT-001"
+    },
+    {
+      "adapter_digest": "sha256:a2f2790c6a9aca86ce306804ab6f43631c7c5d181b96915ac0b2e0a68ba76c08",
+      "candidate_influence_status": "live_mutation_probe_required",
+      "candidate_test_vector_digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+      "capability_id": "qualified-reproducible-build",
+      "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPRO-001:v1",
+      "oracle_status": "executable",
+      "test_id": "A-REPRO-001"
+    }
+  ],
+  "qualification_interface": {
+    "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+    "size_bytes": 3015
+  },
+  "result_schema": {
+    "digest": "sha256:5a06c7070ec30dc6558b5e0f736d8959577063efd8e039443699233f21f68883",
+    "media_type": "application/schema+json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-result-v2.schema.json",
+    "size_bytes": 5349
+  },
+  "runtime_artifacts": [
+    {
+      "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+      "media_type": "application/octet-stream",
+      "relative_path": ".python-version",
+      "size_bytes": 5
+    },
+    {
+      "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+      "media_type": "application/octet-stream",
+      "relative_path": "pyproject.toml",
+      "size_bytes": 9983
+    },
+    {
+      "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+      "media_type": "application/octet-stream",
+      "relative_path": "uv.lock",
+      "size_bytes": 1018201
+    }
+  ],
+  "schema_version": "pmorg.qualification-oracle-extension/v1"
+}

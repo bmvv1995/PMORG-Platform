@@ -1131,6 +1131,31 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualified_build_qualification_setup.py --check"
       ]
+    },
+    {
+      "id": "PL-040",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/qualified_build_interface_fit_executor.py",
+        "backend/pmorg/tests/test_qualified_build_interface_fit_executor.py",
+        "pmorg/capabilities/qualification-oracle-extension-qualified-build-v1.json",
+        "pmorg/capabilities/qualification-oracle-extension-qualified-build-v1.schema.json",
+        "pmorg/scripts/build_qualified_build_interface_fit_executor.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-LIC-001",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "PLT-005"
+      ],
+      "reason": "Activate A-EVIDENCE-001, A-LIC-001, A-REPORT-001 and A-REPRO-001 only in a versioned qualified-reproducible-build oracle extension while preserving the active v1 policy and Q6a predecessor state byte-identically; add a candidate-aware executor that consumes every projected blob, binds the exact interface, both declared reference implementations, vectors, result schema and runtime identities, measures the executed interpreter, requires live byte-mutation influence, explicit no-op rejection and conforming positive controls, and emits no CandidateQualificationReport, aggregate verdict, disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=4fd6db4651bcdbe339476b9eaf8239eadb034407 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_qualified_build_interface_fit_executor -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualified_build_interface_fit_executor.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
