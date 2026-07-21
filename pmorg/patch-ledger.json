@@ -608,6 +608,24 @@
         "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_deployment_admission -v",
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
       ]
+    },
+    {
+      "id": "PL-021",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/distribution_admission.py",
+        "backend/pmorg/tests/test_distribution_admission.py"
+      ],
+      "requirements": [
+        "A-LIC-003",
+        "PLT-008"
+      ],
+      "reason": "Implement the CE development-test Distribution Admission boundary as an independently reconstructed, content-addressed qualified artifact subset plus exact release-metadata role set; measured controlled-synthetic destination; environment-only DSSE destination measurement and admission envelopes; exact BQM/BQA, runtime-scope, evidence and temporal bindings; mandatory post-auth and redirect revalidation; and fail-closed pre-publish denial plus active-transfer abort before contributor deadlines, without production, client data, qualification, disposition, deviation, release or G3-A claims.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=c4c454c03809df784ef302e533c4156879da9097 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_distribution_admission -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
