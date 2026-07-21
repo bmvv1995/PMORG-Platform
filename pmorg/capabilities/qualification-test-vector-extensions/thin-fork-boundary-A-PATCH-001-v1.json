@@ -1,0 +1,100 @@
+{
+  "adapter_input_contract": [
+    "exact candidate input manifest and manifest digest",
+    "all projected candidate blob bytes and blob digests",
+    "exact qualification interface and test-vector digests",
+    "measured interpreter binary and committed dependency lock digests"
+  ],
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "thin-fork-boundary",
+  "claim_boundary": "definition_only_no_qualification_verdict",
+  "execution_preconditions": [
+    "adapter is content-addressed and explicitly bound to this test vector",
+    "adapter consumes the exact candidate manifest and every projected blob",
+    "interpreter binary and dependency lock identities are evidence-bound",
+    "baseline and mutated executions both produce schema-valid evidence"
+  ],
+  "mutation_probe": {
+    "expectation": "at_least_one_observation_or_verdict_changes",
+    "no_op_rejected": true,
+    "operation": "flip_one_candidate_blob_byte",
+    "target": "projected_candidate_blob_bytes"
+  },
+  "qualification_interface": {
+    "digest": "sha256:7afeb765dfc5bc989f5458351cdbd2a563836bdc876d3c06ba7f9894eefdbc53",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-interfaces/thin-fork-boundary-v1.json",
+    "size_bytes": 2136
+  },
+  "reference_implementation": {
+    "digest": "sha256:187ec91f7205793becd4adda931dc11e2b2944592c580174363c79ac3d38f35d",
+    "media_type": "text/x-python",
+    "relative_path": "pmorg/scripts/verify_fork.py",
+    "size_bytes": 150383
+  },
+  "runtime_identity": {
+    "artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "media_type": "text/plain",
+        "relative_path": ".python-version",
+        "size_bytes": 5
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "media_type": "application/toml",
+        "relative_path": "pyproject.toml",
+        "size_bytes": 9983
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "media_type": "application/toml",
+        "relative_path": "uv.lock",
+        "size_bytes": 1018201
+      }
+    ],
+    "contract_digest": "sha256:59ebd918c79614af1a4dec86b52a747e02b2b133ee14a27d30fa498c65e1e7db",
+    "interpreter_measurement": "sha256_of_executed_interpreter_binary",
+    "status": "binary_measurement_required_at_execution"
+  },
+  "schema_version": "pmorg.qualification-test-vector/v1",
+  "test_cases": [
+    {
+      "candidate_bytes_required": true,
+      "case_id": "exact-owned-change",
+      "expected_observation": "return an empty ordered violation set only for the exactly governed tree",
+      "mutation_required": false,
+      "stimulus": "present an exact candidate tree whose changed paths have one PMORG-owned policy route and complete ledger evidence"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "unknown-or-multiple-owner",
+      "expected_observation": "reject fail-closed and cite the exact changed path",
+      "mutation_required": false,
+      "stimulus": "add a changed path with no owner or more than one ownership route"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "trust-boundary-or-upstream-drift",
+      "expected_observation": "reject before accepting the tree and report the exact policy violation",
+      "mutation_required": false,
+      "stimulus": "mutate a trust-boundary or upstream-owned path without its required governance route"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "historical-evidence-or-seam-drift",
+      "expected_observation": "reject the hybrid governance state with exact evidence and seam paths",
+      "mutation_required": false,
+      "stimulus": "change immutable predecessor evidence or introduce an unknown or successor-unbound seam"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "candidate-byte-influence",
+      "expected_observation": "at least one adapter observation or verdict changes",
+      "mutation_required": true,
+      "stimulus": "flip one byte in a projected candidate blob and rebuild its manifest"
+    }
+  ],
+  "test_id": "A-PATCH-001",
+  "vector_version": "1.0.0"
+}

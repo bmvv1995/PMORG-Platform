@@ -859,6 +859,29 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_dispositions.py --check"
       ]
+    },
+    {
+      "id": "PL-030",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/qualification_test_vector_extensions.py",
+        "backend/pmorg/tests/test_qualification_test_vector_extensions.py",
+        "pmorg/capabilities/qualification-test-vector-extension-thin-fork-v1.json",
+        "pmorg/capabilities/qualification-test-vector-extensions/thin-fork-boundary-A-PATCH-001-v1.json",
+        "pmorg/scripts/build_qualification_test_vector_extensions.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-PATCH-001",
+        "PLT-004"
+      ],
+      "reason": "Define a versioned, content-addressed and deliberately unactivated A-PATCH-001 test-vector extension for the Thin Fork Boundary capability with exact owned-change, unknown-owner, trust-boundary/upstream, immutable-evidence/seam and live candidate-byte mutation cases; bind the interpreter declaration and dependency locks while preserving the existing qualification-test-vector manifest and oracle policy byte-identically so all merged admission evidence remains immutable; emit no oracle activation, CandidateQualificationReport, disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=0cbe8cb5a1dcf7abf30ab1bcb18bf4d5e943d580 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_qualification_test_vector_extensions -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualification_test_vector_extensions.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

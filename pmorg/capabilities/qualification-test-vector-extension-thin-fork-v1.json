@@ -1,0 +1,94 @@
+{
+  "activation_status": "definition_only_unactivated",
+  "claim_boundary": "no_oracle_activation_or_qualification_verdict",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:e7ff793347c03a7a6e4de8779a5a5b539037fda1e4cd864acbe7e745be154f20",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification_test_vector_extensions.py",
+      "size_bytes": 12749
+    },
+    {
+      "digest": "sha256:635a97c867381be9e08100c9ce2e6ebaf487bc1614b7cfb3b9bda9fe58f62eb1",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_qualification_test_vector_extensions.py",
+      "size_bytes": 1155
+    }
+  ],
+  "extension_id": "thin-fork-boundary-A-PATCH-001-v1",
+  "immutable_predecessors": {
+    "base_vector_manifest": {
+      "digest": "sha256:62c0783e5538ed32fb6685738f32d974cc719a71d1830d37a59a62af5993a667",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vectors-v1.json",
+      "size_bytes": 2939
+    },
+    "oracle_policy": {
+      "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+      "size_bytes": 32871
+    },
+    "oracle_state": {
+      "adapter": null,
+      "candidate_test_vector": null,
+      "oracle_id": "qualification-oracle:thin-fork-boundary:A-PATCH-001:v1",
+      "oracle_status": "unexecutable"
+    }
+  },
+  "runtime_identity_contract": {
+    "artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "media_type": "text/plain",
+        "relative_path": ".python-version",
+        "size_bytes": 5
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "media_type": "application/toml",
+        "relative_path": "pyproject.toml",
+        "size_bytes": 9983
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "media_type": "application/toml",
+        "relative_path": "uv.lock",
+        "size_bytes": 1018201
+      }
+    ],
+    "interpreter_binary_evidence": {
+      "algorithm": "sha256",
+      "required_fields": [
+        "implementation",
+        "version",
+        "executable_digest",
+        "executable_size_bytes"
+      ]
+    },
+    "pass_requirements": [
+      "the invoked interpreter binary is measured before adapter execution",
+      "the measured interpreter satisfies the committed .python-version",
+      "dependencies resolve only from the exact committed uv.lock",
+      "runtime evidence and lock artifact digests are bound into the result"
+    ],
+    "schema_version": "pmorg.qualification-runtime-identity-contract/v1",
+    "status": "binary_measurement_required_at_execution"
+  },
+  "runtime_identity_contract_digest": "sha256:59ebd918c79614af1a4dec86b52a747e02b2b133ee14a27d30fa498c65e1e7db",
+  "schema_version": "pmorg.qualification-test-vector-extension-manifest/v1",
+  "vector": {
+    "capability_id": "thin-fork-boundary",
+    "digest": "sha256:257326b0e311d1cf166bfa8ea8a5e5b139a7efe370cbdbad5eecd49b37ca4c31",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/thin-fork-boundary-A-PATCH-001-v1.json",
+    "size_bytes": 4272,
+    "test_id": "A-PATCH-001"
+  },
+  "vector_schema": {
+    "digest": "sha256:edeb4ab6802e4b93de638cf54442163116a9b048d0df38aff34ba7633a6b5e8b",
+    "media_type": "application/schema+json",
+    "relative_path": "pmorg/capabilities/qualification-test-vector-v1.schema.json",
+    "size_bytes": 5467
+  }
+}
