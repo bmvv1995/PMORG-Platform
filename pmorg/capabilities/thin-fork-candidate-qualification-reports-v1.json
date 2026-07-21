@@ -1,0 +1,1219 @@
+{
+  "candidate_inputs": {
+    "digest": "sha256:cfd9b34150e522dd261517252530983c35bcd25387c9b4fc4229799ffec21327",
+    "logical_name": "candidate-inputs-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/candidate-inputs-v1.json",
+    "size_bytes": 3675788
+  },
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "claim_boundary": "thin_fork_candidate_qualification_only_no_disposition",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:3ff69fd94c5f6c79a992200421abb75e74cca2cd3ba406658875080811ee9f26",
+      "logical_name": "thin_fork_candidate_qualification_reports.py",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/thin_fork_candidate_qualification_reports.py",
+      "size_bytes": 29583
+    },
+    {
+      "digest": "sha256:27f26e3ba7094d8dbc8bb03b5ed1c395ad239176792d2e61eafd8b5ca938ac0e",
+      "logical_name": "build_thin_fork_candidate_qualification_reports.py",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_thin_fork_candidate_qualification_reports.py",
+      "size_bytes": 740
+    }
+  ],
+  "duplicate_test_count": 0,
+  "entries": [
+    {
+      "candidate_group": "backend/onyx/background",
+      "candidate_id": "candidate-00f933cdc3ff29baae4dfa255d84ba5d28d493b98ef61086f0f0ff0dcc34b39c",
+      "candidate_manifest_digest": "sha256:90a7d04596b78ff59459d1c7800e814bc61338dd7d79d65210a53d04e903d4f4",
+      "report": {
+        "digest": "sha256:99792a32e23c8fc4cd31bf54b0d32deff4a257a6eeb4cc9d0193f9de8073d26d",
+        "logical_name": "candidate-00f933cdc3ff29baae4dfa255d84ba5d28d493b98ef61086f0f0ff0dcc34b39c-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-00f933cdc3ff29baae4dfa255d84ba5d28d493b98ef61086f0f0ff0dcc34b39c.json",
+        "size_bytes": 8412
+      },
+      "result": {
+        "digest": "sha256:eb273ccdc2ec3de816f8619d0fb1e1e2ba62076ddd06c625fa205769579b0951",
+        "logical_name": "candidate-00f933cdc3ff29baae4dfa255d84ba5d28d493b98ef61086f0f0ff0dcc34b39c-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-00f933cdc3ff29baae4dfa255d84ba5d28d493b98ef61086f0f0ff0dcc34b39c.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/configs",
+      "candidate_id": "candidate-02550ec9d9169ce504b81733b876d5a355ae18cbd5700953cfc1a4bf2a5189e8",
+      "candidate_manifest_digest": "sha256:ea16bbe4fd0a9d88324dc999784b1c08c2c657e6986cc529e7052badcb39e623",
+      "report": {
+        "digest": "sha256:8994433be87d2ce2e279089a339dc379084bc9fb5c2bf339a497df039c79a76e",
+        "logical_name": "candidate-02550ec9d9169ce504b81733b876d5a355ae18cbd5700953cfc1a4bf2a5189e8-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-02550ec9d9169ce504b81733b876d5a355ae18cbd5700953cfc1a4bf2a5189e8.json",
+        "size_bytes": 3345
+      },
+      "result": {
+        "digest": "sha256:11caa107e6f125e0974d80cb3c0534478ec0b66c4b35637572599a134c97ed7d",
+        "logical_name": "candidate-02550ec9d9169ce504b81733b876d5a355ae18cbd5700953cfc1a4bf2a5189e8-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-02550ec9d9169ce504b81733b876d5a355ae18cbd5700953cfc1a4bf2a5189e8.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/server",
+      "candidate_id": "candidate-026616145a57283b6916b0c53701c8ad925d23097af904eab544b6708f5d0cb5",
+      "candidate_manifest_digest": "sha256:1681f47b11ffc3db4b6440075c8696c50dc7119bad52395973d68d5440287291",
+      "report": {
+        "digest": "sha256:b797649b82be7bb567ce389a554352f0d43be2cca1df09280b132cfe9ce7483e",
+        "logical_name": "candidate-026616145a57283b6916b0c53701c8ad925d23097af904eab544b6708f5d0cb5-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-026616145a57283b6916b0c53701c8ad925d23097af904eab544b6708f5d0cb5.json",
+        "size_bytes": 6947
+      },
+      "result": {
+        "digest": "sha256:dcd8e9561d59d46de8e490d1ae0dc623b72eb0dd2db00d6c3d0f0b1a08020e93",
+        "logical_name": "candidate-026616145a57283b6916b0c53701c8ad925d23097af904eab544b6708f5d0cb5-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-026616145a57283b6916b0c53701c8ad925d23097af904eab544b6708f5d0cb5.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/app",
+      "candidate_id": "candidate-075921a4ca8b148bc3b3644d2407a96ebe8a478054125c17012b835304f261b9",
+      "candidate_manifest_digest": "sha256:c9307bc5d693464fbbe7befca9ece9b58021745b57e17cbb36647939a47526a0",
+      "report": {
+        "digest": "sha256:2891fedc6f94ad0c957a1b1f2f2a81699d02e19bdb4c0b3d5dde90d91b511515",
+        "logical_name": "candidate-075921a4ca8b148bc3b3644d2407a96ebe8a478054125c17012b835304f261b9-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-075921a4ca8b148bc3b3644d2407a96ebe8a478054125c17012b835304f261b9.json",
+        "size_bytes": 11101
+      },
+      "result": {
+        "digest": "sha256:61d3fe968a29c61bac340cc559dc553537d2a5f7949a8b01662637146029ee37",
+        "logical_name": "candidate-075921a4ca8b148bc3b3644d2407a96ebe8a478054125c17012b835304f261b9-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-075921a4ca8b148bc3b3644d2407a96ebe8a478054125c17012b835304f261b9.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".pre-commit-config.yaml",
+      "candidate_id": "candidate-0b85af3298350d095dc0de76439d003e9ee7e1a6f4b6319d7e65630888174a1e",
+      "candidate_manifest_digest": "sha256:c39b5bc0f32492d7c83952cfe492e6e1a52b787fd96eebf0fee69390125f8423",
+      "report": {
+        "digest": "sha256:17097ff02a8e28132745b961224487ae0e468412c3020f08239601ede58e0f29",
+        "logical_name": "candidate-0b85af3298350d095dc0de76439d003e9ee7e1a6f4b6319d7e65630888174a1e-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-0b85af3298350d095dc0de76439d003e9ee7e1a6f4b6319d7e65630888174a1e.json",
+        "size_bytes": 2718
+      },
+      "result": {
+        "digest": "sha256:b83031962b1d073239c25d83035b1400b704330103f71d67bd7803447128a454",
+        "logical_name": "candidate-0b85af3298350d095dc0de76439d003e9ee7e1a6f4b6319d7e65630888174a1e-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-0b85af3298350d095dc0de76439d003e9ee7e1a6f4b6319d7e65630888174a1e.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/providers",
+      "candidate_id": "candidate-0e1e4565ab032661d4463458985900522bae0ccd94af56e3d9e951178c6c643f",
+      "candidate_manifest_digest": "sha256:712be63b6a14c8f1d43520c308885bb7adbd6f4a32033e934b3b39e1ec3df50f",
+      "report": {
+        "digest": "sha256:75d435d9649dfaea5441cb9467300a916e8f1edf1312dd03f25fa28855cfcbf4",
+        "logical_name": "candidate-0e1e4565ab032661d4463458985900522bae0ccd94af56e3d9e951178c6c643f-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-0e1e4565ab032661d4463458985900522bae0ccd94af56e3d9e951178c6c643f.json",
+        "size_bytes": 3285
+      },
+      "result": {
+        "digest": "sha256:86d7e2ebf9a45484f41916bbfe40329d5ac6f6d37f3e7a5d1a1d07a290338e80",
+        "logical_name": "candidate-0e1e4565ab032661d4463458985900522bae0ccd94af56e3d9e951178c6c643f-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-0e1e4565ab032661d4463458985900522bae0ccd94af56e3d9e951178c6c643f.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "AGENTS.md",
+      "candidate_id": "candidate-148d95ecfa92b933203f1f6d8bfa8af50c6d4c6e79f48ef82ac2a39909147068",
+      "candidate_manifest_digest": "sha256:639e693964422393c3b8476fe4c0546fcf59d23e2af3936992a09cfdd21140ba",
+      "report": {
+        "digest": "sha256:40bb5b8b3b1eba0ef7ce4398fbce23ac62765bdf15f9be9b1614dd43f519b263",
+        "logical_name": "candidate-148d95ecfa92b933203f1f6d8bfa8af50c6d4c6e79f48ef82ac2a39909147068-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-148d95ecfa92b933203f1f6d8bfa8af50c6d4c6e79f48ef82ac2a39909147068.json",
+        "size_bytes": 2704
+      },
+      "result": {
+        "digest": "sha256:a7ee307d53db7dab315bf3a2c7c5cf4dbf3d36ab417c54c159cf20f89a98921a",
+        "logical_name": "candidate-148d95ecfa92b933203f1f6d8bfa8af50c6d4c6e79f48ef82ac2a39909147068-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-148d95ecfa92b933203f1f6d8bfa8af50c6d4c6e79f48ef82ac2a39909147068.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "deployment/terraform",
+      "candidate_id": "candidate-1589a1250a94ed8afed4a33847b3e49aeff7e1a042728e902bab33cabb33d18d",
+      "candidate_manifest_digest": "sha256:4f381264ae7e247eed12ce32452e0dc700f72280aad9d702e4cd86d490ba6db3",
+      "report": {
+        "digest": "sha256:c1c0c9b39c13476339b420a0c5a71ee71d863692e4e875cc33c4cc99ae3c4ed9",
+        "logical_name": "candidate-1589a1250a94ed8afed4a33847b3e49aeff7e1a042728e902bab33cabb33d18d-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-1589a1250a94ed8afed4a33847b3e49aeff7e1a042728e902bab33cabb33d18d.json",
+        "size_bytes": 4142
+      },
+      "result": {
+        "digest": "sha256:17714574d26761016d1811d25a04096c6def6d7db1326dbcf0d3a0f052502cbc",
+        "logical_name": "candidate-1589a1250a94ed8afed4a33847b3e49aeff7e1a042728e902bab33cabb33d18d-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-1589a1250a94ed8afed4a33847b3e49aeff7e1a042728e902bab33cabb33d18d.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/tests",
+      "candidate_id": "candidate-1b0ec9b883db9d3f357a9b1a006fd15662b891750c070af6e835e62b096d9dee",
+      "candidate_manifest_digest": "sha256:6f7e7d6adf5f69ceb9b9c814557ba67bcb924a932c35e84f77aaa2f208f0d614",
+      "report": {
+        "digest": "sha256:85112a623280626e14253cc3417f1ae06bf5bbc0d9cd26fb7070a4b397955db9",
+        "logical_name": "candidate-1b0ec9b883db9d3f357a9b1a006fd15662b891750c070af6e835e62b096d9dee-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-1b0ec9b883db9d3f357a9b1a006fd15662b891750c070af6e835e62b096d9dee.json",
+        "size_bytes": 8930
+      },
+      "result": {
+        "digest": "sha256:c383d11e05ac3803aee66714bd0ce0917e07030eeb0bac45856cfb44dc9785ac",
+        "logical_name": "candidate-1b0ec9b883db9d3f357a9b1a006fd15662b891750c070af6e835e62b096d9dee-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-1b0ec9b883db9d3f357a9b1a006fd15662b891750c070af6e835e62b096d9dee.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/tracing",
+      "candidate_id": "candidate-1cc291258d0db68ebcb30ca60708f7dd9c3c276638d5c453caa22ec4b959f5cc",
+      "candidate_manifest_digest": "sha256:0bcc0dcde87b82997389bc56a191cd70ae7752caaf11eba3f6bdc10c15aa3569",
+      "report": {
+        "digest": "sha256:058b36e112947dfef3c14e43fffe056e9337537818344dad00b767ed83dbd069",
+        "logical_name": "candidate-1cc291258d0db68ebcb30ca60708f7dd9c3c276638d5c453caa22ec4b959f5cc-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-1cc291258d0db68ebcb30ca60708f7dd9c3c276638d5c453caa22ec4b959f5cc.json",
+        "size_bytes": 3542
+      },
+      "result": {
+        "digest": "sha256:b4b3629876d3ad618fb3da4b2029090044cec924a2e1f372034d60309b8f7717",
+        "logical_name": "candidate-1cc291258d0db68ebcb30ca60708f7dd9c3c276638d5c453caa22ec4b959f5cc-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-1cc291258d0db68ebcb30ca60708f7dd9c3c276638d5c453caa22ec4b959f5cc.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/alembic",
+      "candidate_id": "candidate-22c0ae0197b5512f8a3061b0aab36083cff8dd9932572e8c1422c74a85608055",
+      "candidate_manifest_digest": "sha256:524a9fe0668e24b348e85882d11ab350baf8eab545308560887be4484e3cedb4",
+      "report": {
+        "digest": "sha256:adeeb1c63f147e7b0e6f04828c434267b6d2cdec30386674fb8b7fa289b7d790",
+        "logical_name": "candidate-22c0ae0197b5512f8a3061b0aab36083cff8dd9932572e8c1422c74a85608055-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-22c0ae0197b5512f8a3061b0aab36083cff8dd9932572e8c1422c74a85608055.json",
+        "size_bytes": 33003
+      },
+      "result": {
+        "digest": "sha256:07c15152b16a9d9778f60939aac929f5be907c5773239fb873aa558edac94026",
+        "logical_name": "candidate-22c0ae0197b5512f8a3061b0aab36083cff8dd9932572e8c1422c74a85608055-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-22c0ae0197b5512f8a3061b0aab36083cff8dd9932572e8c1422c74a85608055.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/views",
+      "candidate_id": "candidate-290eca82cc8edb1f3433f488dc3aff56f358c34247ae9b7c49961410f5caad65",
+      "candidate_manifest_digest": "sha256:1b9c8919e4c9fad4fbe5878a807d4c32c190eacad8c573489723fef04b964e9f",
+      "report": {
+        "digest": "sha256:f186e6b9e9acd3c87e670c2091c1d876df3e73e51b26ed0a0596ca370ac2f08c",
+        "logical_name": "candidate-290eca82cc8edb1f3433f488dc3aff56f358c34247ae9b7c49961410f5caad65-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-290eca82cc8edb1f3433f488dc3aff56f358c34247ae9b7c49961410f5caad65.json",
+        "size_bytes": 7333
+      },
+      "result": {
+        "digest": "sha256:52c75e0d5dad3620a0dcc1b5956e3b2f69f157390cfcfb938e8eca76d1ae9eb6",
+        "logical_name": "candidate-290eca82cc8edb1f3433f488dc3aff56f358c34247ae9b7c49961410f5caad65-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-290eca82cc8edb1f3433f488dc3aff56f358c34247ae9b7c49961410f5caad65.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/refresh-components",
+      "candidate_id": "candidate-2f873dcc20cd88395cca37c25e7157415ccc833f6464cd9c9d4808dc6ec8d10a",
+      "candidate_manifest_digest": "sha256:fa698c88137ea9b0a4f143dbd6f4a0528294029259c86072510d13600ef400a8",
+      "report": {
+        "digest": "sha256:37b9e823f66ad8376cb663da3613003c32854454be3a709ab2f210a8de8c25cd",
+        "logical_name": "candidate-2f873dcc20cd88395cca37c25e7157415ccc833f6464cd9c9d4808dc6ec8d10a-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-2f873dcc20cd88395cca37c25e7157415ccc833f6464cd9c9d4808dc6ec8d10a.json",
+        "size_bytes": 12881
+      },
+      "result": {
+        "digest": "sha256:8e945e8da8f360be035e402b67e8d620f8b26c395bed8c339af5996048a2f8c1",
+        "logical_name": "candidate-2f873dcc20cd88395cca37c25e7157415ccc833f6464cd9c9d4808dc6ec8d10a-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-2f873dcc20cd88395cca37c25e7157415ccc833f6464cd9c9d4808dc6ec8d10a.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/admin",
+      "candidate_id": "candidate-30b9ab6291ac4568945e5b7ffd8fb527336232985ee469d0c38cb7361842f22b",
+      "candidate_manifest_digest": "sha256:6feac0d9f64a71adcecd919ab1200d5fe4be2cc9598c0050597bea72431bd07e",
+      "report": {
+        "digest": "sha256:4b1be9a3c7f75ed6913cbc105b8e853508ebc7c3fabc42a0acf23e2f331688f6",
+        "logical_name": "candidate-30b9ab6291ac4568945e5b7ffd8fb527336232985ee469d0c38cb7361842f22b-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-30b9ab6291ac4568945e5b7ffd8fb527336232985ee469d0c38cb7361842f22b.json",
+        "size_bytes": 11406
+      },
+      "result": {
+        "digest": "sha256:a2bec524e267b00d62f9e283f3d73de1ced907cd4be9b91ddb9e0076306aa0fd",
+        "logical_name": "candidate-30b9ab6291ac4568945e5b7ffd8fb527336232985ee469d0c38cb7361842f22b-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-30b9ab6291ac4568945e5b7ffd8fb527336232985ee469d0c38cb7361842f22b.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/scripts",
+      "candidate_id": "candidate-338021c3bebe6a3378e7548d53a5337c2504608583f9d3f7c2ef6384a9da5f29",
+      "candidate_manifest_digest": "sha256:41e9f52225fb0e553439fff9c44673eba3395152aaa41d580fed8be9c3103713",
+      "report": {
+        "digest": "sha256:56c19d4aae7b3c9b3c7801c6d611ab98dbb250c2e38664f11aa28ef4d9434caf",
+        "logical_name": "candidate-338021c3bebe6a3378e7548d53a5337c2504608583f9d3f7c2ef6384a9da5f29-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-338021c3bebe6a3378e7548d53a5337c2504608583f9d3f7c2ef6384a9da5f29.json",
+        "size_bytes": 6745
+      },
+      "result": {
+        "digest": "sha256:2fd51174250e15a1f58669a8e15266d6ced14eb2556879327aeab7ce69e2fcc4",
+        "logical_name": "candidate-338021c3bebe6a3378e7548d53a5337c2504608583f9d3f7c2ef6384a9da5f29-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-338021c3bebe6a3378e7548d53a5337c2504608583f9d3f7c2ef6384a9da5f29.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".github/workflows",
+      "candidate_id": "candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347",
+      "candidate_manifest_digest": "sha256:d4f62cef9627dc359632bdd351492d74fc4e4f84e84bff507edbb0db6d3672ed",
+      "report": {
+        "digest": "sha256:547430978d43f64e6b5588c28a27728ddca6051c437cdd0437fe4534ff239e9b",
+        "logical_name": "candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347.json",
+        "size_bytes": 4577
+      },
+      "result": {
+        "digest": "sha256:bac950812cbe18e956f75a829946d953175c6cac51858ec46f52abce8643a028",
+        "logical_name": "candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/file_processing",
+      "candidate_id": "candidate-3bf05b61d97a019a150b1e07ad35808cfa8763de6687c7d83cfc5f1ac06e1b8b",
+      "candidate_manifest_digest": "sha256:275e4fe341c6ff653f599a0a8909bed6aa162805e278b053e86b408a1d6a4951",
+      "report": {
+        "digest": "sha256:ba18c898b8c6648c44a4822a3364b6172823439cc9576a149a9d05a101e8121b",
+        "logical_name": "candidate-3bf05b61d97a019a150b1e07ad35808cfa8763de6687c7d83cfc5f1ac06e1b8b-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-3bf05b61d97a019a150b1e07ad35808cfa8763de6687c7d83cfc5f1ac06e1b8b.json",
+        "size_bytes": 3174
+      },
+      "result": {
+        "digest": "sha256:136bf9c148c12f2b39aac5df41a2706255d785af50023cef05cc2161d755be1b",
+        "logical_name": "candidate-3bf05b61d97a019a150b1e07ad35808cfa8763de6687c7d83cfc5f1ac06e1b8b-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-3bf05b61d97a019a150b1e07ad35808cfa8763de6687c7d83cfc5f1ac06e1b8b.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/db",
+      "candidate_id": "candidate-56c74df42ed149cc16f6f86ab88ccce5d28fa3f51b20bff1b05b8440735a11e5",
+      "candidate_manifest_digest": "sha256:d64d9d18100a6b5986ab2887c1476b89ce4c9b2962bb60a8ee30eb942af11390",
+      "report": {
+        "digest": "sha256:0ee53cec9f3dc3bead4607be047d5885a2d9712c86b520a88299d6f70b255c62",
+        "logical_name": "candidate-56c74df42ed149cc16f6f86ab88ccce5d28fa3f51b20bff1b05b8440735a11e5-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-56c74df42ed149cc16f6f86ab88ccce5d28fa3f51b20bff1b05b8440735a11e5.json",
+        "size_bytes": 6202
+      },
+      "result": {
+        "digest": "sha256:4ce8a8437951658b2426465705f2a0ef54f084250af1579cd96c599398cfa867",
+        "logical_name": "candidate-56c74df42ed149cc16f6f86ab88ccce5d28fa3f51b20bff1b05b8440735a11e5-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-56c74df42ed149cc16f6f86ab88ccce5d28fa3f51b20bff1b05b8440735a11e5.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/sandbox_proxy",
+      "candidate_id": "candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb",
+      "candidate_manifest_digest": "sha256:c59c6802281e76e16c8cbddfa6a259d482997ed62416783b95435cfc9bd36789",
+      "report": {
+        "digest": "sha256:96223183b1d0bd9a9798bf0c808d58f2132bc606e2fd15950e8ac8e840f9f999",
+        "logical_name": "candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb.json",
+        "size_bytes": 3577
+      },
+      "result": {
+        "digest": "sha256:3a19341b7a6d9f4c27ab1bc78a7709af9f02eceb750030f7e819ec4d75f2fcad",
+        "logical_name": "candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/onyxbot",
+      "candidate_id": "candidate-5a48792b6658c2854eafee7f89d4b21a6b5b4c4f5f0d8fd28c98088cae1644b4",
+      "candidate_manifest_digest": "sha256:a961ebb39c249af943e8e415aef814c145b762d52033ad09b4decb94473eb0b3",
+      "report": {
+        "digest": "sha256:040da089a4bd06672e3b4cbf08d537eb333bdaaa8f59b4b2b00f2986b01e780f",
+        "logical_name": "candidate-5a48792b6658c2854eafee7f89d4b21a6b5b4c4f5f0d8fd28c98088cae1644b4-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-5a48792b6658c2854eafee7f89d4b21a6b5b4c4f5f0d8fd28c98088cae1644b4.json",
+        "size_bytes": 3863
+      },
+      "result": {
+        "digest": "sha256:ce71122f70abdfb20e7d556e1a89cfc2508dae2b936318eb74dbd0a22d5f2911",
+        "logical_name": "candidate-5a48792b6658c2854eafee7f89d4b21a6b5b4c4f5f0d8fd28c98088cae1644b4-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-5a48792b6658c2854eafee7f89d4b21a6b5b4c4f5f0d8fd28c98088cae1644b4.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/server",
+      "candidate_id": "candidate-5cb79b5e489e44279f0407eeda83a36df9c36cdb4cecefe6d9884ec431cbafe1",
+      "candidate_manifest_digest": "sha256:4502560a163bee953514116f8fc38cadd5480917e1dc8b9cce28998a05a13e40",
+      "report": {
+        "digest": "sha256:dcd90a294caceed80438befc7e380652519aa5e3827ffca938e7be8b1bd7f447",
+        "logical_name": "candidate-5cb79b5e489e44279f0407eeda83a36df9c36cdb4cecefe6d9884ec431cbafe1-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-5cb79b5e489e44279f0407eeda83a36df9c36cdb4cecefe6d9884ec431cbafe1.json",
+        "size_bytes": 25184
+      },
+      "result": {
+        "digest": "sha256:f545ffd4bc173016361461378cf0d83a92cf64220d4391d4d9ba1c2c5e66f361",
+        "logical_name": "candidate-5cb79b5e489e44279f0407eeda83a36df9c36cdb4cecefe6d9884ec431cbafe1-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-5cb79b5e489e44279f0407eeda83a36df9c36cdb4cecefe6d9884ec431cbafe1.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "deployment/helm",
+      "candidate_id": "candidate-66151716902f0e4bdd7c17e31ce061e42d74ac49260fbe1ecebd204baf7358d5",
+      "candidate_manifest_digest": "sha256:068f77ff4f276134bc58a480e2f2e8018adcdf18e088aacd88f0e958c64deecc",
+      "report": {
+        "digest": "sha256:17965766d49a7eea725283fd791a7b6166d06c9e57bac9d2d5ca1f67bcc207cb",
+        "logical_name": "candidate-66151716902f0e4bdd7c17e31ce061e42d74ac49260fbe1ecebd204baf7358d5-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-66151716902f0e4bdd7c17e31ce061e42d74ac49260fbe1ecebd204baf7358d5.json",
+        "size_bytes": 10264
+      },
+      "result": {
+        "digest": "sha256:e91a27e7fab0e87a62ae6e04b21903d7156c3feb478dc0b435711329d2c6a8b9",
+        "logical_name": "candidate-66151716902f0e4bdd7c17e31ce061e42d74ac49260fbe1ecebd204baf7358d5-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-66151716902f0e4bdd7c17e31ce061e42d74ac49260fbe1ecebd204baf7358d5.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".devcontainer",
+      "candidate_id": "candidate-73043ed74fddd4d0b46acff6372db986004bc279702393255c955196999c8b64",
+      "candidate_manifest_digest": "sha256:d77d95695f25f8a82f559eb36d5929f7c566bb4fb41064cd858c5afa4fb4bf5e",
+      "report": {
+        "digest": "sha256:e9bcbdc2462b05d6a478746a7517393cad30fb38393a6914a174c132c24663e9",
+        "logical_name": "candidate-73043ed74fddd4d0b46acff6372db986004bc279702393255c955196999c8b64-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-73043ed74fddd4d0b46acff6372db986004bc279702393255c955196999c8b64.json",
+        "size_bytes": 2980
+      },
+      "result": {
+        "digest": "sha256:b1ec30af95384b526556e7f11f514ab27bef8fc578f676dde024063b556e9461",
+        "logical_name": "candidate-73043ed74fddd4d0b46acff6372db986004bc279702393255c955196999c8b64-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-73043ed74fddd4d0b46acff6372db986004bc279702393255c955196999c8b64.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".greptile",
+      "candidate_id": "candidate-78bb0e78891d5abd1b98e53619be57636ea2fe9d5bf73b20ca78676a3ced157a",
+      "candidate_manifest_digest": "sha256:c1927bea970496974f7c23f99e5407f447f8130f4b24b04e8b9bcb171e44e706",
+      "report": {
+        "digest": "sha256:7ef1acc639ff98f55c3c5029f6a74666231d0b9f0368edef35ecf96e9f1acc55",
+        "logical_name": "candidate-78bb0e78891d5abd1b98e53619be57636ea2fe9d5bf73b20ca78676a3ced157a-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-78bb0e78891d5abd1b98e53619be57636ea2fe9d5bf73b20ca78676a3ced157a.json",
+        "size_bytes": 2774
+      },
+      "result": {
+        "digest": "sha256:5a0122e07ed50714baf70d4ad76df99471623317409292bac4ac14ecf278ce7a",
+        "logical_name": "candidate-78bb0e78891d5abd1b98e53619be57636ea2fe9d5bf73b20ca78676a3ced157a-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-78bb0e78891d5abd1b98e53619be57636ea2fe9d5bf73b20ca78676a3ced157a.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/file_store",
+      "candidate_id": "candidate-7e8c6a0c119059324a15fd7a870d1cfc87ae79f2f61f0e7aaace7334dbfb7730",
+      "candidate_manifest_digest": "sha256:9fc9877bdcca3678b3264f210239508dcabdc335e72026886b29bc1217b6bba4",
+      "report": {
+        "digest": "sha256:7da6f491642df8d0ed8a8038ada4dd2e09cae330de8675280fc2845a3f9d63e4",
+        "logical_name": "candidate-7e8c6a0c119059324a15fd7a870d1cfc87ae79f2f61f0e7aaace7334dbfb7730-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-7e8c6a0c119059324a15fd7a870d1cfc87ae79f2f61f0e7aaace7334dbfb7730.json",
+        "size_bytes": 3165
+      },
+      "result": {
+        "digest": "sha256:da5e6afc859cfedb1dbc5caf08b7d5430dbeea3c8635114da8649194e78bf024",
+        "logical_name": "candidate-7e8c6a0c119059324a15fd7a870d1cfc87ae79f2f61f0e7aaace7334dbfb7730-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-7e8c6a0c119059324a15fd7a870d1cfc87ae79f2f61f0e7aaace7334dbfb7730.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/tests",
+      "candidate_id": "candidate-88339514160437478ed663d57eeaa44c02922d39a2d40f0517b69831c632eed4",
+      "candidate_manifest_digest": "sha256:b7414c9f673be2d282020c9f420cb8860155e16d8df8527c9e4a368450137e13",
+      "report": {
+        "digest": "sha256:e23d533568e4b63b7375a4921c5af6a35979c3e9ab3f77d2f262cc8762f32d8b",
+        "logical_name": "candidate-88339514160437478ed663d57eeaa44c02922d39a2d40f0517b69831c632eed4-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-88339514160437478ed663d57eeaa44c02922d39a2d40f0517b69831c632eed4.json",
+        "size_bytes": 86007
+      },
+      "result": {
+        "digest": "sha256:3788a91ccbecc1683195ad94b4806ff53a09134bff2ca3db35fc9eb262b56b59",
+        "logical_name": "candidate-88339514160437478ed663d57eeaa44c02922d39a2d40f0517b69831c632eed4-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-88339514160437478ed663d57eeaa44c02922d39a2d40f0517b69831c632eed4.json",
+        "size_bytes": 3292
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/connectors",
+      "candidate_id": "candidate-91ffff94fd60bf3c3a009f2cb8f5306c4894351b759047b73bd51791a1035252",
+      "candidate_manifest_digest": "sha256:95f9cb7ed94458c750dec048fb511226d13e83592a0c5943bcddc949b2296e02",
+      "report": {
+        "digest": "sha256:d7b4bc1ed2a71d5604becc2918e72e390bdc9cf1bba07ec37e6934ffb175a2f8",
+        "logical_name": "candidate-91ffff94fd60bf3c3a009f2cb8f5306c4894351b759047b73bd51791a1035252-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-91ffff94fd60bf3c3a009f2cb8f5306c4894351b759047b73bd51791a1035252.json",
+        "size_bytes": 11916
+      },
+      "result": {
+        "digest": "sha256:0192553aec9a78d89cad54953cf897bd72ffb77a994d0d14d288e3dfe4674a4a",
+        "logical_name": "candidate-91ffff94fd60bf3c3a009f2cb8f5306c4894351b759047b73bd51791a1035252-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-91ffff94fd60bf3c3a009f2cb8f5306c4894351b759047b73bd51791a1035252.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/layouts",
+      "candidate_id": "candidate-94d65c1e58f0a5d5eb2a493a3c768e295c4b75084baa5f025b9a4b5adfb40b20",
+      "candidate_manifest_digest": "sha256:5488e4fe8eb2f82a2735b1cf2a1a3c2862e70d9bc85ef02f225d2b29d701261e",
+      "report": {
+        "digest": "sha256:b458835d18dbe6f3610756eef33f28255e950833fd1aabb50ef0e9c670ee5e7f",
+        "logical_name": "candidate-94d65c1e58f0a5d5eb2a493a3c768e295c4b75084baa5f025b9a4b5adfb40b20-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-94d65c1e58f0a5d5eb2a493a3c768e295c4b75084baa5f025b9a4b5adfb40b20.json",
+        "size_bytes": 2973
+      },
+      "result": {
+        "digest": "sha256:e8c32acd0d2e88b600680e0aedd937cb5bf48ed246bb178ef628e095f02f8a27",
+        "logical_name": "candidate-94d65c1e58f0a5d5eb2a493a3c768e295c4b75084baa5f025b9a4b5adfb40b20-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-94d65c1e58f0a5d5eb2a493a3c768e295c4b75084baa5f025b9a4b5adfb40b20.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/redis",
+      "candidate_id": "candidate-95906d50d5d99535f9ede64d169226b2442be92d3d2012b21922ab6fcdfde520",
+      "candidate_manifest_digest": "sha256:f2847b1e80dc3952dbdc2efdf21fe41e66fe2421d8e02378ee7e0fe54a51e33f",
+      "report": {
+        "digest": "sha256:155708becbcefa926e125dc8a84ccd5b85f45607344e05960082a2f1776d11d6",
+        "logical_name": "candidate-95906d50d5d99535f9ede64d169226b2442be92d3d2012b21922ab6fcdfde520-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-95906d50d5d99535f9ede64d169226b2442be92d3d2012b21922ab6fcdfde520.json",
+        "size_bytes": 3642
+      },
+      "result": {
+        "digest": "sha256:d2504682cca4ef7e1c5d4ee34c5f0b8ae81334f7d0c7848ded72357b44e9293b",
+        "logical_name": "candidate-95906d50d5d99535f9ede64d169226b2442be92d3d2012b21922ab6fcdfde520-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-95906d50d5d99535f9ede64d169226b2442be92d3d2012b21922ab6fcdfde520.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/skills",
+      "candidate_id": "candidate-9758f4ec645766bb13c0341898d87e368a5d9665e6cc9934cd855072870479ee",
+      "candidate_manifest_digest": "sha256:cf9a14b2e6967cd8409da0e24a75ab68cf00520bf58f34ace1a1422f16de8b9e",
+      "report": {
+        "digest": "sha256:5bbc9b3b2d99df6cdb6e56ada934cadd90561335187a8b562215da5c08bf8412",
+        "logical_name": "candidate-9758f4ec645766bb13c0341898d87e368a5d9665e6cc9934cd855072870479ee-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-9758f4ec645766bb13c0341898d87e368a5d9665e6cc9934cd855072870479ee.json",
+        "size_bytes": 9371
+      },
+      "result": {
+        "digest": "sha256:9f40f9b786c128e2733e0a447d099f04719f0ce9552e3a6e68b2a9f2d51f819a",
+        "logical_name": "candidate-9758f4ec645766bb13c0341898d87e368a5d9665e6cc9934cd855072870479ee-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-9758f4ec645766bb13c0341898d87e368a5d9665e6cc9934cd855072870479ee.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/hooks",
+      "candidate_id": "candidate-9d25cae66af9d25f1af1d9fd78b343316aa6e48cfabadbe4cb04e261e7314b10",
+      "candidate_manifest_digest": "sha256:8feeda2986665090bf5283c9ae892349f09b88eed557378ff6e9206218d08141",
+      "report": {
+        "digest": "sha256:5014a2c6bf9102124ca3186a3d9a8f61caed799ffccff637d0a05aa45cbb1109",
+        "logical_name": "candidate-9d25cae66af9d25f1af1d9fd78b343316aa6e48cfabadbe4cb04e261e7314b10-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-9d25cae66af9d25f1af1d9fd78b343316aa6e48cfabadbe4cb04e261e7314b10.json",
+        "size_bytes": 5817
+      },
+      "result": {
+        "digest": "sha256:16c41f2da573d945953a02e1c9f159b3c16fc5145abb6b3ea5ca6ee7962fa5ad",
+        "logical_name": "candidate-9d25cae66af9d25f1af1d9fd78b343316aa6e48cfabadbe4cb04e261e7314b10-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-9d25cae66af9d25f1af1d9fd78b343316aa6e48cfabadbe4cb04e261e7314b10.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/lib",
+      "candidate_id": "candidate-ad46b29e097bc96af1b629d7b6fa78322d1656dd8daa6d6462956d3a542ffbaa",
+      "candidate_manifest_digest": "sha256:418a2283b0e461b7084f5c186fa3cf72023ed55acb4b21e3ac0167f7049c34d0",
+      "report": {
+        "digest": "sha256:484339e7e8c1f1d1fc47739d75b4adb663fbe20efe5e4f0fc9e65db86e2961c7",
+        "logical_name": "candidate-ad46b29e097bc96af1b629d7b6fa78322d1656dd8daa6d6462956d3a542ffbaa-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ad46b29e097bc96af1b629d7b6fa78322d1656dd8daa6d6462956d3a542ffbaa.json",
+        "size_bytes": 31434
+      },
+      "result": {
+        "digest": "sha256:767eef202797c115b8e60366374353fbe0f86395c6b5a2b6b22945be3edff89b",
+        "logical_name": "candidate-ad46b29e097bc96af1b629d7b6fa78322d1656dd8daa6d6462956d3a542ffbaa-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-ad46b29e097bc96af1b629d7b6fa78322d1656dd8daa6d6462956d3a542ffbaa.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "deployment/docker_compose",
+      "candidate_id": "candidate-b1055f04ef3dab49121b77e718f5b09b43ba1cd8d13777a12044e8abe31070b6",
+      "candidate_manifest_digest": "sha256:c0335ae9346d4c2c208ac0b83d04136bf3499cb6357b5639179d3a40b2ecb079",
+      "report": {
+        "digest": "sha256:1cf86278000beae53693be32ca5b64ab21b4a0a24f4c5fa9d2f40a620a374016",
+        "logical_name": "candidate-b1055f04ef3dab49121b77e718f5b09b43ba1cd8d13777a12044e8abe31070b6-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-b1055f04ef3dab49121b77e718f5b09b43ba1cd8d13777a12044e8abe31070b6.json",
+        "size_bytes": 3886
+      },
+      "result": {
+        "digest": "sha256:08fb38f10426c9e322ba0f1dbbee4c7201555114b31c1e497e2e1dd5fe82e389",
+        "logical_name": "candidate-b1055f04ef3dab49121b77e718f5b09b43ba1cd8d13777a12044e8abe31070b6-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-b1055f04ef3dab49121b77e718f5b09b43ba1cd8d13777a12044e8abe31070b6.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "pyproject.toml",
+      "candidate_id": "candidate-b6854854565e3a9c2fa55db01ff317ece75096870e861679f5dfa3b970cbc63c",
+      "candidate_manifest_digest": "sha256:a9fc1012b26dc7c91ab14e0e41ad2a0c0be9530b22724100690ea68c347fe22e",
+      "report": {
+        "digest": "sha256:353151dc0b7a58e0cfec18fbbdf292575dff4b942ddc049eb701f14dbb51394a",
+        "logical_name": "candidate-b6854854565e3a9c2fa55db01ff317ece75096870e861679f5dfa3b970cbc63c-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-b6854854565e3a9c2fa55db01ff317ece75096870e861679f5dfa3b970cbc63c.json",
+        "size_bytes": 2709
+      },
+      "result": {
+        "digest": "sha256:bc2d2b6aec4d1fd68d4c09442d4cab94d1712088ba137aef0d1c3493ce4289a7",
+        "logical_name": "candidate-b6854854565e3a9c2fa55db01ff317ece75096870e861679f5dfa3b970cbc63c-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-b6854854565e3a9c2fa55db01ff317ece75096870e861679f5dfa3b970cbc63c.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "cli/internal",
+      "candidate_id": "candidate-ba7495c1e04ddc3cb47297c501dfc37f39bee409759dae0a2f2625e27ca6aa6f",
+      "candidate_manifest_digest": "sha256:8f408465eafe77d755f3fa5071fc61fe4eef47d4c41a4f683ae1de34462b29d7",
+      "report": {
+        "digest": "sha256:9ae329d9487b2e74e018c135836ef4818694930507c93c020d4988ebc67db8c6",
+        "logical_name": "candidate-ba7495c1e04ddc3cb47297c501dfc37f39bee409759dae0a2f2625e27ca6aa6f-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ba7495c1e04ddc3cb47297c501dfc37f39bee409759dae0a2f2625e27ca6aa6f.json",
+        "size_bytes": 4324
+      },
+      "result": {
+        "digest": "sha256:45f778d4551f609a03ce7d3b5a0fc19d160215bbf5fbc2be86a083afa4036363",
+        "logical_name": "candidate-ba7495c1e04ddc3cb47297c501dfc37f39bee409759dae0a2f2625e27ca6aa6f-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-ba7495c1e04ddc3cb47297c501dfc37f39bee409759dae0a2f2625e27ca6aa6f.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "docs/mobile-chat",
+      "candidate_id": "candidate-bb94d2e7d20e825a13d0f32b27d970c0a8553a6828165e61feabe350a2b234ee",
+      "candidate_manifest_digest": "sha256:64b89c17cac9030b8ef81f4e506bdfbb572e4c98982e72240c61525a492bd106",
+      "report": {
+        "digest": "sha256:dea3caddfb316c4e15701a7bfdd45b3656e63283a3c289d3f2fe0ff18eb7bfb6",
+        "logical_name": "candidate-bb94d2e7d20e825a13d0f32b27d970c0a8553a6828165e61feabe350a2b234ee-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-bb94d2e7d20e825a13d0f32b27d970c0a8553a6828165e61feabe350a2b234ee.json",
+        "size_bytes": 2957
+      },
+      "result": {
+        "digest": "sha256:62ba915f4d987a1e056a6a849dac89ddd4ec8de3d22383f6756e698ce36f7e25",
+        "logical_name": "candidate-bb94d2e7d20e825a13d0f32b27d970c0a8553a6828165e61feabe350a2b234ee-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-bb94d2e7d20e825a13d0f32b27d970c0a8553a6828165e61feabe350a2b234ee.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/auth",
+      "candidate_id": "candidate-c65e23bd783c55738842b42812f9f87d7ef7ba3c1edf5451b27109a2366b5f57",
+      "candidate_manifest_digest": "sha256:e1a9a544d62694f0d3f3e939419968c862dce2ba583c45a1d9a99d2a565d7ae1",
+      "report": {
+        "digest": "sha256:a728686248097d6d4871c5064d284edc37a9f1813c831187b47ab14959da0a0a",
+        "logical_name": "candidate-c65e23bd783c55738842b42812f9f87d7ef7ba3c1edf5451b27109a2366b5f57-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-c65e23bd783c55738842b42812f9f87d7ef7ba3c1edf5451b27109a2366b5f57.json",
+        "size_bytes": 3633
+      },
+      "result": {
+        "digest": "sha256:ebc0ce8ec58f8ea08fa0d133c77adf1c116a3e43ca76ac11b6f401a04a90f3a3",
+        "logical_name": "candidate-c65e23bd783c55738842b42812f9f87d7ef7ba3c1edf5451b27109a2366b5f57-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-c65e23bd783c55738842b42812f9f87d7ef7ba3c1edf5451b27109a2366b5f57.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "docs/craft",
+      "candidate_id": "candidate-ca4f95a6ad091dd9b416fb31dead75284f80ed38b86c9bd06724b398bd475325",
+      "candidate_manifest_digest": "sha256:2efb6edb99d4694ee8cb8dbed66a90c399ff91c1347afc7d891a9dc8d156e428",
+      "report": {
+        "digest": "sha256:02e77ca6f83bf26b33639dbc8c18998a35c57eb8a816e16058eec406e118f66a",
+        "logical_name": "candidate-ca4f95a6ad091dd9b416fb31dead75284f80ed38b86c9bd06724b398bd475325-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ca4f95a6ad091dd9b416fb31dead75284f80ed38b86c9bd06724b398bd475325.json",
+        "size_bytes": 5007
+      },
+      "result": {
+        "digest": "sha256:6bd4465be5a1d37b067c48d775a64411a200162be98d1af71dc23f859a8e333b",
+        "logical_name": "candidate-ca4f95a6ad091dd9b416fb31dead75284f80ed38b86c9bd06724b398bd475325-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-ca4f95a6ad091dd9b416fb31dead75284f80ed38b86c9bd06724b398bd475325.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/llm",
+      "candidate_id": "candidate-ca80178c07390260fb5766d65463b5f54e18e7991081624246b1bce957838bad",
+      "candidate_manifest_digest": "sha256:5bcc1cc22aef047e4a18c08af7252f44a6eca1e030acd72aa51719c05944308d",
+      "report": {
+        "digest": "sha256:046a9129d8847825998a50a7babc87828c248471e56e1efb720178c6a6cdeb1e",
+        "logical_name": "candidate-ca80178c07390260fb5766d65463b5f54e18e7991081624246b1bce957838bad-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ca80178c07390260fb5766d65463b5f54e18e7991081624246b1bce957838bad.json",
+        "size_bytes": 4554
+      },
+      "result": {
+        "digest": "sha256:7f19ad8aea37ae0608b5042a61610b18e2439cc535f81b1be974f850c0a409a7",
+        "logical_name": "candidate-ca80178c07390260fb5766d65463b5f54e18e7991081624246b1bce957838bad-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-ca80178c07390260fb5766d65463b5f54e18e7991081624246b1bce957838bad.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/sections",
+      "candidate_id": "candidate-cacb1eee7ed5e5ae69a4e1a3523631f5ad0d63877eaf05ebccc22759cb3e0e40",
+      "candidate_manifest_digest": "sha256:dfb37ef3583da355c8129b863d6c45c9c8be905a21800a33aae6927d73c41cb6",
+      "report": {
+        "digest": "sha256:3569650774cd0d5eb2957ed127efefd5136189556100b1de4ee872e27060f9da",
+        "logical_name": "candidate-cacb1eee7ed5e5ae69a4e1a3523631f5ad0d63877eaf05ebccc22759cb3e0e40-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-cacb1eee7ed5e5ae69a4e1a3523631f5ad0d63877eaf05ebccc22759cb3e0e40.json",
+        "size_bytes": 11522
+      },
+      "result": {
+        "digest": "sha256:d2d167733af2db3d28aa57ed1caad32a0f54c4fbd05f50695ce7e88f6c77c450",
+        "logical_name": "candidate-cacb1eee7ed5e5ae69a4e1a3523631f5ad0d63877eaf05ebccc22759cb3e0e40-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-cacb1eee7ed5e5ae69a4e1a3523631f5ad0d63877eaf05ebccc22759cb3e0e40.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/lib",
+      "candidate_id": "candidate-ce7201f7e60a8877929d4c1ab40328b69e253525f9132f7bfb2fb71aa135e526",
+      "candidate_manifest_digest": "sha256:1823aa6a1c2ef80e125fa1efc36195945c3d8cd1d613189f93fd9ad4ba83cdf5",
+      "report": {
+        "digest": "sha256:da15ed224e3a505068cb4cfdeeb67402a9fe4c8450f221f665fdfc1fe172963e",
+        "logical_name": "candidate-ce7201f7e60a8877929d4c1ab40328b69e253525f9132f7bfb2fb71aa135e526-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ce7201f7e60a8877929d4c1ab40328b69e253525f9132f7bfb2fb71aa135e526.json",
+        "size_bytes": 8530
+      },
+      "result": {
+        "digest": "sha256:f321d6eafd6f5c6a3372b09447a38a4db19a3d284e244afcd170875f1a579a87",
+        "logical_name": "candidate-ce7201f7e60a8877929d4c1ab40328b69e253525f9132f7bfb2fb71aa135e526-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-ce7201f7e60a8877929d4c1ab40328b69e253525f9132f7bfb2fb71aa135e526.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "cubic.yaml",
+      "candidate_id": "candidate-d482debf5a3dabdf6a76532c6c0843aff9a5483dc99b9628e34fb051fba47ae3",
+      "candidate_manifest_digest": "sha256:a3f4b495d8d2e9aa420d10ac529398bae857505c35d69e6a23681d734f7d4890",
+      "report": {
+        "digest": "sha256:47bab3d5ba8a1f233dac45eeab04a047d6a28b1e80893a5492ccdbb8c7b42d23",
+        "logical_name": "candidate-d482debf5a3dabdf6a76532c6c0843aff9a5483dc99b9628e34fb051fba47ae3-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-d482debf5a3dabdf6a76532c6c0843aff9a5483dc99b9628e34fb051fba47ae3.json",
+        "size_bytes": 2705
+      },
+      "result": {
+        "digest": "sha256:d3dacba9d49c107d8263bc2730b449cf3f1fde2929f3548bf34cbc87c1a34906",
+        "logical_name": "candidate-d482debf5a3dabdf6a76532c6c0843aff9a5483dc99b9628e34fb051fba47ae3-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-d482debf5a3dabdf6a76532c6c0843aff9a5483dc99b9628e34fb051fba47ae3.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "CONTRIBUTING.md",
+      "candidate_id": "candidate-d50d1fc65237f8a9ec9c5a7f425f8103a3d3b01cf49c053e5e63d61404c343e5",
+      "candidate_manifest_digest": "sha256:ad7664eab87fb90de46b2afea6b87f3c43b9a800d89ba4bbfbbcd9bbb7c9b8de",
+      "report": {
+        "digest": "sha256:75de5b02c1f1743a6774a557837022b4a82f4c2d9186931de258573e99f9ba35",
+        "logical_name": "candidate-d50d1fc65237f8a9ec9c5a7f425f8103a3d3b01cf49c053e5e63d61404c343e5-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-d50d1fc65237f8a9ec9c5a7f425f8103a3d3b01cf49c053e5e63d61404c343e5.json",
+        "size_bytes": 2710
+      },
+      "result": {
+        "digest": "sha256:07bc70318a6fdae17d01fc41ae9cae903dd2c04287efff9aea7b9a60b524b52c",
+        "logical_name": "candidate-d50d1fc65237f8a9ec9c5a7f425f8103a3d3b01cf49c053e5e63d61404c343e5-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-d50d1fc65237f8a9ec9c5a7f425f8103a3d3b01cf49c053e5e63d61404c343e5.json",
+        "size_bytes": 3286
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/indexing",
+      "candidate_id": "candidate-d7c1df3fd425908aba05f76750392fab6b933a12bfb347ef2b6fa316765f782e",
+      "candidate_manifest_digest": "sha256:62d930180e3ab02dbc86be8ef0cfd7ee27975e0a539fa3d7b99c15a2a7c6a207",
+      "report": {
+        "digest": "sha256:037bfba74d1e9c8b568ea5b55798e16ba6b6122367d2c5d83da8ee6dc0ec7c90",
+        "logical_name": "candidate-d7c1df3fd425908aba05f76750392fab6b933a12bfb347ef2b6fa316765f782e-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-d7c1df3fd425908aba05f76750392fab6b933a12bfb347ef2b6fa316765f782e.json",
+        "size_bytes": 4098
+      },
+      "result": {
+        "digest": "sha256:0f53f6e059dae6126aa05452412f9f945c7911015c4322a224d35d73c9ceb469",
+        "logical_name": "candidate-d7c1df3fd425908aba05f76750392fab6b933a12bfb347ef2b6fa316765f782e-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-d7c1df3fd425908aba05f76750392fab6b933a12bfb347ef2b6fa316765f782e.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/tools",
+      "candidate_id": "candidate-e117b280e69fb690ae4f9bfcfa3fa66af95f4b4f73b216c20d429f77746ec9a3",
+      "candidate_manifest_digest": "sha256:ef35e849ecfda3357cb5b89fd65ba7f76e5860896bed29492020b4439d110ea5",
+      "report": {
+        "digest": "sha256:e9e806ff54fee0b8a8511266a953327252414aaabe760eefa7c39b8a14dd0529",
+        "logical_name": "candidate-e117b280e69fb690ae4f9bfcfa3fa66af95f4b4f73b216c20d429f77746ec9a3-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-e117b280e69fb690ae4f9bfcfa3fa66af95f4b4f73b216c20d429f77746ec9a3.json",
+        "size_bytes": 6435
+      },
+      "result": {
+        "digest": "sha256:1b75d51321d7a824e6ffc1138c832a3fab3918ab5b95e46825cad049f27178d2",
+        "logical_name": "candidate-e117b280e69fb690ae4f9bfcfa3fa66af95f4b4f73b216c20d429f77746ec9a3-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-e117b280e69fb690ae4f9bfcfa3fa66af95f4b4f73b216c20d429f77746ec9a3.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "desktop/src-tauri",
+      "candidate_id": "candidate-e3bea413bc16bee291a69abd6c5d9cd47bd06f37461fd89b457c8b6ad3461105",
+      "candidate_manifest_digest": "sha256:db465f9cf829d06f1b29a271a88b33a4e5d126ab4a6912a31aa4a45459da7398",
+      "report": {
+        "digest": "sha256:ea0311f6ec71b00a587ed57f7a1606682a84a3aba4479a44f306c735e87e96f7",
+        "logical_name": "candidate-e3bea413bc16bee291a69abd6c5d9cd47bd06f37461fd89b457c8b6ad3461105-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-e3bea413bc16bee291a69abd6c5d9cd47bd06f37461fd89b457c8b6ad3461105.json",
+        "size_bytes": 5908
+      },
+      "result": {
+        "digest": "sha256:0c945e3f95ed79d350735b4d43b3d8cf692281d18dcac5c23ea5e8ef213f2032",
+        "logical_name": "candidate-e3bea413bc16bee291a69abd6c5d9cd47bd06f37461fd89b457c8b6ad3461105-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-e3bea413bc16bee291a69abd6c5d9cd47bd06f37461fd89b457c8b6ad3461105.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/external_permissions",
+      "candidate_id": "candidate-e6377f4029884fafa9f21283ff8e992c874a3f66110d6d69d7b4c22317feb392",
+      "candidate_manifest_digest": "sha256:faf0d0e6976a557aef37de6cb9d979daf49573a9f02918669d9fe7c9bd76c0bd",
+      "report": {
+        "digest": "sha256:1ccb69d6cf4af9a33185faaedc8d0e0f9146bfc34e284b9a233781fc1b58263f",
+        "logical_name": "candidate-e6377f4029884fafa9f21283ff8e992c874a3f66110d6d69d7b4c22317feb392-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-e6377f4029884fafa9f21283ff8e992c874a3f66110d6d69d7b4c22317feb392.json",
+        "size_bytes": 5121
+      },
+      "result": {
+        "digest": "sha256:e8a015acec7b937e2e1ec40e1ca6d557b4add27ce3c0e03ad94183633b1e909d",
+        "logical_name": "candidate-e6377f4029884fafa9f21283ff8e992c874a3f66110d6d69d7b4c22317feb392-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-e6377f4029884fafa9f21283ff8e992c874a3f66110d6d69d7b4c22317feb392.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "tools/ods",
+      "candidate_id": "candidate-e92a40e72d7869b18cf7e307b6916733a205238f9deb40413bba571df0bdde58",
+      "candidate_manifest_digest": "sha256:264f5e778686e84bb23a4b737a733ac101915f46dad1805720e8e3b4c118d7e7",
+      "report": {
+        "digest": "sha256:1a1949a6e6f95a9c1cdb91afedf0094fe860ce37b087a455ec56be1e5fe9d8fc",
+        "logical_name": "candidate-e92a40e72d7869b18cf7e307b6916733a205238f9deb40413bba571df0bdde58-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-e92a40e72d7869b18cf7e307b6916733a205238f9deb40413bba571df0bdde58.json",
+        "size_bytes": 5766
+      },
+      "result": {
+        "digest": "sha256:2749b788bb93a31727bb1311f7d359d6311bdbc2a946a0f66037b570eb7fddd9",
+        "logical_name": "candidate-e92a40e72d7869b18cf7e307b6916733a205238f9deb40413bba571df0bdde58-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-e92a40e72d7869b18cf7e307b6916733a205238f9deb40413bba571df0bdde58.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "mobile/src",
+      "candidate_id": "candidate-ea06eb08a9c021c1600b0b616612e03a5274658cbf90a67f54408ef09cf92ce6",
+      "candidate_manifest_digest": "sha256:e2bdf9909353fb1b623c811796d03af51e6895bfd71e34baef387e848ee1ba37",
+      "report": {
+        "digest": "sha256:0980f7c4cdc9b7c9fd95b0d3816c574faafddd9faa1389fa003c8d7cdf9a4e73",
+        "logical_name": "candidate-ea06eb08a9c021c1600b0b616612e03a5274658cbf90a67f54408ef09cf92ce6-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-ea06eb08a9c021c1600b0b616612e03a5274658cbf90a67f54408ef09cf92ce6.json",
+        "size_bytes": 7149
+      },
+      "result": {
+        "digest": "sha256:065f5c65b64a9bb71f0fea01271a2b9e3ea2d2ee971d13c437b4837ecc7dab12",
+        "logical_name": "candidate-ea06eb08a9c021c1600b0b616612e03a5274658cbf90a67f54408ef09cf92ce6-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-ea06eb08a9c021c1600b0b616612e03a5274658cbf90a67f54408ef09cf92ce6.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/public",
+      "candidate_id": "candidate-eb32706a85623be63a53ec4077b4b920477463c8de94adae37ec0e4068b14a83",
+      "candidate_manifest_digest": "sha256:99ccd902a29d9337e7e2f9e5670f652a280ce21eef9005797ffdc8e3462d9918",
+      "report": {
+        "digest": "sha256:d858fa824dea805a3707bdf4af6400558efbad8c84723197f637b606f721f2a2",
+        "logical_name": "candidate-eb32706a85623be63a53ec4077b4b920477463c8de94adae37ec0e4068b14a83-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-eb32706a85623be63a53ec4077b4b920477463c8de94adae37ec0e4068b14a83.json",
+        "size_bytes": 8092
+      },
+      "result": {
+        "digest": "sha256:46fb9412401f5d9f856c6ad9281e37609bd83796f05875edcacdae59841cb430",
+        "logical_name": "candidate-eb32706a85623be63a53ec4077b4b920477463c8de94adae37ec0e4068b14a83-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-eb32706a85623be63a53ec4077b4b920477463c8de94adae37ec0e4068b14a83.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/document_index",
+      "candidate_id": "candidate-f2a9b939aa48c1cd2ad63b707b3184b3508af5bf528973f04219516da76ad0b2",
+      "candidate_manifest_digest": "sha256:ccbacfb2ad38a37c26db532b06d19b6e4cb3798339a77df3a970223ef5baf9be",
+      "report": {
+        "digest": "sha256:595d7840e1b2837508d7e8cb81b91b120e306c1b8f4dbb8596e31e070283c711",
+        "logical_name": "candidate-f2a9b939aa48c1cd2ad63b707b3184b3508af5bf528973f04219516da76ad0b2-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-f2a9b939aa48c1cd2ad63b707b3184b3508af5bf528973f04219516da76ad0b2.json",
+        "size_bytes": 4502
+      },
+      "result": {
+        "digest": "sha256:8b08a3e3cbff1c5adb57af6e6819e8603c146280486ca1e57327982a494cc864",
+        "logical_name": "candidate-f2a9b939aa48c1cd2ad63b707b3184b3508af5bf528973f04219516da76ad0b2-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-f2a9b939aa48c1cd2ad63b707b3184b3508af5bf528973f04219516da76ad0b2.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/utils",
+      "candidate_id": "candidate-f4584070828245bfe4226bd87e46fc79ee4c5be2c9e87659a6df8a37407b1eab",
+      "candidate_manifest_digest": "sha256:2065333e1c6517e0a5161fba8f9d9ee562d956358cc7960634203db8f63e27e5",
+      "report": {
+        "digest": "sha256:11ea78a08fe1c7e813d181700086c54258a16b481e8002c7ed3332d96986d654",
+        "logical_name": "candidate-f4584070828245bfe4226bd87e46fc79ee4c5be2c9e87659a6df8a37407b1eab-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-f4584070828245bfe4226bd87e46fc79ee4c5be2c9e87659a6df8a37407b1eab.json",
+        "size_bytes": 4735
+      },
+      "result": {
+        "digest": "sha256:5d2d037816283e116c5a7efdc8820b78c74dee188b5969681e300985cf3029f4",
+        "logical_name": "candidate-f4584070828245bfe4226bd87e46fc79ee4c5be2c9e87659a6df8a37407b1eab-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-f4584070828245bfe4226bd87e46fc79ee4c5be2c9e87659a6df8a37407b1eab.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/external_apps",
+      "candidate_id": "candidate-f5aec425ceb05c18485a6d22f982e48195b12ee86ec5af36b85a2617f4fc4d1d",
+      "candidate_manifest_digest": "sha256:8a254758d2623b542e4c87a2cda78de12e181d2c2129f2dcecf1c413e878115a",
+      "report": {
+        "digest": "sha256:42869c7bc6bd94df4b0568172091c6b1d0539eb9dd43a2b31439c29e58a010ea",
+        "logical_name": "candidate-f5aec425ceb05c18485a6d22f982e48195b12ee86ec5af36b85a2617f4fc4d1d-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-f5aec425ceb05c18485a6d22f982e48195b12ee86ec5af36b85a2617f4fc4d1d.json",
+        "size_bytes": 3927
+      },
+      "result": {
+        "digest": "sha256:963727e01de1b9d4e27508374fa48219e75cca36396ecf2480f126abb6c5f038",
+        "logical_name": "candidate-f5aec425ceb05c18485a6d22f982e48195b12ee86ec5af36b85a2617f4fc4d1d-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-f5aec425ceb05c18485a6d22f982e48195b12ee86ec5af36b85a2617f4fc4d1d.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/craft",
+      "candidate_id": "candidate-f60311fe0f84a6ecdf6817164b7ac97fea220d32f6ff0154eadc98269c2d161f",
+      "candidate_manifest_digest": "sha256:b6f0fb3565b776910594f3a08c73ce4f558d9ec9afbbe2f0ce9df609b47a2522",
+      "report": {
+        "digest": "sha256:3eab306add88ead1c241f71fe8a3508b6d35b03ec4af86132970257948251d4e",
+        "logical_name": "candidate-f60311fe0f84a6ecdf6817164b7ac97fea220d32f6ff0154eadc98269c2d161f-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-f60311fe0f84a6ecdf6817164b7ac97fea220d32f6ff0154eadc98269c2d161f.json",
+        "size_bytes": 11999
+      },
+      "result": {
+        "digest": "sha256:829db3dbcd67951f7758d68c1f145e8411d61282c564cf14b363ec765810c173",
+        "logical_name": "candidate-f60311fe0f84a6ecdf6817164b7ac97fea220d32f6ff0154eadc98269c2d161f-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-f60311fe0f84a6ecdf6817164b7ac97fea220d32f6ff0154eadc98269c2d161f.json",
+        "size_bytes": 3290
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/chat",
+      "candidate_id": "candidate-fdcdb203c80b9bc2999af204873136b6e28404e631bb29e005785b49aeca6b44",
+      "candidate_manifest_digest": "sha256:8b9367ae1cbd977c903de353768468831f8fd41b9e1eb6c303f7aad30180e05f",
+      "report": {
+        "digest": "sha256:5541c8f813801524158b07184cf6983439cebe7ba1423b73e03e0c1870a5b702",
+        "logical_name": "candidate-fdcdb203c80b9bc2999af204873136b6e28404e631bb29e005785b49aeca6b44-thin-fork-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-reports/candidate-fdcdb203c80b9bc2999af204873136b6e28404e631bb29e005785b49aeca6b44.json",
+        "size_bytes": 3506
+      },
+      "result": {
+        "digest": "sha256:63d74ea36032594c57c2e458536b4ff4fa7b46b9852aae1b0dd4a05ef4815118",
+        "logical_name": "candidate-fdcdb203c80b9bc2999af204873136b6e28404e631bb29e005785b49aeca6b44-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-fdcdb203c80b9bc2999af204873136b6e28404e631bb29e005785b49aeca6b44.json",
+        "size_bytes": 3288
+      },
+      "source_surface": "ce",
+      "verdict": "fail"
+    }
+  ],
+  "executed_test_count": 55,
+  "failed_test_count": 55,
+  "index_version": "1.0.0",
+  "missing_test_count": 0,
+  "oracle_extension": {
+    "digest": "sha256:ce1e1127a8b743555978936f6ca431a1e5afd873fc6cdeece81d4be43e30da46",
+    "logical_name": "qualification-oracle-extension-thin-fork-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-thin-fork-v1.json",
+    "size_bytes": 4717
+  },
+  "passed_test_count": 0,
+  "report_count": 55,
+  "report_schema": {
+    "digest": "sha256:71bc3aa3f24be85cec2afd9f3b3b682b92e5d8b2a2c5d9b1d788532ccfe88e35",
+    "logical_name": "candidate-qualification-report-v1-schema",
+    "media_type": "application/schema+json",
+    "relative_path": "backend/pmorg/contracts/schemas/candidate-qualification-report-v1.schema.json",
+    "size_bytes": 4976
+  },
+  "result_schema": {
+    "digest": "sha256:5a06c7070ec30dc6558b5e0f736d8959577063efd8e039443699233f21f68883",
+    "logical_name": "qualification-oracle-result-v2-schema",
+    "media_type": "application/schema+json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-result-v2.schema.json",
+    "size_bytes": 5349
+  },
+  "runtime_identity_digests": [
+    "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053"
+  ],
+  "schema_version": "pmorg.thin-fork-candidate-qualification-report-index/v1",
+  "source_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "source_repository": "https://github.com/onyx-dot-app/onyx.git",
+  "source_tree_id": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58"
+}
