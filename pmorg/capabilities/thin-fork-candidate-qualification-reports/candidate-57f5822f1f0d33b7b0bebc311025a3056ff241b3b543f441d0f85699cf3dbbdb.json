@@ -1,0 +1,77 @@
+{
+  "candidate_id": "candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb",
+  "capability_id": "thin-fork-boundary",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:ce1e1127a8b743555978936f6ca431a1e5afd873fc6cdeece81d4be43e30da46",
+    "logical_name": "qualification-oracle-extension-thin-fork-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-thin-fork-v1.json",
+    "size_bytes": 4717
+  },
+  "required_test_manifest": {
+    "digest": "sha256:10866f7bfec7f0ebdd46590079604c757354aedea32d674914936bb98f72dc7f",
+    "logical_name": "thin-fork-boundary-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/thin-fork-boundary.json",
+    "size_bytes": 202
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/onyx/sandbox_proxy/addons/gate.py",
+      "backend/onyx/sandbox_proxy/approval_cache.py",
+      "backend/onyx/sandbox_proxy/backend.py",
+      "backend/onyx/sandbox_proxy/ca.py",
+      "backend/onyx/sandbox_proxy/ca_docker.py",
+      "backend/onyx/sandbox_proxy/ca_k8s.py",
+      "backend/onyx/sandbox_proxy/credential_injection.py",
+      "backend/onyx/sandbox_proxy/errors.py",
+      "backend/onyx/sandbox_proxy/identity.py",
+      "backend/onyx/sandbox_proxy/identity_docker.py",
+      "backend/onyx/sandbox_proxy/identity_k8s.py",
+      "backend/onyx/sandbox_proxy/logging_utils.py",
+      "backend/onyx/sandbox_proxy/request_evaluator.py",
+      "backend/onyx/sandbox_proxy/resolvers/external_app.py",
+      "backend/onyx/sandbox_proxy/resolvers/llm_provider_key.py",
+      "backend/onyx/sandbox_proxy/resolvers/onyx_pat.py",
+      "backend/onyx/sandbox_proxy/server.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:3a19341b7a6d9f4c27ab1bc78a7709af9f02eceb750030f7e819ec4d75f2fcad",
+        "logical_name": "candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-57f5822f1f0d33b7b0bebc311025a3056ff241b3b543f441d0f85699cf3dbbdb.json",
+        "size_bytes": 3288
+      },
+      "test_id": "A-PATCH-001",
+      "test_manifest": {
+        "digest": "sha256:257326b0e311d1cf166bfa8ea8a5e5b139a7efe370cbdbad5eecd49b37ca4c31",
+        "logical_name": "thin-fork-boundary-A-PATCH-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/thin-fork-boundary-A-PATCH-001-v1.json",
+        "size_bytes": 4272
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

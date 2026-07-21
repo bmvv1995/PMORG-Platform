@@ -928,6 +928,31 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_thin_fork_interface_fit_executor.py --check"
       ]
+    },
+    {
+      "id": "PL-033",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/thin_fork_candidate_qualification_reports.py",
+        "backend/pmorg/tests/test_thin_fork_candidate_qualification_reports.py",
+        "pmorg/capabilities/thin-fork-candidate-qualification-reports-v1.json",
+        "pmorg/capabilities/thin-fork-candidate-qualification-reports-v1.schema.json",
+        "pmorg/capabilities/thin-fork-candidate-qualification-reports/*.json",
+        "pmorg/capabilities/thin-fork-candidate-qualification-results/*.json",
+        "pmorg/scripts/build_thin_fork_candidate_qualification_reports.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-PATCH-001",
+        "PLT-004"
+      ],
+      "reason": "Execute the approved Thin Fork candidate-aware oracle extension over the exact 55-candidate denominator and emit one content-addressed qualification result plus one schema-valid CandidateQualificationReport per candidate, each binding the exact manifest, projected bytes, interface/vector/adapter/runtime identities and live mutation/positive controls; emit no disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=f25e2eaba6476428751dc62411238e03feb2919b python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_thin_fork_candidate_qualification_reports -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_thin_fork_candidate_qualification_reports.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

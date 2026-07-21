@@ -1,0 +1,98 @@
+{
+  "candidate_id": "candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347",
+  "capability_id": "thin-fork-boundary",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 1,
+  "expected_test_count": 1,
+  "failed_test_count": 1,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:ce1e1127a8b743555978936f6ca431a1e5afd873fc6cdeece81d4be43e30da46",
+    "logical_name": "qualification-oracle-extension-thin-fork-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-thin-fork-v1.json",
+    "size_bytes": 4717
+  },
+  "required_test_manifest": {
+    "digest": "sha256:10866f7bfec7f0ebdd46590079604c757354aedea32d674914936bb98f72dc7f",
+    "logical_name": "thin-fork-boundary-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/thin-fork-boundary.json",
+    "size_bytes": 202
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      ".github/workflows/audit.yml",
+      ".github/workflows/deployment.yml",
+      ".github/workflows/docker-tag-beta.yml",
+      ".github/workflows/docker-tag-latest.yml",
+      ".github/workflows/helm-chart-releases.yml",
+      ".github/workflows/merge-group.yml",
+      ".github/workflows/nightly-close-stale-issues.yml",
+      ".github/workflows/nightly-external-dependency-unit-tests.yml",
+      ".github/workflows/nightly-llm-provider-chat.yml",
+      ".github/workflows/post-merge-beta-cherry-pick.yml",
+      ".github/workflows/pr-craft-compose-integration.yml",
+      ".github/workflows/pr-craft-compose-tests.yml",
+      ".github/workflows/pr-craft-k8s-tests.yml",
+      ".github/workflows/pr-database-tests.yml",
+      ".github/workflows/pr-desktop-build.yml",
+      ".github/workflows/pr-external-dependency-unit-tests.yml",
+      ".github/workflows/pr-golang-tests.yml",
+      ".github/workflows/pr-helm-chart-testing.yml",
+      ".github/workflows/pr-integration-tests.yml",
+      ".github/workflows/pr-jest-tests.yml",
+      ".github/workflows/pr-labeler.yml",
+      ".github/workflows/pr-linear-check.yml",
+      ".github/workflows/pr-playwright-tests.yml",
+      ".github/workflows/pr-python-checks.yml",
+      ".github/workflows/pr-python-connector-tests.yml",
+      ".github/workflows/pr-python-model-tests.yml",
+      ".github/workflows/pr-python-tests.yml",
+      ".github/workflows/pr-quality-checks.yml",
+      ".github/workflows/preview.yml",
+      ".github/workflows/release-cli.yml",
+      ".github/workflows/release-devcontainer.yml",
+      ".github/workflows/release-devtools.yml",
+      ".github/workflows/release-opal.yml",
+      ".github/workflows/reusable-nightly-llm-provider-chat.yml",
+      ".github/workflows/storybook-deploy.yml",
+      ".github/workflows/sync_foss.yml",
+      ".github/workflows/tag-nightly.yml",
+      ".github/workflows/zizmor.yml"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:bac950812cbe18e956f75a829946d953175c6cac51858ec46f52abce8643a028",
+        "logical_name": "candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347-thin-fork-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/thin-fork-candidate-qualification-results/candidate-33b5986c7b08ff618ac2afc3bf903718e31f1fa35a217392911fbe1fffae3347.json",
+        "size_bytes": 3288
+      },
+      "test_id": "A-PATCH-001",
+      "test_manifest": {
+        "digest": "sha256:257326b0e311d1cf166bfa8ea8a5e5b139a7efe370cbdbad5eecd49b37ca4c31",
+        "logical_name": "thin-fork-boundary-A-PATCH-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/thin-fork-boundary-A-PATCH-001-v1.json",
+        "size_bytes": 4272
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

@@ -1,0 +1,79 @@
+{
+  "adapter_digest": "sha256:512570f0287a03a43bdf87ef9f00883a27cdae7a502e0be9e41ce4d82475ca2c",
+  "baseline_fit": false,
+  "baseline_observation_digest": "sha256:37ad6de267d69d1ee124d967966946b27a16da1a6638ada20032cd085e313840",
+  "bindings": [
+    {
+      "digest": "sha256:7afeb765dfc5bc989f5458351cdbd2a563836bdc876d3c06ba7f9894eefdbc53",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/thin-fork-boundary-v1.json"
+    },
+    {
+      "digest": "sha256:257326b0e311d1cf166bfa8ea8a5e5b139a7efe370cbdbad5eecd49b37ca4c31",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/thin-fork-boundary-A-PATCH-001-v1.json"
+    },
+    {
+      "digest": "sha256:512570f0287a03a43bdf87ef9f00883a27cdae7a502e0be9e41ce4d82475ca2c",
+      "relative_path": "backend/pmorg/application/thin_fork_interface_fit_executor.py"
+    },
+    {
+      "digest": "sha256:5a06c7070ec30dc6558b5e0f736d8959577063efd8e039443699233f21f68883",
+      "relative_path": "pmorg/capabilities/qualification-oracle-result-v2.schema.json"
+    },
+    {
+      "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+      "relative_path": ".python-version"
+    },
+    {
+      "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+      "relative_path": "pyproject.toml"
+    },
+    {
+      "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+      "relative_path": "uv.lock"
+    }
+  ],
+  "candidate_id": "candidate-94d65c1e58f0a5d5eb2a493a3c768e295c4b75084baa5f025b9a4b5adfb40b20",
+  "candidate_manifest_digest": "sha256:5488e4fe8eb2f82a2735b1cf2a1a3c2862e70d9bc85ef02f225d2b29d701261e",
+  "capability_id": "thin-fork-boundary",
+  "execution_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "failure_reasons": [
+    "candidate exposes no callable surface satisfying the exact Thin Fork interface"
+  ],
+  "mutation_fit": false,
+  "mutation_observation_digest": "sha256:457e38bba8b9bc7d875de4bf4fbff02143f7ce4929e5543f9c3924b4f920acaa",
+  "observed_blob_count": 6,
+  "oracle_id": "qualification-oracle:thin-fork-boundary:A-PATCH-001:v1",
+  "oracle_status": "executable",
+  "positive_injection_fit": true,
+  "positive_injection_observation_digest": "sha256:115ceba328d1cc40e6c074818485ab6ad2d795baeb475f9421759b841e0317c8",
+  "projected_blob_count": 6,
+  "runtime_identity_digest": "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053",
+  "runtime_measurement": {
+    "declared_artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "relative_path": ".python-version"
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "relative_path": "pyproject.toml"
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "relative_path": "uv.lock"
+      }
+    ],
+    "interpreter_binary": {
+      "digest": "sha256:9efb620bf4def9da93c66480431bf9ca479f5ca495da94483cf9117dd58430bf",
+      "relative_path": "@runtime/executed-python-interpreter"
+    }
+  },
+  "schema_version": "pmorg.qualification-oracle-result/v2",
+  "test_id": "A-PATCH-001",
+  "unobserved_blob_count": 0,
+  "verdict": "fail"
+}
