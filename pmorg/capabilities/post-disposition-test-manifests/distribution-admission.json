@@ -1,0 +1,74 @@
+{
+  "capability_id": "distribution-admission",
+  "expected_test_count": 5,
+  "implementation_bindings": [
+    {
+      "digest": "sha256:0da5069dee99aabd8ac0c5d8bad08182d798973f12cba0f0f4f490f74aac3ff1",
+      "relative_path": "backend/pmorg/application/admission.py",
+      "size_bytes": 42203
+    },
+    {
+      "digest": "sha256:3de94fd5bf5ce69ab43b7567eed49a253a6b2987399fd6c3cdea3cbb41923342",
+      "relative_path": "backend/pmorg/application/distribution_admission.py",
+      "size_bytes": 40306
+    },
+    {
+      "digest": "sha256:89ec04db1da5a89c9c97461c2d5327f122ed2fee616a1e03a496c3e9f8a2f796",
+      "relative_path": "backend/pmorg/application/qualification.py",
+      "size_bytes": 26963
+    },
+    {
+      "digest": "sha256:b0bebe48904dfa6753c8a22a2af067aa0e7d23fc8fa73d72deabc90840fdfd2e",
+      "relative_path": "backend/pmorg/application/rbdp.py",
+      "size_bytes": 10057
+    },
+    {
+      "digest": "sha256:a3d3fe1f5d3ec6cf7107e30bb48c13d501ca709bfee196a5e90af6eeae080eaa",
+      "relative_path": "backend/pmorg/contracts/types.py",
+      "size_bytes": 32816
+    }
+  ],
+  "implementation_path_set_hash": "sha256:e521d1cbc6e58dd14b7589dcad69aa3d0e7b2befe97160907eda823d0eb53680",
+  "patch_ledger_entry_ids": [
+    "PL-020",
+    "PL-021"
+  ],
+  "patch_ledger_set_hash": "sha256:04c6b40da92e97770e65a0d19c2a6ddcfd0e1cf1dcda222841e5c47cfd217e96",
+  "requirement_ids": [
+    "A-LIC-003",
+    "PLT-008"
+  ],
+  "runner": {
+    "execution_mode": "isolated-test-method",
+    "framework": "python-unittest",
+    "pythonpath": "backend"
+  },
+  "schema_version": "pmorg.post-disposition-test-manifest/v1",
+  "test_cases": [
+    {
+      "fully_qualified_name": "pmorg.tests.test_distribution_admission.TestDistributionAdmission.test_round_trip_reconstructs_subset_and_allows_publish",
+      "test_id": "distribution-admission::test_round_trip_reconstructs_subset_and_allows_publish"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_distribution_admission.TestDistributionAdmission.test_missing_invalid_and_predeadline_transfer_abort_fail_closed",
+      "test_id": "distribution-admission::test_missing_invalid_and_predeadline_transfer_abort_fail_closed"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_distribution_admission.TestDistributionAdmission.test_auth_and_redirect_destination_drift_is_denied_or_aborted",
+      "test_id": "distribution-admission::test_auth_and_redirect_destination_drift_is_denied_or_aborted"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_distribution_admission.TestDistributionAdmission.test_payload_metadata_destination_and_measurement_drift_are_rejected",
+      "test_id": "distribution-admission::test_payload_metadata_destination_and_measurement_drift_are_rejected"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_distribution_admission.TestDistributionAdmission.test_ephemeral_keys_evidence_and_deadline_escape_are_rejected",
+      "test_id": "distribution-admission::test_ephemeral_keys_evidence_and_deadline_escape_are_rejected"
+    }
+  ],
+  "test_file": {
+    "digest": "sha256:a94a9b1a74bafd98df9caa6e5343bf9b6de234a5833e8cbcfeb4e93a27d024de",
+    "relative_path": "backend/pmorg/tests/test_distribution_admission.py",
+    "size_bytes": 24792
+  }
+}

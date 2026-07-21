@@ -1,0 +1,112 @@
+{
+  "capability_id": "deployment-admission",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 5,
+  "expected_test_count": 5,
+  "failed_test_count": 0,
+  "implementation_path_set_hash": "sha256:1a664aa0291cb613151e0c525739053975b6b0125db35d54f2e31afbac55324a",
+  "missing_test_count": 0,
+  "patch_ledger_set_hash": "sha256:2fa358896713f85af9c004ef3441362d159922ec869d1bac953e7b124012719a",
+  "required_test_manifest": {
+    "digest": "sha256:d1a998e9b3279169b5065d848fa8757adacf49527840629f315897d57f0d36c2",
+    "logical_name": "deployment-admission-post-disposition-test-manifest",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/post-disposition-test-manifests/deployment-admission.json",
+    "size_bytes": 2973
+  },
+  "schema_version": "pmorg.post-disposition-qualification/v1",
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:d7af2a2f962e400d7ce149c18eec924100255f3bad930e0471a2aa4a95a16883",
+        "logical_name": "deployment-admission::test_round_trip_reconstructs_all_exact_bindings_and_allows_deploy-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-results/deployment-admission/test_round_trip_reconstructs_all_exact_bindings_and_allows_deploy.json",
+        "size_bytes": 1654
+      },
+      "test_id": "deployment-admission::test_round_trip_reconstructs_all_exact_bindings_and_allows_deploy",
+      "test_manifest": {
+        "digest": "sha256:d1a998e9b3279169b5065d848fa8757adacf49527840629f315897d57f0d36c2",
+        "logical_name": "deployment-admission-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-manifests/deployment-admission.json",
+        "size_bytes": 2973
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:b957932ff4bc1883e7503d3f46635bdc1c3c52584ee3cfb438d1ca628bab5ee4",
+        "logical_name": "deployment-admission::test_absent_invalid_and_expiring_admissions_fail_closed-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-results/deployment-admission/test_absent_invalid_and_expiring_admissions_fail_closed.json",
+        "size_bytes": 1634
+      },
+      "test_id": "deployment-admission::test_absent_invalid_and_expiring_admissions_fail_closed",
+      "test_manifest": {
+        "digest": "sha256:d1a998e9b3279169b5065d848fa8757adacf49527840629f315897d57f0d36c2",
+        "logical_name": "deployment-admission-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-manifests/deployment-admission.json",
+        "size_bytes": 2973
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:02e311decb86411774d875d6299d6125d2ecbeb90b8e72934f52c8aff32b7e49",
+        "logical_name": "deployment-admission::test_payload_target_measurement_and_signature_drift_are_rejected-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-results/deployment-admission/test_payload_target_measurement_and_signature_drift_are_rejected.json",
+        "size_bytes": 1652
+      },
+      "test_id": "deployment-admission::test_payload_target_measurement_and_signature_drift_are_rejected",
+      "test_manifest": {
+        "digest": "sha256:d1a998e9b3279169b5065d848fa8757adacf49527840629f315897d57f0d36c2",
+        "logical_name": "deployment-admission-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-manifests/deployment-admission.json",
+        "size_bytes": 2973
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:65a8faa0388341f502ee20fb6eacf8f773b889ac7e1f78e1f556649e46739286",
+        "logical_name": "deployment-admission::test_production_unknown_and_deadline_escape_are_rejected-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-results/deployment-admission/test_production_unknown_and_deadline_escape_are_rejected.json",
+        "size_bytes": 1636
+      },
+      "test_id": "deployment-admission::test_production_unknown_and_deadline_escape_are_rejected",
+      "test_manifest": {
+        "digest": "sha256:d1a998e9b3279169b5065d848fa8757adacf49527840629f315897d57f0d36c2",
+        "logical_name": "deployment-admission-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-manifests/deployment-admission.json",
+        "size_bytes": 2973
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:730dde836ade03d2862621a766621f77ad6fdfcf6da7064092194241c14b5728",
+        "logical_name": "deployment-admission::test_ephemeral_keys_are_mandatory_and_evidence_drift_fails-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-results/deployment-admission/test_ephemeral_keys_are_mandatory_and_evidence_drift_fails.json",
+        "size_bytes": 1640
+      },
+      "test_id": "deployment-admission::test_ephemeral_keys_are_mandatory_and_evidence_drift_fails",
+      "test_manifest": {
+        "digest": "sha256:d1a998e9b3279169b5065d848fa8757adacf49527840629f315897d57f0d36c2",
+        "logical_name": "deployment-admission-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/post-disposition-test-manifests/deployment-admission.json",
+        "size_bytes": 2973
+      },
+      "verdict": "pass"
+    }
+  ],
+  "verdict": "pass"
+}

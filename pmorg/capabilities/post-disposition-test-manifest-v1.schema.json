@@ -1,0 +1,153 @@
+{
+  "$id": "urn:pmorg:evidence:post-disposition-test-manifest:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_id": {
+      "enum": [
+        "deployment-admission",
+        "distribution-admission"
+      ]
+    },
+    "expected_test_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "implementation_bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "implementation_path_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "patch_ledger_entry_ids": {
+      "items": {
+        "pattern": "^PL-[0-9]{3}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "patch_ledger_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "requirement_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "runner": {
+      "additionalProperties": false,
+      "properties": {
+        "execution_mode": {
+          "const": "isolated-test-method"
+        },
+        "framework": {
+          "const": "python-unittest"
+        },
+        "pythonpath": {
+          "const": "backend"
+        }
+      },
+      "required": [
+        "framework",
+        "execution_mode",
+        "pythonpath"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "pmorg.post-disposition-test-manifest/v1"
+    },
+    "test_cases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fully_qualified_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "test_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "fully_qualified_name",
+          "test_id"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "test_file": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "capability_id",
+    "requirement_ids",
+    "implementation_bindings",
+    "implementation_path_set_hash",
+    "patch_ledger_entry_ids",
+    "patch_ledger_set_hash",
+    "test_file",
+    "runner",
+    "test_cases",
+    "expected_test_count"
+  ],
+  "title": "PMORG post-disposition test manifest",
+  "type": "object"
+}
