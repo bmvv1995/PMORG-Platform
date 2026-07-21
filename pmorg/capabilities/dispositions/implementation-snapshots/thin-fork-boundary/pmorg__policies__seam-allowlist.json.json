@@ -1,0 +1,11 @@
+{
+  "commit": "7ea76e1d8dc75a02f7945004ac96cd2f33d701cd",
+  "content_hash": "sha256:06417da0b061ec483158fe6935d6d3fef50e67a20f9c444f5a0796b0a7eef91e",
+  "git_blob_id": "51f1a9b07f7b879aee33e40ee9dd7abb41dc42fe",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "pmorg/policies/seam-allowlist.json",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 3721
+}

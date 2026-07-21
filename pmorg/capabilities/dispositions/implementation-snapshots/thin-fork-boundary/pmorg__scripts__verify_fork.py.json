@@ -1,0 +1,11 @@
+{
+  "commit": "7ea76e1d8dc75a02f7945004ac96cd2f33d701cd",
+  "content_hash": "sha256:187ec91f7205793becd4adda931dc11e2b2944592c580174363c79ac3d38f35d",
+  "git_blob_id": "49933bba811d71d9cad985af8e66384af413f417",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "pmorg/scripts/verify_fork.py",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 150383
+}
