@@ -497,7 +497,7 @@ jobs:
     env:
       REGISTRY_IMAGE: onyxdotapp/onyx-web-server
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -570,7 +570,7 @@ jobs:
     env:
       REGISTRY_IMAGE: onyxdotapp/onyx-web-server
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -641,7 +641,7 @@ jobs:
     env:
       REGISTRY_IMAGE: onyxdotapp/onyx-web-server
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b
@@ -711,7 +711,7 @@ jobs:
     env:
       REGISTRY_IMAGE: onyxdotapp/onyx-web-server-cloud
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -795,7 +795,7 @@ jobs:
     env:
       REGISTRY_IMAGE: onyxdotapp/onyx-web-server-cloud
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -877,7 +877,7 @@ jobs:
     env:
       REGISTRY_IMAGE: onyxdotapp/onyx-web-server-cloud
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b
@@ -941,7 +941,7 @@ jobs:
     env:
       REGISTRY_IMAGE: ${{ contains(github.ref_name, 'cloud') && 'onyxdotapp/onyx-backend-cloud' || 'onyxdotapp/onyx-backend' }}
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -1013,7 +1013,7 @@ jobs:
     env:
       REGISTRY_IMAGE: ${{ contains(github.ref_name, 'cloud') && 'onyxdotapp/onyx-backend-cloud' || 'onyxdotapp/onyx-backend' }}
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -1083,7 +1083,7 @@ jobs:
     env:
       REGISTRY_IMAGE: ${{ contains(github.ref_name, 'cloud') && 'onyxdotapp/onyx-backend-cloud' || 'onyxdotapp/onyx-backend' }}
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b
@@ -1154,7 +1154,7 @@ jobs:
     env:
       REGISTRY_IMAGE: ${{ contains(github.ref_name, 'cloud') && 'onyxdotapp/onyx-model-server-cloud' || 'onyxdotapp/onyx-model-server' }}
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -1231,7 +1231,7 @@ jobs:
     env:
       REGISTRY_IMAGE: ${{ contains(github.ref_name, 'cloud') && 'onyxdotapp/onyx-model-server-cloud' || 'onyxdotapp/onyx-model-server' }}
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -1305,7 +1305,7 @@ jobs:
     env:
       REGISTRY_IMAGE: ${{ contains(github.ref_name, 'cloud') && 'onyxdotapp/onyx-model-server-cloud' || 'onyxdotapp/onyx-model-server' }}
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b
@@ -1448,7 +1448,7 @@ jobs:
     env:
       REGISTRY_IMAGE: onyxdotapp/sandbox
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -1521,7 +1521,7 @@ jobs:
     env:
       REGISTRY_IMAGE: onyxdotapp/sandbox
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
@@ -1593,7 +1593,7 @@ jobs:
     env:
       REGISTRY_IMAGE: onyxdotapp/sandbox
     steps:
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b
@@ -1784,7 +1784,7 @@ jobs:
           MERGE_MODEL_SERVER: ${{ needs.merge-model-server.result }}
           MERGE_SANDBOX: ${{ needs.merge-sandbox.result }}
 
-      - uses: runs-on/action@d141ef83eb66d096ce8afc767e09115a65c63b60
+      - uses: runs-on/action@4e5f72399b6b17f2e79c511c1b38a315a64d22dc
         if: steps.should-run.outputs.run == 'true'
 
       - name: Checkout
