@@ -1,0 +1,133 @@
+{
+  "$id": "urn:pmorg:thin-fork-post-disposition-test-result:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_id": {
+      "const": "thin-fork-boundary"
+    },
+    "error_count": {
+      "const": 0
+    },
+    "expected_failure_count": {
+      "const": 0
+    },
+    "failure_count": {
+      "const": 0
+    },
+    "fully_qualified_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "implementation_path_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "patch_ledger_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_identity_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_measurement": {
+      "additionalProperties": false,
+      "properties": {
+        "declared_artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "relative_path": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "digest",
+              "relative_path"
+            ],
+            "type": "object"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "interpreter_binary": {
+          "additionalProperties": false,
+          "properties": {
+            "digest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "relative_path": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "digest",
+            "relative_path"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "declared_artifacts",
+        "interpreter_binary"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "pmorg.thin-fork-post-disposition-test-result/v1"
+    },
+    "skipped_count": {
+      "const": 0
+    },
+    "suite_receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "test_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "test_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "tests_run": {
+      "const": 1
+    },
+    "unexpected_success_count": {
+      "const": 0
+    },
+    "verdict": {
+      "const": "pass"
+    }
+  },
+  "required": [
+    "schema_version",
+    "capability_id",
+    "test_id",
+    "fully_qualified_name",
+    "test_manifest_digest",
+    "suite_receipt_digest",
+    "implementation_path_set_hash",
+    "patch_ledger_set_hash",
+    "runtime_identity_digest",
+    "runtime_measurement",
+    "tests_run",
+    "failure_count",
+    "error_count",
+    "skipped_count",
+    "expected_failure_count",
+    "unexpected_success_count",
+    "verdict"
+  ],
+  "type": "object"
+}
