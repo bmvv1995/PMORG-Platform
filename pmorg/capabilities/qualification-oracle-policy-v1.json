@@ -22,10 +22,10 @@
   "catalog_version": "1.0.0",
   "derivation_artifacts": [
     {
-      "digest": "sha256:9ba110bd418dfcebdc0d9de033326daabf50cc000aaad3108d2d62d7a4cc6566",
+      "digest": "sha256:21bf580e05a6250af5d0dc46e02529780ff2a72f1b5db4e1d625a43b9fa68bed",
       "media_type": "text/x-python",
       "relative_path": "backend/pmorg/application/qualification_oracles.py",
-      "size_bytes": 23942
+      "size_bytes": 26997
     },
     {
       "digest": "sha256:c00e45729b7de8fceb5463ccf46e991e2511096f523eb357e302a16d6339c396",
@@ -72,6 +72,12 @@
       ],
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-002:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+        "size_bytes": 3290
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-002",
       "unexecutable_reason": "A-PATCH-002 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -114,6 +120,12 @@
       ],
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-003:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+        "size_bytes": 3290
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-003",
       "unexecutable_reason": "A-PATCH-003 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -142,6 +154,12 @@
       ],
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-004:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+        "size_bytes": 3290
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-004",
       "unexecutable_reason": "A-PATCH-004 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -171,6 +189,12 @@
       ],
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-005:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+        "size_bytes": 3290
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-005",
       "unexecutable_reason": "A-PATCH-005 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -227,6 +251,12 @@
       ],
       "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-006:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:1d858b342c99efe497747eb327fdd6ff85f4ada77a7ec2f2397cb394375ecc33",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+        "size_bytes": 3290
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-006",
       "unexecutable_reason": "A-PATCH-006 verifies repository-, process-, build- or release-wide state for capability-disposition-qualification; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -240,9 +270,15 @@
       "legacy_global_gate_bindings": [],
       "oracle_id": "qualification-oracle:deployment-admission:A-LIC-002:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:8be4d022e02c96a47a8277c6927e2536f79679b0aec4c0af7643f15fd64ccbf2",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/deployment-admission-v1.json",
+        "size_bytes": 2157
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-LIC-002",
-      "unexecutable_reason": "deployment admission implementation and candidate-aware adapter are absent"
+      "unexecutable_reason": "deployment admission implementation and qualification interface exist, but a candidate-aware adapter with mutation influence evidence is absent"
     },
     {
       "adapter": null,
@@ -253,9 +289,15 @@
       "legacy_global_gate_bindings": [],
       "oracle_id": "qualification-oracle:distribution-admission:A-LIC-003:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:86db7c8f66ef0d96e17dafa6ab9ca7ee2f2f32350c494c9d91b59140b0bf82d0",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/distribution-admission-v1.json",
+        "size_bytes": 2201
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-LIC-003",
-      "unexecutable_reason": "distribution admission implementation and candidate-aware adapter are absent"
+      "unexecutable_reason": "distribution admission implementation and qualification interface exist, but a candidate-aware adapter with mutation influence evidence is absent"
     },
     {
       "adapter": null,
@@ -284,6 +326,12 @@
       ],
       "oracle_id": "qualification-oracle:governed-onyx-fork:A-FORK-001:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:137e3aa18c575c903adfd27e425e45363732c84a1404bedc2b728d183f87d2d1",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/governed-onyx-fork-v1.json",
+        "size_bytes": 2520
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-FORK-001",
       "unexecutable_reason": "A-FORK-001 verifies repository-, process-, build- or release-wide state for governed-onyx-fork; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -315,6 +363,12 @@
       ],
       "oracle_id": "qualification-oracle:governed-onyx-fork:A-SURFACE-001:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:137e3aa18c575c903adfd27e425e45363732c84a1404bedc2b728d183f87d2d1",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/governed-onyx-fork-v1.json",
+        "size_bytes": 2520
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-SURFACE-001",
       "unexecutable_reason": "A-SURFACE-001 verifies repository-, process-, build- or release-wide state for governed-onyx-fork; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -346,6 +400,12 @@
       ],
       "oracle_id": "qualification-oracle:governed-onyx-fork:A-UPSTREAM-001:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:137e3aa18c575c903adfd27e425e45363732c84a1404bedc2b728d183f87d2d1",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/governed-onyx-fork-v1.json",
+        "size_bytes": 2520
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-UPSTREAM-001",
       "unexecutable_reason": "A-UPSTREAM-001 verifies repository-, process-, build- or release-wide state for governed-onyx-fork; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -374,6 +434,12 @@
       ],
       "oracle_id": "qualification-oracle:qualified-reproducible-build:A-EVIDENCE-001:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+        "size_bytes": 3015
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-EVIDENCE-001",
       "unexecutable_reason": "A-EVIDENCE-001 verifies repository-, process-, build- or release-wide state for qualified-reproducible-build; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -432,6 +498,12 @@
       ],
       "oracle_id": "qualification-oracle:qualified-reproducible-build:A-LIC-001:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+        "size_bytes": 3015
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-LIC-001",
       "unexecutable_reason": "A-LIC-001 verifies repository-, process-, build- or release-wide state for qualified-reproducible-build; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -460,6 +532,12 @@
       ],
       "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPORT-001:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+        "size_bytes": 3015
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-REPORT-001",
       "unexecutable_reason": "A-REPORT-001 verifies repository-, process-, build- or release-wide state for qualified-reproducible-build; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -504,6 +582,12 @@
       ],
       "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPRO-001:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+        "size_bytes": 3015
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-REPRO-001",
       "unexecutable_reason": "A-REPRO-001 verifies repository-, process-, build- or release-wide state for qualified-reproducible-build; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
@@ -535,12 +619,24 @@
       ],
       "oracle_id": "qualification-oracle:thin-fork-boundary:A-PATCH-001:v1",
       "oracle_status": "unexecutable",
+      "qualification_interface": {
+        "digest": "sha256:7afeb765dfc5bc989f5458351cdbd2a563836bdc876d3c06ba7f9894eefdbc53",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-interfaces/thin-fork-boundary-v1.json",
+        "size_bytes": 2136
+      },
       "runtime_identity_status": "declaration_bound_binary_unattested",
       "test_id": "A-PATCH-001",
       "unexecutable_reason": "A-PATCH-001 verifies repository-, process-, build- or release-wide state for thin-fork-boundary; its existing invocation does not consume the candidate manifest or candidate blob bytes, so candidate influence is not falsifiable"
     }
   ],
   "policy_version": "1.1.0",
+  "qualification_interface_manifest": {
+    "digest": "sha256:0e93cdcfcb72bf88f2bc66756c5d390674d6bb1ba92326e27d3d9f1a92fdf84f",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-interfaces-v1.json",
+    "size_bytes": 2951
+  },
   "result_schema": {
     "digest": "sha256:aa7cad8f9eed50f3639d7d106847785189b7e64ee75791d96166a4caccbcfbca",
     "media_type": "application/schema+json",

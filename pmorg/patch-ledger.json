@@ -626,6 +626,44 @@
         "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_distribution_admission -v",
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
       ]
+    },
+    {
+      "id": "PL-022",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/qualification_interfaces.py",
+        "backend/pmorg/tests/test_qualification_interfaces.py",
+        "pmorg/capabilities/qualification-interface-v1.schema.json",
+        "pmorg/capabilities/qualification-interfaces-v1.json",
+        "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+        "pmorg/capabilities/qualification-interfaces/deployment-admission-v1.json",
+        "pmorg/capabilities/qualification-interfaces/distribution-admission-v1.json",
+        "pmorg/capabilities/qualification-interfaces/governed-onyx-fork-v1.json",
+        "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+        "pmorg/capabilities/qualification-interfaces/thin-fork-boundary-v1.json",
+        "pmorg/scripts/build_qualification_interfaces.py"
+      ],
+      "requirements": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "A-EVIDENCE-001",
+        "A-REPORT-001",
+        "PLT-004",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Publish content-addressed candidate qualification interface semantics for every capability, bound to exact contract-test manifests and reference implementations, and bind each current oracle to its exact interface while preserving all oracle states as explicitly unexecutable; emit no adapter, qualification report or verdict, disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=cb6e4dadf05eb1654b9959df76b36cf022685f46 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_qualification_interfaces backend.pmorg.tests.test_qualification_oracles -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualification_interfaces.py --check",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualification_oracles.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

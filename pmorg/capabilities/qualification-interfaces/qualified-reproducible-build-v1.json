@@ -1,0 +1,64 @@
+{
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "qualified-reproducible-build",
+  "contract_test_manifest": {
+    "digest": "sha256:acdbcc80ce0ab328bbe8c7da78c03c2cb631831b31d16c10111d662ad76b4e35",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/qualified-reproducible-build.json",
+    "size_bytes": 330
+  },
+  "fit_outcomes": {
+    "fail": "the candidate cannot bind the interface or any observable property fails; the reason must cite exact projected candidate bytes",
+    "patch": "a byte-bounded candidate patch supplies the interface and the full observable property vector passes with mutation influence evidence",
+    "reuse": "all interface inputs and outputs bind without candidate mutation and the full observable property vector passes"
+  },
+  "implementation_question": "Can the candidate build the pinned CE source into byte-stable artifacts with exact evidence and zero EE contamination?",
+  "input_contract": [
+    "pinned source tree, deterministic build specification and offline inputs",
+    "CE boundary, runtime scope policy and evidence bundle",
+    "content-addressed candidate manifest and projected candidate bytes"
+  ],
+  "interface_version": "1.0.0",
+  "invariants": [
+    "independent rebuilds have identical artifact bytes and digests",
+    "EE paths, imports, copies and unknown egress fail closed",
+    "candidate byte mutation is observable through the adapter"
+  ],
+  "output_contract": [
+    "byte-stable artifact set and content-addressed build manifest",
+    "signed BQA with reproducibility, license and evidence bindings"
+  ],
+  "reference_implementations": [
+    {
+      "digest": "sha256:d4fab339aafd5936934626a154d350120ede88d344158cb0fb068c18b1b94da1",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_ce_artifact.py",
+      "size_bytes": 1340
+    },
+    {
+      "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/verify_ce_build.py",
+      "size_bytes": 2338
+    }
+  ],
+  "schema_version": "pmorg.qualification-interface/v1",
+  "test_properties": [
+    {
+      "observable_property": "the qualified-reproducible-build interface invariant set remains true under the exact A-EVIDENCE-001 contract-test requirement",
+      "test_id": "A-EVIDENCE-001"
+    },
+    {
+      "observable_property": "the qualified-reproducible-build interface invariant set remains true under the exact A-LIC-001 contract-test requirement",
+      "test_id": "A-LIC-001"
+    },
+    {
+      "observable_property": "the qualified-reproducible-build interface invariant set remains true under the exact A-REPORT-001 contract-test requirement",
+      "test_id": "A-REPORT-001"
+    },
+    {
+      "observable_property": "the qualified-reproducible-build interface invariant set remains true under the exact A-REPRO-001 contract-test requirement",
+      "test_id": "A-REPRO-001"
+    }
+  ]
+}

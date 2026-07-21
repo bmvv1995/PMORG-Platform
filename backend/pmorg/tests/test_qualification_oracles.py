@@ -160,6 +160,14 @@ class TestQualificationOracles(unittest.TestCase):
             "backend/pmorg/application/qualification_oracles.py",
             "pmorg/capabilities/qualification-oracle-policy-v1.json",
             "pmorg/capabilities/qualification-oracle-result-v1.schema.json",
+            "pmorg/capabilities/qualification-interface-v1.schema.json",
+            "pmorg/capabilities/qualification-interfaces-v1.json",
+            "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+            "pmorg/capabilities/qualification-interfaces/deployment-admission-v1.json",
+            "pmorg/capabilities/qualification-interfaces/distribution-admission-v1.json",
+            "pmorg/capabilities/qualification-interfaces/governed-onyx-fork-v1.json",
+            "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json",
+            "pmorg/capabilities/qualification-interfaces/thin-fork-boundary-v1.json",
         ):
             source = REPOSITORY_ROOT / relative_path
             target = root / relative_path

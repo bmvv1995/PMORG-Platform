@@ -19,6 +19,7 @@ CATALOG_RELATIVE = "pmorg/capabilities/capability-catalog-v1.json"
 CONTRACT_TEST_ROOT = "pmorg/capabilities/contract-tests"
 SEARCH_ROOT = "pmorg/capabilities/candidate-search"
 CANDIDATE_INPUTS_RELATIVE = "pmorg/capabilities/candidate-inputs-v1.json"
+INTERFACE_MANIFEST_RELATIVE = "pmorg/capabilities/qualification-interfaces-v1.json"
 PYTHON_VERSION_RELATIVE = ".python-version"
 PROJECT_RELATIVE = "pyproject.toml"
 LOCK_RELATIVE = "uv.lock"
@@ -155,10 +156,12 @@ _GLOBAL_GATE_BINDINGS: dict[tuple[str, str], tuple[Binding, ...]] = {
 }
 _ABSENT_IMPLEMENTATION_REASONS = {
     ("deployment-admission", "A-LIC-002"): (
-        "deployment admission implementation and candidate-aware adapter are absent"
+        "deployment admission implementation and qualification interface exist, but "
+        "a candidate-aware adapter with mutation influence evidence is absent"
     ),
     ("distribution-admission", "A-LIC-003"): (
-        "distribution admission implementation and candidate-aware adapter are absent"
+        "distribution admission implementation and qualification interface exist, "
+        "but a candidate-aware adapter with mutation influence evidence is absent"
     ),
 }
 
@@ -304,6 +307,65 @@ def _validate_candidate_projection(repository_root: Path) -> int:
     return candidate_count
 
 
+def _qualification_interface_refs(
+    repository_root: Path,
+) -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
+    manifest = _read_object(
+        _safe_path(repository_root, INTERFACE_MANIFEST_RELATIVE),
+        label="qualification-interface manifest",
+    )
+    if (
+        manifest.get("schema_version") != "pmorg.qualification-interface-manifest/v1"
+        or manifest.get("catalog_version") != "1.0.0"
+        or manifest.get("candidate_projection") != "module_group_blob_set/v1"
+    ):
+        raise QualificationOracleError("qualification-interface manifest drifted")
+    interfaces = manifest.get("interfaces")
+    if not isinstance(interfaces, list) or manifest.get("interface_count") != len(
+        interfaces
+    ):
+        raise QualificationOracleError(
+            "qualification-interface manifest coverage is invalid"
+        )
+    by_capability: dict[str, dict[str, Any]] = {}
+    for raw in cast(list[dict[str, Any]], interfaces):
+        capability_id = raw.get("capability_id")
+        relative_path = raw.get("relative_path")
+        if not isinstance(capability_id, str) or not isinstance(relative_path, str):
+            raise QualificationOracleError(
+                "qualification-interface reference is invalid"
+            )
+        actual = _artifact_ref_for_path(
+            repository_root,
+            relative_path,
+            media_type="application/json",
+        )
+        expected = {
+            key: raw[key]
+            for key in ("digest", "media_type", "relative_path", "size_bytes")
+        }
+        if actual != expected or capability_id in by_capability:
+            raise QualificationOracleError(
+                "qualification-interface content binding drifted"
+            )
+        document = _read_object(
+            _safe_path(repository_root, relative_path),
+            label=f"{capability_id} qualification interface",
+        )
+        if (
+            document.get("capability_id") != capability_id
+            or document.get("candidate_projection") != "module_group_blob_set/v1"
+        ):
+            raise QualificationOracleError("qualification-interface identity drifted")
+        by_capability[capability_id] = expected
+    manifest_ref = _artifact_ref_for_path(
+        repository_root,
+        INTERFACE_MANIFEST_RELATIVE,
+        media_type="application/json",
+    )
+    return manifest_ref, by_capability
+
+
 def result_schema() -> dict[str, Any]:
     string = {"type": "string", "minLength": 1}
     nonnegative = {"type": "integer", "minimum": 0}
@@ -399,6 +461,11 @@ def build_qualification_oracle_policy(
             f"unknown={sorted(expected - set(pairs))}"
         )
     candidate_count = _validate_candidate_projection(repository_root)
+    interface_manifest_ref, interfaces = _qualification_interface_refs(repository_root)
+    if set(interfaces) != {capability_id for capability_id, _ in pairs}:
+        raise QualificationOracleError(
+            "qualification-interface capability coverage is not exact"
+        )
     schema_bytes = canonical_document_bytes(result_schema())
     oracles: list[dict[str, Any]] = []
     for capability_id, test_id in pairs:
@@ -418,6 +485,7 @@ def build_qualification_oracle_policy(
                     _binding_ref(repository_root, binding)
                     for binding in global_bindings
                 ],
+                "qualification_interface": interfaces[capability_id],
                 "oracle_id": f"qualification-oracle:{capability_id}:{test_id}:v1",
                 "oracle_status": "unexecutable",
                 "runtime_identity_status": "declaration_bound_binary_unattested",
@@ -475,6 +543,7 @@ def build_qualification_oracle_policy(
             ),
             "projection_version": "module_group_blob_set/v1",
         },
+        "qualification_interface_manifest": interface_manifest_ref,
         "execution_contract": {
             "environment": "offline_read_only_pinned_candidate_tree",
             "placeholder_set": [

@@ -1,0 +1,68 @@
+{
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "capability-disposition-qualification",
+  "contract_test_manifest": {
+    "digest": "sha256:9af2bec8019d0543f8adc10935e2e1726ee65445efd5dd5d7e6f797c24e19fec",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/capability-disposition-qualification.json",
+    "size_bytes": 372
+  },
+  "fit_outcomes": {
+    "fail": "the candidate cannot bind the interface or any observable property fails; the reason must cite exact projected candidate bytes",
+    "patch": "a byte-bounded candidate patch supplies the interface and the full observable property vector passes with mutation influence evidence",
+    "reuse": "all interface inputs and outputs bind without candidate mutation and the full observable property vector passes"
+  },
+  "implementation_question": "Can the candidate emit and validate exact PMORG capability, qualification and disposition records without weakening closed schemas?",
+  "input_contract": [
+    "content-addressed candidate manifest and projected candidate bytes",
+    "PMORG contract manifest, closed schemas and capability catalog",
+    "qualification evidence and temporal bindings"
+  ],
+  "interface_version": "1.0.0",
+  "invariants": [
+    "unknown fields and unknown wire surfaces are rejected",
+    "no PASS or disposition exists without complete evidence bindings",
+    "candidate byte mutation is observable through the adapter"
+  ],
+  "output_contract": [
+    "schema-valid content-addressed qualification or disposition record",
+    "fail-closed validation errors tied to exact candidate bytes"
+  ],
+  "reference_implementations": [
+    {
+      "digest": "sha256:89ec04db1da5a89c9c97461c2d5327f122ed2fee616a1e03a496c3e9f8a2f796",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification.py",
+      "size_bytes": 26963
+    },
+    {
+      "digest": "sha256:21bf580e05a6250af5d0dc46e02529780ff2a72f1b5db4e1d625a43b9fa68bed",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification_oracles.py",
+      "size_bytes": 26997
+    }
+  ],
+  "schema_version": "pmorg.qualification-interface/v1",
+  "test_properties": [
+    {
+      "observable_property": "the capability-disposition-qualification interface invariant set remains true under the exact A-PATCH-002 contract-test requirement",
+      "test_id": "A-PATCH-002"
+    },
+    {
+      "observable_property": "the capability-disposition-qualification interface invariant set remains true under the exact A-PATCH-003 contract-test requirement",
+      "test_id": "A-PATCH-003"
+    },
+    {
+      "observable_property": "the capability-disposition-qualification interface invariant set remains true under the exact A-PATCH-004 contract-test requirement",
+      "test_id": "A-PATCH-004"
+    },
+    {
+      "observable_property": "the capability-disposition-qualification interface invariant set remains true under the exact A-PATCH-005 contract-test requirement",
+      "test_id": "A-PATCH-005"
+    },
+    {
+      "observable_property": "the capability-disposition-qualification interface invariant set remains true under the exact A-PATCH-006 contract-test requirement",
+      "test_id": "A-PATCH-006"
+    }
+  ]
+}
