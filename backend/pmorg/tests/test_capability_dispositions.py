@@ -18,12 +18,23 @@ from cryptography.hazmat.primitives.serialization import PublicFormat
 
 from pmorg.application import capability_dispositions as disposition_module
 from pmorg.application.capability_dispositions import build_capability_dispositions
+from pmorg.application.capability_dispositions import (
+    build_governed_fork_capability_disposition,
+)
 from pmorg.application.capability_dispositions import CAPABILITIES
 from pmorg.application.capability_dispositions import CapabilityDispositionError
+from pmorg.application.capability_dispositions import GOVERNED_FORK_BASE_PLATFORM_COMMIT
+from pmorg.application.capability_dispositions import GOVERNED_FORK_CAPABILITY_ID
+from pmorg.application.capability_dispositions import GOVERNED_FORK_CLAIM_BOUNDARY
+from pmorg.application.capability_dispositions import GOVERNED_FORK_IMPLEMENTATION_PATHS
+from pmorg.application.capability_dispositions import GOVERNED_FORK_RECORD_RELATIVE
 from pmorg.application.capability_dispositions import PRIVATE_KEY_ENV
 from pmorg.application.capability_dispositions import PUBLIC_KEY_ENV
 from pmorg.application.capability_dispositions import RECORD_ROOT_RELATIVE
 from pmorg.application.capability_dispositions import sign_capability_disposition
+from pmorg.application.capability_dispositions import (
+    sign_governed_fork_capability_disposition,
+)
 from pmorg.application.capability_dispositions import (
     sign_thin_fork_capability_disposition,
 )
@@ -34,9 +45,15 @@ from pmorg.application.capability_dispositions import THIN_FORK_IMPLEMENTATION_P
 from pmorg.application.capability_dispositions import THIN_FORK_RECORD_RELATIVE
 from pmorg.application.capability_dispositions import validate_capability_dispositions
 from pmorg.application.capability_dispositions import (
+    validate_governed_fork_capability_disposition,
+)
+from pmorg.application.capability_dispositions import (
     validate_thin_fork_capability_disposition,
 )
 from pmorg.application.capability_dispositions import verify_capability_disposition
+from pmorg.application.capability_dispositions import (
+    verify_governed_fork_capability_disposition,
+)
 from pmorg.application.capability_dispositions import (
     verify_thin_fork_capability_disposition,
 )
@@ -396,6 +413,157 @@ class TestCapabilityDispositions(unittest.TestCase):
                         repository_root=REPOSITORY_ROOT,
                         environ=self.environment,
                     )
+
+    def test_governed_fork_record_is_complete_bounded_and_honest(self) -> None:
+        record = validate_governed_fork_capability_disposition(REPOSITORY_ROOT)
+        self.assertEqual(GOVERNED_FORK_CAPABILITY_ID, record.capability_id)
+        self.assertEqual(
+            GOVERNED_FORK_BASE_PLATFORM_COMMIT, record.pmorg_platform_commit
+        )
+        self.assertEqual("candidates_found", record.candidate_search_outcome)
+        self.assertEqual(67, len(record.candidates))
+        self.assertTrue(all(item.qualification == "fail" for item in record.candidates))
+        self.assertEqual([], record.selected_candidate_ids)
+        self.assertEqual("pmorg_independent", record.disposition)
+        self.assertIsNone(record.deviation_decision_envelope)
+        self.assertEqual([], record.patch_ledger_refs)
+        self.assertEqual(
+            list(GOVERNED_FORK_IMPLEMENTATION_PATHS),
+            [item.path for item in record.implementation_refs],
+        )
+        self.assertEqual("pass", record.post_disposition_qualification.verdict)
+        self.assertEqual(87, record.post_disposition_qualification.executed_test_count)
+        evidence_path = (
+            REPOSITORY_ROOT / record.record_evidence_bundle_index.relative_path
+        )
+        evidence = json.loads(evidence_path.read_bytes())
+        self.assertEqual(GOVERNED_FORK_CLAIM_BOUNDARY, evidence["bundle_kind"])
+        self.assertNotIn("catalog_completion", record.rationale.lower())
+
+    def test_governed_fork_builder_is_byte_deterministic_and_secret_free(self) -> None:
+        first = build_governed_fork_capability_disposition(REPOSITORY_ROOT)
+        second = build_governed_fork_capability_disposition(REPOSITORY_ROOT)
+        self.assertEqual(first, second)
+        self.assertFalse(
+            any(PRIVATE_KEY_ENV.encode() in payload for payload in first.values())
+        )
+        self.assertFalse(any(b'"signatures"' in payload for payload in first.values()))
+
+    def test_governed_fork_dsse_round_trip_and_tamper_rejection(self) -> None:
+        record = CapabilityDispositionRecord.model_validate_json(
+            (REPOSITORY_ROOT / GOVERNED_FORK_RECORD_RELATIVE).read_bytes()
+        )
+        first = sign_governed_fork_capability_disposition(
+            record, repository_root=REPOSITORY_ROOT, environ=self.environment
+        )
+        second = sign_governed_fork_capability_disposition(
+            record, repository_root=REPOSITORY_ROOT, environ=self.environment
+        )
+        self.assertEqual(first, second)
+        self.assertEqual(
+            record,
+            verify_governed_fork_capability_disposition(
+                first, repository_root=REPOSITORY_ROOT, environ=self.environment
+            ),
+        )
+        envelope = first.model_dump(mode="json")
+        payload = bytearray(base64.b64decode(envelope["payload"]))
+        payload[-2] ^= 1
+        envelope["payload"] = base64.b64encode(payload).decode("ascii")
+        with self.assertRaisesRegex(CapabilityDispositionError, "signature is invalid"):
+            verify_governed_fork_capability_disposition(
+                envelope, repository_root=REPOSITORY_ROOT, environ=self.environment
+            )
+        with self.assertRaisesRegex(CapabilityDispositionError, "key identity"):
+            verify_governed_fork_capability_disposition(
+                first, repository_root=REPOSITORY_ROOT, environ=_key_environment()
+            )
+
+    def test_governed_fork_semantic_shortcuts_are_rejected_before_signing(self) -> None:
+        record = json.loads(
+            (REPOSITORY_ROOT / GOVERNED_FORK_RECORD_RELATIVE).read_bytes()
+        )
+        mutations = (
+            {"candidate_search_outcome": "no_candidate", "candidates": []},
+            {"selected_candidate_ids": [record["candidates"][0]["candidate_id"]]},
+            {"disposition": "reuse"},
+            {"pmorg_platform_commit": "0" * 40},
+            {"implementation_refs": record["implementation_refs"][:-1]},
+            {
+                "post_disposition_qualification": {
+                    **record["post_disposition_qualification"],
+                    "verdict": "fail",
+                    "failed_test_count": 1,
+                }
+            },
+        )
+        for update in mutations:
+            with self.subTest(update=tuple(update)):
+                changed = copy.deepcopy(record)
+                changed.update(update)
+                with self.assertRaises(CapabilityDispositionError):
+                    sign_governed_fork_capability_disposition(
+                        changed,
+                        repository_root=REPOSITORY_ROOT,
+                        environ=self.environment,
+                    )
+
+    def test_governed_fork_ledger_history_mutation_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            copied = Path(temporary_directory) / "repository"
+            copytree(REPOSITORY_ROOT, copied, symlinks=True)
+            ledger_path = copied / "pmorg/patch-ledger.json"
+            ledger = json.loads(ledger_path.read_bytes())
+            ledger["entries"][0]["reason"] += " mutated"
+            ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
+            with self.assertRaisesRegex(
+                CapabilityDispositionError, "entries history is not an exact prefix"
+            ):
+                validate_governed_fork_capability_disposition(copied)
+
+    def test_governed_fork_ledger_unique_append_passes(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            copied = Path(temporary_directory) / "repository"
+            copytree(REPOSITORY_ROOT, copied, symlinks=True)
+            ledger_path = copied / "pmorg/patch-ledger.json"
+            ledger = json.loads(ledger_path.read_bytes())
+            next_number = (
+                max(int(item["id"].removeprefix("PL-")) for item in ledger["entries"])
+                + 1
+            )
+            appended = copy.deepcopy(ledger["entries"][-1])
+            appended["id"] = f"PL-{next_number:03d}"
+            appended["paths"] = ["pmorg/capabilities/future-q6-artifact.json"]
+            appended["reason"] = "Simulated post-Q5 append-only ledger entry."
+            ledger["entries"].append(appended)
+            ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
+            validate_governed_fork_capability_disposition(copied)
+
+    def test_prior_disposition_artifacts_remain_byte_identical(self) -> None:
+        completed = subprocess.run(
+            [
+                "git",
+                "diff",
+                "--exit-code",
+                GOVERNED_FORK_BASE_PLATFORM_COMMIT,
+                "--",
+                "pmorg/capabilities/capability-disposition-report-v1.json",
+                "pmorg/capabilities/dispositions/subject-ce-source-artifact-v1.json",
+                "pmorg/capabilities/dispositions/evidence-bundle-v1.json",
+                "pmorg/capabilities/dispositions/records/deployment-admission.json",
+                "pmorg/capabilities/dispositions/records/distribution-admission.json",
+                "pmorg/capabilities/dispositions/records/thin-fork-boundary.json",
+                "pmorg/capabilities/dispositions/evidence/deployment-admission.json",
+                "pmorg/capabilities/dispositions/evidence/distribution-admission.json",
+                "pmorg/capabilities/dispositions/evidence/thin-fork-boundary.json",
+                "pmorg/capabilities/dispositions/implementation-snapshots/deployment-admission",
+                "pmorg/capabilities/dispositions/implementation-snapshots/distribution-admission",
+                "pmorg/capabilities/dispositions/implementation-snapshots/thin-fork-boundary",
+            ],
+            cwd=REPOSITORY_ROOT,
+            capture_output=True,
+        )
+        self.assertEqual(0, completed.returncode, completed.stdout.decode())
 
     def test_admission_disposition_artifacts_remain_byte_identical(self) -> None:
         completed = subprocess.run(
