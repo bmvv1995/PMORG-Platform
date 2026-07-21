@@ -590,6 +590,24 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "python3 -B pmorg/scripts/build_candidate_inputs.py --check"
       ]
+    },
+    {
+      "id": "PL-020",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/admission.py",
+        "backend/pmorg/tests/test_deployment_admission.py"
+      ],
+      "requirements": [
+        "A-LIC-002",
+        "PLT-007"
+      ],
+      "reason": "Implement the CE development-test deployment admission boundary as independently reconstructed, content-addressed payload and synthetic-target descriptors; ephemeral-environment DSSE target measurement and admission envelopes; exact BQM/BQA, runtime-scope, evidence and temporal bindings; and fail-closed deploy/startup denial plus pre-deadline watchdog quiescence without production, client data, distribution, qualification, disposition, release or G3-A claims.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=a439b6ba364f6c858b9a5bda4727d8bfc90513be python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_deployment_admission -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
