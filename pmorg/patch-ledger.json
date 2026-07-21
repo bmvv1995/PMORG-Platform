@@ -797,6 +797,37 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_candidate_qualification_reports.py --check"
       ]
+    },
+    {
+      "id": "PL-028",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/post_disposition_qualification.py",
+        "backend/pmorg/tests/test_post_disposition_qualification.py",
+        "pmorg/capabilities/post-disposition-qualification-reports/*.json",
+        "pmorg/capabilities/post-disposition-qualification-v1.json",
+        "pmorg/capabilities/post-disposition-qualification-v1.schema.json",
+        "pmorg/capabilities/post-disposition-test-manifest-v1.schema.json",
+        "pmorg/capabilities/post-disposition-test-manifests/*.json",
+        "pmorg/capabilities/post-disposition-test-result-v1.schema.json",
+        "pmorg/capabilities/post-disposition-test-results/**/*.json",
+        "pmorg/scripts/build_post_disposition_qualification.py"
+      ],
+      "requirements": [
+        "A-LIC-002",
+        "A-LIC-003",
+        "A-EVIDENCE-001",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Execute the exact five-test adversarial Deployment Admission suite and five-test adversarial Distribution Admission suite against the selected PMORG implementations, bind their implementation paths, PL-020/PL-021 ledger entries, test manifests, executed interpreter and dependency locks, and emit two schema-valid PASS PostDispositionQualificationReports with ten byte-closed result records; emit no capability disposition, deviation, signed envelope, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=d5b460d798bec76c180f94c0f26555aff3108da3 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_post_disposition_qualification backend.pmorg.tests.test_deployment_admission backend.pmorg.tests.test_distribution_admission -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_post_disposition_qualification.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

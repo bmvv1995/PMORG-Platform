@@ -1,0 +1,237 @@
+{
+  "$id": "urn:pmorg:evidence:post-disposition-qualification-index:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_count": {
+      "const": 2
+    },
+    "catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "claim_boundary": {
+      "const": "post_disposition_qualification_only_no_disposition_record"
+    },
+    "derivation_artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "logical_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "media_type": {
+            "enum": [
+              "application/json",
+              "text/x-python"
+            ]
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "logical_name",
+          "media_type",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "duplicate_test_count": {
+      "const": 0
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "capability_id": {
+            "enum": [
+              "deployment-admission",
+              "distribution-admission"
+            ]
+          },
+          "manifest": {
+            "additionalProperties": false,
+            "properties": {
+              "digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "logical_name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "media_type": {
+                "enum": [
+                  "application/json",
+                  "text/x-python"
+                ]
+              },
+              "relative_path": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "size_bytes": {
+                "minimum": 1,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "digest",
+              "logical_name",
+              "media_type",
+              "relative_path",
+              "size_bytes"
+            ],
+            "type": "object"
+          },
+          "report": {
+            "additionalProperties": false,
+            "properties": {
+              "digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "logical_name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "media_type": {
+                "enum": [
+                  "application/json",
+                  "text/x-python"
+                ]
+              },
+              "relative_path": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "size_bytes": {
+                "minimum": 1,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "digest",
+              "logical_name",
+              "media_type",
+              "relative_path",
+              "size_bytes"
+            ],
+            "type": "object"
+          },
+          "results": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "digest": {
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "logical_name": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "media_type": {
+                  "enum": [
+                    "application/json",
+                    "text/x-python"
+                  ]
+                },
+                "relative_path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "size_bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "digest",
+                "logical_name",
+                "media_type",
+                "relative_path",
+                "size_bytes"
+              ],
+              "type": "object"
+            },
+            "maxItems": 5,
+            "minItems": 5,
+            "type": "array"
+          }
+        },
+        "required": [
+          "capability_id",
+          "manifest",
+          "report",
+          "results"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "executed_test_count": {
+      "const": 10
+    },
+    "expected_test_count": {
+      "const": 10
+    },
+    "failed_test_count": {
+      "const": 0
+    },
+    "index_version": {
+      "const": "1.0.0"
+    },
+    "missing_test_count": {
+      "const": 0
+    },
+    "runtime_identity_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "pmorg.post-disposition-qualification-index/v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "index_version",
+    "claim_boundary",
+    "catalog_hash",
+    "capability_count",
+    "expected_test_count",
+    "executed_test_count",
+    "failed_test_count",
+    "missing_test_count",
+    "duplicate_test_count",
+    "runtime_identity_digests",
+    "entries",
+    "derivation_artifacts"
+  ],
+  "title": "PMORG post-disposition qualification index",
+  "type": "object"
+}
