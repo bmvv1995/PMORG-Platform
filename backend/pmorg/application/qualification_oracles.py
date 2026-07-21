@@ -20,6 +20,7 @@ CONTRACT_TEST_ROOT = "pmorg/capabilities/contract-tests"
 SEARCH_ROOT = "pmorg/capabilities/candidate-search"
 CANDIDATE_INPUTS_RELATIVE = "pmorg/capabilities/candidate-inputs-v1.json"
 INTERFACE_MANIFEST_RELATIVE = "pmorg/capabilities/qualification-interfaces-v1.json"
+TEST_VECTOR_MANIFEST_RELATIVE = "pmorg/capabilities/qualification-test-vectors-v1.json"
 PYTHON_VERSION_RELATIVE = ".python-version"
 PROJECT_RELATIVE = "pyproject.toml"
 LOCK_RELATIVE = "uv.lock"
@@ -156,12 +157,14 @@ _GLOBAL_GATE_BINDINGS: dict[tuple[str, str], tuple[Binding, ...]] = {
 }
 _ABSENT_IMPLEMENTATION_REASONS = {
     ("deployment-admission", "A-LIC-002"): (
-        "deployment admission implementation and qualification interface exist, but "
-        "a candidate-aware adapter with mutation influence evidence is absent"
+        "deployment admission implementation, qualification interface and candidate-"
+        "level test vector exist, but a candidate-aware adapter with mutation "
+        "influence evidence is absent"
     ),
     ("distribution-admission", "A-LIC-003"): (
-        "distribution admission implementation and qualification interface exist, "
-        "but a candidate-aware adapter with mutation influence evidence is absent"
+        "distribution admission implementation, qualification interface and "
+        "candidate-level test vector exist, but a candidate-aware adapter with "
+        "mutation influence evidence is absent"
     ),
 }
 
@@ -366,6 +369,82 @@ def _qualification_interface_refs(
     return manifest_ref, by_capability
 
 
+def _qualification_test_vector_refs(
+    repository_root: Path,
+    interfaces: Mapping[str, dict[str, Any]],
+) -> tuple[dict[str, Any], dict[tuple[str, str], dict[str, Any]]]:
+    manifest = _read_object(
+        _safe_path(repository_root, TEST_VECTOR_MANIFEST_RELATIVE),
+        label="qualification test-vector manifest",
+    )
+    if (
+        manifest.get("schema_version") != "pmorg.qualification-test-vector-manifest/v1"
+        or manifest.get("candidate_projection") != "module_group_blob_set/v1"
+    ):
+        raise QualificationOracleError("qualification test-vector manifest drifted")
+    runtime_contract = manifest.get("runtime_identity_contract")
+    runtime_digest = manifest.get("runtime_identity_contract_digest")
+    if not isinstance(runtime_contract, dict) or runtime_digest != sha256_digest(
+        canonical_document_bytes(runtime_contract)
+    ):
+        raise QualificationOracleError(
+            "qualification test-vector runtime contract drifted"
+        )
+    vectors = manifest.get("vectors")
+    if not isinstance(vectors, list) or manifest.get("vector_count") != len(vectors):
+        raise QualificationOracleError("qualification test-vector coverage is invalid")
+    by_pair: dict[tuple[str, str], dict[str, Any]] = {}
+    for raw in cast(list[dict[str, Any]], vectors):
+        capability_id = raw.get("capability_id")
+        test_id = raw.get("test_id")
+        relative_path = raw.get("relative_path")
+        if not all(
+            isinstance(value, str) for value in (capability_id, test_id, relative_path)
+        ):
+            raise QualificationOracleError(
+                "qualification test-vector reference is invalid"
+            )
+        actual = _artifact_ref_for_path(
+            repository_root,
+            cast(str, relative_path),
+            media_type="application/json",
+        )
+        expected = {
+            key: raw[key]
+            for key in ("digest", "media_type", "relative_path", "size_bytes")
+        }
+        pair = (cast(str, capability_id), cast(str, test_id))
+        if actual != expected or pair in by_pair:
+            raise QualificationOracleError(
+                "qualification test-vector content binding drifted"
+            )
+        document = _read_object(
+            _safe_path(repository_root, cast(str, relative_path)),
+            label=f"{capability_id} qualification test vector",
+        )
+        if (
+            document.get("capability_id") != capability_id
+            or document.get("test_id") != test_id
+            or document.get("candidate_projection") != "module_group_blob_set/v1"
+            or document.get("qualification_interface")
+            != interfaces.get(cast(str, capability_id))
+            or document.get("claim_boundary")
+            != "definition_only_no_qualification_verdict"
+            or cast(dict[str, Any], document.get("runtime_identity", {})).get(
+                "contract_digest"
+            )
+            != runtime_digest
+        ):
+            raise QualificationOracleError("qualification test-vector identity drifted")
+        by_pair[pair] = expected
+    manifest_ref = _artifact_ref_for_path(
+        repository_root,
+        TEST_VECTOR_MANIFEST_RELATIVE,
+        media_type="application/json",
+    )
+    return manifest_ref, by_pair
+
+
 def result_schema() -> dict[str, Any]:
     string = {"type": "string", "minLength": 1}
     nonnegative = {"type": "integer", "minimum": 0}
@@ -466,6 +545,13 @@ def build_qualification_oracle_policy(
         raise QualificationOracleError(
             "qualification-interface capability coverage is not exact"
         )
+    test_vector_manifest_ref, test_vectors = _qualification_test_vector_refs(
+        repository_root, interfaces
+    )
+    if set(test_vectors) != set(_ABSENT_IMPLEMENTATION_REASONS):
+        raise QualificationOracleError(
+            "qualification test-vector admission coverage is not exact"
+        )
     schema_bytes = canonical_document_bytes(result_schema())
     oracles: list[dict[str, Any]] = []
     for capability_id, test_id in pairs:
@@ -478,6 +564,7 @@ def build_qualification_oracle_policy(
             {
                 "adapter": None,
                 "bindings": [],
+                "candidate_test_vector": test_vectors.get(key),
                 "capability_id": capability_id,
                 "candidate_projection": "module_group_blob_set/v1",
                 "candidate_influence_status": "not_demonstrated",
@@ -527,7 +614,7 @@ def build_qualification_oracle_policy(
     ]
     return {
         "schema_version": POLICY_SCHEMA_VERSION,
-        "policy_version": "1.1.0",
+        "policy_version": "1.2.0",
         "catalog_version": "1.0.0",
         "candidate_projection": {
             "candidate_count": candidate_count,
@@ -544,6 +631,7 @@ def build_qualification_oracle_policy(
             "projection_version": "module_group_blob_set/v1",
         },
         "qualification_interface_manifest": interface_manifest_ref,
+        "qualification_test_vector_manifest": test_vector_manifest_ref,
         "execution_contract": {
             "environment": "offline_read_only_pinned_candidate_tree",
             "placeholder_set": [

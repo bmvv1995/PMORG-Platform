@@ -1,0 +1,78 @@
+{
+  "candidate_projection": "module_group_blob_set/v1",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:ac42ea42c11e682a89eb7356b8f13f38cdf62f70df0bfff750f30ac88b87fbd7",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification_test_vectors.py",
+      "size_bytes": 18154
+    },
+    {
+      "digest": "sha256:8954cafd08ee1611deffaf78aa01eae3f2a441f6c01f514ca3d8fba27f4975bf",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_qualification_test_vectors.py",
+      "size_bytes": 1096
+    }
+  ],
+  "runtime_identity_contract": {
+    "artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "media_type": "text/plain",
+        "relative_path": ".python-version",
+        "size_bytes": 5
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "media_type": "application/toml",
+        "relative_path": "pyproject.toml",
+        "size_bytes": 9983
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "media_type": "application/toml",
+        "relative_path": "uv.lock",
+        "size_bytes": 1018201
+      }
+    ],
+    "interpreter_binary_evidence": {
+      "algorithm": "sha256",
+      "required_fields": [
+        "implementation",
+        "version",
+        "executable_digest",
+        "executable_size_bytes"
+      ]
+    },
+    "pass_requirements": [
+      "the invoked interpreter binary is measured before adapter execution",
+      "the measured interpreter satisfies the committed .python-version",
+      "dependencies resolve only from the exact committed uv.lock",
+      "runtime evidence and lock artifact digests are bound into the result"
+    ],
+    "schema_version": "pmorg.qualification-runtime-identity-contract/v1",
+    "status": "binary_measurement_required_at_execution"
+  },
+  "runtime_identity_contract_digest": "sha256:59ebd918c79614af1a4dec86b52a747e02b2b133ee14a27d30fa498c65e1e7db",
+  "schema_version": "pmorg.qualification-test-vector-manifest/v1",
+  "vector_count": 2,
+  "vector_version": "1.0.0",
+  "vectors": [
+    {
+      "capability_id": "deployment-admission",
+      "digest": "sha256:e148436b597012c883685d5f69276b939a4a469e5b9ab3f2fe0745c721658e66",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vectors/deployment-admission-A-LIC-002-v1.json",
+      "size_bytes": 4009,
+      "test_id": "A-LIC-002"
+    },
+    {
+      "capability_id": "distribution-admission",
+      "digest": "sha256:3c2a66f92e9f6bb5e5d34cb27da2ddff59b114e7efbdf09612e16f74bf0755ad",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vectors/distribution-admission-A-LIC-003-v1.json",
+      "size_bytes": 4080,
+      "test_id": "A-LIC-003"
+    }
+  ]
+}
