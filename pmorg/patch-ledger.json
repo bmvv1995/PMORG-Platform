@@ -953,6 +953,37 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_thin_fork_candidate_qualification_reports.py --check"
       ]
+    },
+    {
+      "id": "PL-034",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/thin_fork_post_disposition_qualification.py",
+        "backend/pmorg/tests/test_thin_fork_post_disposition_qualification.py",
+        "pmorg/capabilities/thin-fork-post-disposition-qualification-report-v1.json",
+        "pmorg/capabilities/thin-fork-post-disposition-qualification-v1.json",
+        "pmorg/capabilities/thin-fork-post-disposition-qualification-v1.schema.json",
+        "pmorg/capabilities/thin-fork-post-disposition-suite-receipt-v1.json",
+        "pmorg/capabilities/thin-fork-post-disposition-suite-receipt-v1.schema.json",
+        "pmorg/capabilities/thin-fork-post-disposition-test-manifest-v1.json",
+        "pmorg/capabilities/thin-fork-post-disposition-test-manifest-v1.schema.json",
+        "pmorg/capabilities/thin-fork-post-disposition-test-result-v1.schema.json",
+        "pmorg/capabilities/thin-fork-post-disposition-test-results/*.json",
+        "pmorg/scripts/build_thin_fork_post_disposition_qualification.py",
+        "pmorg/scripts/run_thin_fork_post_disposition_suite.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-PATCH-001",
+        "PLT-004"
+      ],
+      "reason": "Execute the exact bounded pmorg.tests.test_verify_fork module as 87/87 read-only post-disposition qualification for the PMORG Thin Fork implementation, binding verify_fork.py and its test module byte-identically to the protected base plus the executed interpreter and dependency locks; emit a content-addressed PostDispositionQualificationReport and individual PASS results, without a disposition record, DSSE, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=8a56132dedf3e5b75170431bdeb3e2b8c0812997 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_thin_fork_post_disposition_qualification -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_thin_fork_post_disposition_qualification.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

@@ -1,0 +1,241 @@
+{
+  "$id": "urn:pmorg:thin-fork-post-disposition-qualification-index:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "claim_boundary": {
+      "const": "thin_fork_post_disposition_qualification_only_no_disposition"
+    },
+    "derivation_artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "logical_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "media_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "logical_name",
+          "media_type",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "type": "array"
+    },
+    "duplicate_test_count": {
+      "const": 0
+    },
+    "executed_test_count": {
+      "const": 87
+    },
+    "expected_test_count": {
+      "const": 87
+    },
+    "failed_test_count": {
+      "const": 0
+    },
+    "index_version": {
+      "const": "1.0.0"
+    },
+    "manifest": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "logical_name",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "missing_test_count": {
+      "const": 0
+    },
+    "pmorg_platform_commit": {
+      "const": "8a56132dedf3e5b75170431bdeb3e2b8c0812997"
+    },
+    "report": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "logical_name",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "logical_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "media_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "logical_name",
+          "media_type",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 87,
+      "minItems": 87,
+      "type": "array"
+    },
+    "runtime_identity_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "pmorg.thin-fork-post-disposition-qualification-index/v1"
+    },
+    "suite_receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "logical_name",
+        "media_type",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "index_version",
+    "claim_boundary",
+    "catalog_hash",
+    "pmorg_platform_commit",
+    "manifest",
+    "suite_receipt",
+    "report",
+    "results",
+    "expected_test_count",
+    "executed_test_count",
+    "failed_test_count",
+    "missing_test_count",
+    "duplicate_test_count",
+    "runtime_identity_digests",
+    "derivation_artifacts"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,63 @@
+{
+  "$id": "urn:pmorg:thin-fork-post-disposition-suite-receipt:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "interpreter_binary": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "const": "@runtime/executed-python-interpreter"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "pmorg.thin-fork-post-disposition-suite-receipt/v1"
+    },
+    "suite": {
+      "const": "pmorg.tests.test_verify_fork"
+    },
+    "test_count": {
+      "const": 87
+    },
+    "tests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fully_qualified_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "const": "pass"
+          }
+        },
+        "required": [
+          "fully_qualified_name",
+          "status"
+        ],
+        "type": "object"
+      },
+      "maxItems": 87,
+      "minItems": 87,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "suite",
+    "test_count",
+    "tests",
+    "interpreter_binary"
+  ],
+  "type": "object"
+}
