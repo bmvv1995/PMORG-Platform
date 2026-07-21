@@ -304,12 +304,18 @@ class TestCapabilityDispositions(unittest.TestCase):
             copytree(REPOSITORY_ROOT, copied, symlinks=True)
             ledger_path = copied / "pmorg/patch-ledger.json"
             ledger = json.loads(ledger_path.read_bytes())
+            existing_ids = {item["id"] for item in ledger["entries"]}
+            next_number = (
+                max(int(item.removeprefix("PL-")) for item in existing_ids) + 1
+            )
+            next_id = f"PL-{next_number:03d}"
             appended = copy.deepcopy(ledger["entries"][-1])
-            appended["id"] = "PL-035"
+            appended["id"] = next_id
             appended["paths"] = ["pmorg/capabilities/future-q5-artifact.json"]
             appended["reason"] = "Simulated Q5 append-only ledger entry."
             ledger["entries"].append(appended)
-            self.assertEqual("PL-035", ledger["entries"][-1]["id"])
+            self.assertNotIn(next_id, existing_ids)
+            self.assertEqual(next_id, ledger["entries"][-1]["id"])
             ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
             validate_thin_fork_capability_disposition(copied)
 

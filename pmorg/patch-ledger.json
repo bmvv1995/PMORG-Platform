@@ -984,6 +984,36 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_thin_fork_post_disposition_qualification.py --check"
       ]
+    },
+    {
+      "id": "PL-035",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/governed_fork_qualification_setup.py",
+        "backend/pmorg/tests/test_governed_fork_qualification_setup.py",
+        "pmorg/capabilities/governed-fork-interface-fit-evidence-v1.json",
+        "pmorg/capabilities/governed-fork-interface-fit-evidence-v1.schema.json",
+        "pmorg/capabilities/qualification-test-vector-extension-governed-fork-v1.json",
+        "pmorg/capabilities/qualification-test-vector-extensions/governed-onyx-fork-A-FORK-001-v1.json",
+        "pmorg/capabilities/qualification-test-vector-extensions/governed-onyx-fork-A-SURFACE-001-v1.json",
+        "pmorg/capabilities/qualification-test-vector-extensions/governed-onyx-fork-A-UPSTREAM-001-v1.json",
+        "pmorg/scripts/build_governed_fork_qualification_setup.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-FORK-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001",
+        "PLT-008"
+      ],
+      "reason": "Define three versioned, content-addressed and deliberately unactivated governed-onyx-fork candidate-level test vectors derived from the Q1 interface, then screen the exact committed 67-candidate denominator and all 5,364 projected blob memberships byte-closed; bind both-direction candidate influence, conforming positive injection, live byte mutation, no-op rejection and runtime identity requirements while preserving all active oracle and historical evidence state; emit no oracle activation, CandidateQualificationReport, fit verdict, disposition, deviation, admission, release, aggregate, catalog-completion or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=885c23c3b486c1cc38d41aeecfb92a7190a03ca4 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_governed_fork_qualification_setup -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_governed_fork_qualification_setup.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
