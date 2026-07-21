@@ -1014,6 +1014,32 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_governed_fork_qualification_setup.py --check"
       ]
+    },
+    {
+      "id": "PL-036",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/governed_fork_interface_fit_executor.py",
+        "backend/pmorg/tests/test_governed_fork_interface_fit_executor.py",
+        "pmorg/capabilities/qualification-oracle-extension-governed-fork-v1.json",
+        "pmorg/capabilities/qualification-oracle-extension-governed-fork-v1.schema.json",
+        "pmorg/scripts/build_governed_fork_interface_fit_executor.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-FORK-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001",
+        "PLT-008"
+      ],
+      "reason": "Activate A-FORK-001, A-SURFACE-001 and A-UPSTREAM-001 only in a versioned governed-onyx-fork oracle extension while preserving the active v1 policy and historical evidence byte-identically; add a candidate-aware executor that consumes every projected blob, binds the exact interface, vectors, result schema and runtime identities, measures the executed interpreter, requires live byte-mutation influence, explicit no-op rejection and conforming positive controls, and emits no CandidateQualificationReport, aggregate verdict, disposition, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=f01e6b6006124e8dda8d639fac8930c0f1a5f86d python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_governed_fork_interface_fit_executor -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_governed_fork_interface_fit_executor.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
