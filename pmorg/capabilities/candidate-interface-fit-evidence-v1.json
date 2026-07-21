@@ -1,0 +1,3735 @@
+{
+  "candidate_count": 12,
+  "candidate_inputs": {
+    "digest": "sha256:cfd9b34150e522dd261517252530983c35bcd25387c9b4fc4229799ffec21327",
+    "relative_path": "pmorg/capabilities/candidate-inputs-v1.json",
+    "size_bytes": 3675788
+  },
+  "candidates": [
+    {
+      "blob_count": 16,
+      "blob_set_digest": "sha256:c6b27f3bfa962be2c900fbeed99aac11ade1e242aa35f335536d06cd2d0f78c4",
+      "candidate_group": "deployment/aws_ecs_fargate",
+      "candidate_id": "candidate-9040fde3bb660092473428d09e06ff7929575491eb823657224bf44d486f2167",
+      "candidate_manifest_digest": "sha256:8c06405b30d8f74a3c528580f8301398287e5c36b881b5307c6eb7021eb9e442",
+      "capability_id": "deployment-admission",
+      "coverage": {
+        "expected": 16,
+        "scanned": 16,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "eb377e30fa7251b4614a0b8fc6a6df45241ef486",
+          "path": "deployment/aws_ecs_fargate/cloudformation/README.md",
+          "sha256": "sha256:5c39adbe0eb47b3cea1cae2484f379bdf651f73395031f71334b26f281ccf6e8",
+          "size_bytes": 1810
+        },
+        {
+          "git_object_id": "51ddaa4c4afde4047bc99e2658c152a6b2b66bdf",
+          "path": "deployment/aws_ecs_fargate/cloudformation/deploy.sh",
+          "sha256": "sha256:8195e122d98c2553bf2eb727c4308fa28d506ff4281e5c1e4a56b5634b60111e",
+          "size_bytes": 6527
+        },
+        {
+          "git_object_id": "d48931f447165adc833fdea58a559611298fe35f",
+          "path": "deployment/aws_ecs_fargate/cloudformation/onyx_acm_template.yaml",
+          "sha256": "sha256:15e1708d58ed92b3f582c5a184bbe3f0b1e6a19282e8071913ad9206ba36563f",
+          "size_bytes": 745
+        },
+        {
+          "git_object_id": "a692ae19dc7fe84e204a77518c2d8bd34b382554",
+          "path": "deployment/aws_ecs_fargate/cloudformation/onyx_cluster_template.yaml",
+          "sha256": "sha256:6b22a347232b1884a3208baba78911c7883e14eab5b9ba65f0bc58ec0f851341",
+          "size_bytes": 5159
+        },
+        {
+          "git_object_id": "b2929a2697b8e7a9c3bec3f8ffbbd86bf43681a0",
+          "path": "deployment/aws_ecs_fargate/cloudformation/onyx_config.jsonl",
+          "sha256": "sha256:a7ad8155602a149b9e26b7de1c13006c03825bff0e44eeb7770cf9952bcc9ddd",
+          "size_bytes": 433
+        },
+        {
+          "git_object_id": "3ff6d9b521d1b3014b91dc816cd45c6ebf7ec17b",
+          "path": "deployment/aws_ecs_fargate/cloudformation/onyx_efs_template.yaml",
+          "sha256": "sha256:3f69613dfec6cb5f694f280cc8efa751e6d54d918684ed51413cce4d2cccd411",
+          "size_bytes": 3477
+        },
+        {
+          "git_object_id": "9fe71756ae1fc847d774307085dd1272a93a0ff0",
+          "path": "deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_api_server_service_template.yaml",
+          "sha256": "sha256:7a2eb0c42a532f2605c1eb25f485ba3bfaca1fe6e58125164bcd9bffd70f4ae7",
+          "size_bytes": 7561
+        },
+        {
+          "git_object_id": "8c5163e1ec5af6b6e24a5f683dc4387e6078c3cb",
+          "path": "deployment/aws_ecs_fargate/cloudformation/services/onyx_backend_background_server_service_template.yaml",
+          "sha256": "sha256:a1e7acad28315bb154644de6125e42c9f0e27e62329b9ef00eae83b6c9a0c09c",
+          "size_bytes": 6001
+        },
+        {
+          "git_object_id": "b1975fac9a5023226299ff522bb1cdc9e6dfdf1e",
+          "path": "deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_indexing_service_template.yaml",
+          "sha256": "sha256:ee12c2a9ece6e1a47a7f43f04a1e05435e6ae44fc262ace362528a38283ec255",
+          "size_bytes": 4956
+        },
+        {
+          "git_object_id": "98658aa4c55fcee11ffe3e62e3d269aa3e694229",
+          "path": "deployment/aws_ecs_fargate/cloudformation/services/onyx_model_server_inference_service_template.yaml",
+          "sha256": "sha256:b9761b4124ac110652f56d3f7f7f1e83511ec98abe2689ebe5f4ed4cf5e04981",
+          "size_bytes": 6350
+        },
+        {
+          "git_object_id": "308b224ef486034b0f1fb5c0c74ebffb1430e24f",
+          "path": "deployment/aws_ecs_fargate/cloudformation/services/onyx_nginx_service_template.yaml",
+          "sha256": "sha256:bd34072968b2d861cbf69b4dde8406b09955a594c0a0d3570de962c7b46ce969",
+          "size_bytes": 8672
+        },
+        {
+          "git_object_id": "9ce701688d5ba23c7b8f6d390046318266f91e37",
+          "path": "deployment/aws_ecs_fargate/cloudformation/services/onyx_postgres_service_template.yaml",
+          "sha256": "sha256:9da3c1b58f87185a4b5554ed74507ca3b7dbda0ae0203b84aaf0b2fd7aaaf383",
+          "size_bytes": 5352
+        },
+        {
+          "git_object_id": "9fd6f2f380afc6d96ac69459556ec5cef7ecf613",
+          "path": "deployment/aws_ecs_fargate/cloudformation/services/onyx_redis_service_template.yaml",
+          "sha256": "sha256:1a6410c7778f9623206a03cb8db87e3984673de0bea0450ae02b15f60105b9c1",
+          "size_bytes": 4166
+        },
+        {
+          "git_object_id": "0ebe3d8e8d8a18a01cdd09976943d95b546897fb",
+          "path": "deployment/aws_ecs_fargate/cloudformation/services/onyx_vespaengine_service_template.yaml",
+          "sha256": "sha256:26c937be5abbe445acac9b4c055122556d59b98665768294095bd3f6363de1cf",
+          "size_bytes": 5861
+        },
+        {
+          "git_object_id": "62966fe87a29810c648256847b9ef705ab210465",
+          "path": "deployment/aws_ecs_fargate/cloudformation/services/onyx_web_server_service_template.yaml",
+          "sha256": "sha256:9876e531c001f791b5e5021d1c76288f5431ffc27bbdd3bbe1aecba96211a201",
+          "size_bytes": 5852
+        },
+        {
+          "git_object_id": "154a7f67bc48583cc0d1590ebe15e3192f9a1a5e",
+          "path": "deployment/aws_ecs_fargate/cloudformation/uninstall.sh",
+          "sha256": "sha256:d75d687fe9c817af8212cac15874ff4e77db22096fd421e56e29500a12bd48d1",
+          "size_bytes": 2236
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-deployment-admission",
+        "dsse-envelope",
+        "pre-deadline-quiesce"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-deployment-admission",
+          "satisfied": false,
+          "terms": [
+            "signed deployment admission",
+            "deploymentadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "pre-deadline-quiesce",
+          "satisfied": false,
+          "terms": [
+            "quiesce"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 6,
+      "blob_set_digest": "sha256:aa64b929a39e4d7d9c2e3747246307d9033357def4fe5722d346a1e259a46cb9",
+      "candidate_group": "deployment/data",
+      "candidate_id": "candidate-210ea8929e795d5196b59e3c0452864ef642a4810ed22191af0eda6cf3c5919c",
+      "candidate_manifest_digest": "sha256:11956b91574212a819d7bb5130bb4015a67031fa98a696606d58d7ea098430e7",
+      "capability_id": "deployment-admission",
+      "coverage": {
+        "expected": 6,
+        "scanned": 6,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "8c5ff29cbc7c548fd67f499d0f750046de2a758b",
+          "path": "deployment/data/nginx/app.conf.template",
+          "sha256": "sha256:b05e0ea15f598cbfba09636aea7c82b53671ba2aff5fb254107832d307333dfe",
+          "size_bytes": 4141
+        },
+        {
+          "git_object_id": "d2f07805d705edde19c3b6e077d96ac4a663387e",
+          "path": "deployment/data/nginx/app.conf.template.no-letsencrypt",
+          "sha256": "sha256:7fc3f5a40160319b56df71d00b530dddf8799bd81141b116e0279d40333a5aa4",
+          "size_bytes": 4831
+        },
+        {
+          "git_object_id": "c1b8ae7d34f0b3c4d9bf479e8c94e7898c7b15ab",
+          "path": "deployment/data/nginx/app.conf.template.prod",
+          "sha256": "sha256:4bf1872c5d4986d0dcc5eea2371e92211a78bf34c82d011dc4887e849ccc1150",
+          "size_bytes": 5834
+        },
+        {
+          "git_object_id": "b6170245a67828f019c047046cd0362236b20abc",
+          "path": "deployment/data/nginx/mcp.conf.inc.template",
+          "sha256": "sha256:c5560ac929dba0b245ccbcd96bb3eda6f0cea64fa3f9d64516258d322018f0de",
+          "size_bytes": 1304
+        },
+        {
+          "git_object_id": "43bf1dcc50a161c8e498fd58ef7ce4cd2f1ffc22",
+          "path": "deployment/data/nginx/mcp_upstream.conf.inc.template",
+          "sha256": "sha256:cbf02dbe7d3117da2c6eb3b3960254b77d3bcd96a9e54edc0b95a7fe47f72f6d",
+          "size_bytes": 80
+        },
+        {
+          "git_object_id": "788b213cf84140d170ebb9e33df70f6b685b16bd",
+          "path": "deployment/data/nginx/run-nginx.sh",
+          "sha256": "sha256:bff6aa973c83620cd572f6712a214bfb0b4c1e66760080f8d95de584567a4ffc",
+          "size_bytes": 2183
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-deployment-admission",
+        "dsse-envelope",
+        "pre-deadline-quiesce"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-deployment-admission",
+          "satisfied": false,
+          "terms": [
+            "signed deployment admission",
+            "deploymentadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "pre-deadline-quiesce",
+          "satisfied": false,
+          "terms": [
+            "quiesce"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 20,
+      "blob_set_digest": "sha256:20911fd42c43be882199f277e312386dceda265cf41e7b88c88bb27eab435869",
+      "candidate_group": "deployment/docker_compose",
+      "candidate_id": "candidate-4b067777d4da76c09b331166cb01dd5318138012a7f80320299f72b437ac2191",
+      "candidate_manifest_digest": "sha256:2dfdc590f6428bb93b79bd182229793866544a54e1aefb6eb04df3c89a4ab3dc",
+      "capability_id": "deployment-admission",
+      "coverage": {
+        "expected": 20,
+        "scanned": 20,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "93b115289f27e13182e05be98f333fa42755de16",
+          "path": "deployment/docker_compose/README.md",
+          "sha256": "sha256:4e21265eff55073f0753b88fd6fd452d99ee45eca8384069af90e421897a7269",
+          "size_bytes": 3029
+        },
+        {
+          "git_object_id": "836e203470f5325c892dca2c19158f7e66235f90",
+          "path": "deployment/docker_compose/docker-compose.craft.yml",
+          "sha256": "sha256:7025a0cb317ff35d5180006299b4f830bd52105d2ffe6238cfffb1b936b4d10d",
+          "size_bytes": 6156
+        },
+        {
+          "git_object_id": "07d49392c7c929908bdfac4a70db41caf86ab38e",
+          "path": "deployment/docker_compose/docker-compose.dev.yml",
+          "sha256": "sha256:84652173eba9d8447cd25bbc3998ee7b9bcd9040ca90d39ce1a91522953f59a6",
+          "size_bytes": 1515
+        },
+        {
+          "git_object_id": "10f5740353d59d555c774194cd765318cae6f47c",
+          "path": "deployment/docker_compose/docker-compose.mcp-api-key-test.yml",
+          "sha256": "sha256:ae7178a5b661f543fc6ea7430c26caff87b0afa7d3b4a649db63fc848efcec3c",
+          "size_bytes": 1082
+        },
+        {
+          "git_object_id": "965257b28f779707950a61d416cb6787175e698d",
+          "path": "deployment/docker_compose/docker-compose.mcp-oauth-test.yml",
+          "sha256": "sha256:54014cb2446b741102f03d03f1c31387a60972d4c5f62207393f855feb200cb9",
+          "size_bytes": 3422
+        },
+        {
+          "git_object_id": "fbc0a5282880b6fd02d15ce1de030b5753350fef",
+          "path": "deployment/docker_compose/docker-compose.mcp-per-user-key-test.yml",
+          "sha256": "sha256:e28610b19def9acb680ccaaf6d2a7d6e9494bcaff340342848b90721098defbd",
+          "size_bytes": 1195
+        },
+        {
+          "git_object_id": "3bcc8b31e240eef650276f4f7505bb17224a9df8",
+          "path": "deployment/docker_compose/docker-compose.multitenant-dev.yml",
+          "sha256": "sha256:9fa98fb485fbecdcf30638b5e8210bc64817cc65626aec33a509430ff169cea9",
+          "size_bytes": 22301
+        },
+        {
+          "git_object_id": "95f9d927b61f570a9f688db0ae60bf06cd306338",
+          "path": "deployment/docker_compose/docker-compose.onyx-lite.yml",
+          "sha256": "sha256:c41c2c2bb2ba72ef2d08b0fc79052124d0619484725ede9d1e5b339afccc99c3",
+          "size_bytes": 3156
+        },
+        {
+          "git_object_id": "6938b18c740d64f675f60ed3fc58659256438658",
+          "path": "deployment/docker_compose/docker-compose.prod-cloud.yml",
+          "sha256": "sha256:a92ae85ce0129ec04a62e65696f39fee7b4d5955bcf54a7816001ffde15d2192",
+          "size_bytes": 11854
+        },
+        {
+          "git_object_id": "7aeec491764bfa63a776dfc32d5b1673f2a15412",
+          "path": "deployment/docker_compose/docker-compose.prod-no-letsencrypt.yml",
+          "sha256": "sha256:3bab73fc80b37cf88f9776efe933ff1aa35f92f2e58815eec84691e3958e1bf5",
+          "size_bytes": 13039
+        },
+        {
+          "git_object_id": "e99706953a4fa118d464d1101ae8fb26d8461159",
+          "path": "deployment/docker_compose/docker-compose.prod.yml",
+          "sha256": "sha256:77d5355764f397c6367abf499390249a8fd4b953c3858c773a690f04cbf12bb1",
+          "size_bytes": 14849
+        },
+        {
+          "git_object_id": "61bbfb4aa3a842f7af9fdac813a05460813df486",
+          "path": "deployment/docker_compose/docker-compose.resources.yml",
+          "sha256": "sha256:1716abff2c96ee38c6946788a6bf199c14ddc21a997741301089faadabe7ef2d",
+          "size_bytes": 2553
+        },
+        {
+          "git_object_id": "17430ce06585c5b1b044a2065f314f2438e447fc",
+          "path": "deployment/docker_compose/docker-compose.search-testing.yml",
+          "sha256": "sha256:aa59f66024154d4399f6e1965cf89680d947a7c8dbe8efc49b178d85a43bb3f1",
+          "size_bytes": 8686
+        },
+        {
+          "git_object_id": "f318bf2e978b8727830fe078917df4a32eec93f6",
+          "path": "deployment/docker_compose/docker-compose.yml",
+          "sha256": "sha256:c31973797b8a00c5dd75082bf14a53fa55dec65e81f53d453cd453193c681fe6",
+          "size_bytes": 21805
+        },
+        {
+          "git_object_id": "23ba4e6e8516cb8cdfaff5e01fed2ba772630549",
+          "path": "deployment/docker_compose/env.nginx.template",
+          "sha256": "sha256:94c14df4a5db3cb367d1f0c137735f611cb4123108857dd9c3f9ed39f05a1a6a",
+          "size_bytes": 469
+        },
+        {
+          "git_object_id": "25e3dbf18df185cb6f75c26a4005ab9bd185532e",
+          "path": "deployment/docker_compose/env.prod.template",
+          "sha256": "sha256:96041532f15e1c7eefa212d37ff9799716f5426bca5bf88437fc9ec9fcf7fbb0",
+          "size_bytes": 2834
+        },
+        {
+          "git_object_id": "208a0618804ec98f604ceafc69b4d8f702f654c6",
+          "path": "deployment/docker_compose/env.template",
+          "sha256": "sha256:192c9231ba0847c247d51e149e013d74be29437f352725631d9b0f5cd2886694",
+          "size_bytes": 13472
+        },
+        {
+          "git_object_id": "7b1ebbef9d43fd1984e16cbee86fc35dc8fa51dd",
+          "path": "deployment/docker_compose/init-letsencrypt.sh",
+          "sha256": "sha256:5f37644d13e2a3ffac1630c16cf124309b22bd2cce455a7d16fe2e22093a8ca1",
+          "size_bytes": 3749
+        },
+        {
+          "git_object_id": "504d18c6d5cf5a80d449df8acff0de7866d286c3",
+          "path": "deployment/docker_compose/install.ps1",
+          "sha256": "sha256:19c8aa69b0e3ea0edf0893bf3d3b7e7159958dff27cb21b585a8be43b12640dc",
+          "size_bytes": 55972
+        },
+        {
+          "git_object_id": "f7b7baec7eb5ff81554b20aded53c80ebf738618",
+          "path": "deployment/docker_compose/install.sh",
+          "sha256": "sha256:425d92a24070729cb1383b3961a9467db176de85bd01591391cc028b34778643",
+          "size_bytes": 56130
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-deployment-admission",
+        "dsse-envelope",
+        "pre-deadline-quiesce"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-deployment-admission",
+          "satisfied": false,
+          "terms": [
+            "signed deployment admission",
+            "deploymentadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "pre-deadline-quiesce",
+          "satisfied": false,
+          "terms": [
+            "quiesce"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 106,
+      "blob_set_digest": "sha256:503d010a0df7366d836939ff4ea86ecc6512e81c7770e0679a4b6d60ab1306a6",
+      "candidate_group": "deployment/helm",
+      "candidate_id": "candidate-fb60beac64f706b199006e7067f16706fc950bff5a3caea1eae1c8e3126c9ab6",
+      "candidate_manifest_digest": "sha256:ca9ec10126c3f4db92174da988c663f28c7fa9d7dfdeda15402d1c3d76f5bf94",
+      "capability_id": "deployment-admission",
+      "coverage": {
+        "expected": 106,
+        "scanned": 106,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "a96fb29b7892f815a1e42e84e0ffce51b671e38f",
+          "path": "deployment/helm/MIGRATION.md",
+          "sha256": "sha256:f9ff0eca6c58a3586796e051f542773384692fa571ccb2b0c4ff426c1f775340",
+          "size_bytes": 3310
+        },
+        {
+          "git_object_id": "3290ce670236f1dfa5dd00b7844b668ceb4e4e5b",
+          "path": "deployment/helm/README.md",
+          "sha256": "sha256:18c11df7c9c601cb72fa801ac3be1d64ce4f836240794fbc6096a52a00e45f4a",
+          "size_bytes": 12558
+        },
+        {
+          "git_object_id": "b442275d6b585a1a1f5f53b73cd39b11c534cd12",
+          "path": "deployment/helm/charts/onyx/.gitignore",
+          "sha256": "sha256:27f09da1a55f1fb16543dfc8b9ffe11c290372adab796e80c4e57e2cd1d33231",
+          "size_bytes": 50
+        },
+        {
+          "git_object_id": "0e8a0eb36f4ca2c939201c0d54b5d82a1ea34778",
+          "path": "deployment/helm/charts/onyx/.helmignore",
+          "sha256": "sha256:bb987e6a8ef45a99255d1d632812482d5f0f3255ea841520b4d90342df5fe2b3",
+          "size_bytes": 349
+        },
+        {
+          "git_object_id": "291b78c333bc941a18ded86e1a143f1873732d88",
+          "path": "deployment/helm/charts/onyx/Chart.lock",
+          "sha256": "sha256:3370ca669e6156abb12ddcd931c76452879a89b7c885a3726ba42822dac198c6",
+          "size_bytes": 797
+        },
+        {
+          "git_object_id": "9d3453ce6fab01b358af1f5d62b8db418bf31561",
+          "path": "deployment/helm/charts/onyx/Chart.yaml",
+          "sha256": "sha256:6b2c289fc6510e2e920fb7e281395b1b0a49e1755e05b07c90923ba347913b67",
+          "size_bytes": 2045
+        },
+        {
+          "git_object_id": "1d36735e209d6a5c2b7fdc62430edb26be601bd3",
+          "path": "deployment/helm/charts/onyx/ci/ct-values.yaml",
+          "sha256": "sha256:62023d8ae9b8231356a09e38c5dc63b36dcbb8df1b03c441a29c368ea6830712",
+          "size_bytes": 561
+        },
+        {
+          "git_object_id": "a0b1246439852e7eb12a0577ba50e1b6d68012fd",
+          "path": "deployment/helm/charts/onyx/crds/cnpg-crds.yaml",
+          "sha256": "sha256:74af51de4a70eb6867e20384f72ae051b6e8e4fdf0f9153f8679d59e077d8816",
+          "size_bytes": 1075771
+        },
+        {
+          "git_object_id": "1a6a7ad01512ab850b5cff74d4f191332debd94b",
+          "path": "deployment/helm/charts/onyx/dashboards/indexing-pipeline.json",
+          "sha256": "sha256:ac15b649fb8097269eae5c612fde8d785956a93bf699e14a94cfb1f7ec00c1ce",
+          "size_bytes": 50574
+        },
+        {
+          "git_object_id": "1378f99386607d395fc74968284afdee84a5b976",
+          "path": "deployment/helm/charts/onyx/dashboards/indexing-pruning.json",
+          "sha256": "sha256:5ade8f9d05d8bd3d4ac238c48b2745db7517c13d4323593a94e463793fcfa92d",
+          "size_bytes": 29365
+        },
+        {
+          "git_object_id": "43aa09e2f448b3125c2fa7312cbb7703eb0c2c4d",
+          "path": "deployment/helm/charts/onyx/dashboards/opensearch-search-latency.json",
+          "sha256": "sha256:ee4d2e887b683866a5d895bc8839ef66fd11f48f5c1e86282836af24b912ee6e",
+          "size_bytes": 18747
+        },
+        {
+          "git_object_id": "8a3fb130d7743caa5ad0d0b54d5d157958134b9d",
+          "path": "deployment/helm/charts/onyx/dashboards/redis-queues.json",
+          "sha256": "sha256:0c99b5bf44723627b49aad940bf576beb51b61abee29d767a8350e488c2b832e",
+          "size_bytes": 13725
+        },
+        {
+          "git_object_id": "dd28cc179ad43f6ee14ccb40f5aec167f78b5499",
+          "path": "deployment/helm/charts/onyx/scripts/check-cnpg-crds.sh",
+          "sha256": "sha256:91468c056a339c05e79784145424315b2ead9986dde3f2a72d8d444f867e1037",
+          "size_bytes": 1547
+        },
+        {
+          "git_object_id": "e5c438608946874a90206eed5d79302db5565ac2",
+          "path": "deployment/helm/charts/onyx/templates/_helpers.tpl",
+          "sha256": "sha256:85ecb4c035306712829a1abbad552170c28f8b8a8cad499c5b12017cd2092d32",
+          "size_bytes": 10345
+        },
+        {
+          "git_object_id": "2fa9760ef18835592a1923e4c52b7392cd708116",
+          "path": "deployment/helm/charts/onyx/templates/api-deployment.yaml",
+          "sha256": "sha256:2fbece7678e30fe590c663843a1860e1dbc3f7f499e30e1ff7f705d30fa0cd87",
+          "size_bytes": 4854
+        },
+        {
+          "git_object_id": "e91cc6e9a43c723bad4f851e57667d853b2e4f3a",
+          "path": "deployment/helm/charts/onyx/templates/api-hpa.yaml",
+          "sha256": "sha256:1591b949e16d594cd39abd5941cd0fbf5969f0e3dc71e26b6bfea4ccf7050106",
+          "size_bytes": 1081
+        },
+        {
+          "git_object_id": "979b14c8c2bf9d3a8dc9f63ca56754c545c31f78",
+          "path": "deployment/helm/charts/onyx/templates/api-scaledobject.yaml",
+          "sha256": "sha256:e301ab847d68f0cc92291ae0bfa86d31bb9e665cbf3fed35a8257dfb53e52413",
+          "size_bytes": 1670
+        },
+        {
+          "git_object_id": "35a60828e64534acdf1de783ce916b1dd83f99ab",
+          "path": "deployment/helm/charts/onyx/templates/api-service.yaml",
+          "sha256": "sha256:ea673b66de77a9444ad2901fc4fbd034caf299361ef63871661818a0bf1696d1",
+          "size_bytes": 765
+        },
+        {
+          "git_object_id": "86188a10933ec0a232fcf1b67abce09da248ec03",
+          "path": "deployment/helm/charts/onyx/templates/api-servicemonitor.yaml",
+          "sha256": "sha256:391b4e33352e3602fd22f4957c109917a31069b7d56675c19c9ce2a2adf9a3aa",
+          "size_bytes": 1348
+        },
+        {
+          "git_object_id": "be7edb60784e58f9cb0fc32004b123e080179012",
+          "path": "deployment/helm/charts/onyx/templates/auth-secrets.yaml",
+          "sha256": "sha256:84578c8a80f194d1f953956e5f64d3f14610a74a492a9d08fd4e5fdfe84def01",
+          "size_bytes": 1343
+        },
+        {
+          "git_object_id": "fca75094d1b6bf622ff08371405a4cf7e0c4252f",
+          "path": "deployment/helm/charts/onyx/templates/celery-beat.yaml",
+          "sha256": "sha256:ee5115d2c61d47b06d36d08301e8611e867ab8d1d8e60cc2e1c3e532629ef8a7",
+          "size_bytes": 4418
+        },
+        {
+          "git_object_id": "9fbf8c5db42c48b7c6eebd3746b6c9eef758bdae",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-docfetching-hpa.yaml",
+          "sha256": "sha256:63578f54d984b47b01e277e1fb9fffa6aa16879e2189a00f328ce1f4c8d2bf58",
+          "size_bytes": 1297
+        },
+        {
+          "git_object_id": "145d68fa20dd243380f4440dcae7472970240db1",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-docfetching-metrics-service.yaml",
+          "sha256": "sha256:36a593107e32564aebea0e2c0f4ed054f8d49d83653808cf4a6f569c069a3bdb",
+          "size_bytes": 1001
+        },
+        {
+          "git_object_id": "83e6ea794efe54bfe6fba5f779a5bc8c61e75df5",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-docfetching-scaledobject.yaml",
+          "sha256": "sha256:9c3214090f168f5686fb64dfdd4476d34fb2e4f79af34d2d4fbb956ea15e4f3c",
+          "size_bytes": 2076
+        },
+        {
+          "git_object_id": "40b2c1fa15b061354805e1d1821b0e9e46cb321c",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-docfetching.yaml",
+          "sha256": "sha256:f95c19f00d67012908cbcd5294fb0e62e20bec99dbe07a8019d2cfa7aeb5293b",
+          "size_bytes": 5092
+        },
+        {
+          "git_object_id": "43e76d7f72acd9f7a60ec80a22295f82b9d5b4ce",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-docprocessing-hpa.yaml",
+          "sha256": "sha256:337d8b7afbf3e64681a383a678369a3bf87f2fcb6be00e10593dda26a5229264",
+          "size_bytes": 1315
+        },
+        {
+          "git_object_id": "952464f716a568b75023d618feba5755237958bf",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-docprocessing-metrics-service.yaml",
+          "sha256": "sha256:4e359d073b0f925a891d0029324bd2f7108de4c3fcd9c59a24222d76eefb9366",
+          "size_bytes": 1013
+        },
+        {
+          "git_object_id": "e37b824bfc30020fc627c7fb24591d3996d6b731",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-docprocessing-scaledobject.yaml",
+          "sha256": "sha256:492dc2c63aa1c9ef4a2b67c9be229c13a456686cb8af673e6ed4b546d97a0109",
+          "size_bytes": 2120
+        },
+        {
+          "git_object_id": "43e1aacc0da3a26e3b91ad381a47d9b78df3df28",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-docprocessing.yaml",
+          "sha256": "sha256:0f861739deda392d7dd6f8d7332a8b49c4bd95483d70b73ac4175f84be81c218",
+          "size_bytes": 5256
+        },
+        {
+          "git_object_id": "ca8924a9aa195867de031d24b8a07e69aa79f243",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-heavy-hpa.yaml",
+          "sha256": "sha256:31db6d9f4365650466da3d9ce1158e2fd578d87729cc86553fe36892eeda40b1",
+          "size_bytes": 1243
+        },
+        {
+          "git_object_id": "80256f614b29ec49dd282d72a5e131384526b11d",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-heavy-metrics-service.yaml",
+          "sha256": "sha256:2e48bb83557ffde52502ff1b1a236127a2d418c61c671b8aad1ba2a34df9ff00",
+          "size_bytes": 921
+        },
+        {
+          "git_object_id": "1d29781f11ab3208d25e7e2095c2207c0bc462ef",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-heavy-scaledobject.yaml",
+          "sha256": "sha256:60d69a10a1d1aa40dc413b88bb661499cab2e3e6fb11ccd240d014fa3dc922bd",
+          "size_bytes": 1976
+        },
+        {
+          "git_object_id": "b0402d4278dde49848dd79824ed4436728df23ef",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-heavy.yaml",
+          "sha256": "sha256:8409a1e4e37854f08896ef6826a5c68d3e03cdb8e714a8d22976e96c786d0230",
+          "size_bytes": 5572
+        },
+        {
+          "git_object_id": "388cc5827c51bb9e369b2058077ccbddce7e2aa6",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-light-hpa.yaml",
+          "sha256": "sha256:e5bec80aaa2e21fd178a26400039de1188356a0aedb9918f5fa8ca5d65853b72",
+          "size_bytes": 1243
+        },
+        {
+          "git_object_id": "dba53f822574659c0eadd43c5aa9eabc3a2e0930",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-light-metrics-service.yaml",
+          "sha256": "sha256:0c92f222ce52f39f6fb78ceeb4c65d8146a3124b28605b3e50f2797713516f03",
+          "size_bytes": 921
+        },
+        {
+          "git_object_id": "0897dd7f72463e88a21bad8567fedad2637c82c6",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-light-scaledobject.yaml",
+          "sha256": "sha256:a8afc719a4829e902efbb7ba11abcc00fa00d86f5928e1a4e2cb43cd8d251559",
+          "size_bytes": 1976
+        },
+        {
+          "git_object_id": "d394bc0be14ebc21a727cf1b963f385add1e2cd4",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-light.yaml",
+          "sha256": "sha256:bf26c6ad330b052820006906eb519d518ce4f627edc87a21313570413ec3b387",
+          "size_bytes": 4967
+        },
+        {
+          "git_object_id": "c5bc0ae4ac833c5370cf82d25e2a59f1fe258a7f",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-monitoring-hpa.yaml",
+          "sha256": "sha256:79b6e4c08b56795d135c450dc57ab958c2258ff07e4bb064ca2f280f941f4406",
+          "size_bytes": 1288
+        },
+        {
+          "git_object_id": "c578144af54a05db4b9be6be1978b01d80008038",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-monitoring-metrics-service.yaml",
+          "sha256": "sha256:93a8ed3e731d896899c918ffd8886aa9358793c37616ec795d866a3aabca062a",
+          "size_bytes": 995
+        },
+        {
+          "git_object_id": "61e532143659c78de2fbfbb6e37bdefa6438e28b",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-monitoring-scaledobject.yaml",
+          "sha256": "sha256:6edafa5d9b68feb5ddab11913fdbcafb5e4dba1a8c223d6b7b6780fe8c8d8483",
+          "size_bytes": 2066
+        },
+        {
+          "git_object_id": "9ab149053465715f20bd33892b60050f8f724bcf",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-monitoring.yaml",
+          "sha256": "sha256:2420ae63980323ca0c1d535b6e9543b9e036486da9f7b3aa8e0aad300d0375ad",
+          "size_bytes": 4951
+        },
+        {
+          "git_object_id": "529efde05aba9b085064dbf9e091f253e9626970",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-primary-hpa.yaml",
+          "sha256": "sha256:2c6dc692a309e95b2a42dfe542841e4d015c8d14c947f8e30a6c6fa7c586e8ff",
+          "size_bytes": 1261
+        },
+        {
+          "git_object_id": "b953e25831783852e0c3eb062b7d9464f159e978",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-primary-metrics-service.yaml",
+          "sha256": "sha256:1a04173d3692ba73245bf45834dbcd27dfd93247f56a06fa9d80b7b71b5fd58b",
+          "size_bytes": 946
+        },
+        {
+          "git_object_id": "a6995f2224db031eabd99be8648db91feb2cedf8",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-primary-scaledobject.yaml",
+          "sha256": "sha256:fa3f62f60908482792aece8547248a9d85a310c50dbbabf95ff5ab2c4c3af95d",
+          "size_bytes": 2012
+        },
+        {
+          "git_object_id": "eff23628b429575ea792bdd3567c6dd9dede3f4f",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-primary.yaml",
+          "sha256": "sha256:2d7bff0583ec2487228850c6a71bcbf16b2cbcf91396106d6ed052b3d127af6c",
+          "size_bytes": 4893
+        },
+        {
+          "git_object_id": "217616751b10aa5f82c62cffbac6e6aa800c1802",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-scheduled-tasks-hpa.yaml",
+          "sha256": "sha256:a029eea0d8a2d961867ad8be37d206cbb77a773f8204d2a296d1a036f7b43c56",
+          "size_bytes": 1436
+        },
+        {
+          "git_object_id": "6a5766e932e5794da2e232f9cbd36aa7df84e58a",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-scheduled-tasks-metrics-service.yaml",
+          "sha256": "sha256:c9cfab701838be0d1b6ecc1329c66a454c7b6d8fe7b1e4faeed5e14ef54ed68f",
+          "size_bytes": 1077
+        },
+        {
+          "git_object_id": "3127a6f700792348739e8e704eaa1e4428eabb4e",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-scheduled-tasks-scaledobject.yaml",
+          "sha256": "sha256:e2ae1b3ff17ef14ac516d0cd160acd085b035f747ba5f0bb275bbcf6f97adcb4",
+          "size_bytes": 2259
+        },
+        {
+          "git_object_id": "8b4001d402253263476ab470947670e7750bf873",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-scheduled-tasks.yaml",
+          "sha256": "sha256:b34fb8bed3d9d58bd296da29bc705d851fb0d2be612285aaee86d8093204297f",
+          "size_bytes": 5228
+        },
+        {
+          "git_object_id": "3b0c2550a52ce4d066de644b6e3ee359813b18e2",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-servicemonitors.yaml",
+          "sha256": "sha256:74a7490e3c500d5f0f98a408c7bbabe84e954abfd968a507c222252d94288460",
+          "size_bytes": 4882
+        },
+        {
+          "git_object_id": "13dc663f634d59dcf0a614d6b34bd2e225c1d17d",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-user-file-processing-hpa.yaml",
+          "sha256": "sha256:dde591817040c9ca7e6040b7a68808d62b1bc26bc4ccbc618f8a813c71854e53",
+          "size_bytes": 1404
+        },
+        {
+          "git_object_id": "6f631be26353a2b2372e210f4c202c09484548dc",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-user-file-processing-scaledobject.yaml",
+          "sha256": "sha256:460d62345bdf4ae958e6454c811d6e7498351a6bc4ba1a853573326f525adc50",
+          "size_bytes": 2273
+        },
+        {
+          "git_object_id": "1856e74db623f30eec4cfffb5f9f41641da360f8",
+          "path": "deployment/helm/charts/onyx/templates/celery-worker-user-file-processing.yaml",
+          "sha256": "sha256:0eaeaaa9cecdcd50632bb7e73d37bb00aaf04c725cbb58aa6a36aab54f62e96a",
+          "size_bytes": 5133
+        },
+        {
+          "git_object_id": "a556a0d951923593fb5679972a223abbcc792963",
+          "path": "deployment/helm/charts/onyx/templates/configmap.yaml",
+          "sha256": "sha256:55e95fe80c79f92a5854f5b4edb952cacb5d59589a7e61c3b55996895e622e35",
+          "size_bytes": 2062
+        },
+        {
+          "git_object_id": "d9cda2d3256a5e857445fd96746e8983e5b7c12f",
+          "path": "deployment/helm/charts/onyx/templates/craft-kubernetes-version-check.yaml",
+          "sha256": "sha256:2ae94d1386cf6888988c88077fcbc44e6bec9005859fc31e8dce5d6fffe1ec0d",
+          "size_bytes": 559
+        },
+        {
+          "git_object_id": "75aba096bf4160ce84b3b54c72238cebbf11f2b8",
+          "path": "deployment/helm/charts/onyx/templates/craft-validation.yaml",
+          "sha256": "sha256:6b4b10463f03887356bce68c4b327887a226252cfd7c11f9bc895264f1c29f27",
+          "size_bytes": 1055
+        },
+        {
+          "git_object_id": "de7905c1b1d5343017bd0a32bc06c40aae9a7fcb",
+          "path": "deployment/helm/charts/onyx/templates/discordbot.yaml",
+          "sha256": "sha256:77bdf2f6de3dc2e2f1d2b3b71b92cea8c7149361870939e4421848324c098fe0",
+          "size_bytes": 4361
+        },
+        {
+          "git_object_id": "695f15569da26571867c287e99c898dae91bc945",
+          "path": "deployment/helm/charts/onyx/templates/external-secret.yaml",
+          "sha256": "sha256:17e17e52994a66ae96c4a2ad632bc6d106e3596675b06c3ac072855fc246efde",
+          "size_bytes": 1235
+        },
+        {
+          "git_object_id": "2b38261b96be38bf9c251adc7dc5e7fd523cf99c",
+          "path": "deployment/helm/charts/onyx/templates/extra-manifests.yaml",
+          "sha256": "sha256:1195c5da47bc9de646ac1e10702b403f7c481a3a2750a826542ef75ecb5898bb",
+          "size_bytes": 139
+        },
+        {
+          "git_object_id": "ee7c75cb281ffa93fa84adbba37887eb372bd965",
+          "path": "deployment/helm/charts/onyx/templates/grafana-dashboards.yaml",
+          "sha256": "sha256:e641894a80e0175ade2b60576ca6e9951608adef4e42fe815ca4ece461441081",
+          "size_bytes": 1465
+        },
+        {
+          "git_object_id": "12bd10fc15be00fa08aeff576102c5c952cf26a2",
+          "path": "deployment/helm/charts/onyx/templates/indexing-model-deployment.yaml",
+          "sha256": "sha256:b031a665e7bc2bf9cfe960d48e94af1710ab4b690637a197e341c3754106d39d",
+          "size_bytes": 4135
+        },
+        {
+          "git_object_id": "d26bf4e922e7e2214ed045f2ba7c3cb26aef87bf",
+          "path": "deployment/helm/charts/onyx/templates/indexing-model-service.yaml",
+          "sha256": "sha256:ebcaa730ec7fa7971ebfb16ab19c383905d24dd9c834708555e7344d1256f166",
+          "size_bytes": 688
+        },
+        {
+          "git_object_id": "6a52d807b2d61f420563d142d087df792a0e0f0b",
+          "path": "deployment/helm/charts/onyx/templates/inference-model-deployment.yaml",
+          "sha256": "sha256:4458224a2814ab5fc5e29cef18de3a134377a70910fc012f243655de00883bfb",
+          "size_bytes": 3561
+        },
+        {
+          "git_object_id": "e03c926f78d793eb6b16776abd5206747849217d",
+          "path": "deployment/helm/charts/onyx/templates/inference-model-service.yaml",
+          "sha256": "sha256:228ff374ed3549454c7c37647ea11a2d75b642f46f40edb9af345a725d12bbc8",
+          "size_bytes": 500
+        },
+        {
+          "git_object_id": "406f72d4f1350a9a586c88d14651c7535fb8d8a4",
+          "path": "deployment/helm/charts/onyx/templates/ingress-api.yaml",
+          "sha256": "sha256:9ab2429e33a9bbaff55fa3702973b2fabe4cee4f7e04329823195fc4c073d344",
+          "size_bytes": 1267
+        },
+        {
+          "git_object_id": "831fb1a6e541a48982d96534417e0af1b7449b17",
+          "path": "deployment/helm/charts/onyx/templates/ingress-mcp-oauth-callback.yaml",
+          "sha256": "sha256:419521c2d4631bab5b008f7f6b1856ef31e8ce679149d1c79b48a6648bb3fcb4",
+          "size_bytes": 989
+        },
+        {
+          "git_object_id": "a1066dae7a5a97699a3415b527943f850f61ac1b",
+          "path": "deployment/helm/charts/onyx/templates/ingress-mcp.yaml",
+          "sha256": "sha256:3123e61de5df6985741cd3bbe51f91334d3f8d78f9a232e0dab7665701b9caec",
+          "size_bytes": 1082
+        },
+        {
+          "git_object_id": "eb154aeeddcf140de8d35f8a3b96c0c2c0c2fd73",
+          "path": "deployment/helm/charts/onyx/templates/ingress-webserver.yaml",
+          "sha256": "sha256:16c1b44e819b26d84ff897dba5c2a713e3c16c161c4272af65a7eaede68e75f2",
+          "size_bytes": 970
+        },
+        {
+          "git_object_id": "3f83dee5b4045d9d3788a3500809824356e43848",
+          "path": "deployment/helm/charts/onyx/templates/legacy-vespa-check.yaml",
+          "sha256": "sha256:70e596eb3910e93a6fdc43fa6f8e49a2f6e35cb2bf97ad613dae5f945e66b4ab",
+          "size_bytes": 2655
+        },
+        {
+          "git_object_id": "a543ff02072b1b1416da0cde709d61855b5c811f",
+          "path": "deployment/helm/charts/onyx/templates/lets-encrypt.yaml",
+          "sha256": "sha256:e2ae479090bad1983dd9efaeebafbb41b1aaba59898ec5b8866df0438b831a5d",
+          "size_bytes": 615
+        },
+        {
+          "git_object_id": "b1b659e559921b80ee9076d126889d0d8eb8d531",
+          "path": "deployment/helm/charts/onyx/templates/mcp-server-deployment.yaml",
+          "sha256": "sha256:f05c4cd03ab6250ae09ef6039bfc57b7bfacd6a2e9821e19a0829b81ca5fa726",
+          "size_bytes": 4949
+        },
+        {
+          "git_object_id": "0745d3f94aeb7721a12328e166ebaa8dde193fc7",
+          "path": "deployment/helm/charts/onyx/templates/mcp-server-service.yaml",
+          "sha256": "sha256:526329de38bc455498de81b67cf57c60322ac97e60071e43292d7c7d42e718a9",
+          "size_bytes": 778
+        },
+        {
+          "git_object_id": "d2e1348cd8e696657e162cd12b1adc5e7f022bf7",
+          "path": "deployment/helm/charts/onyx/templates/network-policy-sandbox-egress.yaml",
+          "sha256": "sha256:2c02f64413cd42287d21c1b086c8639462222c2aa59edda43e8a7d40544872b3",
+          "size_bytes": 2532
+        },
+        {
+          "git_object_id": "09042e120872acb532e3895cc9ab03a01fbe7a6f",
+          "path": "deployment/helm/charts/onyx/templates/network-policy-sandbox-push.yaml",
+          "sha256": "sha256:d8317caccda8afcbad6f91fc76e8972b5c580e016fc4788c272a427e0d22ebfb",
+          "size_bytes": 3461
+        },
+        {
+          "git_object_id": "21894275791f617fbb30ebfa6a29e9ec18167b5e",
+          "path": "deployment/helm/charts/onyx/templates/nginx-conf.yaml",
+          "sha256": "sha256:1ae6d873f80d525bc313c9b28730a24a485986ada5d609727249b4709242b984",
+          "size_bytes": 5628
+        },
+        {
+          "git_object_id": "af31513cc298518fb9d6e4933783350212b1b552",
+          "path": "deployment/helm/charts/onyx/templates/postgres-cluster.yaml",
+          "sha256": "sha256:3b8e8ebfa9622fed0f34f09021a6b7cdb14be722f18bc82e7a3486ec98b625a8",
+          "size_bytes": 1365
+        },
+        {
+          "git_object_id": "faabc4883be0879535156cb0a83b525b93002bb6",
+          "path": "deployment/helm/charts/onyx/templates/pre-delete-cleanup.yaml",
+          "sha256": "sha256:56c54f014f5b98fb178a6691a4151e80bce1a821eff5ca7d424ee3053ef47279",
+          "size_bytes": 3137
+        },
+        {
+          "git_object_id": "17ce2e4f76b2abab1bbd52795c6827f35c4a6251",
+          "path": "deployment/helm/charts/onyx/templates/sandbox-namespace.yaml",
+          "sha256": "sha256:72d610e1ddea85e2b7f74e40bd95f0d3d031a261dbc6445bfbb674fd7b27ef36",
+          "size_bytes": 377
+        },
+        {
+          "git_object_id": "ba1a56fe9584ba7476e70f5fba0f69b6a86a0494",
+          "path": "deployment/helm/charts/onyx/templates/sandbox-podtemplate.yaml",
+          "sha256": "sha256:68aa4cf6dd274090b479cf19ecbe534601107064ae86a7d034184e23cce190f1",
+          "size_bytes": 8149
+        },
+        {
+          "git_object_id": "0bc9d467ea806b8ae6f676c152f2802582f3117d",
+          "path": "deployment/helm/charts/onyx/templates/sandbox-proxy/deployment.yaml",
+          "sha256": "sha256:d0b3b1c9e452822d1d092646b56267dba7856d55057673a4854814872cc9c7f7",
+          "size_bytes": 5770
+        },
+        {
+          "git_object_id": "f37c9e01565ab400bb979330fa44c106f928e525",
+          "path": "deployment/helm/charts/onyx/templates/sandbox-proxy/networkpolicy-egress.yaml",
+          "sha256": "sha256:20b5f4509d7d846795856a8e1c7374044012357b583ac1acddde933dd836f39a",
+          "size_bytes": 2365
+        },
+        {
+          "git_object_id": "99cbb65aeb891ac3e2c420e0db18a3757ad626ee",
+          "path": "deployment/helm/charts/onyx/templates/sandbox-proxy/networkpolicy.yaml",
+          "sha256": "sha256:269a05947c7a9a9b9aa0cf3ce8c3aa84cb66e0db5790bd118e842d4f451cb143",
+          "size_bytes": 994
+        },
+        {
+          "git_object_id": "45ffc555e28b060f8ac86ee0813556b99e341581",
+          "path": "deployment/helm/charts/onyx/templates/sandbox-proxy/pdb.yaml",
+          "sha256": "sha256:fb88ca53eee9bbe12873dcc87f2c37127352e25ff5bece1bab4e6b806451cf57",
+          "size_bytes": 522
+        },
+        {
+          "git_object_id": "2868f7e4948dc73865cdaad52d08433afbe23337",
+          "path": "deployment/helm/charts/onyx/templates/sandbox-proxy/rbac.yaml",
+          "sha256": "sha256:0db34f2d109bd85543a005dc4098ed37e784aa80f924de7516e0e79e7e9286a7",
+          "size_bytes": 3165
+        },
+        {
+          "git_object_id": "24c5b07a3892444d36846e1ea993a0111d27d58d",
+          "path": "deployment/helm/charts/onyx/templates/sandbox-proxy/service.yaml",
+          "sha256": "sha256:15eebb9447d370e62f6ce4794c6e71e306980237105fe73f688106e8d76df106",
+          "size_bytes": 521
+        },
+        {
+          "git_object_id": "17909dc29960d4a324602303c763b78eb20c70de",
+          "path": "deployment/helm/charts/onyx/templates/sandbox-rbac.yaml",
+          "sha256": "sha256:44dfb40f5775abf6182ef0a317519643b6ed04fd397a33b469fc587c1397fc83",
+          "size_bytes": 3414
+        },
+        {
+          "git_object_id": "4e1c8f4c1c024a0bd50bf6bc75f2c854f18c8123",
+          "path": "deployment/helm/charts/onyx/templates/serviceaccount.yaml",
+          "sha256": "sha256:3af1c4beaca58f342560324fd712180bed15f4a6b18ced73ac23679e7c9e29b1",
+          "size_bytes": 383
+        },
+        {
+          "git_object_id": "8e3acedb9b9773bc63d4eabc7aec99307f052667",
+          "path": "deployment/helm/charts/onyx/templates/slackbot.yaml",
+          "sha256": "sha256:5130fd81e70aa0a32b3999bdd7cad36969dfb4418473d26c70405243d7246d52",
+          "size_bytes": 3065
+        },
+        {
+          "git_object_id": "86cfadb21d4c0a6bad615c15a51fd486ffe52f57",
+          "path": "deployment/helm/charts/onyx/templates/tests/test-connection.yaml",
+          "sha256": "sha256:1dbbf1404110c6f053bb326d645a023cc4c31276f4e9ff66569b8e1b4caab6cf",
+          "size_bytes": 1174
+        },
+        {
+          "git_object_id": "cf3a6c0dc1addcd21b63e7be23d96704f92f1cff",
+          "path": "deployment/helm/charts/onyx/templates/tooling-pginto-configmap.yaml",
+          "sha256": "sha256:c8d06112700578ddf1bd2ebc27c470173b457ea035baae8db5f332a84557e904",
+          "size_bytes": 2713
+        },
+        {
+          "git_object_id": "df70e9555e75bb7a5632bc64dc19c789d7cba200",
+          "path": "deployment/helm/charts/onyx/templates/webserver-deployment.yaml",
+          "sha256": "sha256:d06ed65702efc9e005e76209465cb7e64498f914c0ddf5d0807c1fdaacfd6cc6",
+          "size_bytes": 3496
+        },
+        {
+          "git_object_id": "c0b8160626145b48b786cd046b9ed17b80c10db7",
+          "path": "deployment/helm/charts/onyx/templates/webserver-hpa.yaml",
+          "sha256": "sha256:6a937bfb0a508d3fcfee631c142c237b2a66340b59767469e1b07172f9526bc5",
+          "size_bytes": 1129
+        },
+        {
+          "git_object_id": "dd6a36b1c037d51c39bacadeaa4327b3bbd01d08",
+          "path": "deployment/helm/charts/onyx/templates/webserver-scaledobject.yaml",
+          "sha256": "sha256:7f636941f5bbb6557f098b0adb21b3ac6076eec9a8965f8c08eb4b103d5a5b0a",
+          "size_bytes": 1748
+        },
+        {
+          "git_object_id": "fce528cbabb7e6ea143ebcc36ad41626be3467d2",
+          "path": "deployment/helm/charts/onyx/templates/webserver-service.yaml",
+          "sha256": "sha256:bb8e6755f2fce6de94a85e21a0fbda9729fbd0fac6953b8fd3455ab4dff04eb2",
+          "size_bytes": 685
+        },
+        {
+          "git_object_id": "8a86e8a2f3598e0e4ad13ef0918ac561bf14c642",
+          "path": "deployment/helm/charts/onyx/templates_disabled/background-deployment.yaml",
+          "sha256": "sha256:1ad41c77e2428cc3d720a47bd9a2769b9700010520fdf8505f1eaa2751d27b7b",
+          "size_bytes": 1877
+        },
+        {
+          "git_object_id": "33e1a48cc4ff9801bcf37e4816ba61303c0efe0a",
+          "path": "deployment/helm/charts/onyx/templates_disabled/background-hpa.yaml",
+          "sha256": "sha256:578e12248b51080da8e8d786f3002f3e48485528cbd6b7f96dd5a90950973ca3",
+          "size_bytes": 1070
+        },
+        {
+          "git_object_id": "8159f167551a442fabae68e769d430a80e9acd7c",
+          "path": "deployment/helm/charts/onyx/templates_disabled/onyx-secret.yaml",
+          "sha256": "sha256:3b9c20866c34cc02eaffe49b905decfa26051b91b7703c015cae91eff20164af",
+          "size_bytes": 260
+        },
+        {
+          "git_object_id": "c9ab0ccc37b484721eef89b8dda286f12c776735",
+          "path": "deployment/helm/charts/onyx/values-ci.yaml",
+          "sha256": "sha256:a224f450d209fbe2a29b5e6b804af53cbbfe788e862686819fa871f61646857f",
+          "size_bytes": 5014
+        },
+        {
+          "git_object_id": "b32277e4f54586da64fb4f8a33673c4ca6f5a2e3",
+          "path": "deployment/helm/charts/onyx/values-lite.yaml",
+          "sha256": "sha256:ae4a6b341de324ff7c26e0aa92bcfe372dd817939b382daee9d5004273a0cc2e",
+          "size_bytes": 999
+        },
+        {
+          "git_object_id": "b7e44bbaf3e946d54439d62ccfd4566302471c69",
+          "path": "deployment/helm/charts/onyx/values-localdev.yaml",
+          "sha256": "sha256:6212bce050f4ad48d0dd3c8f2a6f31b51e532ffdb97ee3cb331e7a84603777b6",
+          "size_bytes": 4323
+        },
+        {
+          "git_object_id": "76ed92ec18839ada487e7ff5a6533aa17c17a3b5",
+          "path": "deployment/helm/charts/onyx/values.yaml",
+          "sha256": "sha256:0895663b95d2dc84401284dfd4f7d0f6021726e760ff355ba8dc4c3a09a96ebb",
+          "size_bytes": 57040
+        },
+        {
+          "git_object_id": "e77e59ea429791bbe65c689da1e8c745a2ba5f18",
+          "path": "deployment/helm/dev/craft-down.sh",
+          "sha256": "sha256:73d80478f10f4d25544aa146a615c44e28353d088e7e3d9bca6327b51054d8c5",
+          "size_bytes": 2394
+        },
+        {
+          "git_object_id": "b02f285a03cf80ea419d3de324d545639ac7cbe5",
+          "path": "deployment/helm/dev/craft-up.sh",
+          "sha256": "sha256:2cc37ce5ff065d9ed598e3f0735a08ae8a69cca808d07f8e1e73bfe28593a166",
+          "size_bytes": 3952
+        },
+        {
+          "git_object_id": "3dba535080c55a28b40f74d53f829b52fecf695a",
+          "path": "deployment/helm/dev/k8s-down.sh",
+          "sha256": "sha256:10964f5821de2b3a0c5a22e685cf56a02ab4c238101245c6e638035856236214",
+          "size_bytes": 2191
+        },
+        {
+          "git_object_id": "79ac6d5868d202db577e424be89557a127d0da69",
+          "path": "deployment/helm/dev/k8s-up.sh",
+          "sha256": "sha256:cdd935155c3ea8e06cce6b89ea8aa5525716f106174495bec69ffc58ac0544a5",
+          "size_bytes": 9291
+        },
+        {
+          "git_object_id": "7683b3a586ecd46c98c6a566df492ce15eb2667e",
+          "path": "deployment/helm/dev/refresh-images.sh",
+          "sha256": "sha256:f3cce07f9f3d3d3bc49346d2e62e13f10d18e51aa4b160dcbbfc06b86988d340",
+          "size_bytes": 2887
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-deployment-admission",
+        "dsse-envelope",
+        "pre-deadline-quiesce"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-deployment-admission",
+          "satisfied": false,
+          "terms": [
+            "signed deployment admission",
+            "deploymentadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "pre-deadline-quiesce",
+          "satisfied": false,
+          "terms": [
+            "quiesce"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 25,
+      "blob_set_digest": "sha256:92f73758473c77eb019e08b3c4e218584a2a9c01d752a4dba14ee5ded61e8d9a",
+      "candidate_group": "deployment/terraform",
+      "candidate_id": "candidate-247d9bf9f545de70d00af878876d62c4a19ea317fe82b281e94e3d95b5488328",
+      "candidate_manifest_digest": "sha256:17da749a3985e8afee4dd98100eac54994000166124c8d1490d55baad768c343",
+      "capability_id": "deployment-admission",
+      "coverage": {
+        "expected": 25,
+        "scanned": 25,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "6cc11b59d3dd8369361114b00823aaedd48da142",
+          "path": "deployment/terraform/modules/aws/README.md",
+          "sha256": "sha256:b9259d9b0be33d473f9876c602865708d6bf107e598fa48abd422aaf86ff238d",
+          "size_bytes": 7804
+        },
+        {
+          "git_object_id": "a7905bad0257ba49d39637acb9fd390f51763dff",
+          "path": "deployment/terraform/modules/aws/eks/main.tf",
+          "sha256": "sha256:efd2a69e22b1f411760e1ea9d307ff47d4ec98e464291ab7ded6bb53597adcea",
+          "size_bytes": 8963
+        },
+        {
+          "git_object_id": "0f61f480917d86bf5aab171b3991cb3b22a15703",
+          "path": "deployment/terraform/modules/aws/eks/outputs.tf",
+          "sha256": "sha256:fecd71bec0e538f432d0662fbbccb7519f50193c4065d6a2f002f6cd733aaffb",
+          "size_bytes": 1401
+        },
+        {
+          "git_object_id": "12d953a4199f9f3930c438e91dc23a881a69c9e9",
+          "path": "deployment/terraform/modules/aws/eks/variables.tf",
+          "sha256": "sha256:eb22cfe9030a05567ef658a73359d29ff809966bc8b2b9dfb2db23b8a7424c51",
+          "size_bytes": 8411
+        },
+        {
+          "git_object_id": "94d1a368beef5e9c81199deac12b612e314b1390",
+          "path": "deployment/terraform/modules/aws/onyx/main.tf",
+          "sha256": "sha256:6241d30f09374ff4ad7ff3cab05e0f89b795c07f8ac545d55bb5ec0b4f50a453",
+          "size_bytes": 6108
+        },
+        {
+          "git_object_id": "6e1523b867cd69c6039b77adc64b22f7174d8aa2",
+          "path": "deployment/terraform/modules/aws/onyx/outputs.tf",
+          "sha256": "sha256:834ee8364caca180333b33c3ef3c651f25cfba4b94357dbff6bbd79e47beeaee",
+          "size_bytes": 1728
+        },
+        {
+          "git_object_id": "bf3ac22dde05f2ce52e339c284ba807d15947835",
+          "path": "deployment/terraform/modules/aws/onyx/variables.tf",
+          "sha256": "sha256:930cc3393ef0fa2d724a513c0d7f5a6ffd8bf77dbf5141f59a9a547f59311c73",
+          "size_bytes": 10358
+        },
+        {
+          "git_object_id": "11990960aee630d27fed8ea5f1fd9217625e6920",
+          "path": "deployment/terraform/modules/aws/onyx/versions.tf",
+          "sha256": "sha256:a8cd7cf9de143f2b85d857a50994eb9e6230291fce80abd18a68e5c61e9eebc9",
+          "size_bytes": 320
+        },
+        {
+          "git_object_id": "8d89a030b07d302a8d5d0e956f5fa3b74dad3b68",
+          "path": "deployment/terraform/modules/aws/opensearch/main.tf",
+          "sha256": "sha256:dc7d5d971becbb7cb6a315b2db678b60e1972ad4f135e8e73fa3b11e3b9e0a3f",
+          "size_bytes": 6965
+        },
+        {
+          "git_object_id": "bc01b35e7b4a9eab58535cf388138e56cf7b8d38",
+          "path": "deployment/terraform/modules/aws/opensearch/outputs.tf",
+          "sha256": "sha256:36bd93a954c147ef6c8e5f8fc35fc0697b80b80416a21a4572c645c2cafd0e07",
+          "size_bytes": 880
+        },
+        {
+          "git_object_id": "b0d488a621796b1b00deb752d9451ac4cb42905d",
+          "path": "deployment/terraform/modules/aws/opensearch/variables.tf",
+          "sha256": "sha256:1462dda0f3463c104532413dbd1c7b9a7d65df9a5e0457a3fd67db9bde14cdda",
+          "size_bytes": 5855
+        },
+        {
+          "git_object_id": "1653a1d14d73d0f87f6ba4eb69d4cdf1a9b83736",
+          "path": "deployment/terraform/modules/aws/postgres/main.tf",
+          "sha256": "sha256:fed0f044a432720a0bc8e6a6cb224969594fc07ea4c0dd7a474e543d1f2f7f2e",
+          "size_bytes": 3632
+        },
+        {
+          "git_object_id": "d446dd643be3488686a915ac2b1c53f3805bf613",
+          "path": "deployment/terraform/modules/aws/postgres/outputs.tf",
+          "sha256": "sha256:ec3819bfb024d7c761ba80f4f47f5344b2065b12902948f2e59d3f21d4e184eb",
+          "size_bytes": 572
+        },
+        {
+          "git_object_id": "36beef40aaaa492afd8223972d5e7399cf6dca2e",
+          "path": "deployment/terraform/modules/aws/postgres/variables.tf",
+          "sha256": "sha256:d45ea980b6d9e54e5550973064ab3753266646c19847cfe11b078f9da4f27620",
+          "size_bytes": 5472
+        },
+        {
+          "git_object_id": "04b0ec5e9b49230d0f72d1a3ab5fab42da0f8834",
+          "path": "deployment/terraform/modules/aws/redis/main.tf",
+          "sha256": "sha256:69bc6c9576d9d6fa4d31f1edfb3002ef9832b515188e7db589146dadf8b2f27f",
+          "size_bytes": 1531
+        },
+        {
+          "git_object_id": "3f72dab1fccc5e16cfe6b145d97dbe5e1433e182",
+          "path": "deployment/terraform/modules/aws/redis/outputs.tf",
+          "sha256": "sha256:268771046480d68e50b30cfcd9b3ed4043398bd8e23aa9c85dd2efa639757d89",
+          "size_bytes": 429
+        },
+        {
+          "git_object_id": "246c60fda911a4254d6524d81168d94df3deb23a",
+          "path": "deployment/terraform/modules/aws/redis/variables.tf",
+          "sha256": "sha256:607b4e11deae232ec3308dce158be735e66b262284e3793f3139258c89e1ae28",
+          "size_bytes": 1042
+        },
+        {
+          "git_object_id": "13983da47a87e5a85ed3eedb64370fa261648aef",
+          "path": "deployment/terraform/modules/aws/s3/main.tf",
+          "sha256": "sha256:cb31d42cec6ded7dc7f49cd1ff997729c8c5e006ae442ea044863f94f023c905",
+          "size_bytes": 767
+        },
+        {
+          "git_object_id": "604f13dc100372752a679746a7ed617ba9aa2107",
+          "path": "deployment/terraform/modules/aws/s3/variables.tf",
+          "sha256": "sha256:13fb2360f512ef6f42082d11be2d9023a6ca15e72665b20eae6712a1636864ab",
+          "size_bytes": 346
+        },
+        {
+          "git_object_id": "d957ff9c1649cb0a75711ca8b6a70149cd640315",
+          "path": "deployment/terraform/modules/aws/vpc/main.tf",
+          "sha256": "sha256:6abe6c0343ead863e14ef6d2215dcfb616412fbc0aae8dfcc21f53b5c953cd9f",
+          "size_bytes": 1206
+        },
+        {
+          "git_object_id": "f4c633f1b5a8bebc14d39a08895db51c622c2b72",
+          "path": "deployment/terraform/modules/aws/vpc/outputs.tf",
+          "sha256": "sha256:9d39157f524ae9bfecba2607c6279fbdf859e7d8e7abbeca2503194d09cd64b8",
+          "size_bytes": 390
+        },
+        {
+          "git_object_id": "c95c6c8c57e3dc1138b4348adfe75db4d18f6a14",
+          "path": "deployment/terraform/modules/aws/vpc/variables.tf",
+          "sha256": "sha256:ab7a3b948a9df84dbbc2a81a3d94349ba5789d1f9c3a120dbc04a75b84f677bd",
+          "size_bytes": 746
+        },
+        {
+          "git_object_id": "5fe24f54543a5b99580525e9f6808e1a3e915ee7",
+          "path": "deployment/terraform/modules/aws/waf/main.tf",
+          "sha256": "sha256:ead41660af8f94b24b6df61d3896d90d90e5fbcaf921d77e3802cd6c8e103543",
+          "size_bytes": 5690
+        },
+        {
+          "git_object_id": "7d04d6f88a4d8c71c90fa0b0cadd49a0504fbc19",
+          "path": "deployment/terraform/modules/aws/waf/outputs.tf",
+          "sha256": "sha256:2c3d196c790d41a31b655eee337d89d00c6ead8425301cd88b2804e25ba56efe",
+          "size_bytes": 508
+        },
+        {
+          "git_object_id": "ae984e5a232c0f811a14a238db013bba7c829ea0",
+          "path": "deployment/terraform/modules/aws/waf/variables.tf",
+          "sha256": "sha256:1112ac04051f4a5b3c6463a9bb357ac10ac0e86e84432f09200ac8c2854a7ee0",
+          "size_bytes": 1368
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-deployment-admission",
+        "dsse-envelope",
+        "pre-deadline-quiesce"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-deployment-admission",
+          "satisfied": false,
+          "terms": [
+            "signed deployment admission",
+            "deploymentadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "pre-deadline-quiesce",
+          "satisfied": false,
+          "terms": [
+            "quiesce"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 2,
+      "blob_set_digest": "sha256:644bf8c642257b392ef6f8619d279950a6c144c2e3815aa49b69c1e0843765b5",
+      "candidate_group": "loadtest/k8s",
+      "candidate_id": "candidate-f98f01607f3c0fd7e4a884f6423336a783a717d23d973379a7e65529772ad1bb",
+      "candidate_manifest_digest": "sha256:6e1018b10a3f1bb06dcd69c649a2a2fad3d3d7eba84c03e54c57a5fe255fa968",
+      "capability_id": "deployment-admission",
+      "coverage": {
+        "expected": 2,
+        "scanned": 2,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "44f8363d370ff3f82332ce6cd438cfc14dc52fb3",
+          "path": "loadtest/k8s/locust.yaml",
+          "sha256": "sha256:2ed76f3e4707800e93feeef71a8e009f08ee8ea666dce68eca259efa861a5bd1",
+          "size_bytes": 5111
+        },
+        {
+          "git_object_id": "062557988cc2648f06cdbaf691204c14b195957f",
+          "path": "loadtest/k8s/mock-llm.yaml",
+          "sha256": "sha256:50a493008d976272ad9ae994fdcb259666c3f7e5e5bbef6483d9e97cfafff672",
+          "size_bytes": 1751
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-deployment-admission",
+        "dsse-envelope",
+        "pre-deadline-quiesce"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-deployment-admission",
+          "satisfied": false,
+          "terms": [
+            "signed deployment admission",
+            "deploymentadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "pre-deadline-quiesce",
+          "satisfied": false,
+          "terms": [
+            "quiesce"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 38,
+      "blob_set_digest": "sha256:830c2410caf0c6d25bb63634dae8c627de8c869e467c915328748e18be3a3727",
+      "candidate_group": ".github/workflows",
+      "candidate_id": "candidate-0c389ead1492894165900830745365a545e1de6d3b28c3f2f9baef44e56fd6b5",
+      "candidate_manifest_digest": "sha256:04989a4bda3c2b712aaa71bf475ee9da1bc1e36dcebe01e123681bf2c441ca9d",
+      "capability_id": "distribution-admission",
+      "coverage": {
+        "expected": 38,
+        "scanned": 38,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "30e159d687d9bcc3968b15f97f8f4cc6d2685034",
+          "path": ".github/workflows/audit.yml",
+          "sha256": "sha256:f847c33339d630bbdc269094e39925dc72cc24288a841560b13d597d653229e7",
+          "size_bytes": 2540
+        },
+        {
+          "git_object_id": "73d22ac3e77ea5a1aa07faaf1f4f1280e015f62c",
+          "path": ".github/workflows/deployment.yml",
+          "sha256": "sha256:f87e520154b179e259dc6cc385763c49b267f61c98532db6364015e87243088a",
+          "size_bytes": 82326
+        },
+        {
+          "git_object_id": "15b10a4a6a06b109e46d498763ee52d0acb5be7e",
+          "path": ".github/workflows/docker-tag-beta.yml",
+          "sha256": "sha256:2e80ba953a38733e5ed6e61211bd29becc21d1f221dcc4d8770b07789a906df8",
+          "size_bytes": 2063
+        },
+        {
+          "git_object_id": "75d0e486375db8ad1e95ad83b1f7ad72a8298af9",
+          "path": ".github/workflows/docker-tag-latest.yml",
+          "sha256": "sha256:e1a4a42fa9b34b870b68587e69fa985a16c3aa738b191227755cc1f67f10758a",
+          "size_bytes": 2070
+        },
+        {
+          "git_object_id": "98831d3272a249723d68c01c108f2cb7971e30bf",
+          "path": ".github/workflows/helm-chart-releases.yml",
+          "sha256": "sha256:443cae16b3eecf6ceca2a83ab616eda308ff54baa3ad04779915840b557f4512",
+          "size_bytes": 2126
+        },
+        {
+          "git_object_id": "c1712bd54f0a5182c403551b774a23c6e2849124",
+          "path": ".github/workflows/merge-group.yml",
+          "sha256": "sha256:6c8e1cf994df77203005fc8b79265b4115f6a35613511f4d1f959be87ed34d35",
+          "size_bytes": 1249
+        },
+        {
+          "git_object_id": "07963db25dd91296993aa8b2694b82c15a00f312",
+          "path": ".github/workflows/nightly-close-stale-issues.yml",
+          "sha256": "sha256:5299381b94f1189c564d4ea6c53cf94e6811cb8d60a881cac64bb989317765e1",
+          "size_bytes": 1092
+        },
+        {
+          "git_object_id": "7b24f81f3c3dc592a7a4087e71ab27de00240311",
+          "path": ".github/workflows/nightly-external-dependency-unit-tests.yml",
+          "sha256": "sha256:c22743af4243d41ec8c5e88b456c5bb0a97c21ed3abfd87848dff7bdee720d91",
+          "size_bytes": 2811
+        },
+        {
+          "git_object_id": "041a3bd0879399865044e56fb9fe4ee82205d2f9",
+          "path": ".github/workflows/nightly-llm-provider-chat.yml",
+          "sha256": "sha256:38af91222824649801a0f5683f319e9941f4e8fed4e8a6e0a330e91e8b57ce81",
+          "size_bytes": 2918
+        },
+        {
+          "git_object_id": "ef9b5dab07a5361c4085a94bcd040857d22d3960",
+          "path": ".github/workflows/post-merge-beta-cherry-pick.yml",
+          "sha256": "sha256:5700e8b36f56c332bc5e3e96f789f9016b970413406ea1cb66d918e6d1fe1136",
+          "size_bytes": 16099
+        },
+        {
+          "git_object_id": "0f86409c0a79e35b348dd82eb7b94dd81d6fe78b",
+          "path": ".github/workflows/pr-craft-compose-integration.yml",
+          "sha256": "sha256:0836fd0bbb348991fa350f7399e1cfc39b7893d94e416cec526b9b52d35d6d88",
+          "size_bytes": 17714
+        },
+        {
+          "git_object_id": "785253e450b3650e144939abc1fe4338cbb54a24",
+          "path": ".github/workflows/pr-craft-compose-tests.yml",
+          "sha256": "sha256:bf5860696790767a0795907cc3591494a43844d9a1d618aa995cd83783e3502c",
+          "size_bytes": 5374
+        },
+        {
+          "git_object_id": "f874d220dcc4108d73418541261ffcfd9f0c2bd7",
+          "path": ".github/workflows/pr-craft-k8s-tests.yml",
+          "sha256": "sha256:6b76b6f8a0a2ec96fd62bd55bf5853795944fdb0a03764455cf29ca25c7980b6",
+          "size_bytes": 32602
+        },
+        {
+          "git_object_id": "ca4721d58845b9a2c48ba09dc1658571c6c44d3b",
+          "path": ".github/workflows/pr-database-tests.yml",
+          "sha256": "sha256:703a99d6152caea8fdad3ad4f60a777a71764652f2f156957a10c283dac38260",
+          "size_bytes": 3125
+        },
+        {
+          "git_object_id": "353cc7b075df06067f6cf757c3dae8c4844c16dc",
+          "path": ".github/workflows/pr-desktop-build.yml",
+          "sha256": "sha256:11c9888f716719888dc126334b2cda40b95a8baaf59ebd30c9a3f5c6e05b7a9c",
+          "size_bytes": 3416
+        },
+        {
+          "git_object_id": "5e9051fcec9f51efaeef71d515ffa03241a06d33",
+          "path": ".github/workflows/pr-external-dependency-unit-tests.yml",
+          "sha256": "sha256:951e0ac9fb4fbd9168cc4e8fbe1ba9216119b245573383e44217c031aeea864d",
+          "size_bytes": 6272
+        },
+        {
+          "git_object_id": "cbb60d1d5f5ed8f9313a2c8013894b49157cb28b",
+          "path": ".github/workflows/pr-golang-tests.yml",
+          "sha256": "sha256:ae7cf111278968de37f55f5fe5e0b55fc1ec7f7070731d542d111beb9089d31b",
+          "size_bytes": 1656
+        },
+        {
+          "git_object_id": "735ec89802ccb100930a0e1d6275c9e19d1dc4f9",
+          "path": ".github/workflows/pr-helm-chart-testing.yml",
+          "sha256": "sha256:87a0633aa12ab01d820daf7c40636071fbadd724b960d735f4382066ad4b38a5",
+          "size_bytes": 11583
+        },
+        {
+          "git_object_id": "1671d133420b503605cd130d72d6c39eceb61051",
+          "path": ".github/workflows/pr-integration-tests.yml",
+          "sha256": "sha256:0e7acb04d0f3a53a582da869dfb368456b09241da073b62d6d9c112d1c286faa",
+          "size_bytes": 31619
+        },
+        {
+          "git_object_id": "cdafcf47399b2df6297c7afb70ba47c60f20abf0",
+          "path": ".github/workflows/pr-jest-tests.yml",
+          "sha256": "sha256:3f192bb1cf4c5d231e254b087d0f549fd311a92c258ad41ce025993610a75998",
+          "size_bytes": 1378
+        },
+        {
+          "git_object_id": "86b6b6c7baba6e85765522a878c9d5be688fa369",
+          "path": ".github/workflows/pr-labeler.yml",
+          "sha256": "sha256:fcf864782fbc5ca2558a3b68d19aec5ff7cdef837c21d5fc6e9c2b1d81341de9",
+          "size_bytes": 1328
+        },
+        {
+          "git_object_id": "8d7f408818370aa6806539930666757a2d18558d",
+          "path": ".github/workflows/pr-linear-check.yml",
+          "sha256": "sha256:894dccce1af5fb803b66b4e583520436f4b27e07ec87c11061154ae89119fb4d",
+          "size_bytes": 1627
+        },
+        {
+          "git_object_id": "374d44ace7b510d26eb153f0b722484c2006d703",
+          "path": ".github/workflows/pr-playwright-tests.yml",
+          "sha256": "sha256:39ad09059519052aa3083a1e9455471e93b5976be9c481335cefa3051ecb9deb",
+          "size_bytes": 47831
+        },
+        {
+          "git_object_id": "42bddeccc26c5e1678dcf41358d896a330d54b43",
+          "path": ".github/workflows/pr-python-checks.yml",
+          "sha256": "sha256:242d8dd23e4787cfe445b047655d9fa622a0b47172afad0189dfc5c5324b5e8b",
+          "size_bytes": 2503
+        },
+        {
+          "git_object_id": "4fb2111f408f9112a3f08ee1db5ce6f23e51d363",
+          "path": ".github/workflows/pr-python-connector-tests.yml",
+          "sha256": "sha256:ffc5ca1a15896a3cff8cae05b49e8664913e231c3d59453ac2d786b42134e7f0",
+          "size_bytes": 12420
+        },
+        {
+          "git_object_id": "6c5fc9c22b3dde73689b259bed761b78cbe26fa3",
+          "path": ".github/workflows/pr-python-model-tests.yml",
+          "sha256": "sha256:091f445081853633f87983dee40c1ece22cd147959b092fb74114781d7370c78",
+          "size_bytes": 4635
+        },
+        {
+          "git_object_id": "097614212d4b1ecee5f10de42c8807402ec66f89",
+          "path": ".github/workflows/pr-python-tests.yml",
+          "sha256": "sha256:99093ba192fb1282960067ec73cfc262866175f5fca0b98b72d905e4e31fffb9",
+          "size_bytes": 2681
+        },
+        {
+          "git_object_id": "9daa06d6da27068d40b95bbe48c36cde928d3b54",
+          "path": ".github/workflows/pr-quality-checks.yml",
+          "sha256": "sha256:267d4e9a765e7e7d893612717ef67b4401590c2268e1d66d1b30cd36c4f1ea78",
+          "size_bytes": 1979
+        },
+        {
+          "git_object_id": "21bf0fbb748fcd28068db4cab83dc7ba12dead65",
+          "path": ".github/workflows/preview.yml",
+          "sha256": "sha256:4e312bab0918748a699e4cb54f2a0cf2008c991eb77819c54f8ffc3119e7efa6",
+          "size_bytes": 3522
+        },
+        {
+          "git_object_id": "a38c8b611431e704fe36683f3afe91c26b3485e3",
+          "path": ".github/workflows/release-cli.yml",
+          "sha256": "sha256:b806960832eea3686d9e1371bd59ada0d740e74c9f3fcfc3ca44b6a400958600",
+          "size_bytes": 11239
+        },
+        {
+          "git_object_id": "4fa982dead52dac529a8621780d010a028181f1b",
+          "path": ".github/workflows/release-devcontainer.yml",
+          "sha256": "sha256:71190f98089b0e408c152e20cc6053c5ad1c73064319e04eb937fb81e26fca29",
+          "size_bytes": 6075
+        },
+        {
+          "git_object_id": "989b3d09f727d097715f0beef05360e3fbf1c70a",
+          "path": ".github/workflows/release-devtools.yml",
+          "sha256": "sha256:913f167f4d86db73cc2e3d801b3742039695fd5c19ba63a5d9b075f1984071b2",
+          "size_bytes": 1220
+        },
+        {
+          "git_object_id": "03f9f7a446b39132405cff267edc510717a380b7",
+          "path": ".github/workflows/release-opal.yml",
+          "sha256": "sha256:609484724a2cfdedcdde9c4f42443a3d02e8b6522aa07e94f157656c47d94114",
+          "size_bytes": 2306
+        },
+        {
+          "git_object_id": "54aebf1c614549d51cef2d33aade80a6e6fb93ef",
+          "path": ".github/workflows/reusable-nightly-llm-provider-chat.yml",
+          "sha256": "sha256:b056090128ee62ebab9c410630a4ab7efa7f5ce3ed61fe3f09d13f178df9640f",
+          "size_bytes": 11819
+        },
+        {
+          "git_object_id": "921eb020e198b1867df19e29ee172c0b97f1f416",
+          "path": ".github/workflows/storybook-deploy.yml",
+          "sha256": "sha256:1826a6ef16895d9ef0bdc33c9d3e2631222f2f9924bab81e1525f45d6109d9c2",
+          "size_bytes": 2133
+        },
+        {
+          "git_object_id": "b1f323e0f8a45dc2c924ec7df77d014714f8dcf6",
+          "path": ".github/workflows/sync_foss.yml",
+          "sha256": "sha256:7aee2e169212fb8bf044a404b9278cf1abb02f11070bf43623a5a51ab0788ba9",
+          "size_bytes": 1425
+        },
+        {
+          "git_object_id": "f6cbc102b43b099c0b480ced6c8ce17f05f27ad3",
+          "path": ".github/workflows/tag-nightly.yml",
+          "sha256": "sha256:df05fea2ab3fcf3d864bb8f2df570dd373871a2cb10f533cc776cd49d5440c4c",
+          "size_bytes": 2309
+        },
+        {
+          "git_object_id": "19f7a431cf52c89d2d674335b8f68aed368c7980",
+          "path": ".github/workflows/zizmor.yml",
+          "sha256": "sha256:31139948720c26e1056a46d4e44208b3fccc317a56fd283d17f32e3c75b4cf4f",
+          "size_bytes": 1350
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-distribution-admission",
+        "dsse-envelope",
+        "active-transfer-abort"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-distribution-admission",
+          "satisfied": false,
+          "terms": [
+            "signed distribution admission",
+            "distributionadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "active-transfer-abort",
+          "satisfied": false,
+          "terms": [
+            "active-transfer abort",
+            "abort transfer"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 167,
+      "blob_set_digest": "sha256:6bdd1210da2370a1fd93b72027c30ccb883513a4668d5347b2cd9d931fe9766c",
+      "candidate_group": "backend/onyx/connectors",
+      "candidate_id": "candidate-4aa5cb7c73ed8551121b03a2472c306d1f5fb269d5c144672d1e8598ef77e5bb",
+      "candidate_manifest_digest": "sha256:6799a93538f644fc54b08ae3006afdcd42b9cb8954ea49ef071e19c3b0edca14",
+      "capability_id": "distribution-admission",
+      "coverage": {
+        "expected": 167,
+        "scanned": 167,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "e09b8071b4b4cacaef2a75343f323b2b0d9821ec",
+          "path": "backend/onyx/connectors/README.md",
+          "sha256": "sha256:78826b7d74c7e26ab2cf059464afe5146ea45fd8820072a0e3a84f52cc28b80b",
+          "size_bytes": 5759
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "ce7a219914ddbda54c1cba4457a64f978108fa55",
+          "path": "backend/onyx/connectors/airtable/airtable_connector.py",
+          "sha256": "sha256:8cacc6f1565004c09e18957dc9cfc92064d9c3ff5cedb6f938786c59cbd5f1ab",
+          "size_bytes": 24301
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/asana/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "bf549eeaaca68cd1677d11689749ed9fdcf12e4c",
+          "path": "backend/onyx/connectors/asana/asana_api.py",
+          "sha256": "sha256:94ec8a260987918188d550a2c28f6dae04e3fa37b4f37b289f43a137936694b7",
+          "size_bytes": 9933
+        },
+        {
+          "git_object_id": "94cb0e1a49fd1cbb25de9438260e660b6f2cf49f",
+          "path": "backend/onyx/connectors/asana/connector.py",
+          "sha256": "sha256:503f5652c6cf9394172e0afb4e1042d9c7ef95ba963ea08e49cefc3d5b710945",
+          "size_bytes": 4846
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/axero/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "20dc4e2537921350bbd8f1cfca5e5277a1040ed2",
+          "path": "backend/onyx/connectors/axero/connector.py",
+          "sha256": "sha256:8a697d18ac1b1fe19b540a8b487c4d1ce999a89f90e13833cdfe7a37a1455d49",
+          "size_bytes": 11682
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/bitbucket/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "524c787a2658475fe29b54ed7c672d80e612a9f8",
+          "path": "backend/onyx/connectors/bitbucket/connector.py",
+          "sha256": "sha256:c52530a0b0b630921e8ad71a6bc814e424d39f1b12e27d0d3ce1fc69e30d9858",
+          "size_bytes": 13990
+        },
+        {
+          "git_object_id": "b0ef0ff9d5bc4619aa0fb2299213ef8b911164b5",
+          "path": "backend/onyx/connectors/bitbucket/utils.py",
+          "sha256": "sha256:875d3e5686907458f2566c4d093a079e8781414645a43e6345df5042c72c3c49",
+          "size_bytes": 10003
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/blob/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "667c849dcc0a424a07356ae7fdd4b081f88dc325",
+          "path": "backend/onyx/connectors/blob/connector.py",
+          "sha256": "sha256:fbcb6a864b34f36137a3b6483b5c15f534133046ca4e0480e6571e082084af26",
+          "size_bytes": 31924
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/bookstack/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "005de14093d5bb3c04ec690b5cfa0cd3badf2c93",
+          "path": "backend/onyx/connectors/bookstack/client.py",
+          "sha256": "sha256:d076ceb5858c8e7bf883b5897d415772105b024a3d93148ce435ffc773c889c0",
+          "size_bytes": 1878
+        },
+        {
+          "git_object_id": "37c4c54ec82df6aa87f07ba2f05dd8ef131b5f9e",
+          "path": "backend/onyx/connectors/bookstack/connector.py",
+          "sha256": "sha256:ddf74e83ef8045f49f737ddea07e8c51f4b3f864e13b71910b4457f800df015f",
+          "size_bytes": 9943
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/braintrust/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "0a8a0542ec55e59891b86ab4b62a118872813b6e",
+          "path": "backend/onyx/connectors/braintrust/connector.py",
+          "sha256": "sha256:d95f4e5a9a81a9f209287f2ec8f0b5856c1023c686ad640322ced4b5ee9d5235",
+          "size_bytes": 23863
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/canvas/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "b82db4d752c0085380baf24720d0a3a7420cf08c",
+          "path": "backend/onyx/connectors/canvas/access.py",
+          "sha256": "sha256:11fd33b6703110d2d91939a63733375f5d78f077262bc0fca6e38343a9d05786",
+          "size_bytes": 991
+        },
+        {
+          "git_object_id": "e511e5f26b517f4d2a00f0b2ffa3016b6c04541e",
+          "path": "backend/onyx/connectors/canvas/client.py",
+          "sha256": "sha256:dad2a3a0e453f3c71408930818382eabde3762a88fa16ce07b4f6ed87b5a38ae",
+          "size_bytes": 8535
+        },
+        {
+          "git_object_id": "dd30c59dcf8512bfd1090ba175a55cb2c8fecaf8",
+          "path": "backend/onyx/connectors/canvas/connector.py",
+          "sha256": "sha256:03bd5e19c4c4eacfb4e54ade49f3010a030d9ad670c2bb8b0a5612808cd34009",
+          "size_bytes": 29937
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/clickup/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "ad922a6286f47329c0d8fa530f388e25dbc9fd71",
+          "path": "backend/onyx/connectors/clickup/connector.py",
+          "sha256": "sha256:b4eb5c406799e31f84b733b0ce22bbacf89d2289175c63d238f0cb1544beee9a",
+          "size_bytes": 8080
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/coda/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "9fd454eba9dcdd13318bc7b26507f672c2e6244f",
+          "path": "backend/onyx/connectors/coda/connector.py",
+          "sha256": "sha256:f229826c01515a5fc46b77c83aff56d1dbb8c444902f14fd14cb7fab1ec1b5df",
+          "size_bytes": 26869
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/confluence/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "8c9fe6678cc0b70364663b67e240a84cba228d2a",
+          "path": "backend/onyx/connectors/confluence/access.py",
+          "sha256": "sha256:e89870de8e1d3cbdfe0b32ee298aa83404015fde56f0a72bcb68a00023388fb4",
+          "size_bytes": 3880
+        },
+        {
+          "git_object_id": "e4dee813a50f176244c106189a925e48f51021ff",
+          "path": "backend/onyx/connectors/confluence/connector.py",
+          "sha256": "sha256:ded3e67b71396703759d64122b7312e044764137dbbd562ba5b00ed2c3e8cbb7",
+          "size_bytes": 57113
+        },
+        {
+          "git_object_id": "bcd977b22273db7993525cb40a7e00125888449f",
+          "path": "backend/onyx/connectors/confluence/models.py",
+          "sha256": "sha256:9c67e2f3f46426881f68a2e31cb3ac936c13dc9afaff1231de99717004332ff3",
+          "size_bytes": 364
+        },
+        {
+          "git_object_id": "cd0025fe44640cd1d17459c0e6e532e336b8ea03",
+          "path": "backend/onyx/connectors/confluence/onyx_confluence.py",
+          "sha256": "sha256:c6dba2a872dfd5cf5d6b3e33c701abe8ecac4f14abcb09532d70d4e42f028131",
+          "size_bytes": 63424
+        },
+        {
+          "git_object_id": "25f490a57dd9fa43050d3628a88a60f40ad8d5ee",
+          "path": "backend/onyx/connectors/confluence/user_profile_override.py",
+          "sha256": "sha256:bcc8e59a61314cbcaf483c2f741675a901a867fd2b2ddaa8674f2c7cd82c4fb6",
+          "size_bytes": 618
+        },
+        {
+          "git_object_id": "99c969eb37ccccc2d6fdc6d6b3dfbca69ca336d2",
+          "path": "backend/onyx/connectors/confluence/utils.py",
+          "sha256": "sha256:d1f647416e2560f92383235a44033a57b9957727fca1b758ccc6293cc876f119",
+          "size_bytes": 17558
+        },
+        {
+          "git_object_id": "2f7e924f4e4763bdf6545958e210b3a5b36ab235",
+          "path": "backend/onyx/connectors/connector_runner.py",
+          "sha256": "sha256:dc41c82425287c039b0897c135bc45f520eeb88be9b2ef16df159f835a63f311",
+          "size_bytes": 11207
+        },
+        {
+          "git_object_id": "962c7174454efd6cb7f6fb47034098b5f6c63272",
+          "path": "backend/onyx/connectors/credentials_provider.py",
+          "sha256": "sha256:759c4bdc55ad60d69a9a8ae12b264586da7d70f800cbbca54159126178ee2bed",
+          "size_bytes": 4924
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/cross_connector_utils/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "1727ae683c188e98fb38ee7f7bf7d2ff165aa7e1",
+          "path": "backend/onyx/connectors/cross_connector_utils/miscellaneous_utils.py",
+          "sha256": "sha256:cd704054502a54ab74da26c3cbb0ef96a411beb15cd0d2bae2d7b912b5ee03b9",
+          "size_bytes": 7118
+        },
+        {
+          "git_object_id": "acf8b793b59eeba589d8fb06040772ffe538227b",
+          "path": "backend/onyx/connectors/cross_connector_utils/rate_limit_wrapper.py",
+          "sha256": "sha256:cea67f7c53d5c9af9992e4500619bbb150a3e8cd8f8b3c6a577d49636351c6c0",
+          "size_bytes": 4099
+        },
+        {
+          "git_object_id": "3c9499ab5234d94cff0820ece2201bf09b36476f",
+          "path": "backend/onyx/connectors/cross_connector_utils/section_utils.py",
+          "sha256": "sha256:521b80353be39c286380bd4d990a3bc10668b2831954d5fa09de55fd38979674",
+          "size_bytes": 1644
+        },
+        {
+          "git_object_id": "66da80a0d92d226cceb443365c2d16f871aba96a",
+          "path": "backend/onyx/connectors/cross_connector_utils/tabular_section_utils.py",
+          "sha256": "sha256:c4441f7b0696a6f4fd51389056de84a5df510ace06e4b217f915bf4d8e56bcac",
+          "size_bytes": 3128
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/discord/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "1a4ecb67f693a5bad2e93913a74ec9a5caceb135",
+          "path": "backend/onyx/connectors/discord/connector.py",
+          "sha256": "sha256:5803e28bb4791c23abcd60ffc1595acfc1973cbf64d006fcf77f62293436fb37",
+          "size_bytes": 12632
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/discourse/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "376a4527ac470693f3a4648c1bcf1b8a35054516",
+          "path": "backend/onyx/connectors/discourse/connector.py",
+          "sha256": "sha256:48c8f46ee2dc60a20e59bcf99ea004c3d28de98988efcd423c92d02db451df4c",
+          "size_bytes": 8748
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/document360/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "f6101d1a11b2d10a6115b8bb218844f92638c63f",
+          "path": "backend/onyx/connectors/document360/connector.py",
+          "sha256": "sha256:4e8b808fbd51c138f0e388721b1319bb0d1f7d450c2f657d4bfa8f838d01cf85",
+          "size_bytes": 8111
+        },
+        {
+          "git_object_id": "87ef880da62a844815084d7b2223ee95c3291f02",
+          "path": "backend/onyx/connectors/document360/utils.py",
+          "sha256": "sha256:dc303668a026bee53dc303869710ff1c5807ee8565d32994690e132e378cf34a",
+          "size_bytes": 357
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/dropbox/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "96e7575be1d1cf1b93c66df33d14526c1a5ab31e",
+          "path": "backend/onyx/connectors/dropbox/connector.py",
+          "sha256": "sha256:ee1aa85d4ec0502dab809b51eb10aa33274dec362dd215d0fc8c8070248b32bb",
+          "size_bytes": 7307
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/drupal_wiki/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "8db8c008af19b5d137149289c74cfc32671537fc",
+          "path": "backend/onyx/connectors/drupal_wiki/connector.py",
+          "sha256": "sha256:a51bd81d4312aef31fd2f41c13f330aab259af20ac1960c16373e5f4586ff3d3",
+          "size_bytes": 39245
+        },
+        {
+          "git_object_id": "a89ea4c4028b77b2a738c0b75167c46f8fa3667d",
+          "path": "backend/onyx/connectors/drupal_wiki/models.py",
+          "sha256": "sha256:7d73b50cbcac024fce3a7b037cdf78ab0042a2c848606cff48bf14b062cff76a",
+          "size_bytes": 1700
+        },
+        {
+          "git_object_id": "5e5f89da7b061ad38bd88ab0529e5f73f95eadaa",
+          "path": "backend/onyx/connectors/drupal_wiki/utils.py",
+          "sha256": "sha256:0fbb7f19ac4c4bc31770ba57557e7731dd310e724649102ac39003fa69aa212e",
+          "size_bytes": 341
+        },
+        {
+          "git_object_id": "123345c519a9115e042b0fb8989e804d1aa31f93",
+          "path": "backend/onyx/connectors/egnyte/connector.py",
+          "sha256": "sha256:cfc6a735c9f7f4eb6a0956378b6821a373dd89117aebfc3ab18d176ae06aad3a",
+          "size_bytes": 12779
+        },
+        {
+          "git_object_id": "252f11fd58fc5d18a4413661510a65ca05d15b0d",
+          "path": "backend/onyx/connectors/exceptions.py",
+          "sha256": "sha256:c4b1dc9d4255e3985fb2301f555f93f41568fb528a4a391eba858557a1db2f25",
+          "size_bytes": 1713
+        },
+        {
+          "git_object_id": "2a04e645ad73f3bd0247288398be5b91315eee78",
+          "path": "backend/onyx/connectors/factory.py",
+          "sha256": "sha256:71410fe2533588143a5da7f0a3131399e635c234f5273b2f9454d4660d574b88",
+          "size_bytes": 6726
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/file/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "36535fbce52f7a3d1df4e8431e83a61af31ce854",
+          "path": "backend/onyx/connectors/file/connector.py",
+          "sha256": "sha256:feba2337e6f813e2c4e0a8844f0059a851f6d252cf7ab956bb0d39c6d4811518",
+          "size_bytes": 14788
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/fireflies/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "132d1410b078855bd034d0c84755d2abd2329991",
+          "path": "backend/onyx/connectors/fireflies/connector.py",
+          "sha256": "sha256:8ec63dbc986fa56ebab836a0177135fb99abd483dc7c51febd5a508e09a893ae",
+          "size_bytes": 9418
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/freshdesk/__init__,py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "3f85ad184e13c6ebcd85843d16a4788c21e090d6",
+          "path": "backend/onyx/connectors/freshdesk/connector.py",
+          "sha256": "sha256:8f617dac39e3b670a1555bf98cf417980de2a55ed855bea4785373305beadc7a",
+          "size_bytes": 11825
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/gitbook/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "b4480d46b312b8c1c9e1b1ffbdab501466dffc62",
+          "path": "backend/onyx/connectors/gitbook/connector.py",
+          "sha256": "sha256:54fc480a360e4023b79ad271e21f6aab7bb829e7c1b4f46b5b31a1a3f873096e",
+          "size_bytes": 10639
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/github/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "841a9264c24a5ac33714dfebea6fea652757c3f4",
+          "path": "backend/onyx/connectors/github/connector.py",
+          "sha256": "sha256:63f6aec9aed10885ebeb4e8c5380734f7be527bf26380e61935b09e88febc061",
+          "size_bytes": 57239
+        },
+        {
+          "git_object_id": "d5157b275366e9c06b586d654e1fc7e9e89bf116",
+          "path": "backend/onyx/connectors/github/models.py",
+          "sha256": "sha256:7ec114631e864c38b6706769be67ee41f83f8505848d4da3d3a6a232163f0a20",
+          "size_bytes": 506
+        },
+        {
+          "git_object_id": "c58f6c7c8ecd9fa369e73cff726fe40098e2661c",
+          "path": "backend/onyx/connectors/github/rate_limit_utils.py",
+          "sha256": "sha256:67ea4b0ed95a839c289256177d7fb9f63e8477304f5a786d0751aecea6727acc",
+          "size_bytes": 767
+        },
+        {
+          "git_object_id": "90e31b1500ba9b50e33d3345ce9780ea4653878e",
+          "path": "backend/onyx/connectors/github/utils.py",
+          "sha256": "sha256:5d01fefe59b3fa5d05cf4bcb093ac60eb02b2eaeedb117586e5a59deafe0c5d9",
+          "size_bytes": 2308
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/gitlab/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "a66a8b12ffd87e19336252976b8215235da75f8e",
+          "path": "backend/onyx/connectors/gitlab/connector.py",
+          "sha256": "sha256:05a70db6ccc093559000f65624a572ba19eaec15304258568c647e815c09fe53",
+          "size_bytes": 10390
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/gmail/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "1e827baa41395419bdd46753a6ef32abb7b87de4",
+          "path": "backend/onyx/connectors/gmail/connector.py",
+          "sha256": "sha256:0ee16592a4ff309e4bb1a4e5e8d625958c31a842e3bc836dc5d40dbfbaac40b6",
+          "size_bytes": 23507
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/gong/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "21b92b8c7ab3d4b62e9bd0323f9864d98bfba3a8",
+          "path": "backend/onyx/connectors/gong/connector.py",
+          "sha256": "sha256:2dc53ce50ac9bad45b388613115182c0dd5f08823a0a4f8ad465708ff6a36544",
+          "size_bytes": 26562
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/google_drive/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "4cf8cbdbc78ac2b424eed6947458d177b23fa518",
+          "path": "backend/onyx/connectors/google_drive/connector.py",
+          "sha256": "sha256:403c43f89aee27afb76724806d499b33cdfbe44318cdcda4dd3746dab4aa8526",
+          "size_bytes": 102866
+        },
+        {
+          "git_object_id": "4fdfb23d57b5e5dd9a849782d85a2d574e963d78",
+          "path": "backend/onyx/connectors/google_drive/constants.py",
+          "sha256": "sha256:7acf50ec980628b80fb301f95e425527f9673e40fc314e1c22c779707a45a78d",
+          "size_bytes": 228
+        },
+        {
+          "git_object_id": "cb2f7578d60b538d42b50cc05abf438aa7464f5f",
+          "path": "backend/onyx/connectors/google_drive/doc_conversion.py",
+          "sha256": "sha256:1ebb6d99db4b9b891e50a006edf809f11e3295164b1b3108ecb1f0b5ded6f391",
+          "size_bytes": 37625
+        },
+        {
+          "git_object_id": "b9df27919c044d38ad3136ddb594ec4ed353186a",
+          "path": "backend/onyx/connectors/google_drive/file_retrieval.py",
+          "sha256": "sha256:515335e1ec3501519fb1524ed1855bed4a1f78f0c588b914683029b0413b2ff9",
+          "size_bytes": 29355
+        },
+        {
+          "git_object_id": "ce831c82c18c9ebf3cbcb87b80394425e6ec604c",
+          "path": "backend/onyx/connectors/google_drive/models.py",
+          "sha256": "sha256:5258edac58a63d5734e2e17c60e1863676df2797427b4d4286467b7a064f1665",
+          "size_bytes": 9369
+        },
+        {
+          "git_object_id": "199d5ac5faefb162b3f476911425a0f46d1468ad",
+          "path": "backend/onyx/connectors/google_drive/section_extraction.py",
+          "sha256": "sha256:0e9fbca97cb99226d57caf7c79231264dec2b3e1a5aba4237e8dba8eb274d7c6",
+          "size_bytes": 6849
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/google_site/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "260fc2f83e7ec9fba97b79aafec3b2536a3f5572",
+          "path": "backend/onyx/connectors/google_site/connector.py",
+          "sha256": "sha256:d73c1129ddaad8fb8c16cd34f9ce318ad92fc4e85c8cfcb5ba7997eea0c7d136",
+          "size_bytes": 4959
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/google_utils/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "e97bdbf8fb83e5a78e3b0a321e6dd5e250e93f7b",
+          "path": "backend/onyx/connectors/google_utils/google_auth.py",
+          "sha256": "sha256:6a87228158fd5e5a2c89d77abd88bf8f7fac732f311e53edd06586b49f77e396",
+          "size_bytes": 6851
+        },
+        {
+          "git_object_id": "7696289f2d041a3b89304831979639de898682e1",
+          "path": "backend/onyx/connectors/google_utils/google_kv.py",
+          "sha256": "sha256:793222dd9c6b6ce16eb04da9d0814d2a38b4e516acf8818e7e3ec42a77aab41b",
+          "size_bytes": 10518
+        },
+        {
+          "git_object_id": "1584d07683addb28c2e7a21c8576c6015af9ae43",
+          "path": "backend/onyx/connectors/google_utils/google_utils.py",
+          "sha256": "sha256:9b80c8fba4715e045eb2e2801797d396faae49220f903361cbc1551f1c35ae36",
+          "size_bytes": 10411
+        },
+        {
+          "git_object_id": "d17856c27fa952a8fa97a9204b49cd12b138283a",
+          "path": "backend/onyx/connectors/google_utils/resources.py",
+          "sha256": "sha256:0151917976b7736abf9c0a383691b720ca7f726af7d8d6b57dcade132fb4fbff",
+          "size_bytes": 4221
+        },
+        {
+          "git_object_id": "304a1351239811efaa5096869f2bde72a406420d",
+          "path": "backend/onyx/connectors/google_utils/shared_constants.py",
+          "sha256": "sha256:142ee47b12b7b7eca343dfca59cb1b1135100008658350bd954e3678c5278482",
+          "size_bytes": 2125
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/guru/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "94c6bafc7ed1c124af2da0cb3ebef484b095e40e",
+          "path": "backend/onyx/connectors/guru/connector.py",
+          "sha256": "sha256:17a4a167380874e7dee22f1d4d1b6f0c4a656545672c5119d4f6bb05c22afa58",
+          "size_bytes": 6316
+        },
+        {
+          "git_object_id": "df94b5875854b48bf91ea611c651ae56d8f585e5",
+          "path": "backend/onyx/connectors/highspot/__init__.py",
+          "sha256": "sha256:855acd2f7c7902bfe067ca86f4b86078dc42b20f2dc18d724ceb2d25d9c6dc65",
+          "size_bytes": 97
+        },
+        {
+          "git_object_id": "1bc40353cf43d91887e6a7c78978abf52d73a4b3",
+          "path": "backend/onyx/connectors/highspot/client.py",
+          "sha256": "sha256:4f9453da4b2dd498db7921d71de523bd7a64161a9e612317223cbc88ec885437",
+          "size_bytes": 9082
+        },
+        {
+          "git_object_id": "dd3ff84eee7d03f15a4acd29b5eba6e78ca5a002",
+          "path": "backend/onyx/connectors/highspot/connector.py",
+          "sha256": "sha256:86e30af7f0d261d4b28885ad91200008b2654bcfe7d240b90b260c0083eb2529",
+          "size_bytes": 19203
+        },
+        {
+          "git_object_id": "d365dda875cb3ddd09e17100fb30e9e879964eb2",
+          "path": "backend/onyx/connectors/highspot/utils.py",
+          "sha256": "sha256:3badbc2e6ae2dd3c3ea22a7cee80437f5c99460ca0b09329102695b19487ad43",
+          "size_bytes": 4176
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/hubspot/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "f3f0443607df555444e477efb79e902f7ed039fe",
+          "path": "backend/onyx/connectors/hubspot/connector.py",
+          "sha256": "sha256:8773ef3a2e71243ac088df9abc0da3a4f3d3d84ba783424ee300de765ed7127a",
+          "size_bytes": 49678
+        },
+        {
+          "git_object_id": "af11c73c577d9169d45d8a181c97b2e37f8ae035",
+          "path": "backend/onyx/connectors/hubspot/rate_limit.py",
+          "sha256": "sha256:7140099e077f36f15b631134df1bb73912cbcb4323d49b21a6fbc82d1c86f99a",
+          "size_bytes": 4611
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/imap/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "4e6741b60757f3d5a8cf523362edfe4efa4054c0",
+          "path": "backend/onyx/connectors/imap/connector.py",
+          "sha256": "sha256:8d8af7d734f1e2fe01ed4de6e88f1593c8621640310cc4daa634d9138a528919",
+          "size_bytes": 16403
+        },
+        {
+          "git_object_id": "e15ab19cd9649c693f963332521c8b0a8f0084fc",
+          "path": "backend/onyx/connectors/imap/models.py",
+          "sha256": "sha256:f5c8468d1fa196bd2c6b728b675b9cc965a7aeda89bbfd531e10976d28bf7252",
+          "size_bytes": 2461
+        },
+        {
+          "git_object_id": "edad8f6419b9271f7d3a48f113440ffc9fdf3e64",
+          "path": "backend/onyx/connectors/interfaces.py",
+          "sha256": "sha256:293c0dcca9230b75ea3eef1475262e0b4010ca4df9321880f41a9dad05561756",
+          "size_bytes": 11764
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/jira/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "616626ce23c10053dd7f4444fc89c6d0d5b556d8",
+          "path": "backend/onyx/connectors/jira/access.py",
+          "sha256": "sha256:1ed5e23e5bd686b9ba378961609c1bbc2bb4bdd72aaeb00f1f9be6d7ca4e86a0",
+          "size_bytes": 1550
+        },
+        {
+          "git_object_id": "28549a63f37e90854c68f21cb989abc747e9c1fc",
+          "path": "backend/onyx/connectors/jira/connector.py",
+          "sha256": "sha256:ff58b7fccec1598739527a5387d53f354ae6ec8369c4ee0a643627330838967e",
+          "size_bytes": 44824
+        },
+        {
+          "git_object_id": "52bd91e3daf5332e72dd46a11164475f6e6ff757",
+          "path": "backend/onyx/connectors/jira/utils.py",
+          "sha256": "sha256:52b4ae1240dea8044cda1252b054e44620dd4f7216b960a6534b53c39ced27a1",
+          "size_bytes": 7844
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/linear/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "cd99dc337dec83eddf7728016f08597d23d10e13",
+          "path": "backend/onyx/connectors/linear/connector.py",
+          "sha256": "sha256:7bf46731c8c514704a6bcd0d669513637fdbebf1295e52eaa484478fff01c411",
+          "size_bytes": 15529
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/loopio/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "7ee4960836053be2771c71da85069d338dfa2081",
+          "path": "backend/onyx/connectors/loopio/connector.py",
+          "sha256": "sha256:362c0b3dff5a87d8cc84acbefeb3669a73b48423d3c9b9a6d532da59f49d630d",
+          "size_bytes": 9355
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/mediawiki/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "5313ae332b3be4c3d2c5686342df5f0a7517724e",
+          "path": "backend/onyx/connectors/mediawiki/family.py",
+          "sha256": "sha256:2baf4bc38f3c6bcf2e9d47d50fdac4ace4fa1ed14ecc333e3ce18b596dff455c",
+          "size_bytes": 5395
+        },
+        {
+          "git_object_id": "68aac5db09b8a52379cadc5bef30bb1bb7e16395",
+          "path": "backend/onyx/connectors/mediawiki/wiki.py",
+          "sha256": "sha256:0893f0ec56a26e095811f3f3f87f25676617bca0412a3be0811ac13114fadef6",
+          "size_bytes": 8623
+        },
+        {
+          "git_object_id": "34c93d3ef04f2b6bbc11ab1469d8df8967e4f87d",
+          "path": "backend/onyx/connectors/microsoft_graph_env.py",
+          "sha256": "sha256:9637ff75d7520dc2c7058614860f66ad16f36e3c61581b5827b8ad8785524cfc",
+          "size_bytes": 3480
+        },
+        {
+          "git_object_id": "cd7b8bf0bfdaa0c59234ecc4b99b88c3ec1f911b",
+          "path": "backend/onyx/connectors/mock_connector/connector.py",
+          "sha256": "sha256:34157634e4c0cedc7e54373e46e705ec1895988a5488c50bc040e4f05be12e43",
+          "size_bytes": 4925
+        },
+        {
+          "git_object_id": "48f8ff99069437cc111076acbb79016ae15a1f45",
+          "path": "backend/onyx/connectors/models.py",
+          "sha256": "sha256:eb4cfe8011bfe9a80e6011a96173786b34dc0364ed1d062e46fbe13bc2dd9db8",
+          "size_bytes": 20709
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/notion/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "3badc85137703631fc1ac1fa8b92105f8818c01f",
+          "path": "backend/onyx/connectors/notion/connector.py",
+          "sha256": "sha256:3fd23bc44695831d7aa830182e574887b7c5b786233687c709d82b487a9d6c88",
+          "size_bytes": 53014
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/outline/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "482ee4fff23ae8e5c4b5ec99b29f52f03f1fbf73",
+          "path": "backend/onyx/connectors/outline/client.py",
+          "sha256": "sha256:467428704fbcc529f7381f14e083ae4f554263e0db38577b2149afe532d2e28c",
+          "size_bytes": 3259
+        },
+        {
+          "git_object_id": "3b5010acf1aa6eb620cf743be5b6178b4ba78c7b",
+          "path": "backend/onyx/connectors/outline/connector.py",
+          "sha256": "sha256:0c98cfc146dd817f2643da572cc3afef5c5b052ad323614adb6a276b8400767d",
+          "size_bytes": 8295
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/productboard/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "1b96848e8de50f63b2f3a372a05653d55304b12b",
+          "path": "backend/onyx/connectors/productboard/connector.py",
+          "sha256": "sha256:f5c70462b7719dd4d26006bfc7183761e2c18e82fb07faa968624668d63d0216",
+          "size_bytes": 9994
+        },
+        {
+          "git_object_id": "582a5e050b07c985de318907e5d7edc844db3754",
+          "path": "backend/onyx/connectors/registry.py",
+          "sha256": "sha256:5d95a3613752ca70a351c5b60bc72b0c8117bd6e36097cb6b21a8bf38707bd55",
+          "size_bytes": 8282
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/salesforce/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "ad545eef56235ba02e085bb7386bd04f47b486f0",
+          "path": "backend/onyx/connectors/salesforce/blacklist.py",
+          "sha256": "sha256:f008b5760bd80e869c391b4650cef1813c6a344eeb6d5aca9e22946309bfbcc4",
+          "size_bytes": 9582
+        },
+        {
+          "git_object_id": "10f23f75352c979d494a366a68cb07c7f0163106",
+          "path": "backend/onyx/connectors/salesforce/connector.py",
+          "sha256": "sha256:ebecfb0cb7df0f60f86a9e2e71a077ed93e2df57426cafac2cd48ce07e45a4b9",
+          "size_bytes": 50123
+        },
+        {
+          "git_object_id": "86543cff5c2d57e4e55e15a184d6e1d9799f5a59",
+          "path": "backend/onyx/connectors/salesforce/doc_conversion.py",
+          "sha256": "sha256:d396aae3e5ff551bc39ad6e33bce802251999149525448b47b2fa046a6c7ae57",
+          "size_bytes": 8783
+        },
+        {
+          "git_object_id": "7f0499f9256b58ddb05647812bc8539cd89c7c7c",
+          "path": "backend/onyx/connectors/salesforce/onyx_salesforce.py",
+          "sha256": "sha256:ff793999d08eebfaf8874aebe922ec3a8123d3fca8cec7888309e389e9948c2b",
+          "size_bytes": 16617
+        },
+        {
+          "git_object_id": "087778f47d4cb917e187fd4bdd2b82b8f082c3fe",
+          "path": "backend/onyx/connectors/salesforce/salesforce_calls.py",
+          "sha256": "sha256:e3c988e398498da9a86f6dfc27bd586b66eb760cea501d0518da34622f345016",
+          "size_bytes": 9529
+        },
+        {
+          "git_object_id": "642e345a1d6016527a09a7dd78a06e11dbc9c771",
+          "path": "backend/onyx/connectors/salesforce/shelve_stuff/old_test_salesforce_shelves.py",
+          "sha256": "sha256:1e13cf91a8715fc2ceac84ebfa1eccd1ac7e1f8017103fcd4119353137100043",
+          "size_bytes": 25016
+        },
+        {
+          "git_object_id": "2eedff6ddddc9de50438fd8369be501bd1d51aa0",
+          "path": "backend/onyx/connectors/salesforce/shelve_stuff/shelve_functions.py",
+          "sha256": "sha256:587091d438f5c5f0881b9a077557529aa9bfd41238225190f9cb1731cc314780",
+          "size_bytes": 7901
+        },
+        {
+          "git_object_id": "0ea937af126d6b9b756a7a769b06a88f33f4744f",
+          "path": "backend/onyx/connectors/salesforce/shelve_stuff/shelve_utils.py",
+          "sha256": "sha256:3c712bcb754cdba8bcf80b11d696b559a2026e3c7488a18e8798f90b8e731a18",
+          "size_bytes": 1073
+        },
+        {
+          "git_object_id": "642e345a1d6016527a09a7dd78a06e11dbc9c771",
+          "path": "backend/onyx/connectors/salesforce/shelve_stuff/test_salesforce_shelves.py",
+          "sha256": "sha256:1e13cf91a8715fc2ceac84ebfa1eccd1ac7e1f8017103fcd4119353137100043",
+          "size_bytes": 25016
+        },
+        {
+          "git_object_id": "abbf3f14549b58940d925677fd6aeb35f45bf021",
+          "path": "backend/onyx/connectors/salesforce/sqlite_functions.py",
+          "sha256": "sha256:50fe116e0517175aa091f5db97d39789f815ff92160bbe946302ed7756719d25",
+          "size_bytes": 31852
+        },
+        {
+          "git_object_id": "e6cbcf9913b2fe449a448949a3d5852f54705e67",
+          "path": "backend/onyx/connectors/salesforce/utils.py",
+          "sha256": "sha256:bb6bf9ed58a7bd2c49edb2b1209fff5e568dfd95d8c1dd327f6716e5c11d9c7a",
+          "size_bytes": 3760
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/sharepoint/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "7df104bc4c2e4ee16ac31391eae7564ac675b372",
+          "path": "backend/onyx/connectors/sharepoint/connector.py",
+          "sha256": "sha256:5372eba59a05140d247bc8ead8da2748f90cc8bbe8e551ecd45408c076920793",
+          "size_bytes": 140767
+        },
+        {
+          "git_object_id": "dbd31d85d55deb3228cf2a68dafee6c65ebd84df",
+          "path": "backend/onyx/connectors/sharepoint/connector_utils.py",
+          "sha256": "sha256:23ce5a7515d9106d3d3eaa10dd98a5d9ca7ce0d039c73892a4a20fae2a0159ff",
+          "size_bytes": 1436
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/slab/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "fe9fe8b43250089380fee8ab9bb83cdf853dc9b1",
+          "path": "backend/onyx/connectors/slab/connector.py",
+          "sha256": "sha256:4ff757c828a9f14fe2626cc0099f6b576749abe793132476d66f08e3eeb8288e",
+          "size_bytes": 9584
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/slack/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "92fc3f89cf1b809c4fc0dce38a12a0e6608ec27e",
+          "path": "backend/onyx/connectors/slack/access.py",
+          "sha256": "sha256:5e2097e56c59f58e74f3d98141c458942b2f573307186cf4e723581137409dcb",
+          "size_bytes": 1420
+        },
+        {
+          "git_object_id": "2868229461be21f01d5f1c49f197b3f372ac2b12",
+          "path": "backend/onyx/connectors/slack/connector.py",
+          "sha256": "sha256:6fb87300d125942f343523352b5b2247d8213183d32ff26b370085f9a4cfe8f6",
+          "size_bytes": 60923
+        },
+        {
+          "git_object_id": "9bce82fd0bf1c1c400a9095427305d04f99d768d",
+          "path": "backend/onyx/connectors/slack/models.py",
+          "sha256": "sha256:66b5006f0c0311ae4c072cc8795b0337bcd936b01fef8709d3bb888d0b9b97e2",
+          "size_bytes": 2058
+        },
+        {
+          "git_object_id": "db59c2bec67894cd7d501a3eb377492d1025f0da",
+          "path": "backend/onyx/connectors/slack/onyx_retry_handler.py",
+          "sha256": "sha256:642d3f0c753f7f5b04f70bcf697c51c23ee2aa6b710743d7be6ee8f2629bfc51",
+          "size_bytes": 5437
+        },
+        {
+          "git_object_id": "a1b976024b5d0b3ffdd7f17573e87eec71625145",
+          "path": "backend/onyx/connectors/slack/onyx_slack_web_client.py",
+          "sha256": "sha256:a2815cc9dcd68084b0887a48c6c0c2489a587a89b1121653a5d231f4b339d329",
+          "size_bytes": 4010
+        },
+        {
+          "git_object_id": "a3fabd9c965d549decd5ba5f22cf99ab7d565ec9",
+          "path": "backend/onyx/connectors/slack/utils.py",
+          "sha256": "sha256:2624ef746d90de1729dc48d86f1d353b3cfe3d678105ae2612a3231234512b49",
+          "size_bytes": 12362
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/teams/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "77bfe23e1934157548773e4cf6c48b9caf22a219",
+          "path": "backend/onyx/connectors/teams/connector.py",
+          "sha256": "sha256:7250746196ebb2d28c8a7f9720a416b71aa6bb0c45e8610957217225ff2b2866",
+          "size_bytes": 31434
+        },
+        {
+          "git_object_id": "a03874a477f7750031e4ec78f7f01b259df84fb2",
+          "path": "backend/onyx/connectors/teams/models.py",
+          "sha256": "sha256:287f0c11691b0bfe62e905072fa055f3bc57fc087fac767790ac843b5a4c95ad",
+          "size_bytes": 1083
+        },
+        {
+          "git_object_id": "972b452f948b53dbf95ef47e5bf23880bdc9a126",
+          "path": "backend/onyx/connectors/teams/utils.py",
+          "sha256": "sha256:1822e8dc06a5dcec162eba6a4d3afaf4833a21c9620367d19bdc0116884b3cca",
+          "size_bytes": 10007
+        },
+        {
+          "git_object_id": "b0617b4f0b2c2bcd2893dd3ecc75e827a7928255",
+          "path": "backend/onyx/connectors/testrail/__init__.py",
+          "sha256": "sha256:936e671ffdac41465cf33b3e00f4f8d85f17bc77ba747decb9addf9c95ef5ae8",
+          "size_bytes": 40
+        },
+        {
+          "git_object_id": "6abcb58eb1dc28ba465c059d0cddb66120e37dc8",
+          "path": "backend/onyx/connectors/testrail/connector.py",
+          "sha256": "sha256:01a0f1c1ee8bbf6ae005641053d5e2fea4802a83331154b86509eff5d8a32644",
+          "size_bytes": 22135
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/web/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "f2631584f9759d57d14db46ecb69b1f7cc04dc0c",
+          "path": "backend/onyx/connectors/web/connector.py",
+          "sha256": "sha256:fcf493e4758ca4295a5c2f728abdc65b96c36f1c0f4ea092a8ef8dc984e2f94a",
+          "size_bytes": 31915
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/wikipedia/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "ce0930a82de3f57ee0acc781ef423332c550edc4",
+          "path": "backend/onyx/connectors/wikipedia/connector.py",
+          "sha256": "sha256:66ea073557c4f2989658110fc8f421ec9d29d6ae08b001439b9c33d6e51645db",
+          "size_bytes": 806
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/xenforo/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "159d0d110f3069bc838341865a11e6f386b99df2",
+          "path": "backend/onyx/connectors/xenforo/connector.py",
+          "sha256": "sha256:7a123cfbf287a7760334b60bf28b0d9638210cb0d9313174b415e84dbda909d2",
+          "size_bytes": 9844
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/zendesk/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "0e09c791b81629c891f00777bf05e8c67b42775b",
+          "path": "backend/onyx/connectors/zendesk/connector.py",
+          "sha256": "sha256:5ecb8f5fb64d0064085edb23c44da6cf423d4674b43ea898c97fe838fa5a99b8",
+          "size_bytes": 23458
+        },
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/connectors/zulip/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "2c66dacb68f6f1af04d44ac880a41f67d47bb638",
+          "path": "backend/onyx/connectors/zulip/connector.py",
+          "sha256": "sha256:ee4a07da441d53b8c0688d71c71522d1d4bac086c6bba91e74ac2c78cb7fcce5",
+          "size_bytes": 8418
+        },
+        {
+          "git_object_id": "e999aace5baa31b91edaa8510c8cc81a112f71ab",
+          "path": "backend/onyx/connectors/zulip/schemas.py",
+          "sha256": "sha256:85be78242da3d6fc4b68fb5c7bcb3df9aef2a0350c30cf5eac0ee898bca75ead",
+          "size_bytes": 1163
+        },
+        {
+          "git_object_id": "76252d267cbb0cdd4bc204ba5337c6ab25719ce0",
+          "path": "backend/onyx/connectors/zulip/utils.py",
+          "sha256": "sha256:a89de1034761fd3196233dee0cbcddb3555373b563acd089577e86e8aa5da441",
+          "size_bytes": 3104
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-distribution-admission",
+        "dsse-envelope",
+        "active-transfer-abort"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-distribution-admission",
+          "satisfied": false,
+          "terms": [
+            "signed distribution admission",
+            "distributionadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "active-transfer-abort",
+          "satisfied": false,
+          "terms": [
+            "active-transfer abort",
+            "abort transfer"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 10,
+      "blob_set_digest": "sha256:2692ff1ccc987b17c9e8696dcf754f51e3857a9ea685374884c678817771b528",
+      "candidate_group": "backend/onyx/federated_connectors",
+      "candidate_id": "candidate-75ce18b6f28c7b61839666326038094143b321c5c2225d03a0b8cec7562e57b5",
+      "candidate_manifest_digest": "sha256:9944891be88b95be271dd737b226eaa4ec7ce4519fdbbb34c0ba08c02b96225e",
+      "capability_id": "distribution-admission",
+      "coverage": {
+        "expected": 10,
+        "scanned": 10,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "path": "backend/onyx/federated_connectors/__init__.py",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "git_object_id": "d63222d404e10feac913172d482b1fe3aa5841e6",
+          "path": "backend/onyx/federated_connectors/factory.py",
+          "sha256": "sha256:1ac46df25e14d541c80b62f21768f068595d57bfec6fe849147e6db416915fda",
+          "size_bytes": 2040
+        },
+        {
+          "git_object_id": "f8eb9591cea8662205c65c546f63d1ede513f6e6",
+          "path": "backend/onyx/federated_connectors/federated_retrieval.py",
+          "sha256": "sha256:61615339bb2e9e53480af8737c5668e6ec8f9712b230760e2511d229cf08948e",
+          "size_bytes": 11820
+        },
+        {
+          "git_object_id": "b48cdca3b1b1304959da686ba4ce2d6641f06390",
+          "path": "backend/onyx/federated_connectors/interfaces.py",
+          "sha256": "sha256:be4c857a19834325a9c112dd50f28db91c927bd533602c426b701834bdad0e95",
+          "size_bytes": 4286
+        },
+        {
+          "git_object_id": "8f22220a2cb259c0836682f07062dd7e109501d5",
+          "path": "backend/onyx/federated_connectors/models.py",
+          "sha256": "sha256:03444d003568e93f019b268787b5698b6364e39cd17389000a2d553b50e1d507",
+          "size_bytes": 2401
+        },
+        {
+          "git_object_id": "6eddc19f71f6c0e00f3070db6c23e03bccc59db6",
+          "path": "backend/onyx/federated_connectors/oauth_utils.py",
+          "sha256": "sha256:1cee32bdcd502e30ad2a8f143de6e5949f83eaca5848150a00d95d874fd05a03",
+          "size_bytes": 4471
+        },
+        {
+          "git_object_id": "669fcfcf20454c5cf1eedfff9152427a1a3315f3",
+          "path": "backend/onyx/federated_connectors/registry.py",
+          "sha256": "sha256:b97aed5d951de2de920ea0cb3dd23f438e1fd5c816dc5f5fa2cbf4815d7e8c5e",
+          "size_bytes": 551
+        },
+        {
+          "git_object_id": "7223eac309a3320ce139c2db5cf22d1e064261ac",
+          "path": "backend/onyx/federated_connectors/slack/__init__.py",
+          "sha256": "sha256:3ba65ff134bfb878572808dffd80476d3a8552888354e2c9c01de3db54fcfa34",
+          "size_bytes": 35
+        },
+        {
+          "git_object_id": "6d18020577d46d93698d849e13c33a42fafab2bc",
+          "path": "backend/onyx/federated_connectors/slack/federated_connector.py",
+          "sha256": "sha256:60489944bb849331870d4a8e7c46981f2ba92868b57a782da4168d4f51d0b673",
+          "size_bytes": 11698
+        },
+        {
+          "git_object_id": "7aef330a69eaf8303d3cdbc8e901370d51d3230a",
+          "path": "backend/onyx/federated_connectors/slack/models.py",
+          "sha256": "sha256:7298eb0683f06e14f3695a90a0fb5e51af18a288c6e1d5188fc007760ec981ad",
+          "size_bytes": 6793
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-distribution-admission",
+        "dsse-envelope",
+        "active-transfer-abort"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-distribution-admission",
+          "satisfied": false,
+          "terms": [
+            "signed distribution admission",
+            "distributionadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "active-transfer-abort",
+          "satisfied": false,
+          "terms": [
+            "active-transfer abort",
+            "abort transfer"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 10,
+      "blob_set_digest": "sha256:5620672ba237ba84fe869ccb4be3e76659b466d9f2360bdd348d9f94861993bb",
+      "candidate_group": "backend/onyx/file_store",
+      "candidate_id": "candidate-7802e0e14982f9460aa081a3c2e7580e06c69f38742036f34508991d58785020",
+      "candidate_manifest_digest": "sha256:9238e82ebb8066c7bc2077dea09d4d49854d9dc3aa73c67bfb5488c77c40a846",
+      "capability_id": "distribution-admission",
+      "coverage": {
+        "expected": 10,
+        "scanned": 10,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "d0ad04de87ef110f1d81c2d155ba4b3746a74f9f",
+          "path": "backend/onyx/file_store/README.md",
+          "sha256": "sha256:df58f1e5b2012a88fb20af7b144f27fe741d8f060ca5585e1a66506d62e4cfb4",
+          "size_bytes": 8494
+        },
+        {
+          "git_object_id": "a0845d35ef7d6528df9e3dc9055fd6d5be97daa0",
+          "path": "backend/onyx/file_store/constants.py",
+          "sha256": "sha256:608cccf3846bf407802dc2fdccf2a058c83e1a138a9a1bae2660246ed21a5bac",
+          "size_bytes": 100
+        },
+        {
+          "git_object_id": "38d3d1898ce014d0fc81d355409bcd723970bbd3",
+          "path": "backend/onyx/file_store/document_batch_storage.py",
+          "sha256": "sha256:ce2814d2537cd1b0ca790104fd86af9c0f283850557d5105c54799a9ab8444b5",
+          "size_bytes": 11584
+        },
+        {
+          "git_object_id": "e5f8954a4d51319273b0078c16e8f44e9421ec5b",
+          "path": "backend/onyx/file_store/file_store.py",
+          "sha256": "sha256:d6267da1a1e869bb3bc6caa312163245d2b90b37b0f84c1a2a453815c3515709",
+          "size_bytes": 24418
+        },
+        {
+          "git_object_id": "87b58ea627e6e96e956a5d1d87aff0f2e22b31e6",
+          "path": "backend/onyx/file_store/gcs_file_store.py",
+          "sha256": "sha256:33073a46e258bd84c1ce1ae2fbb5d3e4e4569a4741604e3d28f7b52bb9113d07",
+          "size_bytes": 15087
+        },
+        {
+          "git_object_id": "23c56852698d5e40115702664fb8d1181621b346",
+          "path": "backend/onyx/file_store/models.py",
+          "sha256": "sha256:5612492504eddde5830a510481390311778c181812121bc4226be9eb6f07d85f",
+          "size_bytes": 5336
+        },
+        {
+          "git_object_id": "d816494123b355cd2213544710ec3d0567b32f92",
+          "path": "backend/onyx/file_store/postgres_file_store.py",
+          "sha256": "sha256:7fae892088375e2361537dde01df2f1be0fbf02bebbe742a40cf18373cf25388",
+          "size_bytes": 12311
+        },
+        {
+          "git_object_id": "39ee4e62c094c86fb8614d20d47e548a5346ef1b",
+          "path": "backend/onyx/file_store/s3_key_utils.py",
+          "sha256": "sha256:979227ab6590af72d5d2bdfd78f215c4fce0c68d5a9df5a9ce6dbb7895d2deb8",
+          "size_bytes": 6157
+        },
+        {
+          "git_object_id": "a154baebe32428024e701eae389c68527b392587",
+          "path": "backend/onyx/file_store/staging.py",
+          "sha256": "sha256:d4436ac446c0b39cbdc49238babc76f0f63aeda02180e1b7a893d403f9841f16",
+          "size_bytes": 6018
+        },
+        {
+          "git_object_id": "77c846ebe1b3ad03aaf03df8f0d60aa57b7fdc4d",
+          "path": "backend/onyx/file_store/utils.py",
+          "sha256": "sha256:380b7c4cdf68279f2375755d036a9bb1d23be7dabd282dfd6204d4d805149b88",
+          "size_bytes": 14082
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-distribution-admission",
+        "dsse-envelope",
+        "active-transfer-abort"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-distribution-admission",
+          "satisfied": false,
+          "terms": [
+            "signed distribution admission",
+            "distributionadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "active-transfer-abort",
+          "satisfied": false,
+          "terms": [
+            "active-transfer abort",
+            "abort transfer"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 16,
+      "blob_set_digest": "sha256:bb89db4e14d5f241780d52f90aa979c2325ae28a0930448325b5fdbd1f5279b3",
+      "candidate_group": "cli/cmd",
+      "candidate_id": "candidate-fe23ea882f23db9861e3b8b78acaf7a3592c81826ca064b59bb66cc92db2e93c",
+      "candidate_manifest_digest": "sha256:3e5ae3543d6a09c736a2654552fffe3b9c915b5f8bd9c85964f60bcb87cf125d",
+      "capability_id": "distribution-admission",
+      "coverage": {
+        "expected": 16,
+        "scanned": 16,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "6300191cf8a5ff29163b7dd57d2966555374ac60",
+          "path": "cli/cmd/agents.go",
+          "sha256": "sha256:539728bc4ecc6f019db3478f1070b520370f305ae07db326906bd3e66aa5a705",
+          "size_bytes": 1600
+        },
+        {
+          "git_object_id": "b03f42765b8596e4fe461455eb6f02746ac48eec",
+          "path": "cli/cmd/ask.go",
+          "sha256": "sha256:2988ed4d21e1362c62ebbd1cac8b060c7a49332f43459657a7283acbb85fac7e",
+          "size_bytes": 7038
+        },
+        {
+          "git_object_id": "d84b2cdf62332d2f77f4a1676b7d36abb6260c2a",
+          "path": "cli/cmd/ask_test.go",
+          "sha256": "sha256:81b6e7dc60afb233d4f8c7b0f39a56198bf449ca78e0cd8153dcb58bb0d4d242",
+          "size_bytes": 2342
+        },
+        {
+          "git_object_id": "43c2129f8ecb439a3acf79e456b0ade8219f1256",
+          "path": "cli/cmd/chat.go",
+          "sha256": "sha256:1907614e179da8fd103ffb4e9318fd7e9bca242ccb6ae73bf8370e9ff21551f6",
+          "size_bytes": 1297
+        },
+        {
+          "git_object_id": "558f1966193b54ebecdf9a02dc2954c9b735da84",
+          "path": "cli/cmd/common.go",
+          "sha256": "sha256:ca915fdd018fd8cf2bbbd31d33210d4a8299deabb03c3441fab9806e4d81fa1f",
+          "size_bytes": 1103
+        },
+        {
+          "git_object_id": "680166957035743ad53622e87223b79a26762a56",
+          "path": "cli/cmd/common_test.go",
+          "sha256": "sha256:b1e246e66fc3b187e72df10d34d251fc3d0c3789155e0cbf3bdeca73fa347c55",
+          "size_bytes": 1994
+        },
+        {
+          "git_object_id": "d45c603bc5540e9fee2d4c207b26fee5ece1d2c4",
+          "path": "cli/cmd/experiments.go",
+          "sha256": "sha256:288ae293f93826be40d71ff30438ecf9d296494eef73ecd2b21c959a38a03061",
+          "size_bytes": 503
+        },
+        {
+          "git_object_id": "dfa57a091a247f5bf157feedf99ed14cbad05412",
+          "path": "cli/cmd/image.go",
+          "sha256": "sha256:71d36c78f9d79e7748d95385a0a68666094d08cb28caa119ed621c458f00a33f",
+          "size_bytes": 7174
+        },
+        {
+          "git_object_id": "0144618671876651aff6c289190d9ff9b2682ca9",
+          "path": "cli/cmd/image_test.go",
+          "sha256": "sha256:27961e70a08508fb0ee9ce889a78942141461606e784f0599ffd57f6073c0b51",
+          "size_bytes": 6924
+        },
+        {
+          "git_object_id": "b7194cd7c52101a33234343baec1089f55d30b22",
+          "path": "cli/cmd/install_skill.go",
+          "sha256": "sha256:57ae49e5acd7985819fbfdfaa4a3f33b3b926b4a0775ddfff0f557226f16aadc",
+          "size_bytes": 5897
+        },
+        {
+          "git_object_id": "5d4444b7f0896f95bbc77d89751e0a0ab8e67d24",
+          "path": "cli/cmd/install_skill_test.go",
+          "sha256": "sha256:b6159fa377d9d022895629d95b3823f4de27ea8ec5c0f2ae0fdc0399a97fd1e4",
+          "size_bytes": 4954
+        },
+        {
+          "git_object_id": "c6d452451308ca3e68605fb0a721bbd2f9424c0b",
+          "path": "cli/cmd/root.go",
+          "sha256": "sha256:948c10fa4869eb24da4fbd49dbc0f324afc0a6d9803b1263cd4ee1609773b0ea",
+          "size_bytes": 3123
+        },
+        {
+          "git_object_id": "b3b04092fcf61a652c211b84d9097ca168078097",
+          "path": "cli/cmd/search.go",
+          "sha256": "sha256:26082e7e0ff8c6e3ad6a0f74b072485feacadf839fddab045fe5e20ee9c713e3",
+          "size_bytes": 7109
+        },
+        {
+          "git_object_id": "f9dba9962d639c92c49afc44255d06c646ffccd0",
+          "path": "cli/cmd/search_test.go",
+          "sha256": "sha256:bec918b183c6049337c196e60fc4e477d3bbd4c91eaf97039dc18da4a67d1bf7",
+          "size_bytes": 8300
+        },
+        {
+          "git_object_id": "e40d57b1e080c74893be39c4526de8ca1ed50108",
+          "path": "cli/cmd/serve.go",
+          "sha256": "sha256:fc2041745d35c2d82391e6ae2d09bd1eb9291035f3e75c0da03c059a233530e4",
+          "size_bytes": 7208
+        },
+        {
+          "git_object_id": "f501136f9dfa259556808b5b1716a7d9e36b93cc",
+          "path": "cli/cmd/validate.go",
+          "sha256": "sha256:7fc8553df062cf3b0a09706d52bb4e792b54ae2c7e718fe4fed32b64f3ef5e49",
+          "size_bytes": 2051
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-distribution-admission",
+        "dsse-envelope",
+        "active-transfer-abort"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-distribution-admission",
+          "satisfied": false,
+          "terms": [
+            "signed distribution admission",
+            "distributionadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "active-transfer-abort",
+          "satisfied": false,
+          "terms": [
+            "active-transfer abort",
+            "abort transfer"
+          ]
+        }
+      ]
+    },
+    {
+      "blob_count": 41,
+      "blob_set_digest": "sha256:ab419addc27dce8f631138aecb15db6532553e6bda0d863abe9c71dea4a4e54d",
+      "candidate_group": "cli/internal",
+      "candidate_id": "candidate-3f5f12efea379f569737040d82e793f54d4e618bcd3e50e6aecf577b764ac3f9",
+      "candidate_manifest_digest": "sha256:fe47d480bad442e2bb68ff88e2a90af0b067961c6b04fb29c0bae9d14f8744d7",
+      "capability_id": "distribution-admission",
+      "coverage": {
+        "expected": 41,
+        "scanned": 41,
+        "unreadable": 0,
+        "unverified": 0
+      },
+      "inspected_blobs": [
+        {
+          "git_object_id": "8819d43b7f68730b61aafbdd154f44afdddb1b29",
+          "path": "cli/internal/_version.py",
+          "sha256": "sha256:187f70d490ac387dbce6aa8c70d85c29d950ed7f116628a6abdf9d031680eec5",
+          "size_bytes": 351
+        },
+        {
+          "git_object_id": "9eaa2199e36e4f258c79cc4a3c95ca4a86a51993",
+          "path": "cli/internal/api/client.go",
+          "sha256": "sha256:22be1fd6ca186915df0aa08ada1a4eb889d9875737e890a1c57236a6dde20e05",
+          "size_bytes": 11732
+        },
+        {
+          "git_object_id": "5af9b9e514db5c71dda09954ac30f211ec2d91bd",
+          "path": "cli/internal/api/client_test.go",
+          "sha256": "sha256:1f4e5e64203adbb0bbeb9fdd33680b2a63b1d07fded57b3686c23029fcac2743",
+          "size_bytes": 3014
+        },
+        {
+          "git_object_id": "e611943ff01e1a05b2dc64a50c4b7f116e0de52c",
+          "path": "cli/internal/api/errors.go",
+          "sha256": "sha256:cd3dc27cb3efc78c510d8d14de1cf96b472e15b8d8872f84d137307270eca8de",
+          "size_bytes": 420
+        },
+        {
+          "git_object_id": "c9e2bce94b02367861950d2eebc97d205e55311f",
+          "path": "cli/internal/api/image_test.go",
+          "sha256": "sha256:107550abecc76ac6183df8f0a034cc63949e70846ebf2ee6759c187e98671671",
+          "size_bytes": 1745
+        },
+        {
+          "git_object_id": "9ec0499934c41905d75f3c189231963762c91c68",
+          "path": "cli/internal/api/stream.go",
+          "sha256": "sha256:4f761422e1714b81ad77652da09e1a64ab323cb369bc5c495e43739e33b9de17",
+          "size_bytes": 3063
+        },
+        {
+          "git_object_id": "ae4acbc0c0458a230922289a9d9f1c05d298aade",
+          "path": "cli/internal/browser/browser.go",
+          "sha256": "sha256:6312770b9780d843777cd0a3efcfb2904175fa852bb10ba890d667e87f714429",
+          "size_bytes": 700
+        },
+        {
+          "git_object_id": "dff34ae25b7fc27635229c26a80622cc9cc7829c",
+          "path": "cli/internal/config/config.go",
+          "sha256": "sha256:be0d6d33e31c0773f3bb074022562c51998299a70b9f9c3fe03ca11280414733",
+          "size_bytes": 4075
+        },
+        {
+          "git_object_id": "2bdbfb9def4e0b1c071c633707f0495fb6c7c19e",
+          "path": "cli/internal/config/config_test.go",
+          "sha256": "sha256:d6530649d946bd16ab56d3ed19042f6c22e55ec8962a736d906dbb72a66eb3be",
+          "size_bytes": 6809
+        },
+        {
+          "git_object_id": "5d3109d385bcc6bd107ac867ff05c429c125190c",
+          "path": "cli/internal/config/experiments.go",
+          "sha256": "sha256:fc8f07ab91860d1b7a5272b37138107625b9bb52f1fcbf0031ac5cf0ebbad199",
+          "size_bytes": 1341
+        },
+        {
+          "git_object_id": "fd52a768514a69c1870dbe099967c6a32b0ba87a",
+          "path": "cli/internal/embedded/SKILL.md",
+          "sha256": "sha256:203446e6d41c92bd343b34f60812f02d625dca3d5b5d0a372bc0c50cdf9985af",
+          "size_bytes": 8455
+        },
+        {
+          "git_object_id": "ca479645a9f4afdc05f8af94064449d3ddff32a4",
+          "path": "cli/internal/embedded/embed.go",
+          "sha256": "sha256:22c3dbce8f5e3c7e07592ed3e0c67381c56cbf462995c676007086e4979ef137",
+          "size_bytes": 151
+        },
+        {
+          "git_object_id": "b8f44ccf8a92883bf169867a0130d5d4c1be26b8",
+          "path": "cli/internal/exitcodes/codes.go",
+          "sha256": "sha256:d14d5aa6b46525ba80ce6d14117032500b071940ed3fadaf6a9b392da51b0572",
+          "size_bytes": 1575
+        },
+        {
+          "git_object_id": "c01c816f960e39694a1fa79134c4aa3955aba839",
+          "path": "cli/internal/exitcodes/codes_test.go",
+          "sha256": "sha256:c249e2a31bec41588566848c8b5c2b12488940870126b80435fc0cd21fa19295",
+          "size_bytes": 2019
+        },
+        {
+          "git_object_id": "deedd5e17aa0822dc67dcc7eab694d6806b401a1",
+          "path": "cli/internal/fsutil/fsutil.go",
+          "sha256": "sha256:9f76d5e3fdf6373471f4ec9d0eee2c5eab54e44ad951be9b13cd7f063b28ea44",
+          "size_bytes": 1312
+        },
+        {
+          "git_object_id": "7f2b2915324e255c2c159fd769775610bb6a2e7f",
+          "path": "cli/internal/fsutil/fsutil_test.go",
+          "sha256": "sha256:f6f88dac35d35d24377fd6db67cb3ae0faa9e24be4146de10cdb9b961be33be5",
+          "size_bytes": 3358
+        },
+        {
+          "git_object_id": "ccabb5570ce7cb47eb975dc5b883fa11dc587674",
+          "path": "cli/internal/iostreams/iostreams.go",
+          "sha256": "sha256:15469d479889030e154564b4b94fe9a6b4cb3340d82f6952c1ed317245e211db",
+          "size_bytes": 728
+        },
+        {
+          "git_object_id": "3a4d7c18aa58cafb2c8a74553bc52c365a12a8cf",
+          "path": "cli/internal/models/events.go",
+          "sha256": "sha256:fbee255b41372b89e5d0931acbf1711f5a06c61f10725db48660c716f5ccd808",
+          "size_bytes": 6645
+        },
+        {
+          "git_object_id": "eb779c2a2060bbe954add0a14b41845bf73f5a4e",
+          "path": "cli/internal/models/image.go",
+          "sha256": "sha256:2ae3d561726dd5ee50d22d3338997208125bb6f6b8a945516ab4f502f1516fb2",
+          "size_bytes": 851
+        },
+        {
+          "git_object_id": "7453074e8b6f1fab890f799f02ce4f0f629840fc",
+          "path": "cli/internal/models/models.go",
+          "sha256": "sha256:e2f2f2f5fc046f4248daa24b5e5b47186716ee8122f41866ecb423dd9ceeb864",
+          "size_bytes": 4927
+        },
+        {
+          "git_object_id": "51efd85b8f3a13934c53a02ae4077e0144d2f9e8",
+          "path": "cli/internal/overflow/writer.go",
+          "sha256": "sha256:5359c4f3b96eb8bc89aac97c37d85cbee7db480562fec5d316b808386d3ffcb3",
+          "size_bytes": 3474
+        },
+        {
+          "git_object_id": "442ee0ecd6e85415a8108a4305073a0a6bba06ac",
+          "path": "cli/internal/overflow/writer_test.go",
+          "sha256": "sha256:8d44515520fe53307ebe1dc0581167d0ae667e25441f9eff0b80d876c0ea7f7e",
+          "size_bytes": 3197
+        },
+        {
+          "git_object_id": "9c34b49878652f54fc82459395c167bac6c749b8",
+          "path": "cli/internal/parser/parser.go",
+          "sha256": "sha256:8ca366c9a86cb20a8122989d2cd5a262c46f91df14abe5c0e2bb5deb634eb6bf",
+          "size_bytes": 6766
+        },
+        {
+          "git_object_id": "7ae6035bed54ce4fa9ad01c4ace9157ec977ae2e",
+          "path": "cli/internal/parser/parser_test.go",
+          "sha256": "sha256:62162b3c8d566c4c5f14825080cb85e480f43ff4b87b26b1dcce67bf021f43e0",
+          "size_bytes": 11632
+        },
+        {
+          "git_object_id": "bd2fff4de00a760a3c1b3a5497a21f95a4c8a38e",
+          "path": "cli/internal/starprompt/starprompt.go",
+          "sha256": "sha256:f39f85120bb977a0c6ce4a2affcb5387b5b3f268c62aeb1edda39f24042f6968",
+          "size_bytes": 1993
+        },
+        {
+          "git_object_id": "16a2bc4a24907bf3d9c3075cda1da37749a289e5",
+          "path": "cli/internal/testutil/testutil.go",
+          "sha256": "sha256:2efb5000f7b5ce1359e6550c846cfa31697f86ed1e68aad0ad0b71178bb1cad2",
+          "size_bytes": 2167
+        },
+        {
+          "git_object_id": "5343d11d8b1bd5a57ec5c26d42a963733e30d5e9",
+          "path": "cli/internal/tui/app.go",
+          "sha256": "sha256:f6d924518da42b1dfaf5ea2f89b53a98b09c7eefd98ac5872633e3ec0edf4b35",
+          "size_bytes": 15765
+        },
+        {
+          "git_object_id": "3e5ffbcecd04df0d28fe5900ea2ab67fbebad8ba",
+          "path": "cli/internal/tui/commands.go",
+          "sha256": "sha256:526b2dd0765b9f3d631f394b6c1af6ccc8e99deb5411cfb7cb27d25a5955e448",
+          "size_bytes": 4954
+        },
+        {
+          "git_object_id": "1451b584820e30641207ec88df5f0757b0cacc88",
+          "path": "cli/internal/tui/configure.go",
+          "sha256": "sha256:d1fb060be30db5ecf4de86a169b836a102ced5aa6153e27b962628ea03837e0a",
+          "size_bytes": 5247
+        },
+        {
+          "git_object_id": "9c92f71e1998cfb1bfcd69d78d29e418a5c72c26",
+          "path": "cli/internal/tui/help.go",
+          "sha256": "sha256:6b813acf2bd57172ff35a85af6fb77c89ef8483fdc82c5d7a84b47a3cacc6e73",
+          "size_bytes": 828
+        },
+        {
+          "git_object_id": "a4c8ee46f887e69f587954924c2e1e9f1b2a2e3f",
+          "path": "cli/internal/tui/input.go",
+          "sha256": "sha256:8fa35d021d0ac9e441c234f1ec22ac10fcd48fb3a4a456f049139a4ee746202c",
+          "size_bytes": 6443
+        },
+        {
+          "git_object_id": "810cbc8589613f2dd821e13d29efb7f68daacee4",
+          "path": "cli/internal/tui/messages.go",
+          "sha256": "sha256:0c51de9432996406babe3d6790da99f8d2714a9a3d99e19ae0f5ab5269b276cf",
+          "size_bytes": 944
+        },
+        {
+          "git_object_id": "48b7c54081a75b5dbf14f56671b2374d16e3d923",
+          "path": "cli/internal/tui/splash.go",
+          "sha256": "sha256:b71d6bd91ae51481316819cca075c24c84514bd2c67d0b9c19695071410ef7df",
+          "size_bytes": 1453
+        },
+        {
+          "git_object_id": "402ed2b8c62592035b8c033cd6b5dd60ed9504f1",
+          "path": "cli/internal/tui/sshauth.go",
+          "sha256": "sha256:acf6bc816a4c58f7798db453e801c311c867aa0fdc920f4f75f9f5e64afb9047",
+          "size_bytes": 5619
+        },
+        {
+          "git_object_id": "d775c77df628fb8acedd37e9ddddb5b034c78923",
+          "path": "cli/internal/tui/statusbar.go",
+          "sha256": "sha256:358e7d7d20eb5b7ffdef81d207e8de15793851a2680f9690850877428c82eaa4",
+          "size_bytes": 1261
+        },
+        {
+          "git_object_id": "8fe20f08308eab04a0a1fc7c9ce7c5f5877c14db",
+          "path": "cli/internal/tui/stream_adapter.go",
+          "sha256": "sha256:6ef4d8958c1a2b21d74224333ce5b227e13e03ae0238ec3793aeb6a87ec9cc6c",
+          "size_bytes": 628
+        },
+        {
+          "git_object_id": "71fbcf76c6a234e797a929210865d59d50ce2097",
+          "path": "cli/internal/tui/styles.go",
+          "sha256": "sha256:96e7f814b70922dbd417329a706efd8321907504e28973093dd7d2e8c5cd8a4b",
+          "size_bytes": 1263
+        },
+        {
+          "git_object_id": "27f036620723590a881838b65445de5d3636e613",
+          "path": "cli/internal/tui/viewport.go",
+          "sha256": "sha256:f9c005723ff5c7b64433f6c47c0e59f5ad7fb7bae5e445aa2b3a3bd5a4fc0c0b",
+          "size_bytes": 11513
+        },
+        {
+          "git_object_id": "193b8d205d37c65e221c077d1191cb3e99d26346",
+          "path": "cli/internal/tui/viewport_test.go",
+          "sha256": "sha256:35538ab12a258e94a1715d004beeb6879f12ec99982982530c3d982621ef0f9a",
+          "size_bytes": 9157
+        },
+        {
+          "git_object_id": "84739254057798d9a0a9031d4dc601cc00012627",
+          "path": "cli/internal/version/version.go",
+          "sha256": "sha256:66d248455fbd57c7855a7ff31b6280914ce53365da5214274eec2892361217ea",
+          "size_bytes": 1495
+        },
+        {
+          "git_object_id": "53ea6d6c4079f61d1954e99c51a75da55ce6d385",
+          "path": "cli/internal/version/version_test.go",
+          "sha256": "sha256:51480ad03ef147b6be5d5a79db5f196f03a152d1d2178a671394c451dc45ddf0",
+          "size_bytes": 2524
+        }
+      ],
+      "missing_probe_ids": [
+        "pmorg-authority",
+        "qualified-build-measurement",
+        "qualified-build-attestation",
+        "signed-distribution-admission",
+        "dsse-envelope",
+        "active-transfer-abort"
+      ],
+      "plausibility_state": "no_direct_candidate_level_admission_surface_observed",
+      "probes": [
+        {
+          "matches": [],
+          "probe_id": "pmorg-authority",
+          "satisfied": false,
+          "terms": [
+            "pmorg",
+            "pmorg-contracts/1.0"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-measurement",
+          "satisfied": false,
+          "terms": [
+            "bqm"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "qualified-build-attestation",
+          "satisfied": false,
+          "terms": [
+            "bqa"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "signed-distribution-admission",
+          "satisfied": false,
+          "terms": [
+            "signed distribution admission",
+            "distributionadmissionrecord"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "dsse-envelope",
+          "satisfied": false,
+          "terms": [
+            "dsse"
+          ]
+        },
+        {
+          "matches": [],
+          "probe_id": "active-transfer-abort",
+          "satisfied": false,
+          "terms": [
+            "active-transfer abort",
+            "abort transfer"
+          ]
+        }
+      ]
+    }
+  ],
+  "claim_boundary": "plausibility_screen_only_no_qualification_or_disposition",
+  "coverage": {
+    "expected": 457,
+    "scanned": 457,
+    "unreadable": 0,
+    "unverified": 0
+  },
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:a746cc3f8aac52613b25cdacaf972ca8e744696cfaaf7dc6dd7bcd8e5eac07f6",
+      "relative_path": "backend/pmorg/application/candidate_interface_fit.py",
+      "size_bytes": 19055
+    },
+    {
+      "digest": "sha256:37e391a6aca6b84b5e930ab415b8c77ffcc8535fbf5d4fe972ac28798021d1fc",
+      "relative_path": "pmorg/scripts/build_candidate_interface_fit.py",
+      "size_bytes": 655
+    }
+  ],
+  "evidence_version": "1.0.0",
+  "oracle_activation": false,
+  "qualification_interfaces": {
+    "digest": "sha256:ed201b9386716076dc028038c708097f5aaba36606cabe3c5ae397be59fad957",
+    "relative_path": "pmorg/capabilities/qualification-interfaces-v1.json",
+    "size_bytes": 2951
+  },
+  "qualification_test_vectors": {
+    "digest": "sha256:62c0783e5538ed32fb6685738f32d974cc719a71d1830d37a59a62af5993a667",
+    "relative_path": "pmorg/capabilities/qualification-test-vectors-v1.json",
+    "size_bytes": 2939
+  },
+  "schema_version": "pmorg.candidate-interface-fit-evidence/v1",
+  "selection_policy": {
+    "deployment-admission": [
+      "deployment/aws_ecs_fargate",
+      "deployment/data",
+      "deployment/docker_compose",
+      "deployment/helm",
+      "deployment/terraform",
+      "loadtest/k8s"
+    ],
+    "distribution-admission": [
+      ".github/workflows",
+      "backend/onyx/connectors",
+      "backend/onyx/federated_connectors",
+      "backend/onyx/file_store",
+      "cli/cmd",
+      "cli/internal"
+    ]
+  },
+  "source_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "source_repository": "https://github.com/onyx-dot-app/onyx.git",
+  "source_tree_id": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58"
+}
