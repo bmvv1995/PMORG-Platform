@@ -1,0 +1,239 @@
+{
+  "activation_status": "definition_only_unactivated",
+  "claim_boundary": "no_oracle_activation_or_qualification_verdict",
+  "contract_test_manifest": {
+    "digest": "sha256:9af2bec8019d0543f8adc10935e2e1726ee65445efd5dd5d7e6f797c24e19fec",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/capability-disposition-qualification.json",
+    "size_bytes": 372
+  },
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:712324773923498820cb56beab68efdc07e0abbce63e41cba91de7bbbfe3816f",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/capability_disposition_qualification_setup.py",
+      "size_bytes": 38801
+    },
+    {
+      "digest": "sha256:0390c640768518b6e2ac08f0df3fe572930de4da20ba70ef1c8c82dd2adae216",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_capability_disposition_qualification_setup.py",
+      "size_bytes": 772
+    }
+  ],
+  "extension_id": "capability-disposition-qualification-v1",
+  "falsifiability_contract": {
+    "candidate_influence_both_directions": true,
+    "mutation_can_flip_verdict": true,
+    "no_op_rejected": true,
+    "positive_injection_can_fit": true,
+    "runtime_identity_required_at_execution": true
+  },
+  "immutable_predecessors": {
+    "base_vector_manifest": {
+      "digest": "sha256:62c0783e5538ed32fb6685738f32d974cc719a71d1830d37a59a62af5993a667",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vectors-v1.json",
+      "size_bytes": 2939
+    },
+    "oracle_policy": {
+      "digest": "sha256:4bb55d54f1737c289bb91a5823f4315ff163e81bb3101353413fdff439fa0927",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-oracle-policy-v1.json",
+      "size_bytes": 32871
+    },
+    "oracle_states": [
+      {
+        "adapter": null,
+        "candidate_test_vector": null,
+        "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-002:v1",
+        "oracle_status": "unexecutable",
+        "test_id": "A-PATCH-002"
+      },
+      {
+        "adapter": null,
+        "candidate_test_vector": null,
+        "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-003:v1",
+        "oracle_status": "unexecutable",
+        "test_id": "A-PATCH-003"
+      },
+      {
+        "adapter": null,
+        "candidate_test_vector": null,
+        "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-004:v1",
+        "oracle_status": "unexecutable",
+        "test_id": "A-PATCH-004"
+      },
+      {
+        "adapter": null,
+        "candidate_test_vector": null,
+        "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-005:v1",
+        "oracle_status": "unexecutable",
+        "test_id": "A-PATCH-005"
+      },
+      {
+        "adapter": null,
+        "candidate_test_vector": null,
+        "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-006:v1",
+        "oracle_status": "unexecutable",
+        "test_id": "A-PATCH-006"
+      }
+    ]
+  },
+  "interface_reference_implementations": [
+    {
+      "digest": "sha256:89ec04db1da5a89c9c97461c2d5327f122ed2fee616a1e03a496c3e9f8a2f796",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification.py",
+      "size_bytes": 26963
+    },
+    {
+      "digest": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification_oracles.py",
+      "size_bytes": 34009
+    }
+  ],
+  "qualification_interface": {
+    "digest": "sha256:61566232102db39182c1ce22b51c07c145ce647413d5a8d9d85256b1892f76ca",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+    "size_bytes": 3290
+  },
+  "reference_implementation_bindings": [
+    {
+      "reference_implementation": {
+        "digest": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
+        "media_type": "text/x-python",
+        "relative_path": "backend/pmorg/application/qualification_oracles.py",
+        "size_bytes": 34009
+      },
+      "test_id": "A-PATCH-002"
+    },
+    {
+      "reference_implementation": {
+        "digest": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
+        "media_type": "text/x-python",
+        "relative_path": "backend/pmorg/application/qualification_oracles.py",
+        "size_bytes": 34009
+      },
+      "test_id": "A-PATCH-003"
+    },
+    {
+      "reference_implementation": {
+        "digest": "sha256:89ec04db1da5a89c9c97461c2d5327f122ed2fee616a1e03a496c3e9f8a2f796",
+        "media_type": "text/x-python",
+        "relative_path": "backend/pmorg/application/qualification.py",
+        "size_bytes": 26963
+      },
+      "test_id": "A-PATCH-004"
+    },
+    {
+      "reference_implementation": {
+        "digest": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
+        "media_type": "text/x-python",
+        "relative_path": "backend/pmorg/application/qualification_oracles.py",
+        "size_bytes": 34009
+      },
+      "test_id": "A-PATCH-005"
+    },
+    {
+      "reference_implementation": {
+        "digest": "sha256:89ec04db1da5a89c9c97461c2d5327f122ed2fee616a1e03a496c3e9f8a2f796",
+        "media_type": "text/x-python",
+        "relative_path": "backend/pmorg/application/qualification.py",
+        "size_bytes": 26963
+      },
+      "test_id": "A-PATCH-006"
+    }
+  ],
+  "runtime_identity_contract": {
+    "artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "media_type": "text/plain",
+        "relative_path": ".python-version",
+        "size_bytes": 5
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "media_type": "application/toml",
+        "relative_path": "pyproject.toml",
+        "size_bytes": 9983
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "media_type": "application/toml",
+        "relative_path": "uv.lock",
+        "size_bytes": 1018201
+      }
+    ],
+    "interpreter_binary_evidence": {
+      "algorithm": "sha256",
+      "required_fields": [
+        "implementation",
+        "version",
+        "executable_digest",
+        "executable_size_bytes"
+      ]
+    },
+    "pass_requirements": [
+      "the invoked interpreter binary is measured before adapter execution",
+      "the measured interpreter satisfies the committed .python-version",
+      "dependencies resolve only from the exact committed uv.lock",
+      "runtime evidence and lock artifact digests are bound into the result"
+    ],
+    "schema_version": "pmorg.qualification-runtime-identity-contract/v1",
+    "status": "binary_measurement_required_at_execution"
+  },
+  "runtime_identity_contract_digest": "sha256:59ebd918c79614af1a4dec86b52a747e02b2b133ee14a27d30fa498c65e1e7db",
+  "schema_version": "pmorg.qualification-test-vector-extension-manifest/v1",
+  "vector_schema": {
+    "digest": "sha256:edeb4ab6802e4b93de638cf54442163116a9b048d0df38aff34ba7633a6b5e8b",
+    "media_type": "application/schema+json",
+    "relative_path": "pmorg/capabilities/qualification-test-vector-v1.schema.json",
+    "size_bytes": 5467
+  },
+  "vectors": [
+    {
+      "capability_id": "capability-disposition-qualification",
+      "digest": "sha256:0c39780ebb72072c937d063c73e40ad3e3653b7f164ff18826a7dcd6468600f3",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-002-v1.json",
+      "size_bytes": 4057,
+      "test_id": "A-PATCH-002"
+    },
+    {
+      "capability_id": "capability-disposition-qualification",
+      "digest": "sha256:0163d238c9a74ce0f92cf7d0a3c25f7437fa8b947597d7eaea3a54df815d4cb8",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-003-v1.json",
+      "size_bytes": 4054,
+      "test_id": "A-PATCH-003"
+    },
+    {
+      "capability_id": "capability-disposition-qualification",
+      "digest": "sha256:5c936be84888ec8a26feea3e853cd004c5fc33832d18b614c5348373a6b4a8df",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-004-v1.json",
+      "size_bytes": 4047,
+      "test_id": "A-PATCH-004"
+    },
+    {
+      "capability_id": "capability-disposition-qualification",
+      "digest": "sha256:248cd80eae50c1cd9303351bb57711ca8a4528d48243c9c416b9976a376a5d3f",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-005-v1.json",
+      "size_bytes": 4046,
+      "test_id": "A-PATCH-005"
+    },
+    {
+      "capability_id": "capability-disposition-qualification",
+      "digest": "sha256:121f7add324f1148f0bb0450fb086c3f7ffb2ee3e0cee9cf638ab81b2e6d400f",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-006-v1.json",
+      "size_bytes": 4009,
+      "test_id": "A-PATCH-006"
+    }
+  ]
+}
