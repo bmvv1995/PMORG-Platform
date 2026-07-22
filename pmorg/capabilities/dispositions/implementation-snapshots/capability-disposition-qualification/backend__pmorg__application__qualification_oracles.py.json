@@ -1,0 +1,11 @@
+{
+  "commit": "76e21b64f5cc98d22e5cd2c197fb7344c8dc54dc",
+  "content_hash": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
+  "git_blob_id": "f38fdf15739e16213597388ab20dce47f069f42c",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "backend/pmorg/application/qualification_oracles.py",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 34009
+}
