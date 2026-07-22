@@ -1,0 +1,106 @@
+{
+  "capability_id": "capability-disposition-qualification",
+  "execution": {
+    "framework": "python-unittest",
+    "mode": "single-process-complete-modules",
+    "suites": [
+      "pmorg.tests.test_qualification_oracles",
+      "pmorg.tests.test_qualification_signing"
+    ]
+  },
+  "expected_test_count": 12,
+  "implementation_bindings": [
+    {
+      "digest": "sha256:89ec04db1da5a89c9c97461c2d5327f122ed2fee616a1e03a496c3e9f8a2f796",
+      "relative_path": "backend/pmorg/application/qualification.py",
+      "size_bytes": 26963
+    },
+    {
+      "digest": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
+      "relative_path": "backend/pmorg/application/qualification_oracles.py",
+      "size_bytes": 34009
+    }
+  ],
+  "implementation_path_set_hash": "sha256:33b28a16a9117f65bf3562fd3aff838c4d698b65e7fea12d02c5aa588efcba6d",
+  "patch_ledger_entry_ids": [
+    "PL-046"
+  ],
+  "patch_ledger_set_hash": "sha256:fab9acdccdbc9b42d7ecad8b014e72a50a036c076b5130ec7cb801c2d76c2b4d",
+  "pmorg_platform_commit": "d3cb3ceee627024404af0588103168367c0f5faa",
+  "requirement_ids": [
+    "A-PATCH-002",
+    "A-PATCH-003",
+    "A-PATCH-004",
+    "A-PATCH-005",
+    "A-PATCH-006",
+    "PLT-006"
+  ],
+  "runner": {
+    "digest": "sha256:952bb5e65b0c660fbe9b3cd4490d0b6525fbc06507ea85685538b6b13f75a80f",
+    "relative_path": "pmorg/scripts/run_capability_disposition_post_disposition_suite.py",
+    "size_bytes": 4890
+  },
+  "schema_version": "pmorg.capability-disposition-post-disposition-test-manifest/v1",
+  "test_cases": [
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_oracles.TestQualificationOracles.test_binding_and_committed_output_drift_fail_closed",
+      "test_id": "capability-disposition-qualification::TestQualificationOracles.test_binding_and_committed_output_drift_fail_closed"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_oracles.TestQualificationOracles.test_global_gates_are_preserved_but_never_candidate_executable",
+      "test_id": "capability-disposition-qualification::TestQualificationOracles.test_global_gates_are_preserved_but_never_candidate_executable"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_oracles.TestQualificationOracles.test_policy_is_closed_content_addressed_and_deterministic",
+      "test_id": "capability-disposition-qualification::TestQualificationOracles.test_policy_is_closed_content_addressed_and_deterministic"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_oracles.TestQualificationOracles.test_unexecutable_or_status_forged_result_cannot_pass",
+      "test_id": "capability-disposition-qualification::TestQualificationOracles.test_unexecutable_or_status_forged_result_cannot_pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqa_rejects_binding_and_deadline_escape",
+      "test_id": "capability-disposition-qualification::TestQualificationSigning.test_bqa_rejects_binding_and_deadline_escape"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqa_rejects_missing_key_multiple_signatures_and_schema_drift",
+      "test_id": "capability-disposition-qualification::TestQualificationSigning.test_bqa_rejects_missing_key_multiple_signatures_and_schema_drift"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqa_rejects_tampering_wrong_key_and_type",
+      "test_id": "capability-disposition-qualification::TestQualificationSigning.test_bqa_rejects_tampering_wrong_key_and_type"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqa_round_trip_is_deterministic_and_schema_bound",
+      "test_id": "capability-disposition-qualification::TestQualificationSigning.test_bqa_round_trip_is_deterministic_and_schema_bound"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqm_is_content_addressed_exact_and_offline_resolvable",
+      "test_id": "capability-disposition-qualification::TestQualificationSigning.test_bqm_is_content_addressed_exact_and_offline_resolvable"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqm_rejects_expected_observed_and_evidence_drift",
+      "test_id": "capability-disposition-qualification::TestQualificationSigning.test_bqm_rejects_expected_observed_and_evidence_drift"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqm_rejects_role_and_artifact_coverage_drift",
+      "test_id": "capability-disposition-qualification::TestQualificationSigning.test_bqm_rejects_role_and_artifact_coverage_drift"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_no_private_key_material_is_committed",
+      "test_id": "capability-disposition-qualification::TestQualificationSigning.test_no_private_key_material_is_committed"
+    }
+  ],
+  "test_module_bindings": [
+    {
+      "digest": "sha256:a11cb2d856fcfd948228b5db0c9b2d7273937b4271f0a0e35e64b9a1fb4899de",
+      "relative_path": "backend/pmorg/tests/test_qualification_oracles.py",
+      "size_bytes": 11043
+    },
+    {
+      "digest": "sha256:95674e9d0ce40d31bcf76235b6f8bf6187358ba8979cfaaf6d331fc8bd1f922b",
+      "relative_path": "backend/pmorg/tests/test_qualification_signing.py",
+      "size_bytes": 22303
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "interpreter_binary": {
+    "digest": "sha256:9efb620bf4def9da93c66480431bf9ca479f5ca495da94483cf9117dd58430bf",
+    "relative_path": "@runtime/executed-python-interpreter"
+  },
+  "pmorg_platform_commit": "d3cb3ceee627024404af0588103168367c0f5faa",
+  "schema_version": "pmorg.capability-disposition-post-disposition-suite-receipt/v1",
+  "suites": [
+    "pmorg.tests.test_qualification_oracles",
+    "pmorg.tests.test_qualification_signing"
+  ],
+  "test_count": 12,
+  "tests": [
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_oracles.TestQualificationOracles.test_binding_and_committed_output_drift_fail_closed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_oracles.TestQualificationOracles.test_global_gates_are_preserved_but_never_candidate_executable",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_oracles.TestQualificationOracles.test_policy_is_closed_content_addressed_and_deterministic",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_oracles.TestQualificationOracles.test_unexecutable_or_status_forged_result_cannot_pass",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqa_rejects_binding_and_deadline_escape",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqa_rejects_missing_key_multiple_signatures_and_schema_drift",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqa_rejects_tampering_wrong_key_and_type",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqa_round_trip_is_deterministic_and_schema_bound",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqm_is_content_addressed_exact_and_offline_resolvable",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqm_rejects_expected_observed_and_evidence_drift",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_bqm_rejects_role_and_artifact_coverage_drift",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_qualification_signing.TestQualificationSigning.test_no_private_key_material_is_committed",
+      "status": "pass"
+    }
+  ]
+}

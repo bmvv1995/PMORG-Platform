@@ -1,0 +1,70 @@
+{
+  "$id": "urn:pmorg:capability-disposition-post-disposition-suite-receipt:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "interpreter_binary": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "const": "@runtime/executed-python-interpreter"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path"
+      ],
+      "type": "object"
+    },
+    "pmorg_platform_commit": {
+      "const": "d3cb3ceee627024404af0588103168367c0f5faa"
+    },
+    "schema_version": {
+      "const": "pmorg.capability-disposition-post-disposition-suite-receipt/v1"
+    },
+    "suites": {
+      "const": [
+        "pmorg.tests.test_qualification_oracles",
+        "pmorg.tests.test_qualification_signing"
+      ]
+    },
+    "test_count": {
+      "const": 12
+    },
+    "tests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fully_qualified_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "const": "pass"
+          }
+        },
+        "required": [
+          "fully_qualified_name",
+          "status"
+        ],
+        "type": "object"
+      },
+      "maxItems": 12,
+      "minItems": 12,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pmorg_platform_commit",
+    "suites",
+    "test_count",
+    "tests",
+    "interpreter_binary"
+  ],
+  "type": "object"
+}
