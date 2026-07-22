@@ -414,7 +414,9 @@ class TestCapabilityDispositionQualificationDisposition(unittest.TestCase):
             ledger_path = copied / "pmorg/patch-ledger.json"
             ledger = json.loads(ledger_path.read_bytes())
             successor = copy.deepcopy(ledger["entries"][-1])
-            successor["id"] = "PL-048"
+            successor["id"] = (
+                f"PL-{max(int(entry['id'].removeprefix('PL-')) for entry in ledger['entries']) + 1:03d}"
+            )
             successor["paths"] = ["pmorg/capabilities/future-terminal.json"]
             successor["reason"] = "Simulated reversible successor append."
             ledger["entries"].append(successor)

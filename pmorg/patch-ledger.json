@@ -1356,6 +1356,47 @@
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_qualification_disposition.py --check",
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
       ]
+    },
+    {
+      "id": "PL-048",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/catalog_completion_aggregate.py",
+        "backend/pmorg/tests/test_catalog_completion_aggregate.py",
+        "pmorg/capabilities/catalog-completion/catalog-completion-aggregate-v1.json",
+        "pmorg/capabilities/catalog-completion/catalog-completion-aggregate-v1.schema.json",
+        "pmorg/scripts/build_catalog_completion_aggregate.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-FORK-001",
+        "A-LIC-001",
+        "A-LIC-002",
+        "A-LIC-003",
+        "A-PATCH-001",
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001",
+        "PLT-004",
+        "PLT-005",
+        "PLT-006",
+        "PLT-007",
+        "PLT-008"
+      ],
+      "reason": "Emit one terminal, deterministic and signable catalog-completion aggregate that binds by digest the exact six committed capability disposition records, their six evidence indexes, the capability catalog and its applicable requirement set; prove exact 21/21 mapped-requirement coverage while preserving every predecessor byte-identically; keep DSSE key material and signatures ephemeral and make no admission, release, build-qualification, production or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=7b3470cadba39c6033d11424dfb6e0a65c8ac389 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest pmorg.tests.test_catalog_completion_aggregate -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_catalog_completion_aggregate.py --check",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

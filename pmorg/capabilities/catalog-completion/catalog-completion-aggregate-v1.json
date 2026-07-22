@@ -1,0 +1,254 @@
+{
+  "applicable_requirement_set": {
+    "digest": "sha256:57aa19a0d975fc119b2bd307a497306e84808bdd9694393094a620f7f70ce5d4",
+    "logical_name": "applicable-release-requirement-set",
+    "media_type": "application/json",
+    "relative_path": "pmorg/baseline-manifest.json",
+    "size_bytes": 14536
+  },
+  "catalog": {
+    "digest": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+    "logical_name": "capability-catalog",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/capability-catalog-v1.json",
+    "size_bytes": 4415
+  },
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "catalog_version": "1.0.0",
+  "claim_boundary": "catalog_completion_only_no_admission_release_build_qualification_production_or_g3a",
+  "completion_claim": "all_catalog_capabilities_carry_signed_dispositions_covering_all_mapped_requirements_21_of_21",
+  "completion_status": "complete",
+  "covered_requirement_count": 21,
+  "covered_requirement_ids": [
+    "A-EVIDENCE-001",
+    "A-FORK-001",
+    "A-LIC-001",
+    "A-LIC-002",
+    "A-LIC-003",
+    "A-PATCH-001",
+    "A-PATCH-002",
+    "A-PATCH-003",
+    "A-PATCH-004",
+    "A-PATCH-005",
+    "A-PATCH-006",
+    "A-REPORT-001",
+    "A-REPRO-001",
+    "A-SURFACE-001",
+    "A-UPSTREAM-001",
+    "PLT-001",
+    "PLT-004",
+    "PLT-005",
+    "PLT-006",
+    "PLT-007",
+    "PLT-008"
+  ],
+  "disposition_binding_set_hash": "sha256:5fceb6a1ccf796c259e1689b3fa84a7662256324992f1300497afe5721979365",
+  "disposition_bindings": [
+    {
+      "capability_id": "capability-disposition-qualification",
+      "disposition": "pmorg_independent",
+      "evidence_bundle": {
+        "digest": "sha256:14d85e7422f51a22d500861018c51b9e9bbc481d53f695df05ef791e56bb715d",
+        "logical_name": "capability-disposition-qualification-capability-disposition-evidence-index",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/evidence/capability-disposition-qualification.json",
+        "size_bytes": 28062
+      },
+      "evidence_entry_count": 57,
+      "evidence_subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+      "platform_anchor": {
+        "artifact_set_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+        "onyx_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+        "pmorg_platform_commit": "76e21b64f5cc98d22e5cd2c197fb7344c8dc54dc",
+        "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
+      },
+      "pmorg_requirement_ids": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "PLT-006"
+      ],
+      "record": {
+        "digest": "sha256:5ecbceb016ac879c90467d4cb54955b13cd2940a3989aace47750293c94864eb",
+        "logical_name": "capability-disposition-qualification-capability-disposition-record",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/records/capability-disposition-qualification.json",
+        "size_bytes": 1132160
+      }
+    },
+    {
+      "capability_id": "deployment-admission",
+      "disposition": "pmorg_independent",
+      "evidence_bundle": {
+        "digest": "sha256:dd316eae54f2adc32f1d9a18c8b937ab696a161a54c532da33a9a0eb2efa5e65",
+        "logical_name": "deployment-admission-capability-disposition-evidence-index",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/evidence/deployment-admission.json",
+        "size_bytes": 42286
+      },
+      "evidence_entry_count": 92,
+      "evidence_subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+      "platform_anchor": {
+        "artifact_set_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+        "onyx_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+        "pmorg_platform_commit": "7e262835c4d69dd51a8b6fbb401d7d1a8b7a2d0b",
+        "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
+      },
+      "pmorg_requirement_ids": [
+        "A-LIC-002",
+        "PLT-007"
+      ],
+      "record": {
+        "digest": "sha256:8325d2810d2dd5e98c052fd0cad4bef6f91558c138dc276a5e4dfb36d0a0bf92",
+        "logical_name": "deployment-admission-capability-disposition-record",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/records/deployment-admission.json",
+        "size_bytes": 974682
+      }
+    },
+    {
+      "capability_id": "distribution-admission",
+      "disposition": "pmorg_independent",
+      "evidence_bundle": {
+        "digest": "sha256:015b42fd4d9701967085c4239c15959c62ff28d7b56549d7e24fb11e597bff9c",
+        "logical_name": "distribution-admission-capability-disposition-evidence-index",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/evidence/distribution-admission.json",
+        "size_bytes": 53270
+      },
+      "evidence_entry_count": 115,
+      "evidence_subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+      "platform_anchor": {
+        "artifact_set_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+        "onyx_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+        "pmorg_platform_commit": "7e262835c4d69dd51a8b6fbb401d7d1a8b7a2d0b",
+        "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
+      },
+      "pmorg_requirement_ids": [
+        "A-LIC-003",
+        "PLT-008"
+      ],
+      "record": {
+        "digest": "sha256:9eb588bd87f2b2893e79bae54576c34b8a9ec269fcc37da0c369a586d05cadfc",
+        "logical_name": "distribution-admission-capability-disposition-record",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/records/distribution-admission.json",
+        "size_bytes": 1185929
+      }
+    },
+    {
+      "capability_id": "governed-onyx-fork",
+      "disposition": "pmorg_independent",
+      "evidence_bundle": {
+        "digest": "sha256:f9c5e50724599c158cd8eeaa78c2ab6f83396c35eb457615f1e91907e475d661",
+        "logical_name": "governed-onyx-fork-capability-disposition-evidence-index",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/evidence/governed-onyx-fork.json",
+        "size_bytes": 35992
+      },
+      "evidence_entry_count": 78,
+      "evidence_subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+      "platform_anchor": {
+        "artifact_set_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+        "onyx_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+        "pmorg_platform_commit": "4e78c6293a0f6b17d86764688bf23f5b357db890",
+        "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
+      },
+      "pmorg_requirement_ids": [
+        "A-FORK-001",
+        "A-SURFACE-001",
+        "A-UPSTREAM-001",
+        "PLT-001"
+      ],
+      "record": {
+        "digest": "sha256:115c6717895b5b287b5b4263130f6b3888db46fefe060b2d1ad64d118a51620d",
+        "logical_name": "governed-onyx-fork-capability-disposition-record",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/records/governed-onyx-fork.json",
+        "size_bytes": 1236639
+      }
+    },
+    {
+      "capability_id": "qualified-reproducible-build",
+      "disposition": "pmorg_independent",
+      "evidence_bundle": {
+        "digest": "sha256:b6f9ab2cb54cd7ffbf707f2e27e1545068e851558aa871d8f09765e299fa4329",
+        "logical_name": "qualified-reproducible-build-capability-disposition-evidence-index",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/evidence/qualified-reproducible-build.json",
+        "size_bytes": 26291
+      },
+      "evidence_entry_count": 57,
+      "evidence_subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+      "platform_anchor": {
+        "artifact_set_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+        "onyx_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+        "pmorg_platform_commit": "a9764a9a2ca59c71392cc1ce187a6f9b7166ea92",
+        "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
+      },
+      "pmorg_requirement_ids": [
+        "A-EVIDENCE-001",
+        "A-LIC-001",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "PLT-005"
+      ],
+      "record": {
+        "digest": "sha256:31809bc796fe05e11e85e7f9b633482aa8239b3147ec12c042591e643a353c3d",
+        "logical_name": "qualified-reproducible-build-capability-disposition-record",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/records/qualified-reproducible-build.json",
+        "size_bytes": 980680
+      }
+    },
+    {
+      "capability_id": "thin-fork-boundary",
+      "disposition": "pmorg_independent",
+      "evidence_bundle": {
+        "digest": "sha256:a3d3e9807551129fe03eeef2f286ba685333346825fc519b14bde210dfa58012",
+        "logical_name": "thin-fork-boundary-capability-disposition-evidence-index",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/evidence/thin-fork-boundary.json",
+        "size_bytes": 29804
+      },
+      "evidence_entry_count": 66,
+      "evidence_subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+      "platform_anchor": {
+        "artifact_set_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e",
+        "onyx_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+        "pmorg_platform_commit": "7ea76e1d8dc75a02f7945004ac96cd2f33d701cd",
+        "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
+      },
+      "pmorg_requirement_ids": [
+        "A-PATCH-001",
+        "PLT-004"
+      ],
+      "record": {
+        "digest": "sha256:a520334f72bebee4c60c42c61ff2d07793377548e419bf3b8265d6fa5185386f",
+        "logical_name": "thin-fork-boundary-capability-disposition-record",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/dispositions/records/thin-fork-boundary.json",
+        "size_bytes": 1014179
+      }
+    }
+  ],
+  "disposition_count": 6,
+  "duplicate_requirement_ids": [],
+  "expected_requirement_count": 21,
+  "gate_class": "completion-claim",
+  "missing_requirement_ids": [],
+  "onyx_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "pmorg_platform_commit": "7b3470cadba39c6033d11424dfb6e0a65c8ac389",
+  "pmorg_spec_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e",
+  "schema_version": "pmorg.catalog-completion-aggregate/v1",
+  "scope_exclusions": [
+    "admission",
+    "release",
+    "build_qualification",
+    "production",
+    "g3a"
+  ],
+  "unknown_requirement_ids": []
+}
