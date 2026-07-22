@@ -21,7 +21,7 @@ from pmorg.contracts.types import PostDispositionQualificationReport
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 BASE_PLATFORM_COMMIT = "d3cb3ceee627024404af0588103168367c0f5faa"
-Q7D_EVIDENCE_COMMIT: str | None = None
+Q7D_EVIDENCE_COMMIT: str | None = "86ecf4a806c92c3933d0179e9e1bdfde952c4d23"
 CATALOG_RELATIVE = "pmorg/capabilities/capability-catalog-v1.json"
 PATCH_LEDGER_RELATIVE = "pmorg/patch-ledger.json"
 REPORT_SCHEMA_RELATIVE = (
