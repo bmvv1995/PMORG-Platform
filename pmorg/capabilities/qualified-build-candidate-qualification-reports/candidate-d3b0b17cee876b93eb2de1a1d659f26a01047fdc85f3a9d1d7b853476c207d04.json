@@ -1,0 +1,124 @@
+{
+  "candidate_id": "candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04",
+  "capability_id": "qualified-reproducible-build",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 4,
+  "expected_test_count": 4,
+  "failed_test_count": 4,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:36c5e06d1ef2dd64eeb85ff8ff49231b16c9f41412930676269b84b144718690",
+    "logical_name": "qualification-oracle-extension-qualified-build-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-qualified-build-v1.json",
+    "size_bytes": 8800
+  },
+  "required_test_manifest": {
+    "digest": "sha256:acdbcc80ce0ab328bbe8c7da78c03c2cb631831b31d16c10111d662ad76b4e35",
+    "logical_name": "qualified-reproducible-build-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/qualified-reproducible-build.json",
+    "size_bytes": 330
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/onyx/file_store/README.md",
+      "backend/onyx/file_store/constants.py",
+      "backend/onyx/file_store/document_batch_storage.py",
+      "backend/onyx/file_store/file_store.py",
+      "backend/onyx/file_store/gcs_file_store.py",
+      "backend/onyx/file_store/models.py",
+      "backend/onyx/file_store/postgres_file_store.py",
+      "backend/onyx/file_store/s3_key_utils.py",
+      "backend/onyx/file_store/staging.py",
+      "backend/onyx/file_store/utils.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:a1b922030eed615eaa89499204b6ec2bbbf7b25b5c07251da5e2006878f0927b",
+        "logical_name": "candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04-A-EVIDENCE-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04/A-EVIDENCE-001.json",
+        "size_bytes": 4065
+      },
+      "test_id": "A-EVIDENCE-001",
+      "test_manifest": {
+        "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+        "logical_name": "qualified-reproducible-build-A-EVIDENCE-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json",
+        "size_bytes": 4002
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:26a4b3d4685459e637beddd316e393a862e492ec1c4ba4fbc4bbc3d575d6fcc5",
+        "logical_name": "candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04-A-LIC-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04/A-LIC-001.json",
+        "size_bytes": 4050
+      },
+      "test_id": "A-LIC-001",
+      "test_manifest": {
+        "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+        "logical_name": "qualified-reproducible-build-A-LIC-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json",
+        "size_bytes": 3988
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:f3b9a3227e65726c75cd961dd269417f6672a387c3bced0a9748db2b0d42fdb7",
+        "logical_name": "candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04-A-REPORT-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04/A-REPORT-001.json",
+        "size_bytes": 4059
+      },
+      "test_id": "A-REPORT-001",
+      "test_manifest": {
+        "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+        "logical_name": "qualified-reproducible-build-A-REPORT-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json",
+        "size_bytes": 3997
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:9ab6048630a954d15a093fa52f5e5e13ba71906bc6d78c0ef7403f64c7063b73",
+        "logical_name": "candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04-A-REPRO-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04/A-REPRO-001.json",
+        "size_bytes": 4056
+      },
+      "test_id": "A-REPRO-001",
+      "test_manifest": {
+        "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+        "logical_name": "qualified-reproducible-build-A-REPRO-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json",
+        "size_bytes": 4003
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

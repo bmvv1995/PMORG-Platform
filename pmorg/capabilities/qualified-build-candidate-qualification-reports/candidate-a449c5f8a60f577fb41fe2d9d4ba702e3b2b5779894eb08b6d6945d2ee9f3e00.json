@@ -1,0 +1,200 @@
+{
+  "candidate_id": "candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00",
+  "capability_id": "qualified-reproducible-build",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 4,
+  "expected_test_count": 4,
+  "failed_test_count": 4,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:36c5e06d1ef2dd64eeb85ff8ff49231b16c9f41412930676269b84b144718690",
+    "logical_name": "qualification-oracle-extension-qualified-build-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-qualified-build-v1.json",
+    "size_bytes": 8800
+  },
+  "required_test_manifest": {
+    "digest": "sha256:acdbcc80ce0ab328bbe8c7da78c03c2cb631831b31d16c10111d662ad76b4e35",
+    "logical_name": "qualified-reproducible-build-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/qualified-reproducible-build.json",
+    "size_bytes": 330
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/onyx/db/README.md",
+      "backend/onyx/db/__init__.py",
+      "backend/onyx/db/_deprecated/pg_file_store.py",
+      "backend/onyx/db/api_key.py",
+      "backend/onyx/db/auth.py",
+      "backend/onyx/db/background_error.py",
+      "backend/onyx/db/chat.py",
+      "backend/onyx/db/chat_search.py",
+      "backend/onyx/db/chunk.py",
+      "backend/onyx/db/code_interpreter.py",
+      "backend/onyx/db/connector.py",
+      "backend/onyx/db/connector_credential_pair.py",
+      "backend/onyx/db/constants.py",
+      "backend/onyx/db/credentials.py",
+      "backend/onyx/db/dal.py",
+      "backend/onyx/db/deletion_attempt.py",
+      "backend/onyx/db/discord_bot.py",
+      "backend/onyx/db/document.py",
+      "backend/onyx/db/document_access.py",
+      "backend/onyx/db/document_set.py",
+      "backend/onyx/db/engine/__init__.py",
+      "backend/onyx/db/engine/async_sql_engine.py",
+      "backend/onyx/db/engine/connection_warmup.py",
+      "backend/onyx/db/engine/iam_auth.py",
+      "backend/onyx/db/engine/pg_ssl.py",
+      "backend/onyx/db/engine/sql_engine.py",
+      "backend/onyx/db/engine/tenant_utils.py",
+      "backend/onyx/db/engine/time_utils.py",
+      "backend/onyx/db/entities.py",
+      "backend/onyx/db/entity_type.py",
+      "backend/onyx/db/enums.py",
+      "backend/onyx/db/external_app.py",
+      "backend/onyx/db/federated.py",
+      "backend/onyx/db/feedback.py",
+      "backend/onyx/db/file_content.py",
+      "backend/onyx/db/file_record.py",
+      "backend/onyx/db/hierarchy.py",
+      "backend/onyx/db/hook.py",
+      "backend/onyx/db/image_generation.py",
+      "backend/onyx/db/index_attempt.py",
+      "backend/onyx/db/index_attempt_metrics.py",
+      "backend/onyx/db/index_attempt_metrics_models.py",
+      "backend/onyx/db/indexing_coordination.py",
+      "backend/onyx/db/input_prompt.py",
+      "backend/onyx/db/kg_config.py",
+      "backend/onyx/db/kg_temp_view.py",
+      "backend/onyx/db/llm.py",
+      "backend/onyx/db/mcp.py",
+      "backend/onyx/db/memory.py",
+      "backend/onyx/db/models.py",
+      "backend/onyx/db/notification.py",
+      "backend/onyx/db/oauth_config.py",
+      "backend/onyx/db/opensearch_migration.py",
+      "backend/onyx/db/pat.py",
+      "backend/onyx/db/permission_sync_attempt.py",
+      "backend/onyx/db/permissions.py",
+      "backend/onyx/db/persona.py",
+      "backend/onyx/db/persona_sharing.py",
+      "backend/onyx/db/projects.py",
+      "backend/onyx/db/pydantic_type.py",
+      "backend/onyx/db/relationships.py",
+      "backend/onyx/db/release_notes.py",
+      "backend/onyx/db/rotate_encryption_key.py",
+      "backend/onyx/db/saml.py",
+      "backend/onyx/db/scheduled_task.py",
+      "backend/onyx/db/search_settings.py",
+      "backend/onyx/db/security_settings.py",
+      "backend/onyx/db/seeding/chat_history_seeding.py",
+      "backend/onyx/db/skill.py",
+      "backend/onyx/db/slack_bot.py",
+      "backend/onyx/db/slack_channel_config.py",
+      "backend/onyx/db/swap_index.py",
+      "backend/onyx/db/sync_record.py",
+      "backend/onyx/db/tag.py",
+      "backend/onyx/db/targeted_reindex.py",
+      "backend/onyx/db/tasks.py",
+      "backend/onyx/db/tenant_invite_counter.py",
+      "backend/onyx/db/token_limit.py",
+      "backend/onyx/db/tools.py",
+      "backend/onyx/db/usage.py",
+      "backend/onyx/db/user_file.py",
+      "backend/onyx/db/user_preferences.py",
+      "backend/onyx/db/users.py",
+      "backend/onyx/db/utils.py",
+      "backend/onyx/db/voice.py",
+      "backend/onyx/db/web_search.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:b12da58c255464524fee8fd4b5654861a187b0456d719e90d8500cded889767d",
+        "logical_name": "candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00-A-EVIDENCE-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00/A-EVIDENCE-001.json",
+        "size_bytes": 4065
+      },
+      "test_id": "A-EVIDENCE-001",
+      "test_manifest": {
+        "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+        "logical_name": "qualified-reproducible-build-A-EVIDENCE-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json",
+        "size_bytes": 4002
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:3490f2c3aed7c44bff0883819d99b96e225a614808ac805ef570f5936c5b2eda",
+        "logical_name": "candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00-A-LIC-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00/A-LIC-001.json",
+        "size_bytes": 4050
+      },
+      "test_id": "A-LIC-001",
+      "test_manifest": {
+        "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+        "logical_name": "qualified-reproducible-build-A-LIC-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json",
+        "size_bytes": 3988
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:2729d59d5252c41bd1f7cad4bba61050ab3b9e0dc9fa04d30c3103bc4f6ebdb5",
+        "logical_name": "candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00-A-REPORT-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00/A-REPORT-001.json",
+        "size_bytes": 4059
+      },
+      "test_id": "A-REPORT-001",
+      "test_manifest": {
+        "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+        "logical_name": "qualified-reproducible-build-A-REPORT-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json",
+        "size_bytes": 3997
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:57fc6e18b523aaa740a6061a06218829cde285fed098527d70aca621a4b2256b",
+        "logical_name": "candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00-A-REPRO-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00/A-REPRO-001.json",
+        "size_bytes": 4056
+      },
+      "test_id": "A-REPRO-001",
+      "test_manifest": {
+        "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+        "logical_name": "qualified-reproducible-build-A-REPRO-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json",
+        "size_bytes": 4003
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

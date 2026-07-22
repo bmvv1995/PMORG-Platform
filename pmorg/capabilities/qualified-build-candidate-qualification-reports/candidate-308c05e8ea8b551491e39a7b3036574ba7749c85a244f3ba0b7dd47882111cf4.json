@@ -1,0 +1,195 @@
+{
+  "candidate_id": "candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4",
+  "capability_id": "qualified-reproducible-build",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 4,
+  "expected_test_count": 4,
+  "failed_test_count": 4,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:36c5e06d1ef2dd64eeb85ff8ff49231b16c9f41412930676269b84b144718690",
+    "logical_name": "qualification-oracle-extension-qualified-build-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-qualified-build-v1.json",
+    "size_bytes": 8800
+  },
+  "required_test_manifest": {
+    "digest": "sha256:acdbcc80ce0ab328bbe8c7da78c03c2cb631831b31d16c10111d662ad76b4e35",
+    "logical_name": "qualified-reproducible-build-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/qualified-reproducible-build.json",
+    "size_bytes": 330
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/onyx/skills/built_in.py",
+      "backend/onyx/skills/builtin/company-search/SKILL.md.template",
+      "backend/onyx/skills/builtin/github/SKILL.md.template",
+      "backend/onyx/skills/builtin/gmail/SKILL.md.template",
+      "backend/onyx/skills/builtin/gmail/gmail_api.py",
+      "backend/onyx/skills/builtin/google-calendar/SKILL.md.template",
+      "backend/onyx/skills/builtin/google-calendar/gcal_api.py",
+      "backend/onyx/skills/builtin/google-drive/SKILL.md.template",
+      "backend/onyx/skills/builtin/google-drive/gdrive_api.py",
+      "backend/onyx/skills/builtin/hubspot/SKILL.md.template",
+      "backend/onyx/skills/builtin/hubspot/hubspot_api.py",
+      "backend/onyx/skills/builtin/image-generation/SKILL.md",
+      "backend/onyx/skills/builtin/image-generation/scripts/generate.py",
+      "backend/onyx/skills/builtin/linear/SKILL.md.template",
+      "backend/onyx/skills/builtin/linear/linear_api.py",
+      "backend/onyx/skills/builtin/pptx/SKILL.md",
+      "backend/onyx/skills/builtin/pptx/editing.md",
+      "backend/onyx/skills/builtin/pptx/pptxgenjs.md",
+      "backend/onyx/skills/builtin/pptx/scripts/__init__.py",
+      "backend/onyx/skills/builtin/pptx/scripts/add_slide.py",
+      "backend/onyx/skills/builtin/pptx/scripts/clean.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/helpers/__init__.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/helpers/merge_runs.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/helpers/simplify_redlines.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/pack.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-chart.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-chartDrawing.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-diagram.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-lockedCanvas.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-main.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-picture.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-spreadsheetDrawing.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-wordprocessingDrawing.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/pml.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-additionalCharacteristics.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-bibliography.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-commonSimpleTypes.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-customXmlDataProperties.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-customXmlSchemaProperties.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesCustom.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesExtended.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesVariantTypes.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-math.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-relationshipReference.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/sml.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-main.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-officeDrawing.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-presentationDrawing.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-spreadsheetDrawing.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-wordprocessingDrawing.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/wml.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/xml.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ecma/fouth-edition/opc-contentTypes.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ecma/fouth-edition/opc-coreProperties.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ecma/fouth-edition/opc-digSig.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/ecma/fouth-edition/opc-relationships.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/mce/mc.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/microsoft/wml-2010.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/microsoft/wml-2012.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/microsoft/wml-2018.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/microsoft/wml-cex-2018.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/microsoft/wml-cid-2016.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/microsoft/wml-sdtdatahash-2020.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/schemas/microsoft/wml-symex-2015.xsd",
+      "backend/onyx/skills/builtin/pptx/scripts/office/soffice.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/unpack.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/validate.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/validators/__init__.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/validators/base.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/validators/docx.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/validators/pptx.py",
+      "backend/onyx/skills/builtin/pptx/scripts/office/validators/redlining.py",
+      "backend/onyx/skills/builtin/pptx/scripts/preview.py",
+      "backend/onyx/skills/builtin/pptx/scripts/thumbnail.py",
+      "backend/onyx/skills/builtin/slack/SKILL.md.template",
+      "backend/onyx/skills/builtin/slack/slack_api.py",
+      "backend/onyx/skills/bundle.py",
+      "backend/onyx/skills/content.py",
+      "backend/onyx/skills/ingest.py",
+      "backend/onyx/skills/push.py",
+      "backend/onyx/skills/rendering.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:eddb92c9e2d8cd4c7de0ff1b49c8bb072bb30e2727d81387d123b854d1b60392",
+        "logical_name": "candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4-A-EVIDENCE-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4/A-EVIDENCE-001.json",
+        "size_bytes": 4065
+      },
+      "test_id": "A-EVIDENCE-001",
+      "test_manifest": {
+        "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+        "logical_name": "qualified-reproducible-build-A-EVIDENCE-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json",
+        "size_bytes": 4002
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:9ab835dcf7d5b841700bdf6614e2ec78a612a5bd55c8d28ce45e4593bfd6428d",
+        "logical_name": "candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4-A-LIC-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4/A-LIC-001.json",
+        "size_bytes": 4050
+      },
+      "test_id": "A-LIC-001",
+      "test_manifest": {
+        "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+        "logical_name": "qualified-reproducible-build-A-LIC-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json",
+        "size_bytes": 3988
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:934ecb28043c2d899b91c590efc50750e7a8ca94501e33aa4f9bb73b23fbcd40",
+        "logical_name": "candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4-A-REPORT-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4/A-REPORT-001.json",
+        "size_bytes": 4059
+      },
+      "test_id": "A-REPORT-001",
+      "test_manifest": {
+        "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+        "logical_name": "qualified-reproducible-build-A-REPORT-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json",
+        "size_bytes": 3997
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:b4161c08e6230c669e0e7d96c1fb7a0b0f4fb5b7bdd34b67dfea936452446dff",
+        "logical_name": "candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4-A-REPRO-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4/A-REPRO-001.json",
+        "size_bytes": 4056
+      },
+      "test_id": "A-REPRO-001",
+      "test_manifest": {
+        "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+        "logical_name": "qualified-reproducible-build-A-REPRO-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json",
+        "size_bytes": 4003
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}
