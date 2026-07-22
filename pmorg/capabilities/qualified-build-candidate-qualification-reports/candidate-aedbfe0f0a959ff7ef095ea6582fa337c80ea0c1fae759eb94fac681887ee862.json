@@ -1,0 +1,154 @@
+{
+  "candidate_id": "candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862",
+  "capability_id": "qualified-reproducible-build",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 4,
+  "expected_test_count": 4,
+  "failed_test_count": 4,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:36c5e06d1ef2dd64eeb85ff8ff49231b16c9f41412930676269b84b144718690",
+    "logical_name": "qualification-oracle-extension-qualified-build-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-qualified-build-v1.json",
+    "size_bytes": 8800
+  },
+  "required_test_manifest": {
+    "digest": "sha256:acdbcc80ce0ab328bbe8c7da78c03c2cb631831b31d16c10111d662ad76b4e35",
+    "logical_name": "qualified-reproducible-build-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/qualified-reproducible-build.json",
+    "size_bytes": 330
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "docs/craft/craft-main-plan.md",
+      "docs/craft/dev/local-compose-craft.md",
+      "docs/craft/dev/local-kubernetes.md",
+      "docs/craft/docker/docker-compose-overview.md",
+      "docs/craft/features/egress-proxy-and-approvals/README.md",
+      "docs/craft/features/external-apps/action-policies.md",
+      "docs/craft/features/external-apps/cloud-managed-app-credentials.md",
+      "docs/craft/features/external-apps/egress-proxy-action-policy-enforcement.md",
+      "docs/craft/features/external-apps/external-app-skill-action-availability.md",
+      "docs/craft/features/external-apps/oauth-token-refresh.md",
+      "docs/craft/features/scheduled-tasks/overview.md",
+      "docs/craft/features/scheduled-tasks/pre-approvals.md",
+      "docs/craft/features/scheduled-tasks/tests.md",
+      "docs/craft/features/search/craft-search.md",
+      "docs/craft/features/skills/README.md",
+      "docs/craft/features/skills/builtin-skills-migration-plan.md",
+      "docs/craft/features/skills/personal-skills.md",
+      "docs/craft/features/skills/skills-api-plan.md",
+      "docs/craft/features/skills/skills-db-layer-status.md",
+      "docs/craft/features/skills/skills-requirements.md",
+      "docs/craft/features/streaming/docker-opencode-serve.md",
+      "docs/craft/features/streaming/drop-acp-layer.md",
+      "docs/craft/features/streaming/opencode-serve-client.md",
+      "docs/craft/features/streaming/preserve-opencode-sessions.md",
+      "docs/craft/features/streaming/shared-acp-exec-client.md",
+      "docs/craft/features/subagents/2026-05-28-subagents-view-design.md",
+      "docs/craft/features/user-library-sync.md",
+      "docs/craft/fix-live-scheduled-task-runs.md",
+      "docs/craft/infra/image-architecture.md",
+      "docs/craft/infra/sandbox-worker-network-policy.md",
+      "docs/craft/infra/snapshot-retention.md",
+      "docs/craft/issues/opencode-serve-deploy-gotchas.md",
+      "docs/craft/issues/opencode-serve-event-stream-pitfalls.md",
+      "docs/craft/kubernetes/craft-eks-runbook.md",
+      "docs/craft/legacy/v0_craft_architecture.md",
+      "docs/craft/sandbox/image-and-spinup.md",
+      "docs/craft/sandbox/sandbox-exec-sidecar.md",
+      "docs/craft/sandbox/sandbox-podtemplate.md",
+      "docs/craft/ui/packet-rendering-overhaul.md",
+      "docs/craft/ui/sidebar-cleanup.md"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:6509b0312cae7e462a1eb84af2e5c392f7f1b355d18e7a591e9b7a2a77e00370",
+        "logical_name": "candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862-A-EVIDENCE-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862/A-EVIDENCE-001.json",
+        "size_bytes": 4065
+      },
+      "test_id": "A-EVIDENCE-001",
+      "test_manifest": {
+        "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+        "logical_name": "qualified-reproducible-build-A-EVIDENCE-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json",
+        "size_bytes": 4002
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:971e4127c2a4964386f818497fe7149ce6fd1a12c5ddfdc370518246dc584911",
+        "logical_name": "candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862-A-LIC-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862/A-LIC-001.json",
+        "size_bytes": 4050
+      },
+      "test_id": "A-LIC-001",
+      "test_manifest": {
+        "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+        "logical_name": "qualified-reproducible-build-A-LIC-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json",
+        "size_bytes": 3988
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:33ff4fd31e15a1b53bc92024dfb36bc5216f9d67a53d0e2d0d3e3f4ff3b9bce5",
+        "logical_name": "candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862-A-REPORT-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862/A-REPORT-001.json",
+        "size_bytes": 4059
+      },
+      "test_id": "A-REPORT-001",
+      "test_manifest": {
+        "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+        "logical_name": "qualified-reproducible-build-A-REPORT-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json",
+        "size_bytes": 3997
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:f365aceb324d71d459ef117e0871108efae5599eafd97b89481038c754598f15",
+        "logical_name": "candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862-A-REPRO-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862/A-REPRO-001.json",
+        "size_bytes": 4056
+      },
+      "test_id": "A-REPRO-001",
+      "test_manifest": {
+        "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+        "logical_name": "qualified-reproducible-build-A-REPRO-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json",
+        "size_bytes": 4003
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

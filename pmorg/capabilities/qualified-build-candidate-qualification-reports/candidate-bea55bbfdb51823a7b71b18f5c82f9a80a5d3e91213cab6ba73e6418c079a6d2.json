@@ -1,0 +1,192 @@
+{
+  "candidate_id": "candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2",
+  "capability_id": "qualified-reproducible-build",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 4,
+  "expected_test_count": 4,
+  "failed_test_count": 4,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:36c5e06d1ef2dd64eeb85ff8ff49231b16c9f41412930676269b84b144718690",
+    "logical_name": "qualification-oracle-extension-qualified-build-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-qualified-build-v1.json",
+    "size_bytes": 8800
+  },
+  "required_test_manifest": {
+    "digest": "sha256:acdbcc80ce0ab328bbe8c7da78c03c2cb631831b31d16c10111d662ad76b4e35",
+    "logical_name": "qualified-reproducible-build-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/qualified-reproducible-build.json",
+    "size_bytes": 330
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/ee/onyx/server/__init__.py",
+      "backend/ee/onyx/server/analytics/api.py",
+      "backend/ee/onyx/server/auth_check.py",
+      "backend/ee/onyx/server/billing/__init__.py",
+      "backend/ee/onyx/server/billing/api.py",
+      "backend/ee/onyx/server/billing/billing_cache.py",
+      "backend/ee/onyx/server/billing/models.py",
+      "backend/ee/onyx/server/billing/service.py",
+      "backend/ee/onyx/server/documents/cc_pair.py",
+      "backend/ee/onyx/server/enterprise_settings/api.py",
+      "backend/ee/onyx/server/enterprise_settings/models.py",
+      "backend/ee/onyx/server/enterprise_settings/store.py",
+      "backend/ee/onyx/server/evals/__init__.py",
+      "backend/ee/onyx/server/evals/api.py",
+      "backend/ee/onyx/server/features/__init__.py",
+      "backend/ee/onyx/server/features/hooks/__init__.py",
+      "backend/ee/onyx/server/features/hooks/api.py",
+      "backend/ee/onyx/server/license/api.py",
+      "backend/ee/onyx/server/license/models.py",
+      "backend/ee/onyx/server/manage/standard_answer.py",
+      "backend/ee/onyx/server/metrics/__init__.py",
+      "backend/ee/onyx/server/metrics/license_metrics.py",
+      "backend/ee/onyx/server/middleware/license_enforcement.py",
+      "backend/ee/onyx/server/middleware/tenant_tracking.py",
+      "backend/ee/onyx/server/middleware/tier_gate.py",
+      "backend/ee/onyx/server/oauth/api.py",
+      "backend/ee/onyx/server/oauth/api_router.py",
+      "backend/ee/onyx/server/oauth/confluence_cloud.py",
+      "backend/ee/onyx/server/oauth/google_drive.py",
+      "backend/ee/onyx/server/oauth/slack.py",
+      "backend/ee/onyx/server/query_and_chat/__init__.py",
+      "backend/ee/onyx/server/query_and_chat/models.py",
+      "backend/ee/onyx/server/query_and_chat/query_backend.py",
+      "backend/ee/onyx/server/query_and_chat/search_backend.py",
+      "backend/ee/onyx/server/query_and_chat/streaming_models.py",
+      "backend/ee/onyx/server/query_and_chat/token_limit.py",
+      "backend/ee/onyx/server/query_history/api.py",
+      "backend/ee/onyx/server/query_history/models.py",
+      "backend/ee/onyx/server/reporting/usage_export_api.py",
+      "backend/ee/onyx/server/reporting/usage_export_generation.py",
+      "backend/ee/onyx/server/reporting/usage_export_models.py",
+      "backend/ee/onyx/server/scim/__init__.py",
+      "backend/ee/onyx/server/scim/api.py",
+      "backend/ee/onyx/server/scim/auth.py",
+      "backend/ee/onyx/server/scim/filtering.py",
+      "backend/ee/onyx/server/scim/models.py",
+      "backend/ee/onyx/server/scim/patch.py",
+      "backend/ee/onyx/server/scim/providers/__init__.py",
+      "backend/ee/onyx/server/scim/providers/base.py",
+      "backend/ee/onyx/server/scim/providers/entra.py",
+      "backend/ee/onyx/server/scim/providers/okta.py",
+      "backend/ee/onyx/server/scim/schema_definitions.py",
+      "backend/ee/onyx/server/seeding.py",
+      "backend/ee/onyx/server/settings/__init__.py",
+      "backend/ee/onyx/server/settings/api.py",
+      "backend/ee/onyx/server/tenant_usage_limits.py",
+      "backend/ee/onyx/server/tenants/__init__.py",
+      "backend/ee/onyx/server/tenants/access.py",
+      "backend/ee/onyx/server/tenants/admin_api.py",
+      "backend/ee/onyx/server/tenants/anonymous_user_path.py",
+      "backend/ee/onyx/server/tenants/anonymous_users_api.py",
+      "backend/ee/onyx/server/tenants/api.py",
+      "backend/ee/onyx/server/tenants/billing.py",
+      "backend/ee/onyx/server/tenants/billing_api.py",
+      "backend/ee/onyx/server/tenants/models.py",
+      "backend/ee/onyx/server/tenants/product_gating.py",
+      "backend/ee/onyx/server/tenants/provisioning.py",
+      "backend/ee/onyx/server/tenants/proxy.py",
+      "backend/ee/onyx/server/tenants/schema_management.py",
+      "backend/ee/onyx/server/tenants/team_membership_api.py",
+      "backend/ee/onyx/server/tenants/tenant_management_api.py",
+      "backend/ee/onyx/server/tenants/tier_management.py",
+      "backend/ee/onyx/server/tenants/user_invitations_api.py",
+      "backend/ee/onyx/server/tenants/user_mapping.py",
+      "backend/ee/onyx/server/token_rate_limits/api.py",
+      "backend/ee/onyx/server/usage_limits.py",
+      "backend/ee/onyx/server/user_group/api.py",
+      "backend/ee/onyx/server/user_group/models.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+      "logical_name": "onyx_ee-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+      "size_bytes": 61086
+    },
+    "tree_hash": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:8acb92ce1770d321cc1f892b19c70e3ae29d7f6056edbfc19413b00c5e9837ec",
+        "logical_name": "candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2-A-EVIDENCE-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2/A-EVIDENCE-001.json",
+        "size_bytes": 4065
+      },
+      "test_id": "A-EVIDENCE-001",
+      "test_manifest": {
+        "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+        "logical_name": "qualified-reproducible-build-A-EVIDENCE-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json",
+        "size_bytes": 4002
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:c5e02492bccf6e3d34752e21704002a94a5e77efa7c4084893cbf4581d7f3d29",
+        "logical_name": "candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2-A-LIC-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2/A-LIC-001.json",
+        "size_bytes": 4050
+      },
+      "test_id": "A-LIC-001",
+      "test_manifest": {
+        "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+        "logical_name": "qualified-reproducible-build-A-LIC-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json",
+        "size_bytes": 3988
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:3eb58c9555e14e5eeef74d3ba8aa1a04d95164005932035a2c74ce28727530b9",
+        "logical_name": "candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2-A-REPORT-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2/A-REPORT-001.json",
+        "size_bytes": 4059
+      },
+      "test_id": "A-REPORT-001",
+      "test_manifest": {
+        "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+        "logical_name": "qualified-reproducible-build-A-REPORT-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json",
+        "size_bytes": 3997
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:b069be85647d3b4c94eca034405684dfed83299d95e6646fbfe167cc4d02d552",
+        "logical_name": "candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2-A-REPRO-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2/A-REPRO-001.json",
+        "size_bytes": 4056
+      },
+      "test_id": "A-REPRO-001",
+      "test_manifest": {
+        "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+        "logical_name": "qualified-reproducible-build-A-REPRO-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json",
+        "size_bytes": 4003
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

@@ -1156,6 +1156,33 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualified_build_interface_fit_executor.py --check"
       ]
+    },
+    {
+      "id": "PL-041",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/qualified_build_candidate_qualification_reports.py",
+        "backend/pmorg/tests/test_qualified_build_candidate_qualification_reports.py",
+        "pmorg/capabilities/qualified-build-candidate-qualification-reports-v1.json",
+        "pmorg/capabilities/qualified-build-candidate-qualification-reports-v1.schema.json",
+        "pmorg/capabilities/qualified-build-candidate-qualification-reports/*.json",
+        "pmorg/capabilities/qualified-build-candidate-qualification-results/**/*.json",
+        "pmorg/scripts/build_qualified_build_candidate_qualification_reports.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-LIC-001",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "PLT-005"
+      ],
+      "reason": "Execute all four activated qualified-reproducible-build candidate-aware oracles over the exact 46-candidate denominator and emit 184 content-addressed results plus exactly one schema-valid CandidateQualificationReport per candidate, each binding the exact manifest, all projected bytes, interface, both declared reference implementations, vectors, adapter, runtime identity, live mutation influence and conforming positive controls; emit no disposition, deviation, PDQ, DSSE, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=faf26e4c1b43d4feffc4d4066f4fca6a08de0c78 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_qualified_build_candidate_qualification_reports -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualified_build_candidate_qualification_reports.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

@@ -1,0 +1,91 @@
+{
+  "adapter_digest": "sha256:a2f2790c6a9aca86ce306804ab6f43631c7c5d181b96915ac0b2e0a68ba76c08",
+  "baseline_fit": false,
+  "baseline_observation_digest": "sha256:95f109e7b4281d46049adb95fcd998bbbe212fdd36cbe3b9afd01659a9d4d596",
+  "bindings": [
+    {
+      "digest": "sha256:3cf2b92447695dfb944bc00c81f15338b5bb48f3c299c8b21fb14060aa22fe53",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/qualified-reproducible-build-v1.json"
+    },
+    {
+      "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json"
+    },
+    {
+      "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json"
+    },
+    {
+      "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json"
+    },
+    {
+      "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json"
+    },
+    {
+      "digest": "sha256:a2f2790c6a9aca86ce306804ab6f43631c7c5d181b96915ac0b2e0a68ba76c08",
+      "relative_path": "backend/pmorg/application/qualified_build_interface_fit_executor.py"
+    },
+    {
+      "digest": "sha256:5a06c7070ec30dc6558b5e0f736d8959577063efd8e039443699233f21f68883",
+      "relative_path": "pmorg/capabilities/qualification-oracle-result-v2.schema.json"
+    },
+    {
+      "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+      "relative_path": ".python-version"
+    },
+    {
+      "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+      "relative_path": "pyproject.toml"
+    },
+    {
+      "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+      "relative_path": "uv.lock"
+    }
+  ],
+  "candidate_id": "candidate-e287ee9f3757211f66ef3cece3b20706e743856d8ff413c3ff5047dc829fbcc5",
+  "candidate_manifest_digest": "sha256:bb3273fb8dc29b8ef61c7bd5ca7a6e2fbb415200822e30301305d60438e4fbdf",
+  "capability_id": "qualified-reproducible-build",
+  "execution_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "failure_reasons": [
+    "candidate exposes no callable surface satisfying the exact A-REPORT-001 qualified-build interface"
+  ],
+  "mutation_fit": false,
+  "mutation_observation_digest": "sha256:76291e39439379d1ef14ee7b4992f514772b539e683bee16c2d5ba520e727c7e",
+  "observed_blob_count": 4,
+  "oracle_id": "qualification-oracle:qualified-reproducible-build:A-REPORT-001:v1",
+  "oracle_status": "executable",
+  "positive_injection_fit": true,
+  "positive_injection_observation_digest": "sha256:74696ec0ccc095eff865e61d3ea1745111eb35546304b40c86f38a8f94562688",
+  "projected_blob_count": 4,
+  "runtime_identity_digest": "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053",
+  "runtime_measurement": {
+    "declared_artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "relative_path": ".python-version"
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "relative_path": "pyproject.toml"
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "relative_path": "uv.lock"
+      }
+    ],
+    "interpreter_binary": {
+      "digest": "sha256:9efb620bf4def9da93c66480431bf9ca479f5ca495da94483cf9117dd58430bf",
+      "relative_path": "@runtime/executed-python-interpreter"
+    }
+  },
+  "schema_version": "pmorg.qualification-oracle-result/v2",
+  "test_id": "A-REPORT-001",
+  "unobserved_blob_count": 0,
+  "verdict": "fail"
+}

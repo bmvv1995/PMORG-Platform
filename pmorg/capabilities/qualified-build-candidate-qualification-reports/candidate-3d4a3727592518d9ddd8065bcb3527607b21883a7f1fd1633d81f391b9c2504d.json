@@ -1,0 +1,192 @@
+{
+  "candidate_id": "candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d",
+  "capability_id": "qualified-reproducible-build",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 4,
+  "expected_test_count": 4,
+  "failed_test_count": 4,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:36c5e06d1ef2dd64eeb85ff8ff49231b16c9f41412930676269b84b144718690",
+    "logical_name": "qualification-oracle-extension-qualified-build-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-qualified-build-v1.json",
+    "size_bytes": 8800
+  },
+  "required_test_manifest": {
+    "digest": "sha256:acdbcc80ce0ab328bbe8c7da78c03c2cb631831b31d16c10111d662ad76b4e35",
+    "logical_name": "qualified-reproducible-build-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/qualified-reproducible-build.json",
+    "size_bytes": 330
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "tools/ods/.gitignore",
+      "tools/ods/README.md",
+      "tools/ods/cmd/audit.go",
+      "tools/ods/cmd/backend.go",
+      "tools/ods/cmd/check_lazy_imports.go",
+      "tools/ods/cmd/cherry-pick.go",
+      "tools/ods/cmd/compose.go",
+      "tools/ods/cmd/db.go",
+      "tools/ods/cmd/db_drop.go",
+      "tools/ods/cmd/db_dump.go",
+      "tools/ods/cmd/db_migrate.go",
+      "tools/ods/cmd/db_restore.go",
+      "tools/ods/cmd/deploy.go",
+      "tools/ods/cmd/deploy_edge.go",
+      "tools/ods/cmd/deploy_wiki.go",
+      "tools/ods/cmd/desktop.go",
+      "tools/ods/cmd/dev.go",
+      "tools/ods/cmd/dev_exec.go",
+      "tools/ods/cmd/dev_into.go",
+      "tools/ods/cmd/dev_rebuild.go",
+      "tools/ods/cmd/dev_restart.go",
+      "tools/ods/cmd/dev_stop.go",
+      "tools/ods/cmd/dev_tunnel.go",
+      "tools/ods/cmd/dev_up.go",
+      "tools/ods/cmd/env.go",
+      "tools/ods/cmd/env_test.go",
+      "tools/ods/cmd/install_skill.go",
+      "tools/ods/cmd/logs.go",
+      "tools/ods/cmd/openapi.go",
+      "tools/ods/cmd/print_latest.go",
+      "tools/ods/cmd/pull.go",
+      "tools/ods/cmd/release.go",
+      "tools/ods/cmd/release_opal.go",
+      "tools/ods/cmd/root.go",
+      "tools/ods/cmd/run-ci.go",
+      "tools/ods/cmd/screenshot_diff.go",
+      "tools/ods/cmd/trace.go",
+      "tools/ods/cmd/web.go",
+      "tools/ods/cmd/whois.go",
+      "tools/ods/go.mod",
+      "tools/ods/go.sum",
+      "tools/ods/hatch_build.py",
+      "tools/ods/internal/_version.py",
+      "tools/ods/internal/alembic/alembic.go",
+      "tools/ods/internal/audit/audit.go",
+      "tools/ods/internal/audit/dependabot.go",
+      "tools/ods/internal/audit/dependabot_test.go",
+      "tools/ods/internal/audit/ignore.go",
+      "tools/ods/internal/audit/ignore_test.go",
+      "tools/ods/internal/audit/osv.go",
+      "tools/ods/internal/audit/osv_test.go",
+      "tools/ods/internal/audit/report.go",
+      "tools/ods/internal/audit/report_test.go",
+      "tools/ods/internal/config/config.go",
+      "tools/ods/internal/docker/docker.go",
+      "tools/ods/internal/docker/project.go",
+      "tools/ods/internal/docker/project_test.go",
+      "tools/ods/internal/git/git.go",
+      "tools/ods/internal/git/git_test.go",
+      "tools/ods/internal/imgdiff/compare.go",
+      "tools/ods/internal/imgdiff/compare_test.go",
+      "tools/ods/internal/imgdiff/report.go",
+      "tools/ods/internal/imgdiff/summary.go",
+      "tools/ods/internal/kube/kube.go",
+      "tools/ods/internal/lazyimports/lazyimports.go",
+      "tools/ods/internal/lazyimports/lazyimports_test.go",
+      "tools/ods/internal/openapi/openapi.go",
+      "tools/ods/internal/openapi/openapi_schema.py",
+      "tools/ods/internal/paths/paths.go",
+      "tools/ods/internal/portutil/portutil.go",
+      "tools/ods/internal/portutil/portutil_test.go",
+      "tools/ods/internal/postgres/postgres.go",
+      "tools/ods/internal/prompt/prompt.go",
+      "tools/ods/internal/s3/fetch.go",
+      "tools/ods/internal/s3/sync.go",
+      "tools/ods/internal/tui/picker.go",
+      "tools/ods/main.go",
+      "tools/ods/pyproject.toml"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:1e9368aa53bbae2424693343a02c99f10f274e021f3a62120b501b71789ddef8",
+        "logical_name": "candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d-A-EVIDENCE-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d/A-EVIDENCE-001.json",
+        "size_bytes": 4065
+      },
+      "test_id": "A-EVIDENCE-001",
+      "test_manifest": {
+        "digest": "sha256:b131cbb3c93417a9001467c57c28fbb0f206e92ac81c27ed0f1d57df9f1fe1fe",
+        "logical_name": "qualified-reproducible-build-A-EVIDENCE-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-EVIDENCE-001-v1.json",
+        "size_bytes": 4002
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:04d1fc7e4961fc211708544d00f6f3ddb6ef2f2ddb8194f6d88c6dc29196a6ad",
+        "logical_name": "candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d-A-LIC-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d/A-LIC-001.json",
+        "size_bytes": 4050
+      },
+      "test_id": "A-LIC-001",
+      "test_manifest": {
+        "digest": "sha256:ab3cd70ae63a029d90377764aaf99699e61467bc9badcaee1d2288fd3fe53865",
+        "logical_name": "qualified-reproducible-build-A-LIC-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-LIC-001-v1.json",
+        "size_bytes": 3988
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:ba2e690f3c4bdd6f2162571f5cbc387060bdbf90cf6b3f218c74c47abfb13308",
+        "logical_name": "candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d-A-REPORT-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d/A-REPORT-001.json",
+        "size_bytes": 4059
+      },
+      "test_id": "A-REPORT-001",
+      "test_manifest": {
+        "digest": "sha256:7d92c868099fd7004c398e66ad9c057ac56ad5286e5e5096485be0a0900441cf",
+        "logical_name": "qualified-reproducible-build-A-REPORT-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPORT-001-v1.json",
+        "size_bytes": 3997
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:3d3087ee7e17da1ecf808615284e60598a5fc9d9d878ce2fab39a61a49d4f399",
+        "logical_name": "candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d-A-REPRO-001-qualified-build-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-results/candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d/A-REPRO-001.json",
+        "size_bytes": 4056
+      },
+      "test_id": "A-REPRO-001",
+      "test_manifest": {
+        "digest": "sha256:e6a03fac815f3506613719ae8c1fab9ce344e6593964bbf14d35ca17dfdf4c57",
+        "logical_name": "qualified-reproducible-build-A-REPRO-001-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/qualified-reproducible-build-A-REPRO-001-v1.json",
+        "size_bytes": 4003
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}
