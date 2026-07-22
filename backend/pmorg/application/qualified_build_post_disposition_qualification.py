@@ -21,8 +21,7 @@ from pmorg.contracts.types import PostDispositionQualificationReport
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 BASE_PLATFORM_COMMIT = "0779a97efd29c0088cd6718bb6a9316bc4113268"
-# Bootstrap is replaced with the first evidence-bearing commit before publication.
-Q6D_EVIDENCE_COMMIT: str | None = None
+Q6D_EVIDENCE_COMMIT: str | None = "a9764a9a2ca59c71392cc1ce187a6f9b7166ea92"
 CATALOG_RELATIVE = "pmorg/capabilities/capability-catalog-v1.json"
 PATCH_LEDGER_RELATIVE = "pmorg/patch-ledger.json"
 REPORT_SCHEMA_RELATIVE = (
