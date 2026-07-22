@@ -1298,6 +1298,40 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_qualification_candidate_qualification_reports.py --check"
       ]
+    },
+    {
+      "id": "PL-046",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/capability_disposition_post_disposition_qualification.py",
+        "backend/pmorg/tests/test_capability_disposition_post_disposition_qualification.py",
+        "pmorg/capabilities/capability-disposition-post-disposition-qualification-report-v1.json",
+        "pmorg/capabilities/capability-disposition-post-disposition-qualification-v1.json",
+        "pmorg/capabilities/capability-disposition-post-disposition-qualification-v1.schema.json",
+        "pmorg/capabilities/capability-disposition-post-disposition-suite-receipt-v1.json",
+        "pmorg/capabilities/capability-disposition-post-disposition-suite-receipt-v1.schema.json",
+        "pmorg/capabilities/capability-disposition-post-disposition-test-manifest-v1.json",
+        "pmorg/capabilities/capability-disposition-post-disposition-test-manifest-v1.schema.json",
+        "pmorg/capabilities/capability-disposition-post-disposition-test-result-v1.schema.json",
+        "pmorg/capabilities/capability-disposition-post-disposition-test-results/*.json",
+        "pmorg/scripts/build_capability_disposition_post_disposition_qualification.py",
+        "pmorg/scripts/run_capability_disposition_post_disposition_suite.py"
+      ],
+      "requirements": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "PLT-006"
+      ],
+      "reason": "Execute the complete qualification.py and qualification_oracles.py contract projection as exactly 12/12 read-only post-disposition qualification tests for capability-disposition-qualification; bind the exact Q7c merge, both implementation references, both complete test modules, executed interpreter and dependency locks; preserve signed dispositions, admission evidence, prior PDQ slices and all Q7a/Q7b/Q7c artifacts byte-identically while keeping the ledger append-only; emit content-addressed per-test PASS evidence and one PostDispositionQualificationReport without a disposition, DSSE, aggregate/completion verdict, admission, release, trust, workflow or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=d3cb3ceee627024404af0588103168367c0f5faa python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_capability_disposition_post_disposition_qualification -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_post_disposition_qualification.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

@@ -1,0 +1,145 @@
+{
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "claim_boundary": "capability_disposition_post_disposition_qualification_only_no_disposition_or_aggregate_verdict",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:ad07ca1e9d6e1dde44902d4c19f4b5dbad121c1c332d603887cb00f31d3fef4a",
+      "logical_name": "capability_disposition_post_disposition_qualification.py",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/capability_disposition_post_disposition_qualification.py",
+      "size_bytes": 46778
+    },
+    {
+      "digest": "sha256:952bb5e65b0c660fbe9b3cd4490d0b6525fbc06507ea85685538b6b13f75a80f",
+      "logical_name": "run_capability_disposition_post_disposition_suite.py",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/run_capability_disposition_post_disposition_suite.py",
+      "size_bytes": 4890
+    },
+    {
+      "digest": "sha256:8e370b13a6c79bd4a5615e41521207175e0a89edaff0d874683cbb00a24b330f",
+      "logical_name": "build_capability_disposition_post_disposition_qualification.py",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_capability_disposition_post_disposition_qualification.py",
+      "size_bytes": 1212
+    }
+  ],
+  "duplicate_test_count": 0,
+  "executed_test_count": 12,
+  "expected_test_count": 12,
+  "failed_test_count": 0,
+  "index_version": "1.0.0",
+  "manifest": {
+    "digest": "sha256:2d62c14d670455eee2711572f1d3c84523443044ee0f2d52947d5de4d6056202",
+    "logical_name": "capability-disposition-post-disposition-test-manifest",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-manifest-v1.json",
+    "size_bytes": 5585
+  },
+  "missing_test_count": 0,
+  "pmorg_platform_commit": "d3cb3ceee627024404af0588103168367c0f5faa",
+  "report": {
+    "digest": "sha256:113479d6db7cad725e5fb06911f670132d04bb5043869d581263a1e99f87a1a6",
+    "logical_name": "capability-disposition-post-disposition-qualification-report",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-qualification-report-v1.json",
+    "size_bytes": 13987
+  },
+  "results": [
+    {
+      "digest": "sha256:f45820bc2e45858ef4876b2a7b391ba8c7a46a1b36c7c1861decae1bd35f265f",
+      "logical_name": "capability-disposition-qualification::TestQualificationOracles.test_binding_and_committed_output_drift_fail_closed-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationOracles__test_binding_and_committed_output_drift_fail_closed.json",
+      "size_bytes": 1809
+    },
+    {
+      "digest": "sha256:52eb1f1df51f425e0428794eed63658c7e9bfbc4535da80325761007a917f9eb",
+      "logical_name": "capability-disposition-qualification::TestQualificationOracles.test_global_gates_are_preserved_but_never_candidate_executable-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationOracles__test_global_gates_are_preserved_but_never_candidate_executable.json",
+      "size_bytes": 1831
+    },
+    {
+      "digest": "sha256:29ecdd8289812f73319ca9be9681dc20b9f3b5123c4ab98a1e9f1eb8b8824e80",
+      "logical_name": "capability-disposition-qualification::TestQualificationOracles.test_policy_is_closed_content_addressed_and_deterministic-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationOracles__test_policy_is_closed_content_addressed_and_deterministic.json",
+      "size_bytes": 1821
+    },
+    {
+      "digest": "sha256:c581d0418ecf4dec797e21096715827f44d395b0d71387f1fe7572b71ebda0d4",
+      "logical_name": "capability-disposition-qualification::TestQualificationOracles.test_unexecutable_or_status_forged_result_cannot_pass-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationOracles__test_unexecutable_or_status_forged_result_cannot_pass.json",
+      "size_bytes": 1813
+    },
+    {
+      "digest": "sha256:cc4a9b544951c29da0176d1accc48f72d85f6298e37563ca8722f8c8886e79a4",
+      "logical_name": "capability-disposition-qualification::TestQualificationSigning.test_bqa_rejects_binding_and_deadline_escape-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationSigning__test_bqa_rejects_binding_and_deadline_escape.json",
+      "size_bytes": 1795
+    },
+    {
+      "digest": "sha256:8d17c95bb09a6efecfe63c7879505c84681cfcf6cc210f104e06140e81fd58e5",
+      "logical_name": "capability-disposition-qualification::TestQualificationSigning.test_bqa_rejects_missing_key_multiple_signatures_and_schema_drift-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationSigning__test_bqa_rejects_missing_key_multiple_signatures_and_schema_drift.json",
+      "size_bytes": 1837
+    },
+    {
+      "digest": "sha256:552336819cd117b637ebab4db157fe45109772172c7cb363e5b98144d0685dc0",
+      "logical_name": "capability-disposition-qualification::TestQualificationSigning.test_bqa_rejects_tampering_wrong_key_and_type-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationSigning__test_bqa_rejects_tampering_wrong_key_and_type.json",
+      "size_bytes": 1797
+    },
+    {
+      "digest": "sha256:a6c1dd2b91ebb34ffa573859eb626fb6cf148171264bafa60a91301189015880",
+      "logical_name": "capability-disposition-qualification::TestQualificationSigning.test_bqa_round_trip_is_deterministic_and_schema_bound-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationSigning__test_bqa_round_trip_is_deterministic_and_schema_bound.json",
+      "size_bytes": 1813
+    },
+    {
+      "digest": "sha256:ce1d9175a749df269bbc73982e2ee2b85ac3e6c3d7ad1ef34cbefeaf39b2e355",
+      "logical_name": "capability-disposition-qualification::TestQualificationSigning.test_bqm_is_content_addressed_exact_and_offline_resolvable-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationSigning__test_bqm_is_content_addressed_exact_and_offline_resolvable.json",
+      "size_bytes": 1823
+    },
+    {
+      "digest": "sha256:746313df3dd7cb4c2a02e6f4c795eda0837aa14e0e61628430202248687327c8",
+      "logical_name": "capability-disposition-qualification::TestQualificationSigning.test_bqm_rejects_expected_observed_and_evidence_drift-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationSigning__test_bqm_rejects_expected_observed_and_evidence_drift.json",
+      "size_bytes": 1813
+    },
+    {
+      "digest": "sha256:3285dc21e75f5e101be5f2105f6fecf830fc40335d94d33769501f0ab686a9ec",
+      "logical_name": "capability-disposition-qualification::TestQualificationSigning.test_bqm_rejects_role_and_artifact_coverage_drift-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationSigning__test_bqm_rejects_role_and_artifact_coverage_drift.json",
+      "size_bytes": 1805
+    },
+    {
+      "digest": "sha256:f3ac84d23fdcac18fea706a7349dc00bdcda72e421df358d1ff6d1cb7c5196a3",
+      "logical_name": "capability-disposition-qualification::TestQualificationSigning.test_no_private_key_material_is_committed-result",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-test-results/TestQualificationSigning__test_no_private_key_material_is_committed.json",
+      "size_bytes": 1789
+    }
+  ],
+  "runtime_identity_digests": [
+    "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053"
+  ],
+  "schema_version": "pmorg.capability-disposition-post-disposition-qualification-index/v1",
+  "suite_receipt": {
+    "digest": "sha256:741cfdac65a5d9bd9bd4c545877fb53118bfd0120bbc0d0d710eb9eead0a90b1",
+    "logical_name": "capability-disposition-post-disposition-suite-receipt",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/capability-disposition-post-disposition-suite-receipt-v1.json",
+    "size_bytes": 2726
+  }
+}
