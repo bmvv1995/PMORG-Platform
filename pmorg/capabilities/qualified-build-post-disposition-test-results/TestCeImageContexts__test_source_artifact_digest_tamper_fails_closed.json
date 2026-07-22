@@ -1,0 +1,38 @@
+{
+  "capability_id": "qualified-reproducible-build",
+  "error_count": 0,
+  "expected_failure_count": 0,
+  "failure_count": 0,
+  "fully_qualified_name": "pmorg.tests.test_ce_image_contexts.TestCeImageContexts.test_source_artifact_digest_tamper_fails_closed",
+  "implementation_path_set_hash": "sha256:22400cda1de602996bdc9cdaf75d5b3ff6ab8f73bdf3aeceb3072a02880342ed",
+  "patch_ledger_set_hash": "sha256:9257a76a03466a85fa50ad7e59246795b97730688b0e91f3b27629a98db58ca1",
+  "runtime_identity_digest": "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053",
+  "runtime_measurement": {
+    "declared_artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "relative_path": ".python-version"
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "relative_path": "pyproject.toml"
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "relative_path": "uv.lock"
+      }
+    ],
+    "interpreter_binary": {
+      "digest": "sha256:9efb620bf4def9da93c66480431bf9ca479f5ca495da94483cf9117dd58430bf",
+      "relative_path": "@runtime/executed-python-interpreter"
+    }
+  },
+  "schema_version": "pmorg.qualified-build-post-disposition-test-result/v1",
+  "skipped_count": 0,
+  "suite_receipt_digest": "sha256:bdc7429f5354dd6020100547ae268986072b1b020142090312bb1a29908ba559",
+  "test_id": "qualified-reproducible-build::TestCeImageContexts.test_source_artifact_digest_tamper_fails_closed",
+  "test_manifest_digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+  "tests_run": 1,
+  "unexpected_success_count": 0,
+  "verdict": "pass"
+}

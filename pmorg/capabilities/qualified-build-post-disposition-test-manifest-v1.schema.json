@@ -1,0 +1,182 @@
+{
+  "$id": "urn:pmorg:qualified-build-post-disposition-test-manifest:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_id": {
+      "const": "qualified-reproducible-build"
+    },
+    "execution": {
+      "additionalProperties": false,
+      "properties": {
+        "framework": {
+          "const": "python-unittest"
+        },
+        "mode": {
+          "const": "single-process-complete-modules"
+        },
+        "suites": {
+          "const": [
+            "pmorg.tests.test_ce_build_substrate",
+            "pmorg.tests.test_ce_image_contexts"
+          ]
+        }
+      },
+      "required": [
+        "framework",
+        "mode",
+        "suites"
+      ],
+      "type": "object"
+    },
+    "expected_test_count": {
+      "const": 12
+    },
+    "implementation_bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "implementation_path_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "patch_ledger_entry_ids": {
+      "const": [
+        "PL-042"
+      ]
+    },
+    "patch_ledger_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "pmorg_platform_commit": {
+      "const": "0779a97efd29c0088cd6718bb6a9316bc4113268"
+    },
+    "requirement_ids": {
+      "const": [
+        "A-EVIDENCE-001",
+        "A-LIC-001",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "PLT-005"
+      ]
+    },
+    "runner": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "digest",
+        "relative_path",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "pmorg.qualified-build-post-disposition-test-manifest/v1"
+    },
+    "test_cases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fully_qualified_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "test_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "fully_qualified_name",
+          "test_id"
+        ],
+        "type": "object"
+      },
+      "maxItems": 12,
+      "minItems": 12,
+      "type": "array"
+    },
+    "test_module_bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "capability_id",
+    "requirement_ids",
+    "pmorg_platform_commit",
+    "implementation_bindings",
+    "implementation_path_set_hash",
+    "test_module_bindings",
+    "patch_ledger_entry_ids",
+    "patch_ledger_set_hash",
+    "runner",
+    "execution",
+    "test_cases",
+    "expected_test_count"
+  ],
+  "type": "object"
+}

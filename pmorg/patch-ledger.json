@@ -1183,6 +1183,39 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualified_build_candidate_qualification_reports.py --check"
       ]
+    },
+    {
+      "id": "PL-042",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/qualified_build_post_disposition_qualification.py",
+        "backend/pmorg/tests/test_qualified_build_post_disposition_qualification.py",
+        "pmorg/capabilities/qualified-build-post-disposition-qualification-report-v1.json",
+        "pmorg/capabilities/qualified-build-post-disposition-qualification-v1.json",
+        "pmorg/capabilities/qualified-build-post-disposition-qualification-v1.schema.json",
+        "pmorg/capabilities/qualified-build-post-disposition-suite-receipt-v1.json",
+        "pmorg/capabilities/qualified-build-post-disposition-suite-receipt-v1.schema.json",
+        "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.schema.json",
+        "pmorg/capabilities/qualified-build-post-disposition-test-result-v1.schema.json",
+        "pmorg/capabilities/qualified-build-post-disposition-test-results/*.json",
+        "pmorg/scripts/build_qualified_build_post_disposition_qualification.py",
+        "pmorg/scripts/run_qualified_build_post_disposition_suite.py"
+      ],
+      "requirements": [
+        "A-EVIDENCE-001",
+        "A-LIC-001",
+        "A-REPORT-001",
+        "A-REPRO-001",
+        "PLT-005"
+      ],
+      "reason": "Execute the exact bounded pmorg.tests.test_ce_build_substrate and pmorg.tests.test_ce_image_contexts modules as 12/12 read-only post-disposition qualification for the qualified-reproducible-build reference implementation, binding build_ce_artifact.py and verify_ce_build.py as the implementation pair and artifact.py as a historically resolvable derivation artifact; preserve the implementation, projected tests and predecessor evidence byte-identically, measure the executed interpreter and dependency locks, and emit content-addressed per-test PASS evidence plus a PostDispositionQualificationReport without a disposition, DSSE, aggregate, deviation, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=0779a97efd29c0088cd6718bb6a9316bc4113268 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_qualified_build_post_disposition_qualification -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualified_build_post_disposition_qualification.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

@@ -1,0 +1,63 @@
+{
+  "interpreter_binary": {
+    "digest": "sha256:9efb620bf4def9da93c66480431bf9ca479f5ca495da94483cf9117dd58430bf",
+    "relative_path": "@runtime/executed-python-interpreter"
+  },
+  "pmorg_platform_commit": "0779a97efd29c0088cd6718bb6a9316bc4113268",
+  "schema_version": "pmorg.qualified-build-post-disposition-suite-receipt/v1",
+  "suites": [
+    "pmorg.tests.test_ce_build_substrate",
+    "pmorg.tests.test_ce_image_contexts"
+  ],
+  "test_count": 12,
+  "tests": [
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_copied_enterprise_source_in_pmorg_root_fails_closed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_current_mixed_source_is_clean_after_overlay",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_egress_inventory_matches_offline_implementation",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_enterprise_import_in_pmorg_root_fails_closed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_independent_rebuilds_are_byte_identical",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_named_revision_ignores_worktree_spec_and_overlay_drift",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_overlay_digest_drift_fails_closed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_planted_enterprise_path_fails_closed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_image_contexts.TestCeImageContexts.test_enterprise_literal_requires_fallback_or_noop_dispatch",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_image_contexts.TestCeImageContexts.test_independent_contexts_are_byte_identical_and_rerooted",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_image_contexts.TestCeImageContexts.test_missing_required_context_path_fails_closed",
+      "status": "pass"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_image_contexts.TestCeImageContexts.test_source_artifact_digest_tamper_fails_closed",
+      "status": "pass"
+    }
+  ]
+}
