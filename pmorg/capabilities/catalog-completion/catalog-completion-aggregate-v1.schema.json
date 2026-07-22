@@ -1,0 +1,285 @@
+{
+  "$defs": {
+    "CatalogDispositionBinding": {
+      "additionalProperties": false,
+      "description": "Digest and platform binding for one catalog capability disposition.",
+      "properties": {
+        "capability_id": {
+          "minLength": 1,
+          "title": "Capability Id",
+          "type": "string"
+        },
+        "disposition": {
+          "const": "pmorg_independent",
+          "title": "Disposition",
+          "type": "string"
+        },
+        "evidence_bundle": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        },
+        "evidence_entry_count": {
+          "exclusiveMinimum": 0,
+          "title": "Evidence Entry Count",
+          "type": "integer"
+        },
+        "evidence_subject_binding_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Evidence Subject Binding Hash",
+          "type": "string"
+        },
+        "platform_anchor": {
+          "$ref": "#/$defs/DispositionPlatformAnchor"
+        },
+        "pmorg_requirement_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Pmorg Requirement Ids",
+          "type": "array"
+        },
+        "record": {
+          "$ref": "#/$defs/EvidenceArtifactRef"
+        }
+      },
+      "required": [
+        "capability_id",
+        "pmorg_requirement_ids",
+        "disposition",
+        "platform_anchor",
+        "record",
+        "evidence_bundle",
+        "evidence_subject_binding_hash",
+        "evidence_entry_count"
+      ],
+      "title": "CatalogDispositionBinding",
+      "type": "object"
+    },
+    "DispositionPlatformAnchor": {
+      "additionalProperties": false,
+      "description": "Identity carried by one already-committed disposition record.",
+      "properties": {
+        "artifact_set_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Artifact Set Hash",
+          "type": "string"
+        },
+        "onyx_commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Onyx Commit",
+          "type": "string"
+        },
+        "pmorg_platform_commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Pmorg Platform Commit",
+          "type": "string"
+        },
+        "pmorg_spec_commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Pmorg Spec Commit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "pmorg_spec_commit",
+        "pmorg_platform_commit",
+        "onyx_commit",
+        "artifact_set_hash"
+      ],
+      "title": "DispositionPlatformAnchor",
+      "type": "object"
+    },
+    "EvidenceArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "logical_name": {
+          "minLength": 1,
+          "title": "Logical Name",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "logical_name",
+        "media_type",
+        "digest",
+        "size_bytes",
+        "relative_path"
+      ],
+      "title": "EvidenceArtifactRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "The sole Slice 1 catalog-completion claim.",
+  "properties": {
+    "applicable_requirement_set": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "catalog": {
+      "$ref": "#/$defs/EvidenceArtifactRef"
+    },
+    "catalog_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Catalog Hash",
+      "type": "string"
+    },
+    "catalog_version": {
+      "minLength": 1,
+      "title": "Catalog Version",
+      "type": "string"
+    },
+    "claim_boundary": {
+      "const": "catalog_completion_only_no_admission_release_build_qualification_production_or_g3a",
+      "title": "Claim Boundary",
+      "type": "string"
+    },
+    "completion_claim": {
+      "const": "all_catalog_capabilities_carry_signed_dispositions_covering_all_mapped_requirements_21_of_21",
+      "title": "Completion Claim",
+      "type": "string"
+    },
+    "completion_status": {
+      "const": "complete",
+      "title": "Completion Status",
+      "type": "string"
+    },
+    "covered_requirement_count": {
+      "exclusiveMinimum": 0,
+      "title": "Covered Requirement Count",
+      "type": "integer"
+    },
+    "covered_requirement_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 21,
+      "title": "Covered Requirement Ids",
+      "type": "array"
+    },
+    "disposition_binding_set_hash": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Disposition Binding Set Hash",
+      "type": "string"
+    },
+    "disposition_bindings": {
+      "items": {
+        "$ref": "#/$defs/CatalogDispositionBinding"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Disposition Bindings",
+      "type": "array"
+    },
+    "disposition_count": {
+      "exclusiveMinimum": 0,
+      "title": "Disposition Count",
+      "type": "integer"
+    },
+    "duplicate_requirement_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Duplicate Requirement Ids",
+      "type": "array"
+    },
+    "expected_requirement_count": {
+      "exclusiveMinimum": 0,
+      "title": "Expected Requirement Count",
+      "type": "integer"
+    },
+    "gate_class": {
+      "const": "completion-claim",
+      "title": "Gate Class",
+      "type": "string"
+    },
+    "missing_requirement_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Requirement Ids",
+      "type": "array"
+    },
+    "onyx_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Onyx Commit",
+      "type": "string"
+    },
+    "pmorg_platform_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Platform Commit",
+      "type": "string"
+    },
+    "pmorg_spec_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Pmorg Spec Commit",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "pmorg.catalog-completion-aggregate/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scope_exclusions": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 5,
+      "minItems": 5,
+      "title": "Scope Exclusions",
+      "type": "array"
+    },
+    "unknown_requirement_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Unknown Requirement Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "gate_class",
+    "claim_boundary",
+    "completion_claim",
+    "completion_status",
+    "pmorg_platform_commit",
+    "pmorg_spec_commit",
+    "onyx_commit",
+    "catalog_version",
+    "catalog_hash",
+    "catalog",
+    "applicable_requirement_set",
+    "disposition_bindings",
+    "disposition_count",
+    "disposition_binding_set_hash",
+    "expected_requirement_count",
+    "covered_requirement_count",
+    "covered_requirement_ids",
+    "missing_requirement_ids",
+    "duplicate_requirement_ids",
+    "unknown_requirement_ids",
+    "scope_exclusions"
+  ],
+  "title": "CatalogCompletionAggregateRecord",
+  "type": "object"
+}
