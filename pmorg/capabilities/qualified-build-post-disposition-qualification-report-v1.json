@@ -1,0 +1,238 @@
+{
+  "capability_id": "qualified-reproducible-build",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 12,
+  "expected_test_count": 12,
+  "failed_test_count": 0,
+  "implementation_path_set_hash": "sha256:22400cda1de602996bdc9cdaf75d5b3ff6ab8f73bdf3aeceb3072a02880342ed",
+  "missing_test_count": 0,
+  "patch_ledger_set_hash": "sha256:9257a76a03466a85fa50ad7e59246795b97730688b0e91f3b27629a98db58ca1",
+  "required_test_manifest": {
+    "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+    "logical_name": "qualified-build-post-disposition-test-manifest",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+    "size_bytes": 5176
+  },
+  "schema_version": "pmorg.post-disposition-qualification/v1",
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:8d5d943d0121844a546941030faf07070f21c2d869cdae1e3d696e10bc17f204",
+        "logical_name": "qualified-reproducible-build::TestCeBuildSubstrate.test_copied_enterprise_source_in_pmorg_root_fails_closed-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeBuildSubstrate__test_copied_enterprise_source_in_pmorg_root_fails_closed.json",
+        "size_bytes": 1785
+      },
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_copied_enterprise_source_in_pmorg_root_fails_closed",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:c5adf6442ca976ba95705b7d68f0aa247b84257de2131a75fb0915161df91927",
+        "logical_name": "qualified-reproducible-build::TestCeBuildSubstrate.test_current_mixed_source_is_clean_after_overlay-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeBuildSubstrate__test_current_mixed_source_is_clean_after_overlay.json",
+        "size_bytes": 1769
+      },
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_current_mixed_source_is_clean_after_overlay",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:c6051534804732af418732236bec7b04eb7f86381bdc1456e4d85689831ab8a5",
+        "logical_name": "qualified-reproducible-build::TestCeBuildSubstrate.test_egress_inventory_matches_offline_implementation-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeBuildSubstrate__test_egress_inventory_matches_offline_implementation.json",
+        "size_bytes": 1777
+      },
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_egress_inventory_matches_offline_implementation",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:2587bfcca675c22b9856a2b94bb002c09e92e4284adaff7c3e54c49ab3c7e8fc",
+        "logical_name": "qualified-reproducible-build::TestCeBuildSubstrate.test_enterprise_import_in_pmorg_root_fails_closed-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeBuildSubstrate__test_enterprise_import_in_pmorg_root_fails_closed.json",
+        "size_bytes": 1771
+      },
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_enterprise_import_in_pmorg_root_fails_closed",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:03a5312f0946cadf672741e551141cbf0611601cdc7c15bab6b24f9054306069",
+        "logical_name": "qualified-reproducible-build::TestCeBuildSubstrate.test_independent_rebuilds_are_byte_identical-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeBuildSubstrate__test_independent_rebuilds_are_byte_identical.json",
+        "size_bytes": 1761
+      },
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_independent_rebuilds_are_byte_identical",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:814370c46dc0464c2fb5d08b3822cbdbb6bf8442bd7d3d8f39f94174e37aa1c6",
+        "logical_name": "qualified-reproducible-build::TestCeBuildSubstrate.test_named_revision_ignores_worktree_spec_and_overlay_drift-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeBuildSubstrate__test_named_revision_ignores_worktree_spec_and_overlay_drift.json",
+        "size_bytes": 1791
+      },
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_named_revision_ignores_worktree_spec_and_overlay_drift",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:d3164dd57b8dc2627837320830cf60702ee9dd62e0c7da1cbf017c45588013c9",
+        "logical_name": "qualified-reproducible-build::TestCeBuildSubstrate.test_overlay_digest_drift_fails_closed-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeBuildSubstrate__test_overlay_digest_drift_fails_closed.json",
+        "size_bytes": 1749
+      },
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_overlay_digest_drift_fails_closed",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:fe8a979b1dc539c4971788c8fb8653453fc7ac27c38e63c5aa391867a79785af",
+        "logical_name": "qualified-reproducible-build::TestCeBuildSubstrate.test_planted_enterprise_path_fails_closed-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeBuildSubstrate__test_planted_enterprise_path_fails_closed.json",
+        "size_bytes": 1755
+      },
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_planted_enterprise_path_fails_closed",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:bf74bf233507891f6d8b545a618ac0c4abc0a0c6b80c0ba0f172d7cbc5cfc174",
+        "logical_name": "qualified-reproducible-build::TestCeImageContexts.test_enterprise_literal_requires_fallback_or_noop_dispatch-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeImageContexts__test_enterprise_literal_requires_fallback_or_noop_dispatch.json",
+        "size_bytes": 1786
+      },
+      "test_id": "qualified-reproducible-build::TestCeImageContexts.test_enterprise_literal_requires_fallback_or_noop_dispatch",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:f6f26a728f58ade2d77dc1d699a738b415717025468752345edfce94ec028fda",
+        "logical_name": "qualified-reproducible-build::TestCeImageContexts.test_independent_contexts_are_byte_identical_and_rerooted-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeImageContexts__test_independent_contexts_are_byte_identical_and_rerooted.json",
+        "size_bytes": 1784
+      },
+      "test_id": "qualified-reproducible-build::TestCeImageContexts.test_independent_contexts_are_byte_identical_and_rerooted",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:84923f0881176d2fdac8d46f29adb115b9bac4cbda7b6b70ebaacc08f0c5d25e",
+        "logical_name": "qualified-reproducible-build::TestCeImageContexts.test_missing_required_context_path_fails_closed-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeImageContexts__test_missing_required_context_path_fails_closed.json",
+        "size_bytes": 1764
+      },
+      "test_id": "qualified-reproducible-build::TestCeImageContexts.test_missing_required_context_path_fails_closed",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    },
+    {
+      "result": {
+        "digest": "sha256:fc9bc7b97998cf945077f89e9da8ee36adaff7e6e24ab1fdec8d26b6b191dd70",
+        "logical_name": "qualified-reproducible-build::TestCeImageContexts.test_source_artifact_digest_tamper_fails_closed-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-results/TestCeImageContexts__test_source_artifact_digest_tamper_fails_closed.json",
+        "size_bytes": 1764
+      },
+      "test_id": "qualified-reproducible-build::TestCeImageContexts.test_source_artifact_digest_tamper_fails_closed",
+      "test_manifest": {
+        "digest": "sha256:4af95f9a635e0051c3a01b4aabac77086174162ee3db8cc1c205afa0bf005d98",
+        "logical_name": "qualified-build-post-disposition-test-manifest",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualified-build-post-disposition-test-manifest-v1.json",
+        "size_bytes": 5176
+      },
+      "verdict": "pass"
+    }
+  ],
+  "verdict": "pass"
+}

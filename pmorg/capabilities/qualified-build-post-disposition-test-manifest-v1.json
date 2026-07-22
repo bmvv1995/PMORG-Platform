@@ -1,0 +1,105 @@
+{
+  "capability_id": "qualified-reproducible-build",
+  "execution": {
+    "framework": "python-unittest",
+    "mode": "single-process-complete-modules",
+    "suites": [
+      "pmorg.tests.test_ce_build_substrate",
+      "pmorg.tests.test_ce_image_contexts"
+    ]
+  },
+  "expected_test_count": 12,
+  "implementation_bindings": [
+    {
+      "digest": "sha256:d4fab339aafd5936934626a154d350120ede88d344158cb0fb068c18b1b94da1",
+      "relative_path": "pmorg/scripts/build_ce_artifact.py",
+      "size_bytes": 1340
+    },
+    {
+      "digest": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
+      "relative_path": "pmorg/scripts/verify_ce_build.py",
+      "size_bytes": 2338
+    }
+  ],
+  "implementation_path_set_hash": "sha256:22400cda1de602996bdc9cdaf75d5b3ff6ab8f73bdf3aeceb3072a02880342ed",
+  "patch_ledger_entry_ids": [
+    "PL-042"
+  ],
+  "patch_ledger_set_hash": "sha256:9257a76a03466a85fa50ad7e59246795b97730688b0e91f3b27629a98db58ca1",
+  "pmorg_platform_commit": "0779a97efd29c0088cd6718bb6a9316bc4113268",
+  "requirement_ids": [
+    "A-EVIDENCE-001",
+    "A-LIC-001",
+    "A-REPORT-001",
+    "A-REPRO-001",
+    "PLT-005"
+  ],
+  "runner": {
+    "digest": "sha256:d2f1b51b471f1fe953a64223bdb4e0214d3589ec0fd2dc2f3eb54cf67af4eec0",
+    "relative_path": "pmorg/scripts/run_qualified_build_post_disposition_suite.py",
+    "size_bytes": 5227
+  },
+  "schema_version": "pmorg.qualified-build-post-disposition-test-manifest/v1",
+  "test_cases": [
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_copied_enterprise_source_in_pmorg_root_fails_closed",
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_copied_enterprise_source_in_pmorg_root_fails_closed"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_current_mixed_source_is_clean_after_overlay",
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_current_mixed_source_is_clean_after_overlay"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_egress_inventory_matches_offline_implementation",
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_egress_inventory_matches_offline_implementation"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_enterprise_import_in_pmorg_root_fails_closed",
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_enterprise_import_in_pmorg_root_fails_closed"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_independent_rebuilds_are_byte_identical",
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_independent_rebuilds_are_byte_identical"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_named_revision_ignores_worktree_spec_and_overlay_drift",
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_named_revision_ignores_worktree_spec_and_overlay_drift"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_overlay_digest_drift_fails_closed",
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_overlay_digest_drift_fails_closed"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_build_substrate.TestCeBuildSubstrate.test_planted_enterprise_path_fails_closed",
+      "test_id": "qualified-reproducible-build::TestCeBuildSubstrate.test_planted_enterprise_path_fails_closed"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_image_contexts.TestCeImageContexts.test_enterprise_literal_requires_fallback_or_noop_dispatch",
+      "test_id": "qualified-reproducible-build::TestCeImageContexts.test_enterprise_literal_requires_fallback_or_noop_dispatch"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_image_contexts.TestCeImageContexts.test_independent_contexts_are_byte_identical_and_rerooted",
+      "test_id": "qualified-reproducible-build::TestCeImageContexts.test_independent_contexts_are_byte_identical_and_rerooted"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_image_contexts.TestCeImageContexts.test_missing_required_context_path_fails_closed",
+      "test_id": "qualified-reproducible-build::TestCeImageContexts.test_missing_required_context_path_fails_closed"
+    },
+    {
+      "fully_qualified_name": "pmorg.tests.test_ce_image_contexts.TestCeImageContexts.test_source_artifact_digest_tamper_fails_closed",
+      "test_id": "qualified-reproducible-build::TestCeImageContexts.test_source_artifact_digest_tamper_fails_closed"
+    }
+  ],
+  "test_module_bindings": [
+    {
+      "digest": "sha256:138c3680f7ff944ee72305b96d6796753ef8924360e00d9c0dbef06290cb383f",
+      "relative_path": "pmorg/tests/test_ce_build_substrate.py",
+      "size_bytes": 9684
+    },
+    {
+      "digest": "sha256:0b52b257dc86dcaacf87a36d844ea352402c8ec23ecf2e651f82da206779b3f6",
+      "relative_path": "pmorg/tests/test_ce_image_contexts.py",
+      "size_bytes": 4855
+    }
+  ]
+}
