@@ -1,0 +1,220 @@
+{
+  "candidate_id": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd",
+  "capability_id": "capability-disposition-qualification",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 5,
+  "expected_test_count": 5,
+  "failed_test_count": 5,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:babf16e0ff93f200cd3c905a193dd9bebccecacad5e42a2393e072dfe8d386c7",
+    "logical_name": "qualification-oracle-extension-capability-disposition-qualification-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-capability-disposition-qualification-v1.json",
+    "size_bytes": 11156
+  },
+  "required_test_manifest": {
+    "digest": "sha256:9af2bec8019d0543f8adc10935e2e1726ee65445efd5dd5d7e6f797c24e19fec",
+    "logical_name": "capability-disposition-qualification-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/capability-disposition-qualification.json",
+    "size_bytes": 372
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "backend/onyx/background/README.md",
+      "backend/onyx/background/celery/apps/app_base.py",
+      "backend/onyx/background/celery/apps/beat.py",
+      "backend/onyx/background/celery/apps/client.py",
+      "backend/onyx/background/celery/apps/docfetching.py",
+      "backend/onyx/background/celery/apps/docprocessing.py",
+      "backend/onyx/background/celery/apps/heavy.py",
+      "backend/onyx/background/celery/apps/light.py",
+      "backend/onyx/background/celery/apps/monitoring.py",
+      "backend/onyx/background/celery/apps/primary.py",
+      "backend/onyx/background/celery/apps/scheduled_tasks.py",
+      "backend/onyx/background/celery/apps/task_formatters.py",
+      "backend/onyx/background/celery/apps/user_file_processing.py",
+      "backend/onyx/background/celery/celery_k8s_probe.py",
+      "backend/onyx/background/celery/celery_redis.py",
+      "backend/onyx/background/celery/celery_utils.py",
+      "backend/onyx/background/celery/configs/base.py",
+      "backend/onyx/background/celery/configs/beat.py",
+      "backend/onyx/background/celery/configs/client.py",
+      "backend/onyx/background/celery/configs/docfetching.py",
+      "backend/onyx/background/celery/configs/docprocessing.py",
+      "backend/onyx/background/celery/configs/heavy.py",
+      "backend/onyx/background/celery/configs/light.py",
+      "backend/onyx/background/celery/configs/monitoring.py",
+      "backend/onyx/background/celery/configs/primary.py",
+      "backend/onyx/background/celery/configs/scheduled_tasks.py",
+      "backend/onyx/background/celery/configs/user_file_processing.py",
+      "backend/onyx/background/celery/memory_monitoring.py",
+      "backend/onyx/background/celery/tasks/beat_schedule.py",
+      "backend/onyx/background/celery/tasks/build/__init__.py",
+      "backend/onyx/background/celery/tasks/build/tasks.py",
+      "backend/onyx/background/celery/tasks/connector_deletion/__init__.py",
+      "backend/onyx/background/celery/tasks/connector_deletion/tasks.py",
+      "backend/onyx/background/celery/tasks/docfetching/__init__.py",
+      "backend/onyx/background/celery/tasks/docfetching/task_creation_utils.py",
+      "backend/onyx/background/celery/tasks/docfetching/tasks.py",
+      "backend/onyx/background/celery/tasks/docprocessing/__init__.py",
+      "backend/onyx/background/celery/tasks/docprocessing/batch_counters.py",
+      "backend/onyx/background/celery/tasks/docprocessing/heartbeat.py",
+      "backend/onyx/background/celery/tasks/docprocessing/targeted_reindex_task.py",
+      "backend/onyx/background/celery/tasks/docprocessing/tasks.py",
+      "backend/onyx/background/celery/tasks/docprocessing/utils.py",
+      "backend/onyx/background/celery/tasks/evals/__init__.py",
+      "backend/onyx/background/celery/tasks/evals/tasks.py",
+      "backend/onyx/background/celery/tasks/hierarchyfetching/__init__.py",
+      "backend/onyx/background/celery/tasks/hierarchyfetching/tasks.py",
+      "backend/onyx/background/celery/tasks/llm_model_update/__init__.py",
+      "backend/onyx/background/celery/tasks/llm_model_update/tasks.py",
+      "backend/onyx/background/celery/tasks/models.py",
+      "backend/onyx/background/celery/tasks/monitoring/__init__.py",
+      "backend/onyx/background/celery/tasks/monitoring/tasks.py",
+      "backend/onyx/background/celery/tasks/opensearch_migration/__init__.py",
+      "backend/onyx/background/celery/tasks/opensearch_migration/constants.py",
+      "backend/onyx/background/celery/tasks/opensearch_migration/tasks.py",
+      "backend/onyx/background/celery/tasks/opensearch_migration/transformer.py",
+      "backend/onyx/background/celery/tasks/pruning/__init__.py",
+      "backend/onyx/background/celery/tasks/pruning/tasks.py",
+      "backend/onyx/background/celery/tasks/scheduled_tasks/__init__.py",
+      "backend/onyx/background/celery/tasks/scheduled_tasks/tasks.py",
+      "backend/onyx/background/celery/tasks/shared/RetryDocumentIndex.py",
+      "backend/onyx/background/celery/tasks/shared/__init__.py",
+      "backend/onyx/background/celery/tasks/shared/tasks.py",
+      "backend/onyx/background/celery/tasks/user_file_processing/__init__.py",
+      "backend/onyx/background/celery/tasks/user_file_processing/tasks.py",
+      "backend/onyx/background/celery/tasks/vespa/__init__.py",
+      "backend/onyx/background/celery/tasks/vespa/document_sync.py",
+      "backend/onyx/background/celery/tasks/vespa/tasks.py",
+      "backend/onyx/background/celery/versioned_apps/beat.py",
+      "backend/onyx/background/celery/versioned_apps/client.py",
+      "backend/onyx/background/celery/versioned_apps/docfetching.py",
+      "backend/onyx/background/celery/versioned_apps/docprocessing.py",
+      "backend/onyx/background/celery/versioned_apps/heavy.py",
+      "backend/onyx/background/celery/versioned_apps/light.py",
+      "backend/onyx/background/celery/versioned_apps/monitoring.py",
+      "backend/onyx/background/celery/versioned_apps/primary.py",
+      "backend/onyx/background/celery/versioned_apps/scheduled_tasks.py",
+      "backend/onyx/background/celery/versioned_apps/user_file_processing.py",
+      "backend/onyx/background/error_logging.py",
+      "backend/onyx/background/indexing/checkpointing_utils.py",
+      "backend/onyx/background/indexing/dask_utils.py",
+      "backend/onyx/background/indexing/index_attempt_utils.py",
+      "backend/onyx/background/indexing/job_client.py",
+      "backend/onyx/background/indexing/memory_tracer.py",
+      "backend/onyx/background/indexing/models.py",
+      "backend/onyx/background/indexing/run_docfetching.py",
+      "backend/onyx/background/indexing/run_targeted_reindex.py",
+      "backend/onyx/background/periodic_poller.py",
+      "backend/onyx/background/task_utils.py"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:dbeae3338f24b3ab92f0e962f4a99b504908f3f732c95960881a0ac5dd29f4a9",
+        "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-002-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-002.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-002",
+      "test_manifest": {
+        "digest": "sha256:0c39780ebb72072c937d063c73e40ad3e3653b7f164ff18826a7dcd6468600f3",
+        "logical_name": "capability-disposition-qualification-A-PATCH-002-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-002-v1.json",
+        "size_bytes": 4057
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:ee2a304526fa2ee4ef27ebc77af326b13868dfd3413c6484d7beb2c79dc626a1",
+        "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-003-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-003.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-003",
+      "test_manifest": {
+        "digest": "sha256:0163d238c9a74ce0f92cf7d0a3c25f7437fa8b947597d7eaea3a54df815d4cb8",
+        "logical_name": "capability-disposition-qualification-A-PATCH-003-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-003-v1.json",
+        "size_bytes": 4054
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:d54d2c01c3e709012e25a166f98a3e7db43e543a10d85946cb1fb64a1251dfeb",
+        "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-004-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-004.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-004",
+      "test_manifest": {
+        "digest": "sha256:5c936be84888ec8a26feea3e853cd004c5fc33832d18b614c5348373a6b4a8df",
+        "logical_name": "capability-disposition-qualification-A-PATCH-004-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-004-v1.json",
+        "size_bytes": 4047
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:e3bde973cb261ec4187377e3033f3d83158152813a23ecc0f35ef242751d72d4",
+        "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-005-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-005.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-005",
+      "test_manifest": {
+        "digest": "sha256:248cd80eae50c1cd9303351bb57711ca8a4528d48243c9c416b9976a376a5d3f",
+        "logical_name": "capability-disposition-qualification-A-PATCH-005-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-005-v1.json",
+        "size_bytes": 4046
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:16e77c13fde9740e29fc1c9879e4caaf4ee910aa737dc62604afbe4037b73f85",
+        "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-006-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-006.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-006",
+      "test_manifest": {
+        "digest": "sha256:121f7add324f1148f0bb0450fb086c3f7ffb2ee3e0cee9cf638ab81b2e6d400f",
+        "logical_name": "capability-disposition-qualification-A-PATCH-006-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-006-v1.json",
+        "size_bytes": 4009
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

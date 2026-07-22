@@ -1,0 +1,211 @@
+{
+  "candidate_id": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9",
+  "capability_id": "capability-disposition-qualification",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 5,
+  "expected_test_count": 5,
+  "failed_test_count": 5,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:babf16e0ff93f200cd3c905a193dd9bebccecacad5e42a2393e072dfe8d386c7",
+    "logical_name": "qualification-oracle-extension-capability-disposition-qualification-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-capability-disposition-qualification-v1.json",
+    "size_bytes": 11156
+  },
+  "required_test_manifest": {
+    "digest": "sha256:9af2bec8019d0543f8adc10935e2e1726ee65445efd5dd5d7e6f797c24e19fec",
+    "logical_name": "capability-disposition-qualification-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/capability-disposition-qualification.json",
+    "size_bytes": 372
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "web/src/views/AgentEditorPage.tsx",
+      "web/src/views/AgentsNavigationPage.tsx",
+      "web/src/views/AppPage.tsx",
+      "web/src/views/SettingsPage.tsx",
+      "web/src/views/UserSkillsPage.tsx",
+      "web/src/views/UserSkillsPage/CreatePersonalSkillModal.tsx",
+      "web/src/views/__tests__/AgentDraftManager.test.tsx",
+      "web/src/views/admin/AgentsPage.tsx",
+      "web/src/views/admin/AgentsPage/AgentRowActions.tsx",
+      "web/src/views/admin/AgentsPage/AgentsTable.tsx",
+      "web/src/views/admin/ChatPreferencesPage.tsx",
+      "web/src/views/admin/CodeInterpreterPage/index.tsx",
+      "web/src/views/admin/CodeInterpreterPage/svc.ts",
+      "web/src/views/admin/ExternalAppsPage.tsx",
+      "web/src/views/admin/GroupsPage/CreateGroupPage.tsx",
+      "web/src/views/admin/GroupsPage/EditGroupPage.tsx",
+      "web/src/views/admin/GroupsPage/GroupCard.tsx",
+      "web/src/views/admin/GroupsPage/GroupsList.tsx",
+      "web/src/views/admin/GroupsPage/SharedGroupResources/ResourceContent.tsx",
+      "web/src/views/admin/GroupsPage/SharedGroupResources/ResourcePopover.tsx",
+      "web/src/views/admin/GroupsPage/SharedGroupResources/index.tsx",
+      "web/src/views/admin/GroupsPage/SharedGroupResources/interfaces.ts",
+      "web/src/views/admin/GroupsPage/TokenLimitSection.tsx",
+      "web/src/views/admin/GroupsPage/index.tsx",
+      "web/src/views/admin/GroupsPage/interfaces.ts",
+      "web/src/views/admin/GroupsPage/shared.tsx",
+      "web/src/views/admin/GroupsPage/svc.ts",
+      "web/src/views/admin/GroupsPage/useGroupMemberCandidates.ts",
+      "web/src/views/admin/GroupsPage/utils.ts",
+      "web/src/views/admin/ImageGenerationPage/ImageGenerationContent.tsx",
+      "web/src/views/admin/ImageGenerationPage/constants.ts",
+      "web/src/views/admin/ImageGenerationPage/forms/AzureImageGenForm.tsx",
+      "web/src/views/admin/ImageGenerationPage/forms/ImageGenFormWrapper.tsx",
+      "web/src/views/admin/ImageGenerationPage/forms/OpenAIImageGenForm.tsx",
+      "web/src/views/admin/ImageGenerationPage/forms/VertexImageGenForm.tsx",
+      "web/src/views/admin/ImageGenerationPage/forms/getImageGenForm.tsx",
+      "web/src/views/admin/ImageGenerationPage/forms/index.ts",
+      "web/src/views/admin/ImageGenerationPage/forms/types.ts",
+      "web/src/views/admin/ImageGenerationPage/index.tsx",
+      "web/src/views/admin/ImageGenerationPage/svc.ts",
+      "web/src/views/admin/IndexSettingsPage/index.tsx",
+      "web/src/views/admin/IndexSettingsPage/modals.tsx",
+      "web/src/views/admin/IndexSettingsPage/shared.tsx",
+      "web/src/views/admin/LanguageModelsPage.tsx",
+      "web/src/views/admin/SecurityHardeningPage.tsx",
+      "web/src/views/admin/ServiceAccountsPage/ApiKeyFormModal.tsx",
+      "web/src/views/admin/ServiceAccountsPage/EditServiceAccountModal.tsx",
+      "web/src/views/admin/ServiceAccountsPage/index.tsx",
+      "web/src/views/admin/ServiceAccountsPage/interfaces.ts",
+      "web/src/views/admin/ServiceAccountsPage/svc.ts",
+      "web/src/views/admin/SkillsPage.tsx",
+      "web/src/views/admin/SkillsPage/BuiltinSkillsTable.tsx",
+      "web/src/views/admin/SkillsPage/CustomSkillRowActions.tsx",
+      "web/src/views/admin/SkillsPage/CustomSkillsTable.tsx",
+      "web/src/views/admin/SkillsPage/ShareSkillModal.tsx",
+      "web/src/views/admin/SkillsPage/SkillSharePicker.tsx",
+      "web/src/views/admin/SkillsPage/UploadSkillModal.tsx",
+      "web/src/views/admin/SkillsPage/helpers.tsx",
+      "web/src/views/admin/SkillsPage/interfaces.ts",
+      "web/src/views/admin/UsersPage/EditUserModal.tsx",
+      "web/src/views/admin/UsersPage/GroupsCell.tsx",
+      "web/src/views/admin/UsersPage/InviteOnlyCard.test.tsx",
+      "web/src/views/admin/UsersPage/InviteOnlyCard.tsx",
+      "web/src/views/admin/UsersPage/InviteUsersModal.tsx",
+      "web/src/views/admin/UsersPage/UserActionModals.tsx",
+      "web/src/views/admin/UsersPage/UserFilters.tsx",
+      "web/src/views/admin/UsersPage/UserRoleCell.tsx",
+      "web/src/views/admin/UsersPage/UserRowActions.tsx",
+      "web/src/views/admin/UsersPage/UsersSummary.tsx",
+      "web/src/views/admin/UsersPage/UsersTable.tsx",
+      "web/src/views/admin/UsersPage/index.tsx",
+      "web/src/views/admin/UsersPage/interfaces.ts",
+      "web/src/views/admin/UsersPage/svc.ts",
+      "web/src/views/admin/VoicePage/index.tsx",
+      "web/src/views/admin/VoicePage/shared.tsx",
+      "web/src/views/admin/WebSearchPage/WebSearchDisconnectModal.tsx",
+      "web/src/views/admin/WebSearchPage/WebSearchSetupModal.tsx",
+      "web/src/views/admin/WebSearchPage/index.tsx",
+      "web/src/views/admin/WebSearchPage/shared.tsx"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a",
+      "logical_name": "onyx_ce-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ce-path-inventory-v1.json",
+      "size_bytes": 1382014
+    },
+    "tree_hash": "sha256:6ebe198463d6c461e2ab3d6dc68d40152f73b79adf91c64213c274bec9b2f75a"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:844f7cf4a78e3e67710e95d82a27fc2c0db3e8ef72afd76d8e0c7d40fe893be4",
+        "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-002-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-002.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-002",
+      "test_manifest": {
+        "digest": "sha256:0c39780ebb72072c937d063c73e40ad3e3653b7f164ff18826a7dcd6468600f3",
+        "logical_name": "capability-disposition-qualification-A-PATCH-002-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-002-v1.json",
+        "size_bytes": 4057
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:da9a8d06ee99c10fb60cebae5e6eca1536953ee2cd4b31966926442db6e76fa1",
+        "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-003-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-003.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-003",
+      "test_manifest": {
+        "digest": "sha256:0163d238c9a74ce0f92cf7d0a3c25f7437fa8b947597d7eaea3a54df815d4cb8",
+        "logical_name": "capability-disposition-qualification-A-PATCH-003-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-003-v1.json",
+        "size_bytes": 4054
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:cc187d119c4c388ac09b9da4912edcd02f0c8de1e15f92159c3734a103879e1a",
+        "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-004-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-004.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-004",
+      "test_manifest": {
+        "digest": "sha256:5c936be84888ec8a26feea3e853cd004c5fc33832d18b614c5348373a6b4a8df",
+        "logical_name": "capability-disposition-qualification-A-PATCH-004-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-004-v1.json",
+        "size_bytes": 4047
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:6015de593922c014fb5fc1e5b70b6d2eee40d460519b18fc4750ae6ea1021b61",
+        "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-005-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-005.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-005",
+      "test_manifest": {
+        "digest": "sha256:248cd80eae50c1cd9303351bb57711ca8a4528d48243c9c416b9976a376a5d3f",
+        "logical_name": "capability-disposition-qualification-A-PATCH-005-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-005-v1.json",
+        "size_bytes": 4046
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:574dfe267a8867b1d7701fff6d99533b90a248bfbf4e2140eb5f9b4659c59ccc",
+        "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-006-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-006.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-006",
+      "test_manifest": {
+        "digest": "sha256:121f7add324f1148f0bb0450fb086c3f7ffb2ee3e0cee9cf638ab81b2e6d400f",
+        "logical_name": "capability-disposition-qualification-A-PATCH-006-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-006-v1.json",
+        "size_bytes": 4009
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

@@ -1,0 +1,173 @@
+{
+  "candidate_id": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695",
+  "capability_id": "capability-disposition-qualification",
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "duplicate_test_count": 0,
+  "executed_test_count": 5,
+  "expected_test_count": 5,
+  "failed_test_count": 5,
+  "missing_test_count": 0,
+  "qualification_policy": {
+    "digest": "sha256:babf16e0ff93f200cd3c905a193dd9bebccecacad5e42a2393e072dfe8d386c7",
+    "logical_name": "qualification-oracle-extension-capability-disposition-qualification-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-capability-disposition-qualification-v1.json",
+    "size_bytes": 11156
+  },
+  "required_test_manifest": {
+    "digest": "sha256:9af2bec8019d0543f8adc10935e2e1726ee65445efd5dd5d7e6f797c24e19fec",
+    "logical_name": "capability-disposition-qualification-contract-tests",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/contract-tests/capability-disposition-qualification.json",
+    "size_bytes": 372
+  },
+  "schema_version": "pmorg.candidate-qualification-report/v1",
+  "source_ref": {
+    "commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+    "paths": [
+      "web/src/app/ee/EEFeatureRedirect.tsx",
+      "web/src/app/ee/LICENSE",
+      "web/src/app/ee/admin/billing/BillingAlerts.tsx",
+      "web/src/app/ee/admin/billing/BillingInformationPage.tsx",
+      "web/src/app/ee/admin/billing/InfoItem.tsx",
+      "web/src/app/ee/admin/billing/SubscriptionSummary.tsx",
+      "web/src/app/ee/admin/billing/page.tsx",
+      "web/src/app/ee/admin/groups/[id]/page.tsx",
+      "web/src/app/ee/admin/groups/create/page.tsx",
+      "web/src/app/ee/admin/groups/page.tsx",
+      "web/src/app/ee/admin/layout.tsx",
+      "web/src/app/ee/admin/performance/custom-analytics/CustomAnalyticsUpdateForm.tsx",
+      "web/src/app/ee/admin/performance/custom-analytics/page.tsx",
+      "web/src/app/ee/admin/performance/lib.ts",
+      "web/src/app/ee/admin/performance/query-history/FeedbackBadge.tsx",
+      "web/src/app/ee/admin/performance/query-history/KickoffCSVExport.tsx",
+      "web/src/app/ee/admin/performance/query-history/QueryHistoryTable.tsx",
+      "web/src/app/ee/admin/performance/query-history/[id]/page.tsx",
+      "web/src/app/ee/admin/performance/query-history/constants.ts",
+      "web/src/app/ee/admin/performance/query-history/page.tsx",
+      "web/src/app/ee/admin/performance/query-history/types.ts",
+      "web/src/app/ee/admin/performance/query-history/utils.ts",
+      "web/src/app/ee/admin/performance/usage/FeedbackChart.tsx",
+      "web/src/app/ee/admin/performance/usage/OnyxBotChart.tsx",
+      "web/src/app/ee/admin/performance/usage/PersonaMessagesChart.tsx",
+      "web/src/app/ee/admin/performance/usage/QueryPerformanceChart.tsx",
+      "web/src/app/ee/admin/performance/usage/UsageReports.tsx",
+      "web/src/app/ee/admin/performance/usage/page.tsx",
+      "web/src/app/ee/admin/performance/usage/types.ts",
+      "web/src/app/ee/admin/standard-answer/StandardAnswerCreationForm.tsx",
+      "web/src/app/ee/admin/standard-answer/[id]/page.tsx",
+      "web/src/app/ee/admin/standard-answer/hooks.ts",
+      "web/src/app/ee/admin/standard-answer/lib.ts",
+      "web/src/app/ee/admin/standard-answer/new/page.tsx",
+      "web/src/app/ee/admin/standard-answer/page.tsx",
+      "web/src/app/ee/admin/theme/AppearanceThemeSettings.tsx",
+      "web/src/app/ee/admin/theme/Preview.tsx",
+      "web/src/app/ee/admin/theme/page.tsx",
+      "web/src/app/ee/agents/stats/[id]/AgentStats.tsx",
+      "web/src/app/ee/agents/stats/[id]/page.tsx",
+      "web/src/app/ee/layout.tsx"
+    ],
+    "repository": "https://github.com/onyx-dot-app/onyx.git",
+    "source_snapshot": {
+      "digest": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440",
+      "logical_name": "onyx_ee-path-inventory",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/source-scopes/onyx-ee-path-inventory-v1.json",
+      "size_bytes": 61086
+    },
+    "tree_hash": "sha256:6305fa740877ef8397e8f4f137cc4454aaefa9d8f1684fdf87e9be7e29f18440"
+  },
+  "test_evidence": [
+    {
+      "result": {
+        "digest": "sha256:b988444b302458d3b94f2abb7c60b891c49d3d0300326de2a363d6584df8a91a",
+        "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-002-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-002.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-002",
+      "test_manifest": {
+        "digest": "sha256:0c39780ebb72072c937d063c73e40ad3e3653b7f164ff18826a7dcd6468600f3",
+        "logical_name": "capability-disposition-qualification-A-PATCH-002-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-002-v1.json",
+        "size_bytes": 4057
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:7ad24937357c6174890bc2fc7aecd27a02a605ab3fd911ba8d84925b28745a14",
+        "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-003-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-003.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-003",
+      "test_manifest": {
+        "digest": "sha256:0163d238c9a74ce0f92cf7d0a3c25f7437fa8b947597d7eaea3a54df815d4cb8",
+        "logical_name": "capability-disposition-qualification-A-PATCH-003-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-003-v1.json",
+        "size_bytes": 4054
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:5445495569c5bfab8a6eddebe26def862f843786fe3f16b6243f6860ce37baf9",
+        "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-004-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-004.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-004",
+      "test_manifest": {
+        "digest": "sha256:5c936be84888ec8a26feea3e853cd004c5fc33832d18b614c5348373a6b4a8df",
+        "logical_name": "capability-disposition-qualification-A-PATCH-004-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-004-v1.json",
+        "size_bytes": 4047
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:daca4079b0c31e606e2f2f729046bf9c159aec75ca9df370dde63eab7c12b764",
+        "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-005-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-005.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-005",
+      "test_manifest": {
+        "digest": "sha256:248cd80eae50c1cd9303351bb57711ca8a4528d48243c9c416b9976a376a5d3f",
+        "logical_name": "capability-disposition-qualification-A-PATCH-005-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-005-v1.json",
+        "size_bytes": 4046
+      },
+      "verdict": "fail"
+    },
+    {
+      "result": {
+        "digest": "sha256:fb41b32150c811229abca8123ebd22a427f3e62c416f616eccc0730a9442967a",
+        "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-006-capability-disposition-qualification-oracle-result",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-006.json",
+        "size_bytes": 4366
+      },
+      "test_id": "A-PATCH-006",
+      "test_manifest": {
+        "digest": "sha256:121f7add324f1148f0bb0450fb086c3f7ffb2ee3e0cee9cf638ab81b2e6d400f",
+        "logical_name": "capability-disposition-qualification-A-PATCH-006-qualification-test-vector",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-006-v1.json",
+        "size_bytes": 4009
+      },
+      "verdict": "fail"
+    }
+  ],
+  "verdict": "fail"
+}

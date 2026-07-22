@@ -1270,6 +1270,34 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_interface_fit_executor.py --check"
       ]
+    },
+    {
+      "id": "PL-045",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/capability_disposition_qualification_candidate_qualification_reports.py",
+        "backend/pmorg/tests/test_capability_disposition_qualification_candidate_qualification_reports.py",
+        "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports-v1.json",
+        "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports-v1.schema.json",
+        "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/*.json",
+        "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/**/*.json",
+        "pmorg/scripts/build_capability_disposition_qualification_candidate_qualification_reports.py"
+      ],
+      "requirements": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "PLT-006"
+      ],
+      "reason": "Execute exactly the five activated A-PATCH-002 through A-PATCH-006 candidate-aware oracles over the immutable 48-group, 5,015-membership Q7a denominator and emit exactly 240 content-addressed results plus one schema-valid CandidateQualificationReport per candidate; bind every candidate manifest and projected byte, the Q7a screening evidence, interface and vectors, both reference implementations, the Q7b extension, adapter and result schema, and the executed interpreter and runtime locks; retain honest per-candidate verdicts with live mutation influence and conforming positive controls while emitting no PDQ, disposition, DSSE, aggregate verdict, admission, release, trust, workflow or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=06dfa7a4635732f84f75441ca1eb4b7f6c731696 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_capability_disposition_qualification_candidate_qualification_reports -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_qualification_candidate_qualification_reports.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

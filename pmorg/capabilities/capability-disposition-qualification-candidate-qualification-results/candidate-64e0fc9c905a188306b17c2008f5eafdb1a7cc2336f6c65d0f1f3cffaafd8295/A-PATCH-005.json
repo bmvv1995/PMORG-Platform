@@ -1,0 +1,95 @@
+{
+  "adapter_digest": "sha256:282d4fa12764242cde8de920a7262342e982f8b248756595c60814c3738f8ffd",
+  "baseline_fit": false,
+  "baseline_observation_digest": "sha256:09771c381469306096a45ff10fbf7c979dedcd5c9ebd752b9b945e05cc3f87fd",
+  "bindings": [
+    {
+      "digest": "sha256:61566232102db39182c1ce22b51c07c145ce647413d5a8d9d85256b1892f76ca",
+      "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json"
+    },
+    {
+      "digest": "sha256:0c39780ebb72072c937d063c73e40ad3e3653b7f164ff18826a7dcd6468600f3",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-002-v1.json"
+    },
+    {
+      "digest": "sha256:0163d238c9a74ce0f92cf7d0a3c25f7437fa8b947597d7eaea3a54df815d4cb8",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-003-v1.json"
+    },
+    {
+      "digest": "sha256:5c936be84888ec8a26feea3e853cd004c5fc33832d18b614c5348373a6b4a8df",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-004-v1.json"
+    },
+    {
+      "digest": "sha256:248cd80eae50c1cd9303351bb57711ca8a4528d48243c9c416b9976a376a5d3f",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-005-v1.json"
+    },
+    {
+      "digest": "sha256:121f7add324f1148f0bb0450fb086c3f7ffb2ee3e0cee9cf638ab81b2e6d400f",
+      "relative_path": "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-A-PATCH-006-v1.json"
+    },
+    {
+      "digest": "sha256:282d4fa12764242cde8de920a7262342e982f8b248756595c60814c3738f8ffd",
+      "relative_path": "backend/pmorg/application/capability_disposition_interface_fit_executor.py"
+    },
+    {
+      "digest": "sha256:5a06c7070ec30dc6558b5e0f736d8959577063efd8e039443699233f21f68883",
+      "relative_path": "pmorg/capabilities/qualification-oracle-result-v2.schema.json"
+    },
+    {
+      "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+      "relative_path": ".python-version"
+    },
+    {
+      "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+      "relative_path": "pyproject.toml"
+    },
+    {
+      "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+      "relative_path": "uv.lock"
+    }
+  ],
+  "candidate_id": "candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295",
+  "candidate_manifest_digest": "sha256:90c7b81fb6a5dd70ba5819245a2e9f9c95070e9c5b53850197d7f320eab490be",
+  "capability_id": "capability-disposition-qualification",
+  "execution_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "failure_reasons": [
+    "candidate exposes no callable surface satisfying the exact A-PATCH-005 capability-disposition interface"
+  ],
+  "mutation_fit": false,
+  "mutation_observation_digest": "sha256:b303f13490aaf08811333fd8467eebd000d464a5d4cd84885e8f1c76f6318d8b",
+  "observed_blob_count": 10,
+  "oracle_id": "qualification-oracle:capability-disposition-qualification:A-PATCH-005:v1",
+  "oracle_status": "executable",
+  "positive_injection_fit": true,
+  "positive_injection_observation_digest": "sha256:b0fb81d0ced2f5070edb7008326403537bcac408991268732d6f747c77d1d76b",
+  "projected_blob_count": 10,
+  "runtime_identity_digest": "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053",
+  "runtime_measurement": {
+    "declared_artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "relative_path": ".python-version"
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "relative_path": "pyproject.toml"
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "relative_path": "uv.lock"
+      }
+    ],
+    "interpreter_binary": {
+      "digest": "sha256:9efb620bf4def9da93c66480431bf9ca479f5ca495da94483cf9117dd58430bf",
+      "relative_path": "@runtime/executed-python-interpreter"
+    }
+  },
+  "schema_version": "pmorg.qualification-oracle-result/v2",
+  "test_id": "A-PATCH-005",
+  "unobserved_blob_count": 0,
+  "verdict": "fail"
+}
