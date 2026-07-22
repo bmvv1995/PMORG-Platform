@@ -1,0 +1,11 @@
+{
+  "commit": "a9764a9a2ca59c71392cc1ce187a6f9b7166ea92",
+  "content_hash": "sha256:8534a94ee86b585a42851ba76785e8816f6915d78fdc8e3a4de2905efb2af237",
+  "git_blob_id": "2d27b8a2940d4de097b8a5fd37094fc1c04d6a40",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "pmorg/scripts/verify_ce_build.py",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 2338
+}

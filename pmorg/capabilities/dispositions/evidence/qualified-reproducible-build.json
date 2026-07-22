@@ -1,0 +1,407 @@
+{
+  "bundle_kind": "single_qualified_build_disposition_no_catalog_completion",
+  "entries": [
+    {
+      "digest": "sha256:a13482ea50a3d07d966c8aadf99af69bd9225549d792e1f4eaa39da24d804ab8",
+      "logical_name": "capability-disposition-subject-ce-source-artifact",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/subject-ce-source-artifact-v1.json",
+      "size_bytes": 893
+    },
+    {
+      "digest": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+      "logical_name": "capability-catalog",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/capability-catalog-v1.json",
+      "size_bytes": 4415
+    },
+    {
+      "digest": "sha256:5eb9f8322cb1d09bdaac2f920e89f07352179818f2f7127e0192dae0f0597b83",
+      "logical_name": "qualified-build-interface-fit-evidence",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-interface-fit-evidence-v1.json",
+      "size_bytes": 491619
+    },
+    {
+      "digest": "sha256:1115b068e0ee8dd40514e78481c6488a725d7e0e1a4cfc7f6fb4aea4acf45401",
+      "logical_name": "qualified-build-candidate-search-evidence",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/candidate-search/qualified-reproducible-build-search-evidence-v1.json",
+      "size_bytes": 8780
+    },
+    {
+      "digest": "sha256:3224ef4e5829bcd8c2415a7ea4700539b79ad0496404b3b90b93600ca2d2cc84",
+      "logical_name": "qualified-build-candidate-qualification-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports-v1.json",
+      "size_bytes": 138611
+    },
+    {
+      "digest": "sha256:69511a857d77fed9bd276b01c1bad24440b411afb8ba65b216c9bbbcbc1e4611",
+      "logical_name": "qualified-build-post-disposition-qualification-index",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-post-disposition-qualification-v1.json",
+      "size_bytes": 8623
+    },
+    {
+      "digest": "sha256:668741816dc0fc8b33a883c20a61bd25bd9143ef8b74bb56ad02d19f703f8e5e",
+      "logical_name": "qualified-build-post-disposition-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-post-disposition-qualification-report-v1.json",
+      "size_bytes": 13260
+    },
+    {
+      "digest": "sha256:b767387f1eff9d8160c2a8f0bd251a906ac30b0c9abad5054792eafc887fb705",
+      "logical_name": "qualified-reproducible-build-pmorg__scripts__build_ce_artifact.py.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/qualified-reproducible-build/pmorg__scripts__build_ce_artifact.py.json",
+      "size_bytes": 474
+    },
+    {
+      "digest": "sha256:76f1e729e6ea3b84e6a9a66bd85326b6f6920aab359b9ecb8a86b81acf025f51",
+      "logical_name": "qualified-reproducible-build-pmorg__scripts__verify_ce_build.py.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/qualified-reproducible-build/pmorg__scripts__verify_ce_build.py.json",
+      "size_bytes": 472
+    },
+    {
+      "digest": "sha256:ea5164e08698124ac0cb3f83999913d0a0934d486778b2eb2afc565dc5b41f10",
+      "logical_name": "qualified-reproducible-build-pmorg__build__artifact.py.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/qualified-reproducible-build/pmorg__build__artifact.py.json",
+      "size_bytes": 464
+    },
+    {
+      "digest": "sha256:3ce0108c985617eed8752ab382713634f52fd42dc5d0c21621708b187c16498a",
+      "logical_name": "qualified-reproducible-build-pmorg__patch-ledger.json.json",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/dispositions/implementation-snapshots/qualified-reproducible-build/pmorg__patch-ledger.json.json",
+      "size_bytes": 464
+    },
+    {
+      "digest": "sha256:1158e7fc6b9929007bfc06df0529937ee9f1167d9859a83a534c45357e18ae07",
+      "logical_name": "candidate-010f18dc374c6db4e7ebcaf933a17451bfdbb4745a3b03e38fa69ca44261b4d0-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-010f18dc374c6db4e7ebcaf933a17451bfdbb4745a3b03e38fa69ca44261b4d0.json",
+      "size_bytes": 6124
+    },
+    {
+      "digest": "sha256:a2587b201f3dfcfa6251c0c51a4215ff73e55919b85154b93c112e0e5eb2718b",
+      "logical_name": "candidate-cd13bb07fc23fb17e0e458d348c19a9aab818ac353cff908901365bb9313ff49-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-cd13bb07fc23fb17e0e458d348c19a9aab818ac353cff908901365bb9313ff49.json",
+      "size_bytes": 6503
+    },
+    {
+      "digest": "sha256:475819c56f7eab90b6df01eda911fee0acf3abc9c1585a821e7c11cbce7e3b89",
+      "logical_name": "candidate-183b2008ce819e861d223944317c44cde9b699563aee0f7029abdba723855343-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-183b2008ce819e861d223944317c44cde9b699563aee0f7029abdba723855343.json",
+      "size_bytes": 7721
+    },
+    {
+      "digest": "sha256:ff58e249bb3c5be333bbb19af946a73bfa3012eaee0ea1043622902547e81df5",
+      "logical_name": "candidate-9bd33fc2d35e7404c3401e31bb030c975e17f20e0c21d7874efd5ccd303e39bb-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-9bd33fc2d35e7404c3401e31bb030c975e17f20e0c21d7874efd5ccd303e39bb.json",
+      "size_bytes": 5854
+    },
+    {
+      "digest": "sha256:2f690ddf90ea8ce7f06cc720820d2c5e7dfa81e11619a452185f78a11bc9117f",
+      "logical_name": "candidate-2cdce8a59504d7759ae088ffef282568d449bfdc9bf8a91fd40e9d04b080617b-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-2cdce8a59504d7759ae088ffef282568d449bfdc9bf8a91fd40e9d04b080617b.json",
+      "size_bytes": 6103
+    },
+    {
+      "digest": "sha256:49f25aed68600b5c979d0ff477b047dc00b33a43cf4114c2f415dc2704b76eb8",
+      "logical_name": "candidate-db6cd137c3f97ffe2dd7ac78f6c7667b9e6983184a5f14c3822f0b05a22f0318-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-db6cd137c3f97ffe2dd7ac78f6c7667b9e6983184a5f14c3822f0b05a22f0318.json",
+      "size_bytes": 36147
+    },
+    {
+      "digest": "sha256:82368d25aa3cf787a095fdb73920b5a49abdda9d0d469514f8906afd58dd946d",
+      "logical_name": "candidate-b83d46ae2944ecce0dc1400837a685b743430947381b9844ba6ae1d701362262-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-b83d46ae2944ecce0dc1400837a685b743430947381b9844ba6ae1d701362262.json",
+      "size_bytes": 6777
+    },
+    {
+      "digest": "sha256:9eed72db234fa7ba652469c879e582444648c7d1c1e7a895ddba46af1b38c4d5",
+      "logical_name": "candidate-ac69b5ce7e2eb36c7049aa8e0f0ee11d3d900af089d5bf63812fc1c473e097d2-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-ac69b5ce7e2eb36c7049aa8e0f0ee11d3d900af089d5bf63812fc1c473e097d2.json",
+      "size_bytes": 11556
+    },
+    {
+      "digest": "sha256:1823e30b003547c1983b7a1ac293c6b4036c43300bbcbc67da9d2d1e624c228e",
+      "logical_name": "candidate-364f662e569efb721e671570a44b866dfad8c1b16b96316f7da85dc01e371042-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-364f662e569efb721e671570a44b866dfad8c1b16b96316f7da85dc01e371042.json",
+      "size_bytes": 6650
+    },
+    {
+      "digest": "sha256:e95833832f1b89cc5ced9bdad4c7e3de5d24f2b3cab23cd984181ae470935248",
+      "logical_name": "candidate-92b99790f4e647f582790bbdda92e81f4efcd372501cef614962660a706e4c70-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-92b99790f4e647f582790bbdda92e81f4efcd372501cef614962660a706e4c70.json",
+      "size_bytes": 6489
+    },
+    {
+      "digest": "sha256:c175b8202fcb36b56393c307c71c665e5eacf2336a071d9dd58cc83f9edf8ff3",
+      "logical_name": "candidate-b02c1a734e349b52bee89fe1861e131e78433246516f043ed3f3df9f39652262-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-b02c1a734e349b52bee89fe1861e131e78433246516f043ed3f3df9f39652262.json",
+      "size_bytes": 15060
+    },
+    {
+      "digest": "sha256:329295a0d9e2ca87f4252231f0124859fa7853f7b3e0c3e0812d22585714effc",
+      "logical_name": "candidate-893690c48913b6e5de185abf0fa9ef3cc7369891dee2bdce47abb2120f4d31b4-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-893690c48913b6e5de185abf0fa9ef3cc7369891dee2bdce47abb2120f4d31b4.json",
+      "size_bytes": 6388
+    },
+    {
+      "digest": "sha256:a6c5f05e343cfb398ea4b11af1adbc60b38cf4eb6af2c440df20626101d869fe",
+      "logical_name": "candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-a449c5f8a60f577fb41fe2d9d4ba702e3b2b5779894eb08b6d6945d2ee9f3e00.json",
+      "size_bytes": 9346
+    },
+    {
+      "digest": "sha256:4b785a6b5716ba5a372b4aad324b9da0a4d148a1f2f90b9525745c1ba451c18f",
+      "logical_name": "candidate-970c48ff5da4ed0b7b7b540c2d8e7dda83e1412393198a82c8f638a0866a5997-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-970c48ff5da4ed0b7b7b540c2d8e7dda83e1412393198a82c8f638a0866a5997.json",
+      "size_bytes": 7646
+    },
+    {
+      "digest": "sha256:a24fb675b8cd449eafb36f14fffa30fd6ae663ca27f4f31e39e5dc25cf7b6c13",
+      "logical_name": "candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-d3b0b17cee876b93eb2de1a1d659f26a01047fdc85f3a9d1d7b853476c207d04.json",
+      "size_bytes": 6309
+    },
+    {
+      "digest": "sha256:3a420545fa93da4a19d5367685211c6525fd10f1dcee556aa4b6f6b681585f99",
+      "logical_name": "candidate-6be376ff12286aebf8fec17bd33140652e00301485acdf934cceda056ce0d833-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-6be376ff12286aebf8fec17bd33140652e00301485acdf934cceda056ce0d833.json",
+      "size_bytes": 7242
+    },
+    {
+      "digest": "sha256:b6fda176643f06d827f505ad96340b503e0e57e452afb07565529f5f88a23fe4",
+      "logical_name": "candidate-207fd54d885bbfa735fba6a9140ad6f7ef8015dd33a1a4169849766202eee14a-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-207fd54d885bbfa735fba6a9140ad6f7ef8015dd33a1a4169849766202eee14a.json",
+      "size_bytes": 7698
+    },
+    {
+      "digest": "sha256:39a1f88a2de320e3aa5b569ec6557e66d883379c393bf965c035f7a52b2e046c",
+      "logical_name": "candidate-c19976ab48783dd667733d417ac1ef0cb4ed50b50f4f499a3ed8e012ce7e533b-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-c19976ab48783dd667733d417ac1ef0cb4ed50b50f4f499a3ed8e012ce7e533b.json",
+      "size_bytes": 6943
+    },
+    {
+      "digest": "sha256:6aa4d7a56df890ac778ed15acd86e4d3e9c018dbc4fc1ecbb9aa43166ba65b50",
+      "logical_name": "candidate-44fd7994b941a787229d7722b5951c74430dfa3b88c30d8a567133315b0b0356-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-44fd7994b941a787229d7722b5951c74430dfa3b88c30d8a567133315b0b0356.json",
+      "size_bytes": 6786
+    },
+    {
+      "digest": "sha256:7187057b9c8b35f0dfbfe78ab876350859057a5eba343e311fdedc4c312d448d",
+      "logical_name": "candidate-5aba6e5356ef8a19361f94691e52164a8ae0e30d19cd1a9f39194719600ea08a-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-5aba6e5356ef8a19361f94691e52164a8ae0e30d19cd1a9f39194719600ea08a.json",
+      "size_bytes": 28328
+    },
+    {
+      "digest": "sha256:ec55c941c7e56875cdc870093860903e58490c3e0058f8f012e516a4480596a3",
+      "logical_name": "candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-308c05e8ea8b551491e39a7b3036574ba7749c85a244f3ba0b7dd47882111cf4.json",
+      "size_bytes": 12515
+    },
+    {
+      "digest": "sha256:c3507e0f5fdc185675ae1be04466427786f1b686cad62c6c20bbbffc90ae87a8",
+      "logical_name": "candidate-4c6597fee0324efd0b457baae7637f540f53206e3339136b83fd123597c1969a-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-4c6597fee0324efd0b457baae7637f540f53206e3339136b83fd123597c1969a.json",
+      "size_bytes": 9579
+    },
+    {
+      "digest": "sha256:69ba4ade2807793c262f018442f52e0d3021dc9c2df3174afac53278a24c6bae",
+      "logical_name": "candidate-f68ef39f07684ac8a10d74cceef5266636ea1e35c502e4bc2141d54f7bf06589-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-f68ef39f07684ac8a10d74cceef5266636ea1e35c502e4bc2141d54f7bf06589.json",
+      "size_bytes": 7879
+    },
+    {
+      "digest": "sha256:dbf2aa3da7380c7a1a00b1a64732769494283bea54977bb6c4a5e8e40e6d1f07",
+      "logical_name": "candidate-945cde371821476fdc4ce4548082be42ead0ed271f2f23d9f46708a6a174b0a1-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-945cde371821476fdc4ce4548082be42ead0ed271f2f23d9f46708a6a174b0a1.json",
+      "size_bytes": 6076
+    },
+    {
+      "digest": "sha256:abf13334d1c27d8de9f8567754aa14a1733d61c61e89db99074aaabb07b27c7e",
+      "logical_name": "candidate-af3c69191856aa06f12c838050eb69ad9e350ece1d0b2bbdf873fa64c1ee24fa-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-af3c69191856aa06f12c838050eb69ad9e350ece1d0b2bbdf873fa64c1ee24fa.json",
+      "size_bytes": 9889
+    },
+    {
+      "digest": "sha256:6b187a077fcec0a962e92da5e58724bdc52cda18f0970c2c931561d29fb027c3",
+      "logical_name": "candidate-10607e9dbfb9893ad3d7036d747005f3b111175486b74fa0ae86d806abc9bf60-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-10607e9dbfb9893ad3d7036d747005f3b111175486b74fa0ae86d806abc9bf60.json",
+      "size_bytes": 89151
+    },
+    {
+      "digest": "sha256:84db670afb307530832b1a798c0be9d3a8b20f99ae7196cfc1bcc7ff1ef1e36c",
+      "logical_name": "candidate-f426a4ba382c93f71088ba97c2db39a836787571797d7dfddcb4e558e88c9455-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-f426a4ba382c93f71088ba97c2db39a836787571797d7dfddcb4e558e88c9455.json",
+      "size_bytes": 6044
+    },
+    {
+      "digest": "sha256:86ca92561ca95ac012f3c9365a56f9f1e85cbeb9845f062e6376578c5e7a4c60",
+      "logical_name": "candidate-d876cae6412c1744477afc8217004a1cd132e6659d67554d70bd3b90ae999559-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-d876cae6412c1744477afc8217004a1cd132e6659d67554d70bd3b90ae999559.json",
+      "size_bytes": 7030
+    },
+    {
+      "digest": "sha256:08ed4d1bebea4b0e89452589e2ea0deb98d03fdc759578aadf64adb02c37d83a",
+      "logical_name": "candidate-5f79f9c2327ebffe561e0f774ee05b17b7527ea960dfcdce340671715b3f50b3-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-5f79f9c2327ebffe561e0f774ee05b17b7527ea960dfcdce340671715b3f50b3.json",
+      "size_bytes": 13408
+    },
+    {
+      "digest": "sha256:27543525e674b73e6c9e0ddef7c876cedee492be0ed079f817ee551b0dd1bf32",
+      "logical_name": "candidate-521a93c019173b60459b963b7a4df307774bb04a3193583d64edc134e6f42fd4-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-521a93c019173b60459b963b7a4df307774bb04a3193583d64edc134e6f42fd4.json",
+      "size_bytes": 9052
+    },
+    {
+      "digest": "sha256:12c31071de42588e88d246bfc19ea304c560a8fd30c9678ec2bebfd4fcfe4d8a",
+      "logical_name": "candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-aedbfe0f0a959ff7ef095ea6582fa337c80ea0c1fae759eb94fac681887ee862.json",
+      "size_bytes": 8151
+    },
+    {
+      "digest": "sha256:e06bdc54bc321935a29e50d5f06a38bbe5c7649eed8419a6f336d02cc3e36a6c",
+      "logical_name": "candidate-ecdfa77cf24bb63dcdbefa9f9d816adae6a653e17c4d698348a3aa4bc939c268-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-ecdfa77cf24bb63dcdbefa9f9d816adae6a653e17c4d698348a3aa4bc939c268.json",
+      "size_bytes": 6058
+    },
+    {
+      "digest": "sha256:d2192b97e355025d64a2bb364b3ffdc89bedc97ef66c1cbf42be79411d19c866",
+      "logical_name": "candidate-e287ee9f3757211f66ef3cece3b20706e743856d8ff413c3ff5047dc829fbcc5-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-e287ee9f3757211f66ef3cece3b20706e743856d8ff413c3ff5047dc829fbcc5.json",
+      "size_bytes": 5977
+    },
+    {
+      "digest": "sha256:3d648082d1bb68695de34f6d835a64ac107875b25f327ff317ee2653940c4a7a",
+      "logical_name": "candidate-99b63621fb7ab755d6fc46994565efbc3e236f9b4255e3c97f04537b21bc339f-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-99b63621fb7ab755d6fc46994565efbc3e236f9b4255e3c97f04537b21bc339f.json",
+      "size_bytes": 6433
+    },
+    {
+      "digest": "sha256:64a3f77a8d298359da403007edd645dc3ebe4fc9737708edff2873c931a6c3a8",
+      "logical_name": "candidate-b03334a674fd71eb1dfaf3df088e21a71a4703d8708b8d468471c9c0c55a85c5-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-b03334a674fd71eb1dfaf3df088e21a71a4703d8708b8d468471c9c0c55a85c5.json",
+      "size_bytes": 10293
+    },
+    {
+      "digest": "sha256:8bbba39b6945f5100a496143b600b273307e2de6a3cc1105ac563c563b33716c",
+      "logical_name": "candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-3d4a3727592518d9ddd8065bcb3527607b21883a7f1fd1633d81f391b9c2504d.json",
+      "size_bytes": 8910
+    },
+    {
+      "digest": "sha256:ed53114373ef3a5fe56ee1d36287a8bde9e9157908868982c474d910b510061b",
+      "logical_name": "candidate-4f884c2a44dabd2bdd114a27709f6c88ec0129184156247b042a15022547453a-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-4f884c2a44dabd2bdd114a27709f6c88ec0129184156247b042a15022547453a.json",
+      "size_bytes": 6363
+    },
+    {
+      "digest": "sha256:9be4e0dfc0b313e1b9b1ea3c5dc417137dcc875a922809cbf00c7d34ebb6278f",
+      "logical_name": "candidate-6d88c35a43f1a1c0b26e01a352fcde94f9b80eea6de2ccb35f7a021f47f8a3a2-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-6d88c35a43f1a1c0b26e01a352fcde94f9b80eea6de2ccb35f7a021f47f8a3a2.json",
+      "size_bytes": 34578
+    },
+    {
+      "digest": "sha256:26177650b825fcc51bb56849de9bc9db8ad1940476da3c934e9e2e9a00bfca1a",
+      "logical_name": "candidate-de3eb6cee8e3d7ed7180173569bf90c872c2ffe6d02316915c847b12d7ddc010-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-de3eb6cee8e3d7ed7180173569bf90c872c2ffe6d02316915c847b12d7ddc010.json",
+      "size_bytes": 5958
+    },
+    {
+      "digest": "sha256:0b27ab592d867fedab93a4f29c9c84536ba286188a63cc204e1c3e6371b208ef",
+      "logical_name": "candidate-5527a1c2f4d97d9f5f43a33544194fdecabe71af9fdf027ef6f2e695d8b7ebf1-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-5527a1c2f4d97d9f5f43a33544194fdecabe71af9fdf027ef6f2e695d8b7ebf1.json",
+      "size_bytes": 6032
+    },
+    {
+      "digest": "sha256:658d74028e354e63b72c47960077d97f276aca73d3d340e6e0fec48cf4534efb",
+      "logical_name": "candidate-0fc2906bae204c93e413e3dea955b2083ad96a0bfd07d202e8493019d9f019ad-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-0fc2906bae204c93e413e3dea955b2083ad96a0bfd07d202e8493019d9f019ad.json",
+      "size_bytes": 14550
+    },
+    {
+      "digest": "sha256:54a26398a0e931c1728288de49497b0df4d0f50cc8f538ac1b2756bb961034b8",
+      "logical_name": "candidate-711fc275a698af0e2274612551b35300996123edaa65a36f3c301afebcdf2874-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-711fc275a698af0e2274612551b35300996123edaa65a36f3c301afebcdf2874.json",
+      "size_bytes": 15143
+    },
+    {
+      "digest": "sha256:50b81e43b8805df7cf878437f146c35e86079d7af36e70c7dcf77827d29689c4",
+      "logical_name": "candidate-f8bab557185bd5f84a9f061f6e140a7d7c98856ac076a5c21a0aa2bf0f649c4d-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-f8bab557185bd5f84a9f061f6e140a7d7c98856ac076a5c21a0aa2bf0f649c4d.json",
+      "size_bytes": 11674
+    },
+    {
+      "digest": "sha256:5c18bb152c61ae6756fc42cfcfd75e8c91d8c6ba0c14d7fb85d9b09bbf856728",
+      "logical_name": "candidate-76ad7c53ddb4eae848b4e8c0fc537b53053ca4a18774bbe8d9b1af0e87f413ba-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-76ad7c53ddb4eae848b4e8c0fc537b53053ca4a18774bbe8d9b1af0e87f413ba.json",
+      "size_bytes": 16025
+    },
+    {
+      "digest": "sha256:7ff67daa16bd3ae4c56d8d1a08100d841545d5b348a066ea80d513018e651e34",
+      "logical_name": "candidate-05049d2c95c1dfaaf30017a57ee539895ee80fa61c7be67b7b2debb608fecfeb-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-05049d2c95c1dfaaf30017a57ee539895ee80fa61c7be67b7b2debb608fecfeb.json",
+      "size_bytes": 12074
+    },
+    {
+      "digest": "sha256:04f3648a38f6a0eacbf9aa8e083199e6492b0d8b9c32d60788856ad1f7f076e8",
+      "logical_name": "candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2-qualified-build-qualification-report",
+      "media_type": "application/json",
+      "relative_path": "pmorg/capabilities/qualified-build-candidate-qualification-reports/candidate-bea55bbfdb51823a7b71b18f5c82f9a80a5d3e91213cab6ba73e6418c079a6d2.json",
+      "size_bytes": 10091
+    }
+  ],
+  "entry_count": 57,
+  "schema_version": "pmorg.evidence-bundle-index/v1",
+  "subject_binding_hash": "sha256:6e7f49edaff89b6c06f2006b3c0f1b69b857bb037434c21efeb9a765222ec75e"
+}
