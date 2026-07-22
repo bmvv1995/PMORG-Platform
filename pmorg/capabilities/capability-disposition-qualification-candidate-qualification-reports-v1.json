@@ -1,0 +1,2536 @@
+{
+  "candidate_inputs": {
+    "digest": "sha256:cfd9b34150e522dd261517252530983c35bcd25387c9b4fc4229799ffec21327",
+    "logical_name": "candidate-inputs-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/candidate-inputs-v1.json",
+    "size_bytes": 3675788
+  },
+  "catalog_hash": "sha256:1bc2c22639e5e1e22920673bb5f4423b59bda6ab05732cb3c1300499db7b6693",
+  "claim_boundary": "candidate_qualification_only_no_disposition_or_aggregate_verdict",
+  "derivation_artifacts": [
+    {
+      "digest": "sha256:d9383a1451022dc09993c2204809d6d850efc27fda73b7f8e6ecb2d93016facb",
+      "logical_name": "capability_disposition_qualification_candidate_qualification_reports.py",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/capability_disposition_qualification_candidate_qualification_reports.py",
+      "size_bytes": 38746
+    },
+    {
+      "digest": "sha256:858f4f6a56b8b76b5251ef82284000a76e81e648d6b54784532a28693a77a7c5",
+      "logical_name": "build_capability_disposition_qualification_candidate_qualification_reports.py",
+      "media_type": "text/x-python",
+      "relative_path": "pmorg/scripts/build_capability_disposition_qualification_candidate_qualification_reports.py",
+      "size_bytes": 929
+    }
+  ],
+  "duplicate_test_count": 0,
+  "entries": [
+    {
+      "candidate_group": "backend/ee/onyx/background",
+      "candidate_id": "candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881",
+      "candidate_manifest_digest": "sha256:e3a44c3ba68af0c8a5ff20e429c8333cbd5c1448eb2d63815fc714c679bb1452",
+      "report": {
+        "digest": "sha256:2e97a456b77bce96eb9dfa7312d7a57f095c2e3b0d373668d8f487e71ac3664e",
+        "logical_name": "candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881.json",
+        "size_bytes": 9316
+      },
+      "results": [
+        {
+          "digest": "sha256:d9b83273fed8d2dba24695c2e08ae2a2645d26b53de96fc7187f14a743ead524",
+          "logical_name": "candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:b04995fe24173f3137cc8a34f150e145ad2c60c3d89d993ca7ea459fb052bcc5",
+          "logical_name": "candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:28bd8277f4edc701231ca8b6562e73c4b0a74b823c09d7ffe5570d2136cb564e",
+          "logical_name": "candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:121574d5edceff2379e5d32abce43d1fed958398d5ead412757fe34c13fbde7c",
+          "logical_name": "candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:85ff5e6dbf6bc54c130a36ff74429019f81a61b02f19826fe6de9c0b1686cb48",
+          "logical_name": "candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-0fec798f71931e7dc372f92d07830341f1396145f369b8224b842eed3d887881/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "cli",
+      "candidate_id": "candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18",
+      "candidate_manifest_digest": "sha256:d1ff5ee37ed5fcd397297e6ec8df374357205afc08d83d8fc36570d7183c07a5",
+      "report": {
+        "digest": "sha256:b3ed2eb62b0c2195ce072ea3e038f5157593e764aeb7afb50615263c9e401129",
+        "logical_name": "candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18.json",
+        "size_bytes": 7403
+      },
+      "results": [
+        {
+          "digest": "sha256:9c7334f5f5dddf8f8041ee36c1d73a7fd80fb7b33db37b716ae3dfe230e31fb5",
+          "logical_name": "candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18/A-PATCH-002.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:022bbc6eb0bac002071b831c2356ec321d6da3580622d55355983b2dda6a43e7",
+          "logical_name": "candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18/A-PATCH-003.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:6558b93a67bf091911d6ea5b83f8547d70a72077dfe45ae97764f4719fd6123a",
+          "logical_name": "candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18/A-PATCH-004.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:2db0fc66c578d6fb799ba3a23fe3a6098a7fc733afd232ddaab313ddb8ce3130",
+          "logical_name": "candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18/A-PATCH-005.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:979b516638977449976b3b2efa2d008f37a7a26487a46c2b13277a90eb84ecdd",
+          "logical_name": "candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-159c833c7d25133186eb44affa86aea70d51a0f2534c28623b5cd730c5bb7c18/A-PATCH-006.json",
+          "size_bytes": 4364
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/tests",
+      "candidate_id": "candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281",
+      "candidate_manifest_digest": "sha256:44600e9f431544989923cbe09e3f1009e20c560ccf13516618740f2497a0d1eb",
+      "report": {
+        "digest": "sha256:4fa587bec6ff8d04feabcf17a354b78981cd592e36dc141561487956c6b3e625",
+        "logical_name": "candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281.json",
+        "size_bytes": 90510
+      },
+      "results": [
+        {
+          "digest": "sha256:0fbe548d6c0e3af06046094bb26c6d2284aeacc9332f37fff0e15763ba1f48a6",
+          "logical_name": "candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281/A-PATCH-002.json",
+          "size_bytes": 4370
+        },
+        {
+          "digest": "sha256:b9a773662b63549f78eb855f2f8c3ac84e889525fc5fb9b91c7aab5e6e2b1edd",
+          "logical_name": "candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281/A-PATCH-003.json",
+          "size_bytes": 4370
+        },
+        {
+          "digest": "sha256:66a2afbcd8010f3fc8a1bcae34536f7456092add10fc030f6d9e91bf10968abc",
+          "logical_name": "candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281/A-PATCH-004.json",
+          "size_bytes": 4370
+        },
+        {
+          "digest": "sha256:c90884133ae019b36bed3c3830e4a0fe9fabf4d24721462431f736cfc7c43e62",
+          "logical_name": "candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281/A-PATCH-005.json",
+          "size_bytes": 4370
+        },
+        {
+          "digest": "sha256:900c50e2bd974d62c3436b1beb87f4f53c20d570d9a6e1c48dbd154c7b9e443f",
+          "logical_name": "candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-2071b4e3d73065565db7c68f221388f8f1dc1518618a398bdf6f4b48abb27281/A-PATCH-006.json",
+          "size_bytes": 4370
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/connectors",
+      "candidate_id": "candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d",
+      "candidate_manifest_digest": "sha256:8449ab820c12dd8e9e89884643b0a04306bde296cf0bc7e94a8b1f84065017e7",
+      "report": {
+        "digest": "sha256:b8898d25a630f5dbbd639d748737b82a1ddd9ffd51ff049902b803391e043edc",
+        "logical_name": "candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d.json",
+        "size_bytes": 16419
+      },
+      "results": [
+        {
+          "digest": "sha256:03ab29c5bce35a961df58b95fe9032e61d2d9e9101cfb9810a57081707fd80e7",
+          "logical_name": "candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:bb14eac8e0fb2e436ab29f980bdde650409777f2111f2d42d3e3fa92d5a51e51",
+          "logical_name": "candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:4590d53821d9ddf8fffa5dffe5f97a56c046efa85138def32809f2178781afff",
+          "logical_name": "candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:c2205d6de872e97be54d7cd7e698f1260725d53ee9b46b26301334cad3960214",
+          "logical_name": "candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:02f59b04f6350c38f992f7c37c5ddce7723056bc362295b54200b4fd02a607b6",
+          "logical_name": "candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30e888c2e0f5ee7c89f3dba81d78ea92686109d31e8ebee102b770c363831c3d/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/ee",
+      "candidate_id": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695",
+      "candidate_manifest_digest": "sha256:8160c7e3f08cea99d1aa705ab18057adf51b59b17731f181638f78a36fe054f8",
+      "report": {
+        "digest": "sha256:06fc113e84b84aa27839a1ace6ff8fcd5da3dcda8f823c1025bf811ea70ff87e",
+        "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695.json",
+        "size_bytes": 9621
+      },
+      "results": [
+        {
+          "digest": "sha256:b988444b302458d3b94f2abb7c60b891c49d3d0300326de2a363d6584df8a91a",
+          "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:7ad24937357c6174890bc2fc7aecd27a02a605ab3fd911ba8d84925b28745a14",
+          "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:5445495569c5bfab8a6eddebe26def862f843786fe3f16b6243f6860ce37baf9",
+          "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:daca4079b0c31e606e2f2f729046bf9c159aec75ca9df370dde63eab7c12b764",
+          "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:fb41b32150c811229abca8123ebd22a427f3e62c416f616eccc0730a9442967a",
+          "logical_name": "candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-30fe2aab0d19d0df02f6d73b68cbdfed0ac920080b4b5da646969114a5bad695/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/ee",
+      "candidate_id": "candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371",
+      "candidate_manifest_digest": "sha256:c2152c30d373841a369af4d50969f05469f9d3e3162048dbd95c4800829a44d5",
+      "report": {
+        "digest": "sha256:b40451a0ddaa829d325f90c74ffffc0b9f81d997f138b05bb8a1df7b2df1dc3c",
+        "logical_name": "candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371.json",
+        "size_bytes": 7867
+      },
+      "results": [
+        {
+          "digest": "sha256:42bfafc6467e95361ed8e50e0f7f23745d5f2c6cf7add190080fb08b36f233fc",
+          "logical_name": "candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:bddb12fdd823dcee3a76f106b4e4a37d6fb1615156a3a21412156ed327688e7b",
+          "logical_name": "candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:ac91884a0afe6a03c083b3e48aa5016b395b46a7b99190efc21da5d9446d4354",
+          "logical_name": "candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:bafb36c3543e1aa8d4adfe3871e3022afc6530e0f78e939754ed56ee7b2e3381",
+          "logical_name": "candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:773abee3525e6899100d1a850c7cd70c80bcebbac17d61a69b37862f38128ca4",
+          "logical_name": "candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-3ec785de816070d49b27b712cf139d25593bc4fd870feb740feb97e508740371/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/app",
+      "candidate_id": "candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54",
+      "candidate_manifest_digest": "sha256:ce7931f63211a27af510e9a7720245a5cb5cb9a64232c71ab703f53ad75b4c4b",
+      "report": {
+        "digest": "sha256:875e7139dec10467002fb020ed08bff76b4211666658121b4cc98e11f651282c",
+        "logical_name": "candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54.json",
+        "size_bytes": 15604
+      },
+      "results": [
+        {
+          "digest": "sha256:30449aa1e3eadeaaa5149640b0bcff956104aa1f50ff12262be11067d789d71d",
+          "logical_name": "candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:5a5c6b43aa0fb1a2bccf111746052d1372fa5e30c47cf8cf4d2e9f327ace9d18",
+          "logical_name": "candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:ada13407d1fe10f75c55d24d82ef35263bc6b869a6b56e6085e85b6486a67baa",
+          "logical_name": "candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:7ab4fb719e2aa93cf08d0fa0f22cc1386b799c3ea0d95e2b2ab609d04f811bb7",
+          "logical_name": "candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:e21b0b365da8ec77287936f205736ce9534ed8c05acbc9f86cdeb41a3a809d27",
+          "logical_name": "candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-42d8b359a71f4c9d918752f62494e035f75a4007ca7a16e3f548cf6cd7564d54/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/utils",
+      "candidate_id": "candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4",
+      "candidate_manifest_digest": "sha256:77fd16bd8b79ece5385c926a7ef46bf391c216cb3541c11e11c7810d05fb26f3",
+      "report": {
+        "digest": "sha256:59a1d97fd2b3e33f447fa1a2462aade42313b439bafc017fd4dae23638c30f8a",
+        "logical_name": "candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4.json",
+        "size_bytes": 7553
+      },
+      "results": [
+        {
+          "digest": "sha256:a9789ad3d7f6c6800db8d14032cb3d0a7eb5d073276de503a71697d4f5ea4d21",
+          "logical_name": "candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4/A-PATCH-002.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:06b89e640d2ce44eff9e96c44cb82ac254dc91f30b3ad927a72ea29349ab9f97",
+          "logical_name": "candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4/A-PATCH-003.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:67ef83788ada52343a21bb92d577f591bdcafb1e3d7145257566e3c3860042e0",
+          "logical_name": "candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4/A-PATCH-004.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:7f01415c38502c076b75af4d7dd829829093a4587d0ed1c95aa8db0ed711d395",
+          "logical_name": "candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4/A-PATCH-005.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:c548aad4067bb30d118bdafc601dac1db2796851cfe8586777469584c386e239",
+          "logical_name": "candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-452aa02e3ab47f37d351db192e64388b8c4d013745270e55ec5700559d7712b4/A-PATCH-006.json",
+          "size_bytes": 4364
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/tools",
+      "candidate_id": "candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f",
+      "candidate_manifest_digest": "sha256:326a3ee85bed4edba763b9030e867d2977079c98a36f2b760d59e933ec510f12",
+      "report": {
+        "digest": "sha256:b1fc68acb2f3e0a4469e90897d852a1c46075e0d70857c0fd329f92d35ef84c0",
+        "logical_name": "candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f.json",
+        "size_bytes": 10938
+      },
+      "results": [
+        {
+          "digest": "sha256:9c700d9a4d1c68e28809a47f429717aef719fcb20697dc10ecaa493832115bfe",
+          "logical_name": "candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:ac278de8e0022c335791f933f9ec4283cdf9b0e94b428f5049c169888c8542b5",
+          "logical_name": "candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:b66d1e9a6141600fae799ee013053176f8b6e63f94f058a27a23e8b4f08e8610",
+          "logical_name": "candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:0044e7dd86275ad1f82930cb9603bb1bd30267abf7780a28c8b4012d324553ba",
+          "logical_name": "candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:0e1ccfc0ec0f2ce73f3c90bcc7b53a14ea220df0739ac393649dcec65c0eb23b",
+          "logical_name": "candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-462fffeef2e3f2bad0ebf677ab26c450a3b4dd0e8bed7adea943b761cbb04a0f/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "tools/ods",
+      "candidate_id": "candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436",
+      "candidate_manifest_digest": "sha256:c8f8a47ce3ce3179c986fd26b4994e19eb013f5d9eec065490089f5d35310065",
+      "report": {
+        "digest": "sha256:4404ff1eb3786304a551e9dd2a280dd70c6ee2d2d29e563df605c6609e255ca7",
+        "logical_name": "candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436.json",
+        "size_bytes": 10269
+      },
+      "results": [
+        {
+          "digest": "sha256:f445b7f1b3f40a78e4fa724bfd50349f237b919d0ec21e65b30f75261a948143",
+          "logical_name": "candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:dd8f12c7c3b22b8a9cc9cdaa170230097ca151d7547a2005735a99f28153971c",
+          "logical_name": "candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:2a1b4ecf642ecd37a16c621c6937f1837f9f2d19221d56f73be94b934963342e",
+          "logical_name": "candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:4ec9774913887901944c1c58f074e1f6d6080e7c3ffa404616f9523be4b08760",
+          "logical_name": "candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:9b615c2a407994d057fa0ca78f40897d5c93187e9adf8fea83661e0cc60807f4",
+          "logical_name": "candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4638e66ec9334e856d2ca850f9994062f2b57233788c7c2a671e17c5300c0436/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/onyxbot",
+      "candidate_id": "candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2",
+      "candidate_manifest_digest": "sha256:70b39a52c779e2f5fe11aae286516f7b69044de545313e9e057df3979d306bc1",
+      "report": {
+        "digest": "sha256:e9ef7b50e226799397d0f64a109563288f0ecaf7acb36107789b1014a925b3b2",
+        "logical_name": "candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2.json",
+        "size_bytes": 8366
+      },
+      "results": [
+        {
+          "digest": "sha256:9cafda3050365b54a424c7e38fdd196321072cb11d25bde72df18446288bb557",
+          "logical_name": "candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:b45011083197bdfea11c4ccad34cebe2243a60a6b15366bc9b60d500f6b628c3",
+          "logical_name": "candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:70fd293d0c8b270b7a198585e06c3c76c8fbd2315218352cc27d4ac272f9b9af",
+          "logical_name": "candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:cd6895242cf873e1e6eba1f2dc28a949b800a42687db4071e9b235534763e6ff",
+          "logical_name": "candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:a43f660bf7fe24afebe724ad67e65b22e8ee6e9b7cfd9ed50011fc2cc91fc435",
+          "logical_name": "candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-46d30f94dc270a938cca0e7595426f99d1f49f11f8e380ae3eec2cfa1348cfa2/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/document_index",
+      "candidate_id": "candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3",
+      "candidate_manifest_digest": "sha256:87fc914c987bdb3e9731ab544e64bbb3f79b0084989f39da08d01f50f5d25bd9",
+      "report": {
+        "digest": "sha256:ff387508d156f09aef47059e7f8da869c3552e0c6d3764ffd09b0402b0575530",
+        "logical_name": "candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3.json",
+        "size_bytes": 9005
+      },
+      "results": [
+        {
+          "digest": "sha256:8f2531cd80391669f87858494ec1bec5b8eeefda06e110704528bcb84c291919",
+          "logical_name": "candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:10402f9f2ddedcdb88a09a86ab3fd12a14794874fdf6d735f87a786f7582dca7",
+          "logical_name": "candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:097d5956c888379e72c782e123f40c3da1727c8b16e18057593b032cbe8aa3af",
+          "logical_name": "candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:5d9acdb229b57914372dfe17d22a0d7b3033b6d013965f3f7d50a9b246724df9",
+          "logical_name": "candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:701b70937be5d0e55e7caa4100dc462cc7a8d29d5a5809c7d268f19c212f4636",
+          "logical_name": "candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4cd4be33e2bb5fb7592510b6bb237821c4fee3dfac1ad54c5b3eeb42ca257da3/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/auth",
+      "candidate_id": "candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2",
+      "candidate_manifest_digest": "sha256:c9ee584ae8240e2466104ba4f559a21b158e915b57f5a639cf0f6ebbdc64cd84",
+      "report": {
+        "digest": "sha256:c0e574c47b8c6fcc2f9ea5e36c12d25443e727c005f8544f185019aab54a3665",
+        "logical_name": "candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2.json",
+        "size_bytes": 8136
+      },
+      "results": [
+        {
+          "digest": "sha256:58290a0ce052a7fa44d9a0f01a90e29f645dac958d0b0b8319464900a4dcf1b7",
+          "logical_name": "candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:0edd52b4d90e95b28d6e74df84afe0fb83c93d207759b8bb015403d15c7a7489",
+          "logical_name": "candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:606c6a00344e75f7cd32541cccd1833375ded851cf2edd8bde1f1316919e5754",
+          "logical_name": "candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:b0acda69bfb0b2e885ac6cfd4d46f285e2a66f2f38affe22281630c3b63e8b68",
+          "logical_name": "candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:18137b8388a8681fbb90e6b9dd2b3ffc9d1753350f50998c0f1edbd55d4cbecb",
+          "logical_name": "candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4d661dd7ad4acdbfdc30f5945d06fe7484c7ed2cd9e449fafb8b6488d4d6c1c2/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/chat",
+      "candidate_id": "candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431",
+      "candidate_manifest_digest": "sha256:941d57ff78beb57f7242f935abcc08c5a9cb69cec1540d4bbb7b1b2f5eafddee",
+      "report": {
+        "digest": "sha256:3ebef6dd91dba8e262b4102632ab99fdedcd48f05534f6027ff7125c33d7f10b",
+        "logical_name": "candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431.json",
+        "size_bytes": 8009
+      },
+      "results": [
+        {
+          "digest": "sha256:f7ae655718c34c86b81056d34a42973e9711b728a189548f85951af93ab54ce6",
+          "logical_name": "candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:04251de773c5a24dd953bbab7b9501806075ad6e7b8b957b0e500ad3fa10d87f",
+          "logical_name": "candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:0b233c0b784a667366b3957a8d2efd753f8dd851d45bcb79a0655f87a56e3cf3",
+          "logical_name": "candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:b60b9e3ef51b7fd1921aa9011bf68a883625faa973db3bb214a74000bcf94d14",
+          "logical_name": "candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:34f80f662aa12be885129dc829124547aedc282b42d22688eb773e8c32596133",
+          "logical_name": "candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-4e3239f6ddef21eefa942fd9b4df9bfeb5725cad205bf21835bafedaf397f431/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "deployment/helm",
+      "candidate_id": "candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba",
+      "candidate_manifest_digest": "sha256:f5ba7c4f889139fbe1a5975d4488800663885e46a02788e4aff5d119743524f2",
+      "report": {
+        "digest": "sha256:c17827a2030e71d3ddcd8a0b4cf5f3bc29ad44e2930d5511c82d636c38b41862",
+        "logical_name": "candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba.json",
+        "size_bytes": 14767
+      },
+      "results": [
+        {
+          "digest": "sha256:affb59c5319494b3cb88fa7a7db0c44a861c8f6e06aff448953414d4f5fdb5ec",
+          "logical_name": "candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:a777d885c7a396f7a6730cf22ec9e9e4241483cdcb56ed77732a9d03d5231830",
+          "logical_name": "candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:9581f3806c4ac8ee9b5bd554528bfbc2a7532b3bb1ed87da12c7dcbc4fe2dc45",
+          "logical_name": "candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:32dd59ed36ca7adc7274f987c651f360da847d6a9af442080096d8ce2aef83f5",
+          "logical_name": "candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:039bc01b24fe22c6252693e2e523fbdc158ac92e498b0bcabd187468a9b9feaf",
+          "logical_name": "candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-52f562fc00f556f9d4904cce56d3e355a52cabfea812488a88693246285420ba/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/craft",
+      "candidate_id": "candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25",
+      "candidate_manifest_digest": "sha256:39055540ca2037aa65288e5b4a0566118fce86b871518434fe3f978d7182b412",
+      "report": {
+        "digest": "sha256:6d51d82b6541a81185ef70d36394e952384e27e959c5306d5666ed57974e588e",
+        "logical_name": "candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25.json",
+        "size_bytes": 16502
+      },
+      "results": [
+        {
+          "digest": "sha256:42ba0b4c7e796df2ac3d3d926b197bb091e3fa4b149c314c6819c9d2394704c5",
+          "logical_name": "candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:4d677c095750a03d8c28ac272cca67c892605ef3fb6137df67308a6d5af0b56a",
+          "logical_name": "candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:6812a22d444d301a9225a0fd993615c53dd1282845fe04df32f6597a37a002ee",
+          "logical_name": "candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:bc6bfd9f6fe81ed0342a6d9b3e2a1bcd8d06fd0399c7a29654c9ffd6821020dc",
+          "logical_name": "candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:9de5384136e17851c5826b609f8a4ed5465e80d58230da1adfbb7f3d5d02dfc3",
+          "logical_name": "candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-5cc56d3437b8fd0f830fc5fd6662108d0866b2996314cc369902e1c5a1da6d25/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/mcp_server",
+      "candidate_id": "candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295",
+      "candidate_manifest_digest": "sha256:90c7b81fb6a5dd70ba5819245a2e9f9c95070e9c5b53850197d7f320eab490be",
+      "report": {
+        "digest": "sha256:c70b5a72668d1618a5484157aaeeca5a7de0a3ecf0b049a4d173f2db97807c27",
+        "logical_name": "candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295.json",
+        "size_bytes": 7682
+      },
+      "results": [
+        {
+          "digest": "sha256:69fe4d948cbff3f64619cac2a6df5ba20fc2441db211b95cf9a069f8357d11bc",
+          "logical_name": "candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:a65294c730a6deed56264d09f9feba7ac9d26aa079f5091de640d4010dad407b",
+          "logical_name": "candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:8956317e9049f2547ff1c57d9a146dcb14bdb3661ab4e57d21e0420a74d64fc1",
+          "logical_name": "candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:c21b6c3e785888fe5561de11824716053203345a2f16f60c6fa3347a862efefb",
+          "logical_name": "candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:b5b2b932bb00936c8e808932f772b17cb9cc6fce36e4c34c40547420cf6cf7f2",
+          "logical_name": "candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-64e0fc9c905a188306b17c2008f5eafdb1a7cc2336f6c65d0f1f3cffaafd8295/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".vscode",
+      "candidate_id": "candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102",
+      "candidate_manifest_digest": "sha256:0c523b62976eff1a6bf9225486487fd39e96c08b701bccdca4a96ab3ae1e1feb",
+      "report": {
+        "digest": "sha256:c2760afe23b7e8a2c5feb29eb6b7dd0cad1a78814a0b16e38d33e9b8401638b6",
+        "logical_name": "candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102.json",
+        "size_bytes": 7352
+      },
+      "results": [
+        {
+          "digest": "sha256:49276362196ee9a32505913668528a74709d08faf544957e4d091dfd7320ef3f",
+          "logical_name": "candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102/A-PATCH-002.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:4b72f4432fd415c017b770c40ecbe7854bc693c646ca2fefcfd0a0ca5461bfb7",
+          "logical_name": "candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102/A-PATCH-003.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:3dcf2b9475a6ae604903b8a9a28cec69b8d9591ed581e322b8f4ad64c7a12995",
+          "logical_name": "candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102/A-PATCH-004.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:36173cbb405090a136139beae61e2da50589cfdb668c9d7f0882c2ad4a120c49",
+          "logical_name": "candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102/A-PATCH-005.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:6241097fdb737f33ce3edc541922ae907d0d221472f4dd747ad7e4083a545500",
+          "logical_name": "candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-76238dba282b838c397d70d4339604da1dfef35eedaa05dd87a888b41d9af102/A-PATCH-006.json",
+          "size_bytes": 4364
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/refresh-components",
+      "candidate_id": "candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031",
+      "candidate_manifest_digest": "sha256:20d79b7cffd497c72fa6ca6589af88b642343414694121b37513c0919edb66ab",
+      "report": {
+        "digest": "sha256:8bcaf1a240ec85dd72aeb6702fc5f764fd53281c74fdae5b16f748e14c746146",
+        "logical_name": "candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031.json",
+        "size_bytes": 17384
+      },
+      "results": [
+        {
+          "digest": "sha256:10173b68ad1870d54f1293bceaf50af5ae8b659ff7a7b91399c00b7acf24b340",
+          "logical_name": "candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:bc99d377dba77c78a96474d3f54549e25250177ec908b1ccbd76c383f8a4ffe5",
+          "logical_name": "candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:fd174d40c1f00cb3b800de55e5bd6efbe6bb2c701c8c8613591ee0623bb77c1e",
+          "logical_name": "candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:e1cd17aec05d9b80728201f8508cfd709382b37a8d063867049fcec2a59e52fa",
+          "logical_name": "candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:fc6c2a9fb59e7ba4c4117682a2dc6640e740563578309b80cb8184d4ea2060f1",
+          "logical_name": "candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7756a96b4c4360a6b4c2cfa90d5397e661f1f84dd00c1255439e947d81a06031/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/external_permissions",
+      "candidate_id": "candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951",
+      "candidate_manifest_digest": "sha256:560cb4ad367b213ddd7ebb252b9f9257653180bdef84cfb92118ab9772494089",
+      "report": {
+        "digest": "sha256:628631f5475a5b5bba1ff2e56a276fea8b329c2e75d6a351d1b3a852f991f606",
+        "logical_name": "candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951.json",
+        "size_bytes": 9624
+      },
+      "results": [
+        {
+          "digest": "sha256:8e7e921a918fa01684bf4c403f0e6247e996f641875a858ff6d9a410ae731915",
+          "logical_name": "candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:255bee24012bb49be6b4d76f0718869a216f199ab5b4b35a381194b05722e887",
+          "logical_name": "candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:90a4d8e9de1aff803ee1c9368ed7e1e78cb7588f49ec7a4a06613033d57a6808",
+          "logical_name": "candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:e6e95a84cee2892315670c8f2b1c109b53ce73d0940df6dea21c59f8277ed23b",
+          "logical_name": "candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:28432c5c1a447101577183797afadabf95aae42447d5a5434c8ef6bb3266a614",
+          "logical_name": "candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-7aacefe80a4cc222324335236a79a9973ccb8a817cab6a3f21f3c30b2e721951/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/db",
+      "candidate_id": "candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0",
+      "candidate_manifest_digest": "sha256:2866943ae5b2727c775d1b2c6d040acf3a715da3ad9f97b882ade877a2d3ee1e",
+      "report": {
+        "digest": "sha256:3d3a6ff2e30bedaaf9b5774f2db0040e8972d8fb21d37eed418a2add7546d8e7",
+        "logical_name": "candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0.json",
+        "size_bytes": 10705
+      },
+      "results": [
+        {
+          "digest": "sha256:3ec2c8f32ca2bd215589aeab47d79e32fb2af60967a21fd384fcc7bf3e0408c9",
+          "logical_name": "candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:cbc3ae960eb7d20b7d0639b3e39b50d3b636b558ed1864ad403ff3990de9eec2",
+          "logical_name": "candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:244eb9037dc81b568508cad2a2e1dbb8db40910601dfd63e6edefc790bfa1cb8",
+          "logical_name": "candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:ea7192acb111d5ef81c66b58eef6741fa50f12fe0d747ec5858fe9f0d660cc7f",
+          "logical_name": "candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:c94a8d2c1ea57a399329042aff7ae95caa2318f23ba335f8b05dc846a3a35f60",
+          "logical_name": "candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8417292e7bf572dce3102f3c732546ee4bebcebbb36a6ccdcf73fe1dd64a49a0/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/tests",
+      "candidate_id": "candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf",
+      "candidate_manifest_digest": "sha256:a012334fb1b717d421f7b19a681e38702b914f28b0610f643caeb152f89d534c",
+      "report": {
+        "digest": "sha256:7381e8516e5108b24efbad8eb18919cc534a8910cdd4bde729999bba1978e830",
+        "logical_name": "candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf.json",
+        "size_bytes": 13433
+      },
+      "results": [
+        {
+          "digest": "sha256:9b05ba25f1019412c1b72f61695245e9e30b204165afeb8326ac1e114b876637",
+          "logical_name": "candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:299241335e0256d1df0c83320e1abbadb594b5ef035b709e142056de1124c426",
+          "logical_name": "candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:3dab6b69dcb98c03607c529525bfde44890967968de5069034675d71be11a899",
+          "logical_name": "candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:8df47495de08abdd0d9897cf06dd9f04d5abf91b34ceac5310f87b164dc2e302",
+          "logical_name": "candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:91e3dd419fc58db1837cecc46e09f639820cd5f813a5ed6dc767ee3b62b9dbcd",
+          "logical_name": "candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-84ef4c3cd0c983234b175fd60d3436e29632433c055740862787e0085a350adf/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/skills",
+      "candidate_id": "candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a",
+      "candidate_manifest_digest": "sha256:ac8368d2adedd815f1427dffc6dfbc9a961eeb3413e5f5dd4a27c0533e9ad4b0",
+      "report": {
+        "digest": "sha256:b0cf99bca8b9226a4fb69710b298e1f3c52bd397014fad6170522874a026f1b2",
+        "logical_name": "candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a.json",
+        "size_bytes": 13874
+      },
+      "results": [
+        {
+          "digest": "sha256:45192715be204ded444344df05d4dcbbc5beef88e0aa36e65a5db504a038aa81",
+          "logical_name": "candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:e5963e05505981c87270665ecfa9c19a944356f37fb423e2959d2c80069bb52c",
+          "logical_name": "candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:664da6396e221739d920958bda97887a52681cb15ff270211416d5ca0ae1c09f",
+          "logical_name": "candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:be02f470cd1595b499d9eafdca65e725d3996c9c0402feaea23311225c6dcfee",
+          "logical_name": "candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:69bfc14dce16500b321f74c9ea9e60751e6a4c575f1692a5ec1656b3926bbf86",
+          "logical_name": "candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-89b6a8bc423baf53ee7d0d01c17862bb1fa99fb51b2811ecedf7c3d04b27218a/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx",
+      "candidate_id": "candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8",
+      "candidate_manifest_digest": "sha256:e2ee9ee085827c5ea47536a84b613b04a6215bb79af06794dd653e16ddac28ef",
+      "report": {
+        "digest": "sha256:901ce0a9907db721abb0971f8ee92826cbfab13144a60e3d07e2d690db534831",
+        "logical_name": "candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8.json",
+        "size_bytes": 7324
+      },
+      "results": [
+        {
+          "digest": "sha256:1d8c4cd3df05cb36b13529978633c2ccfe343395ed1070b05b5bca62b815b6fe",
+          "logical_name": "candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8/A-PATCH-002.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:3f2810dec52bc105dcebe23fc50de1de09a46eef4beead407e3a29ea80b5043d",
+          "logical_name": "candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8/A-PATCH-003.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:7f8cc30421c88baaba6e6f0051fe88cb5bed53609f6711b378579f8d1e705ff5",
+          "logical_name": "candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8/A-PATCH-004.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:49d4f8a66549de02a443d7d17e717cdc91b5453eaa92e54bd9cb20b7aa8d7bd7",
+          "logical_name": "candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8/A-PATCH-005.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:bbe888a0236fa74326b272b4ce029fd343b3107a5d8c9398f5083e9a512ed85c",
+          "logical_name": "candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-8b9e0546f76fa38f2100cdd936c2b2b3476307d2c6ef3f5eaf9f905ef155a2f8/A-PATCH-006.json",
+          "size_bytes": 4364
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "cli/internal",
+      "candidate_id": "candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a",
+      "candidate_manifest_digest": "sha256:7d156d1cd9d5acf853e012e030e8c0285d5f832def55628f9d0be493b3806cab",
+      "report": {
+        "digest": "sha256:cfb9501bc2e1b6170aea9dcac48aacc19d5fcb0fde2e92f5ab71bb9da4913304",
+        "logical_name": "candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a.json",
+        "size_bytes": 8827
+      },
+      "results": [
+        {
+          "digest": "sha256:632a81931b50bce6c5eb021aaf96748d51ef9bf46982203911e3462dcaa3de27",
+          "logical_name": "candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:a3fb3f0ad8a24e422bbb4c7fcf1d50196a23a15282ac1329cf2b7168c8e152d5",
+          "logical_name": "candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:620a95d36626f2b52fbbc691b1b6a822fb96ad8d6d01a0a8bbab84172c23457b",
+          "logical_name": "candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:73b66b845ace3308c709f3dce4bb8dac943a3225d0c62a0682b527e10f5a9045",
+          "logical_name": "candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:4b9ccc4db91689a290e70482d341eb8b40274f1e7adedf1b5df67645749cb11b",
+          "logical_name": "candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-93a3cae379fc8aeb17709a2ffd1a30428c4dac926c1b7fb1110f31bc59d8096a/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "AGENTS.md",
+      "candidate_id": "candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5",
+      "candidate_manifest_digest": "sha256:8c0087476fc10f9e10486405d0a2aecfd582f3b39dd73c835bb566eb5d166ce7",
+      "report": {
+        "digest": "sha256:a1b6a739469d37cc5cbcc5ecd60128c6eb6542ebc24671ad2c3dc4c695bb3ac2",
+        "logical_name": "candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5.json",
+        "size_bytes": 7207
+      },
+      "results": [
+        {
+          "digest": "sha256:a1cd4ffa8084898f3419b6af8d00eb5675f1ff1ab5ef29ceccb56d433984b1f5",
+          "logical_name": "candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5/A-PATCH-002.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:faec4c183bb1e9768cc6089efaa8c5b76e3605d2a740dbe65a153b3e35600387",
+          "logical_name": "candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5/A-PATCH-003.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:5335fa70ade488731172d3d727d829bba47a93e157209be6ad0a6200406d0eb8",
+          "logical_name": "candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5/A-PATCH-004.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:68016b38ef69e22fabfb8a5ec784a8006325cc9bd6cc0ea11c4206c94de6d87c",
+          "logical_name": "candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5/A-PATCH-005.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:ae4b33a6c2bbbdbee9d52b531911a0a9d0110bc45d5bdd547aa18437cd16bb0d",
+          "logical_name": "candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9480e01f1af80862636623756472b29341df1230d7a5be8c92ceba1e6c1792a5/A-PATCH-006.json",
+          "size_bytes": 4364
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/llm",
+      "candidate_id": "candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11",
+      "candidate_manifest_digest": "sha256:563060825f801995779f48c5a527846d0c1fb89d697f7baa33e167b2315eb7fb",
+      "report": {
+        "digest": "sha256:c84e1a5f33327fbf6b758da8b9939a72b58db404036a0d847199bbc4da1a6266",
+        "logical_name": "candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11.json",
+        "size_bytes": 9057
+      },
+      "results": [
+        {
+          "digest": "sha256:76a158298a5eb7933f59d30b7977945777c6c91a1c6e3259e2e3df792f239d06",
+          "logical_name": "candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:563129fb2fa177f4d46c8f85602477c0f1f928743ed1cf6d91def73fbd3a2277",
+          "logical_name": "candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:451bfc1ea4aba146152160ce0552918c4238ce4be2bac651f03db17a5919f698",
+          "logical_name": "candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:1b2ebd8840737ecbd028e2fd90e9f19a4f750409e95ffab58389efceac70ade3",
+          "logical_name": "candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:0d56296638ca66bd5d9717f533466519108bc7c140ed4dd8544a171040789f8c",
+          "logical_name": "candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-96bd1cdb019bf24772a5e6cf046a16c8af211c2fae39c0770630a86aeed62e11/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/server",
+      "candidate_id": "candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462",
+      "candidate_manifest_digest": "sha256:bb52d102788cdb5abc3aa7e16a25fc2447583fa3646d2e466b6055bfd27858ed",
+      "report": {
+        "digest": "sha256:6de523eb092e456f2b9ff9cddf817bb45e887ecf69cf1ab2c02d9ef1a719fb46",
+        "logical_name": "candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462.json",
+        "size_bytes": 29687
+      },
+      "results": [
+        {
+          "digest": "sha256:17aa9ed6c3dcb7681b9919f7c1a034e4769b8bbf29b5fc8469d1d64ca8147b6d",
+          "logical_name": "candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:0c1eb6eb26e40d5565b2f147636a62c95fd5d52664e323302e4de58dfe87d8c9",
+          "logical_name": "candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:df5188fe3d20f118423a9e296f9a3405ae879a434fdfae2efd7e3219af5cbb40",
+          "logical_name": "candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:3e75a19f9610e24a7f97becf895825d694a630cbe3fe3f8d97ea6ff714604257",
+          "logical_name": "candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:a6c4d542f15ab29e343e9fc64bdef9e892f120751442042051629b4eeb2bf224",
+          "logical_name": "candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9cd491f04cc08014eb87adaf4bb807ac4826bf605655686fa1e428a13d556462/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".github/workflows",
+      "candidate_id": "candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d",
+      "candidate_manifest_digest": "sha256:402623d837353c7606e0b0360291c07cbb6daefc104a91c7f51ae382103682fb",
+      "report": {
+        "digest": "sha256:c15a4e68c37ef729628c4c476792c55c474f9af6ad02dedeb211e17e06d96a67",
+        "logical_name": "candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d.json",
+        "size_bytes": 9080
+      },
+      "results": [
+        {
+          "digest": "sha256:3326013b4c896503a6612e8e0ad873f189128642cf2968fa44b0dc77c0cb1d2f",
+          "logical_name": "candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:8b2d94affa5db427b658673537058d2178d48507a592eb5b4c346b5845495955",
+          "logical_name": "candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:9b7143885b015c65ea373f84ed8c0ec78685e6456dd5dc25381eca16f561863f",
+          "logical_name": "candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:4a9b5d3ec73a638e96bd2ad2b5ede412242eb03e146b8d8d036b0ba2b666ce41",
+          "logical_name": "candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:1f531626196932846fadbe14041ebeca711cf1431e53e2f3409739c5a0f3de97",
+          "logical_name": "candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-9fe66427df1c26159fd3247b72f2c57e2519604b201c6aa7629d399a84b4149d/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "contributor_ip_assignment",
+      "candidate_id": "candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267",
+      "candidate_manifest_digest": "sha256:71d5a6f6022f49eabf314dea04271a88a61fc67cad41a32fdd174041a76f69d2",
+      "report": {
+        "digest": "sha256:26959b4d7173d5a2af2faca35cd5d5e6b2d509720ebb3d973ab73aebf0353997",
+        "logical_name": "candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267.json",
+        "size_bytes": 7343
+      },
+      "results": [
+        {
+          "digest": "sha256:aeead5ff37e950129210fd08179b9d275d4092cf20caa15e6eebe1946adbc1b1",
+          "logical_name": "candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267/A-PATCH-002.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:9f1396d51f8188eaf50f7a0d65e30929429d1c18ba1b2522bf92f9cf055a114f",
+          "logical_name": "candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267/A-PATCH-003.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:cf00c7ba66e92e07a24abd8b481b300f25ab66209dcfb0b1e3d7f278b876cbe4",
+          "logical_name": "candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267/A-PATCH-004.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:c9fa9517f19638f61e4067147dceadffb3c291a0588e0cc19dcbfbdd6d4034fd",
+          "logical_name": "candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267/A-PATCH-005.json",
+          "size_bytes": 4364
+        },
+        {
+          "digest": "sha256:b0dd1c87d47b6e043c3ebe420ead03ed385557315acf558cd4c466aa87384649",
+          "logical_name": "candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-a2e5e17710ece2b2df34321ddc95033e2912699b19178e10f88ddf0e578a2267/A-PATCH-006.json",
+          "size_bytes": 4364
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/scripts",
+      "candidate_id": "candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766",
+      "candidate_manifest_digest": "sha256:2dfcbf09d77fc59b7712c4c45346c4c093fc1b068876d9aff53c935dd5322122",
+      "report": {
+        "digest": "sha256:0db768892d20bd816a80822311de2fad7ef5abaa3aae278a00f36ef7eace10a6",
+        "logical_name": "candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766.json",
+        "size_bytes": 11248
+      },
+      "results": [
+        {
+          "digest": "sha256:bbc15f029f241da8341ed8e9d2a715537cd7831892570a3645bf7ee13045e880",
+          "logical_name": "candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:8b588013094b6b5af457ad0615ffc183141f0aa039de3277d16e09e7944bca2b",
+          "logical_name": "candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:cafabc7b095e249db0bfd5ed78c19edad6c32694d6bb64e115b7743947f9423c",
+          "logical_name": "candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:5cbca7e20e30d90f819fffda22f0afb59426ea13a475ebce39ede716e4139a83",
+          "logical_name": "candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:9b5b0981952c88b6314ad766762c0265591483b49df08ca746f5672d9b709fe5",
+          "logical_name": "candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-aa90f81d5f1f4916098c9dd918a8854abc594cf606be7c34fe716ecda18ed766/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/lib",
+      "candidate_id": "candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410",
+      "candidate_manifest_digest": "sha256:c512041f3fccc9f6b8bef4e32387722d3d811dfcaaab90ec9c397fcc3759ab83",
+      "report": {
+        "digest": "sha256:173deb10fb2346ce77c6b5b718be85519d1dc89c8dbeac528cc16e47244ab992",
+        "logical_name": "candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410.json",
+        "size_bytes": 13033
+      },
+      "results": [
+        {
+          "digest": "sha256:500f7113a1203ee4f234e50fdbb6ed4b10aab2ffdbceabc11a7959a79923ca2a",
+          "logical_name": "candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:e6d8d2763e9c274790d1b2825d26d6353d437d72315ae131ddd42a58523e0ff0",
+          "logical_name": "candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:3b42690941c95585ecfca07cdf7e3e07e3703533d8207a61a284999d1a05bad2",
+          "logical_name": "candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:43a67dabe4bc8c25ae82616b1c6f886fe44685f97ec7d550edb77bc1fce7e152",
+          "logical_name": "candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:dff14fcb606d63054b8c8afda568dd0ba3a6f383ff81b5b984ee4e4c4c947a40",
+          "logical_name": "candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b11553e073e6d081c963af68c0df06fc56a93a8cb301f9b3da20425dbbe9a410/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/alembic",
+      "candidate_id": "candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989",
+      "candidate_manifest_digest": "sha256:ab6178b81ba70683506cc8e1b5397f1543de71e3ed2ec09f0323bc9c5bfce41f",
+      "report": {
+        "digest": "sha256:5b20144480de1e8ffceb4cbbad65caea02baa1bf86cd4dec1899c87c28116552",
+        "logical_name": "candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989.json",
+        "size_bytes": 37506
+      },
+      "results": [
+        {
+          "digest": "sha256:3a9641552cd78b557474cf706b016eb5c4e4d0bc0ff1cc4ca62c97857eb03c7a",
+          "logical_name": "candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:d8a6ca241a1746ced2800f50237d6696af4e0752f47d4459b0f1445a976f03a0",
+          "logical_name": "candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:f649dfbc192b622415e3f5e304664303092fba707f1fa77bcb631a97fe0ad7f8",
+          "logical_name": "candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:08a04d75ec114ef02aded2213eedaab25b12a40b74b5c7e577f849a58bccfb60",
+          "logical_name": "candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:ed6e15bc9cbd967c14b4e7ba2575dca527ba61936a7b5cbd402b3cd32001ecce",
+          "logical_name": "candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-b7b43d02e7422d185a14603b088d74417863fe5baa692e9f3dae9c6c34fa8989/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": ".github/actions",
+      "candidate_id": "candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436",
+      "candidate_manifest_digest": "sha256:55ea13ff7d4da85f3434f256a7cb44aa609ba7a98beee2834d743c0cd5196f66",
+      "report": {
+        "digest": "sha256:20cbaad977c1d8cddc95039ab1af0e70484860325f0be888123a9a009b86c64a",
+        "logical_name": "candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436.json",
+        "size_bytes": 7862
+      },
+      "results": [
+        {
+          "digest": "sha256:dc924f2907e1db005636f470580763732d9bb33af6b5beb30916134d0d5ca107",
+          "logical_name": "candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:55a3ef013fc02d11f33823cf2b9d0316cf43105f1a9b7de299efb763b3ccd04e",
+          "logical_name": "candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:0d7b4384918442438ea662e9c959fb8350784cb16868ee7494844e0e7f3507f9",
+          "logical_name": "candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:039edad95fc5d58764af0d9620e37424d20506e98e403f2c0d0bc055b864ad14",
+          "logical_name": "candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:40ef7007b9567e156a7a314f2452703d670e8541508c4910d039350da27ac3f4",
+          "logical_name": "candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bbb9627cd6135faec652e95faf98daf7fba98856d68e763a41000091e08a8436/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "mobile",
+      "candidate_id": "candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111",
+      "candidate_manifest_digest": "sha256:bb80b615694753f8a46f45368e0223a1f524a55d7b18e84792a5cbf50cd27661",
+      "report": {
+        "digest": "sha256:a25cfadd8ef3ded57b1d79bcb8c1f6a64fe42cef5b52054806a1e33a29a0d6ce",
+        "logical_name": "candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111.json",
+        "size_bytes": 7792
+      },
+      "results": [
+        {
+          "digest": "sha256:83dc8c2b396867d0cab183f93e6645a9afc6bbfbf6c2233f7b2bbe756852d82d",
+          "logical_name": "candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:e99277e3611081097b3149636b4feb1569e9f0eeb30ce0af7305a8a4f5b5b285",
+          "logical_name": "candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:51df6798bf94abf803c189f5df18cdef59dd4e04285df6f971aaec967dd68fc5",
+          "logical_name": "candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:38e6eecbe69f743ed6f4c25857a3c18a7729e9564afcea5e9c374ce9dd8fc25d",
+          "logical_name": "candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:52a4e644ce592d2d04b89b7c23261815a5009f55fecbdb9cc9b62c1cbc9ed357",
+          "logical_name": "candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bd8dd39dffc83f56798d1732ef7b663489add89ddf6c54569593c471c3ac2111/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/utils",
+      "candidate_id": "candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4",
+      "candidate_manifest_digest": "sha256:a61a7e43d3aa4406cb055035b14eaf0c3078a4106f642f3e0e1715d74292530b",
+      "report": {
+        "digest": "sha256:0b9cf4e3616c20208736b49914e4f14f23de2b38a389a3e9e7881e8ffd875885",
+        "logical_name": "candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4.json",
+        "size_bytes": 9238
+      },
+      "results": [
+        {
+          "digest": "sha256:9aac7c6c8ab73ad107273fb73439316299dbee33e2ab960d210588b2b1dfc919",
+          "logical_name": "candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:118df47bea6375d4da6ccae297551e9c9c1965ab1a36d1dd6f3f30f26249cf59",
+          "logical_name": "candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:ced8f99c4f0d0b5d0188693a4e058a469e678a005a6b7bf0df7f39dfdecbbd9f",
+          "logical_name": "candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:8ddf74a24cefa6d1418e00bd1d41461e86933085ce8ef0c480d81160e51be058",
+          "logical_name": "candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:d4ad462ceef5a0cf7aae334b4bd04e3f1b2efa1354d0a6c6b094d86a58f5bb42",
+          "logical_name": "candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-bfcb6381b3eb99dea4f1cf109e32738f30a00aed24b9c665e5a80506cd6778f4/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "docs/craft",
+      "candidate_id": "candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1",
+      "candidate_manifest_digest": "sha256:91fd276b39404590b58be1f15c25d5ad4ec2c0a86128053377d43edb31d59a8e",
+      "report": {
+        "digest": "sha256:2b84ef516a5ae6a55c2c593b573da65db4115ddb3fde75119a470424a8e22bda",
+        "logical_name": "candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1.json",
+        "size_bytes": 9510
+      },
+      "results": [
+        {
+          "digest": "sha256:2a7eaf1c9b19474f6e4697e99c86be21bc25e6e5a4575fd96480e16b80a35498",
+          "logical_name": "candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:507df040c8d545cc616894374cad931c876e783624154f9d7b32ad15a210a6c2",
+          "logical_name": "candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:d57686fb3012b54f648b8bf28c98746ab344d49e468416d00df3824f1323dd35",
+          "logical_name": "candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:490593b2b22706a238f82059e5ef826f3322b18efdb9fadce0c4b20236543c3b",
+          "logical_name": "candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:25d76729137b1506edeac8b1ce874a1510ee471cb09ef5e7076d8a52a1e69087",
+          "logical_name": "candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-c90f830eea3d52fde8a0c47c8ece27255ace8b9e1cba698eb5e856d3a5ef6aa1/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/lib",
+      "candidate_id": "candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47",
+      "candidate_manifest_digest": "sha256:9029dfa7ca2120a82616cce6739102432d35e9ed247e7f0c531fc311e2a1f049",
+      "report": {
+        "digest": "sha256:b0a1f09bd29b4c68e3c2dbf3f3cc6362b7d850eb35e186d17c61c5be3f912954",
+        "logical_name": "candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47.json",
+        "size_bytes": 35937
+      },
+      "results": [
+        {
+          "digest": "sha256:74bca19786ab7fb6bc300bd82f3c3774685751e49776a4bfbc3a17e61d339c08",
+          "logical_name": "candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:b84d939cceacceb3264514db89b6e31d0a7e6e73fd7d04b045170787c50722b7",
+          "logical_name": "candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:69d7c40877d18a2a2bc0edaea45b924a3ca2c7dd45c1cce14ad5f3f3293ef5e3",
+          "logical_name": "candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:dbe870076d3f635a86c16580496e909c0a62ca17de633a0181ba5d3da4e8885c",
+          "logical_name": "candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:0caefec8e75b1935bbd94e9c363e6335c8d44a18e3cf0cf7a7cce4047ddf2981",
+          "logical_name": "candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-cd63229b74d6fb21ca8122895b343b0971cc8b316d0ab3b12234cc1fc82f1a47/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "deployment/docker_compose",
+      "candidate_id": "candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe",
+      "candidate_manifest_digest": "sha256:7e321ad00fea6be40d034bfdcc3a5e1b85a684954c604756c11779b01a89d1e2",
+      "report": {
+        "digest": "sha256:4c3961698859cdc9e2159fa60e1d7ce9c9b68eea015d8b7eab3e886594a94af4",
+        "logical_name": "candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe.json",
+        "size_bytes": 8389
+      },
+      "results": [
+        {
+          "digest": "sha256:4a67e2e5cadaad5c033b535ff2f3f2f931f29c17f4b10fda48ca7030e35b0685",
+          "logical_name": "candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:47eb3d4b766f2568f6b1803a6acf8490034248b0210159107c26cace8fcb8c85",
+          "logical_name": "candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:fe3b80d14a04c8d79fa2037103f97e27b923f9c54f60df04a208da396058ad38",
+          "logical_name": "candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:668437dc608e553fdcb30e9bc4452b07695690fcbe6c636deddc5755adfe7cab",
+          "logical_name": "candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:f64f059de42f0e821b633c4d0021e114d9033374775d82e73708a839f67ab8da",
+          "logical_name": "candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-d119630525ed4004dd74179c5af6628fd429d888dc72a3eba15b44ea33ea44fe/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/hooks",
+      "candidate_id": "candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8",
+      "candidate_manifest_digest": "sha256:b9bba49901ab364d38d1c8bb2559170f2a2431cc48a579f229819542cf5ef2cf",
+      "report": {
+        "digest": "sha256:a44dd074a144aca48339fb7e0376d67082875619aa799e5440b9b878908d483b",
+        "logical_name": "candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8.json",
+        "size_bytes": 10320
+      },
+      "results": [
+        {
+          "digest": "sha256:3c424e0a7e5d50d18aca696b1cee70afc175bc6a941c82c1ff1ce5b71e49e3e0",
+          "logical_name": "candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:f7afcbc24241676ca561a87bd2dfe35d912946fecd000686f9e2ef5aef4c4307",
+          "logical_name": "candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:72da3c2f91bd3b5dc9486d78eb037fcb290012a402074302c31eaf9c1e25e119",
+          "logical_name": "candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:d386926d15894b5f6f64af32c1d35cd4226a073ec6918d9db51e0cf82e665601",
+          "logical_name": "candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:a47d93ee45751a40c3e2b7ad76ced733d0cefa28114c10ba37a7846f4036ecd9",
+          "logical_name": "candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-db41f1b10d1210e9c5e8dc344912e9abfaa55ec39250cbfdaf8cbba113de98e8/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/views",
+      "candidate_id": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9",
+      "candidate_manifest_digest": "sha256:2893f2e560011e3d5763cc2680559556f9786361659026f098971df8dfa5691c",
+      "report": {
+        "digest": "sha256:86ce3ca8186785bf5b243c7549daf12ec203fd1df13216784107e3e580741b9c",
+        "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9.json",
+        "size_bytes": 11836
+      },
+      "results": [
+        {
+          "digest": "sha256:844f7cf4a78e3e67710e95d82a27fc2c0db3e8ef72afd76d8e0c7d40fe893be4",
+          "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:da9a8d06ee99c10fb60cebae5e6eca1536953ee2cd4b31966926442db6e76fa1",
+          "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:cc187d119c4c388ac09b9da4912edcd02f0c8de1e15f92159c3734a103879e1a",
+          "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:6015de593922c014fb5fc1e5b70b6d2eee40d460519b18fc4750ae6ea1021b61",
+          "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:574dfe267a8867b1d7701fff6d99533b90a248bfbf4e2140eb5f9b4659c59ccc",
+          "logical_name": "candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dcea68800f532bf106cae4bb0de6196f3586fd7f4f94a22fdd6630a2da7c3bd9/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "desktop/src-tauri",
+      "candidate_id": "candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f",
+      "candidate_manifest_digest": "sha256:2e81a017dca6365113fe98c8b21882cf8be393db369f30eb268787cfa1433a9e",
+      "report": {
+        "digest": "sha256:9f868c5f4dd98434fd5dfcfbed6586dd0eb954e83204a81d2b58fb66778dd5d9",
+        "logical_name": "candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f.json",
+        "size_bytes": 10411
+      },
+      "results": [
+        {
+          "digest": "sha256:26668db8b003be758ddda28ce93f80d07aa2fc7a448049cd60c5b26cc5d06350",
+          "logical_name": "candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:2a5b543a160bf515430d5decfb352560c3234584a7588da3411fe11d74914616",
+          "logical_name": "candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:6575bda6606f407947a4dfe9df77e5bbbcc1fdbbfe3c2cd4606daa7f6942770a",
+          "logical_name": "candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:3ea905eaed6260b4558783552e2a3e570c539bf7f6a6c72152c2e4e3b9f8d8ba",
+          "logical_name": "candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:d16fe512511547533f51261c77193e4413b555cb7343ad35e04581591aa1c0f5",
+          "logical_name": "candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-de7155b9fd48fd4286ab4c51cb007934692561fbbb41ebe86518c9437102595f/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/components",
+      "candidate_id": "candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b",
+      "candidate_manifest_digest": "sha256:fa4c1c7062ebae8fbbcf69e994e29fb7a3388eab5a504989efcb6aaa55ef0faf",
+      "report": {
+        "digest": "sha256:41332797af406b3bd4b97c16605a90f196bf10d7de96618165a8c232f56c7672",
+        "logical_name": "candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b.json",
+        "size_bytes": 12920
+      },
+      "results": [
+        {
+          "digest": "sha256:e8d8fb02a637825282fefd2c225a6e7826a768a209bc518f902454c4a22916be",
+          "logical_name": "candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:217649b95a9ae570148b6c3b29753973ab7b2af35f97d1acff88a3741d3a073b",
+          "logical_name": "candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:f6edc656294154eff3fc0bf39a31699e309d476dc5aaf9f0906d1cb419ea1dfa",
+          "logical_name": "candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:a928df42f78fb7188ab9ae104de41f59e5facab2c5a52d0bc19dae27ac5e8837",
+          "logical_name": "candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:841dbae27bad39cb79dd5d55b3f40ead817d87512e119a784a3b6ebe6b7161fc",
+          "logical_name": "candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-dfcfaa917eafe2f61a455fe99c2bd427b0910321f9ed31093949d23d4ecec36b/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/sections",
+      "candidate_id": "candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5",
+      "candidate_manifest_digest": "sha256:5acb108abb3403a1a20eecd37c92d92653141f302c59e72a38be8ef1047ed51b",
+      "report": {
+        "digest": "sha256:fc1359d378b86bd5d10f2038f726893e3fddc902229cadaa8c3a48b7fdd16910",
+        "logical_name": "candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5.json",
+        "size_bytes": 16025
+      },
+      "results": [
+        {
+          "digest": "sha256:37a228792bd956d918f2943777cdd28b296c7fc332c7526f03a99ea1b896752b",
+          "logical_name": "candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:83244e387d88f81697cca0ba3ef4c4b92e5ec64b4924ced4110300426e5994e7",
+          "logical_name": "candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:281efad18e3675932e54ff8e2e0830a6083962944f5f565b791e9088b13fbe07",
+          "logical_name": "candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:e84d7b248c81c8d6631270ff6be4e7c3cf651ccf3cac71b5527b563d98744009",
+          "logical_name": "candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:0c2217ecad237e5aec27316df519043a39a6537e5e01a4c4ce56c8dd073ad89c",
+          "logical_name": "candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e02a63b1521082b3a975f5f14defe3391309ba7771e9b4543036941c07e43de5/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/background",
+      "candidate_id": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd",
+      "candidate_manifest_digest": "sha256:37a45a7a39bafedabb7faa1ec187f1153d2d8d56ebd33f7c8c805104a17f347a",
+      "report": {
+        "digest": "sha256:0b3452e59609910633d030b79af34c3b60507178fae069c57bad91d6e41ab8a1",
+        "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd.json",
+        "size_bytes": 12915
+      },
+      "results": [
+        {
+          "digest": "sha256:dbeae3338f24b3ab92f0e962f4a99b504908f3f732c95960881a0ac5dd29f4a9",
+          "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:ee2a304526fa2ee4ef27ebc77af326b13868dfd3413c6484d7beb2c79dc626a1",
+          "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:d54d2c01c3e709012e25a166f98a3e7db43e543a10d85946cb1fb64a1251dfeb",
+          "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:e3bde973cb261ec4187377e3033f3d83158152813a23ecc0f35ef242751d72d4",
+          "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:16e77c13fde9740e29fc1c9879e4caaf4ee910aa737dc62604afbe4037b73f85",
+          "logical_name": "candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-e36497d64ef862d782ba455db16c66961928538e8adfe229aaba7f141dfa2cfd/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "web/src/app/admin",
+      "candidate_id": "candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588",
+      "candidate_manifest_digest": "sha256:dad4444146a384cf10a9ecc903cdd0bf77b9ca1f737416d26652c06d9aa47d20",
+      "report": {
+        "digest": "sha256:358c7c8036e64e2dd070698113ddedb5fd59c707fe6a3a0f7d4e35ee33cf55bb",
+        "logical_name": "candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588.json",
+        "size_bytes": 15909
+      },
+      "results": [
+        {
+          "digest": "sha256:5ab2ac55f1dfb03809a1b69bca57e6ff66af4a791a5f5d9572bc22d4320e8218",
+          "logical_name": "candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588/A-PATCH-002.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:39207bd8b0513bd6368c298d17cf5fead55694ff403c3b4f62fd531598e6075b",
+          "logical_name": "candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588/A-PATCH-003.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:a2b283aa84c68b18ef1512a1d9eac8d8e25badeb495b0a80f7e1b2684b1997b9",
+          "logical_name": "candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588/A-PATCH-004.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:45d289bc943056865fb841e3e8c25f5956cd1f88e449c2f2843862b2d8f49604",
+          "logical_name": "candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588/A-PATCH-005.json",
+          "size_bytes": 4368
+        },
+        {
+          "digest": "sha256:d56128e8fda4ff46bd21c3e32972574b04791e7b07ff0ff2caac7e949f962c82",
+          "logical_name": "candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-eb630b526733dc6f2de8108accd66a80e00bc52da9ad96f110c5194c0c440588/A-PATCH-006.json",
+          "size_bytes": 4368
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/ee/onyx/server",
+      "candidate_id": "candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5",
+      "candidate_manifest_digest": "sha256:73b404b0f4ef0fe36553cbca94932a928db0958a71f5180365941dbcf01221fe",
+      "report": {
+        "digest": "sha256:4816c8237ebedb19f96fec21d7d6effe92aa271f697b17cb8137c25cbd7fb5e9",
+        "logical_name": "candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5.json",
+        "size_bytes": 11450
+      },
+      "results": [
+        {
+          "digest": "sha256:4fc13d82ee33c035d47e8f18f1ec1c7f9e41001ed5a41fbd25a5a6c58e162ba1",
+          "logical_name": "candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:0a76591f9fbead757062c964cb2a982e34bdf99bdda497b2195812e8251a70e3",
+          "logical_name": "candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:566c36538bd781bc4fa8f51d6b70497490f0b5f0d0bed859e886289d437da460",
+          "logical_name": "candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:6ce56e70ac15deed0839c7b87320e9a720bc08e19dfb00ec500e3e3bf2e94b36",
+          "logical_name": "candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:065b446a1bfa887e1f43ac6b5dd9f10a328e290bf21a4ee30f967f0fcefd4d78",
+          "logical_name": "candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-f23fba495efcce0128c857cbd9c485eb9145abb28f234e0c97325323653339d5/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ee",
+      "verdict": "fail"
+    },
+    {
+      "candidate_group": "backend/onyx/configs",
+      "candidate_id": "candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42",
+      "candidate_manifest_digest": "sha256:39dc02542568a76c44283e1a5cb796fb0a2351477bbc7890625672c31744399c",
+      "report": {
+        "digest": "sha256:17e61840e1382ebe5b5e5780bc6846d9bd6504d077e3b42a114d2b16a8958980",
+        "logical_name": "candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42-capability-disposition-qualification-report",
+        "media_type": "application/json",
+        "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-reports/candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42.json",
+        "size_bytes": 7848
+      },
+      "results": [
+        {
+          "digest": "sha256:f415af69386637b4e9c59e4703b9db9dc87de48bd660cc3ff08d05010c6d6f5f",
+          "logical_name": "candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42-A-PATCH-002-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42/A-PATCH-002.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:0a3ae6430e6f0f83a0893fa88caaf9f3ba33f4610137df979afba7f8f08241e6",
+          "logical_name": "candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42-A-PATCH-003-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42/A-PATCH-003.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:8ddaf4b2f873b1b75d82f791d8bdd4b4b9a97b487c44d39d0356ee8c0857bb4d",
+          "logical_name": "candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42-A-PATCH-004-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42/A-PATCH-004.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:f3ffc9daa56973b8d19e99c199bf0f8ff65e0eb8e7dbfd7bf5e7eccd4af10da4",
+          "logical_name": "candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42-A-PATCH-005-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42/A-PATCH-005.json",
+          "size_bytes": 4366
+        },
+        {
+          "digest": "sha256:55cbfc04cc3e49a1026b210b210b5c01d8b48e64887fc7e2ffe0c4cf434ec9d4",
+          "logical_name": "candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42-A-PATCH-006-capability-disposition-qualification-oracle-result",
+          "media_type": "application/json",
+          "relative_path": "pmorg/capabilities/capability-disposition-qualification-candidate-qualification-results/candidate-fb8b14c513bfac4c013969452f55a4080c381c5931a99f5825fa075e9ca9fe42/A-PATCH-006.json",
+          "size_bytes": 4366
+        }
+      ],
+      "source_surface": "ce",
+      "verdict": "fail"
+    }
+  ],
+  "executed_test_count": 240,
+  "failed_test_count": 240,
+  "index_version": "1.0.0",
+  "missing_test_count": 0,
+  "oracle_extension": {
+    "digest": "sha256:babf16e0ff93f200cd3c905a193dd9bebccecacad5e42a2393e072dfe8d386c7",
+    "logical_name": "qualification-oracle-extension-capability-disposition-qualification-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-extension-capability-disposition-qualification-v1.json",
+    "size_bytes": 11156
+  },
+  "passed_test_count": 0,
+  "projected_blob_membership_count": 5015,
+  "q7a_screening_evidence": {
+    "digest": "sha256:5b31e01e0f50954966ef07072c8188994fe90009cc082628f74a2656b7face4c",
+    "logical_name": "capability-disposition-qualification-interface-fit-evidence-v1",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/capability-disposition-qualification-interface-fit-evidence-v1.json",
+    "size_bytes": 644774
+  },
+  "reference_implementations": [
+    {
+      "digest": "sha256:89ec04db1da5a89c9c97461c2d5327f122ed2fee616a1e03a496c3e9f8a2f796",
+      "logical_name": "qualification",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification.py",
+      "size_bytes": 26963
+    },
+    {
+      "digest": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
+      "logical_name": "qualification_oracles",
+      "media_type": "text/x-python",
+      "relative_path": "backend/pmorg/application/qualification_oracles.py",
+      "size_bytes": 34009
+    }
+  ],
+  "report_count": 48,
+  "report_schema": {
+    "digest": "sha256:71bc3aa3f24be85cec2afd9f3b3b682b92e5d8b2a2c5d9b1d788532ccfe88e35",
+    "logical_name": "candidate-qualification-report-v1-schema",
+    "media_type": "application/schema+json",
+    "relative_path": "backend/pmorg/contracts/schemas/candidate-qualification-report-v1.schema.json",
+    "size_bytes": 4976
+  },
+  "result_schema": {
+    "digest": "sha256:5a06c7070ec30dc6558b5e0f736d8959577063efd8e039443699233f21f68883",
+    "logical_name": "qualification-oracle-result-v2-schema",
+    "media_type": "application/schema+json",
+    "relative_path": "pmorg/capabilities/qualification-oracle-result-v2.schema.json",
+    "size_bytes": 5349
+  },
+  "runtime_identity_digests": [
+    "sha256:d995d73a0c69b77d30ef0f2b3747a86d85a71111cb15fc805ac838abbac72053"
+  ],
+  "schema_version": "pmorg.capability-disposition-qualification-candidate-qualification-report-index/v1",
+  "source_commit": "1da679cefc96165c6b9b64c3bc769584b88f88c2",
+  "source_repository": "https://github.com/onyx-dot-app/onyx.git",
+  "source_tree_id": "7696e9ff17a5ddc9acc0e7e21a1d213925056a58"
+}
