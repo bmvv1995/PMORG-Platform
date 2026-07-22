@@ -1216,6 +1216,34 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_qualified_build_post_disposition_qualification.py --check"
       ]
+    },
+    {
+      "id": "PL-043",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/capability_disposition_qualification_setup.py",
+        "backend/pmorg/tests/test_capability_disposition_qualification_setup.py",
+        "pmorg/capabilities/capability-disposition-qualification-interface-fit-evidence-v1.json",
+        "pmorg/capabilities/capability-disposition-qualification-interface-fit-evidence-v1.schema.json",
+        "pmorg/capabilities/qualification-test-vector-extension-capability-disposition-qualification-v1.json",
+        "pmorg/capabilities/qualification-test-vector-extensions/capability-disposition-qualification-*.json",
+        "pmorg/scripts/build_capability_disposition_qualification_setup.py"
+      ],
+      "requirements": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "PLT-006"
+      ],
+      "reason": "Define five versioned, content-addressed and deliberately unactivated capability-disposition-qualification vectors, bind the exact contract-test manifest, qualification interface and both read-only reference implementations, and exhaustively screen the exact 48 grouped candidate projections and all 5,015 blob memberships with deterministic schema-valid evidence while preserving all predecessor and oracle states byte-identically; emit no executor activation, CandidateQualificationReport, PDQ, disposition, DSSE, aggregate, catalog-completion, admission, release or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=da00b4c6eee5addcb5d340a45d0f75f6a5b27070 python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_capability_disposition_qualification_setup -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_qualification_setup.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"

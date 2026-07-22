@@ -1,0 +1,93 @@
+{
+  "adapter_input_contract": [
+    "exact candidate input manifest and manifest digest",
+    "all projected candidate blob bytes and blob digests",
+    "exact qualification interface and test-vector digests",
+    "measured interpreter binary and committed dependency lock digests"
+  ],
+  "candidate_projection": "module_group_blob_set/v1",
+  "capability_id": "capability-disposition-qualification",
+  "claim_boundary": "definition_only_no_qualification_verdict",
+  "execution_preconditions": [
+    "adapter is content-addressed and explicitly bound to this test vector",
+    "adapter consumes the exact candidate manifest and every projected blob",
+    "interpreter binary and dependency lock identities are evidence-bound",
+    "baseline, positive-control and mutated executions produce schema-valid evidence"
+  ],
+  "mutation_probe": {
+    "expectation": "at_least_one_observation_or_verdict_changes",
+    "no_op_rejected": true,
+    "operation": "flip_one_candidate_blob_byte",
+    "target": "projected_candidate_blob_bytes"
+  },
+  "qualification_interface": {
+    "digest": "sha256:61566232102db39182c1ce22b51c07c145ce647413d5a8d9d85256b1892f76ca",
+    "media_type": "application/json",
+    "relative_path": "pmorg/capabilities/qualification-interfaces/capability-disposition-qualification-v1.json",
+    "size_bytes": 3290
+  },
+  "reference_implementation": {
+    "digest": "sha256:52e565559d8ba49d2f93e4c5fb8016827253867bf016679788ab56d6c7040384",
+    "media_type": "text/x-python",
+    "relative_path": "backend/pmorg/application/qualification_oracles.py",
+    "size_bytes": 34009
+  },
+  "runtime_identity": {
+    "artifacts": [
+      {
+        "digest": "sha256:02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+        "media_type": "text/plain",
+        "relative_path": ".python-version",
+        "size_bytes": 5
+      },
+      {
+        "digest": "sha256:0d94ec86320a53e5135fb48e120cfd85ee3964884dd499c8c842b53b13177876",
+        "media_type": "application/toml",
+        "relative_path": "pyproject.toml",
+        "size_bytes": 9983
+      },
+      {
+        "digest": "sha256:47fae521b821b6b917699171779c582f3c722536eeb5b5729cef5525e913c708",
+        "media_type": "application/toml",
+        "relative_path": "uv.lock",
+        "size_bytes": 1018201
+      }
+    ],
+    "contract_digest": "sha256:59ebd918c79614af1a4dec86b52a747e02b2b133ee14a27d30fa498c65e1e7db",
+    "interpreter_measurement": "sha256_of_executed_interpreter_binary",
+    "status": "binary_measurement_required_at_execution"
+  },
+  "schema_version": "pmorg.qualification-test-vector/v1",
+  "test_cases": [
+    {
+      "candidate_bytes_required": true,
+      "case_id": "conforming-positive-injection",
+      "expected_observation": "accept the conforming injected projection with all build-verification identities preserved",
+      "mutation_required": false,
+      "stimulus": "present projected candidate bytes whose CE build verification and disposition inputs remain exactly bound"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "fail-closed-policy-violation",
+      "expected_observation": "reject fail-closed and cite the exact build-verification or disposition-input drift",
+      "mutation_required": false,
+      "stimulus": "detach or alter a CE build verification or disposition input binding in the projected bytes"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "candidate-byte-influence",
+      "expected_observation": "at least one adapter observation or verdict changes",
+      "mutation_required": true,
+      "stimulus": "flip one byte in a projected candidate blob and rebuild its manifest"
+    },
+    {
+      "candidate_bytes_required": true,
+      "case_id": "runtime-and-lock-binding",
+      "expected_observation": "reject before verdict when interpreter or dependency-lock identity drifts",
+      "mutation_required": false,
+      "stimulus": "execute with a mismatched interpreter binary or dependency lock"
+    }
+  ],
+  "test_id": "A-PATCH-005",
+  "vector_version": "1.0.0"
+}
