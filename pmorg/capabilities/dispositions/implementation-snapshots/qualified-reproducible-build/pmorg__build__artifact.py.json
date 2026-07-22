@@ -1,0 +1,11 @@
+{
+  "commit": "a9764a9a2ca59c71392cc1ce187a6f9b7166ea92",
+  "content_hash": "sha256:704406d4be71a0e48513fd5e1fc3efb2841b561723c5f5064fa502dfa4747523",
+  "git_blob_id": "7e6e36039a62cae2ec7852f42de966186dede818",
+  "license_class": "pmorg",
+  "ownership_class": "pmorg_owned",
+  "path": "pmorg/build/artifact.py",
+  "repository": "https://github.com/bmvv1995/PMORG-Platform.git",
+  "schema_version": "pmorg.implementation-path-snapshot/v1",
+  "size_bytes": 26669
+}
