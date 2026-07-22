@@ -1244,6 +1244,32 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_qualification_setup.py --check"
       ]
+    },
+    {
+      "id": "PL-044",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/capability_disposition_interface_fit_executor.py",
+        "backend/pmorg/tests/test_capability_disposition_interface_fit_executor.py",
+        "pmorg/capabilities/qualification-oracle-extension-capability-disposition-qualification-v1.json",
+        "pmorg/capabilities/qualification-oracle-extension-capability-disposition-qualification-v1.schema.json",
+        "pmorg/scripts/build_capability_disposition_interface_fit_executor.py"
+      ],
+      "requirements": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "PLT-006"
+      ],
+      "reason": "Activate exactly the five Q7a A-PATCH-002 through A-PATCH-006 vectors only in a versioned capability-disposition-qualification oracle extension while preserving the active v1 policy and every Q7a predecessor byte-identically; bind the exact immutable 48-group, 5,015-membership denominator, Q1 interface, both declared reference implementations through the vectors, result schema v2, adapter and runtime locks; execute candidate-manifest and every projected-blob observations with live byte mutation, no-op rejection and conforming positive controls; emit no CandidateQualificationReport, bulk execution, PDQ, disposition, DSSE, aggregate verdict, admission, release, trust, workflow or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=76787ebbba80f11cb2d97810dcba59b9baa3e12f python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_capability_disposition_interface_fit_executor -v",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_interface_fit_executor.py --check"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
