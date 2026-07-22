@@ -739,6 +739,14 @@ def validate_capability_dispositions(
         GOVERNED_FORK_EVIDENCE_RELATIVE,
         QUALIFIED_BUILD_RECORD_RELATIVE,
         QUALIFIED_BUILD_EVIDENCE_RELATIVE,
+        (
+            "pmorg/capabilities/dispositions/records/"
+            "capability-disposition-qualification.json"
+        ),
+        (
+            "pmorg/capabilities/dispositions/evidence/"
+            "capability-disposition-qualification.json"
+        ),
         *{
             path.relative_to(repository_root).as_posix()
             for path in _safe_path(
@@ -755,6 +763,16 @@ def validate_capability_dispositions(
             path.relative_to(repository_root).as_posix()
             for path in _safe_path(
                 repository_root, QUALIFIED_BUILD_SNAPSHOT_ROOT_RELATIVE
+            ).glob("*.json")
+        },
+        *{
+            path.relative_to(repository_root).as_posix()
+            for path in _safe_path(
+                repository_root,
+                (
+                    "pmorg/capabilities/dispositions/implementation-snapshots/"
+                    "capability-disposition-qualification"
+                ),
             ).glob("*.json")
         },
     }

@@ -1332,6 +1332,30 @@
         "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v",
         "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_post_disposition_qualification.py --check"
       ]
+    },
+    {
+      "id": "PL-047",
+      "classification": "PMORG-owned",
+      "paths": [
+        "backend/pmorg/application/capability_disposition_qualification_disposition.py",
+        "backend/pmorg/tests/test_capability_disposition_qualification_disposition.py",
+        "pmorg/scripts/build_capability_disposition_qualification_disposition.py"
+      ],
+      "requirements": [
+        "A-PATCH-002",
+        "A-PATCH-003",
+        "A-PATCH-004",
+        "A-PATCH-005",
+        "A-PATCH-006",
+        "PLT-006"
+      ],
+      "reason": "Emit one bounded, deterministic and signable CapabilityDispositionRecord for capability-disposition-qualification, binding the exact 48 Q7c candidate qualification reports and exact 12/12 PASS Q7d report; preserve all predecessors byte-identically, keep the DSSE key and generated signature ephemeral, and make no aggregate, catalog-completion, admission, release, trust, workflow or G3-A claim.",
+      "verification": [
+        "PMORG_PROTECTED_BASE_SHA=76e21b64f5cc98d22e5cd2c197fb7344c8dc54dc python3 -B pmorg/scripts/verify_fork.py",
+        "PYTHONPATH=backend python3 -B -m unittest backend.pmorg.tests.test_capability_disposition_qualification_disposition -v",
+        "PYTHONPATH=backend python3 -B pmorg/scripts/build_capability_disposition_qualification_disposition.py --check",
+        "PYTHONPATH=backend python3 -B -m unittest discover -s backend/pmorg/tests -t backend -p 'test_*.py' -v"
+      ]
     }
   ],
   "specification_commit": "05bc4df345d2d65e05b510135a4d99c9edbf886e"
