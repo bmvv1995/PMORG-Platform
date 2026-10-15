@@ -173,7 +173,7 @@ dev = [
 
 # Isolated group so CI can `uv sync --only-group zizmor` without pulling
 # the rest of the dev toolchain.
-zizmor = ["zizmor==1.25.2"]
+zizmor = ["zizmor==1.26.1"]
 
 # Enterprise Edition features
 ee = ["posthog==3.7.4"]
